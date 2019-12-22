@@ -20,3 +20,9 @@ test('parse long-count date', () => {
   expect(date.toString()).toBe(
     ' 8. 7. 6. 5. 4. 3. 2. 1')
 })
+
+test('print short long-count date', () => {
+  let date = new lc.LongCount(1, 2)
+
+  expect(date.toString()).toBe(' 0. 0. 0. 2. 1')
+})

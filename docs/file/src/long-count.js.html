@@ -52,8 +52,23 @@ class LongCount {
    * @param {...number|Wildcard} cycles - Components in the long count (eg, K&apos;in, Winal, Bak&apos;tun, etc)
    */
   constructor (...cycles) {
+    /**
+     * Date Components
+     * @type {number|Wildcard[]}
+     */
     this.parts = cycles
+
+    /**
+     * Pattern to validate the date
+     * @type {RegExp}
+     */
     this.date_pattern = /([\d*]+\.?)+/
+
+    /**
+     * Convert individual components to a single string
+     * @type {string}
+     */
+    this.raw = this.toString()
   }
 
   /**
@@ -82,74 +97,146 @@ class LongCount {
     return this
   }
 
+  /**
+   * Set the k&apos;in component of the date
+   * @returns {number}
+   */
   set k_in (new_k_in) {
     this._set_date_sections(0, new_k_in)
   }
 
+  /**
+   * Return the k&apos;in component of the date
+   * @returns {number}
+   */
   get k_in () {
     return this._get_date_sections(0)
   }
 
+  /**
+   * Set the winal component of the date
+   * @returns {number}
+   */
   set winal (new_winal) {
     this._set_date_sections(1, new_winal)
   }
 
+  /**
+   * Return the winal component of the date
+   * @returns {number}
+   */
   get winal () {
     return this._get_date_sections(1)
   }
 
+  /**
+   * Set the tun component of the date
+   * @returns {number}
+   */
   set tun (new_tun) {
     this._set_date_sections(2, new_tun)
   }
 
+  /**
+   * Return the tun component of the date
+   * @returns {number}
+   */
   get tun () {
     return this._get_date_sections(2)
   }
 
+  /**
+   * Set the k&apos;atun component of the date
+   * @returns {number}
+   */
   set k_atun (new_k_atun) {
     this._set_date_sections(3, new_k_atun)
   }
 
+  /**
+   * Return the k&apos;atun component of the date
+   * @returns {number}
+   */
   get k_atun () {
     return this._get_date_sections(3)
   }
 
+  /**
+   * Set the bak&apos;tun component of the date
+   * @returns {number}
+   */
   set bak_tun (new_bak_tun) {
     this._set_date_sections(4, new_bak_tun)
   }
 
+  /**
+   * Return the bak&apos;tun component of the date
+   * @returns {number}
+   */
   get bak_tun () {
     return this._get_date_sections(4)
   }
 
+  /**
+   * Set the piktun component of the date
+   * @returns {number}
+   */
   set piktun (new_bak_tun) {
     this._set_date_sections(5, new_bak_tun)
   }
 
+  /**
+   * Return the piktun component of the date
+   * @returns {number}
+   */
   get piktun () {
     return this._get_date_sections(5)
   }
 
+  /**
+   * Set the kalabtun component of the date
+   * @returns {number}
+   */
   set kalabtun (new_bak_tun) {
     this._set_date_sections(6, new_bak_tun)
   }
 
+  /**
+   * Return the kalabtun component of the date
+   * @returns {number}
+   */
   get kalabtun () {
     return this._get_date_sections(6)
   }
 
+  /**
+   * Set the kinchiltun component of the date
+   * @returns {number}
+   */
   set kinchiltun (new_bak_tun) {
     this._set_date_sections(7, new_bak_tun)
   }
 
+  /**
+   * Return the kinchiltun component of the date
+   * @returns {number}
+   */
   get kinchiltun () {
     return this._get_date_sections(7)
   }
 
+  /**
+   * Ensure the date has only numbers and wildcards separated by points.
+   * @returns {boolean}
+   */
   is_valid () {
     return this.date_pattern.test(this.toString())
   }
 
+  /**
+   * Convert the LongCount to a string and pad the sections of the date
+   * @returns {string}
+   */
   toString () {
     let significant_digits = []
     for (let i = 0; i &lt; this.parts.length; i++) {

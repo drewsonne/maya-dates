@@ -516,10 +516,136 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/long-count.js~longcount#bak_tun",
+    "class/src/long-count.js~LongCount.html#instance-set-bak_tun",
+    "src/long-count.js~LongCount#bak_tun",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#bak_tun",
+    "class/src/long-count.js~LongCount.html#instance-get-bak_tun",
+    "src/long-count.js~LongCount#bak_tun",
+    "member"
+  ],
+  [
     "src/long-count.js~longcount#constructor",
     "class/src/long-count.js~LongCount.html#instance-constructor-constructor",
     "src/long-count.js~LongCount#constructor",
     "method"
+  ],
+  [
+    "src/long-count.js~longcount#date_pattern",
+    "class/src/long-count.js~LongCount.html#instance-member-date_pattern",
+    "src/long-count.js~LongCount#date_pattern",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#is_valid",
+    "class/src/long-count.js~LongCount.html#instance-method-is_valid",
+    "src/long-count.js~LongCount#is_valid",
+    "method"
+  ],
+  [
+    "src/long-count.js~longcount#k_atun",
+    "class/src/long-count.js~LongCount.html#instance-set-k_atun",
+    "src/long-count.js~LongCount#k_atun",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#k_atun",
+    "class/src/long-count.js~LongCount.html#instance-get-k_atun",
+    "src/long-count.js~LongCount#k_atun",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#k_in",
+    "class/src/long-count.js~LongCount.html#instance-set-k_in",
+    "src/long-count.js~LongCount#k_in",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#k_in",
+    "class/src/long-count.js~LongCount.html#instance-get-k_in",
+    "src/long-count.js~LongCount#k_in",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#kalabtun",
+    "class/src/long-count.js~LongCount.html#instance-set-kalabtun",
+    "src/long-count.js~LongCount#kalabtun",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#kalabtun",
+    "class/src/long-count.js~LongCount.html#instance-get-kalabtun",
+    "src/long-count.js~LongCount#kalabtun",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#kinchiltun",
+    "class/src/long-count.js~LongCount.html#instance-set-kinchiltun",
+    "src/long-count.js~LongCount#kinchiltun",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#kinchiltun",
+    "class/src/long-count.js~LongCount.html#instance-get-kinchiltun",
+    "src/long-count.js~LongCount#kinchiltun",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#parts",
+    "class/src/long-count.js~LongCount.html#instance-member-parts",
+    "src/long-count.js~LongCount#parts",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#piktun",
+    "class/src/long-count.js~LongCount.html#instance-set-piktun",
+    "src/long-count.js~LongCount#piktun",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#piktun",
+    "class/src/long-count.js~LongCount.html#instance-get-piktun",
+    "src/long-count.js~LongCount#piktun",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#raw",
+    "class/src/long-count.js~LongCount.html#instance-member-raw",
+    "src/long-count.js~LongCount#raw",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#tostring",
+    "class/src/long-count.js~LongCount.html#instance-method-toString",
+    "src/long-count.js~LongCount#toString",
+    "method"
+  ],
+  [
+    "src/long-count.js~longcount#tun",
+    "class/src/long-count.js~LongCount.html#instance-set-tun",
+    "src/long-count.js~LongCount#tun",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#tun",
+    "class/src/long-count.js~LongCount.html#instance-get-tun",
+    "src/long-count.js~LongCount#tun",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#winal",
+    "class/src/long-count.js~LongCount.html#instance-set-winal",
+    "src/long-count.js~LongCount#winal",
+    "member"
+  ],
+  [
+    "src/long-count.js~longcount#winal",
+    "class/src/long-count.js~LongCount.html#instance-get-winal",
+    "src/long-count.js~LongCount#winal",
+    "member"
   ],
   [
     "src/tzolkin.js",
@@ -592,5 +718,11 @@ window.esdocSearchIndex = [
     "file/src/wildcard.js.html",
     "src/wildcard.js",
     "file"
+  ],
+  [
+    "src/wildcard.js~wildcard#tostring",
+    "class/src/wildcard.js~Wildcard.html#instance-method-toString",
+    "src/wildcard.js~Wildcard#toString",
+    "method"
   ]
 ]

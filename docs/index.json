@@ -1404,7 +1404,7 @@
     "__docId__": 85,
     "kind": "file",
     "name": "src/long-count.js",
-    "content": "/**\n * Long Count cycle\n */\nclass LongCount {\n  /**\n   * @param {...number|Wildcard} cycles - Components in the long count (eg, K'in, Winal, Bak'tun, etc)\n   */\n  constructor (...cycles) {\n    this.parts = cycles\n    this.date_pattern = /([\\d*]+\\.?)+/\n  }\n\n  /**\n   * Get specific column in Long Count date\n   * @param {number} index\n   * @returns {number}\n   */\n  _get_date_sections (index) {\n    let part = this.parts[index]\n    if (part === undefined) {\n      return 0\n    }\n    return part\n  }\n\n  /**\n   * Set specific column in Long Count date\n   * @param {number} index\n   * @param {number} value\n   * @returns {LongCount}\n   * @private\n   */\n  _set_date_sections (index, value) {\n    this.parts[index] = value.toString()\n    this.raw = this.toString()\n    return this\n  }\n\n  set k_in (new_k_in) {\n    this._set_date_sections(0, new_k_in)\n  }\n\n  get k_in () {\n    return this._get_date_sections(0)\n  }\n\n  set winal (new_winal) {\n    this._set_date_sections(1, new_winal)\n  }\n\n  get winal () {\n    return this._get_date_sections(1)\n  }\n\n  set tun (new_tun) {\n    this._set_date_sections(2, new_tun)\n  }\n\n  get tun () {\n    return this._get_date_sections(2)\n  }\n\n  set k_atun (new_k_atun) {\n    this._set_date_sections(3, new_k_atun)\n  }\n\n  get k_atun () {\n    return this._get_date_sections(3)\n  }\n\n  set bak_tun (new_bak_tun) {\n    this._set_date_sections(4, new_bak_tun)\n  }\n\n  get bak_tun () {\n    return this._get_date_sections(4)\n  }\n\n  set piktun (new_bak_tun) {\n    this._set_date_sections(5, new_bak_tun)\n  }\n\n  get piktun () {\n    return this._get_date_sections(5)\n  }\n\n  set kalabtun (new_bak_tun) {\n    this._set_date_sections(6, new_bak_tun)\n  }\n\n  get kalabtun () {\n    return this._get_date_sections(6)\n  }\n\n  set kinchiltun (new_bak_tun) {\n    this._set_date_sections(7, new_bak_tun)\n  }\n\n  get kinchiltun () {\n    return this._get_date_sections(7)\n  }\n\n  is_valid () {\n    return this.date_pattern.test(this.toString())\n  }\n\n  toString () {\n    let significant_digits = []\n    for (let i = 0; i < this.parts.length; i++) {\n      let part = this.parts[i]\n      if (part !== 0) {\n        significant_digits = this.parts.slice(i).reverse()\n        break\n      }\n    }\n    let date_length = significant_digits.length\n    if (date_length < 5) {\n      for (let i = 0; i < 5 - date_length; i++) {\n        significant_digits.unshift(' 0')\n      }\n    }\n\n    for (let i = 0; i < significant_digits.length; i++) {\n      let part = significant_digits[i].toString()\n      if (part.length < 2) {\n        significant_digits[i] = ' ' + part\n      }\n    }\n    return significant_digits.join('.')\n  }\n}\n\nmodule.exports = {\n  'LongCount': LongCount,\n}\n",
+    "content": "/**\n * Long Count cycle\n */\nclass LongCount {\n  /**\n   * @param {...number|Wildcard} cycles - Components in the long count (eg, K'in, Winal, Bak'tun, etc)\n   */\n  constructor (...cycles) {\n    /**\n     * Date Components\n     * @type {number|Wildcard[]}\n     */\n    this.parts = cycles\n\n    /**\n     * Pattern to validate the date\n     * @type {RegExp}\n     */\n    this.date_pattern = /([\\d*]+\\.?)+/\n\n    /**\n     * Convert individual components to a single string\n     * @type {string}\n     */\n    this.raw = this.toString()\n  }\n\n  /**\n   * Get specific column in Long Count date\n   * @param {number} index\n   * @returns {number}\n   */\n  _get_date_sections (index) {\n    let part = this.parts[index]\n    if (part === undefined) {\n      return 0\n    }\n    return part\n  }\n\n  /**\n   * Set specific column in Long Count date\n   * @param {number} index\n   * @param {number} value\n   * @returns {LongCount}\n   * @private\n   */\n  _set_date_sections (index, value) {\n    this.parts[index] = value.toString()\n    this.raw = this.toString()\n    return this\n  }\n\n  /**\n   * Set the k'in component of the date\n   * @returns {number}\n   */\n  set k_in (new_k_in) {\n    this._set_date_sections(0, new_k_in)\n  }\n\n  /**\n   * Return the k'in component of the date\n   * @returns {number}\n   */\n  get k_in () {\n    return this._get_date_sections(0)\n  }\n\n  /**\n   * Set the winal component of the date\n   * @returns {number}\n   */\n  set winal (new_winal) {\n    this._set_date_sections(1, new_winal)\n  }\n\n  /**\n   * Return the winal component of the date\n   * @returns {number}\n   */\n  get winal () {\n    return this._get_date_sections(1)\n  }\n\n  /**\n   * Set the tun component of the date\n   * @returns {number}\n   */\n  set tun (new_tun) {\n    this._set_date_sections(2, new_tun)\n  }\n\n  /**\n   * Return the tun component of the date\n   * @returns {number}\n   */\n  get tun () {\n    return this._get_date_sections(2)\n  }\n\n  /**\n   * Set the k'atun component of the date\n   * @returns {number}\n   */\n  set k_atun (new_k_atun) {\n    this._set_date_sections(3, new_k_atun)\n  }\n\n  /**\n   * Return the k'atun component of the date\n   * @returns {number}\n   */\n  get k_atun () {\n    return this._get_date_sections(3)\n  }\n\n  /**\n   * Set the bak'tun component of the date\n   * @returns {number}\n   */\n  set bak_tun (new_bak_tun) {\n    this._set_date_sections(4, new_bak_tun)\n  }\n\n  /**\n   * Return the bak'tun component of the date\n   * @returns {number}\n   */\n  get bak_tun () {\n    return this._get_date_sections(4)\n  }\n\n  /**\n   * Set the piktun component of the date\n   * @returns {number}\n   */\n  set piktun (new_bak_tun) {\n    this._set_date_sections(5, new_bak_tun)\n  }\n\n  /**\n   * Return the piktun component of the date\n   * @returns {number}\n   */\n  get piktun () {\n    return this._get_date_sections(5)\n  }\n\n  /**\n   * Set the kalabtun component of the date\n   * @returns {number}\n   */\n  set kalabtun (new_bak_tun) {\n    this._set_date_sections(6, new_bak_tun)\n  }\n\n  /**\n   * Return the kalabtun component of the date\n   * @returns {number}\n   */\n  get kalabtun () {\n    return this._get_date_sections(6)\n  }\n\n  /**\n   * Set the kinchiltun component of the date\n   * @returns {number}\n   */\n  set kinchiltun (new_bak_tun) {\n    this._set_date_sections(7, new_bak_tun)\n  }\n\n  /**\n   * Return the kinchiltun component of the date\n   * @returns {number}\n   */\n  get kinchiltun () {\n    return this._get_date_sections(7)\n  }\n\n  /**\n   * Ensure the date has only numbers and wildcards separated by points.\n   * @returns {boolean}\n   */\n  is_valid () {\n    return this.date_pattern.test(this.toString())\n  }\n\n  /**\n   * Convert the LongCount to a string and pad the sections of the date\n   * @returns {string}\n   */\n  toString () {\n    let significant_digits = []\n    for (let i = 0; i < this.parts.length; i++) {\n      let part = this.parts[i]\n      if (part !== 0) {\n        significant_digits = this.parts.slice(i).reverse()\n        break\n      }\n    }\n    let date_length = significant_digits.length\n    if (date_length < 5) {\n      for (let i = 0; i < 5 - date_length; i++) {\n        significant_digits.unshift(' 0')\n      }\n    }\n\n    for (let i = 0; i < significant_digits.length; i++) {\n      let part = significant_digits[i].toString()\n      if (part.length < 2) {\n        significant_digits[i] = ' ' + part\n      }\n    }\n    return significant_digits.join('.')\n  }\n}\n\nmodule.exports = {\n  'LongCount': LongCount,\n}\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/long-count.js",
     "access": "public",
@@ -1460,15 +1460,17 @@
     "static": false,
     "longname": "src/long-count.js~LongCount#parts",
     "access": "public",
-    "description": null,
-    "lineNumber": 9,
-    "undocument": true,
+    "description": "Date Components",
+    "lineNumber": 13,
     "type": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
-    },
-    "ignore": true
+        "number",
+        "Wildcard[]"
+      ],
+      "spread": false,
+      "description": null
+    }
   },
   {
     "__docId__": 89,
@@ -1478,18 +1480,38 @@
     "static": false,
     "longname": "src/long-count.js~LongCount#date_pattern",
     "access": "public",
-    "description": null,
-    "lineNumber": 10,
-    "undocument": true,
+    "description": "Pattern to validate the date",
+    "lineNumber": 19,
     "type": {
+      "nullable": null,
       "types": [
-        "undefined"
-      ]
-    },
-    "ignore": true
+        "RegExp"
+      ],
+      "spread": false,
+      "description": null
+    }
   },
   {
     "__docId__": 90,
+    "kind": "member",
+    "name": "raw",
+    "memberof": "src/long-count.js~LongCount",
+    "static": false,
+    "longname": "src/long-count.js~LongCount#raw",
+    "access": "public",
+    "description": "Convert individual components to a single string",
+    "lineNumber": 25,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 91,
     "kind": "method",
     "name": "_get_date_sections",
     "memberof": "src/long-count.js~LongCount",
@@ -1499,7 +1521,7 @@
     "longname": "src/long-count.js~LongCount#_get_date_sections",
     "access": "private",
     "description": "Get specific column in Long Count date",
-    "lineNumber": 18,
+    "lineNumber": 33,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1528,7 +1550,7 @@
     }
   },
   {
-    "__docId__": 91,
+    "__docId__": 92,
     "kind": "method",
     "name": "_set_date_sections",
     "memberof": "src/long-count.js~LongCount",
@@ -1538,7 +1560,7 @@
     "longname": "src/long-count.js~LongCount#_set_date_sections",
     "access": "private",
     "description": "Set specific column in Long Count date",
-    "lineNumber": 33,
+    "lineNumber": 48,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1577,25 +1599,7 @@
     }
   },
   {
-    "__docId__": 92,
-    "kind": "member",
-    "name": "raw",
-    "memberof": "src/long-count.js~LongCount",
-    "static": false,
-    "longname": "src/long-count.js~LongCount#raw",
-    "access": "public",
-    "description": null,
-    "lineNumber": 35,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 93,
+    "__docId__": 94,
     "kind": "set",
     "name": "k_in",
     "memberof": "src/long-count.js~LongCount",
@@ -1604,48 +1608,84 @@
     "static": false,
     "longname": "src/long-count.js~LongCount#k_in",
     "access": "public",
-    "description": null,
-    "lineNumber": 39,
-    "undocument": true,
-    "ignore": true
-  },
-  {
-    "__docId__": 94,
-    "kind": "get",
-    "name": "k_in",
-    "memberof": "src/long-count.js~LongCount",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "src/long-count.js~LongCount#k_in",
-    "access": "public",
-    "description": null,
-    "lineNumber": 43,
-    "undocument": true,
-    "type": {
+    "description": "Set the k'in component of the date",
+    "lineNumber": 58,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
-    },
-    "ignore": true
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    }
   },
   {
     "__docId__": 95,
-    "kind": "set",
-    "name": "winal",
+    "kind": "get",
+    "name": "k_in",
     "memberof": "src/long-count.js~LongCount",
     "generator": false,
     "async": false,
     "static": false,
-    "longname": "src/long-count.js~LongCount#winal",
+    "longname": "src/long-count.js~LongCount#k_in",
     "access": "public",
-    "description": null,
-    "lineNumber": 47,
-    "undocument": true,
-    "ignore": true
+    "description": "Return the k'in component of the date",
+    "lineNumber": 66,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
   },
   {
     "__docId__": 96,
+    "kind": "set",
+    "name": "winal",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#winal",
+    "access": "public",
+    "description": "Set the winal component of the date",
+    "lineNumber": 74,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 97,
     "kind": "get",
     "name": "winal",
     "memberof": "src/long-count.js~LongCount",
@@ -1654,33 +1694,57 @@
     "static": false,
     "longname": "src/long-count.js~LongCount#winal",
     "access": "public",
-    "description": null,
-    "lineNumber": 51,
-    "undocument": true,
+    "description": "Return the winal component of the date",
+    "lineNumber": 82,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "type": {
       "types": [
         "*"
       ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 97,
-    "kind": "set",
-    "name": "tun",
-    "memberof": "src/long-count.js~LongCount",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "src/long-count.js~LongCount#tun",
-    "access": "public",
-    "description": null,
-    "lineNumber": 55,
-    "undocument": true,
-    "ignore": true
+    }
   },
   {
     "__docId__": 98,
+    "kind": "set",
+    "name": "tun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#tun",
+    "access": "public",
+    "description": "Set the tun component of the date",
+    "lineNumber": 90,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 99,
     "kind": "get",
     "name": "tun",
     "memberof": "src/long-count.js~LongCount",
@@ -1689,33 +1753,57 @@
     "static": false,
     "longname": "src/long-count.js~LongCount#tun",
     "access": "public",
-    "description": null,
-    "lineNumber": 59,
-    "undocument": true,
+    "description": "Return the tun component of the date",
+    "lineNumber": 98,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "type": {
       "types": [
         "*"
       ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 99,
-    "kind": "set",
-    "name": "k_atun",
-    "memberof": "src/long-count.js~LongCount",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "src/long-count.js~LongCount#k_atun",
-    "access": "public",
-    "description": null,
-    "lineNumber": 63,
-    "undocument": true,
-    "ignore": true
+    }
   },
   {
     "__docId__": 100,
+    "kind": "set",
+    "name": "k_atun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#k_atun",
+    "access": "public",
+    "description": "Set the k'atun component of the date",
+    "lineNumber": 106,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 101,
     "kind": "get",
     "name": "k_atun",
     "memberof": "src/long-count.js~LongCount",
@@ -1724,33 +1812,57 @@
     "static": false,
     "longname": "src/long-count.js~LongCount#k_atun",
     "access": "public",
-    "description": null,
-    "lineNumber": 67,
-    "undocument": true,
+    "description": "Return the k'atun component of the date",
+    "lineNumber": 114,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "type": {
       "types": [
         "*"
       ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 101,
-    "kind": "set",
-    "name": "bak_tun",
-    "memberof": "src/long-count.js~LongCount",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "src/long-count.js~LongCount#bak_tun",
-    "access": "public",
-    "description": null,
-    "lineNumber": 71,
-    "undocument": true,
-    "ignore": true
+    }
   },
   {
     "__docId__": 102,
+    "kind": "set",
+    "name": "bak_tun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#bak_tun",
+    "access": "public",
+    "description": "Set the bak'tun component of the date",
+    "lineNumber": 122,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 103,
     "kind": "get",
     "name": "bak_tun",
     "memberof": "src/long-count.js~LongCount",
@@ -1759,33 +1871,57 @@
     "static": false,
     "longname": "src/long-count.js~LongCount#bak_tun",
     "access": "public",
-    "description": null,
-    "lineNumber": 75,
-    "undocument": true,
+    "description": "Return the bak'tun component of the date",
+    "lineNumber": 130,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "type": {
       "types": [
         "*"
       ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 103,
-    "kind": "set",
-    "name": "piktun",
-    "memberof": "src/long-count.js~LongCount",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "src/long-count.js~LongCount#piktun",
-    "access": "public",
-    "description": null,
-    "lineNumber": 79,
-    "undocument": true,
-    "ignore": true
+    }
   },
   {
     "__docId__": 104,
+    "kind": "set",
+    "name": "piktun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#piktun",
+    "access": "public",
+    "description": "Set the piktun component of the date",
+    "lineNumber": 138,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 105,
     "kind": "get",
     "name": "piktun",
     "memberof": "src/long-count.js~LongCount",
@@ -1794,33 +1930,57 @@
     "static": false,
     "longname": "src/long-count.js~LongCount#piktun",
     "access": "public",
-    "description": null,
-    "lineNumber": 83,
-    "undocument": true,
+    "description": "Return the piktun component of the date",
+    "lineNumber": 146,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "type": {
       "types": [
         "*"
       ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 105,
-    "kind": "set",
-    "name": "kalabtun",
-    "memberof": "src/long-count.js~LongCount",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "src/long-count.js~LongCount#kalabtun",
-    "access": "public",
-    "description": null,
-    "lineNumber": 87,
-    "undocument": true,
-    "ignore": true
+    }
   },
   {
     "__docId__": 106,
+    "kind": "set",
+    "name": "kalabtun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#kalabtun",
+    "access": "public",
+    "description": "Set the kalabtun component of the date",
+    "lineNumber": 154,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 107,
     "kind": "get",
     "name": "kalabtun",
     "memberof": "src/long-count.js~LongCount",
@@ -1829,18 +1989,30 @@
     "static": false,
     "longname": "src/long-count.js~LongCount#kalabtun",
     "access": "public",
-    "description": null,
-    "lineNumber": 91,
-    "undocument": true,
+    "description": "Return the kalabtun component of the date",
+    "lineNumber": 162,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "type": {
       "types": [
         "*"
       ]
-    },
-    "ignore": true
+    }
   },
   {
-    "__docId__": 107,
+    "__docId__": 108,
     "kind": "set",
     "name": "kinchiltun",
     "memberof": "src/long-count.js~LongCount",
@@ -1849,13 +2021,25 @@
     "static": false,
     "longname": "src/long-count.js~LongCount#kinchiltun",
     "access": "public",
-    "description": null,
-    "lineNumber": 95,
-    "undocument": true,
-    "ignore": true
+    "description": "Set the kinchiltun component of the date",
+    "lineNumber": 170,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    }
   },
   {
-    "__docId__": 108,
+    "__docId__": 109,
     "kind": "get",
     "name": "kinchiltun",
     "memberof": "src/long-count.js~LongCount",
@@ -1864,18 +2048,30 @@
     "static": false,
     "longname": "src/long-count.js~LongCount#kinchiltun",
     "access": "public",
-    "description": null,
-    "lineNumber": 99,
-    "undocument": true,
+    "description": "Return the kinchiltun component of the date",
+    "lineNumber": 178,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "type": {
       "types": [
         "*"
       ]
-    },
-    "ignore": true
+    }
   },
   {
-    "__docId__": 109,
+    "__docId__": 110,
     "kind": "method",
     "name": "is_valid",
     "memberof": "src/long-count.js~LongCount",
@@ -1884,19 +2080,26 @@
     "static": false,
     "longname": "src/long-count.js~LongCount#is_valid",
     "access": "public",
-    "description": null,
-    "lineNumber": 103,
-    "undocument": true,
-    "params": [],
+    "description": "Ensure the date has only numbers and wildcards separated by points.",
+    "lineNumber": 186,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean}"
+      }
+    ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
     },
-    "ignore": true
+    "params": []
   },
   {
-    "__docId__": 110,
+    "__docId__": 111,
     "kind": "method",
     "name": "toString",
     "memberof": "src/long-count.js~LongCount",
@@ -1905,19 +2108,26 @@
     "static": false,
     "longname": "src/long-count.js~LongCount#toString",
     "access": "public",
-    "description": null,
-    "lineNumber": 107,
-    "undocument": true,
-    "params": [],
+    "description": "Convert the LongCount to a string and pad the sections of the date",
+    "lineNumber": 194,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "string"
+      ],
+      "spread": false,
+      "description": ""
     },
-    "ignore": true
+    "params": []
   },
   {
-    "__docId__": 111,
+    "__docId__": 112,
     "kind": "file",
     "name": "src/tzolkin.js",
     "content": "/**\n * Describes a date in the 260-day cycle with a position and a day\n * @example\n *    let day = new Tzolkin(4, \"Ajaw\");\n *\n * @example\n *    let day = new Tzolkin(4, new TzolkinDay(\"Ajaw\"));\n *\n */\nclass Tzolkin {\n  /**\n   * Constructor\n   * @param {number} coeff - The position in the 260-day cycle\n   * @param {string|TzolkinDay} day\n   */\n  constructor (coeff, day) {\n    if (typeof day === 'string') {\n      day = new TzolkinDay(day)\n    }\n    /**\n     * @type {TzolkinDay}\n     */\n    this.day = day\n    /**\n     * @type {number}\n     */\n    this.coeff = coeff\n  }\n\n  /**\n   * Return the next day in the 260-day cycle\n   * @returns {Tzolkin}\n   */\n  next () {\n    let next_coeff = this.coeff + 1\n    let next_day = this.day.next()\n    return new Tzolkin(\n      (next_coeff % 13) === 0 ? 13 : next_coeff % 13,\n      next_day,\n    )\n  }\n\n  /**\n   * Return a string representation of the 260-day cycle name\n   * @returns {string}\n   */\n  get name () {\n    return this.day.name\n  }\n\n  /**\n   * Render the 260-day cycle date as a string\n   * @returns {string}\n   */\n  toString () {\n    return `${this.coeff} ${this.name}`\n  }\n}\n\n/**\n * Describes only the day component of a 260-day cycle\n */\nclass TzolkinDay {\n  /**\n   * @param {string} name - Name of the 260-day cycle day\n   */\n  constructor (name) {\n    /**\n     * Name of the day in the 260-day cycle\n     * @type {string}\n     */\n    this.name = name\n\n    /**\n     * Mapping of day names to indexes\n     * @type {Map<number, string>}\n     */\n    this.days = {\n      1: 'Imix',\n      2: 'Ik\\'',\n      3: 'Ak\\'bal',\n      4: 'K\\'an',\n      5: 'Chikchan',\n      6: 'Kimi',\n      7: 'Manik',\n      8: 'Lamat',\n      9: 'Muluk',\n      10: 'Ok',\n      11: 'Chuwen',\n      12: 'Eb',\n      13: 'Ben',\n      14: 'Ix',\n      15: 'Men',\n      16: 'Kib',\n      17: 'Kaban',\n      18: 'Etz\\'nab',\n      19: 'Kawak',\n      20: 'Ajaw',\n    }\n  }\n\n  /**\n   * Return the next day in the 260-day cycle\n   * @returns {TzolkinDay}\n   */\n  next () {\n    let i\n    for (i = 0; i < 20; i++) {\n      if (this.days[i] === this.name) {\n        break\n      }\n    }\n    i += 1\n    if (i > 20) {\n      i = 1\n    }\n    return new TzolkinDay(this.days[i])\n  }\n}\n\nmodule.exports = {\n  'TzolkinDay': TzolkinDay,\n  'Tzolkin': Tzolkin,\n}\n",
@@ -1928,7 +2138,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 112,
+    "__docId__": 113,
     "kind": "class",
     "name": "Tzolkin",
     "memberof": "src/tzolkin.js",
@@ -1947,7 +2157,7 @@
     "interface": false
   },
   {
-    "__docId__": 113,
+    "__docId__": 114,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/tzolkin.js~Tzolkin",
@@ -1983,7 +2193,7 @@
     ]
   },
   {
-    "__docId__": 114,
+    "__docId__": 115,
     "kind": "member",
     "name": "day",
     "memberof": "src/tzolkin.js~Tzolkin",
@@ -2002,7 +2212,7 @@
     }
   },
   {
-    "__docId__": 115,
+    "__docId__": 116,
     "kind": "member",
     "name": "coeff",
     "memberof": "src/tzolkin.js~Tzolkin",
@@ -2021,7 +2231,7 @@
     }
   },
   {
-    "__docId__": 116,
+    "__docId__": 117,
     "kind": "method",
     "name": "next",
     "memberof": "src/tzolkin.js~Tzolkin",
@@ -2049,7 +2259,7 @@
     "params": []
   },
   {
-    "__docId__": 117,
+    "__docId__": 118,
     "kind": "get",
     "name": "name",
     "memberof": "src/tzolkin.js~Tzolkin",
@@ -2081,7 +2291,7 @@
     }
   },
   {
-    "__docId__": 118,
+    "__docId__": 119,
     "kind": "method",
     "name": "toString",
     "memberof": "src/tzolkin.js~Tzolkin",
@@ -2109,7 +2319,7 @@
     "params": []
   },
   {
-    "__docId__": 119,
+    "__docId__": 120,
     "kind": "class",
     "name": "TzolkinDay",
     "memberof": "src/tzolkin.js",
@@ -2124,7 +2334,7 @@
     "interface": false
   },
   {
-    "__docId__": 120,
+    "__docId__": 121,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/tzolkin.js~TzolkinDay",
@@ -2149,7 +2359,7 @@
     ]
   },
   {
-    "__docId__": 121,
+    "__docId__": 122,
     "kind": "member",
     "name": "name",
     "memberof": "src/tzolkin.js~TzolkinDay",
@@ -2168,7 +2378,7 @@
     }
   },
   {
-    "__docId__": 122,
+    "__docId__": 123,
     "kind": "member",
     "name": "days",
     "memberof": "src/tzolkin.js~TzolkinDay",
@@ -2187,7 +2397,7 @@
     }
   },
   {
-    "__docId__": 123,
+    "__docId__": 124,
     "kind": "method",
     "name": "next",
     "memberof": "src/tzolkin.js~TzolkinDay",
@@ -2215,10 +2425,10 @@
     "params": []
   },
   {
-    "__docId__": 124,
+    "__docId__": 125,
     "kind": "file",
     "name": "src/wildcard.js",
-    "content": "/**\n * Describes a wildcard in the Calendar Round or Long Count\n */\nclass Wildcard {\n  toString () {\n    return '*'\n  }\n}\n\nmodule.exports = new Wildcard()\n",
+    "content": "/**\n * Describes a wildcard in the Calendar Round or Long Count\n */\nclass Wildcard {\n  /**\n   * Represent the Wildcard as a string\n   * @returns {string}\n   */\n  toString () {\n    return '*'\n  }\n}\n\nmodule.exports = new Wildcard()\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/wildcard.js",
     "access": "public",
@@ -2226,7 +2436,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 125,
+    "__docId__": 126,
     "kind": "class",
     "name": "Wildcard",
     "memberof": "src/wildcard.js",
@@ -2241,7 +2451,7 @@
     "interface": false
   },
   {
-    "__docId__": 126,
+    "__docId__": 127,
     "kind": "method",
     "name": "toString",
     "memberof": "src/wildcard.js~Wildcard",
@@ -2250,16 +2460,23 @@
     "static": false,
     "longname": "src/wildcard.js~Wildcard#toString",
     "access": "public",
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
-    "params": [],
+    "description": "Represent the Wildcard as a string",
+    "lineNumber": 9,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
     "return": {
+      "nullable": null,
       "types": [
         "string"
-      ]
+      ],
+      "spread": false,
+      "description": ""
     },
-    "ignore": true
+    "params": []
   },
   {
     "kind": "index",
