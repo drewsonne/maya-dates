@@ -16,21 +16,22 @@ describe('increment haab months', () => {
 })
 
 describe('build haabs', () => {
-  let tzolkins = [
-    [[5, 'Imix'], [6, 'Ik\'']],
-    [[13, 'Ik\''], [1, 'Ak\'bal']],
-    [[13, 'Ajaw'], [1, 'Imix']],
+  let haabs = [
+    [[5, 'Pop'], [6, 'Pop']],
+    [[19, 'Pop'], [0, 'Wo']],
+    [[19, 'Xul'], [0, 'Yaxk\'in']],
+    [[4, 'Wayeb'], [0, 'Pop']],
   ]
-  test.each(tzolkins)(
+  test.each(haabs)(
     '%s -> %s',
     (prev, next) => {
-      let tz = new mayadates.calendar_round.tzolkin.Tzolkin(prev[0], prev[1])
-      expect(tz.coeff).toBe(prev[0])
-      expect(tz.day.name).toBe(prev[1])
+      let haab = new mayadates.calendar_round.haab.Haab(prev[0], prev[1])
+      expect(haab.coeff).toBe(prev[0])
+      expect(haab.name).toBe(prev[1])
 
-      let tomorrow = tz.next()
+      let tomorrow = haab.next()
       expect(tomorrow.coeff).toBe(next[0])
-      expect(tomorrow.day.name).toBe(next[1])
+      expect(tomorrow.name).toBe(next[1])
     },
   )
 })

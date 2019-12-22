@@ -15,6 +15,10 @@ class Tzolkin {
       next_day,
     )
   }
+
+  get name () {
+    return this.day.name
+  }
 }
 
 class TzolkinDay {

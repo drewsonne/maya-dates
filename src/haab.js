@@ -8,7 +8,16 @@ class Haab {
   }
 
   next () {
-    let month_length = (this.name === this.months[19]) ? 5 : 20
+    let month_length = (this.name === this.month.months[19]) ? 5 : 20
+    let tomorrow_coeff = (this.coeff + 1) % month_length
+    return new Haab(
+      tomorrow_coeff,
+      (tomorrow_coeff === 0) ? this.month.next() : this.month,
+    )
+  }
+
+  get name () {
+    return this.month.name
   }
 }
 

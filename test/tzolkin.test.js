@@ -26,11 +26,11 @@ describe('build tzolkins', () => {
     (prev, next) => {
       let tz = new mayadates.calendar_round.tzolkin.Tzolkin(prev[0], prev[1])
       expect(tz.coeff).toBe(prev[0])
-      expect(tz.day.name).toBe(prev[1])
+      expect(tz.name).toBe(prev[1])
 
       let tomorrow = tz.next()
       expect(tomorrow.coeff).toBe(next[0])
-      expect(tomorrow.day.name).toBe(next[1])
+      expect(tomorrow.name).toBe(next[1])
     },
   )
 })
