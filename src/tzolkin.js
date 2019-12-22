@@ -1,12 +1,36 @@
+/**
+ * Describes a date in the 260-day cycle with a position and a day
+ * @example
+ *    let day = new Tzolkin(4, "Ajaw");
+ *
+ * @example
+ *    let day = new Tzolkin(4, new TzolkinDay("Ajaw"));
+ *
+ */
 class Tzolkin {
+  /**
+   * Constructor
+   * @param {number} coeff - The position in the 260-day cycle
+   * @param {string|TzolkinDay} day
+   */
   constructor (coeff, day) {
-    this.coeff = coeff
     if (typeof day === 'string') {
       day = new TzolkinDay(day)
     }
+    /**
+     * @type {TzolkinDay}
+     */
     this.day = day
+    /**
+     * @type {number}
+     */
+    this.coeff = coeff
   }
 
+  /**
+   * Return the next day in the 260-day cycle
+   * @returns {Tzolkin}
+   */
   next () {
     let next_coeff = this.coeff + 1
     let next_day = this.day.next()
@@ -16,13 +40,33 @@ class Tzolkin {
     )
   }
 
+  /**
+   * Return a string representation of the 260-day cycle name
+   * @returns {string}
+   */
   get name () {
     return this.day.name
   }
 }
 
+/**
+ * Describes only the day component of a 260-day cycle
+ */
 class TzolkinDay {
+  /**
+   * @param {string} name - Name of the 260-day cycle day
+   */
   constructor (name) {
+    /**
+     * Name of the day in the 260-day cycle
+     * @type {string}
+     */
+    this.name = name
+
+    /**
+     * Mapping of day names to indexes
+     * @type {Map<number, string>}
+     */
     this.days = {
       1: 'Imix',
       2: 'Ik\'',
@@ -45,9 +89,12 @@ class TzolkinDay {
       19: 'Kawak',
       20: 'Ajaw',
     }
-    this.name = name
   }
 
+  /**
+   * Return the next day in the 260-day cycle
+   * @returns {TzolkinDay}
+   */
   next () {
     let i
     for (i = 0; i < 20; i++) {

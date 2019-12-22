@@ -1,0 +1,1571 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/calendar-round.js",
+    "content": "/** @ignore */\nconst tzolkin = require('./tzolkin')\n/** @ignore */\nconst haab = require('./haab')\n\n/**\n * A combination of 260-day cycles and the Haab cycle.\n * @example\n *  let cr = new CalendarRound(8, \"Ajaw\", 4, \"Kumk'u\");\n */\nclass CalendarRound {\n  /**\n   *\n   * @param {number} tzolkin_coeff Coefficient for the 260-day cycle\n   * @param {string} tzolkin_day Name of the name in the 260-day cycle\n   * @param {number} haab_coeff Day in the Haab month\n   * @param {string} haab_month Name of the Haab month\n   */\n  constructor (tzolkin_coeff, tzolkin_day, haab_coeff, haab_month) {\n    /**\n     * 260-day cycle component of the Calendar Round\n     * @type {Tzolkin}\n     */\n    this.tzolkin = new tzolkin.Tzolkin(tzolkin_coeff, tzolkin_day)\n    /**\n     * Haab cycle component of the Calendar Round\n     * @type {Haab}\n     */\n    this.haab = new haab.Haab(haab_coeff, haab_month)\n  }\n\n  /**\n   * Increment both the Haab and 260-day cycle to the next day in the Calendar Round\n   * @returns {CalendarRound}\n   */\n  next () {\n    let new_cr = new CalendarRound()\n    new_cr.haab = this.haab.next()\n    new_cr.tzolkin = this.tzolkin.next()\n    return new_cr\n  }\n}\n\nmodule.exports = {\n  'CalendarRound': CalendarRound,\n  'tzolkin': tzolkin,\n  'haab': haab,\n}\n",
+    "static": true,
+    "longname": "/Users/drews/Dropbox/Development/maya-dates/src/calendar-round.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "variable",
+    "name": "tzolkin",
+    "memberof": "src/calendar-round.js",
+    "static": true,
+    "longname": "src/calendar-round.js~tzolkin",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/calendar-round.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 50,
+    "kind": "variable",
+    "name": "haab",
+    "memberof": "src/calendar-round.js",
+    "static": true,
+    "longname": "src/calendar-round.js~haab",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/calendar-round.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 51,
+    "kind": "class",
+    "name": "CalendarRound",
+    "memberof": "src/calendar-round.js",
+    "static": true,
+    "longname": "src/calendar-round.js~CalendarRound",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/calendar-round.js",
+    "importStyle": null,
+    "description": "A combination of 260-day cycles and the Haab cycle.",
+    "examples": [
+      " let cr = new CalendarRound(8, \"Ajaw\", 4, \"Kumk'u\");"
+    ],
+    "lineNumber": 11,
+    "interface": false
+  },
+  {
+    "__docId__": 52,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/calendar-round.js~CalendarRound",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/calendar-round.js~CalendarRound#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 19,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tzolkin_coeff",
+        "description": "Coefficient for the 260-day cycle"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tzolkin_day",
+        "description": "Name of the name in the 260-day cycle"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "haab_coeff",
+        "description": "Day in the Haab month"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "haab_month",
+        "description": "Name of the Haab month"
+      }
+    ]
+  },
+  {
+    "__docId__": 53,
+    "kind": "member",
+    "name": "tzolkin",
+    "memberof": "src/calendar-round.js~CalendarRound",
+    "static": false,
+    "longname": "src/calendar-round.js~CalendarRound#tzolkin",
+    "access": "public",
+    "description": "260-day cycle component of the Calendar Round",
+    "lineNumber": 24,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Tzolkin"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "member",
+    "name": "haab",
+    "memberof": "src/calendar-round.js~CalendarRound",
+    "static": false,
+    "longname": "src/calendar-round.js~CalendarRound#haab",
+    "access": "public",
+    "description": "Haab cycle component of the Calendar Round",
+    "lineNumber": 29,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Haab"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "method",
+    "name": "next",
+    "memberof": "src/calendar-round.js~CalendarRound",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/calendar-round.js~CalendarRound#next",
+    "access": "public",
+    "description": "Increment both the Haab and 260-day cycle to the next day in the Calendar Round",
+    "lineNumber": 36,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{CalendarRound}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "CalendarRound"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 56,
+    "kind": "file",
+    "name": "src/factory.js",
+    "content": "/** @ignore */\nconst CalendarRound = require('./calendar-round').CalendarRound\n\n/**\n * An abstract class to handle the create of an object from a string\n */\nclass Factory {\n  /**\n   * Define properties to be override by sub-classes\n   */\n  constructor () {\n    /**\n     * Describes how to break a string into a date element\n     * @protected\n     * @type {RegExp}\n     */\n    this.pattern = null\n  }\n\n  /**\n   * Split the provided date into its components\n   * @param {string} raw\n   * @access protected\n   * @returns {String[]}\n   */\n  _split (raw) {\n    let matches = raw.match(\n      this.pattern,\n    )\n    if (matches === null) {\n      return []\n    }\n    return matches.slice(1)\n  }\n\n  /**\n   * Checks if the string contains a partial date\n   * @param {string} raw - Raw date string\n   * @access protected\n   * @returns {boolean}\n   */\n  _is_partial (raw) {\n    let parts = this._split(raw)\n    return parts.includes('*')\n  }\n}\n\n/**\n * A factory to create a CalendarRound object from a string\n * @extends Factory\n * @example\n *    let cr = new CalendarRoundFactory().parse(\"4 Ajaw 8 Kumk'u\");\n */\nclass CalendarRoundFactory extends Factory {\n  /**\n   * Defines the pattern describing a Calendar Round\n   */\n  constructor () {\n    super()\n    /**\n     * Describes how to break the string into a Calendar Round\n     * @type {RegExp}\n     */\n    this.pattern = /^([*\\d]+)\\s?([^\\s]+)\\s?([*\\d]+)\\s?([^\\s]+)$/\n  }\n\n  /**\n   * Given a string, parse it and create a Calendar Round\n   * @param {string} raw - A string containing a Calendar Round\n   * @returns {CalendarRound}\n   */\n  parse (raw) {\n    let parts = this._split(raw)\n    return new cr.CalendarRound(\n      parseInt(parts[0]), parts[1],\n      parseInt(parts[2]), parts[3],\n    )\n  }\n}\n\nmodule.exports = {\n  'CalendarRoundFactory': CalendarRoundFactory,\n}\n",
+    "static": true,
+    "longname": "/Users/drews/Dropbox/Development/maya-dates/src/factory.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 57,
+    "kind": "variable",
+    "name": "CalendarRound",
+    "memberof": "src/factory.js",
+    "static": true,
+    "longname": "src/factory.js~CalendarRound",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/factory.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "class",
+    "name": "Factory",
+    "memberof": "src/factory.js",
+    "static": true,
+    "longname": "src/factory.js~Factory",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/factory.js",
+    "importStyle": null,
+    "description": "An abstract class to handle the create of an object from a string",
+    "lineNumber": 7,
+    "interface": false
+  },
+  {
+    "__docId__": 59,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/factory.js~Factory",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/factory.js~Factory#constructor",
+    "access": "public",
+    "description": "Define properties to be override by sub-classes",
+    "lineNumber": 11
+  },
+  {
+    "__docId__": 60,
+    "kind": "member",
+    "name": "pattern",
+    "memberof": "src/factory.js~Factory",
+    "static": false,
+    "longname": "src/factory.js~Factory#pattern",
+    "access": "protected",
+    "description": "Describes how to break a string into a date element",
+    "lineNumber": 17,
+    "type": {
+      "nullable": null,
+      "types": [
+        "RegExp"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "method",
+    "name": "_split",
+    "memberof": "src/factory.js~Factory",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/factory.js~Factory#_split",
+    "access": "protected",
+    "description": "Split the provided date into its components",
+    "lineNumber": 26,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{String[]}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "raw",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "String[]"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 62,
+    "kind": "method",
+    "name": "_is_partial",
+    "memberof": "src/factory.js~Factory",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/factory.js~Factory#_is_partial",
+    "access": "protected",
+    "description": "Checks if the string contains a partial date",
+    "lineNumber": 42,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "raw",
+        "description": "Raw date string"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 63,
+    "kind": "class",
+    "name": "CalendarRoundFactory",
+    "memberof": "src/factory.js",
+    "static": true,
+    "longname": "src/factory.js~CalendarRoundFactory",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/factory.js",
+    "importStyle": null,
+    "description": "A factory to create a CalendarRound object from a string",
+    "examples": [
+      "   let cr = new CalendarRoundFactory().parse(\"4 Ajaw 8 Kumk'u\");"
+    ],
+    "lineNumber": 54,
+    "interface": false,
+    "extends": [
+      "*"
+    ]
+  },
+  {
+    "__docId__": 64,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/factory.js~CalendarRoundFactory",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/factory.js~CalendarRoundFactory#constructor",
+    "access": "public",
+    "description": "Defines the pattern describing a Calendar Round",
+    "lineNumber": 58
+  },
+  {
+    "__docId__": 65,
+    "kind": "member",
+    "name": "pattern",
+    "memberof": "src/factory.js~CalendarRoundFactory",
+    "static": false,
+    "longname": "src/factory.js~CalendarRoundFactory#pattern",
+    "access": "public",
+    "description": "Describes how to break the string into a Calendar Round",
+    "lineNumber": 64,
+    "type": {
+      "nullable": null,
+      "types": [
+        "RegExp"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 66,
+    "kind": "method",
+    "name": "parse",
+    "memberof": "src/factory.js~CalendarRoundFactory",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/factory.js~CalendarRoundFactory#parse",
+    "access": "public",
+    "description": "Given a string, parse it and create a Calendar Round",
+    "lineNumber": 72,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{CalendarRound}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "raw",
+        "description": "A string containing a Calendar Round"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "CalendarRound"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "file",
+    "name": "src/haab.js",
+    "content": "/**\n * Describes a Haab date with a position and a month\n * @example\n *    let day = new Haab(8, \"Kumk'u\");\n *\n * @example\n *    let day = new Haab(8, new HaabMonth(\"Kumk'u\"));\n *\n */\nclass Haab {\n  /**\n   * Constructor\n   * @param {number} coeff - The position in the Haab month for this date\n   * @param {string|HaabMonth} month\n   */\n  constructor (coeff, month) {\n    if (typeof month === 'string') {\n      month = new HaabMonth(month)\n    }\n    /**\n     * @type {HaabMonth}\n     */\n    this.month = month\n    /**\n     * @type {number}\n     */\n    this.coeff = coeff\n  }\n\n  /**\n   * Return the next day in the Haab cycle\n   * @returns {Haab}\n   */\n  next () {\n    let month_length = (this.name === this.month.months[19]) ? 5 : 20\n    let tomorrow_coeff = (this.coeff + 1) % month_length\n    return new Haab(\n      tomorrow_coeff,\n      (tomorrow_coeff === 0) ? this.month.next() : this.month,\n    )\n  }\n\n  /**\n   * Return a string representation of the Haab month name\n   * @returns {string}\n   */\n  get name () {\n    return this.month.name\n  }\n}\n\n/**\n * Describes only the month component of a Haab date\n */\nclass HaabMonth {\n  /**\n   * @param {string} name - Name of the Haab month\n   */\n  constructor (name) {\n    /**\n     * Name of the Haab month\n     * @type {string}\n     */\n    this.name = name\n\n    /**\n     * @type {Map<number, string>}\n     */\n    this.months = {\n      1: 'Pop',\n      2: 'Wo',\n      3: 'Sip',\n      4: 'Sotz\\'',\n      5: 'Sek',\n      6: 'Xul',\n      7: 'Yaxk\\'in',\n      8: 'Mol',\n      9: 'Ch\\'en',\n      10: 'Yax',\n      11: 'Sak',\n      12: 'Keh',\n      13: 'Mak',\n      14: 'K\\'ank\\'in',\n      15: 'Muwan',\n      16: 'Pax',\n      17: 'K\\'ayab',\n      18: 'Kumk\\'u',\n      19: 'Wayeb',\n    }\n  }\n\n  /**\n   * Return the next month in the Haab cycle\n   * @returns {HaabMonth}\n   */\n  next () {\n    let i\n    for (i = 0; i < 20; i++) {\n      if (this.months[i] === this.name) {\n        break\n      }\n    }\n    i += 1\n    if (i > 19) {\n      i = 1\n    }\n    return new HaabMonth(this.months[i])\n  }\n}\n\nmodule.exports = {\n  'Haab': Haab,\n  'HaabMonth': HaabMonth,\n}\n",
+    "static": true,
+    "longname": "/Users/drews/Dropbox/Development/maya-dates/src/haab.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 68,
+    "kind": "class",
+    "name": "Haab",
+    "memberof": "src/haab.js",
+    "static": true,
+    "longname": "src/haab.js~Haab",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/haab.js",
+    "importStyle": null,
+    "description": "Describes a Haab date with a position and a month",
+    "examples": [
+      "   let day = new Haab(8, \"Kumk'u\");",
+      "   let day = new Haab(8, new HaabMonth(\"Kumk'u\"));"
+    ],
+    "lineNumber": 10,
+    "interface": false
+  },
+  {
+    "__docId__": 69,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/haab.js~Haab",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/haab.js~Haab#constructor",
+    "access": "public",
+    "description": "Constructor",
+    "lineNumber": 16,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "coeff",
+        "description": "The position in the Haab month for this date"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "HaabMonth"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "month",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 70,
+    "kind": "member",
+    "name": "month",
+    "memberof": "src/haab.js~Haab",
+    "static": false,
+    "longname": "src/haab.js~Haab#month",
+    "access": "public",
+    "description": "",
+    "lineNumber": 23,
+    "type": {
+      "nullable": null,
+      "types": [
+        "HaabMonth"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 71,
+    "kind": "member",
+    "name": "coeff",
+    "memberof": "src/haab.js~Haab",
+    "static": false,
+    "longname": "src/haab.js~Haab#coeff",
+    "access": "public",
+    "description": "",
+    "lineNumber": 27,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "method",
+    "name": "next",
+    "memberof": "src/haab.js~Haab",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/haab.js~Haab#next",
+    "access": "public",
+    "description": "Return the next day in the Haab cycle",
+    "lineNumber": 34,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Haab}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Haab"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 73,
+    "kind": "get",
+    "name": "name",
+    "memberof": "src/haab.js~Haab",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/haab.js~Haab#name",
+    "access": "public",
+    "description": "Return a string representation of the Haab month name",
+    "lineNumber": 47,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 74,
+    "kind": "class",
+    "name": "HaabMonth",
+    "memberof": "src/haab.js",
+    "static": true,
+    "longname": "src/haab.js~HaabMonth",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/haab.js",
+    "importStyle": null,
+    "description": "Describes only the month component of a Haab date",
+    "lineNumber": 55,
+    "interface": false
+  },
+  {
+    "__docId__": 75,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/haab.js~HaabMonth",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/haab.js~HaabMonth#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 59,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "name",
+        "description": "Name of the Haab month"
+      }
+    ]
+  },
+  {
+    "__docId__": 76,
+    "kind": "member",
+    "name": "name",
+    "memberof": "src/haab.js~HaabMonth",
+    "static": false,
+    "longname": "src/haab.js~HaabMonth#name",
+    "access": "public",
+    "description": "Name of the Haab month",
+    "lineNumber": 64,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 77,
+    "kind": "member",
+    "name": "months",
+    "memberof": "src/haab.js~HaabMonth",
+    "static": false,
+    "longname": "src/haab.js~HaabMonth#months",
+    "access": "public",
+    "description": "",
+    "lineNumber": 69,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Map<number, string>"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 78,
+    "kind": "method",
+    "name": "next",
+    "memberof": "src/haab.js~HaabMonth",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/haab.js~HaabMonth#next",
+    "access": "public",
+    "description": "Return the next month in the Haab cycle",
+    "lineNumber": 96,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{HaabMonth}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "HaabMonth"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 79,
+    "kind": "file",
+    "name": "src/index.js",
+    "content": "module.exports = {\n  'factory': require('./factory'),\n  'calendar_round': require('./calendar-round'),\n}\n",
+    "static": true,
+    "longname": "/Users/drews/Dropbox/Development/maya-dates/src/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 80,
+    "kind": "file",
+    "name": "src/tzolkin.js",
+    "content": "/**\n * Describes a date in the 260-day cycle with a position and a day\n * @example\n *    let day = new Tzolkin(4, \"Ajaw\");\n *\n * @example\n *    let day = new Tzolkin(4, new TzolkinDay(\"Ajaw\"));\n *\n */\nclass Tzolkin {\n  /**\n   * Constructor\n   * @param {number} coeff - The position in the 260-day cycle\n   * @param {string|TzolkinDay} day\n   */\n  constructor (coeff, day) {\n    if (typeof day === 'string') {\n      day = new TzolkinDay(day)\n    }\n    /**\n     * @type {TzolkinDay}\n     */\n    this.day = day\n    /**\n     * @type {number}\n     */\n    this.coeff = coeff\n  }\n\n  /**\n   * Return the next day in the 260-day cycle\n   * @returns {Tzolkin}\n   */\n  next () {\n    let next_coeff = this.coeff + 1\n    let next_day = this.day.next()\n    return new Tzolkin(\n      (next_coeff % 13) === 0 ? 13 : next_coeff % 13,\n      next_day,\n    )\n  }\n\n  /**\n   * Return a string representation of the 260-day cycle name\n   * @returns {string}\n   */\n  get name () {\n    return this.day.name\n  }\n}\n\n/**\n * Describes only the day component of a 260-day cycle\n */\nclass TzolkinDay {\n  /**\n   * @param {string} name - Name of the 260-day cycle day\n   */\n  constructor (name) {\n    /**\n     * Name of the day in the 260-day cycle\n     * @type {string}\n     */\n    this.name = name\n\n    /**\n     * Mapping of day names to indexes\n     * @type {Map<number, string>}\n     */\n    this.days = {\n      1: 'Imix',\n      2: 'Ik\\'',\n      3: 'Ak\\'bal',\n      4: 'K\\'an',\n      5: 'Chikchan',\n      6: 'Kimi',\n      7: 'Manik',\n      8: 'Lamat',\n      9: 'Muluk',\n      10: 'Ok',\n      11: 'Chuwen',\n      12: 'Eb',\n      13: 'Ben',\n      14: 'Ix',\n      15: 'Men',\n      16: 'Kib',\n      17: 'Kaban',\n      18: 'Etz\\'nab',\n      19: 'Kawak',\n      20: 'Ajaw',\n    }\n  }\n\n  /**\n   * Return the next day in the 260-day cycle\n   * @returns {TzolkinDay}\n   */\n  next () {\n    let i\n    for (i = 0; i < 20; i++) {\n      if (this.days[i] === this.name) {\n        break\n      }\n    }\n    i += 1\n    if (i > 20) {\n      i = 1\n    }\n    return new TzolkinDay(this.days[i])\n  }\n}\n\nmodule.exports = {\n  'TzolkinDay': TzolkinDay,\n  'Tzolkin': Tzolkin,\n}\n",
+    "static": true,
+    "longname": "/Users/drews/Dropbox/Development/maya-dates/src/tzolkin.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 81,
+    "kind": "class",
+    "name": "Tzolkin",
+    "memberof": "src/tzolkin.js",
+    "static": true,
+    "longname": "src/tzolkin.js~Tzolkin",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/tzolkin.js",
+    "importStyle": null,
+    "description": "Describes a date in the 260-day cycle with a position and a day",
+    "examples": [
+      "   let day = new Tzolkin(4, \"Ajaw\");",
+      "   let day = new Tzolkin(4, new TzolkinDay(\"Ajaw\"));"
+    ],
+    "lineNumber": 10,
+    "interface": false
+  },
+  {
+    "__docId__": 82,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/tzolkin.js~Tzolkin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/tzolkin.js~Tzolkin#constructor",
+    "access": "public",
+    "description": "Constructor",
+    "lineNumber": 16,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "coeff",
+        "description": "The position in the 260-day cycle"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "TzolkinDay"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "day",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 83,
+    "kind": "member",
+    "name": "day",
+    "memberof": "src/tzolkin.js~Tzolkin",
+    "static": false,
+    "longname": "src/tzolkin.js~Tzolkin#day",
+    "access": "public",
+    "description": "",
+    "lineNumber": 23,
+    "type": {
+      "nullable": null,
+      "types": [
+        "TzolkinDay"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 84,
+    "kind": "member",
+    "name": "coeff",
+    "memberof": "src/tzolkin.js~Tzolkin",
+    "static": false,
+    "longname": "src/tzolkin.js~Tzolkin#coeff",
+    "access": "public",
+    "description": "",
+    "lineNumber": 27,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "name": "next",
+    "memberof": "src/tzolkin.js~Tzolkin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/tzolkin.js~Tzolkin#next",
+    "access": "public",
+    "description": "Return the next day in the 260-day cycle",
+    "lineNumber": 34,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Tzolkin}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Tzolkin"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 86,
+    "kind": "get",
+    "name": "name",
+    "memberof": "src/tzolkin.js~Tzolkin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/tzolkin.js~Tzolkin#name",
+    "access": "public",
+    "description": "Return a string representation of the 260-day cycle name",
+    "lineNumber": 47,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 87,
+    "kind": "class",
+    "name": "TzolkinDay",
+    "memberof": "src/tzolkin.js",
+    "static": true,
+    "longname": "src/tzolkin.js~TzolkinDay",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/tzolkin.js",
+    "importStyle": null,
+    "description": "Describes only the day component of a 260-day cycle",
+    "lineNumber": 55,
+    "interface": false
+  },
+  {
+    "__docId__": 88,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/tzolkin.js~TzolkinDay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/tzolkin.js~TzolkinDay#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 59,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "name",
+        "description": "Name of the 260-day cycle day"
+      }
+    ]
+  },
+  {
+    "__docId__": 89,
+    "kind": "member",
+    "name": "name",
+    "memberof": "src/tzolkin.js~TzolkinDay",
+    "static": false,
+    "longname": "src/tzolkin.js~TzolkinDay#name",
+    "access": "public",
+    "description": "Name of the day in the 260-day cycle",
+    "lineNumber": 64,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 90,
+    "kind": "member",
+    "name": "days",
+    "memberof": "src/tzolkin.js~TzolkinDay",
+    "static": false,
+    "longname": "src/tzolkin.js~TzolkinDay#days",
+    "access": "public",
+    "description": "Mapping of day names to indexes",
+    "lineNumber": 70,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Map<number, string>"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 91,
+    "kind": "method",
+    "name": "next",
+    "memberof": "src/tzolkin.js~TzolkinDay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/tzolkin.js~TzolkinDay#next",
+    "access": "public",
+    "description": "Return the next day in the 260-day cycle",
+    "lineNumber": 98,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{TzolkinDay}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "TzolkinDay"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "kind": "index",
+    "content": "# maya-dates\n",
+    "longname": "/Users/drews/Dropbox/Development/maya-dates/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"@drewsonne/maya-dates\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Node.js package to represent dates in the Maya Calendar\",\n  \"main\": \"src/index.js\",\n  \"scripts\": {\n    \"test\": \"jest\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+ssh://git@github.com/drewsonne/maya-dates.git\"\n  },\n  \"keywords\": [\n    \"digital-humanities\",\n    \"maya\",\n    \"maya-calendar\"\n  ],\n  \"author\": \"Drew J. Sonne\",\n  \"license\": \"LGPL-3.0-or-later\",\n  \"bugs\": {\n    \"url\": \"https://github.com/drewsonne/maya-dates/issues\"\n  },\n  \"homepage\": \"https://github.com/drewsonne/maya-dates#readme\",\n  \"devDependencies\": {\n    \"jest\": \"^24.9.0\",\n    \"esdoc\": \"1.1.0\",\n    \"esdoc-standard-plugin\": \"1.0.0\"\n  }\n}\n",
+    "longname": "/Users/drews/Dropbox/Development/maya-dates/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

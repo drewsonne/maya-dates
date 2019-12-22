@@ -1,0 +1,27 @@
+{
+  "coverage": "100%",
+  "expectCount": 39,
+  "actualCount": 39,
+  "files": {
+    "src/calendar-round.js": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
+    "src/factory.js": {
+      "expectCount": 10,
+      "actualCount": 10,
+      "undocumentLines": []
+    },
+    "src/haab.js": {
+      "expectCount": 11,
+      "actualCount": 11,
+      "undocumentLines": []
+    },
+    "src/tzolkin.js": {
+      "expectCount": 11,
+      "actualCount": 11,
+      "undocumentLines": []
+    }
+  }
+}
