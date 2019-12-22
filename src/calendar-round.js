@@ -39,6 +39,14 @@ class CalendarRound {
     new_cr.tzolkin = this.tzolkin.next()
     return new_cr
   }
+
+  /**
+   * Render the CalendarRound cycle date as a string
+   * @returns {string}
+   */
+  toString () {
+    return `${this.tzolkin} ${this.haab}`
+  }
 }
 
 module.exports = {

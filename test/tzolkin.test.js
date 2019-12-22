@@ -34,3 +34,8 @@ describe('build tzolkins', () => {
     },
   )
 })
+
+test('render tzolkin date', () => {
+  let haab = new mayadates.calendar_round.tzolkin.Tzolkin(5,'Imix')
+  expect(haab.toString()).toBe('5 Imix')
+})

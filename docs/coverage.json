@@ -1,7 +1,7 @@
 {
-  "coverage": "100%",
-  "expectCount": 39,
-  "actualCount": 39,
+  "coverage": "67.21%",
+  "expectCount": 61,
+  "actualCount": 41,
   "files": {
     "src/calendar-round.js": {
       "expectCount": 7,
@@ -17,6 +17,32 @@
       "expectCount": 11,
       "actualCount": 11,
       "undocumentLines": []
+    },
+    "src/long-count.js": {
+      "expectCount": 22,
+      "actualCount": 2,
+      "undocumentLines": [
+        9,
+        11,
+        19,
+        21,
+        25,
+        29,
+        33,
+        37,
+        41,
+        45,
+        49,
+        53,
+        57,
+        61,
+        65,
+        69,
+        73,
+        77,
+        81,
+        85
+      ]
     },
     "src/tzolkin.js": {
       "expectCount": 11,

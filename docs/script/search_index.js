@@ -30,6 +30,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@drewsonne/maya-dates/src/long-count.js~longcount",
+    "class/src/long-count.js~LongCount.html",
+    "<span>LongCount</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/long-count.js</span>",
+    "class"
+  ],
+  [
     "@drewsonne/maya-dates/src/tzolkin.js~tzolkin",
     "class/src/tzolkin.js~Tzolkin.html",
     "<span>Tzolkin</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/tzolkin.js</span>",
@@ -466,6 +472,18 @@ window.esdocSearchIndex = [
     "file/src/index.js.html",
     "src/index.js",
     "file"
+  ],
+  [
+    "src/long-count.js",
+    "file/src/long-count.js.html",
+    "src/long-count.js",
+    "file"
+  ],
+  [
+    "src/long-count.js~longcount#constructor",
+    "class/src/long-count.js~LongCount.html#instance-constructor-constructor",
+    "src/long-count.js~LongCount#constructor",
+    "method"
   ],
   [
     "src/tzolkin.js",

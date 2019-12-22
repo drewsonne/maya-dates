@@ -47,6 +47,14 @@ class Tzolkin {
   get name () {
     return this.day.name
   }
+
+  /**
+   * Render the 260-day cycle date as a string
+   * @returns {string}
+   */
+  toString () {
+    return `${this.coeff} ${this.name}`
+  }
 }
 
 /**

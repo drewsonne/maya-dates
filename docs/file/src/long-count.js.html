@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl">
-  <title data-ice="title">Home | @drewsonne/maya-dates</title>
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/long-count.js | @drewsonne/maya-dates</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -41,7 +41,97 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="maya-dates">maya-dates</h1></div>
+<div class="content" data-ice="content"><h1 data-ice="title">src/long-count.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * Long Count cycle
+ */
+class LongCount {
+  /**
+   * @param {...number} cycles - Components in the long count (eg, K&apos;in, Winal, Bak&apos;tun, etc)
+   */
+  constructor (...cycles) {
+    this.parts = cycles
+  }
+  get_date_sections (number) {
+    let part = this.parts[number]
+    if (part === undefined) {
+      return 0
+    }
+    return parseInt(part)
+  }
+
+  set_date_sections (number, value) {
+    this.parts[number] = value.toString()
+    this.raw = this.toString()
+    return this
+  }
+
+  set k_in (new_k_in) {
+    this.set_date_sections(0, new_k_in)
+  }
+
+  get k_in () {
+    return this.get_date_sections(0)
+  }
+
+  set winal (new_winal) {
+    this.set_date_sections(1, new_winal)
+  }
+
+  get winal () {
+    return this.get_date_sections(1)
+  }
+
+  set tun (new_tun) {
+    this.set_date_sections(2, new_tun)
+  }
+
+  get tun () {
+    return this.get_date_sections(2)
+  }
+
+  set k_atun (new_k_atun) {
+    this.set_date_sections(3, new_k_atun)
+  }
+
+  get k_atun () {
+    return this.get_date_sections(3)
+  }
+
+  set bak_tun (new_bak_tun) {
+    this.set_date_sections(4, new_bak_tun)
+  }
+
+  get bak_tun () {
+    return this.get_date_sections(4)
+  }
+
+  set piktun (new_bak_tun) {
+    this.set_date_sections(5, new_bak_tun)
+  }
+
+  get piktun () {
+    return this.get_date_sections(5)
+  }
+
+  set kalabtun (new_bak_tun) {
+    this.set_date_sections(6, new_bak_tun)
+  }
+
+  get kalabtun () {
+    return this.get_date_sections(6)
+  }
+
+  set kinchiltun (new_bak_tun) {
+    this.set_date_sections(7, new_bak_tun)
+  }
+
+  get kinchiltun () {
+    return this.get_date_sections(7)
+  }
+}
+</code></pre>
+
 </div>
 
 <footer class="footer">

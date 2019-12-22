@@ -47,6 +47,15 @@ class Haab {
   get name () {
     return this.month.name
   }
+
+  /**
+   * Render the Haab date as a string
+   * @returns {string}
+   */
+  toString () {
+    return `${this.coeff} ${this.name}`
+  }
+
 }
 
 /**

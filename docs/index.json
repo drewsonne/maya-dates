@@ -1285,6 +1285,435 @@
   {
     "__docId__": 80,
     "kind": "file",
+    "name": "src/long-count.js",
+    "content": "/**\n * Long Count cycle\n */\nclass LongCount {\n  /**\n   * @param {...number} cycles - Components in the long count (eg, K'in, Winal, Bak'tun, etc)\n   */\n  constructor (...cycles) {\n    this.parts = cycles\n  }\n  get_date_sections (number) {\n    let part = this.parts[number]\n    if (part === undefined) {\n      return 0\n    }\n    return parseInt(part)\n  }\n\n  set_date_sections (number, value) {\n    this.parts[number] = value.toString()\n    this.raw = this.toString()\n    return this\n  }\n\n  set k_in (new_k_in) {\n    this.set_date_sections(0, new_k_in)\n  }\n\n  get k_in () {\n    return this.get_date_sections(0)\n  }\n\n  set winal (new_winal) {\n    this.set_date_sections(1, new_winal)\n  }\n\n  get winal () {\n    return this.get_date_sections(1)\n  }\n\n  set tun (new_tun) {\n    this.set_date_sections(2, new_tun)\n  }\n\n  get tun () {\n    return this.get_date_sections(2)\n  }\n\n  set k_atun (new_k_atun) {\n    this.set_date_sections(3, new_k_atun)\n  }\n\n  get k_atun () {\n    return this.get_date_sections(3)\n  }\n\n  set bak_tun (new_bak_tun) {\n    this.set_date_sections(4, new_bak_tun)\n  }\n\n  get bak_tun () {\n    return this.get_date_sections(4)\n  }\n\n  set piktun (new_bak_tun) {\n    this.set_date_sections(5, new_bak_tun)\n  }\n\n  get piktun () {\n    return this.get_date_sections(5)\n  }\n\n  set kalabtun (new_bak_tun) {\n    this.set_date_sections(6, new_bak_tun)\n  }\n\n  get kalabtun () {\n    return this.get_date_sections(6)\n  }\n\n  set kinchiltun (new_bak_tun) {\n    this.set_date_sections(7, new_bak_tun)\n  }\n\n  get kinchiltun () {\n    return this.get_date_sections(7)\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/drews/Dropbox/Development/maya-dates/src/long-count.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 81,
+    "kind": "class",
+    "name": "LongCount",
+    "memberof": "src/long-count.js",
+    "static": true,
+    "longname": "src/long-count.js~LongCount",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/long-count.js",
+    "importStyle": null,
+    "description": "Long Count cycle",
+    "lineNumber": 4,
+    "interface": false
+  },
+  {
+    "__docId__": 82,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 8,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "...number"
+        ],
+        "spread": true,
+        "optional": false,
+        "name": "cycles",
+        "description": "Components in the long count (eg, K'in, Winal, Bak'tun, etc)"
+      }
+    ]
+  },
+  {
+    "__docId__": 83,
+    "kind": "member",
+    "name": "parts",
+    "memberof": "src/long-count.js~LongCount",
+    "static": false,
+    "longname": "src/long-count.js~LongCount#parts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 84,
+    "kind": "method",
+    "name": "get_date_sections",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#get_date_sections",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [
+      {
+        "name": "number",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "name": "set_date_sections",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#set_date_sections",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "params": [
+      {
+        "name": "number",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 86,
+    "kind": "member",
+    "name": "raw",
+    "memberof": "src/long-count.js~LongCount",
+    "static": false,
+    "longname": "src/long-count.js~LongCount#raw",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 87,
+    "kind": "set",
+    "name": "k_in",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#k_in",
+    "access": "public",
+    "description": null,
+    "lineNumber": 25,
+    "undocument": true,
+    "ignore": true
+  },
+  {
+    "__docId__": 88,
+    "kind": "get",
+    "name": "k_in",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#k_in",
+    "access": "public",
+    "description": null,
+    "lineNumber": 29,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 89,
+    "kind": "set",
+    "name": "winal",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#winal",
+    "access": "public",
+    "description": null,
+    "lineNumber": 33,
+    "undocument": true,
+    "ignore": true
+  },
+  {
+    "__docId__": 90,
+    "kind": "get",
+    "name": "winal",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#winal",
+    "access": "public",
+    "description": null,
+    "lineNumber": 37,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 91,
+    "kind": "set",
+    "name": "tun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#tun",
+    "access": "public",
+    "description": null,
+    "lineNumber": 41,
+    "undocument": true,
+    "ignore": true
+  },
+  {
+    "__docId__": 92,
+    "kind": "get",
+    "name": "tun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#tun",
+    "access": "public",
+    "description": null,
+    "lineNumber": 45,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 93,
+    "kind": "set",
+    "name": "k_atun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#k_atun",
+    "access": "public",
+    "description": null,
+    "lineNumber": 49,
+    "undocument": true,
+    "ignore": true
+  },
+  {
+    "__docId__": 94,
+    "kind": "get",
+    "name": "k_atun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#k_atun",
+    "access": "public",
+    "description": null,
+    "lineNumber": 53,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 95,
+    "kind": "set",
+    "name": "bak_tun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#bak_tun",
+    "access": "public",
+    "description": null,
+    "lineNumber": 57,
+    "undocument": true,
+    "ignore": true
+  },
+  {
+    "__docId__": 96,
+    "kind": "get",
+    "name": "bak_tun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#bak_tun",
+    "access": "public",
+    "description": null,
+    "lineNumber": 61,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 97,
+    "kind": "set",
+    "name": "piktun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#piktun",
+    "access": "public",
+    "description": null,
+    "lineNumber": 65,
+    "undocument": true,
+    "ignore": true
+  },
+  {
+    "__docId__": 98,
+    "kind": "get",
+    "name": "piktun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#piktun",
+    "access": "public",
+    "description": null,
+    "lineNumber": 69,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 99,
+    "kind": "set",
+    "name": "kalabtun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#kalabtun",
+    "access": "public",
+    "description": null,
+    "lineNumber": 73,
+    "undocument": true,
+    "ignore": true
+  },
+  {
+    "__docId__": 100,
+    "kind": "get",
+    "name": "kalabtun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#kalabtun",
+    "access": "public",
+    "description": null,
+    "lineNumber": 77,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 101,
+    "kind": "set",
+    "name": "kinchiltun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#kinchiltun",
+    "access": "public",
+    "description": null,
+    "lineNumber": 81,
+    "undocument": true,
+    "ignore": true
+  },
+  {
+    "__docId__": 102,
+    "kind": "get",
+    "name": "kinchiltun",
+    "memberof": "src/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/long-count.js~LongCount#kinchiltun",
+    "access": "public",
+    "description": null,
+    "lineNumber": 85,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 103,
+    "kind": "file",
     "name": "src/tzolkin.js",
     "content": "/**\n * Describes a date in the 260-day cycle with a position and a day\n * @example\n *    let day = new Tzolkin(4, \"Ajaw\");\n *\n * @example\n *    let day = new Tzolkin(4, new TzolkinDay(\"Ajaw\"));\n *\n */\nclass Tzolkin {\n  /**\n   * Constructor\n   * @param {number} coeff - The position in the 260-day cycle\n   * @param {string|TzolkinDay} day\n   */\n  constructor (coeff, day) {\n    if (typeof day === 'string') {\n      day = new TzolkinDay(day)\n    }\n    /**\n     * @type {TzolkinDay}\n     */\n    this.day = day\n    /**\n     * @type {number}\n     */\n    this.coeff = coeff\n  }\n\n  /**\n   * Return the next day in the 260-day cycle\n   * @returns {Tzolkin}\n   */\n  next () {\n    let next_coeff = this.coeff + 1\n    let next_day = this.day.next()\n    return new Tzolkin(\n      (next_coeff % 13) === 0 ? 13 : next_coeff % 13,\n      next_day,\n    )\n  }\n\n  /**\n   * Return a string representation of the 260-day cycle name\n   * @returns {string}\n   */\n  get name () {\n    return this.day.name\n  }\n}\n\n/**\n * Describes only the day component of a 260-day cycle\n */\nclass TzolkinDay {\n  /**\n   * @param {string} name - Name of the 260-day cycle day\n   */\n  constructor (name) {\n    /**\n     * Name of the day in the 260-day cycle\n     * @type {string}\n     */\n    this.name = name\n\n    /**\n     * Mapping of day names to indexes\n     * @type {Map<number, string>}\n     */\n    this.days = {\n      1: 'Imix',\n      2: 'Ik\\'',\n      3: 'Ak\\'bal',\n      4: 'K\\'an',\n      5: 'Chikchan',\n      6: 'Kimi',\n      7: 'Manik',\n      8: 'Lamat',\n      9: 'Muluk',\n      10: 'Ok',\n      11: 'Chuwen',\n      12: 'Eb',\n      13: 'Ben',\n      14: 'Ix',\n      15: 'Men',\n      16: 'Kib',\n      17: 'Kaban',\n      18: 'Etz\\'nab',\n      19: 'Kawak',\n      20: 'Ajaw',\n    }\n  }\n\n  /**\n   * Return the next day in the 260-day cycle\n   * @returns {TzolkinDay}\n   */\n  next () {\n    let i\n    for (i = 0; i < 20; i++) {\n      if (this.days[i] === this.name) {\n        break\n      }\n    }\n    i += 1\n    if (i > 20) {\n      i = 1\n    }\n    return new TzolkinDay(this.days[i])\n  }\n}\n\nmodule.exports = {\n  'TzolkinDay': TzolkinDay,\n  'Tzolkin': Tzolkin,\n}\n",
     "static": true,
@@ -1294,7 +1723,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 81,
+    "__docId__": 104,
     "kind": "class",
     "name": "Tzolkin",
     "memberof": "src/tzolkin.js",
@@ -1313,7 +1742,7 @@
     "interface": false
   },
   {
-    "__docId__": 82,
+    "__docId__": 105,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/tzolkin.js~Tzolkin",
@@ -1349,7 +1778,7 @@
     ]
   },
   {
-    "__docId__": 83,
+    "__docId__": 106,
     "kind": "member",
     "name": "day",
     "memberof": "src/tzolkin.js~Tzolkin",
@@ -1368,7 +1797,7 @@
     }
   },
   {
-    "__docId__": 84,
+    "__docId__": 107,
     "kind": "member",
     "name": "coeff",
     "memberof": "src/tzolkin.js~Tzolkin",
@@ -1387,7 +1816,7 @@
     }
   },
   {
-    "__docId__": 85,
+    "__docId__": 108,
     "kind": "method",
     "name": "next",
     "memberof": "src/tzolkin.js~Tzolkin",
@@ -1415,7 +1844,7 @@
     "params": []
   },
   {
-    "__docId__": 86,
+    "__docId__": 109,
     "kind": "get",
     "name": "name",
     "memberof": "src/tzolkin.js~Tzolkin",
@@ -1447,7 +1876,7 @@
     }
   },
   {
-    "__docId__": 87,
+    "__docId__": 110,
     "kind": "class",
     "name": "TzolkinDay",
     "memberof": "src/tzolkin.js",
@@ -1462,7 +1891,7 @@
     "interface": false
   },
   {
-    "__docId__": 88,
+    "__docId__": 111,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/tzolkin.js~TzolkinDay",
@@ -1487,7 +1916,7 @@
     ]
   },
   {
-    "__docId__": 89,
+    "__docId__": 112,
     "kind": "member",
     "name": "name",
     "memberof": "src/tzolkin.js~TzolkinDay",
@@ -1506,7 +1935,7 @@
     }
   },
   {
-    "__docId__": 90,
+    "__docId__": 113,
     "kind": "member",
     "name": "days",
     "memberof": "src/tzolkin.js~TzolkinDay",
@@ -1525,7 +1954,7 @@
     }
   },
   {
-    "__docId__": 91,
+    "__docId__": 114,
     "kind": "method",
     "name": "next",
     "memberof": "src/tzolkin.js~TzolkinDay",

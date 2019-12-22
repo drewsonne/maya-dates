@@ -33,3 +33,9 @@ describe('parse calendar-round', () => {
       expect(cr.haab.name).toBe(expected[3])
     })
 })
+
+test('render calendar round', () => {
+  let haab = new mayadates.calendar_round.CalendarRound(
+    2, 'Ajaw', 8, 'Kumk\'u')
+  expect(haab.toString()).toBe('2 Ajaw 8 Kumk\'u')
+})

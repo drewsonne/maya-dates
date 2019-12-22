@@ -39,10 +39,10 @@ class Factory {
    * @access protected
    * @returns {boolean}
    */
-  _is_partial (raw) {
-    let parts = this._split(raw)
-    return parts.includes('*')
-  }
+  // _is_partial (raw) {
+  //   let parts = this._split(raw)
+  //   return parts.includes('*')
+  // }
 }
 
 /**
@@ -71,13 +71,20 @@ class CalendarRoundFactory extends Factory {
    */
   parse (raw) {
     let parts = this._split(raw)
-    return new cr.CalendarRound(
+    return new CalendarRound(
       parseInt(parts[0]), parts[1],
       parseInt(parts[2]), parts[3],
     )
   }
 }
 
+class LongCountFactory extends Factory {
+  parse(raw) {
+    let parts
+  }
+}
+
 module.exports = {
   'CalendarRoundFactory': CalendarRoundFactory,
+  'LongCountFactory': LongCountFactory,
 }

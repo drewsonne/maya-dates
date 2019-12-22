@@ -35,3 +35,8 @@ describe('build haabs', () => {
     },
   )
 })
+
+test('render haab date', () => {
+  let haab = new mayadates.calendar_round.haab.Haab(5,'Pop')
+  expect(haab.toString()).toBe('5 Pop')
+})
