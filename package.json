@@ -1,0 +1,27 @@
+{
+  "name": "@drewsonne/maya-dates",
+  "version": "1.0.0",
+  "description": "Node.js package to represent dates in the Maya Calendar",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/drewsonne/maya-dates.git"
+  },
+  "keywords": [
+    "digital-humanities",
+    "maya",
+    "maya-calendar"
+  ],
+  "author": "Drew J. Sonne",
+  "license": "LGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/drewsonne/maya-dates/issues"
+  },
+  "homepage": "https://github.com/drewsonne/maya-dates#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
