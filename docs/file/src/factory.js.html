@@ -32,11 +32,13 @@
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory.js~CalendarRoundFactory.html">CalendarRoundFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory.js~Factory.html">Factory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/haab.js~Haab.html">Haab</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/long-count.js~LongCount.html">LongCount</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tzolkin.js~Tzolkin.html">Tzolkin</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tzolkin.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -44,6 +46,10 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/factory.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
 const CalendarRound = require(&apos;./calendar-round&apos;).CalendarRound
+/** @ignore */
+const LongCount = require(&apos;./long-count&apos;).LongCount
+/** @ignore */
+const wildcard = require(&apos;./wildcard&apos;)
 
 /**
  * An abstract class to handle the create of an object from a string
@@ -83,10 +89,10 @@ class Factory {
    * @access protected
    * @returns {boolean}
    */
-  _is_partial (raw) {
-    let parts = this._split(raw)
-    return parts.includes(&apos;*&apos;)
-  }
+  // _is_partial (raw) {
+  //   let parts = this._split(raw)
+  //   return parts.includes(&apos;*&apos;)
+  // }
 }
 
 /**
@@ -115,15 +121,43 @@ class CalendarRoundFactory extends Factory {
    */
   parse (raw) {
     let parts = this._split(raw)
-    return new cr.CalendarRound(
+    return new CalendarRound(
       parseInt(parts[0]), parts[1],
       parseInt(parts[2]), parts[3],
     )
   }
 }
 
+/**
+ * A factory to create a LongCount object from a string
+ * @extends Factory
+ * @example
+ *    let cr = new LongCountFactory().parse(&quot;9.4.2.4.1&quot;);
+ * @example
+ *    let cr = new LongCountFactory().parse(&quot;9.4.2.*.1&quot;);
+ */
+class LongCountFactory extends Factory {
+  /**
+   * Given a string, parse it and create a Long Count
+   * @param {string} raw - A string containing a Long Count
+   * @returns {LongCount}
+   */
+  parse (raw) {
+    let parts = raw.split(&apos;.&apos;)
+    for (let i = 0; i &lt; parts.length; i++) {
+      if (parts[i] === &apos;*&apos;) {
+        parts[i] = wildcard
+      } else {
+        parts[i] = parseInt(parts[i])
+      }
+    }
+    return new LongCount(...parts.reverse())
+  }
+}
+
 module.exports = {
   &apos;CalendarRoundFactory&apos;: CalendarRoundFactory,
+  &apos;LongCountFactory&apos;: LongCountFactory,
 }
 </code></pre>
 

@@ -32,11 +32,13 @@
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory.js~CalendarRoundFactory.html">CalendarRoundFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory.js~Factory.html">Factory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/haab.js~Haab.html">Haab</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/long-count.js~LongCount.html">LongCount</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tzolkin.js~Tzolkin.html">Tzolkin</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tzolkin.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -90,6 +92,14 @@ class Tzolkin {
    */
   get name () {
     return this.day.name
+  }
+
+  /**
+   * Render the 260-day cycle date as a string
+   * @returns {string}
+   */
+  toString () {
+    return `${this.coeff} ${this.name}`
   }
 }
 

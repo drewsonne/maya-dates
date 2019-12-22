@@ -32,11 +32,13 @@
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory.js~CalendarRoundFactory.html">CalendarRoundFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory.js~Factory.html">Factory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/haab.js~Haab.html">Haab</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/long-count.js~LongCount.html">LongCount</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tzolkin.js~Tzolkin.html">Tzolkin</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tzolkin.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -47,88 +49,135 @@
  */
 class LongCount {
   /**
-   * @param {...number} cycles - Components in the long count (eg, K&apos;in, Winal, Bak&apos;tun, etc)
+   * @param {...number|Wildcard} cycles - Components in the long count (eg, K&apos;in, Winal, Bak&apos;tun, etc)
    */
   constructor (...cycles) {
     this.parts = cycles
+    this.date_pattern = /([\d*]+\.?)+/
   }
-  get_date_sections (number) {
-    let part = this.parts[number]
+
+  /**
+   * Get specific column in Long Count date
+   * @param {number} index
+   * @returns {number}
+   */
+  _get_date_sections (index) {
+    let part = this.parts[index]
     if (part === undefined) {
       return 0
     }
-    return parseInt(part)
+    return part
   }
 
-  set_date_sections (number, value) {
-    this.parts[number] = value.toString()
+  /**
+   * Set specific column in Long Count date
+   * @param {number} index
+   * @param {number} value
+   * @returns {LongCount}
+   * @private
+   */
+  _set_date_sections (index, value) {
+    this.parts[index] = value.toString()
     this.raw = this.toString()
     return this
   }
 
   set k_in (new_k_in) {
-    this.set_date_sections(0, new_k_in)
+    this._set_date_sections(0, new_k_in)
   }
 
   get k_in () {
-    return this.get_date_sections(0)
+    return this._get_date_sections(0)
   }
 
   set winal (new_winal) {
-    this.set_date_sections(1, new_winal)
+    this._set_date_sections(1, new_winal)
   }
 
   get winal () {
-    return this.get_date_sections(1)
+    return this._get_date_sections(1)
   }
 
   set tun (new_tun) {
-    this.set_date_sections(2, new_tun)
+    this._set_date_sections(2, new_tun)
   }
 
   get tun () {
-    return this.get_date_sections(2)
+    return this._get_date_sections(2)
   }
 
   set k_atun (new_k_atun) {
-    this.set_date_sections(3, new_k_atun)
+    this._set_date_sections(3, new_k_atun)
   }
 
   get k_atun () {
-    return this.get_date_sections(3)
+    return this._get_date_sections(3)
   }
 
   set bak_tun (new_bak_tun) {
-    this.set_date_sections(4, new_bak_tun)
+    this._set_date_sections(4, new_bak_tun)
   }
 
   get bak_tun () {
-    return this.get_date_sections(4)
+    return this._get_date_sections(4)
   }
 
   set piktun (new_bak_tun) {
-    this.set_date_sections(5, new_bak_tun)
+    this._set_date_sections(5, new_bak_tun)
   }
 
   get piktun () {
-    return this.get_date_sections(5)
+    return this._get_date_sections(5)
   }
 
   set kalabtun (new_bak_tun) {
-    this.set_date_sections(6, new_bak_tun)
+    this._set_date_sections(6, new_bak_tun)
   }
 
   get kalabtun () {
-    return this.get_date_sections(6)
+    return this._get_date_sections(6)
   }
 
   set kinchiltun (new_bak_tun) {
-    this.set_date_sections(7, new_bak_tun)
+    this._set_date_sections(7, new_bak_tun)
   }
 
   get kinchiltun () {
-    return this.get_date_sections(7)
+    return this._get_date_sections(7)
   }
+
+  is_valid () {
+    return this.date_pattern.test(this.toString())
+  }
+
+  toString () {
+    let significant_digits = []
+    for (let i = 0; i &lt; this.parts.length; i++) {
+      let part = this.parts[i]
+      if (part !== 0) {
+        significant_digits = this.parts.slice(i).reverse()
+        break
+      }
+    }
+    let date_length = significant_digits.length
+    if (date_length &lt; 5) {
+      for (let i = 0; i &lt; 5 - date_length; i++) {
+        significant_digits.unshift(&apos; 0&apos;)
+      }
+    }
+
+    for (let i = 0; i &lt; significant_digits.length; i++) {
+      let part = significant_digits[i].toString()
+      if (part.length &lt; 2) {
+        significant_digits[i] = &apos; &apos; + part
+      }
+    }
+    return significant_digits.join(&apos;.&apos;)
+  }
+}
+
+module.exports = {
+  &apos;LongCount&apos;: LongCount,
 }
 </code></pre>
 

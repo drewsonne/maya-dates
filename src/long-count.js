@@ -3,16 +3,16 @@
  */
 class LongCount {
   /**
-   * @param {...number} cycles - Components in the long count (eg, K'in, Winal, Bak'tun, etc)
+   * @param {...number|Wildcard} cycles - Components in the long count (eg, K'in, Winal, Bak'tun, etc)
    */
   constructor (...cycles) {
     this.parts = cycles
-    this.date_pattern = /(\d+\.?)+/
+    this.date_pattern = /([\d*]+\.?)+/
   }
 
   /**
    * Get specific column in Long Count date
-   * @param number
+   * @param {number} index
    * @returns {number}
    */
   _get_date_sections (index) {
@@ -20,7 +20,7 @@ class LongCount {
     if (part === undefined) {
       return 0
     }
-    return parseInt(part)
+    return part
   }
 
   /**

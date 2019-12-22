@@ -1,5 +1,9 @@
 /** @ignore */
 const CalendarRound = require('./calendar-round').CalendarRound
+/** @ignore */
+const LongCount = require('./long-count').LongCount
+/** @ignore */
+const wildcard = require('./wildcard')
 
 /**
  * An abstract class to handle the create of an object from a string
@@ -78,9 +82,30 @@ class CalendarRoundFactory extends Factory {
   }
 }
 
+/**
+ * A factory to create a LongCount object from a string
+ * @extends Factory
+ * @example
+ *    let cr = new LongCountFactory().parse("9.4.2.4.1");
+ * @example
+ *    let cr = new LongCountFactory().parse("9.4.2.*.1");
+ */
 class LongCountFactory extends Factory {
-  parse(raw) {
-    let parts
+  /**
+   * Given a string, parse it and create a Long Count
+   * @param {string} raw - A string containing a Long Count
+   * @returns {LongCount}
+   */
+  parse (raw) {
+    let parts = raw.split('.')
+    for (let i = 0; i < parts.length; i++) {
+      if (parts[i] === '*') {
+        parts[i] = wildcard
+      } else {
+        parts[i] = parseInt(parts[i])
+      }
+    }
+    return new LongCount(...parts.reverse())
   }
 }
 
