@@ -75,10 +75,12 @@ class CalendarRoundFactory extends Factory {
    */
   parse (raw) {
     let parts = this._split(raw)
-    return new CalendarRound(
-      parseInt(parts[0]), parts[1],
-      parseInt(parts[2]), parts[3],
-    )
+    return (parts.length < 4) ?
+      null :
+      new CalendarRound(
+        parseInt(parts[0]), parts[1],
+        parseInt(parts[2]), parts[3],
+      )
   }
 }
 

@@ -200,6 +200,13 @@ class LongCount {
         break
       }
     }
+
+    for (let i = 0; i < significant_digits.length; i++) {
+      if (significant_digits[i] === undefined) {
+        significant_digits[i] = '0'
+      }
+    }
+
     let date_length = significant_digits.length
     if (date_length < 5) {
       for (let i = 0; i < 5 - date_length; i++) {

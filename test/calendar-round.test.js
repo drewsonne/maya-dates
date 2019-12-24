@@ -16,6 +16,11 @@ describe('increment calendar-rounds', () => {
     })
 })
 
+test('failed calendar-round parse', () => {
+  let cr = new mayadates.factory.CalendarRoundFactory().parse('World')
+  expect(cr).toBeNull()
+})
+
 describe('parse calendar-round', () => {
   let sources = [
     ['2 Ak\'bal 6 Muwan', [2, 'Ak\'bal', 6, 'Muwan']],
