@@ -1,5 +1,4 @@
-const LongCount = require('../src/long-count').LongCount
-const LongCountFactory = require('../src/factory').LongCountFactory
+const LongCountFactory = require('../src/factory/long-count')
 const wildcard = require('../src/wildcard')
 
 test('parse long-count date', () => {

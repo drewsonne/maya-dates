@@ -29,26 +29,24 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory.js~CalendarRoundFactory.html">CalendarRoundFactory</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory.js~Factory.html">Factory</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/haab.js~Haab.html">Haab</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/long-count.js~LongCount.html">LongCount</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tzolkin.js~Tzolkin.html">Tzolkin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tzolkin.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin.js~Tzolkin.html">Tzolkin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#factory">factory</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/base.js~Factory.html">Factory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/calendar-round.js~CalendarRoundFactory.html">CalendarRoundFactory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc">lc</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/operations/calendar-round-wildcard.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const wildcard = require(&apos;../wildcard&apos;)
-const mayadates = require(&apos;../index&apos;)
-
-let _all_calendar_rounds
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const CalendarRound = require(&apos;../cr/calendar-round&apos;)
+const wildcard = require(&apos;../wildcard&apos;)
 
 class CalendarRoundWildcard {
   /**
@@ -56,7 +54,7 @@ class CalendarRoundWildcard {
    */
   constructor (cr) {
     this.cr = cr
-    this.start_date = new mayadates.cr.CalendarRound(
+    this.start_date = new CalendarRound(
       8, &apos;Ajaw&apos;,
       4, &apos;Kumk\&apos;u&apos;,
     )
@@ -64,18 +62,16 @@ class CalendarRoundWildcard {
 
   run () {
     let potentials = []
-    // 1 - Do wildcards for Tzolkin coeff
-    if (this.cr.tzolkin.coeff === wildcard) {
-      let new_potentials = []
-      for (let i = 1; i &lt; 13; i++) {
-        let new_cr = this.cr.clone()
-        new_cr.tz
+    // Iterate through dates and compare
+    let iter = new CalendarRoundIterator()
+    let cr = iter.next()
+    while (!cr.done) {
+      if (this._date_matches_wildcards(this.cr, cr.value)) {
+        potentials.push(cr.value)
       }
-      potentials = new_potentials
+      cr = iter.next()
     }
-    // 2 - Do wildcards for Tzolkin day
-    // 3 - Do wildcards for Haab coeff
-    // 4 - Do wildcards for Haab month
+    return potentials
   }
 
   /**
@@ -87,22 +83,62 @@ class CalendarRoundWildcard {
     partial,
     full,
   ) {
-    let is_match = false
+    let is_match = true
     if (partial.tzolkin.coeff !== wildcard) {
-      is_match |= (partial.tzolkin.coeff === full.tzolkin.coeff)
+      is_match &amp;= (partial.tzolkin.coeff === full.tzolkin.coeff)
     }
     if (partial.tzolkin.day !== wildcard) {
-      is_match |= (partial.tzolkin.day === full.tzolkin.day)
+      is_match &amp;= (partial.tzolkin.name === full.tzolkin.name)
     }
     if (partial.haab.coeff !== wildcard) {
-      is_match |= (partial.haab.coeff === full.haab.coeff)
+      is_match &amp;= (partial.haab.coeff === full.haab.coeff)
     }
     if (partial.haab.month !== wildcard) {
-      is_match |= (partial.haab.month === full.haab.month)
+      is_match &amp;= (partial.haab.name === full.haab.name)
     }
-    return is_match
+
+    if (!is_match) {
+      is_match = (partial.haab.coeff === wildcard) &amp;&amp;
+        (partial.haab.name === wildcard) &amp;&amp;
+        (partial.tzolkin.coeff === wildcard) &amp;&amp;
+        (partial.tzolkin.name === wildcard)
+    }
+    return Boolean(is_match)
 
   }
+}
+
+class CalendarRoundIterator {
+  /**
+   *
+   * @param {CalendarRound} date
+   */
+  constructor (date) {
+    if (date === undefined) {
+      date = new CalendarRound(
+        8, &apos;Ajaw&apos;,
+        4, &apos;Kumk\&apos;u&apos;,
+      )
+    }
+    this.date = date
+    this.current = this.date
+    this.is_first = true
+  }
+
+  next () {
+    if (this.is_first) {
+      this.is_first = false
+      return {value: this.current, done: false}
+    }
+    let next = this.current.next()
+    if (next.equal(this.date)) {
+      return {value: null, done: true}
+    } else {
+      this.current = next
+      return {value: next, done: false}
+    }
+  }
+
 }
 
 module.exports = CalendarRoundWildcard

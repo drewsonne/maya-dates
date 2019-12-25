@@ -1,44 +1,44 @@
 window.esdocSearchIndex = [
   [
-    "@drewsonne/maya-dates/src/calendar-round.js~calendarround",
-    "class/src/calendar-round.js~CalendarRound.html",
-    "<span>CalendarRound</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/calendar-round.js</span>",
+    "@drewsonne/maya-dates/src/cr/calendar-round.js~calendarround",
+    "class/src/cr/calendar-round.js~CalendarRound.html",
+    "<span>CalendarRound</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/calendar-round.js</span>",
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/factory.js~calendarroundfactory",
-    "class/src/factory.js~CalendarRoundFactory.html",
-    "<span>CalendarRoundFactory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory.js</span>",
+    "@drewsonne/maya-dates/src/factory/calendar-round.js~calendarroundfactory",
+    "class/src/factory/calendar-round.js~CalendarRoundFactory.html",
+    "<span>CalendarRoundFactory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory/calendar-round.js</span>",
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/factory.js~factory",
-    "class/src/factory.js~Factory.html",
-    "<span>Factory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory.js</span>",
+    "@drewsonne/maya-dates/src/factory/base.js~factory",
+    "class/src/factory/base.js~Factory.html",
+    "<span>Factory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory/base.js</span>",
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/haab.js~haab",
-    "class/src/haab.js~Haab.html",
-    "<span>Haab</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/haab.js</span>",
+    "@drewsonne/maya-dates/src/cr/haab.js~haab",
+    "class/src/cr/haab.js~Haab.html",
+    "<span>Haab</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/haab.js</span>",
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/haab.js~haabmonth",
-    "class/src/haab.js~HaabMonth.html",
-    "<span>HaabMonth</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/haab.js</span>",
+    "@drewsonne/maya-dates/src/cr/haab.js~haabmonth",
+    "class/src/cr/haab.js~HaabMonth.html",
+    "<span>HaabMonth</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/haab.js</span>",
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/long-count.js~longcount",
-    "class/src/long-count.js~LongCount.html",
-    "<span>LongCount</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/long-count.js</span>",
+    "@drewsonne/maya-dates/src/lc/long-count.js~longcount",
+    "class/src/lc/long-count.js~LongCount.html",
+    "<span>LongCount</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/long-count.js</span>",
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/factory.js~longcountfactory",
-    "class/src/factory.js~LongCountFactory.html",
-    "<span>LongCountFactory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory.js</span>",
+    "@drewsonne/maya-dates/src/factory/long-count.js~longcountfactory",
+    "class/src/factory/long-count.js~LongCountFactory.html",
+    "<span>LongCountFactory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory/long-count.js</span>",
     "class"
   ],
   [
@@ -48,15 +48,15 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/tzolkin.js~tzolkin",
-    "class/src/tzolkin.js~Tzolkin.html",
-    "<span>Tzolkin</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/tzolkin.js</span>",
+    "@drewsonne/maya-dates/src/cr/tzolkin.js~tzolkin",
+    "class/src/cr/tzolkin.js~Tzolkin.html",
+    "<span>Tzolkin</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/tzolkin.js</span>",
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/tzolkin.js~tzolkinday",
-    "class/src/tzolkin.js~TzolkinDay.html",
-    "<span>TzolkinDay</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/tzolkin.js</span>",
+    "@drewsonne/maya-dates/src/cr/tzolkin.js~tzolkinday",
+    "class/src/cr/tzolkin.js~TzolkinDay.html",
+    "<span>TzolkinDay</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/tzolkin.js</span>",
     "class"
   ],
   [
@@ -348,153 +348,243 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
-    "src/calendar-round.js",
-    "file/src/calendar-round.js.html",
-    "src/calendar-round.js",
+    "src/cr/calendar-round.js",
+    "file/src/cr/calendar-round.js.html",
+    "src/cr/calendar-round.js",
     "file"
   ],
   [
-    "src/calendar-round.js~calendarround#constructor",
-    "class/src/calendar-round.js~CalendarRound.html#instance-constructor-constructor",
-    "src/calendar-round.js~CalendarRound#constructor",
+    "src/cr/calendar-round.js~calendarround#constructor",
+    "class/src/cr/calendar-round.js~CalendarRound.html#instance-constructor-constructor",
+    "src/cr/calendar-round.js~CalendarRound#constructor",
     "method"
   ],
   [
-    "src/calendar-round.js~calendarround#haab",
-    "class/src/calendar-round.js~CalendarRound.html#instance-member-haab",
-    "src/calendar-round.js~CalendarRound#haab",
+    "src/cr/calendar-round.js~calendarround#haab",
+    "class/src/cr/calendar-round.js~CalendarRound.html#instance-member-haab",
+    "src/cr/calendar-round.js~CalendarRound#haab",
     "member"
   ],
   [
-    "src/calendar-round.js~calendarround#next",
-    "class/src/calendar-round.js~CalendarRound.html#instance-method-next",
-    "src/calendar-round.js~CalendarRound#next",
+    "src/cr/calendar-round.js~calendarround#next",
+    "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-next",
+    "src/cr/calendar-round.js~CalendarRound#next",
     "method"
   ],
   [
-    "src/calendar-round.js~calendarround#tostring",
-    "class/src/calendar-round.js~CalendarRound.html#instance-method-toString",
-    "src/calendar-round.js~CalendarRound#toString",
+    "src/cr/calendar-round.js~calendarround#tostring",
+    "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-toString",
+    "src/cr/calendar-round.js~CalendarRound#toString",
     "method"
   ],
   [
-    "src/calendar-round.js~calendarround#tzolkin",
-    "class/src/calendar-round.js~CalendarRound.html#instance-member-tzolkin",
-    "src/calendar-round.js~CalendarRound#tzolkin",
+    "src/cr/calendar-round.js~calendarround#tzolkin",
+    "class/src/cr/calendar-round.js~CalendarRound.html#instance-member-tzolkin",
+    "src/cr/calendar-round.js~CalendarRound#tzolkin",
     "member"
   ],
   [
-    "src/factory.js",
-    "file/src/factory.js.html",
-    "src/factory.js",
+    "src/cr/haab.js",
+    "file/src/cr/haab.js.html",
+    "src/cr/haab.js",
     "file"
   ],
   [
-    "src/factory.js~calendarroundfactory#constructor",
-    "class/src/factory.js~CalendarRoundFactory.html#instance-constructor-constructor",
-    "src/factory.js~CalendarRoundFactory#constructor",
-    "method"
-  ],
-  [
-    "src/factory.js~calendarroundfactory#parse",
-    "class/src/factory.js~CalendarRoundFactory.html#instance-method-parse",
-    "src/factory.js~CalendarRoundFactory#parse",
-    "method"
-  ],
-  [
-    "src/factory.js~calendarroundfactory#pattern",
-    "class/src/factory.js~CalendarRoundFactory.html#instance-member-pattern",
-    "src/factory.js~CalendarRoundFactory#pattern",
+    "src/cr/haab.js~haab#coeff",
+    "class/src/cr/haab.js~Haab.html#instance-member-coeff",
+    "src/cr/haab.js~Haab#coeff",
     "member"
   ],
   [
-    "src/factory.js~factory#_split",
-    "class/src/factory.js~Factory.html#instance-method-_split",
-    "src/factory.js~Factory#_split",
+    "src/cr/haab.js~haab#constructor",
+    "class/src/cr/haab.js~Haab.html#instance-constructor-constructor",
+    "src/cr/haab.js~Haab#constructor",
     "method"
   ],
   [
-    "src/factory.js~factory#constructor",
-    "class/src/factory.js~Factory.html#instance-constructor-constructor",
-    "src/factory.js~Factory#constructor",
-    "method"
-  ],
-  [
-    "src/factory.js~factory#pattern",
-    "class/src/factory.js~Factory.html#instance-member-pattern",
-    "src/factory.js~Factory#pattern",
+    "src/cr/haab.js~haab#month",
+    "class/src/cr/haab.js~Haab.html#instance-member-month",
+    "src/cr/haab.js~Haab#month",
     "member"
   ],
   [
-    "src/factory.js~longcountfactory#parse",
-    "class/src/factory.js~LongCountFactory.html#instance-method-parse",
-    "src/factory.js~LongCountFactory#parse",
+    "src/cr/haab.js~haab#name",
+    "class/src/cr/haab.js~Haab.html#instance-get-name",
+    "src/cr/haab.js~Haab#name",
+    "member"
+  ],
+  [
+    "src/cr/haab.js~haab#next",
+    "class/src/cr/haab.js~Haab.html#instance-method-next",
+    "src/cr/haab.js~Haab#next",
     "method"
   ],
   [
-    "src/haab.js",
-    "file/src/haab.js.html",
-    "src/haab.js",
+    "src/cr/haab.js~haab#tostring",
+    "class/src/cr/haab.js~Haab.html#instance-method-toString",
+    "src/cr/haab.js~Haab#toString",
+    "method"
+  ],
+  [
+    "src/cr/haab.js~haabmonth#constructor",
+    "class/src/cr/haab.js~HaabMonth.html#instance-constructor-constructor",
+    "src/cr/haab.js~HaabMonth#constructor",
+    "method"
+  ],
+  [
+    "src/cr/haab.js~haabmonth#months",
+    "class/src/cr/haab.js~HaabMonth.html#instance-member-months",
+    "src/cr/haab.js~HaabMonth#months",
+    "member"
+  ],
+  [
+    "src/cr/haab.js~haabmonth#name",
+    "class/src/cr/haab.js~HaabMonth.html#instance-member-name",
+    "src/cr/haab.js~HaabMonth#name",
+    "member"
+  ],
+  [
+    "src/cr/haab.js~haabmonth#next",
+    "class/src/cr/haab.js~HaabMonth.html#instance-method-next",
+    "src/cr/haab.js~HaabMonth#next",
+    "method"
+  ],
+  [
+    "src/cr/index.js",
+    "file/src/cr/index.js.html",
+    "src/cr/index.js",
     "file"
   ],
   [
-    "src/haab.js~haab#coeff",
-    "class/src/haab.js~Haab.html#instance-member-coeff",
-    "src/haab.js~Haab#coeff",
+    "src/cr/tzolkin.js",
+    "file/src/cr/tzolkin.js.html",
+    "src/cr/tzolkin.js",
+    "file"
+  ],
+  [
+    "src/cr/tzolkin.js~tzolkin#coeff",
+    "class/src/cr/tzolkin.js~Tzolkin.html#instance-member-coeff",
+    "src/cr/tzolkin.js~Tzolkin#coeff",
     "member"
   ],
   [
-    "src/haab.js~haab#constructor",
-    "class/src/haab.js~Haab.html#instance-constructor-constructor",
-    "src/haab.js~Haab#constructor",
+    "src/cr/tzolkin.js~tzolkin#constructor",
+    "class/src/cr/tzolkin.js~Tzolkin.html#instance-constructor-constructor",
+    "src/cr/tzolkin.js~Tzolkin#constructor",
     "method"
   ],
   [
-    "src/haab.js~haab#month",
-    "class/src/haab.js~Haab.html#instance-member-month",
-    "src/haab.js~Haab#month",
+    "src/cr/tzolkin.js~tzolkin#day",
+    "class/src/cr/tzolkin.js~Tzolkin.html#instance-member-day",
+    "src/cr/tzolkin.js~Tzolkin#day",
     "member"
   ],
   [
-    "src/haab.js~haab#name",
-    "class/src/haab.js~Haab.html#instance-get-name",
-    "src/haab.js~Haab#name",
+    "src/cr/tzolkin.js~tzolkin#name",
+    "class/src/cr/tzolkin.js~Tzolkin.html#instance-get-name",
+    "src/cr/tzolkin.js~Tzolkin#name",
     "member"
   ],
   [
-    "src/haab.js~haab#next",
-    "class/src/haab.js~Haab.html#instance-method-next",
-    "src/haab.js~Haab#next",
+    "src/cr/tzolkin.js~tzolkin#next",
+    "class/src/cr/tzolkin.js~Tzolkin.html#instance-method-next",
+    "src/cr/tzolkin.js~Tzolkin#next",
     "method"
   ],
   [
-    "src/haab.js~haab#tostring",
-    "class/src/haab.js~Haab.html#instance-method-toString",
-    "src/haab.js~Haab#toString",
+    "src/cr/tzolkin.js~tzolkin#tostring",
+    "class/src/cr/tzolkin.js~Tzolkin.html#instance-method-toString",
+    "src/cr/tzolkin.js~Tzolkin#toString",
     "method"
   ],
   [
-    "src/haab.js~haabmonth#constructor",
-    "class/src/haab.js~HaabMonth.html#instance-constructor-constructor",
-    "src/haab.js~HaabMonth#constructor",
+    "src/cr/tzolkin.js~tzolkinday#constructor",
+    "class/src/cr/tzolkin.js~TzolkinDay.html#instance-constructor-constructor",
+    "src/cr/tzolkin.js~TzolkinDay#constructor",
     "method"
   ],
   [
-    "src/haab.js~haabmonth#months",
-    "class/src/haab.js~HaabMonth.html#instance-member-months",
-    "src/haab.js~HaabMonth#months",
+    "src/cr/tzolkin.js~tzolkinday#days",
+    "class/src/cr/tzolkin.js~TzolkinDay.html#instance-member-days",
+    "src/cr/tzolkin.js~TzolkinDay#days",
     "member"
   ],
   [
-    "src/haab.js~haabmonth#name",
-    "class/src/haab.js~HaabMonth.html#instance-member-name",
-    "src/haab.js~HaabMonth#name",
+    "src/cr/tzolkin.js~tzolkinday#name",
+    "class/src/cr/tzolkin.js~TzolkinDay.html#instance-member-name",
+    "src/cr/tzolkin.js~TzolkinDay#name",
     "member"
   ],
   [
-    "src/haab.js~haabmonth#next",
-    "class/src/haab.js~HaabMonth.html#instance-method-next",
-    "src/haab.js~HaabMonth#next",
+    "src/cr/tzolkin.js~tzolkinday#next",
+    "class/src/cr/tzolkin.js~TzolkinDay.html#instance-method-next",
+    "src/cr/tzolkin.js~TzolkinDay#next",
+    "method"
+  ],
+  [
+    "src/factory/base.js",
+    "file/src/factory/base.js.html",
+    "src/factory/base.js",
+    "file"
+  ],
+  [
+    "src/factory/base.js~factory#_split",
+    "class/src/factory/base.js~Factory.html#instance-method-_split",
+    "src/factory/base.js~Factory#_split",
+    "method"
+  ],
+  [
+    "src/factory/base.js~factory#constructor",
+    "class/src/factory/base.js~Factory.html#instance-constructor-constructor",
+    "src/factory/base.js~Factory#constructor",
+    "method"
+  ],
+  [
+    "src/factory/base.js~factory#pattern",
+    "class/src/factory/base.js~Factory.html#instance-member-pattern",
+    "src/factory/base.js~Factory#pattern",
+    "member"
+  ],
+  [
+    "src/factory/calendar-round.js",
+    "file/src/factory/calendar-round.js.html",
+    "src/factory/calendar-round.js",
+    "file"
+  ],
+  [
+    "src/factory/calendar-round.js~calendarroundfactory#constructor",
+    "class/src/factory/calendar-round.js~CalendarRoundFactory.html#instance-constructor-constructor",
+    "src/factory/calendar-round.js~CalendarRoundFactory#constructor",
+    "method"
+  ],
+  [
+    "src/factory/calendar-round.js~calendarroundfactory#parse",
+    "class/src/factory/calendar-round.js~CalendarRoundFactory.html#instance-method-parse",
+    "src/factory/calendar-round.js~CalendarRoundFactory#parse",
+    "method"
+  ],
+  [
+    "src/factory/calendar-round.js~calendarroundfactory#pattern",
+    "class/src/factory/calendar-round.js~CalendarRoundFactory.html#instance-member-pattern",
+    "src/factory/calendar-round.js~CalendarRoundFactory#pattern",
+    "member"
+  ],
+  [
+    "src/factory/index.js",
+    "file/src/factory/index.js.html",
+    "src/factory/index.js",
+    "file"
+  ],
+  [
+    "src/factory/long-count.js",
+    "file/src/factory/long-count.js.html",
+    "src/factory/long-count.js",
+    "file"
+  ],
+  [
+    "src/factory/long-count.js~longcountfactory#parse",
+    "class/src/factory/long-count.js~LongCountFactory.html#instance-method-parse",
+    "src/factory/long-count.js~LongCountFactory#parse",
     "method"
   ],
   [
@@ -504,165 +594,171 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/long-count.js",
-    "file/src/long-count.js.html",
-    "src/long-count.js",
+    "src/lc/index.js",
+    "file/src/lc/index.js.html",
+    "src/lc/index.js",
     "file"
   ],
   [
-    "src/long-count.js~longcount#_get_date_sections",
-    "class/src/long-count.js~LongCount.html#instance-method-_get_date_sections",
-    "src/long-count.js~LongCount#_get_date_sections",
+    "src/lc/long-count.js",
+    "file/src/lc/long-count.js.html",
+    "src/lc/long-count.js",
+    "file"
+  ],
+  [
+    "src/lc/long-count.js~longcount#_get_date_sections",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-_get_date_sections",
+    "src/lc/long-count.js~LongCount#_get_date_sections",
     "method"
   ],
   [
-    "src/long-count.js~longcount#_set_date_sections",
-    "class/src/long-count.js~LongCount.html#instance-method-_set_date_sections",
-    "src/long-count.js~LongCount#_set_date_sections",
+    "src/lc/long-count.js~longcount#_set_date_sections",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-_set_date_sections",
+    "src/lc/long-count.js~LongCount#_set_date_sections",
     "method"
   ],
   [
-    "src/long-count.js~longcount#bak_tun",
-    "class/src/long-count.js~LongCount.html#instance-set-bak_tun",
-    "src/long-count.js~LongCount#bak_tun",
+    "src/lc/long-count.js~longcount#bak_tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-bak_tun",
+    "src/lc/long-count.js~LongCount#bak_tun",
     "member"
   ],
   [
-    "src/long-count.js~longcount#bak_tun",
-    "class/src/long-count.js~LongCount.html#instance-get-bak_tun",
-    "src/long-count.js~LongCount#bak_tun",
+    "src/lc/long-count.js~longcount#bak_tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-bak_tun",
+    "src/lc/long-count.js~LongCount#bak_tun",
     "member"
   ],
   [
-    "src/long-count.js~longcount#clone",
-    "class/src/long-count.js~LongCount.html#instance-method-clone",
-    "src/long-count.js~LongCount#clone",
+    "src/lc/long-count.js~longcount#clone",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-clone",
+    "src/lc/long-count.js~LongCount#clone",
     "method"
   ],
   [
-    "src/long-count.js~longcount#constructor",
-    "class/src/long-count.js~LongCount.html#instance-constructor-constructor",
-    "src/long-count.js~LongCount#constructor",
+    "src/lc/long-count.js~longcount#constructor",
+    "class/src/lc/long-count.js~LongCount.html#instance-constructor-constructor",
+    "src/lc/long-count.js~LongCount#constructor",
     "method"
   ],
   [
-    "src/long-count.js~longcount#date_pattern",
-    "class/src/long-count.js~LongCount.html#instance-member-date_pattern",
-    "src/long-count.js~LongCount#date_pattern",
+    "src/lc/long-count.js~longcount#date_pattern",
+    "class/src/lc/long-count.js~LongCount.html#instance-member-date_pattern",
+    "src/lc/long-count.js~LongCount#date_pattern",
     "member"
   ],
   [
-    "src/long-count.js~longcount#is_valid",
-    "class/src/long-count.js~LongCount.html#instance-method-is_valid",
-    "src/long-count.js~LongCount#is_valid",
+    "src/lc/long-count.js~longcount#is_valid",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-is_valid",
+    "src/lc/long-count.js~LongCount#is_valid",
     "method"
   ],
   [
-    "src/long-count.js~longcount#k_atun",
-    "class/src/long-count.js~LongCount.html#instance-set-k_atun",
-    "src/long-count.js~LongCount#k_atun",
+    "src/lc/long-count.js~longcount#k_atun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-k_atun",
+    "src/lc/long-count.js~LongCount#k_atun",
     "member"
   ],
   [
-    "src/long-count.js~longcount#k_atun",
-    "class/src/long-count.js~LongCount.html#instance-get-k_atun",
-    "src/long-count.js~LongCount#k_atun",
+    "src/lc/long-count.js~longcount#k_atun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-k_atun",
+    "src/lc/long-count.js~LongCount#k_atun",
     "member"
   ],
   [
-    "src/long-count.js~longcount#k_in",
-    "class/src/long-count.js~LongCount.html#instance-set-k_in",
-    "src/long-count.js~LongCount#k_in",
+    "src/lc/long-count.js~longcount#k_in",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-k_in",
+    "src/lc/long-count.js~LongCount#k_in",
     "member"
   ],
   [
-    "src/long-count.js~longcount#k_in",
-    "class/src/long-count.js~LongCount.html#instance-get-k_in",
-    "src/long-count.js~LongCount#k_in",
+    "src/lc/long-count.js~longcount#k_in",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-k_in",
+    "src/lc/long-count.js~LongCount#k_in",
     "member"
   ],
   [
-    "src/long-count.js~longcount#kalabtun",
-    "class/src/long-count.js~LongCount.html#instance-set-kalabtun",
-    "src/long-count.js~LongCount#kalabtun",
+    "src/lc/long-count.js~longcount#kalabtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kalabtun",
+    "src/lc/long-count.js~LongCount#kalabtun",
     "member"
   ],
   [
-    "src/long-count.js~longcount#kalabtun",
-    "class/src/long-count.js~LongCount.html#instance-get-kalabtun",
-    "src/long-count.js~LongCount#kalabtun",
+    "src/lc/long-count.js~longcount#kalabtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kalabtun",
+    "src/lc/long-count.js~LongCount#kalabtun",
     "member"
   ],
   [
-    "src/long-count.js~longcount#kinchiltun",
-    "class/src/long-count.js~LongCount.html#instance-set-kinchiltun",
-    "src/long-count.js~LongCount#kinchiltun",
+    "src/lc/long-count.js~longcount#kinchiltun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kinchiltun",
+    "src/lc/long-count.js~LongCount#kinchiltun",
     "member"
   ],
   [
-    "src/long-count.js~longcount#kinchiltun",
-    "class/src/long-count.js~LongCount.html#instance-get-kinchiltun",
-    "src/long-count.js~LongCount#kinchiltun",
+    "src/lc/long-count.js~longcount#kinchiltun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kinchiltun",
+    "src/lc/long-count.js~LongCount#kinchiltun",
     "member"
   ],
   [
-    "src/long-count.js~longcount#length",
-    "class/src/long-count.js~LongCount.html#instance-get-length",
-    "src/long-count.js~LongCount#length",
+    "src/lc/long-count.js~longcount#length",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-length",
+    "src/lc/long-count.js~LongCount#length",
     "member"
   ],
   [
-    "src/long-count.js~longcount#parts",
-    "class/src/long-count.js~LongCount.html#instance-member-parts",
-    "src/long-count.js~LongCount#parts",
+    "src/lc/long-count.js~longcount#parts",
+    "class/src/lc/long-count.js~LongCount.html#instance-member-parts",
+    "src/lc/long-count.js~LongCount#parts",
     "member"
   ],
   [
-    "src/long-count.js~longcount#piktun",
-    "class/src/long-count.js~LongCount.html#instance-set-piktun",
-    "src/long-count.js~LongCount#piktun",
+    "src/lc/long-count.js~longcount#piktun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-piktun",
+    "src/lc/long-count.js~LongCount#piktun",
     "member"
   ],
   [
-    "src/long-count.js~longcount#piktun",
-    "class/src/long-count.js~LongCount.html#instance-get-piktun",
-    "src/long-count.js~LongCount#piktun",
+    "src/lc/long-count.js~longcount#piktun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-piktun",
+    "src/lc/long-count.js~LongCount#piktun",
     "member"
   ],
   [
-    "src/long-count.js~longcount#raw",
-    "class/src/long-count.js~LongCount.html#instance-member-raw",
-    "src/long-count.js~LongCount#raw",
+    "src/lc/long-count.js~longcount#raw",
+    "class/src/lc/long-count.js~LongCount.html#instance-member-raw",
+    "src/lc/long-count.js~LongCount#raw",
     "member"
   ],
   [
-    "src/long-count.js~longcount#tostring",
-    "class/src/long-count.js~LongCount.html#instance-method-toString",
-    "src/long-count.js~LongCount#toString",
+    "src/lc/long-count.js~longcount#tostring",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-toString",
+    "src/lc/long-count.js~LongCount#toString",
     "method"
   ],
   [
-    "src/long-count.js~longcount#tun",
-    "class/src/long-count.js~LongCount.html#instance-set-tun",
-    "src/long-count.js~LongCount#tun",
+    "src/lc/long-count.js~longcount#tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-tun",
+    "src/lc/long-count.js~LongCount#tun",
     "member"
   ],
   [
-    "src/long-count.js~longcount#tun",
-    "class/src/long-count.js~LongCount.html#instance-get-tun",
-    "src/long-count.js~LongCount#tun",
+    "src/lc/long-count.js~longcount#tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-tun",
+    "src/lc/long-count.js~LongCount#tun",
     "member"
   ],
   [
-    "src/long-count.js~longcount#winal",
-    "class/src/long-count.js~LongCount.html#instance-set-winal",
-    "src/long-count.js~LongCount#winal",
+    "src/lc/long-count.js~longcount#winal",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-winal",
+    "src/lc/long-count.js~LongCount#winal",
     "member"
   ],
   [
-    "src/long-count.js~longcount#winal",
-    "class/src/long-count.js~LongCount.html#instance-get-winal",
-    "src/long-count.js~LongCount#winal",
+    "src/lc/long-count.js~longcount#winal",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-winal",
+    "src/lc/long-count.js~LongCount#winal",
     "member"
   ],
   [
@@ -687,72 +783,6 @@ window.esdocSearchIndex = [
     "src/operations/longcount-wildcard.js~longcountwildcard#constructor",
     "class/src/operations/longcount-wildcard.js~LongCountWildcard.html#instance-constructor-constructor",
     "src/operations/longcount-wildcard.js~LongCountWildcard#constructor",
-    "method"
-  ],
-  [
-    "src/tzolkin.js",
-    "file/src/tzolkin.js.html",
-    "src/tzolkin.js",
-    "file"
-  ],
-  [
-    "src/tzolkin.js~tzolkin#coeff",
-    "class/src/tzolkin.js~Tzolkin.html#instance-member-coeff",
-    "src/tzolkin.js~Tzolkin#coeff",
-    "member"
-  ],
-  [
-    "src/tzolkin.js~tzolkin#constructor",
-    "class/src/tzolkin.js~Tzolkin.html#instance-constructor-constructor",
-    "src/tzolkin.js~Tzolkin#constructor",
-    "method"
-  ],
-  [
-    "src/tzolkin.js~tzolkin#day",
-    "class/src/tzolkin.js~Tzolkin.html#instance-member-day",
-    "src/tzolkin.js~Tzolkin#day",
-    "member"
-  ],
-  [
-    "src/tzolkin.js~tzolkin#name",
-    "class/src/tzolkin.js~Tzolkin.html#instance-get-name",
-    "src/tzolkin.js~Tzolkin#name",
-    "member"
-  ],
-  [
-    "src/tzolkin.js~tzolkin#next",
-    "class/src/tzolkin.js~Tzolkin.html#instance-method-next",
-    "src/tzolkin.js~Tzolkin#next",
-    "method"
-  ],
-  [
-    "src/tzolkin.js~tzolkin#tostring",
-    "class/src/tzolkin.js~Tzolkin.html#instance-method-toString",
-    "src/tzolkin.js~Tzolkin#toString",
-    "method"
-  ],
-  [
-    "src/tzolkin.js~tzolkinday#constructor",
-    "class/src/tzolkin.js~TzolkinDay.html#instance-constructor-constructor",
-    "src/tzolkin.js~TzolkinDay#constructor",
-    "method"
-  ],
-  [
-    "src/tzolkin.js~tzolkinday#days",
-    "class/src/tzolkin.js~TzolkinDay.html#instance-member-days",
-    "src/tzolkin.js~TzolkinDay#days",
-    "member"
-  ],
-  [
-    "src/tzolkin.js~tzolkinday#name",
-    "class/src/tzolkin.js~TzolkinDay.html#instance-member-name",
-    "src/tzolkin.js~TzolkinDay#name",
-    "member"
-  ],
-  [
-    "src/tzolkin.js~tzolkinday#next",
-    "class/src/tzolkin.js~TzolkinDay.html#instance-method-next",
-    "src/tzolkin.js~TzolkinDay#next",
     "method"
   ],
   [

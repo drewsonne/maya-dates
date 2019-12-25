@@ -1,7 +1,5 @@
+const CalendarRound = require('../cr/calendar-round')
 const wildcard = require('../wildcard')
-const mayadates = require('../index')
-
-let _all_calendar_rounds
 
 class CalendarRoundWildcard {
   /**
@@ -9,7 +7,7 @@ class CalendarRoundWildcard {
    */
   constructor (cr) {
     this.cr = cr
-    this.start_date = new mayadates.cr.CalendarRound(
+    this.start_date = new CalendarRound(
       8, 'Ajaw',
       4, 'Kumk\'u',
     )
@@ -17,18 +15,16 @@ class CalendarRoundWildcard {
 
   run () {
     let potentials = []
-    // 1 - Do wildcards for Tzolkin coeff
-    if (this.cr.tzolkin.coeff === wildcard) {
-      let new_potentials = []
-      for (let i = 1; i < 13; i++) {
-        let new_cr = this.cr.clone()
-        new_cr.tz
+    // Iterate through dates and compare
+    let iter = new CalendarRoundIterator()
+    let cr = iter.next()
+    while (!cr.done) {
+      if (this._date_matches_wildcards(this.cr, cr.value)) {
+        potentials.push(cr.value)
       }
-      potentials = new_potentials
+      cr = iter.next()
     }
-    // 2 - Do wildcards for Tzolkin day
-    // 3 - Do wildcards for Haab coeff
-    // 4 - Do wildcards for Haab month
+    return potentials
   }
 
   /**
@@ -40,22 +36,62 @@ class CalendarRoundWildcard {
     partial,
     full,
   ) {
-    let is_match = false
+    let is_match = true
     if (partial.tzolkin.coeff !== wildcard) {
-      is_match |= (partial.tzolkin.coeff === full.tzolkin.coeff)
+      is_match &= (partial.tzolkin.coeff === full.tzolkin.coeff)
     }
     if (partial.tzolkin.day !== wildcard) {
-      is_match |= (partial.tzolkin.day === full.tzolkin.day)
+      is_match &= (partial.tzolkin.name === full.tzolkin.name)
     }
     if (partial.haab.coeff !== wildcard) {
-      is_match |= (partial.haab.coeff === full.haab.coeff)
+      is_match &= (partial.haab.coeff === full.haab.coeff)
     }
     if (partial.haab.month !== wildcard) {
-      is_match |= (partial.haab.month === full.haab.month)
+      is_match &= (partial.haab.name === full.haab.name)
     }
-    return is_match
+
+    if (!is_match) {
+      is_match = (partial.haab.coeff === wildcard) &&
+        (partial.haab.name === wildcard) &&
+        (partial.tzolkin.coeff === wildcard) &&
+        (partial.tzolkin.name === wildcard)
+    }
+    return Boolean(is_match)
 
   }
+}
+
+class CalendarRoundIterator {
+  /**
+   *
+   * @param {CalendarRound} date
+   */
+  constructor (date) {
+    if (date === undefined) {
+      date = new CalendarRound(
+        8, 'Ajaw',
+        4, 'Kumk\'u',
+      )
+    }
+    this.date = date
+    this.current = this.date
+    this.is_first = true
+  }
+
+  next () {
+    if (this.is_first) {
+      this.is_first = false
+      return {value: this.current, done: false}
+    }
+    let next = this.current.next()
+    if (next.equal(this.date)) {
+      return {value: null, done: true}
+    } else {
+      this.current = next
+      return {value: next, done: false}
+    }
+  }
+
 }
 
 module.exports = CalendarRoundWildcard

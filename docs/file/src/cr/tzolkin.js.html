@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/cr/tzolkin.js | @drewsonne/maya-dates</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Node.js package to represent dates in the Maya Calendar"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@drewsonne/maya-dates"><meta property="twitter:description" content="Node.js package to represent dates in the Maya Calendar"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin.js~Tzolkin.html">Tzolkin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#factory">factory</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/base.js~Factory.html">Factory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/calendar-round.js~CalendarRoundFactory.html">CalendarRoundFactory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc">lc</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/cr/tzolkin.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
+const wildcard = require(&apos;../wildcard&apos;)
+
+/**
+ * Describes a date in the 260-day cycle with a position and a day
+ * @example
+ *    let day = new Tzolkin(4, &quot;Ajaw&quot;);
+ *
+ * @example
+ *    let day = new Tzolkin(4, new TzolkinDay(&quot;Ajaw&quot;));
+ *
+ */
+class Tzolkin {
+  /**
+   * Constructor
+   * @param {number} coeff - The position in the 260-day cycle
+   * @param {string|TzolkinDay} day
+   */
+  constructor (coeff, day) {
+    if (coeff !== undefined) {
+      if (coeff === &apos;*&apos;) {
+        coeff = wildcard
+      } else if (coeff !== wildcard) {
+        coeff = parseInt(coeff)
+      }
+    }
+    if (day !== undefined) {
+      if (typeof day === &apos;string&apos;) {
+        if (day === &apos;*&apos;) {
+          day = wildcard
+        } else {
+          day = _get_day(day)
+        }
+      }
+    }
+    /**
+     * @type {TzolkinDay}
+     */
+    this.day = day
+    /**
+     * @type {number}
+     */
+    this.coeff = coeff
+  }
+
+  /**
+   * Return the next day in the 260-day cycle
+   * @returns {Tzolkin}
+   */
+  next () {
+    let next_coeff = this.coeff + 1
+    let next_day = this.day.next()
+    return new Tzolkin(
+      (next_coeff % 13) === 0 ? 13 : next_coeff % 13,
+      next_day,
+    )
+  }
+
+  equal (new_tzolkin) {
+    return (this.coeff === new_tzolkin.coeff) &amp;&amp;
+      (this.name === new_tzolkin.name)
+  }
+
+  /**
+   * Return a string representation of the 260-day cycle name
+   * @returns {string}
+   */
+  get name () {
+    if (this.day === wildcard) {
+      return this.day
+    }
+    return this.day.name
+  }
+
+  /**
+   * Render the 260-day cycle date as a string
+   * @returns {string}
+   */
+  toString () {
+    return `${this.coeff} ${this.name}`
+  }
+}
+
+const _day_lookup = {}
+function _get_day(day_name) {
+  if (_day_lookup[day_name] === undefined) {
+    _day_lookup[day_name] = new TzolkinDay(day_name)
+  }
+  return _day_lookup[day_name]
+}
+
+/**
+ * Describes only the day component of a 260-day cycle
+ */
+class TzolkinDay {
+  /**
+   * @param {string} name - Name of the 260-day cycle day
+   */
+  constructor (name) {
+    /**
+     * Name of the day in the 260-day cycle
+     * @type {string}
+     */
+    this.name = name
+
+    /**
+     * Mapping of day names to indexes
+     * @type {Map&lt;number, string&gt;}
+     */
+    this.days = [
+      undefined,
+      &apos;Imix&apos;,
+      &apos;Ik\&apos;&apos;,
+      &apos;Ak\&apos;bal&apos;,
+      &apos;K\&apos;an&apos;,
+      &apos;Chikchan&apos;,
+      &apos;Kimi&apos;,
+      &apos;Manik&apos;,
+      &apos;Lamat&apos;,
+      &apos;Muluk&apos;,
+      &apos;Ok&apos;,
+      &apos;Chuwen&apos;,
+      &apos;Eb&apos;,
+      &apos;Ben&apos;,
+      &apos;Ix&apos;,
+      &apos;Men&apos;,
+      &apos;Kib&apos;,
+      &apos;Kaban&apos;,
+      &apos;Etz\&apos;nab&apos;,
+      &apos;Kawak&apos;,
+      &apos;Ajaw&apos;,
+    ]
+
+    this.day_position = this.days.findIndex(
+      d =&gt; d === this.name)
+  }
+
+  /**
+   * Return the next day in the 260-day cycle
+   * @returns {TzolkinDay}
+   */
+  next () {
+    let i = this.day_position + 1
+    if (i &gt; 20) {
+      i = 1
+    }
+    return _get_day(this.days[i])
+  }
+}
+
+module.exports = {
+  &apos;TzolkinDay&apos;: TzolkinDay,
+  &apos;Tzolkin&apos;: Tzolkin,
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

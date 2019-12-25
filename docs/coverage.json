@@ -1,38 +1,76 @@
 {
-  "coverage": "89.88%",
-  "expectCount": 89,
-  "actualCount": 80,
+  "coverage": "73.78%",
+  "expectCount": 103,
+  "actualCount": 76,
   "files": {
-    "src/calendar-round.js": {
-      "expectCount": 8,
-      "actualCount": 8,
-      "undocumentLines": []
+    "src/cr/calendar-round.js": {
+      "expectCount": 9,
+      "actualCount": 6,
+      "undocumentLines": [
+        1,
+        2,
+        41
+      ]
     },
-    "src/factory.js": {
-      "expectCount": 13,
+    "src/cr/haab.js": {
+      "expectCount": 14,
       "actualCount": 13,
-      "undocumentLines": []
+      "undocumentLines": [
+        55
+      ]
     },
-    "src/haab.js": {
-      "expectCount": 13,
+    "src/cr/tzolkin.js": {
+      "expectCount": 17,
       "actualCount": 13,
+      "undocumentLines": [
+        59,
+        84,
+        85,
+        134
+      ]
+    },
+    "src/factory/base.js": {
+      "expectCount": 4,
+      "actualCount": 4,
       "undocumentLines": []
     },
-    "src/long-count.js": {
+    "src/factory/calendar-round.js": {
+      "expectCount": 6,
+      "actualCount": 4,
+      "undocumentLines": [
+        1,
+        2
+      ]
+    },
+    "src/factory/long-count.js": {
+      "expectCount": 5,
+      "actualCount": 2,
+      "undocumentLines": [
+        1,
+        2,
+        3
+      ]
+    },
+    "src/lc/long-count.js": {
       "expectCount": 27,
       "actualCount": 27,
       "undocumentLines": []
     },
     "src/operations/calendar-round-wildcard.js": {
-      "expectCount": 8,
-      "actualCount": 2,
+      "expectCount": 14,
+      "actualCount": 3,
       "undocumentLines": [
         1,
         2,
-        6,
-        11,
-        12,
-        18
+        4,
+        9,
+        10,
+        16,
+        64,
+        76,
+        77,
+        78,
+        81
       ]
     },
     "src/operations/longcount-wildcard.js": {
@@ -43,11 +81,6 @@
         12,
         15
       ]
-    },
-    "src/tzolkin.js": {
-      "expectCount": 13,
-      "actualCount": 13,
-      "undocumentLines": []
     },
     "src/wildcard.js": {
       "expectCount": 2,
