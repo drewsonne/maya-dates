@@ -1,3 +1,6 @@
+/** @ignore */
+const wildcard = require('./wildcard')
+
 /**
  * Describes a Haab date with a position and a month
  * @example
@@ -14,8 +17,17 @@ class Haab {
    * @param {string|HaabMonth} month
    */
   constructor (coeff, month) {
+    if (coeff === '*') {
+      coeff = wildcard
+    } else {
+      coeff = parseInt(coeff)
+    }
     if (typeof month === 'string') {
-      month = new HaabMonth(month)
+      if (month === '*') {
+        month = wildcard
+      } else {
+        month = new HaabMonth(month)
+      }
     }
     /**
      * @type {HaabMonth}
@@ -45,6 +57,9 @@ class Haab {
    * @returns {string}
    */
   get name () {
+    if (this.month === wildcard) {
+      return this.month
+    }
     return this.month.name
   }
 

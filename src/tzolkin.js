@@ -1,3 +1,6 @@
+/** @ignore */
+const wildcard = require('./wildcard')
+
 /**
  * Describes a date in the 260-day cycle with a position and a day
  * @example
@@ -15,7 +18,16 @@ class Tzolkin {
    */
   constructor (coeff, day) {
     if (typeof day === 'string') {
-      day = new TzolkinDay(day)
+      if (day === '*') {
+        day = wildcard
+      } else {
+        day = new TzolkinDay(day)
+      }
+    }
+    if (coeff === '*') {
+      coeff = wildcard
+    } else {
+      coeff = parseInt(coeff)
     }
     /**
      * @type {TzolkinDay}
@@ -45,6 +57,9 @@ class Tzolkin {
    * @returns {string}
    */
   get name () {
+    if (this.day === wildcard) {
+      return this.day
+    }
     return this.day.name
   }
 

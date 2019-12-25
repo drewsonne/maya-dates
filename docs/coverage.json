@@ -1,7 +1,7 @@
 {
-  "coverage": "100%",
-  "expectCount": 72,
-  "actualCount": 72,
+  "coverage": "89.88%",
+  "expectCount": 89,
+  "actualCount": 80,
   "files": {
     "src/calendar-round.js": {
       "expectCount": 8,
@@ -14,18 +14,39 @@
       "undocumentLines": []
     },
     "src/haab.js": {
-      "expectCount": 12,
-      "actualCount": 12,
+      "expectCount": 13,
+      "actualCount": 13,
       "undocumentLines": []
     },
     "src/long-count.js": {
-      "expectCount": 25,
-      "actualCount": 25,
+      "expectCount": 27,
+      "actualCount": 27,
       "undocumentLines": []
     },
+    "src/operations/calendar-round-wildcard.js": {
+      "expectCount": 8,
+      "actualCount": 2,
+      "undocumentLines": [
+        1,
+        2,
+        6,
+        11,
+        12,
+        18
+      ]
+    },
+    "src/operations/longcount-wildcard.js": {
+      "expectCount": 5,
+      "actualCount": 2,
+      "undocumentLines": [
+        1,
+        12,
+        15
+      ]
+    },
     "src/tzolkin.js": {
-      "expectCount": 12,
-      "actualCount": 12,
+      "expectCount": 13,
+      "actualCount": 13,
       "undocumentLines": []
     },
     "src/wildcard.js": {

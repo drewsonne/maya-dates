@@ -39,6 +39,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tzolkin.js~Tzolkin.html">Tzolkin</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tzolkin.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -72,6 +73,14 @@ class LongCount {
   }
 
   /**
+   * Create a copy object of this long count date
+   * @returns {LongCount}
+   */
+  clone () {
+    return new LongCount(...this.parts)
+  }
+
+  /**
    * Get specific column in Long Count date
    * @param {number} index
    * @returns {number}
@@ -95,6 +104,14 @@ class LongCount {
     this.parts[index] = value.toString()
     this.raw = this.toString()
     return this
+  }
+
+  /**
+   * Return the number of positions in the long count
+   * @returns {number}
+   */
+  get length () {
+    return this.parts.length
   }
 
   /**

@@ -42,6 +42,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@drewsonne/maya-dates/src/operations/longcount-wildcard.js~longcountwildcard",
+    "class/src/operations/longcount-wildcard.js~LongCountWildcard.html",
+    "<span>LongCountWildcard</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/operations/longcount-wildcard.js</span>",
+    "class"
+  ],
+  [
     "@drewsonne/maya-dates/src/tzolkin.js~tzolkin",
     "class/src/tzolkin.js~Tzolkin.html",
     "<span>Tzolkin</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/tzolkin.js</span>",
@@ -528,6 +534,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/long-count.js~longcount#clone",
+    "class/src/long-count.js~LongCount.html#instance-method-clone",
+    "src/long-count.js~LongCount#clone",
+    "method"
+  ],
+  [
     "src/long-count.js~longcount#constructor",
     "class/src/long-count.js~LongCount.html#instance-constructor-constructor",
     "src/long-count.js~LongCount#constructor",
@@ -594,6 +606,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/long-count.js~longcount#length",
+    "class/src/long-count.js~LongCount.html#instance-get-length",
+    "src/long-count.js~LongCount#length",
+    "member"
+  ],
+  [
     "src/long-count.js~longcount#parts",
     "class/src/long-count.js~LongCount.html#instance-member-parts",
     "src/long-count.js~LongCount#parts",
@@ -646,6 +664,30 @@ window.esdocSearchIndex = [
     "class/src/long-count.js~LongCount.html#instance-get-winal",
     "src/long-count.js~LongCount#winal",
     "member"
+  ],
+  [
+    "src/operations/calendar-round-wildcard.js",
+    "file/src/operations/calendar-round-wildcard.js.html",
+    "src/operations/calendar-round-wildcard.js",
+    "file"
+  ],
+  [
+    "src/operations/index.js",
+    "file/src/operations/index.js.html",
+    "src/operations/index.js",
+    "file"
+  ],
+  [
+    "src/operations/longcount-wildcard.js",
+    "file/src/operations/longcount-wildcard.js.html",
+    "src/operations/longcount-wildcard.js",
+    "file"
+  ],
+  [
+    "src/operations/longcount-wildcard.js~longcountwildcard#constructor",
+    "class/src/operations/longcount-wildcard.js~LongCountWildcard.html#instance-constructor-constructor",
+    "src/operations/longcount-wildcard.js~LongCountWildcard#constructor",
+    "method"
   ],
   [
     "src/tzolkin.js",

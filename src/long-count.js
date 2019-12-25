@@ -26,6 +26,14 @@ class LongCount {
   }
 
   /**
+   * Create a copy object of this long count date
+   * @returns {LongCount}
+   */
+  clone () {
+    return new LongCount(...this.parts)
+  }
+
+  /**
    * Get specific column in Long Count date
    * @param {number} index
    * @returns {number}
@@ -49,6 +57,14 @@ class LongCount {
     this.parts[index] = value.toString()
     this.raw = this.toString()
     return this
+  }
+
+  /**
+   * Return the number of positions in the long count
+   * @returns {number}
+   */
+  get length () {
+    return this.parts.length
   }
 
   /**

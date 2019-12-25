@@ -1,4 +1,7 @@
 module.exports = {
   'factory': require('./factory'),
-  'calendar_round': require('./calendar-round'),
+  'cr': require('./calendar-round'),
+  'lc': require('./long-count'),
+  'op': require('./operations/index'),
+  'wildcard': require('./wildcard'),
 }

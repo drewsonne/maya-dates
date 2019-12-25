@@ -9,7 +9,7 @@ describe('increment tzolkin days', () => {
   test.each(tzolkin_days)(
     '%s -> %s',
     (previous, next) => {
-      let today = new mayadates.calendar_round.tzolkin.TzolkinDay(previous)
+      let today = new mayadates.cr.tzolkin.TzolkinDay(previous)
       let tomorrow = today.next()
       expect(tomorrow.name).toBe(next)
     })
@@ -24,7 +24,7 @@ describe('build tzolkins', () => {
   test.each(tzolkins)(
     '%s -> %s',
     (prev, next) => {
-      let tz = new mayadates.calendar_round.tzolkin.Tzolkin(prev[0], prev[1])
+      let tz = new mayadates.cr.tzolkin.Tzolkin(prev[0], prev[1])
       expect(tz.coeff).toBe(prev[0])
       expect(tz.name).toBe(prev[1])
 
@@ -36,6 +36,6 @@ describe('build tzolkins', () => {
 })
 
 test('render tzolkin date', () => {
-  let haab = new mayadates.calendar_round.tzolkin.Tzolkin(5,'Imix')
+  let haab = new mayadates.cr.tzolkin.Tzolkin(5,'Imix')
   expect(haab.toString()).toBe('5 Imix')
 })

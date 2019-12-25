@@ -1,5 +1,5 @@
 const mayadates = require('../src/index')
-
+const wildcard = mayadates.wildcard
 describe('increment calendar-rounds', () => {
   let tzolkin_days = [
     ['2Ak\'bal 6 Muwan', [3, 'K\'an', 7, 'Muwan']],
@@ -39,8 +39,41 @@ describe('parse calendar-round', () => {
     })
 })
 
+describe('parse calendar-round wildcards', () => {
+  let sources = [
+    [
+      '* Ak\'bal 6 Muwan',
+      [wildcard, 'Ak\'bal', 6, 'Muwan'],
+      '* Ak\'bal 6 Muwan'],
+    [
+      '2 Ak\'bal *Muwan',
+      [2, 'Ak\'bal', wildcard, 'Muwan'],
+      '2 Ak\'bal * Muwan'],
+    [
+      '*Ak\'bal 6 *',
+      [wildcard, 'Ak\'bal', 6, wildcard],
+      '* Ak\'bal 6 *'],
+    [
+      '2Ak\'bal 6*',
+      [2, 'Ak\'bal', 6, wildcard],
+      '2 Ak\'bal 6 *',
+    ],
+  ]
+  test.each(sources)(
+    '%s',
+    (source, expected, name) => {
+      let cr = new mayadates.factory.CalendarRoundFactory().parse(source)
+      expect(cr.tzolkin.coeff).toBe(expected[0])
+      expect(cr.tzolkin.name).toBe(expected[1])
+      expect(cr.haab.coeff).toBe(expected[2])
+      expect(cr.haab.name).toBe(expected[3])
+
+      expect(cr.toString()).toBe(name)
+    })
+})
+
 test('render calendar round', () => {
-  let haab = new mayadates.calendar_round.CalendarRound(
+  let haab = new mayadates.cr.CalendarRound(
     2, 'Ajaw', 8, 'Kumk\'u')
   expect(haab.toString()).toBe('2 Ajaw 8 Kumk\'u')
 })

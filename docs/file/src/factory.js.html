@@ -39,6 +39,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tzolkin.js~Tzolkin.html">Tzolkin</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tzolkin.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -121,12 +122,14 @@ class CalendarRoundFactory extends Factory {
    */
   parse (raw) {
     let parts = this._split(raw)
-    return (parts.length &lt; 4) ?
-      null :
-      new CalendarRound(
-        parseInt(parts[0]), parts[1],
-        parseInt(parts[2]), parts[3],
-      )
+    if (parts.length &lt; 4) {
+      return null
+    } else {
+      return new CalendarRound(
+          parts[0], parts[1],
+          parts[2], parts[3],
+        )
+    }
   }
 }
 

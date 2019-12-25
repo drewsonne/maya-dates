@@ -1,7 +1,7 @@
-const lc = require('../src/long-count')
+const mayadates = require('../src/index')
 
 test('parse long-count date', () => {
-  let date = new lc.LongCount(1, 2, 3, 4, 5, 6, 7, 8)
+  let date = new mayadates.lc.LongCount(1, 2, 3, 4, 5, 6, 7, 8)
 
   expect(date.is_valid()).toBeTruthy()
 
@@ -28,7 +28,7 @@ test('parse long-count date', () => {
 })
 
 test('set long count parts', () => {
-  let date = new lc.LongCount(1, 2, 3, 4, 5)
+  let date = new mayadates.lc.LongCount(1, 2, 3, 4, 5)
   expect(date.toString()).toBe(' 5. 4. 3. 2. 1')
 
   date.k_in = 5
@@ -48,7 +48,7 @@ test('set long count parts', () => {
 })
 
 test('print short long-count date', () => {
-  let date = new lc.LongCount(1, 2)
+  let date = new mayadates.lc.LongCount(1, 2)
 
   expect(date.toString()).toBe(' 0. 0. 0. 2. 1')
 })

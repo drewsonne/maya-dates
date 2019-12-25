@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/tzolkin.js | @drewsonne/maya-dates</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/operations/calendar-round-wildcard.js | @drewsonne/maya-dates</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -44,146 +44,68 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/tzolkin.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
-const wildcard = require(&apos;./wildcard&apos;)
+<div class="content" data-ice="content"><h1 data-ice="title">src/operations/calendar-round-wildcard.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const wildcard = require(&apos;../wildcard&apos;)
+const mayadates = require(&apos;../index&apos;)
 
-/**
- * Describes a date in the 260-day cycle with a position and a day
- * @example
- *    let day = new Tzolkin(4, &quot;Ajaw&quot;);
- *
- * @example
- *    let day = new Tzolkin(4, new TzolkinDay(&quot;Ajaw&quot;));
- *
- */
-class Tzolkin {
-  /**
-   * Constructor
-   * @param {number} coeff - The position in the 260-day cycle
-   * @param {string|TzolkinDay} day
-   */
-  constructor (coeff, day) {
-    if (typeof day === &apos;string&apos;) {
-      if (day === &apos;*&apos;) {
-        day = wildcard
-      } else {
-        day = new TzolkinDay(day)
-      }
-    }
-    if (coeff === &apos;*&apos;) {
-      coeff = wildcard
-    } else {
-      coeff = parseInt(coeff)
-    }
-    /**
-     * @type {TzolkinDay}
-     */
-    this.day = day
-    /**
-     * @type {number}
-     */
-    this.coeff = coeff
-  }
+let _all_calendar_rounds
 
+class CalendarRoundWildcard {
   /**
-   * Return the next day in the 260-day cycle
-   * @returns {Tzolkin}
+   * @param {CalendarRound} cr
    */
-  next () {
-    let next_coeff = this.coeff + 1
-    let next_day = this.day.next()
-    return new Tzolkin(
-      (next_coeff % 13) === 0 ? 13 : next_coeff % 13,
-      next_day,
+  constructor (cr) {
+    this.cr = cr
+    this.start_date = new mayadates.cr.CalendarRound(
+      8, &apos;Ajaw&apos;,
+      4, &apos;Kumk\&apos;u&apos;,
     )
   }
 
-  /**
-   * Return a string representation of the 260-day cycle name
-   * @returns {string}
-   */
-  get name () {
-    if (this.day === wildcard) {
-      return this.day
-    }
-    return this.day.name
-  }
-
-  /**
-   * Render the 260-day cycle date as a string
-   * @returns {string}
-   */
-  toString () {
-    return `${this.coeff} ${this.name}`
-  }
-}
-
-/**
- * Describes only the day component of a 260-day cycle
- */
-class TzolkinDay {
-  /**
-   * @param {string} name - Name of the 260-day cycle day
-   */
-  constructor (name) {
-    /**
-     * Name of the day in the 260-day cycle
-     * @type {string}
-     */
-    this.name = name
-
-    /**
-     * Mapping of day names to indexes
-     * @type {Map&lt;number, string&gt;}
-     */
-    this.days = {
-      1: &apos;Imix&apos;,
-      2: &apos;Ik\&apos;&apos;,
-      3: &apos;Ak\&apos;bal&apos;,
-      4: &apos;K\&apos;an&apos;,
-      5: &apos;Chikchan&apos;,
-      6: &apos;Kimi&apos;,
-      7: &apos;Manik&apos;,
-      8: &apos;Lamat&apos;,
-      9: &apos;Muluk&apos;,
-      10: &apos;Ok&apos;,
-      11: &apos;Chuwen&apos;,
-      12: &apos;Eb&apos;,
-      13: &apos;Ben&apos;,
-      14: &apos;Ix&apos;,
-      15: &apos;Men&apos;,
-      16: &apos;Kib&apos;,
-      17: &apos;Kaban&apos;,
-      18: &apos;Etz\&apos;nab&apos;,
-      19: &apos;Kawak&apos;,
-      20: &apos;Ajaw&apos;,
-    }
-  }
-
-  /**
-   * Return the next day in the 260-day cycle
-   * @returns {TzolkinDay}
-   */
-  next () {
-    let i
-    for (i = 0; i &lt; 20; i++) {
-      if (this.days[i] === this.name) {
-        break
+  run () {
+    let potentials = []
+    // 1 - Do wildcards for Tzolkin coeff
+    if (this.cr.tzolkin.coeff === wildcard) {
+      let new_potentials = []
+      for (let i = 1; i &lt; 13; i++) {
+        let new_cr = this.cr.clone()
+        new_cr.tz
       }
+      potentials = new_potentials
     }
-    i += 1
-    if (i &gt; 20) {
-      i = 1
+    // 2 - Do wildcards for Tzolkin day
+    // 3 - Do wildcards for Haab coeff
+    // 4 - Do wildcards for Haab month
+  }
+
+  /**
+   *
+   * @param {CalendarRound} partial
+   * @param {CalendarRound} full
+   */
+  _date_matches_wildcards (
+    partial,
+    full,
+  ) {
+    let is_match = false
+    if (partial.tzolkin.coeff !== wildcard) {
+      is_match |= (partial.tzolkin.coeff === full.tzolkin.coeff)
     }
-    return new TzolkinDay(this.days[i])
+    if (partial.tzolkin.day !== wildcard) {
+      is_match |= (partial.tzolkin.day === full.tzolkin.day)
+    }
+    if (partial.haab.coeff !== wildcard) {
+      is_match |= (partial.haab.coeff === full.haab.coeff)
+    }
+    if (partial.haab.month !== wildcard) {
+      is_match |= (partial.haab.month === full.haab.month)
+    }
+    return is_match
+
   }
 }
 
-module.exports = {
-  &apos;TzolkinDay&apos;: TzolkinDay,
-  &apos;Tzolkin&apos;: Tzolkin,
-}
+module.exports = CalendarRoundWildcard
 </code></pre>
 
 </div>

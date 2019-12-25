@@ -9,7 +9,7 @@ describe('increment haab months', () => {
   test.each(tzolkin_days)(
     '%s -> %s',
     (previous, next) => {
-      let today = new mayadates.calendar_round.haab.HaabMonth(previous)
+      let today = new mayadates.cr.haab.HaabMonth(previous)
       let tomorrow = today.next()
       expect(tomorrow.name).toBe(next)
     })
@@ -25,7 +25,7 @@ describe('build haabs', () => {
   test.each(haabs)(
     '%s -> %s',
     (prev, next) => {
-      let haab = new mayadates.calendar_round.haab.Haab(prev[0], prev[1])
+      let haab = new mayadates.cr.haab.Haab(prev[0], prev[1])
       expect(haab.coeff).toBe(prev[0])
       expect(haab.name).toBe(prev[1])
 
@@ -37,6 +37,6 @@ describe('build haabs', () => {
 })
 
 test('render haab date', () => {
-  let haab = new mayadates.calendar_round.haab.Haab(5,'Pop')
+  let haab = new mayadates.cr.haab.Haab(5,'Pop')
   expect(haab.toString()).toBe('5 Pop')
 })

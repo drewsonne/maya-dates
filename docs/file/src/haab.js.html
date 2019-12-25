@@ -39,12 +39,16 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tzolkin.js~Tzolkin.html">Tzolkin</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tzolkin.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/haab.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
+const wildcard = require(&apos;./wildcard&apos;)
+
+/**
  * Describes a Haab date with a position and a month
  * @example
  *    let day = new Haab(8, &quot;Kumk&apos;u&quot;);
@@ -60,8 +64,17 @@ class Haab {
    * @param {string|HaabMonth} month
    */
   constructor (coeff, month) {
+    if (coeff === &apos;*&apos;) {
+      coeff = wildcard
+    } else {
+      coeff = parseInt(coeff)
+    }
     if (typeof month === &apos;string&apos;) {
-      month = new HaabMonth(month)
+      if (month === &apos;*&apos;) {
+        month = wildcard
+      } else {
+        month = new HaabMonth(month)
+      }
     }
     /**
      * @type {HaabMonth}
@@ -91,6 +104,9 @@ class Haab {
    * @returns {string}
    */
   get name () {
+    if (this.month === wildcard) {
+      return this.month
+    }
     return this.month.name
   }
 
