@@ -35,7 +35,26 @@ describe('build tzolkins', () => {
   )
 })
 
+describe('shift tzolkins', () => {
+  let tzolkins = [
+    [[5, 'Imix'], 1, [6, 'Ik\'']],
+    [[13, 'Ik\''], 100, [8, 'Ik\'']],
+    [[13, 'Ajaw'], 177, [1, 'Lamat']],
+  ]
+  test.each(tzolkins)(
+    '%s + %s = %s',
+    (start, incremental, expected) => {
+      let new_tz = new mayadates.cr.tzolkin.
+        Tzolkin(...start).
+        shift(incremental)
+
+      expect(new_tz.coeff).toBe(expected[0])
+      expect(new_tz.name).toBe(expected[1])
+    },
+  )
+})
+
 test('render tzolkin date', () => {
-  let haab = new mayadates.cr.tzolkin.Tzolkin(5,'Imix')
+  let haab = new mayadates.cr.tzolkin.Tzolkin(5, 'Imix')
   expect(haab.toString()).toBe('5 Imix')
 })

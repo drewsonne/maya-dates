@@ -1,5 +1,9 @@
 const mayadates = require('../src/index')
 const wildcard = mayadates.wildcard
+/**
+ * @test {CalendarRoundFactory}
+ * @test {CalendarRound#next}
+ */
 describe('increment calendar-rounds', () => {
   let tzolkin_days = [
     ['2Ak\'bal 6 Muwan', [3, 'K\'an', 7, 'Muwan']],

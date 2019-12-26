@@ -39,7 +39,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/calendar-round.js~CalendarRoundFactory.html">CalendarRoundFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc">lc</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -61,7 +62,7 @@
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>*</span> &#x2192; CalendarRoundFactory</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/factory/base.js~Factory.html">Factory</a></span> &#x2192; CalendarRoundFactory</div></div>
   
   
   
@@ -202,7 +203,71 @@
 </table>
 </div>
 
-
+<div class="inherited-summary" data-ice="inheritedSummary"><h2>Inherited Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3"><span class="toggle closed"></span> From class <span><a href="class/src/factory/base.js~Factory.html">Factory</a></span></td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">protected</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/factory/base.js~Factory.html#instance-member-pattern">pattern</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Describes how to break a string into a date element</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">protected</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/factory/base.js~Factory.html#instance-method-_split">_split</a></span></span><span class="code" data-ice="signature">(raw: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span><span>[]</span></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Split the provided date into its components</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
 
 
 
@@ -230,7 +295,7 @@
   <div data-ice="description"><p>Defines the pattern describing a Calendar Round</p>
 </div>
 
-  
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/factory/base.js~Factory.html#instance-constructor-constructor">Factory#constructor</a></span></div>
 
   <div data-ice="properties">
 </div>
@@ -277,7 +342,7 @@
   <div data-ice="description"><p>Describes how to break the string into a Calendar Round</p>
 </div>
 
-  
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/factory/base.js~Factory.html#instance-member-pattern">Factory#pattern</a></span></div>
 
   <div data-ice="properties">
 </div>

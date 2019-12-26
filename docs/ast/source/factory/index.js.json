@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 123,
+  "end": 168,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 5,
+      "line": 6,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 123,
+    "end": 168,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 5,
+        "line": 6,
         "column": 0
       }
     },
@@ -31,28 +31,28 @@
       {
         "type": "ExpressionStatement",
         "start": 0,
-        "end": 122,
+        "end": 167,
         "loc": {
           "start": {
             "line": 1,
             "column": 0
           },
           "end": {
-            "line": 4,
+            "line": 5,
             "column": 1
           }
         },
         "expression": {
           "type": "AssignmentExpression",
           "start": 0,
-          "end": 122,
+          "end": 167,
           "loc": {
             "start": {
               "line": 1,
               "column": 0
             },
             "end": {
-              "line": 4,
+              "line": 5,
               "column": 1
             }
           },
@@ -110,14 +110,14 @@
           "right": {
             "type": "ObjectExpression",
             "start": 17,
-            "end": 122,
+            "end": 167,
             "loc": {
               "start": {
                 "line": 1,
                 "column": 17
               },
               "end": {
-                "line": 4,
+                "line": 5,
                 "column": 1
               }
             },
@@ -302,6 +302,98 @@
                         "raw": "'./long-count'"
                       },
                       "value": "./long-count"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ObjectProperty",
+                "start": 123,
+                "end": 164,
+                "loc": {
+                  "start": {
+                    "line": 4,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 43
+                  }
+                },
+                "method": false,
+                "shorthand": false,
+                "computed": false,
+                "key": {
+                  "type": "StringLiteral",
+                  "start": 123,
+                  "end": 140,
+                  "loc": {
+                    "start": {
+                      "line": 4,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 4,
+                      "column": 19
+                    }
+                  },
+                  "extra": {
+                    "rawValue": "FullDateFactory",
+                    "raw": "'FullDateFactory'"
+                  },
+                  "value": "FullDateFactory"
+                },
+                "value": {
+                  "type": "CallExpression",
+                  "start": 142,
+                  "end": 164,
+                  "loc": {
+                    "start": {
+                      "line": 4,
+                      "column": 21
+                    },
+                    "end": {
+                      "line": 4,
+                      "column": 43
+                    }
+                  },
+                  "callee": {
+                    "type": "Identifier",
+                    "start": 142,
+                    "end": 149,
+                    "loc": {
+                      "start": {
+                        "line": 4,
+                        "column": 21
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 28
+                      },
+                      "identifierName": "require"
+                    },
+                    "name": "require"
+                  },
+                  "arguments": [
+                    {
+                      "type": "StringLiteral",
+                      "start": 150,
+                      "end": 163,
+                      "loc": {
+                        "start": {
+                          "line": 4,
+                          "column": 29
+                        },
+                        "end": {
+                          "line": 4,
+                          "column": 42
+                        }
+                      },
+                      "extra": {
+                        "rawValue": "./full-date",
+                        "raw": "'./full-date'"
+                      },
+                      "value": "./full-date"
                     }
                   ]
                 }
@@ -811,6 +903,188 @@
     },
     {
       "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "FullDateFactory",
+      "start": 123,
+      "end": 140,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 2
+        },
+        "end": {
+          "line": 4,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ":",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 140,
+      "end": 141,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 19
+        },
+        "end": {
+          "line": 4,
+          "column": 20
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "require",
+      "start": 142,
+      "end": 149,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 21
+        },
+        "end": {
+          "line": 4,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 149,
+      "end": 150,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 28
+        },
+        "end": {
+          "line": 4,
+          "column": 29
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "./full-date",
+      "start": 150,
+      "end": 163,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 29
+        },
+        "end": {
+          "line": 4,
+          "column": 42
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 163,
+      "end": 164,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 42
+        },
+        "end": {
+          "line": 4,
+          "column": 43
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 164,
+      "end": 165,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 43
+        },
+        "end": {
+          "line": 4,
+          "column": 44
+        }
+      }
+    },
+    {
+      "type": {
         "label": "}",
         "beforeExpr": false,
         "startsExpr": false,
@@ -821,15 +1095,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 121,
-      "end": 122,
+      "start": 166,
+      "end": 167,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 5,
           "column": 0
         },
         "end": {
-          "line": 4,
+          "line": 5,
           "column": 1
         }
       }
@@ -847,15 +1121,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 123,
-      "end": 123,
+      "start": 168,
+      "end": 168,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 6,
           "column": 0
         },
         "end": {
-          "line": 5,
+          "line": 6,
           "column": 0
         }
       }

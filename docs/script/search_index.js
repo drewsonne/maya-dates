@@ -18,6 +18,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@drewsonne/maya-dates/src/operations/fulldate-wildcard.js~fulldatewildcard",
+    "class/src/operations/fulldate-wildcard.js~FullDateWildcard.html",
+    "<span>FullDateWildcard</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/operations/fulldate-wildcard.js</span>",
+    "class"
+  ],
+  [
     "@drewsonne/maya-dates/src/cr/haab.js~haab",
     "class/src/cr/haab.js~Haab.html",
     "<span>Haab</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/haab.js</span>",
@@ -492,6 +498,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/cr/tzolkin.js~tzolkin#shift",
+    "class/src/cr/tzolkin.js~Tzolkin.html#instance-method-shift",
+    "src/cr/tzolkin.js~Tzolkin#shift",
+    "method"
+  ],
+  [
     "src/cr/tzolkin.js~tzolkin#tostring",
     "class/src/cr/tzolkin.js~Tzolkin.html#instance-method-toString",
     "src/cr/tzolkin.js~Tzolkin#toString",
@@ -568,6 +580,12 @@ window.esdocSearchIndex = [
     "class/src/factory/calendar-round.js~CalendarRoundFactory.html#instance-member-pattern",
     "src/factory/calendar-round.js~CalendarRoundFactory#pattern",
     "member"
+  ],
+  [
+    "src/factory/full-date.js",
+    "file/src/factory/full-date.js.html",
+    "src/factory/full-date.js",
+    "file"
   ],
   [
     "src/factory/index.js",
@@ -765,6 +783,12 @@ window.esdocSearchIndex = [
     "src/operations/calendar-round-wildcard.js",
     "file/src/operations/calendar-round-wildcard.js.html",
     "src/operations/calendar-round-wildcard.js",
+    "file"
+  ],
+  [
+    "src/operations/fulldate-wildcard.js",
+    "file/src/operations/fulldate-wildcard.js.html",
+    "src/operations/fulldate-wildcard.js",
     "file"
   ],
   [

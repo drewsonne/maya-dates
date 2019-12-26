@@ -1172,7 +1172,7 @@
     "__docId__": 74,
     "kind": "file",
     "name": "src/cr/tzolkin.js",
-    "content": "/** @ignore */\nconst wildcard = require('../wildcard')\n\n/**\n * Describes a date in the 260-day cycle with a position and a day\n * @example\n *    let day = new Tzolkin(4, \"Ajaw\");\n *\n * @example\n *    let day = new Tzolkin(4, new TzolkinDay(\"Ajaw\"));\n *\n */\nclass Tzolkin {\n  /**\n   * Constructor\n   * @param {number} coeff - The position in the 260-day cycle\n   * @param {string|TzolkinDay} day\n   */\n  constructor (coeff, day) {\n    if (coeff !== undefined) {\n      if (coeff === '*') {\n        coeff = wildcard\n      } else if (coeff !== wildcard) {\n        coeff = parseInt(coeff)\n      }\n    }\n    if (day !== undefined) {\n      if (typeof day === 'string') {\n        if (day === '*') {\n          day = wildcard\n        } else {\n          day = _get_day(day)\n        }\n      }\n    }\n    /**\n     * @type {TzolkinDay}\n     */\n    this.day = day\n    /**\n     * @type {number}\n     */\n    this.coeff = coeff\n  }\n\n  /**\n   * Return the next day in the 260-day cycle\n   * @returns {Tzolkin}\n   */\n  next () {\n    let next_coeff = this.coeff + 1\n    let next_day = this.day.next()\n    return new Tzolkin(\n      (next_coeff % 13) === 0 ? 13 : next_coeff % 13,\n      next_day,\n    )\n  }\n\n  equal (new_tzolkin) {\n    return (this.coeff === new_tzolkin.coeff) &&\n      (this.name === new_tzolkin.name)\n  }\n\n  /**\n   * Return a string representation of the 260-day cycle name\n   * @returns {string}\n   */\n  get name () {\n    if (this.day === wildcard) {\n      return this.day\n    }\n    return this.day.name\n  }\n\n  /**\n   * Render the 260-day cycle date as a string\n   * @returns {string}\n   */\n  toString () {\n    return `${this.coeff} ${this.name}`\n  }\n}\n\nconst _day_lookup = {}\nfunction _get_day(day_name) {\n  if (_day_lookup[day_name] === undefined) {\n    _day_lookup[day_name] = new TzolkinDay(day_name)\n  }\n  return _day_lookup[day_name]\n}\n\n/**\n * Describes only the day component of a 260-day cycle\n */\nclass TzolkinDay {\n  /**\n   * @param {string} name - Name of the 260-day cycle day\n   */\n  constructor (name) {\n    /**\n     * Name of the day in the 260-day cycle\n     * @type {string}\n     */\n    this.name = name\n\n    /**\n     * Mapping of day names to indexes\n     * @type {Map<number, string>}\n     */\n    this.days = [\n      undefined,\n      'Imix',\n      'Ik\\'',\n      'Ak\\'bal',\n      'K\\'an',\n      'Chikchan',\n      'Kimi',\n      'Manik',\n      'Lamat',\n      'Muluk',\n      'Ok',\n      'Chuwen',\n      'Eb',\n      'Ben',\n      'Ix',\n      'Men',\n      'Kib',\n      'Kaban',\n      'Etz\\'nab',\n      'Kawak',\n      'Ajaw',\n    ]\n\n    this.day_position = this.days.findIndex(\n      d => d === this.name)\n  }\n\n  /**\n   * Return the next day in the 260-day cycle\n   * @returns {TzolkinDay}\n   */\n  next () {\n    let i = this.day_position + 1\n    if (i > 20) {\n      i = 1\n    }\n    return _get_day(this.days[i])\n  }\n}\n\nmodule.exports = {\n  'TzolkinDay': TzolkinDay,\n  'Tzolkin': Tzolkin,\n}\n",
+    "content": "/** @ignore */\nconst wildcard = require('../wildcard')\n\n/**\n * Describes a date in the 260-day cycle with a position and a day\n * @example\n *    let day = new Tzolkin(4, \"Ajaw\");\n *\n * @example\n *    let day = new Tzolkin(4, new TzolkinDay(\"Ajaw\"));\n *\n */\nclass Tzolkin {\n  /**\n   * Constructor\n   * @param {number} coeff - The position in the 260-day cycle\n   * @param {string|TzolkinDay} day\n   */\n  constructor (coeff, day) {\n    if (coeff !== undefined) {\n      if (coeff === '*') {\n        coeff = wildcard\n      } else if (coeff !== wildcard) {\n        coeff = parseInt(coeff)\n      }\n    }\n    if (day !== undefined) {\n      if (typeof day === 'string') {\n        if (day === '*') {\n          day = wildcard\n        } else {\n          day = _get_day(day)\n        }\n      }\n    }\n    /**\n     * @type {TzolkinDay}\n     */\n    this.day = day\n    /**\n     * @type {number}\n     */\n    this.coeff = coeff\n  }\n\n  /**\n   * Return the next day in the 260-day cycle\n   * @returns {Tzolkin}\n   */\n  next () {\n    let next_coeff = this.coeff + 1\n    let next_day = this.day.next()\n    return new Tzolkin(\n      (next_coeff % 13) === 0 ? 13 : next_coeff % 13,\n      next_day,\n    )\n  }\n\n  /**\n   *\n   * @param {Tzolkin} incremental\n   * @return {Tzolkin}\n   */\n  shift (incremental) {\n\n  }\n\n  equal (new_tzolkin) {\n    return (this.coeff === new_tzolkin.coeff) &&\n      (this.name === new_tzolkin.name)\n  }\n\n  /**\n   * Return a string representation of the 260-day cycle name\n   * @returns {string}\n   */\n  get name () {\n    if (this.day === wildcard) {\n      return this.day\n    }\n    return this.day.name\n  }\n\n  /**\n   * Render the 260-day cycle date as a string\n   * @returns {string}\n   */\n  toString () {\n    return `${this.coeff} ${this.name}`\n  }\n}\n\nconst _day_lookup = {}\n\nfunction _get_day (day_name) {\n  if (_day_lookup[day_name] === undefined) {\n    _day_lookup[day_name] = new TzolkinDay(day_name)\n  }\n  return _day_lookup[day_name]\n}\n\n/**\n * Describes only the day component of a 260-day cycle\n */\nclass TzolkinDay {\n  /**\n   * @param {string} name - Name of the 260-day cycle day\n   */\n  constructor (name) {\n    /**\n     * Name of the day in the 260-day cycle\n     * @type {string}\n     */\n    this.name = name\n\n    /**\n     * Mapping of day names to indexes\n     * @type {Map<number, string>}\n     */\n    this.days = [\n      undefined,\n      'Imix',\n      'Ik\\'',\n      'Ak\\'bal',\n      'K\\'an',\n      'Chikchan',\n      'Kimi',\n      'Manik',\n      'Lamat',\n      'Muluk',\n      'Ok',\n      'Chuwen',\n      'Eb',\n      'Ben',\n      'Ix',\n      'Men',\n      'Kib',\n      'Kaban',\n      'Etz\\'nab',\n      'Kawak',\n      'Ajaw',\n    ]\n\n    this.day_position = this.days.findIndex(\n      d => d === this.name)\n  }\n\n  /**\n   * Return the next day in the 260-day cycle\n   * @returns {TzolkinDay}\n   */\n  next () {\n    let i = this.day_position + 1\n    if (i > 20) {\n      i = 1\n    }\n    return _get_day(this.days[i])\n  }\n}\n\nmodule.exports = {\n  'TzolkinDay': TzolkinDay,\n  'Tzolkin': Tzolkin,\n}\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/cr/tzolkin.js",
     "access": "public",
@@ -1323,6 +1323,39 @@
   {
     "__docId__": 81,
     "kind": "method",
+    "name": "shift",
+    "memberof": "src/cr/tzolkin.js~Tzolkin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/cr/tzolkin.js~Tzolkin#shift",
+    "access": "public",
+    "description": "",
+    "lineNumber": 64,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Tzolkin"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "incremental",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Tzolkin"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 82,
+    "kind": "method",
     "name": "equal",
     "memberof": "src/cr/tzolkin.js~Tzolkin",
     "generator": false,
@@ -1331,7 +1364,7 @@
     "longname": "src/cr/tzolkin.js~Tzolkin#equal",
     "access": "public",
     "description": null,
-    "lineNumber": 59,
+    "lineNumber": 68,
     "undocument": true,
     "params": [
       {
@@ -1349,7 +1382,7 @@
     "ignore": true
   },
   {
-    "__docId__": 82,
+    "__docId__": 83,
     "kind": "get",
     "name": "name",
     "memberof": "src/cr/tzolkin.js~Tzolkin",
@@ -1359,7 +1392,7 @@
     "longname": "src/cr/tzolkin.js~Tzolkin#name",
     "access": "public",
     "description": "Return a string representation of the 260-day cycle name",
-    "lineNumber": 68,
+    "lineNumber": 77,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1381,7 +1414,7 @@
     }
   },
   {
-    "__docId__": 83,
+    "__docId__": 84,
     "kind": "method",
     "name": "toString",
     "memberof": "src/cr/tzolkin.js~Tzolkin",
@@ -1391,7 +1424,7 @@
     "longname": "src/cr/tzolkin.js~Tzolkin#toString",
     "access": "public",
     "description": "Render the 260-day cycle date as a string",
-    "lineNumber": 79,
+    "lineNumber": 88,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1409,7 +1442,7 @@
     "params": []
   },
   {
-    "__docId__": 84,
+    "__docId__": 85,
     "kind": "variable",
     "name": "_day_lookup",
     "memberof": "src/cr/tzolkin.js",
@@ -1420,7 +1453,7 @@
     "importPath": "@drewsonne/maya-dates/src/cr/tzolkin.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 84,
+    "lineNumber": 93,
     "undocument": true,
     "type": {
       "types": [
@@ -1430,7 +1463,7 @@
     "ignore": true
   },
   {
-    "__docId__": 85,
+    "__docId__": 86,
     "kind": "function",
     "name": "_get_day",
     "memberof": "src/cr/tzolkin.js",
@@ -1443,7 +1476,7 @@
     "importPath": "@drewsonne/maya-dates/src/cr/tzolkin.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 85,
+    "lineNumber": 95,
     "undocument": true,
     "params": [
       {
@@ -1461,7 +1494,7 @@
     "ignore": true
   },
   {
-    "__docId__": 86,
+    "__docId__": 87,
     "kind": "class",
     "name": "TzolkinDay",
     "memberof": "src/cr/tzolkin.js",
@@ -1472,11 +1505,11 @@
     "importPath": "@drewsonne/maya-dates/src/cr/tzolkin.js",
     "importStyle": null,
     "description": "Describes only the day component of a 260-day cycle",
-    "lineNumber": 95,
+    "lineNumber": 105,
     "interface": false
   },
   {
-    "__docId__": 87,
+    "__docId__": 88,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/cr/tzolkin.js~TzolkinDay",
@@ -1486,7 +1519,7 @@
     "longname": "src/cr/tzolkin.js~TzolkinDay#constructor",
     "access": "public",
     "description": "",
-    "lineNumber": 99,
+    "lineNumber": 109,
     "params": [
       {
         "nullable": null,
@@ -1501,7 +1534,7 @@
     ]
   },
   {
-    "__docId__": 88,
+    "__docId__": 89,
     "kind": "member",
     "name": "name",
     "memberof": "src/cr/tzolkin.js~TzolkinDay",
@@ -1509,7 +1542,7 @@
     "longname": "src/cr/tzolkin.js~TzolkinDay#name",
     "access": "public",
     "description": "Name of the day in the 260-day cycle",
-    "lineNumber": 104,
+    "lineNumber": 114,
     "type": {
       "nullable": null,
       "types": [
@@ -1520,7 +1553,7 @@
     }
   },
   {
-    "__docId__": 89,
+    "__docId__": 90,
     "kind": "member",
     "name": "days",
     "memberof": "src/cr/tzolkin.js~TzolkinDay",
@@ -1528,7 +1561,7 @@
     "longname": "src/cr/tzolkin.js~TzolkinDay#days",
     "access": "public",
     "description": "Mapping of day names to indexes",
-    "lineNumber": 110,
+    "lineNumber": 120,
     "type": {
       "nullable": null,
       "types": [
@@ -1539,7 +1572,7 @@
     }
   },
   {
-    "__docId__": 90,
+    "__docId__": 91,
     "kind": "member",
     "name": "day_position",
     "memberof": "src/cr/tzolkin.js~TzolkinDay",
@@ -1547,7 +1580,7 @@
     "longname": "src/cr/tzolkin.js~TzolkinDay#day_position",
     "access": "public",
     "description": null,
-    "lineNumber": 134,
+    "lineNumber": 144,
     "undocument": true,
     "type": {
       "types": [
@@ -1557,7 +1590,7 @@
     "ignore": true
   },
   {
-    "__docId__": 91,
+    "__docId__": 92,
     "kind": "method",
     "name": "next",
     "memberof": "src/cr/tzolkin.js~TzolkinDay",
@@ -1567,7 +1600,7 @@
     "longname": "src/cr/tzolkin.js~TzolkinDay#next",
     "access": "public",
     "description": "Return the next day in the 260-day cycle",
-    "lineNumber": 142,
+    "lineNumber": 152,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1585,7 +1618,7 @@
     "params": []
   },
   {
-    "__docId__": 92,
+    "__docId__": 93,
     "kind": "file",
     "name": "src/factory/base.js",
     "content": "/**\n * An abstract class to handle the create of an object from a string\n */\nclass Factory {\n  /**\n   * Define properties to be override by sub-classes\n   */\n  constructor () {\n    /**\n     * Describes how to break a string into a date element\n     * @protected\n     * @type {RegExp}\n     */\n    this.pattern = null\n  }\n\n  /**\n   * Split the provided date into its components\n   * @param {string} raw\n   * @access protected\n   * @returns {String[]}\n   */\n  _split (raw) {\n    let matches = raw.match(\n      this.pattern,\n    )\n    if (matches === null) {\n      return []\n    }\n    return matches.slice(1)\n  }\n\n  /**\n   * Checks if the string contains a partial date\n   * @param {string} raw - Raw date string\n   * @access protected\n   * @returns {boolean}\n   */\n  // _is_partial (raw) {\n  //   let parts = this._split(raw)\n  //   return parts.includes('*')\n  // }\n}\n\nmodule.exports = Factory\n",
@@ -1596,7 +1629,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 93,
+    "__docId__": 94,
     "kind": "class",
     "name": "Factory",
     "memberof": "src/factory/base.js",
@@ -1611,7 +1644,7 @@
     "interface": false
   },
   {
-    "__docId__": 94,
+    "__docId__": 95,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/factory/base.js~Factory",
@@ -1624,7 +1657,7 @@
     "lineNumber": 8
   },
   {
-    "__docId__": 95,
+    "__docId__": 96,
     "kind": "member",
     "name": "pattern",
     "memberof": "src/factory/base.js~Factory",
@@ -1643,7 +1676,7 @@
     }
   },
   {
-    "__docId__": 96,
+    "__docId__": 97,
     "kind": "method",
     "name": "_split",
     "memberof": "src/factory/base.js~Factory",
@@ -1682,10 +1715,10 @@
     }
   },
   {
-    "__docId__": 97,
+    "__docId__": 98,
     "kind": "file",
     "name": "src/factory/calendar-round.js",
-    "content": "const Factory = require('./base')\nconst CalendarRound = require('../cr/calendar-round')\n\n/**\n * A factory to create a CalendarRound object from a string\n * @extends Factory\n * @example\n *    let cr = new CalendarRoundFactory().parse(\"4 Ajaw 8 Kumk'u\");\n */\nclass CalendarRoundFactory extends Factory {\n  /**\n   * Defines the pattern describing a Calendar Round\n   */\n  constructor () {\n    super()\n    /**\n     * Describes how to break the string into a Calendar Round\n     * @type {RegExp}\n     */\n    this.pattern = /^([*\\d]+)\\s?([^\\s]+)\\s?([*\\d]+)\\s?([^\\s]+)$/\n  }\n\n  /**\n   * Given a string, parse it and create a Calendar Round\n   * @param {string} raw - A string containing a Calendar Round\n   * @returns {CalendarRound}\n   */\n  parse (raw) {\n    let parts = this._split(raw)\n    if (parts.length < 4) {\n      return null\n    } else {\n      return new CalendarRound(\n        parts[0], parts[1],\n        parts[2], parts[3],\n      )\n    }\n  }\n}\n\nmodule.exports = CalendarRoundFactory\n",
+    "content": "const Factory = require('./base')\nconst CalendarRound = require('../cr/calendar-round')\n\n/**\n * A factory to create a CalendarRound object from a string\n * @extends {Factory}\n * @example\n *    let cr = new CalendarRoundFactory().parse(\"4 Ajaw 8 Kumk'u\");\n */\nclass CalendarRoundFactory extends Factory {\n  /**\n   * Defines the pattern describing a Calendar Round\n   */\n  constructor () {\n    super()\n    /**\n     * Describes how to break the string into a Calendar Round\n     * @type {RegExp}\n     */\n    this.pattern = /([*\\d]+)\\s?([^\\s]+)\\s?([*\\d]+)\\s?([^\\s]+)/\n  }\n\n  /**\n   * Given a string, parse it and create a Calendar Round\n   * @param {string} raw - A string containing a Calendar Round\n   * @returns {CalendarRound}\n   */\n  parse (raw) {\n    let parts = this._split(raw)\n    if (parts.length < 4) {\n      return null\n    } else {\n      return new CalendarRound(\n        parts[0], parts[1],\n        parts[2], parts[3],\n      )\n    }\n  }\n}\n\nmodule.exports = CalendarRoundFactory\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/factory/calendar-round.js",
     "access": "public",
@@ -1693,7 +1726,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 98,
+    "__docId__": 99,
     "kind": "variable",
     "name": "Factory",
     "memberof": "src/factory/calendar-round.js",
@@ -1714,7 +1747,7 @@
     "ignore": true
   },
   {
-    "__docId__": 99,
+    "__docId__": 100,
     "kind": "variable",
     "name": "CalendarRound",
     "memberof": "src/factory/calendar-round.js",
@@ -1735,7 +1768,7 @@
     "ignore": true
   },
   {
-    "__docId__": 100,
+    "__docId__": 101,
     "kind": "class",
     "name": "CalendarRoundFactory",
     "memberof": "src/factory/calendar-round.js",
@@ -1752,11 +1785,11 @@
     "lineNumber": 10,
     "interface": false,
     "extends": [
-      "*"
+      "Factory"
     ]
   },
   {
-    "__docId__": 101,
+    "__docId__": 102,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/factory/calendar-round.js~CalendarRoundFactory",
@@ -1769,7 +1802,7 @@
     "lineNumber": 14
   },
   {
-    "__docId__": 102,
+    "__docId__": 103,
     "kind": "member",
     "name": "pattern",
     "memberof": "src/factory/calendar-round.js~CalendarRoundFactory",
@@ -1788,7 +1821,7 @@
     }
   },
   {
-    "__docId__": 103,
+    "__docId__": 104,
     "kind": "method",
     "name": "parse",
     "memberof": "src/factory/calendar-round.js~CalendarRoundFactory",
@@ -1827,10 +1860,132 @@
     }
   },
   {
-    "__docId__": 104,
+    "__docId__": 105,
+    "kind": "file",
+    "name": "src/factory/full-date.js",
+    "content": "const Factory = require('./base')\nconst CalendarRoundFactory = require('./calendar-round')\nconst LongCountFactory = require('./long-count')\n\nclass FullDateFactory extends Factory {\n  parse (raw) {\n    raw = raw.replace('**', '* *')\n    let cr = new CalendarRoundFactory().parse(raw)\n    let lc = new LongCountFactory().parse(raw)\n    return {\n      cr: cr,\n      lc: lc,\n    }\n  }\n}\n\nmodule.exports = FullDateFactory\n",
+    "static": true,
+    "longname": "/Users/drews/Dropbox/Development/maya-dates/src/factory/full-date.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 106,
+    "kind": "variable",
+    "name": "Factory",
+    "memberof": "src/factory/full-date.js",
+    "static": true,
+    "longname": "src/factory/full-date.js~Factory",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/factory/full-date.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 107,
+    "kind": "variable",
+    "name": "CalendarRoundFactory",
+    "memberof": "src/factory/full-date.js",
+    "static": true,
+    "longname": "src/factory/full-date.js~CalendarRoundFactory",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/factory/full-date.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 108,
+    "kind": "variable",
+    "name": "LongCountFactory",
+    "memberof": "src/factory/full-date.js",
+    "static": true,
+    "longname": "src/factory/full-date.js~LongCountFactory",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/factory/full-date.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 109,
+    "kind": "class",
+    "name": "FullDateFactory",
+    "memberof": "src/factory/full-date.js",
+    "static": true,
+    "longname": "src/factory/full-date.js~FullDateFactory",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/factory/full-date.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "Factory"
+    ],
+    "ignore": true
+  },
+  {
+    "__docId__": 110,
+    "kind": "method",
+    "name": "parse",
+    "memberof": "src/factory/full-date.js~FullDateFactory",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/factory/full-date.js~FullDateFactory#parse",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "raw",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"cr\": *, \"lc\": *}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 111,
     "kind": "file",
     "name": "src/factory/index.js",
-    "content": "module.exports = {\n  'CalendarRoundFactory': require('./calendar-round'),\n  'LongCountFactory': require('./long-count'),\n}\n",
+    "content": "module.exports = {\n  'CalendarRoundFactory': require('./calendar-round'),\n  'LongCountFactory': require('./long-count'),\n  'FullDateFactory': require('./full-date'),\n}\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/factory/index.js",
     "access": "public",
@@ -1838,10 +1993,10 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 105,
+    "__docId__": 112,
     "kind": "file",
     "name": "src/factory/long-count.js",
-    "content": "const Factory = require('./base')\nconst LongCount = require('../lc/long-count')\nconst wildcard = require('../wildcard')\n\n/**\n * A factory to create a LongCount object from a string\n * @extends Factory\n * @example\n *    let cr = new LongCountFactory().parse(\"9.4.2.4.1\");\n * @example\n *    let cr = new LongCountFactory().parse(\"9.4.2.*.1\");\n */\nclass LongCountFactory extends Factory {\n  /**\n   * Given a string, parse it and create a Long Count\n   * @param {string} raw - A string containing a Long Count\n   * @returns {LongCount}\n   */\n  parse (raw) {\n    let parts = raw.split('.')\n    for (let i = 0; i < parts.length; i++) {\n      if (parts[i] === '*') {\n        parts[i] = wildcard\n      } else {\n        parts[i] = parseInt(parts[i])\n      }\n    }\n    return new LongCount(...parts.reverse())\n  }\n}\n\nmodule.exports = LongCountFactory\n",
+    "content": "const Factory = require('./base')\nconst LongCount = require('../lc/long-count')\nconst wildcard = require('../wildcard')\n\n/**\n * A factory to create a LongCount object from a string\n * @extends {Factory}\n * @example\n *    let cr = new LongCountFactory().parse(\"9.4.2.4.1\");\n * @example\n *    let cr = new LongCountFactory().parse(\"9.4.2.*.1\");\n */\nclass LongCountFactory extends Factory {\n  /**\n   * Given a string, parse it and create a Long Count\n   * @param {string} raw - A string containing a Long Count\n   * @returns {LongCount}\n   */\n  parse (raw) {\n    let parts = raw.split('.')\n    for (let i = 0; i < parts.length; i++) {\n      if (i === 0) {\n        if (parts[i].indexOf(' ') >= 0) {\n          let first_parts = parts[i].split(' ')\n          parts[i] = first_parts[first_parts.length - 1]\n        }\n      } else if (i === (parts.length - 1)) {\n        if (parts[i].indexOf(' ') >= 0) {\n          let first_parts = parts[i].split(' ')\n          parts[i] = first_parts[0]\n        }\n      }\n      if (parts[i] === '*') {\n        parts[i] = wildcard\n      } else {\n        parts[i] = parseInt(parts[i])\n      }\n    }\n    return new LongCount(...parts.reverse())\n  }\n}\n\nmodule.exports = LongCountFactory\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/factory/long-count.js",
     "access": "public",
@@ -1849,7 +2004,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 106,
+    "__docId__": 113,
     "kind": "variable",
     "name": "Factory",
     "memberof": "src/factory/long-count.js",
@@ -1870,7 +2025,7 @@
     "ignore": true
   },
   {
-    "__docId__": 107,
+    "__docId__": 114,
     "kind": "variable",
     "name": "LongCount",
     "memberof": "src/factory/long-count.js",
@@ -1891,7 +2046,7 @@
     "ignore": true
   },
   {
-    "__docId__": 108,
+    "__docId__": 115,
     "kind": "variable",
     "name": "wildcard",
     "memberof": "src/factory/long-count.js",
@@ -1912,7 +2067,7 @@
     "ignore": true
   },
   {
-    "__docId__": 109,
+    "__docId__": 116,
     "kind": "class",
     "name": "LongCountFactory",
     "memberof": "src/factory/long-count.js",
@@ -1930,11 +2085,11 @@
     "lineNumber": 13,
     "interface": false,
     "extends": [
-      "*"
+      "Factory"
     ]
   },
   {
-    "__docId__": 110,
+    "__docId__": 117,
     "kind": "method",
     "name": "parse",
     "memberof": "src/factory/long-count.js~LongCountFactory",
@@ -1973,7 +2128,7 @@
     }
   },
   {
-    "__docId__": 111,
+    "__docId__": 118,
     "kind": "file",
     "name": "src/index.js",
     "content": "module.exports = {\n  'factory': require('./factory/index'),\n  'cr': require('./cr/index'),\n  'lc': require('./lc/index'),\n  'op': require('./operations/index'),\n  'wildcard': require('./wildcard'),\n}\n",
@@ -1984,7 +2139,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 112,
+    "__docId__": 119,
     "kind": "file",
     "name": "src/lc/index.js",
     "content": "module.exports = {\n  'LongCount': require('./long-count'),\n}\n",
@@ -1995,7 +2150,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 113,
+    "__docId__": 120,
     "kind": "file",
     "name": "src/lc/long-count.js",
     "content": "/**\n * Long Count cycle\n */\nclass LongCount {\n  /**\n   * @param {...number|Wildcard} cycles - Components in the long count (eg, K'in, Winal, Bak'tun, etc)\n   */\n  constructor (...cycles) {\n    /**\n     * Date Components\n     * @type {number|Wildcard[]}\n     */\n    this.parts = cycles\n\n    /**\n     * Pattern to validate the date\n     * @type {RegExp}\n     */\n    this.date_pattern = /([\\d*]+\\.?)+/\n\n    /**\n     * Convert individual components to a single string\n     * @type {string}\n     */\n    this.raw = this.toString()\n  }\n\n  /**\n   * Create a copy object of this long count date\n   * @returns {LongCount}\n   */\n  clone () {\n    return new LongCount(...this.parts)\n  }\n\n  /**\n   * Get specific column in Long Count date\n   * @param {number} index\n   * @returns {number}\n   */\n  _get_date_sections (index) {\n    let part = this.parts[index]\n    if (part === undefined) {\n      return 0\n    }\n    return part\n  }\n\n  /**\n   * Set specific column in Long Count date\n   * @param {number} index\n   * @param {number} value\n   * @returns {LongCount}\n   * @private\n   */\n  _set_date_sections (index, value) {\n    this.parts[index] = value.toString()\n    this.raw = this.toString()\n    return this\n  }\n\n  /**\n   * Return the number of positions in the long count\n   * @returns {number}\n   */\n  get length () {\n    return this.parts.length\n  }\n\n  /**\n   * Set the k'in component of the date\n   * @returns {number}\n   */\n  set k_in (new_k_in) {\n    this._set_date_sections(0, new_k_in)\n  }\n\n  /**\n   * Return the k'in component of the date\n   * @returns {number}\n   */\n  get k_in () {\n    return this._get_date_sections(0)\n  }\n\n  /**\n   * Set the winal component of the date\n   * @returns {number}\n   */\n  set winal (new_winal) {\n    this._set_date_sections(1, new_winal)\n  }\n\n  /**\n   * Return the winal component of the date\n   * @returns {number}\n   */\n  get winal () {\n    return this._get_date_sections(1)\n  }\n\n  /**\n   * Set the tun component of the date\n   * @returns {number}\n   */\n  set tun (new_tun) {\n    this._set_date_sections(2, new_tun)\n  }\n\n  /**\n   * Return the tun component of the date\n   * @returns {number}\n   */\n  get tun () {\n    return this._get_date_sections(2)\n  }\n\n  /**\n   * Set the k'atun component of the date\n   * @returns {number}\n   */\n  set k_atun (new_k_atun) {\n    this._set_date_sections(3, new_k_atun)\n  }\n\n  /**\n   * Return the k'atun component of the date\n   * @returns {number}\n   */\n  get k_atun () {\n    return this._get_date_sections(3)\n  }\n\n  /**\n   * Set the bak'tun component of the date\n   * @returns {number}\n   */\n  set bak_tun (new_bak_tun) {\n    this._set_date_sections(4, new_bak_tun)\n  }\n\n  /**\n   * Return the bak'tun component of the date\n   * @returns {number}\n   */\n  get bak_tun () {\n    return this._get_date_sections(4)\n  }\n\n  /**\n   * Set the piktun component of the date\n   * @returns {number}\n   */\n  set piktun (new_bak_tun) {\n    this._set_date_sections(5, new_bak_tun)\n  }\n\n  /**\n   * Return the piktun component of the date\n   * @returns {number}\n   */\n  get piktun () {\n    return this._get_date_sections(5)\n  }\n\n  /**\n   * Set the kalabtun component of the date\n   * @returns {number}\n   */\n  set kalabtun (new_bak_tun) {\n    this._set_date_sections(6, new_bak_tun)\n  }\n\n  /**\n   * Return the kalabtun component of the date\n   * @returns {number}\n   */\n  get kalabtun () {\n    return this._get_date_sections(6)\n  }\n\n  /**\n   * Set the kinchiltun component of the date\n   * @returns {number}\n   */\n  set kinchiltun (new_bak_tun) {\n    this._set_date_sections(7, new_bak_tun)\n  }\n\n  /**\n   * Return the kinchiltun component of the date\n   * @returns {number}\n   */\n  get kinchiltun () {\n    return this._get_date_sections(7)\n  }\n\n  /**\n   * Ensure the date has only numbers and wildcards separated by points.\n   * @returns {boolean}\n   */\n  is_valid () {\n    return this.date_pattern.test(this.toString())\n  }\n\n  /**\n   * Convert the LongCount to a string and pad the sections of the date\n   * @returns {string}\n   */\n  toString () {\n    let significant_digits = []\n    for (let i = 0; i < this.parts.length; i++) {\n      let part = this.parts[i]\n      if (part !== 0) {\n        significant_digits = this.parts.slice(i).reverse()\n        break\n      }\n    }\n\n    for (let i = 0; i < significant_digits.length; i++) {\n      if (significant_digits[i] === undefined) {\n        significant_digits[i] = '0'\n      }\n    }\n\n    let date_length = significant_digits.length\n    if (date_length < 5) {\n      for (let i = 0; i < 5 - date_length; i++) {\n        significant_digits.unshift(' 0')\n      }\n    }\n\n    for (let i = 0; i < significant_digits.length; i++) {\n      let part = significant_digits[i].toString()\n      if (part.length < 2) {\n        significant_digits[i] = ' ' + part\n      }\n    }\n    return significant_digits.join('.')\n  }\n}\n\nmodule.exports = LongCount\n",
@@ -2006,7 +2161,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 114,
+    "__docId__": 121,
     "kind": "class",
     "name": "LongCount",
     "memberof": "src/lc/long-count.js",
@@ -2021,7 +2176,7 @@
     "interface": false
   },
   {
-    "__docId__": 115,
+    "__docId__": 122,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2047,7 +2202,7 @@
     ]
   },
   {
-    "__docId__": 116,
+    "__docId__": 123,
     "kind": "member",
     "name": "parts",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2067,7 +2222,7 @@
     }
   },
   {
-    "__docId__": 117,
+    "__docId__": 124,
     "kind": "member",
     "name": "date_pattern",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2086,7 +2241,7 @@
     }
   },
   {
-    "__docId__": 118,
+    "__docId__": 125,
     "kind": "member",
     "name": "raw",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2105,7 +2260,7 @@
     }
   },
   {
-    "__docId__": 119,
+    "__docId__": 126,
     "kind": "method",
     "name": "clone",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2133,7 +2288,7 @@
     "params": []
   },
   {
-    "__docId__": 120,
+    "__docId__": 127,
     "kind": "method",
     "name": "_get_date_sections",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2172,7 +2327,7 @@
     }
   },
   {
-    "__docId__": 121,
+    "__docId__": 128,
     "kind": "method",
     "name": "_set_date_sections",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2221,7 +2376,7 @@
     }
   },
   {
-    "__docId__": 123,
+    "__docId__": 130,
     "kind": "get",
     "name": "length",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2253,7 +2408,7 @@
     }
   },
   {
-    "__docId__": 124,
+    "__docId__": 131,
     "kind": "set",
     "name": "k_in",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2280,7 +2435,7 @@
     }
   },
   {
-    "__docId__": 125,
+    "__docId__": 132,
     "kind": "get",
     "name": "k_in",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2312,7 +2467,7 @@
     }
   },
   {
-    "__docId__": 126,
+    "__docId__": 133,
     "kind": "set",
     "name": "winal",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2339,7 +2494,7 @@
     }
   },
   {
-    "__docId__": 127,
+    "__docId__": 134,
     "kind": "get",
     "name": "winal",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2371,7 +2526,7 @@
     }
   },
   {
-    "__docId__": 128,
+    "__docId__": 135,
     "kind": "set",
     "name": "tun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2398,7 +2553,7 @@
     }
   },
   {
-    "__docId__": 129,
+    "__docId__": 136,
     "kind": "get",
     "name": "tun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2430,7 +2585,7 @@
     }
   },
   {
-    "__docId__": 130,
+    "__docId__": 137,
     "kind": "set",
     "name": "k_atun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2457,7 +2612,7 @@
     }
   },
   {
-    "__docId__": 131,
+    "__docId__": 138,
     "kind": "get",
     "name": "k_atun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2489,7 +2644,7 @@
     }
   },
   {
-    "__docId__": 132,
+    "__docId__": 139,
     "kind": "set",
     "name": "bak_tun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2516,7 +2671,7 @@
     }
   },
   {
-    "__docId__": 133,
+    "__docId__": 140,
     "kind": "get",
     "name": "bak_tun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2548,7 +2703,7 @@
     }
   },
   {
-    "__docId__": 134,
+    "__docId__": 141,
     "kind": "set",
     "name": "piktun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2575,7 +2730,7 @@
     }
   },
   {
-    "__docId__": 135,
+    "__docId__": 142,
     "kind": "get",
     "name": "piktun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2607,7 +2762,7 @@
     }
   },
   {
-    "__docId__": 136,
+    "__docId__": 143,
     "kind": "set",
     "name": "kalabtun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2634,7 +2789,7 @@
     }
   },
   {
-    "__docId__": 137,
+    "__docId__": 144,
     "kind": "get",
     "name": "kalabtun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2666,7 +2821,7 @@
     }
   },
   {
-    "__docId__": 138,
+    "__docId__": 145,
     "kind": "set",
     "name": "kinchiltun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2693,7 +2848,7 @@
     }
   },
   {
-    "__docId__": 139,
+    "__docId__": 146,
     "kind": "get",
     "name": "kinchiltun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2725,7 +2880,7 @@
     }
   },
   {
-    "__docId__": 140,
+    "__docId__": 147,
     "kind": "method",
     "name": "is_valid",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2753,7 +2908,7 @@
     "params": []
   },
   {
-    "__docId__": 141,
+    "__docId__": 148,
     "kind": "method",
     "name": "toString",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2781,7 +2936,7 @@
     "params": []
   },
   {
-    "__docId__": 142,
+    "__docId__": 149,
     "kind": "file",
     "name": "src/operations/calendar-round-wildcard.js",
     "content": "const CalendarRound = require('../cr/calendar-round')\nconst wildcard = require('../wildcard')\n\nclass CalendarRoundWildcard {\n  /**\n   * @param {CalendarRound} cr\n   */\n  constructor (cr) {\n    this.cr = cr\n    this.start_date = new CalendarRound(\n      8, 'Ajaw',\n      4, 'Kumk\\'u',\n    )\n  }\n\n  run () {\n    let potentials = []\n    // Iterate through dates and compare\n    let iter = new CalendarRoundIterator()\n    let cr = iter.next()\n    while (!cr.done) {\n      if (this._date_matches_wildcards(this.cr, cr.value)) {\n        potentials.push(cr.value)\n      }\n      cr = iter.next()\n    }\n    return potentials\n  }\n\n  /**\n   *\n   * @param {CalendarRound} partial\n   * @param {CalendarRound} full\n   */\n  _date_matches_wildcards (\n    partial,\n    full,\n  ) {\n    let is_match = true\n    if (partial.tzolkin.coeff !== wildcard) {\n      is_match &= (partial.tzolkin.coeff === full.tzolkin.coeff)\n    }\n    if (partial.tzolkin.day !== wildcard) {\n      is_match &= (partial.tzolkin.name === full.tzolkin.name)\n    }\n    if (partial.haab.coeff !== wildcard) {\n      is_match &= (partial.haab.coeff === full.haab.coeff)\n    }\n    if (partial.haab.month !== wildcard) {\n      is_match &= (partial.haab.name === full.haab.name)\n    }\n\n    if (!is_match) {\n      is_match = (partial.haab.coeff === wildcard) &&\n        (partial.haab.name === wildcard) &&\n        (partial.tzolkin.coeff === wildcard) &&\n        (partial.tzolkin.name === wildcard)\n    }\n    return Boolean(is_match)\n\n  }\n}\n\nclass CalendarRoundIterator {\n  /**\n   *\n   * @param {CalendarRound} date\n   */\n  constructor (date) {\n    if (date === undefined) {\n      date = new CalendarRound(\n        8, 'Ajaw',\n        4, 'Kumk\\'u',\n      )\n    }\n    this.date = date\n    this.current = this.date\n    this.is_first = true\n  }\n\n  next () {\n    if (this.is_first) {\n      this.is_first = false\n      return {value: this.current, done: false}\n    }\n    let next = this.current.next()\n    if (next.equal(this.date)) {\n      return {value: null, done: true}\n    } else {\n      this.current = next\n      return {value: next, done: false}\n    }\n  }\n\n}\n\nmodule.exports = CalendarRoundWildcard\n",
@@ -2792,7 +2947,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 143,
+    "__docId__": 150,
     "kind": "variable",
     "name": "CalendarRound",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -2813,7 +2968,7 @@
     "ignore": true
   },
   {
-    "__docId__": 144,
+    "__docId__": 151,
     "kind": "variable",
     "name": "wildcard",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -2834,7 +2989,7 @@
     "ignore": true
   },
   {
-    "__docId__": 145,
+    "__docId__": 152,
     "kind": "class",
     "name": "CalendarRoundWildcard",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -2851,7 +3006,7 @@
     "ignore": true
   },
   {
-    "__docId__": 146,
+    "__docId__": 153,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -2876,7 +3031,7 @@
     ]
   },
   {
-    "__docId__": 147,
+    "__docId__": 154,
     "kind": "member",
     "name": "cr",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -2894,7 +3049,7 @@
     "ignore": true
   },
   {
-    "__docId__": 148,
+    "__docId__": 155,
     "kind": "member",
     "name": "start_date",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -2912,7 +3067,7 @@
     "ignore": true
   },
   {
-    "__docId__": 149,
+    "__docId__": 156,
     "kind": "method",
     "name": "run",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -2933,7 +3088,7 @@
     "ignore": true
   },
   {
-    "__docId__": 150,
+    "__docId__": 157,
     "kind": "method",
     "name": "_date_matches_wildcards",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -2973,7 +3128,7 @@
     }
   },
   {
-    "__docId__": 151,
+    "__docId__": 158,
     "kind": "class",
     "name": "CalendarRoundIterator",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -2990,7 +3145,7 @@
     "ignore": true
   },
   {
-    "__docId__": 152,
+    "__docId__": 159,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3015,7 +3170,7 @@
     ]
   },
   {
-    "__docId__": 153,
+    "__docId__": 160,
     "kind": "member",
     "name": "date",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3033,7 +3188,7 @@
     "ignore": true
   },
   {
-    "__docId__": 154,
+    "__docId__": 161,
     "kind": "member",
     "name": "current",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3051,7 +3206,7 @@
     "ignore": true
   },
   {
-    "__docId__": 155,
+    "__docId__": 162,
     "kind": "member",
     "name": "is_first",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3069,7 +3224,7 @@
     "ignore": true
   },
   {
-    "__docId__": 156,
+    "__docId__": 163,
     "kind": "method",
     "name": "next",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3090,10 +3245,86 @@
     "ignore": true
   },
   {
-    "__docId__": 159,
+    "__docId__": 166,
+    "kind": "file",
+    "name": "src/operations/fulldate-wildcard.js",
+    "content": "// 7 Ok * * 9.*.10.10.10\n\n/**\n * Given a wildcard in\n */\nclass FullDateWildcard {\n  constructor (partial_date) {\n    this.partial = partial_date\n  }\n\n  run () {\n    let potential_dates = []\n  }\n}\n\nmodule.exports = FullDateWildcard\n\n",
+    "static": true,
+    "longname": "/Users/drews/Dropbox/Development/maya-dates/src/operations/fulldate-wildcard.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 167,
+    "kind": "class",
+    "name": "FullDateWildcard",
+    "memberof": "src/operations/fulldate-wildcard.js",
+    "static": true,
+    "longname": "src/operations/fulldate-wildcard.js~FullDateWildcard",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/operations/fulldate-wildcard.js",
+    "importStyle": null,
+    "description": "Given a wildcard in",
+    "lineNumber": 6,
+    "interface": false
+  },
+  {
+    "__docId__": 168,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/operations/fulldate-wildcard.js~FullDateWildcard",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/operations/fulldate-wildcard.js~FullDateWildcard#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "ignore": true
+  },
+  {
+    "__docId__": 169,
+    "kind": "member",
+    "name": "partial",
+    "memberof": "src/operations/fulldate-wildcard.js~FullDateWildcard",
+    "static": false,
+    "longname": "src/operations/fulldate-wildcard.js~FullDateWildcard#partial",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 170,
+    "kind": "method",
+    "name": "run",
+    "memberof": "src/operations/fulldate-wildcard.js~FullDateWildcard",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/operations/fulldate-wildcard.js~FullDateWildcard#run",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 171,
     "kind": "file",
     "name": "src/operations/index.js",
-    "content": "module.exports = {\n  'LongCountWildcard': require('./longcount-wildcard'),\n  'CalendarRoundWildcard': require('./calendar-round-wildcard')\n}\n",
+    "content": "module.exports = {\n  'LongCountWildcard': require('./longcount-wildcard'),\n  'CalendarRoundWildcard': require('./calendar-round-wildcard'),\n  'FullDateWildcard': require('./fulldate-wildcard'),\n}\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/operations/index.js",
     "access": "public",
@@ -3101,7 +3332,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 160,
+    "__docId__": 172,
     "kind": "file",
     "name": "src/operations/longcount-wildcard.js",
     "content": "const wildcard = require('../wildcard')\n\n/**\n * Given a Long Count with a wildcard, calculate the\n * possible LongCount dates\n */\nclass LongCountWildcard {\n  /**\n   * @param {LongCount} lc\n   */\n  constructor (lc) {\n    this.lc = lc\n  }\n\n  run () {\n    let potentials = [this.lc]\n    let wildcard_positions = []\n    for (let i = 0; i < this.lc.length; i++) {\n      if (this.lc._get_date_sections(i) === wildcard) {\n        wildcard_positions.push(i)\n      }\n    }\n    for (let position of wildcard_positions) {\n      let new_potentials = []\n      let iterations = (position === 1) ? 15 : 20\n      for (let possible of potentials) {\n        for (let k = 0; k < iterations; k++) {\n          let new_lc = possible.clone()._set_date_sections(position, k)\n          new_potentials.push(new_lc)\n        }\n      }\n      potentials = new_potentials\n    }\n    return potentials\n  }\n}\n\nmodule.exports = LongCountWildcard\n",
@@ -3112,7 +3343,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 161,
+    "__docId__": 173,
     "kind": "variable",
     "name": "wildcard",
     "memberof": "src/operations/longcount-wildcard.js",
@@ -3133,7 +3364,7 @@
     "ignore": true
   },
   {
-    "__docId__": 162,
+    "__docId__": 174,
     "kind": "class",
     "name": "LongCountWildcard",
     "memberof": "src/operations/longcount-wildcard.js",
@@ -3148,7 +3379,7 @@
     "interface": false
   },
   {
-    "__docId__": 163,
+    "__docId__": 175,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/longcount-wildcard.js~LongCountWildcard",
@@ -3173,7 +3404,7 @@
     ]
   },
   {
-    "__docId__": 164,
+    "__docId__": 176,
     "kind": "member",
     "name": "lc",
     "memberof": "src/operations/longcount-wildcard.js~LongCountWildcard",
@@ -3191,7 +3422,7 @@
     "ignore": true
   },
   {
-    "__docId__": 165,
+    "__docId__": 177,
     "kind": "method",
     "name": "run",
     "memberof": "src/operations/longcount-wildcard.js~LongCountWildcard",
@@ -3212,7 +3443,7 @@
     "ignore": true
   },
   {
-    "__docId__": 166,
+    "__docId__": 178,
     "kind": "file",
     "name": "src/wildcard.js",
     "content": "/**\n * Describes a wildcard in the Calendar Round or Long Count\n */\nclass Wildcard {\n  /**\n   * Represent the Wildcard as a string\n   * @returns {string}\n   */\n  toString () {\n    return '*'\n  }\n}\n\nmodule.exports = new Wildcard()\n",
@@ -3223,7 +3454,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 167,
+    "__docId__": 179,
     "kind": "class",
     "name": "Wildcard",
     "memberof": "src/wildcard.js",
@@ -3238,7 +3469,7 @@
     "interface": false
   },
   {
-    "__docId__": 168,
+    "__docId__": 180,
     "kind": "method",
     "name": "toString",
     "memberof": "src/wildcard.js~Wildcard",

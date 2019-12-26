@@ -56,6 +56,15 @@ class Tzolkin {
     )
   }
 
+  /**
+   *
+   * @param {Tzolkin} incremental
+   * @return {Tzolkin}
+   */
+  shift (incremental) {
+
+  }
+
   equal (new_tzolkin) {
     return (this.coeff === new_tzolkin.coeff) &&
       (this.name === new_tzolkin.name)
@@ -82,7 +91,8 @@ class Tzolkin {
 }
 
 const _day_lookup = {}
-function _get_day(day_name) {
+
+function _get_day (day_name) {
   if (_day_lookup[day_name] === undefined) {
     _day_lookup[day_name] = new TzolkinDay(day_name)
   }

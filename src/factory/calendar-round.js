@@ -3,7 +3,7 @@ const CalendarRound = require('../cr/calendar-round')
 
 /**
  * A factory to create a CalendarRound object from a string
- * @extends Factory
+ * @extends {Factory}
  * @example
  *    let cr = new CalendarRoundFactory().parse("4 Ajaw 8 Kumk'u");
  */
@@ -17,7 +17,7 @@ class CalendarRoundFactory extends Factory {
      * Describes how to break the string into a Calendar Round
      * @type {RegExp}
      */
-    this.pattern = /^([*\d]+)\s?([^\s]+)\s?([*\d]+)\s?([^\s]+)$/
+    this.pattern = /([*\d]+)\s?([^\s]+)\s?([*\d]+)\s?([^\s]+)/
   }
 
   /**
