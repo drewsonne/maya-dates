@@ -35,16 +35,24 @@ test('compute single date', () => {
     FullDateWildcard(partial_date).run()
 })
 
-test('single alignment', () => {
-  let partial_date = new mayadates.factory.
-    FullDateFactory().parse('* Imix 9 K\'ank\'in 13.0.7.2.1')
+describe('single alignment', () => {
+  let full_dates = [
+    ['* Imix 9 K\'ank\'in 13.0.7.2.1', [4, 'Imix', 9, 'K\'ank\'in']],
+    ['* * 9 K\'ank\'in 13.0.7.2.1', [4, 'Imix', 9, 'K\'ank\'in']],
+    ['* * * K\'ank\'in 13.0.7.2.1', [4, 'Imix', 9, 'K\'ank\'in']],
+    ['* * * * 13.0.7.2.1', [4, 'Imix', 9, 'K\'ank\'in']],
+  ]
+  test.each(full_dates)('%s -> %s', (raw, expected) => {
+    let fd_factory = new mayadates.factory.FullDateFactory()
+    let potential_dates = new mayadates.op.FullDateWildcard(
+      fd_factory.parse(raw),
+    ).run()
 
-  let potential_dates = new mayadates.op.
-    FullDateWildcard(partial_date).run()
+    expect(potential_dates.length).toBe(1)
+    expect(potential_dates[0].cr.tzolkin.coeff).toBe(expected[0])
+    expect(potential_dates[0].cr.tzolkin.name).toBe(expected[1])
+    expect(potential_dates[0].cr.haab.coeff).toBe(expected[2])
+    expect(potential_dates[0].cr.haab.name).toBe(expected[3])
 
-  expect(potential_dates.length).toBe(1)
-  expect(potential_dates[0].cr.tzolkin.coeff).toBe(4)
-  expect(potential_dates[0].cr.tzolkin.name).toBe('Imix')
-  expect(potential_dates[0].cr.haab.coeff).toBe(9)
-  expect(potential_dates[0].cr.haab.name).toBe('K\'ank\'in')
+  })
 })

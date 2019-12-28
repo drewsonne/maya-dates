@@ -62,9 +62,13 @@ class Haab {
    * @param {Haab} new_haab
    * @return {boolean}
    */
-  match(new_haab) {
-    return (this.coeff === wildcard) ? true : (this.coeff === new_haab.coeff) &&
-      (this.month === wildcard) ? true : (this.name === new_haab.name)
+  match (new_haab) {
+    return (this.coeff === wildcard || new_haab.coeff === wildcard)
+      ? true
+      : (this.coeff === new_haab.coeff) &&
+      (this.month === wildcard || new_haab.month === wildcard)
+        ? true
+        : (this.name === new_haab.name)
   }
 
   /**

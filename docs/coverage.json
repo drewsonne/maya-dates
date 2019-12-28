@@ -22,7 +22,7 @@
       "actualCount": 17,
       "undocumentLines": [
         55,
-        112
+        116
       ]
     },
     "src/cr/index.js": {
@@ -38,9 +38,9 @@
       "undocumentLines": [
         73,
         78,
-        102,
-        104,
-        157
+        107,
+        109,
+        162
       ]
     },
     "src/factory/base.js": {
