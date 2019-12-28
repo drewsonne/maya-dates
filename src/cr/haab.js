@@ -58,6 +58,16 @@ class Haab {
   }
 
   /**
+   *
+   * @param {Haab} new_haab
+   * @return {boolean}
+   */
+  match(new_haab) {
+    return (this.coeff === wildcard) ? true : (this.coeff === new_haab.coeff) &&
+      (this.month === wildcard) ? true : (this.month === new_haab.month)
+  }
+
+  /**
    * Return a string representation of the Haab month name
    * @returns {string}
    */
@@ -75,26 +85,17 @@ class Haab {
   shift (incremental) {
 
     let new_date = this.clone()
-    // If we are shifting by 1 year, we might as well
-    // skip the looping computation and return a copy
-    // of itself
-    if (incremental === 365) {
-      return new_date
-    }
     while (incremental > 0) {
       let month_length = (new_date.name === this.month.months[19]) ? 5 : 20
-      let month_incremental = Math.floor(incremental / month_length)
-      if (month_incremental > 0) {
+      if (incremental > month_length) {
+        let distance_to_month_end = month_length - new_date.coeff
+        new_date.coeff = 0
         new_date.month = new_date.month.shift(1)
+        incremental -= distance_to_month_end
+      } else {
+        new_date.coeff += incremental
+        incremental = 0
       }
-      let day_incremental = incremental % month_length
-      if (day_incremental === 0 && incremental !== 0) {
-        day_incremental = 20
-      }
-      if (day_incremental !== month_length) {
-        new_date.coeff = (new_date.coeff + day_incremental) % month_length
-      }
-      incremental -= day_incremental
     }
 
     return new_date

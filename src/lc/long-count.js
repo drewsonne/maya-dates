@@ -1,3 +1,6 @@
+const wildcard = require('../wildcard')
+const origin = require('../cr/index').origin
+
 /**
  * Long Count cycle
  */
@@ -201,6 +204,35 @@ class LongCount {
    */
   is_valid () {
     return this.date_pattern.test(this.toString())
+  }
+
+  is_partial () {
+    for (let part of this.parts) {
+      if (part === wildcard) {
+        return true
+      }
+    }
+    return false
+  }
+
+  get_position () {
+    if (this.is_partial()) {
+      throw 'Can not get position of partial dates'
+    }
+    return this.k_in +
+      this.winal * 20 +
+      this.tun * 360 +
+      this.k_atun * 7200 +
+      this.bak_tun * 144000 +
+      this.piktun * 2880000 +
+      this.kalabtun * 57600000 +
+      this.kinchiltun * 1152000000
+  }
+
+  build_calendar_round () {
+    return origin.shift(
+      this.get_position(),
+    )
   }
 
   /**

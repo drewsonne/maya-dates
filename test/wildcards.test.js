@@ -1,4 +1,5 @@
 const LongCountFactory = require('../src/factory/long-count')
+const CalendarRoundFactory = require('../src/factory/calendar-round')
 const wildcard = require('../src/wildcard')
 
 test('parse long-count date', () => {
@@ -16,4 +17,39 @@ test('parse long-count date', () => {
   expect(date._get_date_sections(4)).toBe(1)
 
   expect(date.toString()).toBe(' 1. 2. *. 4. 5')
+})
+
+describe('test partial lc', () => {
+  let partial_lcs = [
+    ['9.0.0.0.*', true],
+    ['*.*.*.*.*', true],
+    ['9.0.0.*.0', true],
+    ['9.0.*.0.0', true],
+    ['9.*.0.0.0', true],
+    ['*.0.0.0.0', true],
+    ['*.*.0.0.0', true],
+    ['9.0.0.0.0', false],
+  ]
+  test.each(partial_lcs)(
+    '%s -> %s',
+    (partial, expected) => {
+      let partial_date = new LongCountFactory().parse(partial)
+      expect(partial_date.is_partial()).toBe(expected)
+    })
+})
+
+describe('test partial cr', () => {
+  let partial_lcs = [
+    ['4 Ajaw 8 *', true],
+    ['4 Ajaw * Kumk\'u', true],
+    ['4 * 8 Kumk\'u', true],
+    ['* Ajaw 8 Kumk\'u', true],
+    ['4 Ajaw 8 Kumk\'u', false],
+  ]
+  test.each(partial_lcs)(
+    '%s -> %s',
+    (partial, expected) => {
+      let partial_date = new CalendarRoundFactory().parse(partial)
+      expect(partial_date.is_partial()).toBe(expected)
+    })
 })

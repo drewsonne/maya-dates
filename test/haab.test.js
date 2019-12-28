@@ -43,24 +43,23 @@ test('render haab date', () => {
 
 describe('shift haab', () => {
   let haabs = [
+    [[8, 'Kumk\'u'], 359, [2, 'Kumk\'u']],
+    [[8, 'Kumk\'u'], 361, [4, 'Kumk\'u']],
+    [[8, 'Kumk\'u'], 363, [6, 'Kumk\'u']],
+    [[8, 'Kumk\'u'], 365, [8, 'Kumk\'u']],
     [[18, 'Pop'], 1, [19, 'Pop']],
     [[18, 'Pop'], 100, [18, 'Xul']],
     [[18, 'Pop'], 177, [15, 'Yax']],
     [[18, 'Pop'], 345, [3, 'Wayeb']],
     [[8, 'Kumk\'u'], 309, [12, 'Muwan']],
-    [[8, 'Kumk\'u'], 359, [2, 'Kumk\'u']],
-    [[8, 'Kumk\'u'], 361, [4, 'Kumk\'u']],
-    [[8, 'Kumk\'u'], 363, [6, 'Kumk\'u']],
-    [[8, 'Kumk\'u'], 365, [8, 'Kumk\'u']],
     [[8, 'Kumk\'u'], 367, [10, 'Kumk\'u']],
     [[8, 'Kumk\'u'], 369, [12, 'Kumk\'u']],
   ]
   test.each(haabs)(
     '%s + %s = %s',
     (start, incremental, expected) => {
-      let new_haab = new mayadates.cr.haab.
-        Haab(...start).
-        shift(incremental)
+      let prev_haab = new mayadates.cr.haab.Haab(...start)
+      let new_haab = prev_haab.shift(incremental)
 
       expect(new_haab.coeff).toBe(expected[0])
       expect(new_haab.name).toBe(expected[1])

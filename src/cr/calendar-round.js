@@ -1,5 +1,6 @@
 const tzolkin = require('../cr/tzolkin')
 const haab = require('../cr/haab')
+const wildcard = require('../wildcard')
 
 /**
  * A combination of 260-day cycles and the Haab cycle.
@@ -43,6 +44,11 @@ class CalendarRound {
       this.tzolkin.equal(new_cr.tzolkin)
   }
 
+  match (new_cr) {
+    return this.haab.match(new_cr.haab) &&
+      this.tzolkin.match(new_cr.tzolkin)
+  }
+
   shift (increment) {
     let new_cr = this.clone()
     new_cr.haab = new_cr.haab.shift(increment)
@@ -57,6 +63,13 @@ class CalendarRound {
       this.haab.coeff,
       this.haab.month,
     )
+  }
+
+  is_partial () {
+    return (this.tzolkin.day === wildcard) ||
+      (this.tzolkin.coeff === wildcard) ||
+      (this.haab.month === wildcard) ||
+      (this.haab.coeff === wildcard)
   }
 
   /**

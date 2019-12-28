@@ -37,7 +37,7 @@ test('compute single date', () => {
 
 test('single alignment', () => {
   let partial_date = new mayadates.factory.
-    FullDateFactory().parse('* * * * 13.0.7.2.1')
+    FullDateFactory().parse('* Imix 9 K\'ank\'in 13.0.7.2.1')
 
   let potential_dates = new mayadates.op.
     FullDateWildcard(partial_date).run()
