@@ -47,6 +47,13 @@ describe('shift haab', () => {
     [[18, 'Pop'], 100, [18, 'Xul']],
     [[18, 'Pop'], 177, [15, 'Yax']],
     [[18, 'Pop'], 345, [3, 'Wayeb']],
+    [[8, 'Kumk\'u'], 309, [12, 'Muwan']],
+    [[8, 'Kumk\'u'], 359, [2, 'Kumk\'u']],
+    [[8, 'Kumk\'u'], 361, [4, 'Kumk\'u']],
+    [[8, 'Kumk\'u'], 363, [6, 'Kumk\'u']],
+    [[8, 'Kumk\'u'], 365, [8, 'Kumk\'u']],
+    [[8, 'Kumk\'u'], 367, [10, 'Kumk\'u']],
+    [[8, 'Kumk\'u'], 369, [12, 'Kumk\'u']],
   ]
   test.each(haabs)(
     '%s + %s = %s',

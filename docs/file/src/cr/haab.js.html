@@ -123,6 +123,12 @@ class Haab {
   shift (incremental) {
 
     let new_date = this.clone()
+    // If we are shifting by 1 year, we might as well
+    // skip the looping computation and return a copy
+    // of itself
+    if (incremental === 365) {
+      return new_date
+    }
     while (incremental &gt; 0) {
       let month_length = (new_date.name === this.month.months[19]) ? 5 : 20
       let month_incremental = Math.floor(incremental / month_length)

@@ -20,6 +20,23 @@ describe('increment calendar-rounds', () => {
     })
 })
 
+describe('shift calendar-rounds', () => {
+  let tzolkin_days = [
+    ['4 Ajaw 8 Kumk\'u', 10, [1, 'Ok', 18, 'Kumk\'u']],
+    ['4 Ajaw 8 Kumk\'u', 365, [5, 'Chikchan', 8, 'Kumk\'u']],
+  ]
+  test.each(tzolkin_days)(
+    '%s + %s = %s',
+    (today, increment, expected) => {
+      let cr = new mayadates.factory.CalendarRoundFactory().parse(today)
+      let tomorrow = cr.shift(increment)
+      expect(tomorrow.tzolkin.coeff).toBe(expected[0])
+      expect(tomorrow.tzolkin.name).toBe(expected[1])
+      expect(tomorrow.haab.coeff).toBe(expected[2])
+      expect(tomorrow.haab.name).toBe(expected[3])
+    })
+})
+
 test('failed calendar-round parse', () => {
   let cr = new mayadates.factory.CalendarRoundFactory().parse('World')
   expect(cr).toBeNull()

@@ -1,15 +1,17 @@
 {
-  "coverage": "69.49%",
-  "expectCount": 118,
+  "coverage": "68.33%",
+  "expectCount": 120,
   "actualCount": 82,
   "files": {
     "src/cr/calendar-round.js": {
-      "expectCount": 9,
+      "expectCount": 11,
       "actualCount": 6,
       "undocumentLines": [
         1,
         2,
-        41
+        41,
+        46,
+        53
       ]
     },
     "src/cr/haab.js": {
@@ -17,7 +19,7 @@
       "actualCount": 16,
       "undocumentLines": [
         55,
-        105
+        111
       ]
     },
     "src/cr/tzolkin.js": {

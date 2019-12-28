@@ -43,6 +43,22 @@ class CalendarRound {
       this.tzolkin.equal(new_cr.tzolkin)
   }
 
+  shift (increment) {
+    let new_cr = this.clone()
+    new_cr.haab = new_cr.haab.shift(increment)
+    new_cr.tzolkin = new_cr.tzolkin.shift(increment)
+    return new_cr
+  }
+
+  clone () {
+    return new CalendarRound(
+      this.tzolkin.coeff,
+      this.tzolkin.day,
+      this.haab.coeff,
+      this.haab.month,
+    )
+  }
+
   /**
    * Render the CalendarRound cycle date as a string
    * @returns {string}
