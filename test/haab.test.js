@@ -37,6 +37,26 @@ describe('build haabs', () => {
 })
 
 test('render haab date', () => {
-  let haab = new mayadates.cr.haab.Haab(5,'Pop')
+  let haab = new mayadates.cr.haab.Haab(5, 'Pop')
   expect(haab.toString()).toBe('5 Pop')
+})
+
+describe('shift haab', () => {
+  let haabs = [
+    [[18, 'Pop'], 1, [19, 'Pop']],
+    [[18, 'Pop'], 100, [18, 'Xul']],
+    [[18, 'Pop'], 177, [15, 'Yax']],
+    [[18, 'Pop'], 345, [3, 'Wayeb']],
+  ]
+  test.each(haabs)(
+    '%s + %s = %s',
+    (start, incremental, expected) => {
+      let new_haab = new mayadates.cr.haab.
+        Haab(...start).
+        shift(incremental)
+
+      expect(new_haab.coeff).toBe(expected[0])
+      expect(new_haab.name).toBe(expected[1])
+    },
+  )
 })

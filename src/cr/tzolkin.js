@@ -48,21 +48,26 @@ class Tzolkin {
    * @returns {Tzolkin}
    */
   next () {
-    let next_coeff = this.coeff + 1
-    let next_day = this.day.next()
-    return new Tzolkin(
-      (next_coeff % 13) === 0 ? 13 : next_coeff % 13,
-      next_day,
-    )
+    // let next_coeff = this.coeff + 1
+    // let next_day = this.day.next()
+    // return new Tzolkin(
+    //   (next_coeff % 13) === 0 ? 13 : next_coeff % 13,
+    //   next_day,
+    // )
+    return this.shift(1)
   }
 
   /**
    *
-   * @param {Tzolkin} incremental
+   * @param {Number} incremental
    * @return {Tzolkin}
    */
   shift (incremental) {
+    let new_coeff = (this.coeff + incremental) % 13
+    new_coeff = (new_coeff % 13) === 0 ? 13 : new_coeff
+    let new_day = this.day.shift(incremental)
 
+    return new Tzolkin(new_coeff, new_day)
   }
 
   equal (new_tzolkin) {
@@ -104,15 +109,9 @@ function _get_day (day_name) {
  */
 class TzolkinDay {
   /**
-   * @param {string} name - Name of the 260-day cycle day
+   * @param {string|number} name - Name or position of the 260-day cycle day
    */
   constructor (name) {
-    /**
-     * Name of the day in the 260-day cycle
-     * @type {string}
-     */
-    this.name = name
-
     /**
      * Mapping of day names to indexes
      * @type {Map<number, string>}
@@ -141,6 +140,16 @@ class TzolkinDay {
       'Ajaw',
     ]
 
+    if (typeof name === 'number') {
+      name = this.days[name]
+    }
+
+    /**
+     * Name of the day in the 260-day cycle
+     * @type {string}
+     */
+    this.name = name
+
     this.day_position = this.days.findIndex(
       d => d === this.name)
   }
@@ -150,11 +159,17 @@ class TzolkinDay {
    * @returns {TzolkinDay}
    */
   next () {
-    let i = this.day_position + 1
-    if (i > 20) {
-      i = 1
-    }
-    return _get_day(this.days[i])
+    return this.shift(1)
+  }
+
+  /**
+   *
+   * @param {number} incremental
+   */
+  shift (incremental) {
+    let new_incremental = (this.day_position + incremental) % 20
+    new_incremental = (new_incremental === 0) ? 20 : new_incremental
+    return new TzolkinDay(new_incremental)
   }
 }
 

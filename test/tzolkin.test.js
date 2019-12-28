@@ -38,8 +38,8 @@ describe('build tzolkins', () => {
 describe('shift tzolkins', () => {
   let tzolkins = [
     [[5, 'Imix'], 1, [6, 'Ik\'']],
-    [[13, 'Ik\''], 100, [8, 'Ik\'']],
-    [[13, 'Ajaw'], 177, [1, 'Lamat']],
+    [[13, 'Ajaw'], 100, [9, 'Ajaw']],
+    [[13, 'Ajaw'], 177, [8, 'Kaban']],
   ]
   test.each(tzolkins)(
     '%s + %s = %s',

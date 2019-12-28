@@ -815,7 +815,7 @@
     "__docId__": 58,
     "kind": "file",
     "name": "src/cr/haab.js",
-    "content": "/** @ignore */\nconst wildcard = require('../wildcard')\n\n/**\n * Describes a Haab date with a position and a month\n * @example\n *    let day = new Haab(8, \"Kumk'u\");\n *\n * @example\n *    let day = new Haab(8, new HaabMonth(\"Kumk'u\"));\n *\n */\nclass Haab {\n  /**\n   * Constructor\n   * @param {number} coeff - The position in the Haab month for this date\n   * @param {string|HaabMonth} month\n   */\n  constructor (coeff, month) {\n    if (coeff === '*') {\n      coeff = wildcard\n    } else if (coeff !== wildcard) {\n      coeff = parseInt(coeff)\n    }\n    if (typeof month === 'string') {\n      if (month === '*') {\n        month = wildcard\n      } else {\n        month = new HaabMonth(month)\n      }\n    }\n    /**\n     * @type {HaabMonth}\n     */\n    this.month = month\n    /**\n     * @type {number}\n     */\n    this.coeff = coeff\n  }\n\n  /**\n   * Return the next day in the Haab cycle\n   * @returns {Haab}\n   */\n  next () {\n    let month_length = (this.name === this.month.months[19]) ? 5 : 20\n    let tomorrow_coeff = (this.coeff + 1) % month_length\n    return new Haab(\n      tomorrow_coeff,\n      (tomorrow_coeff === 0) ? this.month.next() : this.month,\n    )\n  }\n\n  equal (new_haab) {\n    return (this.coeff === new_haab.coeff) &&\n      (this.name === new_haab.name)\n  }\n\n  /**\n   * Return a string representation of the Haab month name\n   * @returns {string}\n   */\n  get name () {\n    if (this.month === wildcard) {\n      return this.month\n    }\n    return this.month.name\n  }\n\n  /**\n   * Render the Haab date as a string\n   * @returns {string}\n   */\n  toString () {\n    return `${this.coeff} ${this.name}`\n  }\n\n}\n\n/**\n * Describes only the month component of a Haab date\n */\nclass HaabMonth {\n  /**\n   * @param {string} name - Name of the Haab month\n   */\n  constructor (name) {\n    /**\n     * Name of the Haab month\n     * @type {string}\n     */\n    this.name = name\n\n    /**\n     * @type {Map<number, string>}\n     */\n    this.months = {\n      1: 'Pop',\n      2: 'Wo',\n      3: 'Sip',\n      4: 'Sotz\\'',\n      5: 'Sek',\n      6: 'Xul',\n      7: 'Yaxk\\'in',\n      8: 'Mol',\n      9: 'Ch\\'en',\n      10: 'Yax',\n      11: 'Sak',\n      12: 'Keh',\n      13: 'Mak',\n      14: 'K\\'ank\\'in',\n      15: 'Muwan',\n      16: 'Pax',\n      17: 'K\\'ayab',\n      18: 'Kumk\\'u',\n      19: 'Wayeb',\n    }\n  }\n\n  /**\n   * Return the next month in the Haab cycle\n   * @returns {HaabMonth}\n   */\n  next () {\n    let i\n    for (i = 0; i < 20; i++) {\n      if (this.months[i] === this.name) {\n        break\n      }\n    }\n    i += 1\n    if (i > 19) {\n      i = 1\n    }\n    return new HaabMonth(this.months[i])\n  }\n}\n\nmodule.exports = {\n  'Haab': Haab,\n  'HaabMonth': HaabMonth,\n}\n",
+    "content": "/** @ignore */\nconst wildcard = require('../wildcard')\n\n/**\n * Describes a Haab date with a position and a month\n * @example\n *    let day = new Haab(8, \"Kumk'u\");\n *\n * @example\n *    let day = new Haab(8, new HaabMonth(\"Kumk'u\"));\n *\n */\nclass Haab {\n  /**\n   * Constructor\n   * @param {number} coeff - The position in the Haab month for this date\n   * @param {string|HaabMonth} month\n   */\n  constructor (coeff, month) {\n    if (coeff === '*') {\n      coeff = wildcard\n    } else if (coeff !== wildcard) {\n      coeff = parseInt(coeff)\n    }\n    if (typeof month === 'string') {\n      if (month === '*') {\n        month = wildcard\n      } else {\n        month = new HaabMonth(month)\n      }\n    }\n    /**\n     * @type {HaabMonth}\n     */\n    this.month = month\n    /**\n     * @type {number}\n     */\n    this.coeff = coeff\n  }\n\n  /**\n   * Return the next day in the Haab cycle\n   * @returns {Haab}\n   */\n  next () {\n    let month_length = (this.name === this.month.months[19]) ? 5 : 20\n    let tomorrow_coeff = (this.coeff + 1) % month_length\n    return new Haab(\n      tomorrow_coeff,\n      (tomorrow_coeff === 0) ? this.month.next() : this.month,\n    )\n  }\n\n  equal (new_haab) {\n    return (this.coeff === new_haab.coeff) &&\n      (this.name === new_haab.name)\n  }\n\n  /**\n   * Return a string representation of the Haab month name\n   * @returns {string}\n   */\n  get name () {\n    if (this.month === wildcard) {\n      return this.month\n    }\n    return this.month.name\n  }\n\n  /**\n   *\n   * @param {number} incremental\n   */\n  shift (incremental) {\n\n    let new_date = this.clone()\n    while (incremental > 0) {\n      let month_length = (new_date.name === this.month.months[19]) ? 5 : 20\n      let month_incremental = Math.floor(incremental / month_length)\n      if (month_incremental > 0) {\n        new_date.month = new_date.month.shift(1)\n      }\n      let day_incremental = incremental % month_length\n      if (day_incremental === 0 && incremental !== 0) {\n        day_incremental = 20\n      }\n      if (day_incremental !== month_length) {\n        new_date.coeff = (new_date.coeff + day_incremental) % month_length\n      }\n      incremental -= day_incremental\n    }\n\n    return new_date\n  }\n\n  /**\n   * Render the Haab date as a string\n   * @returns {string}\n   */\n  toString () {\n    return `${this.coeff} ${this.name}`\n  }\n\n  clone () {\n    return new Haab(\n      this.coeff,\n      this.month,\n    )\n  }\n\n}\n\n/**\n * Describes only the month component of a Haab date\n */\nclass HaabMonth {\n  /**\n   * @param {string} name - Name of the Haab month\n   */\n  constructor (name) {\n\n    /**\n     * @type {Map<number, string>}\n     */\n    this.months = [\n      undefined,\n      'Pop',\n      'Wo',\n      'Sip',\n      'Sotz\\'',\n      'Sek',\n      'Xul',\n      'Yaxk\\'in',\n      'Mol',\n      'Ch\\'en',\n      'Yax',\n      'Sak',\n      'Keh',\n      'Mak',\n      'K\\'ank\\'in',\n      'Muwan',\n      'Pax',\n      'K\\'ayab',\n      'Kumk\\'u',\n      'Wayeb',\n    ]\n\n    if (typeof name === 'number') {\n      name = this.months[name]\n    }\n\n    /**\n     * Name of the Haab month\n     * @type {string}\n     */\n    this.name = name\n\n    /**\n     * @type {number}\n     */\n    this.month_position = this.months.findIndex(\n      m => m === this.name)\n  }\n\n  /**\n   * Return the next month in the Haab cycle\n   * @returns {HaabMonth}\n   */\n  next () {\n    return this.shift(1)\n  }\n\n  /**\n   *\n   * @param {number} incremental\n   */\n  shift (incremental) {\n    let new_incremental = (this.month_position + incremental) % 19\n    new_incremental = (new_incremental === 0) ? 19 : new_incremental\n    return new HaabMonth(new_incremental)\n  }\n}\n\nmodule.exports = {\n  'Haab': Haab,\n  'HaabMonth': HaabMonth,\n}\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/cr/haab.js",
     "access": "public",
@@ -1026,6 +1026,36 @@
   {
     "__docId__": 67,
     "kind": "method",
+    "name": "shift",
+    "memberof": "src/cr/haab.js~Haab",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/cr/haab.js~Haab#shift",
+    "access": "public",
+    "description": "",
+    "lineNumber": 75,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "incremental",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "method",
     "name": "toString",
     "memberof": "src/cr/haab.js~Haab",
     "generator": false,
@@ -1034,7 +1064,7 @@
     "longname": "src/cr/haab.js~Haab#toString",
     "access": "public",
     "description": "Render the Haab date as a string",
-    "lineNumber": 75,
+    "lineNumber": 101,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1052,7 +1082,28 @@
     "params": []
   },
   {
-    "__docId__": 68,
+    "__docId__": 69,
+    "kind": "method",
+    "name": "clone",
+    "memberof": "src/cr/haab.js~Haab",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/cr/haab.js~Haab#clone",
+    "access": "public",
+    "description": null,
+    "lineNumber": 105,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 70,
     "kind": "class",
     "name": "HaabMonth",
     "memberof": "src/cr/haab.js",
@@ -1063,11 +1114,11 @@
     "importPath": "@drewsonne/maya-dates/src/cr/haab.js",
     "importStyle": null,
     "description": "Describes only the month component of a Haab date",
-    "lineNumber": 84,
+    "lineNumber": 117,
     "interface": false
   },
   {
-    "__docId__": 69,
+    "__docId__": 71,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/cr/haab.js~HaabMonth",
@@ -1077,7 +1128,7 @@
     "longname": "src/cr/haab.js~HaabMonth#constructor",
     "access": "public",
     "description": "",
-    "lineNumber": 88,
+    "lineNumber": 121,
     "params": [
       {
         "nullable": null,
@@ -1092,26 +1143,7 @@
     ]
   },
   {
-    "__docId__": 70,
-    "kind": "member",
-    "name": "name",
-    "memberof": "src/cr/haab.js~HaabMonth",
-    "static": false,
-    "longname": "src/cr/haab.js~HaabMonth#name",
-    "access": "public",
-    "description": "Name of the Haab month",
-    "lineNumber": 93,
-    "type": {
-      "nullable": null,
-      "types": [
-        "string"
-      ],
-      "spread": false,
-      "description": null
-    }
-  },
-  {
-    "__docId__": 71,
+    "__docId__": 72,
     "kind": "member",
     "name": "months",
     "memberof": "src/cr/haab.js~HaabMonth",
@@ -1119,7 +1151,7 @@
     "longname": "src/cr/haab.js~HaabMonth#months",
     "access": "public",
     "description": "",
-    "lineNumber": 98,
+    "lineNumber": 126,
     "type": {
       "nullable": null,
       "types": [
@@ -1130,7 +1162,45 @@
     }
   },
   {
-    "__docId__": 72,
+    "__docId__": 73,
+    "kind": "member",
+    "name": "name",
+    "memberof": "src/cr/haab.js~HaabMonth",
+    "static": false,
+    "longname": "src/cr/haab.js~HaabMonth#name",
+    "access": "public",
+    "description": "Name of the Haab month",
+    "lineNumber": 157,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 74,
+    "kind": "member",
+    "name": "month_position",
+    "memberof": "src/cr/haab.js~HaabMonth",
+    "static": false,
+    "longname": "src/cr/haab.js~HaabMonth#month_position",
+    "access": "public",
+    "description": "",
+    "lineNumber": 162,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 75,
     "kind": "method",
     "name": "next",
     "memberof": "src/cr/haab.js~HaabMonth",
@@ -1140,7 +1210,7 @@
     "longname": "src/cr/haab.js~HaabMonth#next",
     "access": "public",
     "description": "Return the next month in the Haab cycle",
-    "lineNumber": 125,
+    "lineNumber": 170,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1158,7 +1228,37 @@
     "params": []
   },
   {
-    "__docId__": 73,
+    "__docId__": 76,
+    "kind": "method",
+    "name": "shift",
+    "memberof": "src/cr/haab.js~HaabMonth",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/cr/haab.js~HaabMonth#shift",
+    "access": "public",
+    "description": "",
+    "lineNumber": 178,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "incremental",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 77,
     "kind": "file",
     "name": "src/cr/index.js",
     "content": "module.exports = {\n  'CalendarRound': require('./calendar-round'),\n  'tzolkin': require('./tzolkin'),\n  'haab': require('./haab'),\n}\n",
@@ -1169,10 +1269,10 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 74,
+    "__docId__": 78,
     "kind": "file",
     "name": "src/cr/tzolkin.js",
-    "content": "/** @ignore */\nconst wildcard = require('../wildcard')\n\n/**\n * Describes a date in the 260-day cycle with a position and a day\n * @example\n *    let day = new Tzolkin(4, \"Ajaw\");\n *\n * @example\n *    let day = new Tzolkin(4, new TzolkinDay(\"Ajaw\"));\n *\n */\nclass Tzolkin {\n  /**\n   * Constructor\n   * @param {number} coeff - The position in the 260-day cycle\n   * @param {string|TzolkinDay} day\n   */\n  constructor (coeff, day) {\n    if (coeff !== undefined) {\n      if (coeff === '*') {\n        coeff = wildcard\n      } else if (coeff !== wildcard) {\n        coeff = parseInt(coeff)\n      }\n    }\n    if (day !== undefined) {\n      if (typeof day === 'string') {\n        if (day === '*') {\n          day = wildcard\n        } else {\n          day = _get_day(day)\n        }\n      }\n    }\n    /**\n     * @type {TzolkinDay}\n     */\n    this.day = day\n    /**\n     * @type {number}\n     */\n    this.coeff = coeff\n  }\n\n  /**\n   * Return the next day in the 260-day cycle\n   * @returns {Tzolkin}\n   */\n  next () {\n    let next_coeff = this.coeff + 1\n    let next_day = this.day.next()\n    return new Tzolkin(\n      (next_coeff % 13) === 0 ? 13 : next_coeff % 13,\n      next_day,\n    )\n  }\n\n  /**\n   *\n   * @param {Tzolkin} incremental\n   * @return {Tzolkin}\n   */\n  shift (incremental) {\n\n  }\n\n  equal (new_tzolkin) {\n    return (this.coeff === new_tzolkin.coeff) &&\n      (this.name === new_tzolkin.name)\n  }\n\n  /**\n   * Return a string representation of the 260-day cycle name\n   * @returns {string}\n   */\n  get name () {\n    if (this.day === wildcard) {\n      return this.day\n    }\n    return this.day.name\n  }\n\n  /**\n   * Render the 260-day cycle date as a string\n   * @returns {string}\n   */\n  toString () {\n    return `${this.coeff} ${this.name}`\n  }\n}\n\nconst _day_lookup = {}\n\nfunction _get_day (day_name) {\n  if (_day_lookup[day_name] === undefined) {\n    _day_lookup[day_name] = new TzolkinDay(day_name)\n  }\n  return _day_lookup[day_name]\n}\n\n/**\n * Describes only the day component of a 260-day cycle\n */\nclass TzolkinDay {\n  /**\n   * @param {string} name - Name of the 260-day cycle day\n   */\n  constructor (name) {\n    /**\n     * Name of the day in the 260-day cycle\n     * @type {string}\n     */\n    this.name = name\n\n    /**\n     * Mapping of day names to indexes\n     * @type {Map<number, string>}\n     */\n    this.days = [\n      undefined,\n      'Imix',\n      'Ik\\'',\n      'Ak\\'bal',\n      'K\\'an',\n      'Chikchan',\n      'Kimi',\n      'Manik',\n      'Lamat',\n      'Muluk',\n      'Ok',\n      'Chuwen',\n      'Eb',\n      'Ben',\n      'Ix',\n      'Men',\n      'Kib',\n      'Kaban',\n      'Etz\\'nab',\n      'Kawak',\n      'Ajaw',\n    ]\n\n    this.day_position = this.days.findIndex(\n      d => d === this.name)\n  }\n\n  /**\n   * Return the next day in the 260-day cycle\n   * @returns {TzolkinDay}\n   */\n  next () {\n    let i = this.day_position + 1\n    if (i > 20) {\n      i = 1\n    }\n    return _get_day(this.days[i])\n  }\n}\n\nmodule.exports = {\n  'TzolkinDay': TzolkinDay,\n  'Tzolkin': Tzolkin,\n}\n",
+    "content": "/** @ignore */\nconst wildcard = require('../wildcard')\n\n/**\n * Describes a date in the 260-day cycle with a position and a day\n * @example\n *    let day = new Tzolkin(4, \"Ajaw\");\n *\n * @example\n *    let day = new Tzolkin(4, new TzolkinDay(\"Ajaw\"));\n *\n */\nclass Tzolkin {\n  /**\n   * Constructor\n   * @param {number} coeff - The position in the 260-day cycle\n   * @param {string|TzolkinDay} day\n   */\n  constructor (coeff, day) {\n    if (coeff !== undefined) {\n      if (coeff === '*') {\n        coeff = wildcard\n      } else if (coeff !== wildcard) {\n        coeff = parseInt(coeff)\n      }\n    }\n    if (day !== undefined) {\n      if (typeof day === 'string') {\n        if (day === '*') {\n          day = wildcard\n        } else {\n          day = _get_day(day)\n        }\n      }\n    }\n    /**\n     * @type {TzolkinDay}\n     */\n    this.day = day\n    /**\n     * @type {number}\n     */\n    this.coeff = coeff\n  }\n\n  /**\n   * Return the next day in the 260-day cycle\n   * @returns {Tzolkin}\n   */\n  next () {\n    // let next_coeff = this.coeff + 1\n    // let next_day = this.day.next()\n    // return new Tzolkin(\n    //   (next_coeff % 13) === 0 ? 13 : next_coeff % 13,\n    //   next_day,\n    // )\n    return this.shift(1)\n  }\n\n  /**\n   *\n   * @param {Number} incremental\n   * @return {Tzolkin}\n   */\n  shift (incremental) {\n    let new_coeff = (this.coeff + incremental) % 13\n    new_coeff = (new_coeff % 13) === 0 ? 13 : new_coeff\n    let new_day = this.day.shift(incremental)\n\n    return new Tzolkin(new_coeff, new_day)\n  }\n\n  equal (new_tzolkin) {\n    return (this.coeff === new_tzolkin.coeff) &&\n      (this.name === new_tzolkin.name)\n  }\n\n  /**\n   * Return a string representation of the 260-day cycle name\n   * @returns {string}\n   */\n  get name () {\n    if (this.day === wildcard) {\n      return this.day\n    }\n    return this.day.name\n  }\n\n  /**\n   * Render the 260-day cycle date as a string\n   * @returns {string}\n   */\n  toString () {\n    return `${this.coeff} ${this.name}`\n  }\n}\n\nconst _day_lookup = {}\n\nfunction _get_day (day_name) {\n  if (_day_lookup[day_name] === undefined) {\n    _day_lookup[day_name] = new TzolkinDay(day_name)\n  }\n  return _day_lookup[day_name]\n}\n\n/**\n * Describes only the day component of a 260-day cycle\n */\nclass TzolkinDay {\n  /**\n   * @param {string|number} name - Name or position of the 260-day cycle day\n   */\n  constructor (name) {\n    /**\n     * Mapping of day names to indexes\n     * @type {Map<number, string>}\n     */\n    this.days = [\n      undefined,\n      'Imix',\n      'Ik\\'',\n      'Ak\\'bal',\n      'K\\'an',\n      'Chikchan',\n      'Kimi',\n      'Manik',\n      'Lamat',\n      'Muluk',\n      'Ok',\n      'Chuwen',\n      'Eb',\n      'Ben',\n      'Ix',\n      'Men',\n      'Kib',\n      'Kaban',\n      'Etz\\'nab',\n      'Kawak',\n      'Ajaw',\n    ]\n\n    if (typeof name === 'number') {\n      name = this.days[name]\n    }\n\n    /**\n     * Name of the day in the 260-day cycle\n     * @type {string}\n     */\n    this.name = name\n\n    this.day_position = this.days.findIndex(\n      d => d === this.name)\n  }\n\n  /**\n   * Return the next day in the 260-day cycle\n   * @returns {TzolkinDay}\n   */\n  next () {\n    return this.shift(1)\n  }\n\n  /**\n   *\n   * @param {number} incremental\n   */\n  shift (incremental) {\n    let new_incremental = (this.day_position + incremental) % 20\n    new_incremental = (new_incremental === 0) ? 20 : new_incremental\n    return new TzolkinDay(new_incremental)\n  }\n}\n\nmodule.exports = {\n  'TzolkinDay': TzolkinDay,\n  'Tzolkin': Tzolkin,\n}\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/cr/tzolkin.js",
     "access": "public",
@@ -1180,7 +1280,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 75,
+    "__docId__": 79,
     "kind": "variable",
     "name": "wildcard",
     "memberof": "src/cr/tzolkin.js",
@@ -1200,7 +1300,7 @@
     }
   },
   {
-    "__docId__": 76,
+    "__docId__": 80,
     "kind": "class",
     "name": "Tzolkin",
     "memberof": "src/cr/tzolkin.js",
@@ -1219,7 +1319,7 @@
     "interface": false
   },
   {
-    "__docId__": 77,
+    "__docId__": 81,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/cr/tzolkin.js~Tzolkin",
@@ -1255,7 +1355,7 @@
     ]
   },
   {
-    "__docId__": 78,
+    "__docId__": 82,
     "kind": "member",
     "name": "day",
     "memberof": "src/cr/tzolkin.js~Tzolkin",
@@ -1274,7 +1374,7 @@
     }
   },
   {
-    "__docId__": 79,
+    "__docId__": 83,
     "kind": "member",
     "name": "coeff",
     "memberof": "src/cr/tzolkin.js~Tzolkin",
@@ -1293,7 +1393,7 @@
     }
   },
   {
-    "__docId__": 80,
+    "__docId__": 84,
     "kind": "method",
     "name": "next",
     "memberof": "src/cr/tzolkin.js~Tzolkin",
@@ -1321,7 +1421,7 @@
     "params": []
   },
   {
-    "__docId__": 81,
+    "__docId__": 85,
     "kind": "method",
     "name": "shift",
     "memberof": "src/cr/tzolkin.js~Tzolkin",
@@ -1331,12 +1431,12 @@
     "longname": "src/cr/tzolkin.js~Tzolkin#shift",
     "access": "public",
     "description": "",
-    "lineNumber": 64,
+    "lineNumber": 65,
     "params": [
       {
         "nullable": null,
         "types": [
-          "Tzolkin"
+          "Number"
         ],
         "spread": false,
         "optional": false,
@@ -1354,7 +1454,7 @@
     }
   },
   {
-    "__docId__": 82,
+    "__docId__": 86,
     "kind": "method",
     "name": "equal",
     "memberof": "src/cr/tzolkin.js~Tzolkin",
@@ -1364,7 +1464,7 @@
     "longname": "src/cr/tzolkin.js~Tzolkin#equal",
     "access": "public",
     "description": null,
-    "lineNumber": 68,
+    "lineNumber": 73,
     "undocument": true,
     "params": [
       {
@@ -1382,7 +1482,7 @@
     "ignore": true
   },
   {
-    "__docId__": 83,
+    "__docId__": 87,
     "kind": "get",
     "name": "name",
     "memberof": "src/cr/tzolkin.js~Tzolkin",
@@ -1392,7 +1492,7 @@
     "longname": "src/cr/tzolkin.js~Tzolkin#name",
     "access": "public",
     "description": "Return a string representation of the 260-day cycle name",
-    "lineNumber": 77,
+    "lineNumber": 82,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1414,7 +1514,7 @@
     }
   },
   {
-    "__docId__": 84,
+    "__docId__": 88,
     "kind": "method",
     "name": "toString",
     "memberof": "src/cr/tzolkin.js~Tzolkin",
@@ -1424,7 +1524,7 @@
     "longname": "src/cr/tzolkin.js~Tzolkin#toString",
     "access": "public",
     "description": "Render the 260-day cycle date as a string",
-    "lineNumber": 88,
+    "lineNumber": 93,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1442,7 +1542,7 @@
     "params": []
   },
   {
-    "__docId__": 85,
+    "__docId__": 89,
     "kind": "variable",
     "name": "_day_lookup",
     "memberof": "src/cr/tzolkin.js",
@@ -1453,7 +1553,7 @@
     "importPath": "@drewsonne/maya-dates/src/cr/tzolkin.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 93,
+    "lineNumber": 98,
     "undocument": true,
     "type": {
       "types": [
@@ -1463,7 +1563,7 @@
     "ignore": true
   },
   {
-    "__docId__": 86,
+    "__docId__": 90,
     "kind": "function",
     "name": "_get_day",
     "memberof": "src/cr/tzolkin.js",
@@ -1476,7 +1576,7 @@
     "importPath": "@drewsonne/maya-dates/src/cr/tzolkin.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 95,
+    "lineNumber": 100,
     "undocument": true,
     "params": [
       {
@@ -1494,7 +1594,7 @@
     "ignore": true
   },
   {
-    "__docId__": 87,
+    "__docId__": 91,
     "kind": "class",
     "name": "TzolkinDay",
     "memberof": "src/cr/tzolkin.js",
@@ -1505,11 +1605,11 @@
     "importPath": "@drewsonne/maya-dates/src/cr/tzolkin.js",
     "importStyle": null,
     "description": "Describes only the day component of a 260-day cycle",
-    "lineNumber": 105,
+    "lineNumber": 110,
     "interface": false
   },
   {
-    "__docId__": 88,
+    "__docId__": 92,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/cr/tzolkin.js~TzolkinDay",
@@ -1519,41 +1619,23 @@
     "longname": "src/cr/tzolkin.js~TzolkinDay#constructor",
     "access": "public",
     "description": "",
-    "lineNumber": 109,
+    "lineNumber": 114,
     "params": [
       {
         "nullable": null,
         "types": [
-          "string"
+          "string",
+          "number"
         ],
         "spread": false,
         "optional": false,
         "name": "name",
-        "description": "Name of the 260-day cycle day"
+        "description": "Name or position of the 260-day cycle day"
       }
     ]
   },
   {
-    "__docId__": 89,
-    "kind": "member",
-    "name": "name",
-    "memberof": "src/cr/tzolkin.js~TzolkinDay",
-    "static": false,
-    "longname": "src/cr/tzolkin.js~TzolkinDay#name",
-    "access": "public",
-    "description": "Name of the day in the 260-day cycle",
-    "lineNumber": 114,
-    "type": {
-      "nullable": null,
-      "types": [
-        "string"
-      ],
-      "spread": false,
-      "description": null
-    }
-  },
-  {
-    "__docId__": 90,
+    "__docId__": 93,
     "kind": "member",
     "name": "days",
     "memberof": "src/cr/tzolkin.js~TzolkinDay",
@@ -1561,7 +1643,7 @@
     "longname": "src/cr/tzolkin.js~TzolkinDay#days",
     "access": "public",
     "description": "Mapping of day names to indexes",
-    "lineNumber": 120,
+    "lineNumber": 119,
     "type": {
       "nullable": null,
       "types": [
@@ -1572,7 +1654,26 @@
     }
   },
   {
-    "__docId__": 91,
+    "__docId__": 94,
+    "kind": "member",
+    "name": "name",
+    "memberof": "src/cr/tzolkin.js~TzolkinDay",
+    "static": false,
+    "longname": "src/cr/tzolkin.js~TzolkinDay#name",
+    "access": "public",
+    "description": "Name of the day in the 260-day cycle",
+    "lineNumber": 151,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 95,
     "kind": "member",
     "name": "day_position",
     "memberof": "src/cr/tzolkin.js~TzolkinDay",
@@ -1580,7 +1681,7 @@
     "longname": "src/cr/tzolkin.js~TzolkinDay#day_position",
     "access": "public",
     "description": null,
-    "lineNumber": 144,
+    "lineNumber": 153,
     "undocument": true,
     "type": {
       "types": [
@@ -1590,7 +1691,7 @@
     "ignore": true
   },
   {
-    "__docId__": 92,
+    "__docId__": 96,
     "kind": "method",
     "name": "next",
     "memberof": "src/cr/tzolkin.js~TzolkinDay",
@@ -1600,7 +1701,7 @@
     "longname": "src/cr/tzolkin.js~TzolkinDay#next",
     "access": "public",
     "description": "Return the next day in the 260-day cycle",
-    "lineNumber": 152,
+    "lineNumber": 161,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1618,7 +1719,37 @@
     "params": []
   },
   {
-    "__docId__": 93,
+    "__docId__": 97,
+    "kind": "method",
+    "name": "shift",
+    "memberof": "src/cr/tzolkin.js~TzolkinDay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/cr/tzolkin.js~TzolkinDay#shift",
+    "access": "public",
+    "description": "",
+    "lineNumber": 169,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "incremental",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 98,
     "kind": "file",
     "name": "src/factory/base.js",
     "content": "/**\n * An abstract class to handle the create of an object from a string\n */\nclass Factory {\n  /**\n   * Define properties to be override by sub-classes\n   */\n  constructor () {\n    /**\n     * Describes how to break a string into a date element\n     * @protected\n     * @type {RegExp}\n     */\n    this.pattern = null\n  }\n\n  /**\n   * Split the provided date into its components\n   * @param {string} raw\n   * @access protected\n   * @returns {String[]}\n   */\n  _split (raw) {\n    let matches = raw.match(\n      this.pattern,\n    )\n    if (matches === null) {\n      return []\n    }\n    return matches.slice(1)\n  }\n\n  /**\n   * Checks if the string contains a partial date\n   * @param {string} raw - Raw date string\n   * @access protected\n   * @returns {boolean}\n   */\n  // _is_partial (raw) {\n  //   let parts = this._split(raw)\n  //   return parts.includes('*')\n  // }\n}\n\nmodule.exports = Factory\n",
@@ -1629,7 +1760,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 94,
+    "__docId__": 99,
     "kind": "class",
     "name": "Factory",
     "memberof": "src/factory/base.js",
@@ -1644,7 +1775,7 @@
     "interface": false
   },
   {
-    "__docId__": 95,
+    "__docId__": 100,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/factory/base.js~Factory",
@@ -1657,7 +1788,7 @@
     "lineNumber": 8
   },
   {
-    "__docId__": 96,
+    "__docId__": 101,
     "kind": "member",
     "name": "pattern",
     "memberof": "src/factory/base.js~Factory",
@@ -1676,7 +1807,7 @@
     }
   },
   {
-    "__docId__": 97,
+    "__docId__": 102,
     "kind": "method",
     "name": "_split",
     "memberof": "src/factory/base.js~Factory",
@@ -1715,7 +1846,7 @@
     }
   },
   {
-    "__docId__": 98,
+    "__docId__": 103,
     "kind": "file",
     "name": "src/factory/calendar-round.js",
     "content": "const Factory = require('./base')\nconst CalendarRound = require('../cr/calendar-round')\n\n/**\n * A factory to create a CalendarRound object from a string\n * @extends {Factory}\n * @example\n *    let cr = new CalendarRoundFactory().parse(\"4 Ajaw 8 Kumk'u\");\n */\nclass CalendarRoundFactory extends Factory {\n  /**\n   * Defines the pattern describing a Calendar Round\n   */\n  constructor () {\n    super()\n    /**\n     * Describes how to break the string into a Calendar Round\n     * @type {RegExp}\n     */\n    this.pattern = /([*\\d]+)\\s?([^\\s]+)\\s?([*\\d]+)\\s?([^\\s]+)/\n  }\n\n  /**\n   * Given a string, parse it and create a Calendar Round\n   * @param {string} raw - A string containing a Calendar Round\n   * @returns {CalendarRound}\n   */\n  parse (raw) {\n    let parts = this._split(raw)\n    if (parts.length < 4) {\n      return null\n    } else {\n      return new CalendarRound(\n        parts[0], parts[1],\n        parts[2], parts[3],\n      )\n    }\n  }\n}\n\nmodule.exports = CalendarRoundFactory\n",
@@ -1726,7 +1857,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 99,
+    "__docId__": 104,
     "kind": "variable",
     "name": "Factory",
     "memberof": "src/factory/calendar-round.js",
@@ -1747,7 +1878,7 @@
     "ignore": true
   },
   {
-    "__docId__": 100,
+    "__docId__": 105,
     "kind": "variable",
     "name": "CalendarRound",
     "memberof": "src/factory/calendar-round.js",
@@ -1768,7 +1899,7 @@
     "ignore": true
   },
   {
-    "__docId__": 101,
+    "__docId__": 106,
     "kind": "class",
     "name": "CalendarRoundFactory",
     "memberof": "src/factory/calendar-round.js",
@@ -1789,7 +1920,7 @@
     ]
   },
   {
-    "__docId__": 102,
+    "__docId__": 107,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/factory/calendar-round.js~CalendarRoundFactory",
@@ -1802,7 +1933,7 @@
     "lineNumber": 14
   },
   {
-    "__docId__": 103,
+    "__docId__": 108,
     "kind": "member",
     "name": "pattern",
     "memberof": "src/factory/calendar-round.js~CalendarRoundFactory",
@@ -1821,7 +1952,7 @@
     }
   },
   {
-    "__docId__": 104,
+    "__docId__": 109,
     "kind": "method",
     "name": "parse",
     "memberof": "src/factory/calendar-round.js~CalendarRoundFactory",
@@ -1860,7 +1991,7 @@
     }
   },
   {
-    "__docId__": 105,
+    "__docId__": 110,
     "kind": "file",
     "name": "src/factory/full-date.js",
     "content": "const Factory = require('./base')\nconst CalendarRoundFactory = require('./calendar-round')\nconst LongCountFactory = require('./long-count')\n\nclass FullDateFactory extends Factory {\n  parse (raw) {\n    raw = raw.replace('**', '* *')\n    let cr = new CalendarRoundFactory().parse(raw)\n    let lc = new LongCountFactory().parse(raw)\n    return {\n      cr: cr,\n      lc: lc,\n    }\n  }\n}\n\nmodule.exports = FullDateFactory\n",
@@ -1871,7 +2002,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 106,
+    "__docId__": 111,
     "kind": "variable",
     "name": "Factory",
     "memberof": "src/factory/full-date.js",
@@ -1892,7 +2023,7 @@
     "ignore": true
   },
   {
-    "__docId__": 107,
+    "__docId__": 112,
     "kind": "variable",
     "name": "CalendarRoundFactory",
     "memberof": "src/factory/full-date.js",
@@ -1913,7 +2044,7 @@
     "ignore": true
   },
   {
-    "__docId__": 108,
+    "__docId__": 113,
     "kind": "variable",
     "name": "LongCountFactory",
     "memberof": "src/factory/full-date.js",
@@ -1934,7 +2065,7 @@
     "ignore": true
   },
   {
-    "__docId__": 109,
+    "__docId__": 114,
     "kind": "class",
     "name": "FullDateFactory",
     "memberof": "src/factory/full-date.js",
@@ -1954,7 +2085,7 @@
     "ignore": true
   },
   {
-    "__docId__": 110,
+    "__docId__": 115,
     "kind": "method",
     "name": "parse",
     "memberof": "src/factory/full-date.js~FullDateFactory",
@@ -1982,7 +2113,7 @@
     "ignore": true
   },
   {
-    "__docId__": 111,
+    "__docId__": 116,
     "kind": "file",
     "name": "src/factory/index.js",
     "content": "module.exports = {\n  'CalendarRoundFactory': require('./calendar-round'),\n  'LongCountFactory': require('./long-count'),\n  'FullDateFactory': require('./full-date'),\n}\n",
@@ -1993,7 +2124,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 112,
+    "__docId__": 117,
     "kind": "file",
     "name": "src/factory/long-count.js",
     "content": "const Factory = require('./base')\nconst LongCount = require('../lc/long-count')\nconst wildcard = require('../wildcard')\n\n/**\n * A factory to create a LongCount object from a string\n * @extends {Factory}\n * @example\n *    let cr = new LongCountFactory().parse(\"9.4.2.4.1\");\n * @example\n *    let cr = new LongCountFactory().parse(\"9.4.2.*.1\");\n */\nclass LongCountFactory extends Factory {\n  /**\n   * Given a string, parse it and create a Long Count\n   * @param {string} raw - A string containing a Long Count\n   * @returns {LongCount}\n   */\n  parse (raw) {\n    let parts = raw.split('.')\n    for (let i = 0; i < parts.length; i++) {\n      if (i === 0) {\n        if (parts[i].indexOf(' ') >= 0) {\n          let first_parts = parts[i].split(' ')\n          parts[i] = first_parts[first_parts.length - 1]\n        }\n      } else if (i === (parts.length - 1)) {\n        if (parts[i].indexOf(' ') >= 0) {\n          let first_parts = parts[i].split(' ')\n          parts[i] = first_parts[0]\n        }\n      }\n      if (parts[i] === '*') {\n        parts[i] = wildcard\n      } else {\n        parts[i] = parseInt(parts[i])\n      }\n    }\n    return new LongCount(...parts.reverse())\n  }\n}\n\nmodule.exports = LongCountFactory\n",
@@ -2004,7 +2135,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 113,
+    "__docId__": 118,
     "kind": "variable",
     "name": "Factory",
     "memberof": "src/factory/long-count.js",
@@ -2025,7 +2156,7 @@
     "ignore": true
   },
   {
-    "__docId__": 114,
+    "__docId__": 119,
     "kind": "variable",
     "name": "LongCount",
     "memberof": "src/factory/long-count.js",
@@ -2046,7 +2177,7 @@
     "ignore": true
   },
   {
-    "__docId__": 115,
+    "__docId__": 120,
     "kind": "variable",
     "name": "wildcard",
     "memberof": "src/factory/long-count.js",
@@ -2067,7 +2198,7 @@
     "ignore": true
   },
   {
-    "__docId__": 116,
+    "__docId__": 121,
     "kind": "class",
     "name": "LongCountFactory",
     "memberof": "src/factory/long-count.js",
@@ -2089,7 +2220,7 @@
     ]
   },
   {
-    "__docId__": 117,
+    "__docId__": 122,
     "kind": "method",
     "name": "parse",
     "memberof": "src/factory/long-count.js~LongCountFactory",
@@ -2128,7 +2259,7 @@
     }
   },
   {
-    "__docId__": 118,
+    "__docId__": 123,
     "kind": "file",
     "name": "src/index.js",
     "content": "module.exports = {\n  'factory': require('./factory/index'),\n  'cr': require('./cr/index'),\n  'lc': require('./lc/index'),\n  'op': require('./operations/index'),\n  'wildcard': require('./wildcard'),\n}\n",
@@ -2139,7 +2270,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 119,
+    "__docId__": 124,
     "kind": "file",
     "name": "src/lc/index.js",
     "content": "module.exports = {\n  'LongCount': require('./long-count'),\n}\n",
@@ -2150,7 +2281,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 120,
+    "__docId__": 125,
     "kind": "file",
     "name": "src/lc/long-count.js",
     "content": "/**\n * Long Count cycle\n */\nclass LongCount {\n  /**\n   * @param {...number|Wildcard} cycles - Components in the long count (eg, K'in, Winal, Bak'tun, etc)\n   */\n  constructor (...cycles) {\n    /**\n     * Date Components\n     * @type {number|Wildcard[]}\n     */\n    this.parts = cycles\n\n    /**\n     * Pattern to validate the date\n     * @type {RegExp}\n     */\n    this.date_pattern = /([\\d*]+\\.?)+/\n\n    /**\n     * Convert individual components to a single string\n     * @type {string}\n     */\n    this.raw = this.toString()\n  }\n\n  /**\n   * Create a copy object of this long count date\n   * @returns {LongCount}\n   */\n  clone () {\n    return new LongCount(...this.parts)\n  }\n\n  /**\n   * Get specific column in Long Count date\n   * @param {number} index\n   * @returns {number}\n   */\n  _get_date_sections (index) {\n    let part = this.parts[index]\n    if (part === undefined) {\n      return 0\n    }\n    return part\n  }\n\n  /**\n   * Set specific column in Long Count date\n   * @param {number} index\n   * @param {number} value\n   * @returns {LongCount}\n   * @private\n   */\n  _set_date_sections (index, value) {\n    this.parts[index] = value.toString()\n    this.raw = this.toString()\n    return this\n  }\n\n  /**\n   * Return the number of positions in the long count\n   * @returns {number}\n   */\n  get length () {\n    return this.parts.length\n  }\n\n  /**\n   * Set the k'in component of the date\n   * @returns {number}\n   */\n  set k_in (new_k_in) {\n    this._set_date_sections(0, new_k_in)\n  }\n\n  /**\n   * Return the k'in component of the date\n   * @returns {number}\n   */\n  get k_in () {\n    return this._get_date_sections(0)\n  }\n\n  /**\n   * Set the winal component of the date\n   * @returns {number}\n   */\n  set winal (new_winal) {\n    this._set_date_sections(1, new_winal)\n  }\n\n  /**\n   * Return the winal component of the date\n   * @returns {number}\n   */\n  get winal () {\n    return this._get_date_sections(1)\n  }\n\n  /**\n   * Set the tun component of the date\n   * @returns {number}\n   */\n  set tun (new_tun) {\n    this._set_date_sections(2, new_tun)\n  }\n\n  /**\n   * Return the tun component of the date\n   * @returns {number}\n   */\n  get tun () {\n    return this._get_date_sections(2)\n  }\n\n  /**\n   * Set the k'atun component of the date\n   * @returns {number}\n   */\n  set k_atun (new_k_atun) {\n    this._set_date_sections(3, new_k_atun)\n  }\n\n  /**\n   * Return the k'atun component of the date\n   * @returns {number}\n   */\n  get k_atun () {\n    return this._get_date_sections(3)\n  }\n\n  /**\n   * Set the bak'tun component of the date\n   * @returns {number}\n   */\n  set bak_tun (new_bak_tun) {\n    this._set_date_sections(4, new_bak_tun)\n  }\n\n  /**\n   * Return the bak'tun component of the date\n   * @returns {number}\n   */\n  get bak_tun () {\n    return this._get_date_sections(4)\n  }\n\n  /**\n   * Set the piktun component of the date\n   * @returns {number}\n   */\n  set piktun (new_bak_tun) {\n    this._set_date_sections(5, new_bak_tun)\n  }\n\n  /**\n   * Return the piktun component of the date\n   * @returns {number}\n   */\n  get piktun () {\n    return this._get_date_sections(5)\n  }\n\n  /**\n   * Set the kalabtun component of the date\n   * @returns {number}\n   */\n  set kalabtun (new_bak_tun) {\n    this._set_date_sections(6, new_bak_tun)\n  }\n\n  /**\n   * Return the kalabtun component of the date\n   * @returns {number}\n   */\n  get kalabtun () {\n    return this._get_date_sections(6)\n  }\n\n  /**\n   * Set the kinchiltun component of the date\n   * @returns {number}\n   */\n  set kinchiltun (new_bak_tun) {\n    this._set_date_sections(7, new_bak_tun)\n  }\n\n  /**\n   * Return the kinchiltun component of the date\n   * @returns {number}\n   */\n  get kinchiltun () {\n    return this._get_date_sections(7)\n  }\n\n  /**\n   * Ensure the date has only numbers and wildcards separated by points.\n   * @returns {boolean}\n   */\n  is_valid () {\n    return this.date_pattern.test(this.toString())\n  }\n\n  /**\n   * Convert the LongCount to a string and pad the sections of the date\n   * @returns {string}\n   */\n  toString () {\n    let significant_digits = []\n    for (let i = 0; i < this.parts.length; i++) {\n      let part = this.parts[i]\n      if (part !== 0) {\n        significant_digits = this.parts.slice(i).reverse()\n        break\n      }\n    }\n\n    for (let i = 0; i < significant_digits.length; i++) {\n      if (significant_digits[i] === undefined) {\n        significant_digits[i] = '0'\n      }\n    }\n\n    let date_length = significant_digits.length\n    if (date_length < 5) {\n      for (let i = 0; i < 5 - date_length; i++) {\n        significant_digits.unshift(' 0')\n      }\n    }\n\n    for (let i = 0; i < significant_digits.length; i++) {\n      let part = significant_digits[i].toString()\n      if (part.length < 2) {\n        significant_digits[i] = ' ' + part\n      }\n    }\n    return significant_digits.join('.')\n  }\n}\n\nmodule.exports = LongCount\n",
@@ -2161,7 +2292,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 121,
+    "__docId__": 126,
     "kind": "class",
     "name": "LongCount",
     "memberof": "src/lc/long-count.js",
@@ -2176,7 +2307,7 @@
     "interface": false
   },
   {
-    "__docId__": 122,
+    "__docId__": 127,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2202,7 +2333,7 @@
     ]
   },
   {
-    "__docId__": 123,
+    "__docId__": 128,
     "kind": "member",
     "name": "parts",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2222,7 +2353,7 @@
     }
   },
   {
-    "__docId__": 124,
+    "__docId__": 129,
     "kind": "member",
     "name": "date_pattern",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2241,7 +2372,7 @@
     }
   },
   {
-    "__docId__": 125,
+    "__docId__": 130,
     "kind": "member",
     "name": "raw",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2260,7 +2391,7 @@
     }
   },
   {
-    "__docId__": 126,
+    "__docId__": 131,
     "kind": "method",
     "name": "clone",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2288,7 +2419,7 @@
     "params": []
   },
   {
-    "__docId__": 127,
+    "__docId__": 132,
     "kind": "method",
     "name": "_get_date_sections",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2327,7 +2458,7 @@
     }
   },
   {
-    "__docId__": 128,
+    "__docId__": 133,
     "kind": "method",
     "name": "_set_date_sections",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2376,7 +2507,7 @@
     }
   },
   {
-    "__docId__": 130,
+    "__docId__": 135,
     "kind": "get",
     "name": "length",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2408,7 +2539,7 @@
     }
   },
   {
-    "__docId__": 131,
+    "__docId__": 136,
     "kind": "set",
     "name": "k_in",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2435,7 +2566,7 @@
     }
   },
   {
-    "__docId__": 132,
+    "__docId__": 137,
     "kind": "get",
     "name": "k_in",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2467,7 +2598,7 @@
     }
   },
   {
-    "__docId__": 133,
+    "__docId__": 138,
     "kind": "set",
     "name": "winal",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2494,7 +2625,7 @@
     }
   },
   {
-    "__docId__": 134,
+    "__docId__": 139,
     "kind": "get",
     "name": "winal",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2526,7 +2657,7 @@
     }
   },
   {
-    "__docId__": 135,
+    "__docId__": 140,
     "kind": "set",
     "name": "tun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2553,7 +2684,7 @@
     }
   },
   {
-    "__docId__": 136,
+    "__docId__": 141,
     "kind": "get",
     "name": "tun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2585,7 +2716,7 @@
     }
   },
   {
-    "__docId__": 137,
+    "__docId__": 142,
     "kind": "set",
     "name": "k_atun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2612,7 +2743,7 @@
     }
   },
   {
-    "__docId__": 138,
+    "__docId__": 143,
     "kind": "get",
     "name": "k_atun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2644,7 +2775,7 @@
     }
   },
   {
-    "__docId__": 139,
+    "__docId__": 144,
     "kind": "set",
     "name": "bak_tun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2671,7 +2802,7 @@
     }
   },
   {
-    "__docId__": 140,
+    "__docId__": 145,
     "kind": "get",
     "name": "bak_tun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2703,7 +2834,7 @@
     }
   },
   {
-    "__docId__": 141,
+    "__docId__": 146,
     "kind": "set",
     "name": "piktun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2730,7 +2861,7 @@
     }
   },
   {
-    "__docId__": 142,
+    "__docId__": 147,
     "kind": "get",
     "name": "piktun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2762,7 +2893,7 @@
     }
   },
   {
-    "__docId__": 143,
+    "__docId__": 148,
     "kind": "set",
     "name": "kalabtun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2789,7 +2920,7 @@
     }
   },
   {
-    "__docId__": 144,
+    "__docId__": 149,
     "kind": "get",
     "name": "kalabtun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2821,7 +2952,7 @@
     }
   },
   {
-    "__docId__": 145,
+    "__docId__": 150,
     "kind": "set",
     "name": "kinchiltun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2848,7 +2979,7 @@
     }
   },
   {
-    "__docId__": 146,
+    "__docId__": 151,
     "kind": "get",
     "name": "kinchiltun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2880,7 +3011,7 @@
     }
   },
   {
-    "__docId__": 147,
+    "__docId__": 152,
     "kind": "method",
     "name": "is_valid",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2908,7 +3039,7 @@
     "params": []
   },
   {
-    "__docId__": 148,
+    "__docId__": 153,
     "kind": "method",
     "name": "toString",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2936,7 +3067,7 @@
     "params": []
   },
   {
-    "__docId__": 149,
+    "__docId__": 154,
     "kind": "file",
     "name": "src/operations/calendar-round-wildcard.js",
     "content": "const CalendarRound = require('../cr/calendar-round')\nconst wildcard = require('../wildcard')\n\nclass CalendarRoundWildcard {\n  /**\n   * @param {CalendarRound} cr\n   */\n  constructor (cr) {\n    this.cr = cr\n    this.start_date = new CalendarRound(\n      8, 'Ajaw',\n      4, 'Kumk\\'u',\n    )\n  }\n\n  run () {\n    let potentials = []\n    // Iterate through dates and compare\n    let iter = new CalendarRoundIterator()\n    let cr = iter.next()\n    while (!cr.done) {\n      if (this._date_matches_wildcards(this.cr, cr.value)) {\n        potentials.push(cr.value)\n      }\n      cr = iter.next()\n    }\n    return potentials\n  }\n\n  /**\n   *\n   * @param {CalendarRound} partial\n   * @param {CalendarRound} full\n   */\n  _date_matches_wildcards (\n    partial,\n    full,\n  ) {\n    let is_match = true\n    if (partial.tzolkin.coeff !== wildcard) {\n      is_match &= (partial.tzolkin.coeff === full.tzolkin.coeff)\n    }\n    if (partial.tzolkin.day !== wildcard) {\n      is_match &= (partial.tzolkin.name === full.tzolkin.name)\n    }\n    if (partial.haab.coeff !== wildcard) {\n      is_match &= (partial.haab.coeff === full.haab.coeff)\n    }\n    if (partial.haab.month !== wildcard) {\n      is_match &= (partial.haab.name === full.haab.name)\n    }\n\n    if (!is_match) {\n      is_match = (partial.haab.coeff === wildcard) &&\n        (partial.haab.name === wildcard) &&\n        (partial.tzolkin.coeff === wildcard) &&\n        (partial.tzolkin.name === wildcard)\n    }\n    return Boolean(is_match)\n\n  }\n}\n\nclass CalendarRoundIterator {\n  /**\n   *\n   * @param {CalendarRound} date\n   */\n  constructor (date) {\n    if (date === undefined) {\n      date = new CalendarRound(\n        8, 'Ajaw',\n        4, 'Kumk\\'u',\n      )\n    }\n    this.date = date\n    this.current = this.date\n    this.is_first = true\n  }\n\n  next () {\n    if (this.is_first) {\n      this.is_first = false\n      return {value: this.current, done: false}\n    }\n    let next = this.current.next()\n    if (next.equal(this.date)) {\n      return {value: null, done: true}\n    } else {\n      this.current = next\n      return {value: next, done: false}\n    }\n  }\n\n}\n\nmodule.exports = CalendarRoundWildcard\n",
@@ -2947,7 +3078,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 150,
+    "__docId__": 155,
     "kind": "variable",
     "name": "CalendarRound",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -2968,7 +3099,7 @@
     "ignore": true
   },
   {
-    "__docId__": 151,
+    "__docId__": 156,
     "kind": "variable",
     "name": "wildcard",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -2989,7 +3120,7 @@
     "ignore": true
   },
   {
-    "__docId__": 152,
+    "__docId__": 157,
     "kind": "class",
     "name": "CalendarRoundWildcard",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -3006,7 +3137,7 @@
     "ignore": true
   },
   {
-    "__docId__": 153,
+    "__docId__": 158,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -3031,7 +3162,7 @@
     ]
   },
   {
-    "__docId__": 154,
+    "__docId__": 159,
     "kind": "member",
     "name": "cr",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -3049,7 +3180,7 @@
     "ignore": true
   },
   {
-    "__docId__": 155,
+    "__docId__": 160,
     "kind": "member",
     "name": "start_date",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -3067,7 +3198,7 @@
     "ignore": true
   },
   {
-    "__docId__": 156,
+    "__docId__": 161,
     "kind": "method",
     "name": "run",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -3088,7 +3219,7 @@
     "ignore": true
   },
   {
-    "__docId__": 157,
+    "__docId__": 162,
     "kind": "method",
     "name": "_date_matches_wildcards",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -3128,7 +3259,7 @@
     }
   },
   {
-    "__docId__": 158,
+    "__docId__": 163,
     "kind": "class",
     "name": "CalendarRoundIterator",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -3145,7 +3276,7 @@
     "ignore": true
   },
   {
-    "__docId__": 159,
+    "__docId__": 164,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3170,7 +3301,7 @@
     ]
   },
   {
-    "__docId__": 160,
+    "__docId__": 165,
     "kind": "member",
     "name": "date",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3188,7 +3319,7 @@
     "ignore": true
   },
   {
-    "__docId__": 161,
+    "__docId__": 166,
     "kind": "member",
     "name": "current",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3206,7 +3337,7 @@
     "ignore": true
   },
   {
-    "__docId__": 162,
+    "__docId__": 167,
     "kind": "member",
     "name": "is_first",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3224,7 +3355,7 @@
     "ignore": true
   },
   {
-    "__docId__": 163,
+    "__docId__": 168,
     "kind": "method",
     "name": "next",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3245,7 +3376,7 @@
     "ignore": true
   },
   {
-    "__docId__": 166,
+    "__docId__": 171,
     "kind": "file",
     "name": "src/operations/fulldate-wildcard.js",
     "content": "// 7 Ok * * 9.*.10.10.10\n\n/**\n * Given a wildcard in\n */\nclass FullDateWildcard {\n  constructor (partial_date) {\n    this.partial = partial_date\n  }\n\n  run () {\n    let potential_dates = []\n  }\n}\n\nmodule.exports = FullDateWildcard\n\n",
@@ -3256,7 +3387,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 167,
+    "__docId__": 172,
     "kind": "class",
     "name": "FullDateWildcard",
     "memberof": "src/operations/fulldate-wildcard.js",
@@ -3271,7 +3402,7 @@
     "interface": false
   },
   {
-    "__docId__": 168,
+    "__docId__": 173,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/fulldate-wildcard.js~FullDateWildcard",
@@ -3286,7 +3417,7 @@
     "ignore": true
   },
   {
-    "__docId__": 169,
+    "__docId__": 174,
     "kind": "member",
     "name": "partial",
     "memberof": "src/operations/fulldate-wildcard.js~FullDateWildcard",
@@ -3304,7 +3435,7 @@
     "ignore": true
   },
   {
-    "__docId__": 170,
+    "__docId__": 175,
     "kind": "method",
     "name": "run",
     "memberof": "src/operations/fulldate-wildcard.js~FullDateWildcard",
@@ -3321,7 +3452,7 @@
     "ignore": true
   },
   {
-    "__docId__": 171,
+    "__docId__": 176,
     "kind": "file",
     "name": "src/operations/index.js",
     "content": "module.exports = {\n  'LongCountWildcard': require('./longcount-wildcard'),\n  'CalendarRoundWildcard': require('./calendar-round-wildcard'),\n  'FullDateWildcard': require('./fulldate-wildcard'),\n}\n",
@@ -3332,7 +3463,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 172,
+    "__docId__": 177,
     "kind": "file",
     "name": "src/operations/longcount-wildcard.js",
     "content": "const wildcard = require('../wildcard')\n\n/**\n * Given a Long Count with a wildcard, calculate the\n * possible LongCount dates\n */\nclass LongCountWildcard {\n  /**\n   * @param {LongCount} lc\n   */\n  constructor (lc) {\n    this.lc = lc\n  }\n\n  run () {\n    let potentials = [this.lc]\n    let wildcard_positions = []\n    for (let i = 0; i < this.lc.length; i++) {\n      if (this.lc._get_date_sections(i) === wildcard) {\n        wildcard_positions.push(i)\n      }\n    }\n    for (let position of wildcard_positions) {\n      let new_potentials = []\n      let iterations = (position === 1) ? 15 : 20\n      for (let possible of potentials) {\n        for (let k = 0; k < iterations; k++) {\n          let new_lc = possible.clone()._set_date_sections(position, k)\n          new_potentials.push(new_lc)\n        }\n      }\n      potentials = new_potentials\n    }\n    return potentials\n  }\n}\n\nmodule.exports = LongCountWildcard\n",
@@ -3343,7 +3474,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 173,
+    "__docId__": 178,
     "kind": "variable",
     "name": "wildcard",
     "memberof": "src/operations/longcount-wildcard.js",
@@ -3364,7 +3495,7 @@
     "ignore": true
   },
   {
-    "__docId__": 174,
+    "__docId__": 179,
     "kind": "class",
     "name": "LongCountWildcard",
     "memberof": "src/operations/longcount-wildcard.js",
@@ -3379,7 +3510,7 @@
     "interface": false
   },
   {
-    "__docId__": 175,
+    "__docId__": 180,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/longcount-wildcard.js~LongCountWildcard",
@@ -3404,7 +3535,7 @@
     ]
   },
   {
-    "__docId__": 176,
+    "__docId__": 181,
     "kind": "member",
     "name": "lc",
     "memberof": "src/operations/longcount-wildcard.js~LongCountWildcard",
@@ -3422,7 +3553,7 @@
     "ignore": true
   },
   {
-    "__docId__": 177,
+    "__docId__": 182,
     "kind": "method",
     "name": "run",
     "memberof": "src/operations/longcount-wildcard.js~LongCountWildcard",
@@ -3443,7 +3574,7 @@
     "ignore": true
   },
   {
-    "__docId__": 178,
+    "__docId__": 183,
     "kind": "file",
     "name": "src/wildcard.js",
     "content": "/**\n * Describes a wildcard in the Calendar Round or Long Count\n */\nclass Wildcard {\n  /**\n   * Represent the Wildcard as a string\n   * @returns {string}\n   */\n  toString () {\n    return '*'\n  }\n}\n\nmodule.exports = new Wildcard()\n",
@@ -3454,7 +3585,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 179,
+    "__docId__": 184,
     "kind": "class",
     "name": "Wildcard",
     "memberof": "src/wildcard.js",
@@ -3469,7 +3600,7 @@
     "interface": false
   },
   {
-    "__docId__": 180,
+    "__docId__": 185,
     "kind": "method",
     "name": "toString",
     "memberof": "src/wildcard.js~Wildcard",

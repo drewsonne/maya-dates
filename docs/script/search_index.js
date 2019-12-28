@@ -426,6 +426,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/cr/haab.js~haab#shift",
+    "class/src/cr/haab.js~Haab.html#instance-method-shift",
+    "src/cr/haab.js~Haab#shift",
+    "method"
+  ],
+  [
     "src/cr/haab.js~haab#tostring",
     "class/src/cr/haab.js~Haab.html#instance-method-toString",
     "src/cr/haab.js~Haab#toString",
@@ -436,6 +442,12 @@ window.esdocSearchIndex = [
     "class/src/cr/haab.js~HaabMonth.html#instance-constructor-constructor",
     "src/cr/haab.js~HaabMonth#constructor",
     "method"
+  ],
+  [
+    "src/cr/haab.js~haabmonth#month_position",
+    "class/src/cr/haab.js~HaabMonth.html#instance-member-month_position",
+    "src/cr/haab.js~HaabMonth#month_position",
+    "member"
   ],
   [
     "src/cr/haab.js~haabmonth#months",
@@ -453,6 +465,12 @@ window.esdocSearchIndex = [
     "src/cr/haab.js~haabmonth#next",
     "class/src/cr/haab.js~HaabMonth.html#instance-method-next",
     "src/cr/haab.js~HaabMonth#next",
+    "method"
+  ],
+  [
+    "src/cr/haab.js~haabmonth#shift",
+    "class/src/cr/haab.js~HaabMonth.html#instance-method-shift",
+    "src/cr/haab.js~HaabMonth#shift",
     "method"
   ],
   [
@@ -531,6 +549,12 @@ window.esdocSearchIndex = [
     "src/cr/tzolkin.js~tzolkinday#next",
     "class/src/cr/tzolkin.js~TzolkinDay.html#instance-method-next",
     "src/cr/tzolkin.js~TzolkinDay#next",
+    "method"
+  ],
+  [
+    "src/cr/tzolkin.js~tzolkinday#shift",
+    "class/src/cr/tzolkin.js~TzolkinDay.html#instance-method-shift",
+    "src/cr/tzolkin.js~TzolkinDay#shift",
     "method"
   ],
   [

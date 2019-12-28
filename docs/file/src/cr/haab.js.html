@@ -117,11 +117,44 @@ class Haab {
   }
 
   /**
+   *
+   * @param {number} incremental
+   */
+  shift (incremental) {
+
+    let new_date = this.clone()
+    while (incremental &gt; 0) {
+      let month_length = (new_date.name === this.month.months[19]) ? 5 : 20
+      let month_incremental = Math.floor(incremental / month_length)
+      if (month_incremental &gt; 0) {
+        new_date.month = new_date.month.shift(1)
+      }
+      let day_incremental = incremental % month_length
+      if (day_incremental === 0 &amp;&amp; incremental !== 0) {
+        day_incremental = 20
+      }
+      if (day_incremental !== month_length) {
+        new_date.coeff = (new_date.coeff + day_incremental) % month_length
+      }
+      incremental -= day_incremental
+    }
+
+    return new_date
+  }
+
+  /**
    * Render the Haab date as a string
    * @returns {string}
    */
   toString () {
     return `${this.coeff} ${this.name}`
+  }
+
+  clone () {
+    return new Haab(
+      this.coeff,
+      this.month,
+    )
   }
 
 }
@@ -134,6 +167,37 @@ class HaabMonth {
    * @param {string} name - Name of the Haab month
    */
   constructor (name) {
+
+    /**
+     * @type {Map&lt;number, string&gt;}
+     */
+    this.months = [
+      undefined,
+      &apos;Pop&apos;,
+      &apos;Wo&apos;,
+      &apos;Sip&apos;,
+      &apos;Sotz\&apos;&apos;,
+      &apos;Sek&apos;,
+      &apos;Xul&apos;,
+      &apos;Yaxk\&apos;in&apos;,
+      &apos;Mol&apos;,
+      &apos;Ch\&apos;en&apos;,
+      &apos;Yax&apos;,
+      &apos;Sak&apos;,
+      &apos;Keh&apos;,
+      &apos;Mak&apos;,
+      &apos;K\&apos;ank\&apos;in&apos;,
+      &apos;Muwan&apos;,
+      &apos;Pax&apos;,
+      &apos;K\&apos;ayab&apos;,
+      &apos;Kumk\&apos;u&apos;,
+      &apos;Wayeb&apos;,
+    ]
+
+    if (typeof name === &apos;number&apos;) {
+      name = this.months[name]
+    }
+
     /**
      * Name of the Haab month
      * @type {string}
@@ -141,29 +205,10 @@ class HaabMonth {
     this.name = name
 
     /**
-     * @type {Map&lt;number, string&gt;}
+     * @type {number}
      */
-    this.months = {
-      1: &apos;Pop&apos;,
-      2: &apos;Wo&apos;,
-      3: &apos;Sip&apos;,
-      4: &apos;Sotz\&apos;&apos;,
-      5: &apos;Sek&apos;,
-      6: &apos;Xul&apos;,
-      7: &apos;Yaxk\&apos;in&apos;,
-      8: &apos;Mol&apos;,
-      9: &apos;Ch\&apos;en&apos;,
-      10: &apos;Yax&apos;,
-      11: &apos;Sak&apos;,
-      12: &apos;Keh&apos;,
-      13: &apos;Mak&apos;,
-      14: &apos;K\&apos;ank\&apos;in&apos;,
-      15: &apos;Muwan&apos;,
-      16: &apos;Pax&apos;,
-      17: &apos;K\&apos;ayab&apos;,
-      18: &apos;Kumk\&apos;u&apos;,
-      19: &apos;Wayeb&apos;,
-    }
+    this.month_position = this.months.findIndex(
+      m =&gt; m === this.name)
   }
 
   /**
@@ -171,17 +216,17 @@ class HaabMonth {
    * @returns {HaabMonth}
    */
   next () {
-    let i
-    for (i = 0; i &lt; 20; i++) {
-      if (this.months[i] === this.name) {
-        break
-      }
-    }
-    i += 1
-    if (i &gt; 19) {
-      i = 1
-    }
-    return new HaabMonth(this.months[i])
+    return this.shift(1)
+  }
+
+  /**
+   *
+   * @param {number} incremental
+   */
+  shift (incremental) {
+    let new_incremental = (this.month_position + incremental) % 19
+    new_incremental = (new_incremental === 0) ? 19 : new_incremental
+    return new HaabMonth(new_incremental)
   }
 }
 
