@@ -64,7 +64,7 @@ class Haab {
    */
   match(new_haab) {
     return (this.coeff === wildcard) ? true : (this.coeff === new_haab.coeff) &&
-      (this.month === wildcard) ? true : (this.month === new_haab.month)
+      (this.month === wildcard) ? true : (this.name === new_haab.name)
   }
 
   /**
