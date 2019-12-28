@@ -408,6 +408,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/cr/haab.js~haab#match",
+    "class/src/cr/haab.js~Haab.html#instance-method-match",
+    "src/cr/haab.js~Haab#match",
+    "method"
+  ],
+  [
     "src/cr/haab.js~haab#month",
     "class/src/cr/haab.js~Haab.html#instance-member-month",
     "src/cr/haab.js~Haab#month",
@@ -630,6 +636,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/full-date.js",
+    "file/src/full-date.js.html",
+    "src/full-date.js",
+    "file"
+  ],
+  [
     "src/index.js",
     "file/src/index.js.html",
     "src/index.js",
@@ -814,6 +826,12 @@ window.esdocSearchIndex = [
     "file/src/operations/fulldate-wildcard.js.html",
     "src/operations/fulldate-wildcard.js",
     "file"
+  ],
+  [
+    "src/operations/fulldate-wildcard.js~fulldatewildcard#constructor",
+    "class/src/operations/fulldate-wildcard.js~FullDateWildcard.html#instance-constructor-constructor",
+    "src/operations/fulldate-wildcard.js~FullDateWildcard#constructor",
+    "method"
   ],
   [
     "src/operations/index.js",

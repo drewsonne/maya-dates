@@ -46,10 +46,14 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/cr/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">module.exports = {
-  &apos;CalendarRound&apos;: require(&apos;./calendar-round&apos;),
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const CalendarRound = require(&apos;./calendar-round&apos;)
+module.exports = {
+  &apos;CalendarRound&apos;: CalendarRound,
   &apos;tzolkin&apos;: require(&apos;./tzolkin&apos;),
   &apos;haab&apos;: require(&apos;./haab&apos;),
+  &apos;origin&apos;: new CalendarRound(
+    4, &apos;Ajaw&apos;,
+    8, &apos;Kumk\&apos;u&apos;),
 }
 </code></pre>
 

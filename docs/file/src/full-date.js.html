@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/cr/calendar-round.js | @drewsonne/maya-dates</title>
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/full-date.js | @drewsonne/maya-dates</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -45,91 +45,25 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/cr/calendar-round.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const tzolkin = require(&apos;../cr/tzolkin&apos;)
-const haab = require(&apos;../cr/haab&apos;)
-const wildcard = require(&apos;../wildcard&apos;)
-
-/**
- * A combination of 260-day cycles and the Haab cycle.
- * @example
- *  let cr = new CalendarRound(8, &quot;Ajaw&quot;, 4, &quot;Kumk&apos;u&quot;);
- */
-class CalendarRound {
+<div class="content" data-ice="content"><h1 data-ice="title">src/full-date.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">class FullDate {
   /**
    *
-   * @param {number} tzolkin_coeff Coefficient for the 260-day cycle
-   * @param {string} tzolkin_day Name of the name in the 260-day cycle
-   * @param {number} haab_coeff Day in the Haab month
-   * @param {string} haab_month Name of the Haab month
+   * @param {CalendarRound} cr
+   * @param {LongCount} lc
    */
-  constructor (tzolkin_coeff, tzolkin_day, haab_coeff, haab_month) {
-    /**
-     * 260-day cycle component of the Calendar Round
-     * @type {Tzolkin}
-     */
-    this.tzolkin = new tzolkin.Tzolkin(tzolkin_coeff, tzolkin_day)
-    /**
-     * Haab cycle component of the Calendar Round
-     * @type {Haab}
-     */
-    this.haab = new haab.Haab(haab_coeff, haab_month)
+  constructor (cr, lc) {
+    this.cr = cr
+    this.lc = lc
   }
 
-  /**
-   * Increment both the Haab and 260-day cycle to the next day in the Calendar Round
-   * @returns {CalendarRound}
-   */
-  next () {
-    let new_cr = new CalendarRound()
-    new_cr.haab = this.haab.next()
-    new_cr.tzolkin = this.tzolkin.next()
-    return new_cr
-  }
-
-  equal (new_cr) {
-    return this.haab.equal(new_cr.haab) &amp;&amp;
-      this.tzolkin.equal(new_cr.tzolkin)
-  }
-
-  match (new_cr) {
-    return this.haab.match(new_cr.haab) &amp;&amp;
-      this.tzolkin.match(new_cr.tzolkin)
-  }
-
-  shift (increment) {
-    let new_cr = this.clone()
-    new_cr.haab = new_cr.haab.shift(increment)
-    new_cr.tzolkin = new_cr.tzolkin.shift(increment)
-    return new_cr
-  }
-
-  clone () {
-    return new CalendarRound(
-      this.tzolkin.coeff,
-      this.tzolkin.day,
-      this.haab.coeff,
-      this.haab.month,
-    )
-  }
-
-  is_partial () {
-    return (this.tzolkin.day === wildcard) ||
-      (this.tzolkin.coeff === wildcard) ||
-      (this.haab.month === wildcard) ||
-      (this.haab.coeff === wildcard)
-  }
-
-  /**
-   * Render the CalendarRound cycle date as a string
-   * @returns {string}
-   */
   toString () {
-    return `${this.tzolkin} ${this.haab}`
+    return `${this.cr} ${this.lc}`
   }
+
 }
 
-module.exports = CalendarRound
+module.exports = FullDate
 </code></pre>
 
 </div>

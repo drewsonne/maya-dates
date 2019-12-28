@@ -49,16 +49,17 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const Factory = require(&apos;./base&apos;)
 const CalendarRoundFactory = require(&apos;./calendar-round&apos;)
 const LongCountFactory = require(&apos;./long-count&apos;)
+const FullDate = require(&apos;../full-date&apos;)
 
 class FullDateFactory extends Factory {
   parse (raw) {
     raw = raw.replace(&apos;**&apos;, &apos;* *&apos;)
     let cr = new CalendarRoundFactory().parse(raw)
     let lc = new LongCountFactory().parse(raw)
-    return {
-      cr: cr,
-      lc: lc,
-    }
+    return new FullDate(
+      cr,
+      lc,
+    )
   }
 }
 

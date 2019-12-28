@@ -123,6 +123,10 @@ class Tzolkin {
       (this.name === new_tzolkin.name)
   }
 
+  match(new_tzolkin) {
+    return (this.coeff === wildcard) ? true : (this.coeff === new_tzolkin.coeff) &amp;&amp;
+    (this.day === wildcard) ? true : (this.name === new_tzolkin.name)
+  }
   /**
    * Return a string representation of the 260-day cycle name
    * @returns {string}
