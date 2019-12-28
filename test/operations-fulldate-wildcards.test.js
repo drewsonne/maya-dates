@@ -35,7 +35,7 @@ test('compute single date', () => {
     FullDateWildcard(partial_date).run()
 })
 
-describe('single alignment', () => {
+describe('single cr alignment', () => {
   let full_dates = [
     ['* Imix 9 K\'ank\'in 13.0.7.2.1', [4, 'Imix', 9, 'K\'ank\'in']],
     ['* * 9 K\'ank\'in 13.0.7.2.1', [4, 'Imix', 9, 'K\'ank\'in']],
@@ -53,6 +53,5 @@ describe('single alignment', () => {
     expect(potential_dates[0].cr.tzolkin.name).toBe(expected[1])
     expect(potential_dates[0].cr.haab.coeff).toBe(expected[2])
     expect(potential_dates[0].cr.haab.name).toBe(expected[3])
-
   })
 })

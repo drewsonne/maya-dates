@@ -1,11 +1,20 @@
 const mayadates = require('../src/index')
 
-test('compute missing single wildcard', () => {
-  let cr = new mayadates.factory.CalendarRoundFactory().
-    parse('12Imix * Pop')
-  let potential_crs = new mayadates.op.CalendarRoundWildcard(cr).
-    run()
-  expect(potential_crs.length).toBe(4)
+describe('compute missing single wildcard', () => {
+  let partial_dates = [
+    ['12Imix * Pop', 4],
+    ['* Imix 9K\'ank\'in', 13],
+  ]
+  let cr_factory = new mayadates.factory.CalendarRoundFactory()
+  test.each(partial_dates)(
+    'len(%s) = %s',
+    (partial_date, expected) => {
+      let cr = cr_factory.parse(partial_date)
+      let potential_crs = new mayadates.op.
+        CalendarRoundWildcard(cr).run()
+      expect(potential_crs.length).toBe(expected)
+    },
+  )
 })
 
 describe('partial matcher', () => {

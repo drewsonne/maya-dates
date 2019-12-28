@@ -41,6 +41,8 @@ class Tzolkin {
      * @type {number}
      */
     this.coeff = coeff
+
+    this.validate()
   }
 
   /**
@@ -48,13 +50,20 @@ class Tzolkin {
    * @returns {Tzolkin}
    */
   next () {
-    // let next_coeff = this.coeff + 1
-    // let next_day = this.day.next()
-    // return new Tzolkin(
-    //   (next_coeff % 13) === 0 ? 13 : next_coeff % 13,
-    //   next_day,
-    // )
     return this.shift(1)
+  }
+
+  validate () {
+    if (this.coeff > 13 || this.coeff < 1) {
+      throw 'Tzolk\'in coefficient must inclusively between 1 and 13.'
+    }
+    if (this.day === undefined) {
+      throw 'Tzolk\'in day must be provided'
+    }
+    if (this.day !== wildcard) {
+      this.day.validate()
+    }
+    return true
   }
 
   /**
@@ -161,6 +170,15 @@ class TzolkinDay {
 
     this.day_position = this.days.findIndex(
       d => d === this.name)
+  }
+
+  validate () {
+    if (this.name === undefined) {
+      throw 'Tzolk\'in day name must be provided'
+    }
+    if (!this.days.includes(this.name)) {
+      throw `Tzolk\'in day (${this.name}) must be in ${this.days}`
+    }
   }
 
   /**

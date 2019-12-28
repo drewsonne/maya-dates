@@ -81,9 +81,9 @@ class CalendarRound {
    * @returns {CalendarRound}
    */
   next () {
-    let new_cr = new CalendarRound()
-    new_cr.haab = this.haab.next()
+    let new_cr = this.clone()
     new_cr.tzolkin = this.tzolkin.next()
+    new_cr.haab = this.haab.next()
     return new_cr
   }
 

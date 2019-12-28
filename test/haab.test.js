@@ -54,6 +54,7 @@ describe('shift haab', () => {
     [[8, 'Kumk\'u'], 309, [12, 'Muwan']],
     [[8, 'Kumk\'u'], 367, [10, 'Kumk\'u']],
     [[8, 'Kumk\'u'], 369, [12, 'Kumk\'u']],
+    [[4, 'Wayeb'], 1, [0, 'Pop']],
   ]
   test.each(haabs)(
     '%s + %s = %s',

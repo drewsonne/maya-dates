@@ -44,12 +44,13 @@ class Haab {
    * @returns {Haab}
    */
   next () {
-    let month_length = (this.name === this.month.months[19]) ? 5 : 20
-    let tomorrow_coeff = (this.coeff + 1) % month_length
-    return new Haab(
-      tomorrow_coeff,
-      (tomorrow_coeff === 0) ? this.month.next() : this.month,
-    )
+    // let month_length = (this.name === this.month.months[19]) ? 5 : 20
+    // let tomorrow_coeff = (this.coeff + 1) % month_length
+    // return new Haab(
+    //   tomorrow_coeff,
+    //   (tomorrow_coeff === 0) ? this.month.next() : this.month,
+    // )
+    return this.shift(1)
   }
 
   equal (new_haab) {
@@ -87,11 +88,10 @@ class Haab {
    * @param {number} incremental
    */
   shift (incremental) {
-
     let new_date = this.clone()
     while (incremental > 0) {
       let month_length = (new_date.name === this.month.months[19]) ? 5 : 20
-      if (incremental > month_length) {
+      if (incremental + new_date.coeff >= month_length) {
         let distance_to_month_end = month_length - new_date.coeff
         new_date.coeff = 0
         new_date.month = new_date.month.shift(1)

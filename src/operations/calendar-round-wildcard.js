@@ -19,6 +19,7 @@ class CalendarRoundWildcard {
     let iter = new CalendarRoundIterator()
     let cr = iter.next()
     while (!cr.done) {
+      // if (this.cr.match(cr.value)) {
       if (this._date_matches_wildcards(this.cr, cr.value)) {
         potentials.push(cr.value)
       }
@@ -36,6 +37,7 @@ class CalendarRoundWildcard {
     partial,
     full,
   ) {
+    
     let is_match = true
     if (partial.tzolkin.coeff !== wildcard) {
       is_match &= (partial.tzolkin.coeff === full.tzolkin.coeff)

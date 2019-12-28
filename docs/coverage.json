@@ -1,6 +1,6 @@
 {
-  "coverage": "61.59%",
-  "expectCount": 138,
+  "coverage": "60.71%",
+  "expectCount": 140,
   "actualCount": 85,
   "files": {
     "src/cr/calendar-round.js": {
@@ -21,7 +21,7 @@
       "expectCount": 19,
       "actualCount": 17,
       "undocumentLines": [
-        55,
+        56,
         116
       ]
     },
@@ -33,14 +33,16 @@
       ]
     },
     "src/cr/tzolkin.js": {
-      "expectCount": 20,
+      "expectCount": 22,
       "actualCount": 15,
       "undocumentLines": [
-        73,
-        78,
-        107,
-        109,
-        162
+        56,
+        82,
+        87,
+        116,
+        118,
+        171,
+        175
       ]
     },
     "src/factory/base.js": {
@@ -108,11 +110,11 @@
         9,
         10,
         16,
-        64,
-        76,
-        77,
+        66,
         78,
-        81
+        79,
+        80,
+        83
       ]
     },
     "src/operations/fulldate-wildcard.js": {

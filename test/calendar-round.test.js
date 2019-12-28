@@ -7,6 +7,8 @@ const wildcard = mayadates.wildcard
 describe('increment calendar-rounds', () => {
   let tzolkin_days = [
     ['2Ak\'bal 6 Muwan', [3, 'K\'an', 7, 'Muwan']],
+    ['4 Ajaw 8 K\'umk\'u', [5, 'Imix', 9, 'K\'umk\'u']],
+    ['13 Lamat 4 Wayeb', [1, 'Muluk', 0, 'Pop']],
   ]
   test.each(tzolkin_days)(
     '%s -> %s',
