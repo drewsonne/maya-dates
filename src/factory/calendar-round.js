@@ -1,4 +1,6 @@
+/** @ignore */
 const Factory = require('./base')
+/** @ignore */
 const CalendarRound = require('../cr/calendar-round')
 
 /**

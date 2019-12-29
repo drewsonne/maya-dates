@@ -13,8 +13,8 @@ const wildcard = require('../wildcard')
 class Haab {
   /**
    * Constructor
-   * @param {number} coeff - The position in the Haab month for this date
-   * @param {string|HaabMonth} month
+   * @param {number|Wildcard} coeff - The position in the Haab month for this date
+   * @param {string|HaabMonth|Wildcard} month
    */
   constructor (coeff, month) {
     if (coeff === '*') {
@@ -30,17 +30,21 @@ class Haab {
       }
     }
     /**
-     * @type {HaabMonth}
+     * @type {HaabMonth|Wildcard}
      */
     this.month = month
     /**
-     * @type {number}
+     * @type {number|Wildcard}
      */
     this.coeff = coeff
 
     this.validate()
   }
 
+  /**
+   * Ensure the Haab's coefficients are within range and the month is defined
+   * @return {boolean}
+   */
   validate () {
     if (this.coeff > 19 || this.coeff < 0) {
       throw 'Haab\' coefficient must inclusively between 0 and 19.'
@@ -66,13 +70,20 @@ class Haab {
     return this.shift(1)
   }
 
+  /**
+   * Ensure this Haab object has the same configuration as another Haab object.
+   * Does not take wildcards into account.
+   * @param {Haab} new_haab
+   * @return {boolean}
+   */
   equal (new_haab) {
     return (this.coeff === new_haab.coeff) &&
       (this.name === new_haab.name)
   }
 
   /**
-   *
+   * Ensure this Haab object has a matching configuration as another Haab object.
+   * Takes wildcards into account.
    * @param {Haab} new_haab
    * @return {boolean}
    */
@@ -132,6 +143,10 @@ class Haab {
     return `${this.coeff} ${this.name}`
   }
 
+  /**
+   * Return a brand new object with the same configuration as this object.
+   * @return {Haab}
+   */
   clone () {
     return new Haab(
       this.coeff,
@@ -201,6 +216,10 @@ class HaabMonth {
     return this.shift(1)
   }
 
+  /**
+   * Ensure a Haab month name is defined, and that the month name is within the
+   * set of allowable values.
+   */
   validate () {
     if (this.name === undefined) {
       throw 'Haab\' month name must be provided'
@@ -211,11 +230,13 @@ class HaabMonth {
   }
 
   /**
-   *
-   * @param {number} incremental
+   * Shift a HaabMonth date forward through time. Does not modify this
+   * object and will return a new object.
+   * @param {number} increment - Number of months to move forward
+   * @return {HaabMonth}
    */
-  shift (incremental) {
-    let new_incremental = (this.month_position + incremental) % 19
+  shift (increment) {
+    let new_incremental = (this.month_position + increment) % 19
     new_incremental = (new_incremental === 0) ? 19 : new_incremental
     return new HaabMonth(new_incremental)
   }
