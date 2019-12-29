@@ -1,6 +1,6 @@
 {
-  "coverage": "59.86%",
-  "expectCount": 147,
+  "coverage": "59.45%",
+  "expectCount": 148,
   "actualCount": 88,
   "files": {
     "src/cr/calendar-round.js": {
@@ -102,21 +102,22 @@
       ]
     },
     "src/operations/calendar-round-wildcard.js": {
-      "expectCount": 14,
+      "expectCount": 15,
       "actualCount": 2,
       "undocumentLines": [
         1,
         2,
         4,
-        9,
-        10,
-        16,
-        32,
-        44,
-        45,
+        13,
+        17,
+        18,
+        19,
+        22,
+        27,
+        39,
+        41,
         46,
-        49,
-        54
+        49
       ]
     },
     "src/operations/fulldate-wildcard.js": {
