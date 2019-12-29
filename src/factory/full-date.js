@@ -6,10 +6,11 @@ const FullDate = require('../full-date')
 /**
  * Given a date composed of a Long Count and a Calendar Round, create a
  * {FullDate} object.
+ * @extends {Factory}
  */
 class FullDateFactory extends Factory {
   /**
-   * 
+   *
    * @param {String} raw
    * @return {FullDate}
    */

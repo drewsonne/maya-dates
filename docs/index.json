@@ -2309,7 +2309,7 @@
     "__docId__": 123,
     "kind": "file",
     "name": "src/factory/full-date.js",
-    "content": "const Factory = require('./base')\nconst CalendarRoundFactory = require('./calendar-round')\nconst LongCountFactory = require('./long-count')\nconst FullDate = require('../full-date')\n\n/**\n * Given a date composed of a Long Count and a Calendar Round, create a\n * {FullDate} object.\n */\nclass FullDateFactory extends Factory {\n  /**\n   * \n   * @param {String} raw\n   * @return {FullDate}\n   */\n  parse (raw) {\n    raw = raw.replace('**', '* *')\n    let cr = new CalendarRoundFactory().parse(raw)\n    let lc = new LongCountFactory().parse(raw)\n    return new FullDate(\n      cr,\n      lc,\n    )\n  }\n}\n\nmodule.exports = FullDateFactory\n",
+    "content": "const Factory = require('./base')\nconst CalendarRoundFactory = require('./calendar-round')\nconst LongCountFactory = require('./long-count')\nconst FullDate = require('../full-date')\n\n/**\n * Given a date composed of a Long Count and a Calendar Round, create a\n * {FullDate} object.\n * @extends {Factory}\n */\nclass FullDateFactory extends Factory {\n  /**\n   *\n   * @param {String} raw\n   * @return {FullDate}\n   */\n  parse (raw) {\n    raw = raw.replace('**', '* *')\n    let cr = new CalendarRoundFactory().parse(raw)\n    let lc = new LongCountFactory().parse(raw)\n    return new FullDate(\n      cr,\n      lc,\n    )\n  }\n}\n\nmodule.exports = FullDateFactory\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/factory/full-date.js",
     "access": "public",
@@ -2412,7 +2412,7 @@
     "importPath": "@drewsonne/maya-dates/src/factory/full-date.js",
     "importStyle": null,
     "description": "Given a date composed of a Long Count and a Calendar Round, create a\n{FullDate} object.",
-    "lineNumber": 10,
+    "lineNumber": 11,
     "interface": false,
     "extends": [
       "Factory"
@@ -2429,7 +2429,7 @@
     "longname": "src/factory/full-date.js~FullDateFactory#parse",
     "access": "public",
     "description": "",
-    "lineNumber": 16,
+    "lineNumber": 17,
     "params": [
       {
         "nullable": null,
