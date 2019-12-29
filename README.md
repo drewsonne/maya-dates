@@ -16,10 +16,11 @@ console.log(`${lc.build_full_date()}`)
 ```
 This should print `13 Ajaw 18 Kumk'u  9.17. 0. 0. 0`.
 
-# Instructions
+## Instructions
 
 Most implementations will consist of creating a date, and passing it to an operation.
 
+### Date Creation
 Creating a date can be done either by:
 
  - using a factory class ([LongCountFactory](https://drewsonne.github.io/maya-dates/class/src/factory/long-count.js~LongCountFactory.html), 
@@ -45,13 +46,14 @@ console.log(`Full Date: ${partial_date.lc.k_in === wildcard}`)
  [CalendarRound](https://drewsonne.github.io/maya-dates/class/src/cr/calendar-round.js~CalendarRound.html), 
  FullDate).
  
+### Operations
 Once a date object has been created, you can either add an integer to a date 
 using `shift(number)`, or filling in missing values in wildcards. The
 [`operations`](https://drewsonne.github.io/maya-dates/identifiers.html#operations)
 namespace provides operators to expand a date with a wildcard into all possible
 values for dates matching that wildcard pattern.
 
-# Documentation
+## Documentation
 
 Full documentation and reference can be found at 
 [https://drewsonne.github.io/maya-dates/](https://drewsonne.github.io/maya-dates/).
