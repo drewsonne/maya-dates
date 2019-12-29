@@ -29,7 +29,8 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
@@ -40,15 +41,19 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc">lc</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html">CalendarRoundWildcard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/factory/long-count.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const Factory = require(&apos;./base&apos;)
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
+const Factory = require(&apos;./base&apos;)
+/** @ignore */
 const LongCount = require(&apos;../lc/long-count&apos;)
+/** @ignore */
 const wildcard = require(&apos;../wildcard&apos;)
 
 /**

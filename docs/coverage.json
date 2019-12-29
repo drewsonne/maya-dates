@@ -1,52 +1,27 @@
 {
-  "coverage": "59.45%",
-  "expectCount": 148,
-  "actualCount": 88,
+  "coverage": "100%",
+  "expectCount": 147,
+  "actualCount": 147,
   "files": {
     "src/cr/calendar-round.js": {
       "expectCount": 15,
-      "actualCount": 6,
-      "undocumentLines": [
-        1,
-        2,
-        3,
-        33,
-        80,
-        85,
-        91,
-        98,
-        107
-      ]
+      "actualCount": 15,
+      "undocumentLines": []
     },
     "src/cr/haab.js": {
       "expectCount": 21,
-      "actualCount": 17,
-      "undocumentLines": [
-        44,
-        69,
-        135,
-        204
-      ]
+      "actualCount": 21,
+      "undocumentLines": []
     },
     "src/cr/index.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        1
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "src/cr/tzolkin.js": {
       "expectCount": 22,
-      "actualCount": 15,
-      "undocumentLines": [
-        56,
-        84,
-        89,
-        124,
-        126,
-        179,
-        183
-      ]
+      "actualCount": 22,
+      "undocumentLines": []
     },
     "src/factory/base.js": {
       "expectCount": 4,
@@ -55,90 +30,43 @@
     },
     "src/factory/calendar-round.js": {
       "expectCount": 6,
-      "actualCount": 4,
-      "undocumentLines": [
-        1,
-        2
-      ]
+      "actualCount": 6,
+      "undocumentLines": []
     },
     "src/factory/full-date.js": {
       "expectCount": 6,
-      "actualCount": 2,
-      "undocumentLines": [
-        1,
-        2,
-        3,
-        4
-      ]
+      "actualCount": 6,
+      "undocumentLines": []
     },
     "src/factory/long-count.js": {
       "expectCount": 5,
-      "actualCount": 2,
-      "undocumentLines": [
-        1,
-        2,
-        3
-      ]
+      "actualCount": 5,
+      "undocumentLines": []
     },
     "src/full-date.js": {
       "expectCount": 5,
-      "actualCount": 1,
-      "undocumentLines": [
-        1,
-        8,
-        9,
-        12
-      ]
+      "actualCount": 5,
+      "undocumentLines": []
     },
     "src/lc/long-count.js": {
       "expectCount": 34,
-      "actualCount": 29,
-      "undocumentLines": [
-        1,
-        2,
-        3,
-        210,
-        219
-      ]
+      "actualCount": 34,
+      "undocumentLines": []
     },
     "src/operations/calendar-round-wildcard.js": {
-      "expectCount": 15,
-      "actualCount": 2,
-      "undocumentLines": [
-        1,
-        2,
-        4,
-        13,
-        17,
-        18,
-        19,
-        22,
-        27,
-        39,
-        41,
-        46,
-        49
-      ]
+      "expectCount": 14,
+      "actualCount": 14,
+      "undocumentLines": []
     },
     "src/operations/fulldate-wildcard.js": {
       "expectCount": 7,
-      "actualCount": 2,
-      "undocumentLines": [
-        2,
-        3,
-        4,
-        15,
-        18
-      ]
+      "actualCount": 7,
+      "undocumentLines": []
     },
     "src/operations/longcount-wildcard.js": {
       "expectCount": 5,
-      "actualCount": 2,
-      "undocumentLines": [
-        1,
-        12,
-        15
-      ]
+      "actualCount": 5,
+      "undocumentLines": []
     },
     "src/wildcard.js": {
       "expectCount": 2,

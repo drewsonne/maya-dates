@@ -29,7 +29,8 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
@@ -40,7 +41,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc">lc</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html">CalendarRoundWildcard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
 </ul>
 </div>
@@ -62,8 +64,8 @@ const wildcard = require(&apos;../wildcard&apos;)
 class Haab {
   /**
    * Constructor
-   * @param {number} coeff - The position in the Haab month for this date
-   * @param {string|HaabMonth} month
+   * @param {number|Wildcard} coeff - The position in the Haab month for this date
+   * @param {string|HaabMonth|Wildcard} month
    */
   constructor (coeff, month) {
     if (coeff === &apos;*&apos;) {
@@ -79,17 +81,21 @@ class Haab {
       }
     }
     /**
-     * @type {HaabMonth}
+     * @type {HaabMonth|Wildcard}
      */
     this.month = month
     /**
-     * @type {number}
+     * @type {number|Wildcard}
      */
     this.coeff = coeff
 
     this.validate()
   }
 
+  /**
+   * Ensure the Haab&apos;s coefficients are within range and the month is defined
+   * @return {boolean}
+   */
   validate () {
     if (this.coeff &gt; 19 || this.coeff &lt; 0) {
       throw &apos;Haab\&apos; coefficient must inclusively between 0 and 19.&apos;
@@ -115,13 +121,20 @@ class Haab {
     return this.shift(1)
   }
 
+  /**
+   * Ensure this Haab object has the same configuration as another Haab object.
+   * Does not take wildcards into account.
+   * @param {Haab} new_haab
+   * @return {boolean}
+   */
   equal (new_haab) {
     return (this.coeff === new_haab.coeff) &amp;&amp;
       (this.name === new_haab.name)
   }
 
   /**
-   *
+   * Ensure this Haab object has a matching configuration as another Haab object.
+   * Takes wildcards into account.
    * @param {Haab} new_haab
    * @return {boolean}
    */
@@ -181,6 +194,10 @@ class Haab {
     return `${this.coeff} ${this.name}`
   }
 
+  /**
+   * Return a brand new object with the same configuration as this object.
+   * @return {Haab}
+   */
   clone () {
     return new Haab(
       this.coeff,
@@ -250,6 +267,10 @@ class HaabMonth {
     return this.shift(1)
   }
 
+  /**
+   * Ensure a Haab month name is defined, and that the month name is within the
+   * set of allowable values.
+   */
   validate () {
     if (this.name === undefined) {
       throw &apos;Haab\&apos; month name must be provided&apos;
@@ -260,11 +281,13 @@ class HaabMonth {
   }
 
   /**
-   *
-   * @param {number} incremental
+   * Shift a HaabMonth date forward through time. Does not modify this
+   * object and will return a new object.
+   * @param {number} increment - Number of months to move forward
+   * @return {HaabMonth}
    */
-  shift (incremental) {
-    let new_incremental = (this.month_position + incremental) % 19
+  shift (increment) {
+    let new_incremental = (this.month_position + increment) % 19
     new_incremental = (new_incremental === 0) ? 19 : new_incremental
     return new HaabMonth(new_incremental)
   }

@@ -29,7 +29,8 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
@@ -40,7 +41,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc">lc</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html">CalendarRoundWildcard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
 </ul>
 </div>
@@ -53,7 +55,7 @@
   
   
   
-  <span data-ice="source">| <span><a href="file/src/operations/fulldate-wildcard.js.html#lineNumber9">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/operations/fulldate-wildcard.js.html#lineNumber12">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -73,7 +75,8 @@
 
   
   
-  <div class="description" data-ice="description"><p>Given a wildcard in</p>
+  <div class="description" data-ice="description"><p>Given a Calendar Round and Long Count with a wildcard, calculate all possible
+matching fully qualified Long Counts with CalendarRounds.</p>
 </div>
   
 
@@ -106,7 +109,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(partial_date: <span>FullDate</span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(partial_date: <span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span>)</span>
         </p>
       </div>
       <div>
@@ -123,8 +126,77 @@
 </tbody>
 </table>
 </div>
-
-
+<div data-ice="memberSummary"><h2>Member Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Members</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html#instance-member-partial">partial</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html#instance-method-run">run</a></span></span><span class="code" data-ice="signature">(): <span><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span><span>[]</span></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Run calculation to find all fully qualified Long Counts with Calendar Rounds</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
 
 
 
@@ -140,11 +212,11 @@
     
     
     
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(partial_date: <span>FullDate</span>)</span>
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(partial_date: <span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/operations/fulldate-wildcard.js.html#lineNumber14">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/operations/fulldate-wildcard.js.html#lineNumber16">source</a></span></span>
     </span>
   </h3>
 
@@ -165,7 +237,7 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">partial_date</td>
-      <td data-ice="type" class="code"><span>FullDate</span></td>
+      <td data-ice="type" class="code"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
     </tr>
@@ -192,8 +264,111 @@
   
 </div>
 </div>
+<div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
 
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-partial">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">partial</span><span class="code" data-ice="signature">: <span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/operations/fulldate-wildcard.js.html#lineNumber20">source</a></span></span>
+    </span>
+  </h3>
 
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-run">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">run</span><span class="code" data-ice="signature">(): <span><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span><span>[]</span></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/operations/fulldate-wildcard.js.html#lineNumber27">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Run calculation to find all fully qualified Long Counts with Calendar Rounds</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span><span>[]</span></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
 </div>
 
 <footer class="footer">

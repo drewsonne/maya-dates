@@ -29,7 +29,8 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
@@ -40,7 +41,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc">lc</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html">CalendarRoundWildcard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
 </ul>
 </div>
@@ -117,7 +119,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(coeff: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, month: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(coeff: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span>, month: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span> | <span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span>)</span>
         </p>
       </div>
       <div>
@@ -153,7 +155,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html#instance-member-coeff">coeff</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html#instance-member-coeff">coeff</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span>
         </p>
       </div>
       <div>
@@ -181,7 +183,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html#instance-member-month">month</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html#instance-member-month">month</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span> | <span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span>
         </p>
       </div>
       <div>
@@ -245,13 +247,72 @@
           
           
           
+          <span class="code" data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html#instance-method-clone">clone</a></span></span><span class="code" data-ice="signature">(): <span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Return a brand new object with the same configuration as this object.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html#instance-method-equal">equal</a></span></span><span class="code" data-ice="signature">(new_haab: <span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Ensure this Haab object has the same configuration as another Haab object.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html#instance-method-match">match</a></span></span><span class="code" data-ice="signature">(new_haab: <span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Ensure this Haab object has a matching configuration as another Haab object.</p>
+</div>
       </div>
     </td>
     <td>
@@ -345,6 +406,35 @@
       
     </td>
   </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html#instance-method-validate">validate</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Ensure the Haab&apos;s coefficients are within range and the month is defined</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
 </tbody>
 </table>
 </div>
@@ -363,7 +453,7 @@
     
     
     
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(coeff: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, month: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span>)</span>
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(coeff: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span>, month: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span> | <span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span>)</span>
     <span class="right-info">
       
       
@@ -389,14 +479,14 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">coeff</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>The position in the Haab month for this date</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">month</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span></td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span> | <span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
     </tr>
@@ -433,7 +523,7 @@
     
     
     
-    <span class="code" data-ice="name">coeff</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    <span class="code" data-ice="name">coeff</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span>
     <span class="right-info">
       
       
@@ -476,7 +566,7 @@
     
     
     
-    <span class="code" data-ice="name">month</span><span class="code" data-ice="signature">: <span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span></span>
+    <span class="code" data-ice="name">month</span><span class="code" data-ice="signature">: <span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span> | <span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span>
     <span class="right-info">
       
       
@@ -523,7 +613,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/haab.js.html#lineNumber95">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/haab.js.html#lineNumber106">source</a></span></span>
     </span>
   </h3>
 
@@ -571,6 +661,135 @@
 <div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
 
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-clone">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">clone</span><span class="code" data-ice="signature">(): <span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/cr/haab.js.html#lineNumber150">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Return a brand new object with the same configuration as this object.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-equal">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">equal</span><span class="code" data-ice="signature">(new_haab: <span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/cr/haab.js.html#lineNumber79">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Ensure this Haab object has the same configuration as another Haab object.
+Does not take wildcards into account.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">new_haab</td>
+      <td data-ice="type" class="code"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-method-match">
     <span class="access" data-ice="access">public</span>
     
@@ -582,14 +801,16 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/haab.js.html#lineNumber79">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/haab.js.html#lineNumber90">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Ensure this Haab object has a matching configuration as another Haab object.
+Takes wildcards into account.</p>
+</div>
 
   
 
@@ -653,7 +874,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/haab.js.html#lineNumber65">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/haab.js.html#lineNumber69">source</a></span></span>
     </span>
   </h3>
 
@@ -709,7 +930,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/haab.js.html#lineNumber106">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/haab.js.html#lineNumber117">source</a></span></span>
     </span>
   </h3>
 
@@ -780,7 +1001,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/haab.js.html#lineNumber128">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/haab.js.html#lineNumber139">source</a></span></span>
     </span>
   </h3>
 
@@ -817,6 +1038,62 @@
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-validate">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">validate</span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/cr/haab.js.html#lineNumber48">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Ensure the Haab&apos;s coefficients are within range and the month is defined</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
           
         </tr>
       </tbody>

@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">LongCountFactory | @drewsonne/maya-dates</title>
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">FullDate | @drewsonne/maya-dates</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -55,17 +55,17 @@
   
   
   
-  <span data-ice="source">| <span><a href="file/src/factory/long-count.js.html#lineNumber16">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/full-date.js.html#lineNumber4">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">LongCountFactory</h1>
+  <h1 data-ice="name">FullDate</h1>
 
   
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/factory/base.js~Factory.html">Factory</a></span> &#x2192; LongCountFactory</div></div>
+  
   
   
   
@@ -75,34 +75,119 @@
 
   
   
-  <div class="description" data-ice="description"><p>A factory to create a LongCount object from a string</p>
+  <div class="description" data-ice="description"><p>An encapsulation of a LongCount and Calendar Round which match each other.</p>
 </div>
   
 
   
 
-  <div data-ice="exampleDocs">
-    <h4>Example:</h4>
-    
-  <div class="example-doc" data-ice="exampleDoc">
+  
+
+  
+
+  
+</div>
+
+
+
+<div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
       
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">   let cr = new LongCountFactory().parse(&quot;9.4.2.4.1&quot;);</code></pre>
-    </div>
-<div class="example-doc" data-ice="exampleDoc">
       
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">   let cr = new LongCountFactory().parse(&quot;9.4.2.*.1&quot;);</code></pre>
-    </div>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/full-date.js~FullDate.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(cr: <span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span>, lc: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
 </div>
-
+<div data-ice="memberSummary"><h2>Member Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Members</td></tr></thead>
+  <tbody>
   
-
-  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/full-date.js~FullDate.html#instance-member-cr">cr</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/full-date.js~FullDate.html#instance-member-lc">lc</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
 </div>
-
-
-
-
-
 <div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
   <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
   <tbody>
@@ -121,79 +206,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/factory/long-count.js~LongCountFactory.html#instance-method-parse">parse</a></span></span><span class="code" data-ice="signature">(raw: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/full-date.js~FullDate.html#instance-method-toString">toString</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Given a string, parse it and create a Long Count</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
-
-<div class="inherited-summary" data-ice="inheritedSummary"><h2>Inherited Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3"><span class="toggle closed"></span> From class <span><a href="class/src/factory/base.js~Factory.html">Factory</a></span></td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">protected</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/factory/base.js~Factory.html#instance-member-pattern">pattern</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Describes how to break a string into a date element</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">protected</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/factory/base.js~Factory.html#instance-method-_split">_split</a></span></span><span class="code" data-ice="signature">(raw: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span><span>[]</span></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Split the provided date into its components</p>
+        <div data-ice="description"><p>Render the FullDate as a string of both the CR and the LC</p>
 </div>
       </div>
     </td>
@@ -210,29 +229,28 @@
 
 
 
-<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
+<div data-ice="constructorDetails"><h2 data-ice="title">Public Constructors</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-parse">
+  <h3 data-ice="anchor" id="instance-constructor-constructor">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">parse</span><span class="code" data-ice="signature">(raw: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(cr: <span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span>, lc: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/factory/long-count.js.html#lineNumber22">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/full-date.js.html#lineNumber9">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Given a string, parse it and create a Long Count</p>
-</div>
+  
 
   
 
@@ -245,15 +263,156 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">raw</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="name" class="code" data-depth="0">cr</td>
+      <td data-ice="type" class="code"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>A string containing a Long Count</p>
-</td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">lc</td>
+      <td data-ice="type" class="code"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
     </tr>
 </tbody>
   </table>
 </div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+<div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-cr">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">cr</span><span class="code" data-ice="signature">: <span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/full-date.js.html#lineNumber13">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-lc">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">lc</span><span class="code" data-ice="signature">: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/full-date.js.html#lineNumber18">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-toString">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">toString</span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/full-date.js.html#lineNumber25">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Render the FullDate as a string of both the CR and the LC</p>
+</div>
+
+  
+
+  <div data-ice="properties">
 </div>
 
   <div class="return-params" data-ice="returnParams">
@@ -261,7 +420,7 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></td>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
           
         </tr>
       </tbody>
