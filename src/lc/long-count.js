@@ -257,10 +257,10 @@ class LongCount {
    */
   toString () {
     let significant_digits = []
-    for (let i = 0; i < this.parts.length; i++) {
+    for (let i = this.parts.length-1; i >= 0; i--) {
       let part = this.parts[i]
       if (part !== 0) {
-        significant_digits = this.parts.slice(i).reverse()
+        significant_digits = this.parts.slice(0, i+1).reverse()
         break
       }
     }
@@ -274,7 +274,7 @@ class LongCount {
     let date_length = significant_digits.length
     if (date_length < 5) {
       for (let i = 0; i < 5 - date_length; i++) {
-        significant_digits.unshift(' 0')
+        significant_digits.push(' 0')
       }
     }
 
