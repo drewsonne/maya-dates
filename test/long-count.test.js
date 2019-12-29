@@ -73,3 +73,24 @@ test('print short long-count date', () => {
 
   expect(date.toString()).toBe(' 2. 1. 0. 0. 0')
 })
+
+describe('test lord of night glyphs', () => {
+  const night = mayadates.lc.night
+  let dates = [
+    ['9.16.19.17.19', night.G8, 'G8'],
+    ['9.17.0.0.0', night.get('G9'), 'G9'],
+    ['9.17.0.0.5', night.G5, 'G5'],
+    ['9.17.0.0.9', night.G9, 'G9'],
+    ['9.17.0.0.10', night.get('G1'), 'G1'],
+  ]
+  let factory = new mayadates.factory.LongCountFactory()
+  test.each(dates)(
+    '%s -> %s',
+    (date, lord_of_night, id) => {
+      let lc = factory.parse(date)
+      expect(lc.lord_of_night).toBe(lord_of_night)
+      expect(lc.lord_of_night).not.toBeUndefined()
+      expect(`${lc.lord_of_night}`).toBe(id)
+    },
+  )
+})

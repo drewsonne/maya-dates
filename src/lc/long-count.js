@@ -4,6 +4,8 @@ const wildcard = require('../wildcard')
 const origin = require('../cr/index').origin
 /** @ignore */
 const FullDate = require('../full-date')
+/** @ignore */
+const night = require('./night/lord-of-night')
 
 /**
  * Long Count cycle
@@ -203,6 +205,16 @@ class LongCount {
   }
 
   /**
+   *
+   * @return {any}
+   */
+  get lord_of_night () {
+    return night.get(
+      `G${((this.get_position() - 1) % 9) + 1}`,
+    )
+  }
+
+  /**
    * Ensure the date has only numbers and wildcards separated by points.
    * @returns {boolean}
    */
@@ -269,10 +281,10 @@ class LongCount {
    */
   toString () {
     let significant_digits = []
-    for (let i = this.parts.length-1; i >= 0; i--) {
+    for (let i = this.parts.length - 1; i >= 0; i--) {
       let part = this.parts[i]
       if (part !== 0) {
-        significant_digits = this.parts.slice(0, i+1).reverse()
+        significant_digits = this.parts.slice(0, i + 1).reverse()
         break
       }
     }
