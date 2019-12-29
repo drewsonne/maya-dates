@@ -56,8 +56,8 @@ class CalendarRoundWildcard {
   constructor (cr) {
     this.cr = cr
     this.start_date = new CalendarRound(
-      8, &apos;Ajaw&apos;,
-      4, &apos;Kumk\&apos;u&apos;,
+      4, &apos;Ajaw&apos;,
+      8, &apos;Kumk\&apos;u&apos;,
     )
   }
 
@@ -67,8 +67,7 @@ class CalendarRoundWildcard {
     let iter = new CalendarRoundIterator()
     let cr = iter.next()
     while (!cr.done) {
-      // if (this.cr.match(cr.value)) {
-      if (this._date_matches_wildcards(this.cr, cr.value)) {
+      if (this.cr.match(cr.value)) {
         potentials.push(cr.value)
       }
       cr = iter.next()
@@ -76,39 +75,6 @@ class CalendarRoundWildcard {
     return potentials
   }
 
-  /**
-   *
-   * @param {CalendarRound} partial
-   * @param {CalendarRound} full
-   */
-  _date_matches_wildcards (
-    partial,
-    full,
-  ) {
-    
-    let is_match = true
-    if (partial.tzolkin.coeff !== wildcard) {
-      is_match &amp;= (partial.tzolkin.coeff === full.tzolkin.coeff)
-    }
-    if (partial.tzolkin.day !== wildcard) {
-      is_match &amp;= (partial.tzolkin.name === full.tzolkin.name)
-    }
-    if (partial.haab.coeff !== wildcard) {
-      is_match &amp;= (partial.haab.coeff === full.haab.coeff)
-    }
-    if (partial.haab.month !== wildcard) {
-      is_match &amp;= (partial.haab.name === full.haab.name)
-    }
-
-    if (!is_match) {
-      is_match = (partial.haab.coeff === wildcard) &amp;&amp;
-        (partial.haab.name === wildcard) &amp;&amp;
-        (partial.tzolkin.coeff === wildcard) &amp;&amp;
-        (partial.tzolkin.name === wildcard)
-    }
-    return Boolean(is_match)
-
-  }
 }
 
 class CalendarRoundIterator {
@@ -119,8 +85,8 @@ class CalendarRoundIterator {
   constructor (date) {
     if (date === undefined) {
       date = new CalendarRound(
-        8, &apos;Ajaw&apos;,
-        4, &apos;Kumk\&apos;u&apos;,
+        4, &apos;Ajaw&apos;,
+        8, &apos;Kumk\&apos;u&apos;,
       )
     }
     this.date = date
@@ -133,6 +99,7 @@ class CalendarRoundIterator {
       this.is_first = false
       return {value: this.current, done: false}
     }
+    this.count += 1
     let next = this.current.next()
     if (next.equal(this.date)) {
       return {value: null, done: true}

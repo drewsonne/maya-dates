@@ -76,7 +76,9 @@ class Tzolkin {
     new_coeff = (new_coeff % 13) === 0 ? 13 : new_coeff
     let new_day = this.day.shift(incremental)
 
-    return new Tzolkin(new_coeff, new_day)
+    let new_tzolkin = new Tzolkin(new_coeff, new_day)
+    new_tzolkin.validate()
+    return new_tzolkin
   }
 
   equal (new_tzolkin) {
@@ -85,12 +87,15 @@ class Tzolkin {
   }
 
   match (new_tzolkin) {
-    return (this.coeff === wildcard || new_tzolkin.coeff === wildcard)
-      ? true
-      : (this.coeff === new_tzolkin.coeff) &&
-      (this.day === wildcard || new_tzolkin.day === wildcard)
-        ? true
-        : (this.name === new_tzolkin.name)
+    return (
+      (this.coeff === wildcard || new_tzolkin.coeff === wildcard) ?
+        true :
+        (this.coeff === new_tzolkin.coeff)
+    ) && (
+      (this.day === wildcard || new_tzolkin.day === wildcard) ?
+        true :
+        (this.name === new_tzolkin.name)
+    )
   }
 
   /**
@@ -108,7 +113,10 @@ class Tzolkin {
    * Render the 260-day cycle date as a string
    * @returns {string}
    */
-  toString () {
+  toString (is_numeric) {
+    if (is_numeric) {
+      return `${this.coeff}:${this.day.day_position}`
+    }
     return `${this.coeff} ${this.name}`
   }
 }
@@ -142,7 +150,7 @@ class TzolkinDay {
       'K\'an',
       'Chikchan',
       'Kimi',
-      'Manik',
+      'Manik\'',
       'Lamat',
       'Muluk',
       'Ok',

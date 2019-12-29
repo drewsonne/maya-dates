@@ -37,6 +37,25 @@ class Haab {
      * @type {number}
      */
     this.coeff = coeff
+
+    this.validate()
+  }
+
+  validate () {
+    if (this.coeff > 19 || this.coeff < 0) {
+      throw 'Haab\' coefficient must inclusively between 0 and 19.'
+    }
+    if (this.name === 'Wayeb' && this.coeff > 4) {
+      throw 'Haab\' coefficient for Wayeb must inclusively between 0 and 4.'
+    }
+    if (this.month === undefined) {
+      throw 'Haab\' month must be provided'
+    }
+    if (this.month !== wildcard) {
+      this.month.validate()
+    }
+
+    return true
   }
 
   /**
@@ -44,12 +63,6 @@ class Haab {
    * @returns {Haab}
    */
   next () {
-    // let month_length = (this.name === this.month.months[19]) ? 5 : 20
-    // let tomorrow_coeff = (this.coeff + 1) % month_length
-    // return new Haab(
-    //   tomorrow_coeff,
-    //   (tomorrow_coeff === 0) ? this.month.next() : this.month,
-    // )
     return this.shift(1)
   }
 
@@ -64,12 +77,15 @@ class Haab {
    * @return {boolean}
    */
   match (new_haab) {
-    return (this.coeff === wildcard || new_haab.coeff === wildcard)
-      ? true
-      : (this.coeff === new_haab.coeff) &&
-      (this.month === wildcard || new_haab.month === wildcard)
-        ? true
-        : (this.name === new_haab.name)
+    return (
+      (this.coeff === wildcard || new_haab.coeff === wildcard) ?
+        true :
+        (this.coeff === new_haab.coeff)
+    ) && (
+      (this.month === wildcard || new_haab.month === wildcard) ?
+        true :
+        (this.name === new_haab.name)
+    )
   }
 
   /**
@@ -101,7 +117,7 @@ class Haab {
         incremental = 0
       }
     }
-
+    new_date.validate()
     return new_date
   }
 
@@ -109,7 +125,10 @@ class Haab {
    * Render the Haab date as a string
    * @returns {string}
    */
-  toString () {
+  toString (is_numeric) {
+    if (is_numeric) {
+      return `${this.coeff}:${this.month.month_position}`
+    }
     return `${this.coeff} ${this.name}`
   }
 
@@ -180,6 +199,15 @@ class HaabMonth {
    */
   next () {
     return this.shift(1)
+  }
+
+  validate () {
+    if (this.name === undefined) {
+      throw 'Haab\' month name must be provided'
+    }
+    if (!this.months.includes(this.name)) {
+      throw `Haab' day (${this.name}) must be in ${this.months}`
+    }
   }
 
   /**

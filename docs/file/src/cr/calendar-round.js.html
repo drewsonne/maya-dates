@@ -53,7 +53,7 @@ const wildcard = require(&apos;../wildcard&apos;)
 /**
  * A combination of 260-day cycles and the Haab cycle.
  * @example
- *  let cr = new CalendarRound(8, &quot;Ajaw&quot;, 4, &quot;Kumk&apos;u&quot;);
+ *  let cr = new CalendarRound(4, &quot;Ajaw&quot;, 8, &quot;Kumk&apos;u&quot;);
  */
 class CalendarRound {
   /**
@@ -74,6 +74,43 @@ class CalendarRound {
      * @type {Haab}
      */
     this.haab = new haab.Haab(haab_coeff, haab_month)
+
+    this.validate()
+  }
+
+  validate () {
+    let valid_haab_coeffs = []
+    if ([
+      &apos;Kaban&apos;, &apos;Ik\&apos;&apos;, &apos;Manik\&apos;&apos;, &apos;Eb&apos;,
+    ].includes(this.tzolkin.name)) {
+      valid_haab_coeffs = [0, 5, 10, 15]
+    } else if ([
+      &apos;Etz\&apos;nab&apos;, &apos;Ak\&apos;bal&apos;, &apos;Lamat&apos;, &apos;Ben&apos;,
+    ].includes(this.tzolkin.name)) {
+      valid_haab_coeffs = [1, 6, 11, 16]
+    } else if ([
+      &apos;Kawak&apos;, &apos;K\&apos;an&apos;, &apos;Muluk&apos;, &apos;Ix&apos;,
+    ].includes(this.tzolkin.name)) {
+      valid_haab_coeffs = [2, 7, 12, 17]
+    } else if ([
+      &apos;Ajaw&apos;, &apos;Chikchan&apos;, &apos;Ok&apos;, &apos;Men&apos;,
+    ].includes(this.tzolkin.name)) {
+      valid_haab_coeffs = [3, 8, 13, 18]
+    } else if ([
+      &apos;Imix&apos;, &apos;Kimi&apos;, &apos;Chuwen&apos;, &apos;Kib&apos;,
+    ].includes(this.tzolkin.name)) {
+      valid_haab_coeffs = [4, 9, 14, 19]
+    } else if ([wildcard].includes(this.tzolkin.name)) {
+      valid_haab_coeffs = [...Array(19).keys()]
+    } else {
+      throw `Could not allocate Tzolk&apos;in (${this.tzolkin.name}) to permissible month coeffs.`
+    }
+
+    valid_haab_coeffs.push(wildcard)
+
+    if (!valid_haab_coeffs.includes(this.haab.coeff)) {
+      throw `${this} should have Haab coeff in ${valid_haab_coeffs} for day ${this.tzolkin.name}`
+    }
   }
 
   /**
@@ -84,6 +121,7 @@ class CalendarRound {
     let new_cr = this.clone()
     new_cr.tzolkin = this.tzolkin.next()
     new_cr.haab = this.haab.next()
+    new_cr.validate()
     return new_cr
   }
 
@@ -93,8 +131,9 @@ class CalendarRound {
   }
 
   match (new_cr) {
-    return this.haab.match(new_cr.haab) &amp;&amp;
-      this.tzolkin.match(new_cr.tzolkin)
+    let haab_matches = this.haab.match(new_cr.haab)
+    let tzolkin_matches = this.tzolkin.match(new_cr.tzolkin)
+    return haab_matches &amp;&amp; tzolkin_matches
   }
 
   shift (increment) {
@@ -124,7 +163,11 @@ class CalendarRound {
    * Render the CalendarRound cycle date as a string
    * @returns {string}
    */
-  toString () {
+  toString (is_numeric) {
+    if (is_numeric) {
+      return `${this.tzolkin.toString(is_numeric)}:${this.haab.toString(
+        is_numeric)}`
+    }
     return `${this.tzolkin} ${this.haab}`
   }
 }
