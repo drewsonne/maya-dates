@@ -4151,7 +4151,7 @@
     "__docId__": 209,
     "kind": "file",
     "name": "src/wildcard.js",
-    "content": "/**\n * Describes a wildcard in the Calendar Round or Long Count\n */\nclass Wildcard {\n  /**\n   * Represent the Wildcard as a string\n   * @returns {string}\n   */\n  toString () {\n    return '*'\n  }\n}\n\nmodule.exports = new Wildcard()\n",
+    "content": "/**\n * Describes a wildcard in the Calendar Round or Long Count.\n * There is a singleton in this library to allow for equality\n * comparison.\n * @example\n * const mayadates = require('maya-dates')\n * let cr = new mayadates.factory.CalendarRoundFactory().parse(\n *  '4 Ajaw 8 *')\n * console.log(cr.haab.month === mayadates.wildcard)\n * > true\n */\nclass Wildcard {\n  /**\n   * Represent the Wildcard as a string\n   * @returns {string}\n   */\n  toString () {\n    return '*'\n  }\n}\n\nmodule.exports = new Wildcard()\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/wildcard.js",
     "access": "public",
@@ -4169,8 +4169,11 @@
     "export": false,
     "importPath": "@drewsonne/maya-dates/src/wildcard.js",
     "importStyle": null,
-    "description": "Describes a wildcard in the Calendar Round or Long Count",
-    "lineNumber": 4,
+    "description": "Describes a wildcard in the Calendar Round or Long Count.\nThere is a singleton in this library to allow for equality\ncomparison.",
+    "examples": [
+      "const mayadates = require('maya-dates')\nlet cr = new mayadates.factory.CalendarRoundFactory().parse(\n '4 Ajaw 8 *')\nconsole.log(cr.haab.month === mayadates.wildcard)\n> true"
+    ],
+    "lineNumber": 12,
     "interface": false
   },
   {
@@ -4184,7 +4187,7 @@
     "longname": "src/wildcard.js~Wildcard#toString",
     "access": "public",
     "description": "Represent the Wildcard as a string",
-    "lineNumber": 9,
+    "lineNumber": 17,
     "unknown": [
       {
         "tagName": "@returns",

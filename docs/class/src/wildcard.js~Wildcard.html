@@ -52,7 +52,7 @@
   
   
   
-  <span data-ice="source">| <span><a href="file/src/wildcard.js.html#lineNumber4">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/wildcard.js.html#lineNumber12">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -72,13 +72,26 @@
 
   
   
-  <div class="description" data-ice="description"><p>Describes a wildcard in the Calendar Round or Long Count</p>
+  <div class="description" data-ice="description"><p>Describes a wildcard in the Calendar Round or Long Count.
+There is a singleton in this library to allow for equality
+comparison.</p>
 </div>
   
 
   
 
-  
+  <div data-ice="exampleDocs">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">const mayadates = require(&apos;maya-dates&apos;)
+let cr = new mayadates.factory.CalendarRoundFactory().parse(
+ &apos;4 Ajaw 8 *&apos;)
+console.log(cr.haab.month === mayadates.wildcard)
+&gt; true</code></pre>
+    </div>
+</div>
 
   
 
@@ -146,7 +159,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/wildcard.js.html#lineNumber9">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/wildcard.js.html#lineNumber17">source</a></span></span>
     </span>
   </h3>
 

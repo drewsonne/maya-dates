@@ -47,7 +47,15 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/wildcard.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
- * Describes a wildcard in the Calendar Round or Long Count
+ * Describes a wildcard in the Calendar Round or Long Count.
+ * There is a singleton in this library to allow for equality
+ * comparison.
+ * @example
+ * const mayadates = require(&apos;maya-dates&apos;)
+ * let cr = new mayadates.factory.CalendarRoundFactory().parse(
+ *  &apos;4 Ajaw 8 *&apos;)
+ * console.log(cr.haab.month === mayadates.wildcard)
+ * &gt; true
  */
 class Wildcard {
   /**
