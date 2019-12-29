@@ -1,5 +1,22 @@
 const mayadates = require('../src/index')
 
+describe('compute missing lc wildcard', () => {
+  let lcs = [
+    // ['10.10.17.14.0', ]
+    ['10.10.17.14.*', 20],
+  ]
+  let lc_factory = new mayadates.factory.LongCountFactory()
+  test.each(lcs)(
+    'len(%s) = %s',
+    (lc, expected) => {
+      let partial_date = lc_factory.parse(lc)
+      let potential_lcs = new mayadates.op.
+        LongCountWildcard(partial_date).run()
+      expect(potential_lcs.length).toBe(expected)
+    },
+  )
+})
+
 describe('compute missing cr wildcard', () => {
   let partial_dates = [
     ['12Imix * Pop', 4],

@@ -1,5 +1,6 @@
 const wildcard = require('../wildcard')
 const origin = require('../cr/index').origin
+const FullDate = require('../full-date')
 
 /**
  * Long Count cycle
@@ -229,9 +230,24 @@ class LongCount {
       this.kinchiltun * 1152000000
   }
 
+  /**
+   *
+   * @return {CalendarRound}
+   */
   build_calendar_round () {
     return origin.shift(
       this.get_position(),
+    )
+  }
+
+  /**
+   *
+   * @return {FullDate}
+   */
+  build_full_date () {
+    return new FullDate(
+      this.build_calendar_round(),
+      this.clone(),
     )
   }
 

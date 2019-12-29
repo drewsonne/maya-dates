@@ -49,6 +49,7 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/lc/long-count.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const wildcard = require(&apos;../wildcard&apos;)
 const origin = require(&apos;../cr/index&apos;).origin
+const FullDate = require(&apos;../full-date&apos;)
 
 /**
  * Long Count cycle
@@ -278,9 +279,24 @@ class LongCount {
       this.kinchiltun * 1152000000
   }
 
+  /**
+   *
+   * @return {CalendarRound}
+   */
   build_calendar_round () {
     return origin.shift(
       this.get_position(),
+    )
+  }
+
+  /**
+   *
+   * @return {FullDate}
+   */
+  build_full_date () {
+    return new FullDate(
+      this.build_calendar_round(),
+      this.clone(),
     )
   }
 

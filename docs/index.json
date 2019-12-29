@@ -2743,7 +2743,7 @@
     "__docId__": 145,
     "kind": "file",
     "name": "src/lc/long-count.js",
-    "content": "const wildcard = require('../wildcard')\nconst origin = require('../cr/index').origin\n\n/**\n * Long Count cycle\n */\nclass LongCount {\n  /**\n   * @param {...number|Wildcard} cycles - Components in the long count (eg, K'in, Winal, Bak'tun, etc)\n   */\n  constructor (...cycles) {\n    /**\n     * Date Components\n     * @type {number|Wildcard[]}\n     */\n    this.parts = cycles\n\n    /**\n     * Pattern to validate the date\n     * @type {RegExp}\n     */\n    this.date_pattern = /([\\d*]+\\.?)+/\n\n    /**\n     * Convert individual components to a single string\n     * @type {string}\n     */\n    this.raw = this.toString()\n  }\n\n  /**\n   * Create a copy object of this long count date\n   * @returns {LongCount}\n   */\n  clone () {\n    return new LongCount(...this.parts)\n  }\n\n  /**\n   * Get specific column in Long Count date\n   * @param {number} index\n   * @returns {number}\n   */\n  _get_date_sections (index) {\n    let part = this.parts[index]\n    if (part === undefined) {\n      return 0\n    }\n    return part\n  }\n\n  /**\n   * Set specific column in Long Count date\n   * @param {number} index\n   * @param {number} value\n   * @returns {LongCount}\n   * @private\n   */\n  _set_date_sections (index, value) {\n    this.parts[index] = value.toString()\n    this.raw = this.toString()\n    return this\n  }\n\n  /**\n   * Return the number of positions in the long count\n   * @returns {number}\n   */\n  get length () {\n    return this.parts.length\n  }\n\n  /**\n   * Set the k'in component of the date\n   * @returns {number}\n   */\n  set k_in (new_k_in) {\n    this._set_date_sections(0, new_k_in)\n  }\n\n  /**\n   * Return the k'in component of the date\n   * @returns {number}\n   */\n  get k_in () {\n    return this._get_date_sections(0)\n  }\n\n  /**\n   * Set the winal component of the date\n   * @returns {number}\n   */\n  set winal (new_winal) {\n    this._set_date_sections(1, new_winal)\n  }\n\n  /**\n   * Return the winal component of the date\n   * @returns {number}\n   */\n  get winal () {\n    return this._get_date_sections(1)\n  }\n\n  /**\n   * Set the tun component of the date\n   * @returns {number}\n   */\n  set tun (new_tun) {\n    this._set_date_sections(2, new_tun)\n  }\n\n  /**\n   * Return the tun component of the date\n   * @returns {number}\n   */\n  get tun () {\n    return this._get_date_sections(2)\n  }\n\n  /**\n   * Set the k'atun component of the date\n   * @returns {number}\n   */\n  set k_atun (new_k_atun) {\n    this._set_date_sections(3, new_k_atun)\n  }\n\n  /**\n   * Return the k'atun component of the date\n   * @returns {number}\n   */\n  get k_atun () {\n    return this._get_date_sections(3)\n  }\n\n  /**\n   * Set the bak'tun component of the date\n   * @returns {number}\n   */\n  set bak_tun (new_bak_tun) {\n    this._set_date_sections(4, new_bak_tun)\n  }\n\n  /**\n   * Return the bak'tun component of the date\n   * @returns {number}\n   */\n  get bak_tun () {\n    return this._get_date_sections(4)\n  }\n\n  /**\n   * Set the piktun component of the date\n   * @returns {number}\n   */\n  set piktun (new_bak_tun) {\n    this._set_date_sections(5, new_bak_tun)\n  }\n\n  /**\n   * Return the piktun component of the date\n   * @returns {number}\n   */\n  get piktun () {\n    return this._get_date_sections(5)\n  }\n\n  /**\n   * Set the kalabtun component of the date\n   * @returns {number}\n   */\n  set kalabtun (new_bak_tun) {\n    this._set_date_sections(6, new_bak_tun)\n  }\n\n  /**\n   * Return the kalabtun component of the date\n   * @returns {number}\n   */\n  get kalabtun () {\n    return this._get_date_sections(6)\n  }\n\n  /**\n   * Set the kinchiltun component of the date\n   * @returns {number}\n   */\n  set kinchiltun (new_bak_tun) {\n    this._set_date_sections(7, new_bak_tun)\n  }\n\n  /**\n   * Return the kinchiltun component of the date\n   * @returns {number}\n   */\n  get kinchiltun () {\n    return this._get_date_sections(7)\n  }\n\n  /**\n   * Ensure the date has only numbers and wildcards separated by points.\n   * @returns {boolean}\n   */\n  is_valid () {\n    return this.date_pattern.test(this.toString())\n  }\n\n  is_partial () {\n    for (let part of this.parts) {\n      if (part === wildcard) {\n        return true\n      }\n    }\n    return false\n  }\n\n  get_position () {\n    if (this.is_partial()) {\n      throw 'Can not get position of partial dates'\n    }\n    return this.k_in +\n      this.winal * 20 +\n      this.tun * 360 +\n      this.k_atun * 7200 +\n      this.bak_tun * 144000 +\n      this.piktun * 2880000 +\n      this.kalabtun * 57600000 +\n      this.kinchiltun * 1152000000\n  }\n\n  build_calendar_round () {\n    return origin.shift(\n      this.get_position(),\n    )\n  }\n\n  /**\n   * Convert the LongCount to a string and pad the sections of the date\n   * @returns {string}\n   */\n  toString () {\n    let significant_digits = []\n    for (let i = 0; i < this.parts.length; i++) {\n      let part = this.parts[i]\n      if (part !== 0) {\n        significant_digits = this.parts.slice(i).reverse()\n        break\n      }\n    }\n\n    for (let i = 0; i < significant_digits.length; i++) {\n      if (significant_digits[i] === undefined) {\n        significant_digits[i] = '0'\n      }\n    }\n\n    let date_length = significant_digits.length\n    if (date_length < 5) {\n      for (let i = 0; i < 5 - date_length; i++) {\n        significant_digits.unshift(' 0')\n      }\n    }\n\n    for (let i = 0; i < significant_digits.length; i++) {\n      let part = significant_digits[i].toString()\n      if (part.length < 2) {\n        significant_digits[i] = ' ' + part\n      }\n    }\n    return significant_digits.join('.')\n  }\n}\n\nmodule.exports = LongCount\n",
+    "content": "const wildcard = require('../wildcard')\nconst origin = require('../cr/index').origin\nconst FullDate = require('../full-date')\n\n/**\n * Long Count cycle\n */\nclass LongCount {\n  /**\n   * @param {...number|Wildcard} cycles - Components in the long count (eg, K'in, Winal, Bak'tun, etc)\n   */\n  constructor (...cycles) {\n    /**\n     * Date Components\n     * @type {number|Wildcard[]}\n     */\n    this.parts = cycles\n\n    /**\n     * Pattern to validate the date\n     * @type {RegExp}\n     */\n    this.date_pattern = /([\\d*]+\\.?)+/\n\n    /**\n     * Convert individual components to a single string\n     * @type {string}\n     */\n    this.raw = this.toString()\n  }\n\n  /**\n   * Create a copy object of this long count date\n   * @returns {LongCount}\n   */\n  clone () {\n    return new LongCount(...this.parts)\n  }\n\n  /**\n   * Get specific column in Long Count date\n   * @param {number} index\n   * @returns {number}\n   */\n  _get_date_sections (index) {\n    let part = this.parts[index]\n    if (part === undefined) {\n      return 0\n    }\n    return part\n  }\n\n  /**\n   * Set specific column in Long Count date\n   * @param {number} index\n   * @param {number} value\n   * @returns {LongCount}\n   * @private\n   */\n  _set_date_sections (index, value) {\n    this.parts[index] = value.toString()\n    this.raw = this.toString()\n    return this\n  }\n\n  /**\n   * Return the number of positions in the long count\n   * @returns {number}\n   */\n  get length () {\n    return this.parts.length\n  }\n\n  /**\n   * Set the k'in component of the date\n   * @returns {number}\n   */\n  set k_in (new_k_in) {\n    this._set_date_sections(0, new_k_in)\n  }\n\n  /**\n   * Return the k'in component of the date\n   * @returns {number}\n   */\n  get k_in () {\n    return this._get_date_sections(0)\n  }\n\n  /**\n   * Set the winal component of the date\n   * @returns {number}\n   */\n  set winal (new_winal) {\n    this._set_date_sections(1, new_winal)\n  }\n\n  /**\n   * Return the winal component of the date\n   * @returns {number}\n   */\n  get winal () {\n    return this._get_date_sections(1)\n  }\n\n  /**\n   * Set the tun component of the date\n   * @returns {number}\n   */\n  set tun (new_tun) {\n    this._set_date_sections(2, new_tun)\n  }\n\n  /**\n   * Return the tun component of the date\n   * @returns {number}\n   */\n  get tun () {\n    return this._get_date_sections(2)\n  }\n\n  /**\n   * Set the k'atun component of the date\n   * @returns {number}\n   */\n  set k_atun (new_k_atun) {\n    this._set_date_sections(3, new_k_atun)\n  }\n\n  /**\n   * Return the k'atun component of the date\n   * @returns {number}\n   */\n  get k_atun () {\n    return this._get_date_sections(3)\n  }\n\n  /**\n   * Set the bak'tun component of the date\n   * @returns {number}\n   */\n  set bak_tun (new_bak_tun) {\n    this._set_date_sections(4, new_bak_tun)\n  }\n\n  /**\n   * Return the bak'tun component of the date\n   * @returns {number}\n   */\n  get bak_tun () {\n    return this._get_date_sections(4)\n  }\n\n  /**\n   * Set the piktun component of the date\n   * @returns {number}\n   */\n  set piktun (new_bak_tun) {\n    this._set_date_sections(5, new_bak_tun)\n  }\n\n  /**\n   * Return the piktun component of the date\n   * @returns {number}\n   */\n  get piktun () {\n    return this._get_date_sections(5)\n  }\n\n  /**\n   * Set the kalabtun component of the date\n   * @returns {number}\n   */\n  set kalabtun (new_bak_tun) {\n    this._set_date_sections(6, new_bak_tun)\n  }\n\n  /**\n   * Return the kalabtun component of the date\n   * @returns {number}\n   */\n  get kalabtun () {\n    return this._get_date_sections(6)\n  }\n\n  /**\n   * Set the kinchiltun component of the date\n   * @returns {number}\n   */\n  set kinchiltun (new_bak_tun) {\n    this._set_date_sections(7, new_bak_tun)\n  }\n\n  /**\n   * Return the kinchiltun component of the date\n   * @returns {number}\n   */\n  get kinchiltun () {\n    return this._get_date_sections(7)\n  }\n\n  /**\n   * Ensure the date has only numbers and wildcards separated by points.\n   * @returns {boolean}\n   */\n  is_valid () {\n    return this.date_pattern.test(this.toString())\n  }\n\n  is_partial () {\n    for (let part of this.parts) {\n      if (part === wildcard) {\n        return true\n      }\n    }\n    return false\n  }\n\n  get_position () {\n    if (this.is_partial()) {\n      throw 'Can not get position of partial dates'\n    }\n    return this.k_in +\n      this.winal * 20 +\n      this.tun * 360 +\n      this.k_atun * 7200 +\n      this.bak_tun * 144000 +\n      this.piktun * 2880000 +\n      this.kalabtun * 57600000 +\n      this.kinchiltun * 1152000000\n  }\n\n  /**\n   *\n   * @return {CalendarRound}\n   */\n  build_calendar_round () {\n    return origin.shift(\n      this.get_position(),\n    )\n  }\n\n  /**\n   *\n   * @return {FullDate}\n   */\n  build_full_date () {\n    return new FullDate(\n      this.build_calendar_round(),\n      this.clone(),\n    )\n  }\n\n  /**\n   * Convert the LongCount to a string and pad the sections of the date\n   * @returns {string}\n   */\n  toString () {\n    let significant_digits = []\n    for (let i = 0; i < this.parts.length; i++) {\n      let part = this.parts[i]\n      if (part !== 0) {\n        significant_digits = this.parts.slice(i).reverse()\n        break\n      }\n    }\n\n    for (let i = 0; i < significant_digits.length; i++) {\n      if (significant_digits[i] === undefined) {\n        significant_digits[i] = '0'\n      }\n    }\n\n    let date_length = significant_digits.length\n    if (date_length < 5) {\n      for (let i = 0; i < 5 - date_length; i++) {\n        significant_digits.unshift(' 0')\n      }\n    }\n\n    for (let i = 0; i < significant_digits.length; i++) {\n      let part = significant_digits[i].toString()\n      if (part.length < 2) {\n        significant_digits[i] = ' ' + part\n      }\n    }\n    return significant_digits.join('.')\n  }\n}\n\nmodule.exports = LongCount\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/lc/long-count.js",
     "access": "public",
@@ -2794,6 +2794,27 @@
   },
   {
     "__docId__": 148,
+    "kind": "variable",
+    "name": "FullDate",
+    "memberof": "src/lc/long-count.js",
+    "static": true,
+    "longname": "src/lc/long-count.js~FullDate",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/lc/long-count.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 149,
     "kind": "class",
     "name": "LongCount",
     "memberof": "src/lc/long-count.js",
@@ -2804,11 +2825,11 @@
     "importPath": "@drewsonne/maya-dates/src/lc/long-count.js",
     "importStyle": null,
     "description": "Long Count cycle",
-    "lineNumber": 7,
+    "lineNumber": 8,
     "interface": false
   },
   {
-    "__docId__": 149,
+    "__docId__": 150,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2818,7 +2839,7 @@
     "longname": "src/lc/long-count.js~LongCount#constructor",
     "access": "public",
     "description": "",
-    "lineNumber": 11,
+    "lineNumber": 12,
     "params": [
       {
         "nullable": null,
@@ -2834,7 +2855,7 @@
     ]
   },
   {
-    "__docId__": 150,
+    "__docId__": 151,
     "kind": "member",
     "name": "parts",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2842,7 +2863,7 @@
     "longname": "src/lc/long-count.js~LongCount#parts",
     "access": "public",
     "description": "Date Components",
-    "lineNumber": 16,
+    "lineNumber": 17,
     "type": {
       "nullable": null,
       "types": [
@@ -2854,7 +2875,7 @@
     }
   },
   {
-    "__docId__": 151,
+    "__docId__": 152,
     "kind": "member",
     "name": "date_pattern",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2862,7 +2883,7 @@
     "longname": "src/lc/long-count.js~LongCount#date_pattern",
     "access": "public",
     "description": "Pattern to validate the date",
-    "lineNumber": 22,
+    "lineNumber": 23,
     "type": {
       "nullable": null,
       "types": [
@@ -2873,7 +2894,7 @@
     }
   },
   {
-    "__docId__": 152,
+    "__docId__": 153,
     "kind": "member",
     "name": "raw",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2881,7 +2902,7 @@
     "longname": "src/lc/long-count.js~LongCount#raw",
     "access": "public",
     "description": "Convert individual components to a single string",
-    "lineNumber": 28,
+    "lineNumber": 29,
     "type": {
       "nullable": null,
       "types": [
@@ -2892,7 +2913,7 @@
     }
   },
   {
-    "__docId__": 153,
+    "__docId__": 154,
     "kind": "method",
     "name": "clone",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2902,7 +2923,7 @@
     "longname": "src/lc/long-count.js~LongCount#clone",
     "access": "public",
     "description": "Create a copy object of this long count date",
-    "lineNumber": 35,
+    "lineNumber": 36,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2920,7 +2941,7 @@
     "params": []
   },
   {
-    "__docId__": 154,
+    "__docId__": 155,
     "kind": "method",
     "name": "_get_date_sections",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2930,7 +2951,7 @@
     "longname": "src/lc/long-count.js~LongCount#_get_date_sections",
     "access": "private",
     "description": "Get specific column in Long Count date",
-    "lineNumber": 44,
+    "lineNumber": 45,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2959,7 +2980,7 @@
     }
   },
   {
-    "__docId__": 155,
+    "__docId__": 156,
     "kind": "method",
     "name": "_set_date_sections",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -2969,7 +2990,7 @@
     "longname": "src/lc/long-count.js~LongCount#_set_date_sections",
     "access": "private",
     "description": "Set specific column in Long Count date",
-    "lineNumber": 59,
+    "lineNumber": 60,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3008,7 +3029,7 @@
     }
   },
   {
-    "__docId__": 157,
+    "__docId__": 158,
     "kind": "get",
     "name": "length",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3018,7 +3039,7 @@
     "longname": "src/lc/long-count.js~LongCount#length",
     "access": "public",
     "description": "Return the number of positions in the long count",
-    "lineNumber": 69,
+    "lineNumber": 70,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3040,7 +3061,7 @@
     }
   },
   {
-    "__docId__": 158,
+    "__docId__": 159,
     "kind": "set",
     "name": "k_in",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3050,7 +3071,7 @@
     "longname": "src/lc/long-count.js~LongCount#k_in",
     "access": "public",
     "description": "Set the k'in component of the date",
-    "lineNumber": 77,
+    "lineNumber": 78,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3067,7 +3088,7 @@
     }
   },
   {
-    "__docId__": 159,
+    "__docId__": 160,
     "kind": "get",
     "name": "k_in",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3077,7 +3098,7 @@
     "longname": "src/lc/long-count.js~LongCount#k_in",
     "access": "public",
     "description": "Return the k'in component of the date",
-    "lineNumber": 85,
+    "lineNumber": 86,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3099,7 +3120,7 @@
     }
   },
   {
-    "__docId__": 160,
+    "__docId__": 161,
     "kind": "set",
     "name": "winal",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3109,7 +3130,7 @@
     "longname": "src/lc/long-count.js~LongCount#winal",
     "access": "public",
     "description": "Set the winal component of the date",
-    "lineNumber": 93,
+    "lineNumber": 94,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3126,7 +3147,7 @@
     }
   },
   {
-    "__docId__": 161,
+    "__docId__": 162,
     "kind": "get",
     "name": "winal",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3136,7 +3157,7 @@
     "longname": "src/lc/long-count.js~LongCount#winal",
     "access": "public",
     "description": "Return the winal component of the date",
-    "lineNumber": 101,
+    "lineNumber": 102,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3158,7 +3179,7 @@
     }
   },
   {
-    "__docId__": 162,
+    "__docId__": 163,
     "kind": "set",
     "name": "tun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3168,7 +3189,7 @@
     "longname": "src/lc/long-count.js~LongCount#tun",
     "access": "public",
     "description": "Set the tun component of the date",
-    "lineNumber": 109,
+    "lineNumber": 110,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3185,7 +3206,7 @@
     }
   },
   {
-    "__docId__": 163,
+    "__docId__": 164,
     "kind": "get",
     "name": "tun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3195,7 +3216,7 @@
     "longname": "src/lc/long-count.js~LongCount#tun",
     "access": "public",
     "description": "Return the tun component of the date",
-    "lineNumber": 117,
+    "lineNumber": 118,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3217,7 +3238,7 @@
     }
   },
   {
-    "__docId__": 164,
+    "__docId__": 165,
     "kind": "set",
     "name": "k_atun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3227,7 +3248,7 @@
     "longname": "src/lc/long-count.js~LongCount#k_atun",
     "access": "public",
     "description": "Set the k'atun component of the date",
-    "lineNumber": 125,
+    "lineNumber": 126,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3244,7 +3265,7 @@
     }
   },
   {
-    "__docId__": 165,
+    "__docId__": 166,
     "kind": "get",
     "name": "k_atun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3254,7 +3275,7 @@
     "longname": "src/lc/long-count.js~LongCount#k_atun",
     "access": "public",
     "description": "Return the k'atun component of the date",
-    "lineNumber": 133,
+    "lineNumber": 134,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3276,7 +3297,7 @@
     }
   },
   {
-    "__docId__": 166,
+    "__docId__": 167,
     "kind": "set",
     "name": "bak_tun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3286,7 +3307,7 @@
     "longname": "src/lc/long-count.js~LongCount#bak_tun",
     "access": "public",
     "description": "Set the bak'tun component of the date",
-    "lineNumber": 141,
+    "lineNumber": 142,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3303,7 +3324,7 @@
     }
   },
   {
-    "__docId__": 167,
+    "__docId__": 168,
     "kind": "get",
     "name": "bak_tun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3313,7 +3334,7 @@
     "longname": "src/lc/long-count.js~LongCount#bak_tun",
     "access": "public",
     "description": "Return the bak'tun component of the date",
-    "lineNumber": 149,
+    "lineNumber": 150,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3335,7 +3356,7 @@
     }
   },
   {
-    "__docId__": 168,
+    "__docId__": 169,
     "kind": "set",
     "name": "piktun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3345,7 +3366,7 @@
     "longname": "src/lc/long-count.js~LongCount#piktun",
     "access": "public",
     "description": "Set the piktun component of the date",
-    "lineNumber": 157,
+    "lineNumber": 158,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3362,7 +3383,7 @@
     }
   },
   {
-    "__docId__": 169,
+    "__docId__": 170,
     "kind": "get",
     "name": "piktun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3372,7 +3393,7 @@
     "longname": "src/lc/long-count.js~LongCount#piktun",
     "access": "public",
     "description": "Return the piktun component of the date",
-    "lineNumber": 165,
+    "lineNumber": 166,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3394,7 +3415,7 @@
     }
   },
   {
-    "__docId__": 170,
+    "__docId__": 171,
     "kind": "set",
     "name": "kalabtun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3404,7 +3425,7 @@
     "longname": "src/lc/long-count.js~LongCount#kalabtun",
     "access": "public",
     "description": "Set the kalabtun component of the date",
-    "lineNumber": 173,
+    "lineNumber": 174,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3421,7 +3442,7 @@
     }
   },
   {
-    "__docId__": 171,
+    "__docId__": 172,
     "kind": "get",
     "name": "kalabtun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3431,7 +3452,7 @@
     "longname": "src/lc/long-count.js~LongCount#kalabtun",
     "access": "public",
     "description": "Return the kalabtun component of the date",
-    "lineNumber": 181,
+    "lineNumber": 182,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3453,7 +3474,7 @@
     }
   },
   {
-    "__docId__": 172,
+    "__docId__": 173,
     "kind": "set",
     "name": "kinchiltun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3463,7 +3484,7 @@
     "longname": "src/lc/long-count.js~LongCount#kinchiltun",
     "access": "public",
     "description": "Set the kinchiltun component of the date",
-    "lineNumber": 189,
+    "lineNumber": 190,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3480,7 +3501,7 @@
     }
   },
   {
-    "__docId__": 173,
+    "__docId__": 174,
     "kind": "get",
     "name": "kinchiltun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3490,7 +3511,7 @@
     "longname": "src/lc/long-count.js~LongCount#kinchiltun",
     "access": "public",
     "description": "Return the kinchiltun component of the date",
-    "lineNumber": 197,
+    "lineNumber": 198,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3512,7 +3533,7 @@
     }
   },
   {
-    "__docId__": 174,
+    "__docId__": 175,
     "kind": "method",
     "name": "is_valid",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3522,7 +3543,7 @@
     "longname": "src/lc/long-count.js~LongCount#is_valid",
     "access": "public",
     "description": "Ensure the date has only numbers and wildcards separated by points.",
-    "lineNumber": 205,
+    "lineNumber": 206,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3540,7 +3561,7 @@
     "params": []
   },
   {
-    "__docId__": 175,
+    "__docId__": 176,
     "kind": "method",
     "name": "is_partial",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3550,7 +3571,7 @@
     "longname": "src/lc/long-count.js~LongCount#is_partial",
     "access": "public",
     "description": null,
-    "lineNumber": 209,
+    "lineNumber": 210,
     "undocument": true,
     "params": [],
     "return": {
@@ -3561,7 +3582,7 @@
     "ignore": true
   },
   {
-    "__docId__": 176,
+    "__docId__": 177,
     "kind": "method",
     "name": "get_position",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3571,28 +3592,7 @@
     "longname": "src/lc/long-count.js~LongCount#get_position",
     "access": "public",
     "description": null,
-    "lineNumber": 218,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 177,
-    "kind": "method",
-    "name": "build_calendar_round",
-    "memberof": "src/lc/long-count.js~LongCount",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "src/lc/long-count.js~LongCount#build_calendar_round",
-    "access": "public",
-    "description": null,
-    "lineNumber": 232,
+    "lineNumber": 219,
     "undocument": true,
     "params": [],
     "return": {
@@ -3605,6 +3605,50 @@
   {
     "__docId__": 178,
     "kind": "method",
+    "name": "build_calendar_round",
+    "memberof": "src/lc/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/long-count.js~LongCount#build_calendar_round",
+    "access": "public",
+    "description": "",
+    "lineNumber": 237,
+    "return": {
+      "nullable": null,
+      "types": [
+        "CalendarRound"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 179,
+    "kind": "method",
+    "name": "build_full_date",
+    "memberof": "src/lc/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/long-count.js~LongCount#build_full_date",
+    "access": "public",
+    "description": "",
+    "lineNumber": 247,
+    "return": {
+      "nullable": null,
+      "types": [
+        "FullDate"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 180,
+    "kind": "method",
     "name": "toString",
     "memberof": "src/lc/long-count.js~LongCount",
     "generator": false,
@@ -3613,7 +3657,7 @@
     "longname": "src/lc/long-count.js~LongCount#toString",
     "access": "public",
     "description": "Convert the LongCount to a string and pad the sections of the date",
-    "lineNumber": 242,
+    "lineNumber": 258,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3631,7 +3675,7 @@
     "params": []
   },
   {
-    "__docId__": 179,
+    "__docId__": 181,
     "kind": "file",
     "name": "src/operations/calendar-round-wildcard.js",
     "content": "const CalendarRound = require('../cr/calendar-round')\nconst wildcard = require('../wildcard')\n\nclass CalendarRoundWildcard {\n  /**\n   * @param {CalendarRound} cr\n   */\n  constructor (cr) {\n    this.cr = cr\n    this.start_date = new CalendarRound(\n      4, 'Ajaw',\n      8, 'Kumk\\'u',\n    )\n  }\n\n  run () {\n    let potentials = []\n    // Iterate through dates and compare\n    let iter = new CalendarRoundIterator()\n    let cr = iter.next()\n    while (!cr.done) {\n      if (this.cr.match(cr.value)) {\n        potentials.push(cr.value)\n      }\n      cr = iter.next()\n    }\n    return potentials\n  }\n\n}\n\nclass CalendarRoundIterator {\n  /**\n   *\n   * @param {CalendarRound} date\n   */\n  constructor (date) {\n    if (date === undefined) {\n      date = new CalendarRound(\n        4, 'Ajaw',\n        8, 'Kumk\\'u',\n      )\n    }\n    this.date = date\n    this.current = this.date\n    this.is_first = true\n  }\n\n  next () {\n    if (this.is_first) {\n      this.is_first = false\n      return {value: this.current, done: false}\n    }\n    this.count += 1\n    let next = this.current.next()\n    if (next.equal(this.date)) {\n      return {value: null, done: true}\n    } else {\n      this.current = next\n      return {value: next, done: false}\n    }\n  }\n\n}\n\nmodule.exports = CalendarRoundWildcard\n",
@@ -3642,7 +3686,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 180,
+    "__docId__": 182,
     "kind": "variable",
     "name": "CalendarRound",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -3663,7 +3707,7 @@
     "ignore": true
   },
   {
-    "__docId__": 181,
+    "__docId__": 183,
     "kind": "variable",
     "name": "wildcard",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -3684,7 +3728,7 @@
     "ignore": true
   },
   {
-    "__docId__": 182,
+    "__docId__": 184,
     "kind": "class",
     "name": "CalendarRoundWildcard",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -3701,7 +3745,7 @@
     "ignore": true
   },
   {
-    "__docId__": 183,
+    "__docId__": 185,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -3726,7 +3770,7 @@
     ]
   },
   {
-    "__docId__": 184,
+    "__docId__": 186,
     "kind": "member",
     "name": "cr",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -3744,7 +3788,7 @@
     "ignore": true
   },
   {
-    "__docId__": 185,
+    "__docId__": 187,
     "kind": "member",
     "name": "start_date",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -3762,7 +3806,7 @@
     "ignore": true
   },
   {
-    "__docId__": 186,
+    "__docId__": 188,
     "kind": "method",
     "name": "run",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -3783,7 +3827,7 @@
     "ignore": true
   },
   {
-    "__docId__": 187,
+    "__docId__": 189,
     "kind": "class",
     "name": "CalendarRoundIterator",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -3800,7 +3844,7 @@
     "ignore": true
   },
   {
-    "__docId__": 188,
+    "__docId__": 190,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3825,7 +3869,7 @@
     ]
   },
   {
-    "__docId__": 189,
+    "__docId__": 191,
     "kind": "member",
     "name": "date",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3843,7 +3887,7 @@
     "ignore": true
   },
   {
-    "__docId__": 190,
+    "__docId__": 192,
     "kind": "member",
     "name": "current",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3861,7 +3905,7 @@
     "ignore": true
   },
   {
-    "__docId__": 191,
+    "__docId__": 193,
     "kind": "member",
     "name": "is_first",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3879,7 +3923,7 @@
     "ignore": true
   },
   {
-    "__docId__": 192,
+    "__docId__": 194,
     "kind": "method",
     "name": "next",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3900,7 +3944,7 @@
     "ignore": true
   },
   {
-    "__docId__": 194,
+    "__docId__": 196,
     "kind": "member",
     "name": "count",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundIterator",
@@ -3918,10 +3962,10 @@
     "ignore": true
   },
   {
-    "__docId__": 196,
+    "__docId__": 198,
     "kind": "file",
     "name": "src/operations/fulldate-wildcard.js",
-    "content": "// 7 Ok * * 9.*.10.10.10\nconst FullDate = require('../full-date')\n\n/**\n * Given a wildcard in\n */\nclass FullDateWildcard {\n  /**\n   *\n   * @param {FullDate} partial_date\n   */\n  constructor (partial_date) {\n    this.partial = partial_date\n  }\n\n  run () {\n    let potential_dates = [this.partial]\n    let has_cr_partial = this.partial.cr.is_partial()\n    let has_lc_partial = this.partial.lc.is_partial()\n    if (!has_lc_partial) {\n      let static_cr = this.partial.lc.build_calendar_round()\n      return (static_cr.match(this.partial.cr)) ?\n        [new FullDate(static_cr, this.partial.lc)] :\n        []\n    }\n    if (has_cr_partial) {\n    }\n    return potential_dates\n  }\n}\n\nmodule.exports = FullDateWildcard\n\n",
+    "content": "// 7 Ok * * 9.*.10.10.10\nconst FullDate = require('../full-date')\nconst LongCountWildcard = require('../operations/longcount-wildcard')\nconst CalendarRoundWildcard = require('../operations/calendar-round-wildcard')\n\n/**\n * Given a wildcard in\n */\nclass FullDateWildcard {\n  /**\n   *\n   * @param {FullDate} partial_date\n   */\n  constructor (partial_date) {\n    this.partial = partial_date\n  }\n\n  run () {\n    let potential_dates = []\n    let potential_lc_fulldates = []\n    let potential_crs\n\n    let has_cr_partial = this.partial.cr.is_partial()\n    let has_lc_partial = this.partial.lc.is_partial()\n    if (has_lc_partial) {\n      let potential_lcs = new LongCountWildcard(this.partial.lc).run()\n      for (let potential_lc of potential_lcs) {\n        potential_lc_fulldates.push(potential_lc.build_full_date())\n      }\n    } else {\n      // If we have a full formed LC date, and a partial CR, then generate the\n      // CR for the LC, and compare them. The partial CR will either match the\n      // CR for the LC or it won't.\n      let static_cr = this.partial.lc.build_calendar_round()\n      return (static_cr.match(this.partial.cr)) ?\n        [new FullDate(static_cr, this.partial.lc)] :\n        []\n    }\n    if (has_cr_partial) {\n      potential_crs = new CalendarRoundWildcard(this.partial.cr).run()\n    } else {\n      potential_crs = [this.partial.cr]\n    }\n    for (let full_date of potential_lc_fulldates) {\n      for (let cr of potential_crs) {\n        if (cr.equal(full_date.cr)) {\n          potential_dates.push(full_date)\n        }\n      }\n    }\n    return potential_dates\n  }\n}\n\nmodule.exports = FullDateWildcard\n\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/operations/fulldate-wildcard.js",
     "access": "public",
@@ -3929,7 +3973,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 197,
+    "__docId__": 199,
     "kind": "variable",
     "name": "FullDate",
     "memberof": "src/operations/fulldate-wildcard.js",
@@ -3950,7 +3994,49 @@
     "ignore": true
   },
   {
-    "__docId__": 198,
+    "__docId__": 200,
+    "kind": "variable",
+    "name": "LongCountWildcard",
+    "memberof": "src/operations/fulldate-wildcard.js",
+    "static": true,
+    "longname": "src/operations/fulldate-wildcard.js~LongCountWildcard",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/operations/fulldate-wildcard.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 201,
+    "kind": "variable",
+    "name": "CalendarRoundWildcard",
+    "memberof": "src/operations/fulldate-wildcard.js",
+    "static": true,
+    "longname": "src/operations/fulldate-wildcard.js~CalendarRoundWildcard",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/operations/fulldate-wildcard.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 202,
     "kind": "class",
     "name": "FullDateWildcard",
     "memberof": "src/operations/fulldate-wildcard.js",
@@ -3961,11 +4047,11 @@
     "importPath": "@drewsonne/maya-dates/src/operations/fulldate-wildcard.js",
     "importStyle": null,
     "description": "Given a wildcard in",
-    "lineNumber": 7,
+    "lineNumber": 9,
     "interface": false
   },
   {
-    "__docId__": 199,
+    "__docId__": 203,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/fulldate-wildcard.js~FullDateWildcard",
@@ -3975,7 +4061,7 @@
     "longname": "src/operations/fulldate-wildcard.js~FullDateWildcard#constructor",
     "access": "public",
     "description": "",
-    "lineNumber": 12,
+    "lineNumber": 14,
     "params": [
       {
         "nullable": null,
@@ -3990,7 +4076,7 @@
     ]
   },
   {
-    "__docId__": 200,
+    "__docId__": 204,
     "kind": "member",
     "name": "partial",
     "memberof": "src/operations/fulldate-wildcard.js~FullDateWildcard",
@@ -3998,7 +4084,7 @@
     "longname": "src/operations/fulldate-wildcard.js~FullDateWildcard#partial",
     "access": "public",
     "description": null,
-    "lineNumber": 13,
+    "lineNumber": 15,
     "undocument": true,
     "type": {
       "types": [
@@ -4008,7 +4094,7 @@
     "ignore": true
   },
   {
-    "__docId__": 201,
+    "__docId__": 205,
     "kind": "method",
     "name": "run",
     "memberof": "src/operations/fulldate-wildcard.js~FullDateWildcard",
@@ -4018,7 +4104,7 @@
     "longname": "src/operations/fulldate-wildcard.js~FullDateWildcard#run",
     "access": "public",
     "description": null,
-    "lineNumber": 16,
+    "lineNumber": 18,
     "undocument": true,
     "params": [],
     "return": {
@@ -4029,7 +4115,7 @@
     "ignore": true
   },
   {
-    "__docId__": 202,
+    "__docId__": 206,
     "kind": "file",
     "name": "src/operations/index.js",
     "content": "module.exports = {\n  'LongCountWildcard': require('./longcount-wildcard'),\n  'CalendarRoundWildcard': require('./calendar-round-wildcard'),\n  'FullDateWildcard': require('./fulldate-wildcard'),\n}\n",
@@ -4040,7 +4126,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 203,
+    "__docId__": 207,
     "kind": "file",
     "name": "src/operations/longcount-wildcard.js",
     "content": "const wildcard = require('../wildcard')\n\n/**\n * Given a Long Count with a wildcard, calculate the\n * possible LongCount dates\n */\nclass LongCountWildcard {\n  /**\n   * @param {LongCount} lc\n   */\n  constructor (lc) {\n    this.lc = lc\n  }\n\n  run () {\n    let potentials = [this.lc]\n    let wildcard_positions = []\n    for (let i = 0; i < this.lc.length; i++) {\n      if (this.lc._get_date_sections(i) === wildcard) {\n        wildcard_positions.push(i)\n      }\n    }\n    for (let position of wildcard_positions) {\n      let new_potentials = []\n      let iterations = (position === 1) ? 15 : 20\n      for (let possible of potentials) {\n        for (let k = 0; k < iterations; k++) {\n          let new_lc = possible.clone()._set_date_sections(position, k)\n          new_potentials.push(new_lc)\n        }\n      }\n      potentials = new_potentials\n    }\n    return potentials\n  }\n}\n\nmodule.exports = LongCountWildcard\n",
@@ -4051,7 +4137,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 204,
+    "__docId__": 208,
     "kind": "variable",
     "name": "wildcard",
     "memberof": "src/operations/longcount-wildcard.js",
@@ -4072,7 +4158,7 @@
     "ignore": true
   },
   {
-    "__docId__": 205,
+    "__docId__": 209,
     "kind": "class",
     "name": "LongCountWildcard",
     "memberof": "src/operations/longcount-wildcard.js",
@@ -4087,7 +4173,7 @@
     "interface": false
   },
   {
-    "__docId__": 206,
+    "__docId__": 210,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/longcount-wildcard.js~LongCountWildcard",
@@ -4112,7 +4198,7 @@
     ]
   },
   {
-    "__docId__": 207,
+    "__docId__": 211,
     "kind": "member",
     "name": "lc",
     "memberof": "src/operations/longcount-wildcard.js~LongCountWildcard",
@@ -4130,7 +4216,7 @@
     "ignore": true
   },
   {
-    "__docId__": 208,
+    "__docId__": 212,
     "kind": "method",
     "name": "run",
     "memberof": "src/operations/longcount-wildcard.js~LongCountWildcard",
@@ -4151,7 +4237,7 @@
     "ignore": true
   },
   {
-    "__docId__": 209,
+    "__docId__": 213,
     "kind": "file",
     "name": "src/wildcard.js",
     "content": "/**\n * Describes a wildcard in the Calendar Round or Long Count.\n * This class is not directly exposed to the user. There is a singleton in this\n * library to allow for use and equality comparison.\n * @example\n * const mayadates = require('maya-dates')\n * let cr = new mayadates.factory.CalendarRoundFactory().parse(\n *  '4 Ajaw 8 *')\n * console.log(cr.haab.month === mayadates.wildcard)\n * > true\n */\nclass Wildcard {\n  /**\n   * Represent the Wildcard as a string. ie, '*'.\n   * @returns {string}\n   */\n  toString () {\n    return '*'\n  }\n}\n\nmodule.exports = new Wildcard()\n",
@@ -4162,7 +4248,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 210,
+    "__docId__": 214,
     "kind": "class",
     "name": "Wildcard",
     "memberof": "src/wildcard.js",
@@ -4180,7 +4266,7 @@
     "interface": false
   },
   {
-    "__docId__": 211,
+    "__docId__": 215,
     "kind": "method",
     "name": "toString",
     "memberof": "src/wildcard.js~Wildcard",
@@ -4217,7 +4303,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"@drewsonne/maya-dates\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Node.js package to represent dates in the Maya Calendar\",\n  \"main\": \"src/index.js\",\n  \"scripts\": {\n    \"test\": \"jest\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+ssh://git@github.com/drewsonne/maya-dates.git\"\n  },\n  \"keywords\": [\n    \"digital-humanities\",\n    \"maya\",\n    \"maya-calendar\"\n  ],\n  \"author\": \"Drew J. Sonne\",\n  \"license\": \"LGPL-3.0-or-later\",\n  \"bugs\": {\n    \"url\": \"https://github.com/drewsonne/maya-dates/issues\"\n  },\n  \"homepage\": \"https://github.com/drewsonne/maya-dates#readme\",\n  \"devDependencies\": {\n    \"jest\": \"^24.9.0\",\n    \"esdoc\": \"1.1.0\",\n    \"esdoc-standard-plugin\": \"1.0.0\"\n  }\n}\n",
+    "content": "{\n  \"name\": \"@drewsonne/maya-dates\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Node.js package to represent dates in the Maya Calendar\",\n  \"main\": \"src/index.js\",\n  \"scripts\": {\n    \"test\": \"jest\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+ssh://git@github.com/drewsonne/maya-dates.git\"\n  },\n  \"keywords\": [\n    \"digital-humanities\",\n    \"maya\",\n    \"maya-calendar\"\n  ],\n  \"author\": \"Drew J. Sonne\",\n  \"license\": \"LGPL-3.0-or-later\",\n  \"bugs\": {\n    \"url\": \"https://github.com/drewsonne/maya-dates/issues\"\n  },\n  \"homepage\": \"https://github.com/drewsonne/maya-dates#readme\",\n  \"devDependencies\": {\n    \"jest\": \"^24.9.0\",\n    \"esdoc\": \"1.1.0\",\n    \"esdoc-standard-plugin\": \"1.0.0\"\n  },\n  \"jest\": {\n    \"testEnvironment\": \"node\"\n  }\n}\n",
     "longname": "/Users/drews/Dropbox/Development/maya-dates/package.json",
     "name": "package.json",
     "static": true,

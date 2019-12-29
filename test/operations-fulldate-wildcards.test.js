@@ -14,7 +14,6 @@ describe('complex wildcard parsing', () => {
       let full_date = new mayadates.factory.FullDateFactory().parse(
         partial_date,
       )
-
       expect(full_date.cr.tzolkin.coeff).toBe(1)
       expect(full_date.cr.tzolkin.name).toBe('Ok')
       expect(full_date.cr.haab.coeff).toBe(wildcard)
@@ -27,12 +26,23 @@ describe('complex wildcard parsing', () => {
     })
 })
 
-test('compute single date', () => {
-  let partial_date = new mayadates.factory.
-    FullDateFactory().parse('1 Ok 13 * 9.*.10.10.10')
-
-  let potential_dates = new mayadates.op.
-    FullDateWildcard(partial_date).run()
+describe('complex wildcard inference', () => {
+  let partial_dates = [
+    ['11 Ok 18 Muwan 9.*.*.*.10', 7],
+    ['* Ok * Mak 9.*.10.10.10', 2],
+    ['1 Ok 13 * 9.*.10.10.10', 1],
+    ['* * 18 Muwan 9.*.*.10.10', 6],
+  ]
+  test.each(partial_dates)(
+    'len(%s) = %s',
+    (partial_date, expected) => {
+      let full_date_partial = new mayadates.factory.FullDateFactory().parse(
+        partial_date,
+      )
+      let potential_dates = new mayadates.op.
+        FullDateWildcard(full_date_partial).run()
+      expect(potential_dates.length).toBe(expected)
+    })
 })
 
 describe('single cr alignment', () => {

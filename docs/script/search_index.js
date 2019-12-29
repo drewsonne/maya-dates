@@ -696,6 +696,18 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/lc/long-count.js~longcount#build_calendar_round",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-build_calendar_round",
+    "src/lc/long-count.js~LongCount#build_calendar_round",
+    "method"
+  ],
+  [
+    "src/lc/long-count.js~longcount#build_full_date",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-build_full_date",
+    "src/lc/long-count.js~LongCount#build_full_date",
+    "method"
+  ],
+  [
     "src/lc/long-count.js~longcount#clone",
     "class/src/lc/long-count.js~LongCount.html#instance-method-clone",
     "src/lc/long-count.js~LongCount#clone",
