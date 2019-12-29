@@ -1,5 +1,8 @@
+/** @ignore */
 const Factory = require('./base')
+/** @ignore */
 const LongCount = require('../lc/long-count')
+/** @ignore */
 const wildcard = require('../wildcard')
 
 /**

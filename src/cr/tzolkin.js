@@ -53,6 +53,10 @@ class Tzolkin {
     return this.shift(1)
   }
 
+  /**
+   * Ensure the Tzolkin's coefficients are within range and the day is defined
+   * @return {boolean}
+   */
   validate () {
     if (this.coeff > 13 || this.coeff < 1) {
       throw 'Tzolk\'in coefficient must inclusively between 1 and 13.'
@@ -81,11 +85,23 @@ class Tzolkin {
     return new_tzolkin
   }
 
+  /**
+   * Ensure this Tzolkin object has the same configuration as another Tzolkin
+   * object. Does not take wildcards into account.
+   * @param {Tzolkin} new_tzolkin
+   * @return {boolean}
+   */
   equal (new_tzolkin) {
     return (this.coeff === new_tzolkin.coeff) &&
       (this.name === new_tzolkin.name)
   }
 
+  /**
+   * Ensure this Tzolkin object has a matching configuration as another Tzolkin
+   * object. Takes wildcards into account.
+   * @param {Tzolkin} new_tzolkin
+   * @return {boolean}
+   */
   match (new_tzolkin) {
     return (
       (this.coeff === wildcard || new_tzolkin.coeff === wildcard) ?
@@ -121,8 +137,10 @@ class Tzolkin {
   }
 }
 
+/** @ignore */
 const _day_lookup = {}
 
+/** @ignore */
 function _get_day (day_name) {
   if (_day_lookup[day_name] === undefined) {
     _day_lookup[day_name] = new TzolkinDay(day_name)
@@ -176,10 +194,18 @@ class TzolkinDay {
      */
     this.name = name
 
+    /**
+     * Index of the day in the list of Tzolkin' days
+     * @type {number}
+     */
     this.day_position = this.days.findIndex(
       d => d === this.name)
   }
 
+  /**
+   * Ensure the Tzolk'in day name is defined and is within the list of
+   * acceptable day names.
+   */
   validate () {
     if (this.name === undefined) {
       throw 'Tzolk\'in day name must be provided'

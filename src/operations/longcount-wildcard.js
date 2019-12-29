@@ -1,17 +1,25 @@
+/** @ignore */
 const wildcard = require('../wildcard')
 
 /**
- * Given a Long Count with a wildcard, calculate the
- * possible LongCount dates
+ * Given a Long Count with a wildcard, calculate all possible matching fully
+ * qualified Long Counts.
  */
 class LongCountWildcard {
   /**
    * @param {LongCount} lc
    */
   constructor (lc) {
+    /**
+     * @type {LongCount}
+     */
     this.lc = lc
   }
 
+  /**
+   * Run calculation to find all fully qualified Long Counts
+   * @return {LongCount[]}
+   */
   run () {
     let potentials = [this.lc]
     let wildcard_positions = []

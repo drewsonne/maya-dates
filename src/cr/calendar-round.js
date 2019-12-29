@@ -1,5 +1,8 @@
+/** @ignore */
 const tzolkin = require('../cr/tzolkin')
+/** @ignore */
 const haab = require('../cr/haab')
+/** @ignore */
 const wildcard = require('../wildcard')
 
 /**
@@ -30,6 +33,10 @@ class CalendarRound {
     this.validate()
   }
 
+  /**
+   * Validate that the Calendar Round has a correct 260-day and Haab
+   * configuration
+   */
   validate () {
     let valid_haab_coeffs = []
     if ([
@@ -77,17 +84,35 @@ class CalendarRound {
     return new_cr
   }
 
+  /**
+   * Check that this CalendarRound matches another CalendarRound. If one CR has
+   * wildcards and the other does not, this function will return false.
+   * @param {CalendarRound} new_cr
+   * @return {Boolean}
+   */
   equal (new_cr) {
     return this.haab.equal(new_cr.haab) &&
       this.tzolkin.equal(new_cr.tzolkin)
   }
 
+  /**
+   * Check that this Calendar Round matches another CalendarRound. If one CR has
+   * wildcards and the other does not, this function will return true.
+   * @param {CalendarRound} new_cr
+   * @return {boolean}
+   */
   match (new_cr) {
     let haab_matches = this.haab.match(new_cr.haab)
     let tzolkin_matches = this.tzolkin.match(new_cr.tzolkin)
     return haab_matches && tzolkin_matches
   }
 
+  /**
+   * Shift a CalendarRound date forward through time. Does not modify this
+   * object and will return a new object.
+   * @param {number} increment
+   * @return {CalendarRound}
+   */
   shift (increment) {
     let new_cr = this.clone()
     new_cr.haab = new_cr.haab.shift(increment)
@@ -95,6 +120,10 @@ class CalendarRound {
     return new_cr
   }
 
+  /**
+   * Return a brand new object with the same configuration as this object.
+   * @return {CalendarRound}
+   */
   clone () {
     return new CalendarRound(
       this.tzolkin.coeff,
@@ -104,6 +133,10 @@ class CalendarRound {
     )
   }
 
+  /**
+   * Return true, if this function has any wildcard portions.
+   * @return {boolean}
+   */
   is_partial () {
     return (this.tzolkin.day === wildcard) ||
       (this.tzolkin.coeff === wildcard) ||

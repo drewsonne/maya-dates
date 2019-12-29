@@ -12,9 +12,21 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@drewsonne/maya-dates/src/operations/calendar-round-wildcard.js~calendarroundwildcard",
+    "class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html",
+    "<span>CalendarRoundWildcard</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/operations/calendar-round-wildcard.js</span>",
+    "class"
+  ],
+  [
     "@drewsonne/maya-dates/src/factory/base.js~factory",
     "class/src/factory/base.js~Factory.html",
     "<span>Factory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory/base.js</span>",
+    "class"
+  ],
+  [
+    "@drewsonne/maya-dates/src/full-date.js~fulldate",
+    "class/src/full-date.js~FullDate.html",
+    "<span>FullDate</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/full-date.js</span>",
     "class"
   ],
   [
@@ -366,9 +378,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/cr/calendar-round.js~calendarround#clone",
+    "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-clone",
+    "src/cr/calendar-round.js~CalendarRound#clone",
+    "method"
+  ],
+  [
     "src/cr/calendar-round.js~calendarround#constructor",
     "class/src/cr/calendar-round.js~CalendarRound.html#instance-constructor-constructor",
     "src/cr/calendar-round.js~CalendarRound#constructor",
+    "method"
+  ],
+  [
+    "src/cr/calendar-round.js~calendarround#equal",
+    "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-equal",
+    "src/cr/calendar-round.js~CalendarRound#equal",
     "method"
   ],
   [
@@ -378,9 +402,27 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/cr/calendar-round.js~calendarround#is_partial",
+    "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-is_partial",
+    "src/cr/calendar-round.js~CalendarRound#is_partial",
+    "method"
+  ],
+  [
+    "src/cr/calendar-round.js~calendarround#match",
+    "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-match",
+    "src/cr/calendar-round.js~CalendarRound#match",
+    "method"
+  ],
+  [
     "src/cr/calendar-round.js~calendarround#next",
     "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-next",
     "src/cr/calendar-round.js~CalendarRound#next",
+    "method"
+  ],
+  [
+    "src/cr/calendar-round.js~calendarround#shift",
+    "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-shift",
+    "src/cr/calendar-round.js~CalendarRound#shift",
     "method"
   ],
   [
@@ -396,10 +438,22 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/cr/calendar-round.js~calendarround#validate",
+    "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-validate",
+    "src/cr/calendar-round.js~CalendarRound#validate",
+    "method"
+  ],
+  [
     "src/cr/haab.js",
     "file/src/cr/haab.js.html",
     "src/cr/haab.js",
     "file"
+  ],
+  [
+    "src/cr/haab.js~haab#clone",
+    "class/src/cr/haab.js~Haab.html#instance-method-clone",
+    "src/cr/haab.js~Haab#clone",
+    "method"
   ],
   [
     "src/cr/haab.js~haab#coeff",
@@ -411,6 +465,12 @@ window.esdocSearchIndex = [
     "src/cr/haab.js~haab#constructor",
     "class/src/cr/haab.js~Haab.html#instance-constructor-constructor",
     "src/cr/haab.js~Haab#constructor",
+    "method"
+  ],
+  [
+    "src/cr/haab.js~haab#equal",
+    "class/src/cr/haab.js~Haab.html#instance-method-equal",
+    "src/cr/haab.js~Haab#equal",
     "method"
   ],
   [
@@ -450,6 +510,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/cr/haab.js~haab#validate",
+    "class/src/cr/haab.js~Haab.html#instance-method-validate",
+    "src/cr/haab.js~Haab#validate",
+    "method"
+  ],
+  [
     "src/cr/haab.js~haabmonth#constructor",
     "class/src/cr/haab.js~HaabMonth.html#instance-constructor-constructor",
     "src/cr/haab.js~HaabMonth#constructor",
@@ -486,6 +552,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/cr/haab.js~haabmonth#validate",
+    "class/src/cr/haab.js~HaabMonth.html#instance-method-validate",
+    "src/cr/haab.js~HaabMonth#validate",
+    "method"
+  ],
+  [
     "src/cr/index.js",
     "file/src/cr/index.js.html",
     "src/cr/index.js",
@@ -516,6 +588,18 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/cr/tzolkin.js~tzolkin#equal",
+    "class/src/cr/tzolkin.js~Tzolkin.html#instance-method-equal",
+    "src/cr/tzolkin.js~Tzolkin#equal",
+    "method"
+  ],
+  [
+    "src/cr/tzolkin.js~tzolkin#match",
+    "class/src/cr/tzolkin.js~Tzolkin.html#instance-method-match",
+    "src/cr/tzolkin.js~Tzolkin#match",
+    "method"
+  ],
+  [
     "src/cr/tzolkin.js~tzolkin#name",
     "class/src/cr/tzolkin.js~Tzolkin.html#instance-get-name",
     "src/cr/tzolkin.js~Tzolkin#name",
@@ -540,10 +624,22 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/cr/tzolkin.js~tzolkin#validate",
+    "class/src/cr/tzolkin.js~Tzolkin.html#instance-method-validate",
+    "src/cr/tzolkin.js~Tzolkin#validate",
+    "method"
+  ],
+  [
     "src/cr/tzolkin.js~tzolkinday#constructor",
     "class/src/cr/tzolkin.js~TzolkinDay.html#instance-constructor-constructor",
     "src/cr/tzolkin.js~TzolkinDay#constructor",
     "method"
+  ],
+  [
+    "src/cr/tzolkin.js~tzolkinday#day_position",
+    "class/src/cr/tzolkin.js~TzolkinDay.html#instance-member-day_position",
+    "src/cr/tzolkin.js~TzolkinDay#day_position",
+    "member"
   ],
   [
     "src/cr/tzolkin.js~tzolkinday#days",
@@ -567,6 +663,12 @@ window.esdocSearchIndex = [
     "src/cr/tzolkin.js~tzolkinday#shift",
     "class/src/cr/tzolkin.js~TzolkinDay.html#instance-method-shift",
     "src/cr/tzolkin.js~TzolkinDay#shift",
+    "method"
+  ],
+  [
+    "src/cr/tzolkin.js~tzolkinday#validate",
+    "class/src/cr/tzolkin.js~TzolkinDay.html#instance-method-validate",
+    "src/cr/tzolkin.js~TzolkinDay#validate",
     "method"
   ],
   [
@@ -654,6 +756,30 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/full-date.js~fulldate#constructor",
+    "class/src/full-date.js~FullDate.html#instance-constructor-constructor",
+    "src/full-date.js~FullDate#constructor",
+    "method"
+  ],
+  [
+    "src/full-date.js~fulldate#cr",
+    "class/src/full-date.js~FullDate.html#instance-member-cr",
+    "src/full-date.js~FullDate#cr",
+    "member"
+  ],
+  [
+    "src/full-date.js~fulldate#lc",
+    "class/src/full-date.js~FullDate.html#instance-member-lc",
+    "src/full-date.js~FullDate#lc",
+    "member"
+  ],
+  [
+    "src/full-date.js~fulldate#tostring",
+    "class/src/full-date.js~FullDate.html#instance-method-toString",
+    "src/full-date.js~FullDate#toString",
+    "method"
+  ],
+  [
     "src/index.js",
     "file/src/index.js.html",
     "src/index.js",
@@ -724,6 +850,18 @@ window.esdocSearchIndex = [
     "class/src/lc/long-count.js~LongCount.html#instance-member-date_pattern",
     "src/lc/long-count.js~LongCount#date_pattern",
     "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#get_position",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-get_position",
+    "src/lc/long-count.js~LongCount#get_position",
+    "method"
+  ],
+  [
+    "src/lc/long-count.js~longcount#is_partial",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-is_partial",
+    "src/lc/long-count.js~LongCount#is_partial",
+    "method"
   ],
   [
     "src/lc/long-count.js~longcount#is_valid",
@@ -846,6 +984,24 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/operations/calendar-round-wildcard.js~calendarroundwildcard#constructor",
+    "class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html#instance-constructor-constructor",
+    "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard#constructor",
+    "method"
+  ],
+  [
+    "src/operations/calendar-round-wildcard.js~calendarroundwildcard#cr",
+    "class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html#instance-member-cr",
+    "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard#cr",
+    "member"
+  ],
+  [
+    "src/operations/calendar-round-wildcard.js~calendarroundwildcard#run",
+    "class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html#instance-method-run",
+    "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard#run",
+    "method"
+  ],
+  [
     "src/operations/fulldate-wildcard.js",
     "file/src/operations/fulldate-wildcard.js.html",
     "src/operations/fulldate-wildcard.js",
@@ -855,6 +1011,18 @@ window.esdocSearchIndex = [
     "src/operations/fulldate-wildcard.js~fulldatewildcard#constructor",
     "class/src/operations/fulldate-wildcard.js~FullDateWildcard.html#instance-constructor-constructor",
     "src/operations/fulldate-wildcard.js~FullDateWildcard#constructor",
+    "method"
+  ],
+  [
+    "src/operations/fulldate-wildcard.js~fulldatewildcard#partial",
+    "class/src/operations/fulldate-wildcard.js~FullDateWildcard.html#instance-member-partial",
+    "src/operations/fulldate-wildcard.js~FullDateWildcard#partial",
+    "member"
+  ],
+  [
+    "src/operations/fulldate-wildcard.js~fulldatewildcard#run",
+    "class/src/operations/fulldate-wildcard.js~FullDateWildcard.html#instance-method-run",
+    "src/operations/fulldate-wildcard.js~FullDateWildcard#run",
     "method"
   ],
   [
@@ -873,6 +1041,18 @@ window.esdocSearchIndex = [
     "src/operations/longcount-wildcard.js~longcountwildcard#constructor",
     "class/src/operations/longcount-wildcard.js~LongCountWildcard.html#instance-constructor-constructor",
     "src/operations/longcount-wildcard.js~LongCountWildcard#constructor",
+    "method"
+  ],
+  [
+    "src/operations/longcount-wildcard.js~longcountwildcard#lc",
+    "class/src/operations/longcount-wildcard.js~LongCountWildcard.html#instance-member-lc",
+    "src/operations/longcount-wildcard.js~LongCountWildcard#lc",
+    "member"
+  ],
+  [
+    "src/operations/longcount-wildcard.js~longcountwildcard#run",
+    "class/src/operations/longcount-wildcard.js~LongCountWildcard.html#instance-method-run",
+    "src/operations/longcount-wildcard.js~LongCountWildcard#run",
     "method"
   ],
   [
