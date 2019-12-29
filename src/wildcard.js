@@ -1,7 +1,7 @@
 /**
  * Describes a wildcard in the Calendar Round or Long Count.
- * There is a singleton in this library to allow for equality
- * comparison.
+ * This class is not directly exposed to the user. There is a singleton in this
+ * library to allow for use and equality comparison.
  * @example
  * const mayadates = require('maya-dates')
  * let cr = new mayadates.factory.CalendarRoundFactory().parse(
@@ -11,7 +11,7 @@
  */
 class Wildcard {
   /**
-   * Represent the Wildcard as a string
+   * Represent the Wildcard as a string. ie, '*'.
    * @returns {string}
    */
   toString () {

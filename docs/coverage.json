@@ -1,7 +1,7 @@
 {
-  "coverage": "58.74%",
+  "coverage": "60.13%",
   "expectCount": 143,
-  "actualCount": 84,
+  "actualCount": 86,
   "files": {
     "src/cr/calendar-round.js": {
       "expectCount": 15,
@@ -63,14 +63,12 @@
     },
     "src/factory/full-date.js": {
       "expectCount": 6,
-      "actualCount": 0,
+      "actualCount": 2,
       "undocumentLines": [
         1,
         2,
         3,
-        4,
-        6,
-        7
+        4
       ]
     },
     "src/factory/long-count.js": {

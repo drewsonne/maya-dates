@@ -18,6 +18,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@drewsonne/maya-dates/src/factory/full-date.js~fulldatefactory",
+    "class/src/factory/full-date.js~FullDateFactory.html",
+    "<span>FullDateFactory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory/full-date.js</span>",
+    "class"
+  ],
+  [
     "@drewsonne/maya-dates/src/operations/fulldate-wildcard.js~fulldatewildcard",
     "class/src/operations/fulldate-wildcard.js~FullDateWildcard.html",
     "<span>FullDateWildcard</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/operations/fulldate-wildcard.js</span>",
@@ -616,6 +622,12 @@ window.esdocSearchIndex = [
     "file/src/factory/full-date.js.html",
     "src/factory/full-date.js",
     "file"
+  ],
+  [
+    "src/factory/full-date.js~fulldatefactory#parse",
+    "class/src/factory/full-date.js~FullDateFactory.html#instance-method-parse",
+    "src/factory/full-date.js~FullDateFactory#parse",
+    "method"
   ],
   [
     "src/factory/index.js",

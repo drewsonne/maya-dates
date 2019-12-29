@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">CalendarRoundFactory | @drewsonne/maya-dates</title>
+  <title data-ice="title">FullDateFactory | @drewsonne/maya-dates</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -53,17 +53,17 @@
   
   
   
-  <span data-ice="source">| <span><a href="file/src/factory/calendar-round.js.html#lineNumber10">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/factory/full-date.js.html#lineNumber10">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">CalendarRoundFactory</h1>
+  <h1 data-ice="name">FullDateFactory</h1>
 
   
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/factory/base.js~Factory.html">Factory</a></span> &#x2192; CalendarRoundFactory</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/factory/base.js~Factory.html">Factory</a></span> &#x2192; FullDateFactory</div></div>
   
   
   
@@ -73,20 +73,14 @@
 
   
   
-  <div class="description" data-ice="description"><p>A factory to create a CalendarRound object from a string</p>
+  <div class="description" data-ice="description"><p>Given a date composed of a Long Count and a Calendar Round, create a
+{FullDate} object.</p>
 </div>
   
 
   
 
-  <div data-ice="exampleDocs">
-    <h4>Example:</h4>
-    
-  <div class="example-doc" data-ice="exampleDoc">
-      
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">   let cr = new CalendarRoundFactory().parse(&quot;4 Ajaw 8 Kumk&apos;u&quot;);</code></pre>
-    </div>
-</div>
+  
 
   
 
@@ -95,78 +89,8 @@
 
 
 
-<div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/factory/calendar-round.js~CalendarRoundFactory.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">()</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Defines the pattern describing a Calendar Round</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
-<div data-ice="memberSummary"><h2>Member Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Members</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/factory/calendar-round.js~CalendarRoundFactory.html#instance-member-pattern">pattern</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Describes how to break the string into a Calendar Round</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
+
+
 <div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
   <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
   <tbody>
@@ -185,14 +109,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/factory/calendar-round.js~CalendarRoundFactory.html#instance-method-parse">parse</a></span></span><span class="code" data-ice="signature">(raw: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/factory/full-date.js~FullDateFactory.html#instance-method-parse">parse</a></span></span><span class="code" data-ice="signature">(raw: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span>FullDate</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Given a string, parse it and create a Calendar Round</p>
-</div>
+        
       </div>
     </td>
     <td>
@@ -272,100 +195,8 @@
 
 
 
-<div data-ice="constructorDetails"><h2 data-ice="title">Public Constructors</h2>
 
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-constructor-constructor">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">()</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/factory/calendar-round.js.html#lineNumber14">source</a></span></span>
-    </span>
-  </h3>
 
-  
-  
-  
-  <div data-ice="description"><p>Defines the pattern describing a Calendar Round</p>
-</div>
-
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/factory/base.js~Factory.html#instance-constructor-constructor">Factory#constructor</a></span></div>
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-</div>
-<div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
-
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-pattern">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">pattern</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/factory/calendar-round.js.html#lineNumber20">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Describes how to break the string into a Calendar Round</p>
-</div>
-
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/factory/base.js~Factory.html#instance-member-pattern">Factory#pattern</a></span></div>
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-</div>
 <div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
 
 <div class="detail" data-ice="detail">
@@ -376,19 +207,18 @@
     
     
     
-    <span class="code" data-ice="name">parse</span><span class="code" data-ice="signature">(raw: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span>
+    <span class="code" data-ice="name">parse</span><span class="code" data-ice="signature">(raw: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span>FullDate</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/factory/calendar-round.js.html#lineNumber28">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/factory/full-date.js.html#lineNumber16">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Given a string, parse it and create a Calendar Round</p>
-</div>
+  
 
   
 
@@ -402,10 +232,9 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">raw</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>A string containing a Calendar Round</p>
-</td>
+      <td data-ice="description"></td>
     </tr>
 </tbody>
   </table>
@@ -417,7 +246,7 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></td>
+          <td class="return-type code" data-ice="returnType"><span>FullDate</span></td>
           
         </tr>
       </tbody>

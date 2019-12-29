@@ -2309,7 +2309,7 @@
     "__docId__": 123,
     "kind": "file",
     "name": "src/factory/full-date.js",
-    "content": "const Factory = require('./base')\nconst CalendarRoundFactory = require('./calendar-round')\nconst LongCountFactory = require('./long-count')\nconst FullDate = require('../full-date')\n\nclass FullDateFactory extends Factory {\n  parse (raw) {\n    raw = raw.replace('**', '* *')\n    let cr = new CalendarRoundFactory().parse(raw)\n    let lc = new LongCountFactory().parse(raw)\n    return new FullDate(\n      cr,\n      lc,\n    )\n  }\n}\n\nmodule.exports = FullDateFactory\n",
+    "content": "const Factory = require('./base')\nconst CalendarRoundFactory = require('./calendar-round')\nconst LongCountFactory = require('./long-count')\nconst FullDate = require('../full-date')\n\n/**\n * Given a date composed of a Long Count and a Calendar Round, create a\n * {FullDate} object.\n */\nclass FullDateFactory extends Factory {\n  /**\n   * \n   * @param {String} raw\n   * @return {FullDate}\n   */\n  parse (raw) {\n    raw = raw.replace('**', '* *')\n    let cr = new CalendarRoundFactory().parse(raw)\n    let lc = new LongCountFactory().parse(raw)\n    return new FullDate(\n      cr,\n      lc,\n    )\n  }\n}\n\nmodule.exports = FullDateFactory\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/factory/full-date.js",
     "access": "public",
@@ -2411,14 +2411,12 @@
     "export": false,
     "importPath": "@drewsonne/maya-dates/src/factory/full-date.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
+    "description": "Given a date composed of a Long Count and a Calendar Round, create a\n{FullDate} object.",
+    "lineNumber": 10,
     "interface": false,
     "extends": [
       "Factory"
-    ],
-    "ignore": true
+    ]
   },
   {
     "__docId__": 129,
@@ -2430,23 +2428,28 @@
     "static": false,
     "longname": "src/factory/full-date.js~FullDateFactory#parse",
     "access": "public",
-    "description": null,
-    "lineNumber": 7,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 16,
     "params": [
       {
-        "name": "raw",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "raw",
+        "description": ""
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
-    },
-    "ignore": true
+        "FullDate"
+      ],
+      "spread": false,
+      "description": ""
+    }
   },
   {
     "__docId__": 130,
@@ -4151,7 +4154,7 @@
     "__docId__": 209,
     "kind": "file",
     "name": "src/wildcard.js",
-    "content": "/**\n * Describes a wildcard in the Calendar Round or Long Count.\n * There is a singleton in this library to allow for equality\n * comparison.\n * @example\n * const mayadates = require('maya-dates')\n * let cr = new mayadates.factory.CalendarRoundFactory().parse(\n *  '4 Ajaw 8 *')\n * console.log(cr.haab.month === mayadates.wildcard)\n * > true\n */\nclass Wildcard {\n  /**\n   * Represent the Wildcard as a string\n   * @returns {string}\n   */\n  toString () {\n    return '*'\n  }\n}\n\nmodule.exports = new Wildcard()\n",
+    "content": "/**\n * Describes a wildcard in the Calendar Round or Long Count.\n * This class is not directly exposed to the user. There is a singleton in this\n * library to allow for use and equality comparison.\n * @example\n * const mayadates = require('maya-dates')\n * let cr = new mayadates.factory.CalendarRoundFactory().parse(\n *  '4 Ajaw 8 *')\n * console.log(cr.haab.month === mayadates.wildcard)\n * > true\n */\nclass Wildcard {\n  /**\n   * Represent the Wildcard as a string. ie, '*'.\n   * @returns {string}\n   */\n  toString () {\n    return '*'\n  }\n}\n\nmodule.exports = new Wildcard()\n",
     "static": true,
     "longname": "/Users/drews/Dropbox/Development/maya-dates/src/wildcard.js",
     "access": "public",
@@ -4169,7 +4172,7 @@
     "export": false,
     "importPath": "@drewsonne/maya-dates/src/wildcard.js",
     "importStyle": null,
-    "description": "Describes a wildcard in the Calendar Round or Long Count.\nThere is a singleton in this library to allow for equality\ncomparison.",
+    "description": "Describes a wildcard in the Calendar Round or Long Count.\nThis class is not directly exposed to the user. There is a singleton in this\nlibrary to allow for use and equality comparison.",
     "examples": [
       "const mayadates = require('maya-dates')\nlet cr = new mayadates.factory.CalendarRoundFactory().parse(\n '4 Ajaw 8 *')\nconsole.log(cr.haab.month === mayadates.wildcard)\n> true"
     ],
@@ -4186,7 +4189,7 @@
     "static": false,
     "longname": "src/wildcard.js~Wildcard#toString",
     "access": "public",
-    "description": "Represent the Wildcard as a string",
+    "description": "Represent the Wildcard as a string. ie, '*'.",
     "lineNumber": 17,
     "unknown": [
       {
