@@ -1,33 +1,5 @@
 const CalendarRound = require('../cr/calendar-round')
-const wildcard = require('../wildcard')
-
-class CalendarRoundWildcard {
-  /**
-   * @param {CalendarRound} cr
-   */
-  constructor (cr) {
-    this.cr = cr
-    this.start_date = new CalendarRound(
-      4, 'Ajaw',
-      8, 'Kumk\'u',
-    )
-  }
-
-  run () {
-    let potentials = []
-    // Iterate through dates and compare
-    let iter = new CalendarRoundIterator()
-    let cr = iter.next()
-    while (!cr.done) {
-      if (this.cr.match(cr.value)) {
-        potentials.push(cr.value)
-      }
-      cr = iter.next()
-    }
-    return potentials
-  }
-
-}
+const origin = require('../cr/index').origin
 
 class CalendarRoundIterator {
   /**
@@ -36,12 +8,13 @@ class CalendarRoundIterator {
    */
   constructor (date) {
     if (date === undefined) {
-      date = new CalendarRound(
-        4, 'Ajaw',
-        8, 'Kumk\'u',
-      )
+      date = origin
     }
     this.date = date
+    this.reset()
+  }
+
+  reset () {
     this.current = this.date
     this.is_first = true
   }
@@ -59,6 +32,32 @@ class CalendarRoundIterator {
       this.current = next
       return {value: next, done: false}
     }
+  }
+
+}
+
+const iter = new CalendarRoundIterator()
+
+class CalendarRoundWildcard {
+  /**
+   * @param {CalendarRound} cr
+   */
+  constructor (cr) {
+    this.cr = cr
+  }
+
+  run () {
+    let potentials = []
+    // Iterate through dates and compare
+    let cr = iter.next()
+    while (!cr.done) {
+      if (this.cr.match(cr.value)) {
+        potentials.push(cr.value)
+      }
+      cr = iter.next()
+    }
+    iter.reset()
+    return potentials
   }
 
 }
