@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/operations/index.js | @drewsonne/maya-dates</title>
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/lc/night/lord-of-night.js | @drewsonne/maya-dates</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -50,12 +50,58 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/operations/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">module.exports = {
-  &apos;LongCountWildcard&apos;: require(&apos;./longcount-wildcard&apos;),
-  &apos;CalendarRoundWildcard&apos;: require(&apos;./calendar-round-wildcard&apos;),
-  &apos;FullDateWildcard&apos;: require(&apos;./fulldate-wildcard&apos;),
+<div class="content" data-ice="content"><h1 data-ice="title">src/lc/night/lord-of-night.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * Describes one of the 9 Lords of the night.
+ * This class is accessible through its instantiated values, or the get()
+ * method.
+ * @example
+ *  let lord_of_night_g8_1 = mayadates.lc.night.get(&apos;G8&apos;)
+ *  let lord_of_night_g8_2 = mayadates.lc.night.G8
+ *  console.log(lord_of_night_g8_1 === lord_of_night_g8_2)
+ */
+class LordOfNight {
+  /**
+   * @param {number} id
+   */
+  constructor (id) {
+    /**
+     * Number of the Lord of the Night
+     * @type {number}
+     */
+    this.id = id
+  }
+
+  /**
+   * Represent the Lord of the night as a string G1..G9.
+   * @return {string}
+   */
+  toString () {
+    return `G${this.id}`
+  }
 }
+
+/**
+ * Return a Lord of the Night by its G id.
+ * @param id
+ * @return {LordOfNight}
+ */
+function get (id) {
+  return lords_of_the_night[`${id}`]
+}
+
+/** @ignore */
+const lords_of_the_night = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9,
+].reduce(function (obj, n) {
+  let lord = new LordOfNight(n)
+  obj[`${lord}`] = lord
+  return obj
+}, {
+  &apos;get&apos;: get,
+})
+
+module.exports = lords_of_the_night
 </code></pre>
 
 </div>
