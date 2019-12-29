@@ -72,6 +72,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@drewsonne/maya-dates/src/lc/night/lord-of-night.js~lordofnight",
+    "class/src/lc/night/lord-of-night.js~LordOfNight.html",
+    "<span>LordOfNight</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/night/lord-of-night.js</span>",
+    "class"
+  ],
+  [
     "@drewsonne/maya-dates/src/cr/tzolkin.js~tzolkin",
     "class/src/cr/tzolkin.js~Tzolkin.html",
     "<span>Tzolkin</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/tzolkin.js</span>",
@@ -88,6 +94,12 @@ window.esdocSearchIndex = [
     "class/src/wildcard.js~Wildcard.html",
     "<span>Wildcard</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/wildcard.js</span>",
     "class"
+  ],
+  [
+    "@drewsonne/maya-dates/src/lc/night/lord-of-night.js~get",
+    "function/index.html#static-function-get",
+    "<span>get</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/night/lord-of-night.js</span>",
+    "function"
   ],
   [
     "src/.external-ecmascript.js~array",
@@ -924,6 +936,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/lc/long-count.js~longcount#lord_of_night",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-lord_of_night",
+    "src/lc/long-count.js~LongCount#lord_of_night",
+    "member"
+  ],
+  [
     "src/lc/long-count.js~longcount#parts",
     "class/src/lc/long-count.js~LongCount.html#instance-member-parts",
     "src/lc/long-count.js~LongCount#parts",
@@ -976,6 +994,30 @@ window.esdocSearchIndex = [
     "class/src/lc/long-count.js~LongCount.html#instance-get-winal",
     "src/lc/long-count.js~LongCount#winal",
     "member"
+  ],
+  [
+    "src/lc/night/lord-of-night.js",
+    "file/src/lc/night/lord-of-night.js.html",
+    "src/lc/night/lord-of-night.js",
+    "file"
+  ],
+  [
+    "src/lc/night/lord-of-night.js~lordofnight#constructor",
+    "class/src/lc/night/lord-of-night.js~LordOfNight.html#instance-constructor-constructor",
+    "src/lc/night/lord-of-night.js~LordOfNight#constructor",
+    "method"
+  ],
+  [
+    "src/lc/night/lord-of-night.js~lordofnight#id",
+    "class/src/lc/night/lord-of-night.js~LordOfNight.html#instance-member-id",
+    "src/lc/night/lord-of-night.js~LordOfNight#id",
+    "member"
+  ],
+  [
+    "src/lc/night/lord-of-night.js~lordofnight#tostring",
+    "class/src/lc/night/lord-of-night.js~LordOfNight.html#instance-method-toString",
+    "src/lc/night/lord-of-night.js~LordOfNight#toString",
+    "method"
   ],
   [
     "src/operations/calendar-round-wildcard.js",

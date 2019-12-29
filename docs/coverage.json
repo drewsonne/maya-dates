@@ -1,7 +1,7 @@
 {
   "coverage": "100%",
-  "expectCount": 147,
-  "actualCount": 147,
+  "expectCount": 155,
+  "actualCount": 155,
   "files": {
     "src/cr/calendar-round.js": {
       "expectCount": 15,
@@ -49,8 +49,13 @@
       "undocumentLines": []
     },
     "src/lc/long-count.js": {
-      "expectCount": 34,
-      "actualCount": 34,
+      "expectCount": 36,
+      "actualCount": 36,
+      "undocumentLines": []
+    },
+    "src/lc/night/lord-of-night.js": {
+      "expectCount": 6,
+      "actualCount": 6,
       "undocumentLines": []
     },
     "src/operations/calendar-round-wildcard.js": {
