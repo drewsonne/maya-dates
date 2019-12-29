@@ -1,6 +1,10 @@
+/** @ignore */
 const Factory = require('./base')
+/** @ignore */
 const CalendarRoundFactory = require('./calendar-round')
+/** @ignore */
 const LongCountFactory = require('./long-count')
+/** @ignore */
 const FullDate = require('../full-date')
 
 /**

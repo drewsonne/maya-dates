@@ -29,7 +29,8 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
@@ -40,40 +41,67 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc">lc</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html">CalendarRoundWildcard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/operations/calendar-round-wildcard.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const CalendarRound = require(&apos;../cr/calendar-round&apos;)
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
+const CalendarRound = require(&apos;../cr/calendar-round&apos;)
+/** @ignore */
 const origin = require(&apos;../cr/index&apos;).origin
 
-class CalendarRoundIterator {
+/**
+ * Used to iterate through the entire cycle of 18,980 days for the full
+ * permutation of Haab and 260-day count.
+ * @ignore
+ */
+class _CalendarRoundIterator {
   /**
    *
    * @param {CalendarRound} date
    */
   constructor (date) {
+    /**
+     * @type {CalendarRound}
+     */
+    this.current = undefined
+
+    /**
+     * @type boolean
+     */
+    this.is_first = undefined
+
     if (date === undefined) {
       date = origin
     }
+    /**
+     * @type {CalendarRound}
+     */
     this.date = date
     this.reset()
   }
 
+  /**
+   * Reset this iterator so that it can be reused.
+   */
   reset () {
     this.current = this.date
     this.is_first = true
   }
 
+  /**
+   * Move to the next position in the iterator or end the iteration.
+   * @return {{value: null, done: boolean}|{value: CalendarRound, done: boolean}}
+   */
   next () {
     if (this.is_first) {
       this.is_first = false
       return {value: this.current, done: false}
     }
-    this.count += 1
     let next = this.current.next()
     if (next.equal(this.date)) {
       return {value: null, done: true}
@@ -85,16 +113,32 @@ class CalendarRoundIterator {
 
 }
 
-const iter = new CalendarRoundIterator()
+/**
+ * A reusable singleton instance of the CalendarRoundIterator
+ * @ignore
+ * @type {_CalendarRoundIterator}
+ */
+const iter = new _CalendarRoundIterator()
 
+/**
+ * Given a Calendar Round with a wildcard, calculate all possible matching
+ * fully qualified Calendar Rounds.
+ */
 class CalendarRoundWildcard {
   /**
    * @param {CalendarRound} cr
    */
   constructor (cr) {
+    /**
+     * @type {CalendarRound}
+     */
     this.cr = cr
   }
 
+  /**
+   * Run calculation to find all fully qualified Calendar Rounds
+   * @return {CalendarRound[]}
+   */
   run () {
     let potentials = []
     // Iterate through dates and compare

@@ -1,5 +1,8 @@
+/** @ignore */
 const wildcard = require('../wildcard')
+/** @ignore */
 const origin = require('../cr/index').origin
+/** @ignore */
 const FullDate = require('../full-date')
 
 /**
@@ -207,6 +210,11 @@ class LongCount {
     return this.date_pattern.test(this.toString())
   }
 
+  /**
+   * Returns true if any of the positions in the Long Count have been assigned
+   * a {Wildcard} object.
+   * @return {boolean}
+   */
   is_partial () {
     for (let part of this.parts) {
       if (part === wildcard) {
@@ -216,6 +224,10 @@ class LongCount {
     return false
   }
 
+  /**
+   * Count the number of days since 0.0.0.0.0 for this LC.
+   * @return {number}
+   */
   get_position () {
     if (this.is_partial()) {
       throw 'Can not get position of partial dates'

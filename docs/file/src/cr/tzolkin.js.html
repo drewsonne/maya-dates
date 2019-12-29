@@ -29,7 +29,8 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
@@ -40,7 +41,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc">lc</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html">CalendarRoundWildcard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
 </ul>
 </div>
@@ -102,6 +104,10 @@ class Tzolkin {
     return this.shift(1)
   }
 
+  /**
+   * Ensure the Tzolkin&apos;s coefficients are within range and the day is defined
+   * @return {boolean}
+   */
   validate () {
     if (this.coeff &gt; 13 || this.coeff &lt; 1) {
       throw &apos;Tzolk\&apos;in coefficient must inclusively between 1 and 13.&apos;
@@ -130,11 +136,23 @@ class Tzolkin {
     return new_tzolkin
   }
 
+  /**
+   * Ensure this Tzolkin object has the same configuration as another Tzolkin
+   * object. Does not take wildcards into account.
+   * @param {Tzolkin} new_tzolkin
+   * @return {boolean}
+   */
   equal (new_tzolkin) {
     return (this.coeff === new_tzolkin.coeff) &amp;&amp;
       (this.name === new_tzolkin.name)
   }
 
+  /**
+   * Ensure this Tzolkin object has a matching configuration as another Tzolkin
+   * object. Takes wildcards into account.
+   * @param {Tzolkin} new_tzolkin
+   * @return {boolean}
+   */
   match (new_tzolkin) {
     return (
       (this.coeff === wildcard || new_tzolkin.coeff === wildcard) ?
@@ -170,8 +188,10 @@ class Tzolkin {
   }
 }
 
+/** @ignore */
 const _day_lookup = {}
 
+/** @ignore */
 function _get_day (day_name) {
   if (_day_lookup[day_name] === undefined) {
     _day_lookup[day_name] = new TzolkinDay(day_name)
@@ -225,10 +245,18 @@ class TzolkinDay {
      */
     this.name = name
 
+    /**
+     * Index of the day in the list of Tzolkin&apos; days
+     * @type {number}
+     */
     this.day_position = this.days.findIndex(
       d =&gt; d === this.name)
   }
 
+  /**
+   * Ensure the Tzolk&apos;in day name is defined and is within the list of
+   * acceptable day names.
+   */
   validate () {
     if (this.name === undefined) {
       throw &apos;Tzolk\&apos;in day name must be provided&apos;

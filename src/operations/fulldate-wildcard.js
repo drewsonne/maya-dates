@@ -1,20 +1,29 @@
-// 7 Ok * * 9.*.10.10.10
+/** @ignore */
 const FullDate = require('../full-date')
+/** @ignore */
 const LongCountWildcard = require('../operations/longcount-wildcard')
+/** @ignore */
 const CalendarRoundWildcard = require('../operations/calendar-round-wildcard')
 
 /**
- * Given a wildcard in
+ * Given a Calendar Round and Long Count with a wildcard, calculate all possible
+ * matching fully qualified Long Counts with CalendarRounds.
  */
 class FullDateWildcard {
   /**
-   *
    * @param {FullDate} partial_date
    */
   constructor (partial_date) {
+    /**
+     * @type {FullDate}
+     */
     this.partial = partial_date
   }
 
+  /**
+   * Run calculation to find all fully qualified Long Counts with Calendar Rounds
+   * @return {FullDate[]}
+   */
   run () {
     let potential_dates = []
     let potential_lc_fulldates = []
