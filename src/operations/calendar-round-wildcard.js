@@ -9,56 +9,56 @@ const origin = require('../cr/index').origin;
  * @ignore
  */
 class _CalendarRoundIterator {
+  /**
+   *
+   * @param {CalendarRound} date
+   */
+  constructor(date) {
     /**
-     *
-     * @param {CalendarRound} date
+     * @type {CalendarRound}
      */
-    constructor(date) {
-        /**
-         * @type {CalendarRound}
-         */
-        this.current = undefined;
-
-        /**
-         * @type boolean
-         */
-        this.is_first = undefined;
-
-        if (date === undefined) {
-            date = origin;
-        }
-        /**
-         * @type {CalendarRound}
-         */
-        this.date = date;
-        this.reset();
-    }
+    this.current = undefined;
 
     /**
-     * Reset this iterator so that it can be reused.
+     * @type boolean
      */
-    reset() {
-        this.current = this.date;
-        this.is_first = true;
-    }
+    this.is_first = undefined;
 
-    /**
-     * Move to the next position in the iterator or end the iteration.
-     * @return {{value: null, done: boolean}|{value: CalendarRound, done: boolean}}
-     */
-    next() {
-        if (this.is_first) {
-            this.is_first = false;
-            return {value: this.current, done: false};
-        }
-        let next = this.current.next();
-        if (next.equal(this.date)) {
-            return {value: null, done: true};
-        } else {
-            this.current = next;
-            return {value: next, done: false};
-        }
+    if (date === undefined) {
+      date = origin;
     }
+    /**
+     * @type {CalendarRound}
+     */
+    this.date = date;
+    this.reset();
+  }
+
+  /**
+   * Reset this iterator so that it can be reused.
+   */
+  reset() {
+    this.current = this.date;
+    this.is_first = true;
+  }
+
+  /**
+   * Move to the next position in the iterator or end the iteration.
+   * @return {{value: null, done: boolean}|{value: CalendarRound, done: boolean}}
+   */
+  next() {
+    if (this.is_first) {
+      this.is_first = false;
+      return {value: this.current, done: false};
+    }
+    let next = this.current.next();
+    if (next.equal(this.date)) {
+      return {value: null, done: true};
+    } else {
+      this.current = next;
+      return {value: next, done: false};
+    }
+  }
 
 }
 
@@ -74,33 +74,33 @@ const iter = new _CalendarRoundIterator();
  * fully qualified Calendar Rounds.
  */
 class CalendarRoundWildcard {
+  /**
+   * @param {CalendarRound} cr
+   */
+  constructor(cr) {
     /**
-     * @param {CalendarRound} cr
+     * @type {CalendarRound}
      */
-    constructor(cr) {
-        /**
-         * @type {CalendarRound}
-         */
-        this.cr = cr;
-    }
+    this.cr = cr;
+  }
 
-    /**
-     * Run calculation to find all fully qualified Calendar Rounds
-     * @return {CalendarRound[]}
-     */
-    run() {
-        let potentials = [];
-        // Iterate through dates and compare
-        let cr = iter.next();
-        while (!cr.done) {
-            if (this.cr.match(cr.value)) {
-                potentials.push(cr.value);
-            }
-            cr = iter.next();
-        }
-        iter.reset();
-        return potentials;
+  /**
+   * Run calculation to find all fully qualified Calendar Rounds
+   * @return {CalendarRound[]}
+   */
+  run() {
+    let potentials = [];
+    // Iterate through dates and compare
+    let cr = iter.next();
+    while (!cr.done) {
+      if (this.cr.match(cr.value)) {
+        potentials.push(cr.value);
+      }
+      cr = iter.next();
     }
+    iter.reset();
+    return potentials;
+  }
 
 }
 

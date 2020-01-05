@@ -13,20 +13,20 @@ const FullDate = require('../full-date');
  * @extends {Factory}
  */
 class FullDateFactory extends Factory {
-    /**
-     *
-     * @param {String} raw
-     * @return {FullDate}
-     */
-    parse(raw) {
-        raw = raw.replace('**', '* *');
-        let cr = new CalendarRoundFactory().parse(raw);
-        let lc = new LongCountFactory().parse(raw);
-        return new FullDate(
-            cr,
-            lc,
-        );
-    }
+  /**
+   *
+   * @param {String} raw
+   * @return {FullDate}
+   */
+  parse(raw) {
+    raw = raw.replace('**', '* *');
+    let cr = new CalendarRoundFactory().parse(raw);
+    let lc = new LongCountFactory().parse(raw);
+    return new FullDate(
+      cr,
+      lc,
+    );
+  }
 }
 
 module.exports = FullDateFactory;
