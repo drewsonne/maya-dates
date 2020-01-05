@@ -52,11 +52,11 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/factory/long-count.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
-const Factory = require(&apos;./base&apos;)
+const Factory = require(&apos;./base&apos;);
 /** @ignore */
-const LongCount = require(&apos;../lc/long-count&apos;)
+const LongCount = require(&apos;../lc/long-count&apos;);
 /** @ignore */
-const wildcard = require(&apos;../wildcard&apos;)
+const wildcard = require(&apos;../wildcard&apos;);
 
 /**
  * A factory to create a LongCount object from a string
@@ -72,31 +72,31 @@ class LongCountFactory extends Factory {
    * @param {string} raw - A string containing a Long Count
    * @returns {LongCount}
    */
-  parse (raw) {
-    let parts = raw.split(&apos;.&apos;)
+  parse(raw) {
+    let parts = raw.split(&apos;.&apos;);
     for (let i = 0; i &lt; parts.length; i++) {
       if (i === 0) {
         if (parts[i].indexOf(&apos; &apos;) &gt;= 0) {
-          let first_parts = parts[i].split(&apos; &apos;)
-          parts[i] = first_parts[first_parts.length - 1]
+          let first_parts = parts[i].split(&apos; &apos;);
+          parts[i] = first_parts[first_parts.length - 1];
         }
       } else if (i === (parts.length - 1)) {
         if (parts[i].indexOf(&apos; &apos;) &gt;= 0) {
-          let first_parts = parts[i].split(&apos; &apos;)
-          parts[i] = first_parts[0]
+          let first_parts = parts[i].split(&apos; &apos;);
+          parts[i] = first_parts[0];
         }
       }
       if (parts[i] === &apos;*&apos;) {
-        parts[i] = wildcard
+        parts[i] = wildcard;
       } else {
-        parts[i] = parseInt(parts[i])
+        parts[i] = parseInt(parts[i]);
       }
     }
-    return new LongCount(...parts.reverse())
+    return new LongCount(...parts.reverse());
   }
 }
 
-module.exports = LongCountFactory
+module.exports = LongCountFactory;
 </code></pre>
 
 </div>

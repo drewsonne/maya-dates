@@ -14,9 +14,9 @@ class Wildcard {
    * Represent the Wildcard as a string. ie, '*'.
    * @returns {string}
    */
-  toString () {
-    return '*'
+  toString() {
+    return '*';
   }
 }
 
-module.exports = new Wildcard()
+module.exports = new Wildcard();

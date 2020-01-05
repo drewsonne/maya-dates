@@ -1,9 +1,9 @@
 /** @ignore */
-const Factory = require('./base')
+const Factory = require('./base');
 /** @ignore */
-const LongCount = require('../lc/long-count')
+const LongCount = require('../lc/long-count');
 /** @ignore */
-const wildcard = require('../wildcard')
+const wildcard = require('../wildcard');
 
 /**
  * A factory to create a LongCount object from a string
@@ -19,28 +19,28 @@ class LongCountFactory extends Factory {
    * @param {string} raw - A string containing a Long Count
    * @returns {LongCount}
    */
-  parse (raw) {
-    let parts = raw.split('.')
+  parse(raw) {
+    let parts = raw.split('.');
     for (let i = 0; i < parts.length; i++) {
       if (i === 0) {
         if (parts[i].indexOf(' ') >= 0) {
-          let first_parts = parts[i].split(' ')
-          parts[i] = first_parts[first_parts.length - 1]
+          let first_parts = parts[i].split(' ');
+          parts[i] = first_parts[first_parts.length - 1];
         }
       } else if (i === (parts.length - 1)) {
         if (parts[i].indexOf(' ') >= 0) {
-          let first_parts = parts[i].split(' ')
-          parts[i] = first_parts[0]
+          let first_parts = parts[i].split(' ');
+          parts[i] = first_parts[0];
         }
       }
       if (parts[i] === '*') {
-        parts[i] = wildcard
+        parts[i] = wildcard;
       } else {
-        parts[i] = parseInt(parts[i])
+        parts[i] = parseInt(parts[i]);
       }
     }
-    return new LongCount(...parts.reverse())
+    return new LongCount(...parts.reverse());
   }
 }
 
-module.exports = LongCountFactory
+module.exports = LongCountFactory;

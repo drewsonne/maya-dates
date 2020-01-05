@@ -810,26 +810,14 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/lc/long-count.js~longcount#_get_date_sections",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-_get_date_sections",
-    "src/lc/long-count.js~LongCount#_get_date_sections",
-    "method"
-  ],
-  [
-    "src/lc/long-count.js~longcount#_set_date_sections",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-_set_date_sections",
-    "src/lc/long-count.js~LongCount#_set_date_sections",
-    "method"
-  ],
-  [
     "src/lc/long-count.js~longcount#bak_tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-bak_tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-bak_tun",
     "src/lc/long-count.js~LongCount#bak_tun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#bak_tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-bak_tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-bak_tun",
     "src/lc/long-count.js~LongCount#bak_tun",
     "member"
   ],
@@ -864,6 +852,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/lc/long-count.js~longcount#get_date_sections",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-get_date_sections",
+    "src/lc/long-count.js~LongCount#get_date_sections",
+    "method"
+  ],
+  [
     "src/lc/long-count.js~longcount#get_position",
     "class/src/lc/long-count.js~LongCount.html#instance-method-get_position",
     "src/lc/long-count.js~LongCount#get_position",
@@ -883,20 +877,14 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#k_atun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-k_atun",
-    "src/lc/long-count.js~LongCount#k_atun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#k_atun",
     "class/src/lc/long-count.js~LongCount.html#instance-get-k_atun",
     "src/lc/long-count.js~LongCount#k_atun",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#k_in",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-k_in",
-    "src/lc/long-count.js~LongCount#k_in",
+    "src/lc/long-count.js~longcount#k_atun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-k_atun",
+    "src/lc/long-count.js~LongCount#k_atun",
     "member"
   ],
   [
@@ -906,14 +894,20 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#kalabtun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kalabtun",
-    "src/lc/long-count.js~LongCount#kalabtun",
+    "src/lc/long-count.js~longcount#k_in",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-k_in",
+    "src/lc/long-count.js~LongCount#k_in",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#kalabtun",
     "class/src/lc/long-count.js~LongCount.html#instance-get-kalabtun",
+    "src/lc/long-count.js~LongCount#kalabtun",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#kalabtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kalabtun",
     "src/lc/long-count.js~LongCount#kalabtun",
     "member"
   ],
@@ -949,13 +943,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#piktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-piktun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-piktun",
     "src/lc/long-count.js~LongCount#piktun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#piktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-piktun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-piktun",
     "src/lc/long-count.js~LongCount#piktun",
     "member"
   ],
@@ -966,6 +960,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/lc/long-count.js~longcount#set_date_sections",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-set_date_sections",
+    "src/lc/long-count.js~LongCount#set_date_sections",
+    "method"
+  ],
+  [
     "src/lc/long-count.js~longcount#tostring",
     "class/src/lc/long-count.js~LongCount.html#instance-method-toString",
     "src/lc/long-count.js~LongCount#toString",
@@ -973,13 +973,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-tun",
     "src/lc/long-count.js~LongCount#tun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-tun",
     "src/lc/long-count.js~LongCount#tun",
     "member"
   ],

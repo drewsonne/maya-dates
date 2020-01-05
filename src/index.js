@@ -4,4 +4,4 @@ module.exports = {
   'lc': require('./lc/index'),
   'op': require('./operations/index'),
   'wildcard': require('./wildcard'),
-}
+};

@@ -5,13 +5,13 @@ class Factory {
   /**
    * Define properties to be override by sub-classes
    */
-  constructor () {
+  constructor() {
     /**
      * Describes how to break a string into a date element
      * @protected
      * @type {RegExp}
      */
-    this.pattern = null
+    this.pattern = null;
   }
 
   /**
@@ -20,14 +20,14 @@ class Factory {
    * @access protected
    * @returns {String[]}
    */
-  _split (raw) {
+  _split(raw) {
     let matches = raw.match(
       this.pattern,
-    )
+    );
     if (matches === null) {
-      return []
+      return [];
     }
-    return matches.slice(1)
+    return matches.slice(1);
   }
 
   /**
@@ -42,4 +42,4 @@ class Factory {
   // }
 }
 
-module.exports = Factory
+module.exports = Factory;
