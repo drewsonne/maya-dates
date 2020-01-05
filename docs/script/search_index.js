@@ -907,13 +907,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#baktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-bakTun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-bakTun",
     "src/lc/long-count.js~LongCount#bakTun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#baktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-bakTun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-bakTun",
     "src/lc/long-count.js~LongCount#bakTun",
     "member"
   ],
@@ -1021,13 +1021,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#katun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kAtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kAtun",
     "src/lc/long-count.js~LongCount#kAtun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#katun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kAtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kAtun",
     "src/lc/long-count.js~LongCount#kAtun",
     "member"
   ],
@@ -1186,6 +1186,30 @@ window.esdocSearchIndex = [
     "class/src/lc/night/lord-of-night.js~LordOfNight.html#instance-method-toString",
     "src/lc/night/lord-of-night.js~LordOfNight#toString",
     "method"
+  ],
+  [
+    "src/lc/western/gregorian.js",
+    "file/src/lc/western/gregorian.js.html",
+    "src/lc/western/gregorian.js",
+    "file"
+  ],
+  [
+    "src/lc/western/index.js",
+    "file/src/lc/western/index.js.html",
+    "src/lc/western/index.js",
+    "file"
+  ],
+  [
+    "src/lc/western/julian.js",
+    "file/src/lc/western/julian.js.html",
+    "src/lc/western/julian.js",
+    "file"
+  ],
+  [
+    "src/lc/western/western.js",
+    "file/src/lc/western/western.js.html",
+    "src/lc/western/western.js",
+    "file"
   ],
   [
     "src/operations/calendar-round-iterator.js",

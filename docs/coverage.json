@@ -1,7 +1,7 @@
 {
-  "coverage": "100%",
-  "expectCount": 218,
-  "actualCount": 218,
+  "coverage": "83.58%",
+  "expectCount": 262,
+  "actualCount": 219,
   "files": {
     "src/cr/calendar-round.js": {
       "expectCount": 16,
@@ -74,8 +74,8 @@
       "undocumentLines": []
     },
     "src/lc/index.js": {
-      "expectCount": 2,
-      "actualCount": 2,
+      "expectCount": 3,
+      "actualCount": 3,
       "undocumentLines": []
     },
     "src/lc/long-count.js": {
@@ -87,6 +87,67 @@
       "expectCount": 6,
       "actualCount": 6,
       "undocumentLines": []
+    },
+    "src/lc/western/gregorian.js": {
+      "expectCount": 12,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        11,
+        16,
+        23,
+        27,
+        31
+      ]
+    },
+    "src/lc/western/julian.js": {
+      "expectCount": 20,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        27,
+        30,
+        41,
+        59,
+        66,
+        70,
+        120,
+        140,
+        149,
+        150,
+        152
+      ]
+    },
+    "src/lc/western/western.js": {
+      "expectCount": 11,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        16,
+        23,
+        27,
+        31,
+        35
+      ]
     },
     "src/operations/calendar-round-iterator.js": {
       "expectCount": 8,

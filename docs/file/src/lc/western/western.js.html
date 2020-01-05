@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/lc/index.js | @drewsonne/maya-dates</title>
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/lc/western/western.js | @drewsonne/maya-dates</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -59,19 +59,47 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/lc/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
-const LongCount = require(&apos;./long-count&apos;);
-/** @ignore */
-const LordOfNight = require(&apos;./night/lord-of-night&apos;);
-/** @ignore */
-const western = require(&apos;./western/index&apos;);
+<div class="content" data-ice="content"><h1 data-ice="title">src/lc/western/western.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">class WesternCalendar {
+  constructor(julianDay, new_class) {
+    this.julianDay = julianDay;
+    this.offset = 0;
+    this.class = new_class;
+  }
 
-module.exports = {
-  LongCount,
-  night: LordOfNight,
-  western,
-};
+
+  clone(offset) {
+    if (offset === undefined) {
+      offset = 0;
+    }
+    return new this.class(this.julianDay + offset);
+  }
+
+  get year() {
+    if (this.era === &apos;BCE&apos;) {
+      return Math.abs(this.date.year + 1);
+    }
+    return this.date.year;
+  }
+
+  get month() {
+    return this.date.month;
+  }
+
+  get day() {
+    return Math.floor(this.date.day) + this.offset;
+  }
+
+  get era() {
+    return (this.date.year &lt; 0) ? &apos;BCE&apos; : &apos;CE&apos;;
+  }
+
+  toString() {
+    return `${this.day}/${this.month}/${this.year} ${this.era}`;
+  }
+}
+
+module.exports = WesternCalendar;
 </code></pre>
 
 </div>

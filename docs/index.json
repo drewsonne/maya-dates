@@ -3576,7 +3576,7 @@
     "__docId__": 182,
     "kind": "file",
     "name": "src/lc/index.js",
-    "content": "/** @ignore */\nconst LongCount = require('./long-count');\n/** @ignore */\nconst LordOfNight = require('./night/lord-of-night');\n\nmodule.exports = {\n  LongCount,\n  night: LordOfNight,\n};\n",
+    "content": "/** @ignore */\nconst LongCount = require('./long-count');\n/** @ignore */\nconst LordOfNight = require('./night/lord-of-night');\n/** @ignore */\nconst western = require('./western/index');\n\nmodule.exports = {\n  LongCount,\n  night: LordOfNight,\n  western,\n};\n",
     "static": true,
     "longname": "/home/drews/Development/maya-dates/src/lc/index.js",
     "access": "public",
@@ -3625,6 +3625,26 @@
   },
   {
     "__docId__": 185,
+    "kind": "variable",
+    "name": "western",
+    "memberof": "src/lc/index.js",
+    "static": true,
+    "longname": "src/lc/index.js~western",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/lc/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 186,
     "kind": "file",
     "name": "src/lc/long-count.js",
     "content": "/** @ignore */\nconst wildcard = require('../wildcard');\n/** @ignore */\nconst {origin} = require('../cr/index');\n/** @ignore */\nconst FullDate = require('../full-date');\n/** @ignore */\nconst night = require('./night/lord-of-night');\n/** @ignore */\nconst LongcountAddition = require('../operations/longcount-addition');\n/** @ignore */\nconst LongcountSubtraction = require('../operations/longcount-subtraction');\n/** @ignore */\nconst getCorrelationConstant = require('./correlation-constant');\n\n/**\n * Long Count cycle\n */\nclass LongCount {\n  /**\n   * @param {...number|Wildcard} cycles - Components in the long count\n   * (eg, K'in, Winal, Bak'tun, etc)\n   */\n  constructor(...cycles) {\n    /**\n     * Date Components\n     * @type {number[]|Wildcard[]}\n     */\n    this.parts = cycles;\n\n    /**\n     * Pattern to validate the fullDate\n     * @type {RegExp}\n     */\n    this.date_pattern = /([\\d*]+\\.?)+/;\n\n    /**\n     * Correlation constant to allow alignment with western calendars\n     * @type {CorrelationConstant}\n     */\n    this.correlationConstant = getCorrelationConstant(584283);\n\n    /**\n     * @private\n     * @type {number}\n     */\n    this.sign = (this.parts[this.parts.length - 1] < 0) ? -1 : 1;\n    if (this.isNegative) {\n      this.parts[this.parts.length - 1] = -1 * this.parts[this.parts.length - 1];\n    }\n  }\n\n  /**\n   * Chainable method to set the correlation constant\n   * @param {CorrelationConstant} newConstant\n   * @return {LongCount}\n   */\n  setCorrelationConstant(newConstant) {\n    this.correlationConstant = newConstant;\n    return this;\n  }\n\n  /**\n   * Return a representation of this Long Count in Julian Days.\n   * @return {number}\n   */\n  get julianDay() {\n    return this.correlationConstant.value + this.getPosition();\n  }\n\n\n  /**\n   * Return true if the Long Count is positive.\n   * @return {boolean}\n   */\n  get isPositive() {\n    return this.sign === 1;\n  }\n\n  /**\n   * Return true if the Long Count is operating as a negative Distance Number.\n   * @return {boolean}\n   */\n  get isNegative() {\n    return this.sign === -1;\n  }\n\n  /**\n   * Set this Long Count as being a Long Count or a positive Distance Number\n   * @param {boolean} newPositive\n   */\n  set isPositive(newPositive) {\n    this.sign = newPositive === true ? 1 : -1;\n  }\n\n  /**\n   * Set this Long Count as being a negative Distance Number\n   * @param newNegative\n   */\n  set isNegative(newNegative) {\n    this.isPositive = !newNegative;\n  }\n\n  /**\n   * Given two long count dates, check if they are equal\n   * @param {LongCount} other\n   * @return {boolean}\n   */\n  equal(other) {\n    return `${this}` === `${other}`;\n  }\n\n  /**\n   * Create a copy object of this long count fullDate\n   * @returns {LongCount}\n   */\n  clone() {\n    return new LongCount(...this.parts);\n  }\n\n  /**\n   * Get specific column in Long Count fullDate\n   * @param {number} index\n   * @returns {number}\n   */\n  getDateSections(index) {\n    const part = this.parts[index];\n    if (part === undefined) {\n      return 0;\n    }\n    return part;\n  }\n\n  /**\n   * Set specific column in Long Count fullDate\n   * @param {number} index\n   * @param {number|wildcard} newValue\n   * @returns {LongCount}\n   */\n  setDateSections(index, newValue) {\n    this.parts[index] = (newValue !== wildcard) ? newValue : parseInt(newValue, 10);\n    // this.raw = this.toString();\n    return this;\n  }\n\n  /**\n   * Pass the map down to the parts\n   * @param fn\n   * @return {object[]}\n   */\n  map(fn) {\n    return this.parts.map(fn);\n  }\n\n  /**\n   * Compare if this LC is greater than the supplied LC.\n   * @param {LongCount} newLongCount\n   * @return {boolean}\n   */\n  lt(newLongCount) {\n    return this.getPosition() < newLongCount.getPosition();\n  }\n\n  /**\n   * Compare is this LC is less than the supplied LC.\n   * @param {LongCount} newLongCount\n   * @return {boolean}\n   */\n  gt(newLongCount) {\n    return this.getPosition() > newLongCount.getPosition();\n  }\n\n  /**\n   * Set the k'in component of the fullDate\n   */\n  set kIn(newKIn) {\n    this.setDateSections(0, newKIn);\n  }\n\n  /**\n   * Return the k'in component of the fullDate\n   * @returns {number}\n   */\n  get kIn() {\n    return this.getDateSections(0);\n  }\n\n  /**\n   * Set the winal component of the fullDate\n   */\n  set winal(newWinal) {\n    this.setDateSections(1, newWinal);\n  }\n\n  /**\n   * Return the winal component of the fullDate\n   * @returns {number}\n   */\n  get winal() {\n    return this.getDateSections(1);\n  }\n\n  /**\n   * Set the tun component of the fullDate\n   */\n  set tun(newTun) {\n    this.setDateSections(2, newTun);\n  }\n\n  /**\n   * Return the tun component of the fullDate\n   * @returns {number}\n   */\n  get tun() {\n    return this.getDateSections(2);\n  }\n\n  /**\n   * Set the k'atun component of the fullDate\n   */\n  set kAtun(newKAtun) {\n    this.setDateSections(3, newKAtun);\n  }\n\n  /**\n   * Return the k'atun component of the fullDate\n   * @returns {number}\n   */\n  get kAtun() {\n    return this.getDateSections(3);\n  }\n\n  /**\n   * Set the bak'tun component of the fullDate\n   */\n  set bakTun(newBakTun) {\n    this.setDateSections(4, newBakTun);\n  }\n\n  /**\n   * Return the bak'tun component of the fullDate\n   * @returns {number}\n   */\n  get bakTun() {\n    return this.getDateSections(4);\n  }\n\n  /**\n   * Set the piktun component of the fullDate\n   */\n  set piktun(newBakTun) {\n    this.setDateSections(5, newBakTun);\n  }\n\n  /**\n   * Return the piktun component of the fullDate\n   * @returns {number}\n   */\n  get piktun() {\n    return this.getDateSections(5);\n  }\n\n  /**\n   * Set the kalabtun component of the fullDate\n   */\n  set kalabtun(newBakTun) {\n    this.setDateSections(6, newBakTun);\n  }\n\n  /**\n   * Return the kalabtun component of the fullDate\n   * @returns {number}\n   */\n  get kalabtun() {\n    return this.getDateSections(6);\n  }\n\n  /**\n   * Set the kinchiltun component of the fullDate\n   */\n  set kinchiltun(newBakTun) {\n    this.setDateSections(7, newBakTun);\n  }\n\n  /**\n   * Return the kinchiltun component of the fullDate\n   * @returns {number}\n   */\n  get kinchiltun() {\n    return this.getDateSections(7);\n  }\n\n  /**\n   *\n   * @return {LordOfNight}\n   */\n  get lordOfNight() {\n    return night.get(\n      `G${((this.getPosition() - 1) % 9) + 1}`,\n    );\n  }\n\n  /**\n   * Ensure the fullDate has only numbers and wildcards separated by points.\n   * @returns {boolean}\n   */\n  isValid() {\n    return this.date_pattern.test(this.toString());\n  }\n\n  /**\n   * Returns true if any of the positions in the Long Count have been assigned\n   * a {Wildcard} object.\n   * @return {boolean}\n   */\n  isPartial() {\n    return this.parts.some((part) => part === wildcard);\n  }\n\n  /**\n   * Count the number of days since 0.0.0.0.0 for this LC.\n   * @return {number}\n   */\n  getPosition() {\n    if (this.isPartial()) {\n      throw new Error('Can not get position of fullDate dates');\n    }\n    return (this.kIn\n      + this.winal * 20\n      + this.tun * 360\n      + this.kAtun * 7200\n      + this.bakTun * 144000\n      + this.piktun * 2880000\n      + this.kalabtun * 57600000\n      + this.kinchiltun * 1152000000) * this.sign;\n  }\n\n  /**\n   *\n   * @return {CalendarRound}\n   */\n  buildCalendarRound() {\n    return origin.shift(\n      this.getPosition(),\n    );\n  }\n\n  /**\n   *\n   * @return {FullDate}\n   */\n  buildFullDate() {\n    return new FullDate(\n      this.buildCalendarRound(),\n      this.clone(),\n    );\n  }\n\n  /**\n   * Return the sum of this Long Count and the supplied\n   * @param {LongCount} newLc\n   * @return {LongcountAddition}\n   */\n  plus(newLc) {\n    /*  We pass the LongCount class in, as to require this in the operation\n     *  will create a circular dependency.\n     */\n    return new LongcountAddition(LongCount, this, newLc);\n  }\n\n  /**\n   * Return the difference between this Long Count and the supplied\n   * @param {LongCount} newLc\n   * @return {LongcountAddition}\n   */\n  minus(newLc) {\n    /*  We pass the LongCount class in, as to require this in the operation\n     *  will create a circular dependency.\n     */\n    return new LongcountSubtraction(LongCount, this, newLc);\n  }\n\n  /**\n   * Convert the LongCount to a string and pad the sections of the fullDate\n   * @returns {string}\n   */\n  toString() {\n    let significantDigits = [];\n    for (let i = this.parts.length - 1; i >= 0; i -= 1) {\n      const part = this.parts[i];\n      if (part !== 0) {\n        significantDigits = this.parts.slice(0, i + 1).reverse();\n        break;\n      }\n    }\n\n    for (let i = 0; i < significantDigits.length; i += 1) {\n      if (significantDigits[i] === undefined) {\n        significantDigits[i] = '0';\n      }\n    }\n\n    const dateLength = significantDigits.length;\n    if (dateLength < 5) {\n      significantDigits = significantDigits.reverse();\n      for (let i = 0; i < 5 - dateLength; i += 1) {\n        significantDigits.push(' 0');\n      }\n      significantDigits = significantDigits.reverse();\n    }\n\n    for (let i = 0; i < significantDigits.length; i += 1) {\n      const part = significantDigits[i].toString();\n      if (part.length < 2) {\n        significantDigits[i] = ` ${part}`;\n      }\n    }\n    return significantDigits.join('.');\n  }\n}\n\nmodule.exports = LongCount;\n",
@@ -3635,7 +3655,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 186,
+    "__docId__": 187,
     "kind": "variable",
     "name": "wildcard",
     "memberof": "src/lc/long-count.js",
@@ -3655,7 +3675,7 @@
     }
   },
   {
-    "__docId__": 187,
+    "__docId__": 188,
     "kind": "variable",
     "name": "origin",
     "memberof": "src/lc/long-count.js",
@@ -3675,7 +3695,7 @@
     }
   },
   {
-    "__docId__": 188,
+    "__docId__": 189,
     "kind": "variable",
     "name": "FullDate",
     "memberof": "src/lc/long-count.js",
@@ -3695,7 +3715,7 @@
     }
   },
   {
-    "__docId__": 189,
+    "__docId__": 190,
     "kind": "variable",
     "name": "night",
     "memberof": "src/lc/long-count.js",
@@ -3715,7 +3735,7 @@
     }
   },
   {
-    "__docId__": 190,
+    "__docId__": 191,
     "kind": "variable",
     "name": "LongcountAddition",
     "memberof": "src/lc/long-count.js",
@@ -3735,7 +3755,7 @@
     }
   },
   {
-    "__docId__": 191,
+    "__docId__": 192,
     "kind": "variable",
     "name": "LongcountSubtraction",
     "memberof": "src/lc/long-count.js",
@@ -3755,7 +3775,7 @@
     }
   },
   {
-    "__docId__": 192,
+    "__docId__": 193,
     "kind": "variable",
     "name": "getCorrelationConstant",
     "memberof": "src/lc/long-count.js",
@@ -3775,7 +3795,7 @@
     }
   },
   {
-    "__docId__": 193,
+    "__docId__": 194,
     "kind": "class",
     "name": "LongCount",
     "memberof": "src/lc/long-count.js",
@@ -3790,7 +3810,7 @@
     "interface": false
   },
   {
-    "__docId__": 194,
+    "__docId__": 195,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3816,7 +3836,7 @@
     ]
   },
   {
-    "__docId__": 195,
+    "__docId__": 196,
     "kind": "member",
     "name": "parts",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3836,7 +3856,7 @@
     }
   },
   {
-    "__docId__": 196,
+    "__docId__": 197,
     "kind": "member",
     "name": "date_pattern",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3855,7 +3875,7 @@
     }
   },
   {
-    "__docId__": 197,
+    "__docId__": 198,
     "kind": "member",
     "name": "correlationConstant",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3874,7 +3894,7 @@
     }
   },
   {
-    "__docId__": 198,
+    "__docId__": 199,
     "kind": "member",
     "name": "sign",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3893,7 +3913,7 @@
     }
   },
   {
-    "__docId__": 199,
+    "__docId__": 200,
     "kind": "method",
     "name": "setCorrelationConstant",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3926,7 +3946,7 @@
     }
   },
   {
-    "__docId__": 201,
+    "__docId__": 202,
     "kind": "get",
     "name": "julianDay",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3952,7 +3972,7 @@
     }
   },
   {
-    "__docId__": 202,
+    "__docId__": 203,
     "kind": "get",
     "name": "isPositive",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -3978,7 +3998,7 @@
     }
   },
   {
-    "__docId__": 203,
+    "__docId__": 204,
     "kind": "get",
     "name": "isNegative",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4004,7 +4024,7 @@
     }
   },
   {
-    "__docId__": 204,
+    "__docId__": 205,
     "kind": "set",
     "name": "isPositive",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4029,7 +4049,7 @@
     ]
   },
   {
-    "__docId__": 206,
+    "__docId__": 207,
     "kind": "set",
     "name": "isNegative",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4054,7 +4074,7 @@
     ]
   },
   {
-    "__docId__": 208,
+    "__docId__": 209,
     "kind": "method",
     "name": "equal",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4087,7 +4107,7 @@
     }
   },
   {
-    "__docId__": 209,
+    "__docId__": 210,
     "kind": "method",
     "name": "clone",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4115,7 +4135,7 @@
     "params": []
   },
   {
-    "__docId__": 210,
+    "__docId__": 211,
     "kind": "method",
     "name": "getDateSections",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4154,7 +4174,7 @@
     }
   },
   {
-    "__docId__": 211,
+    "__docId__": 212,
     "kind": "method",
     "name": "setDateSections",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4204,7 +4224,7 @@
     }
   },
   {
-    "__docId__": 212,
+    "__docId__": 213,
     "kind": "method",
     "name": "map",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4237,7 +4257,7 @@
     }
   },
   {
-    "__docId__": 213,
+    "__docId__": 214,
     "kind": "method",
     "name": "lt",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4270,7 +4290,7 @@
     }
   },
   {
-    "__docId__": 214,
+    "__docId__": 215,
     "kind": "method",
     "name": "gt",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4303,7 +4323,7 @@
     }
   },
   {
-    "__docId__": 215,
+    "__docId__": 216,
     "kind": "set",
     "name": "kIn",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4316,7 +4336,7 @@
     "lineNumber": 176
   },
   {
-    "__docId__": 216,
+    "__docId__": 217,
     "kind": "get",
     "name": "kIn",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4348,7 +4368,7 @@
     }
   },
   {
-    "__docId__": 217,
+    "__docId__": 218,
     "kind": "set",
     "name": "winal",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4361,7 +4381,7 @@
     "lineNumber": 191
   },
   {
-    "__docId__": 218,
+    "__docId__": 219,
     "kind": "get",
     "name": "winal",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4393,7 +4413,7 @@
     }
   },
   {
-    "__docId__": 219,
+    "__docId__": 220,
     "kind": "set",
     "name": "tun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4406,7 +4426,7 @@
     "lineNumber": 206
   },
   {
-    "__docId__": 220,
+    "__docId__": 221,
     "kind": "get",
     "name": "tun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4438,7 +4458,7 @@
     }
   },
   {
-    "__docId__": 221,
+    "__docId__": 222,
     "kind": "set",
     "name": "kAtun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4451,7 +4471,7 @@
     "lineNumber": 221
   },
   {
-    "__docId__": 222,
+    "__docId__": 223,
     "kind": "get",
     "name": "kAtun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4483,7 +4503,7 @@
     }
   },
   {
-    "__docId__": 223,
+    "__docId__": 224,
     "kind": "set",
     "name": "bakTun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4496,7 +4516,7 @@
     "lineNumber": 236
   },
   {
-    "__docId__": 224,
+    "__docId__": 225,
     "kind": "get",
     "name": "bakTun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4528,7 +4548,7 @@
     }
   },
   {
-    "__docId__": 225,
+    "__docId__": 226,
     "kind": "set",
     "name": "piktun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4541,7 +4561,7 @@
     "lineNumber": 251
   },
   {
-    "__docId__": 226,
+    "__docId__": 227,
     "kind": "get",
     "name": "piktun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4573,7 +4593,7 @@
     }
   },
   {
-    "__docId__": 227,
+    "__docId__": 228,
     "kind": "set",
     "name": "kalabtun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4586,7 +4606,7 @@
     "lineNumber": 266
   },
   {
-    "__docId__": 228,
+    "__docId__": 229,
     "kind": "get",
     "name": "kalabtun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4618,7 +4638,7 @@
     }
   },
   {
-    "__docId__": 229,
+    "__docId__": 230,
     "kind": "set",
     "name": "kinchiltun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4631,7 +4651,7 @@
     "lineNumber": 281
   },
   {
-    "__docId__": 230,
+    "__docId__": 231,
     "kind": "get",
     "name": "kinchiltun",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4663,7 +4683,7 @@
     }
   },
   {
-    "__docId__": 231,
+    "__docId__": 232,
     "kind": "get",
     "name": "lordOfNight",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4689,7 +4709,7 @@
     }
   },
   {
-    "__docId__": 232,
+    "__docId__": 233,
     "kind": "method",
     "name": "isValid",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4717,7 +4737,7 @@
     "params": []
   },
   {
-    "__docId__": 233,
+    "__docId__": 234,
     "kind": "method",
     "name": "isPartial",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4739,7 +4759,7 @@
     "params": []
   },
   {
-    "__docId__": 234,
+    "__docId__": 235,
     "kind": "method",
     "name": "getPosition",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4761,7 +4781,7 @@
     "params": []
   },
   {
-    "__docId__": 235,
+    "__docId__": 236,
     "kind": "method",
     "name": "buildCalendarRound",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4783,7 +4803,7 @@
     "params": []
   },
   {
-    "__docId__": 236,
+    "__docId__": 237,
     "kind": "method",
     "name": "buildFullDate",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4805,7 +4825,7 @@
     "params": []
   },
   {
-    "__docId__": 237,
+    "__docId__": 238,
     "kind": "method",
     "name": "plus",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4838,7 +4858,7 @@
     }
   },
   {
-    "__docId__": 238,
+    "__docId__": 239,
     "kind": "method",
     "name": "minus",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4871,7 +4891,7 @@
     }
   },
   {
-    "__docId__": 239,
+    "__docId__": 240,
     "kind": "method",
     "name": "toString",
     "memberof": "src/lc/long-count.js~LongCount",
@@ -4899,7 +4919,7 @@
     "params": []
   },
   {
-    "__docId__": 240,
+    "__docId__": 241,
     "kind": "file",
     "name": "src/lc/night/lord-of-night.js",
     "content": "/**\n * Describes one of the 9 Lords of the night.\n * This class is accessible through its instantiated values, or the get()\n * method.\n * @example\n *  let lord_of_night_g8_1 = mayadates.lc.night.get('G8')\n *  let lord_of_night_g8_2 = mayadates.lc.night.G8\n *  console.log(lord_of_night_g8_1 === lord_of_night_g8_2)\n */\nclass LordOfNight {\n  /**\n   * @param {number} id\n   */\n  constructor(id) {\n    /**\n     * Number of the Lord of the Night\n     * @type {number}\n     */\n    this.id = id;\n  }\n\n  /**\n   * Represent the Lord of the night as a string G1..G9.\n   * @return {string}\n   */\n  toString() {\n    return `G${this.id}`;\n  }\n}\n\n/**\n * Return a Lord of the Night by its G id.\n * @param {string} id - Has the form 'G1', 'G2', etc.\n * @return {LordOfNight}\n */\nfunction get(id) {\n  return lordsOfTheNight[`${id}`];\n}\n\n/** @ignore */\nconst lordsOfTheNight = [\n  1, 2, 3, 4, 5, 6, 7, 8, 9,\n].reduce((obj, n) => {\n  const lord = new LordOfNight(n);\n  const newObj = obj;\n  newObj[`${lord}`] = lord;\n  return newObj;\n}, {\n  get,\n});\n\nmodule.exports = lordsOfTheNight;\n",
@@ -4910,7 +4930,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 241,
+    "__docId__": 242,
     "kind": "class",
     "name": "LordOfNight",
     "memberof": "src/lc/night/lord-of-night.js",
@@ -4928,7 +4948,7 @@
     "interface": false
   },
   {
-    "__docId__": 242,
+    "__docId__": 243,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/lc/night/lord-of-night.js~LordOfNight",
@@ -4953,7 +4973,7 @@
     ]
   },
   {
-    "__docId__": 243,
+    "__docId__": 244,
     "kind": "member",
     "name": "id",
     "memberof": "src/lc/night/lord-of-night.js~LordOfNight",
@@ -4972,7 +4992,7 @@
     }
   },
   {
-    "__docId__": 244,
+    "__docId__": 245,
     "kind": "method",
     "name": "toString",
     "memberof": "src/lc/night/lord-of-night.js~LordOfNight",
@@ -4994,7 +5014,7 @@
     "params": []
   },
   {
-    "__docId__": 245,
+    "__docId__": 246,
     "kind": "function",
     "name": "get",
     "memberof": "src/lc/night/lord-of-night.js",
@@ -5030,7 +5050,7 @@
     }
   },
   {
-    "__docId__": 246,
+    "__docId__": 247,
     "kind": "variable",
     "name": "lordsOfTheNight",
     "memberof": "src/lc/night/lord-of-night.js",
@@ -5050,7 +5070,899 @@
     }
   },
   {
-    "__docId__": 247,
+    "__docId__": 248,
+    "kind": "file",
+    "name": "src/lc/western/gregorian.js",
+    "content": "const moonbeams = require('moonbeams');\nconst moment = require('moment-timezone');\nconst WesternCalendar = require('./western');\n\nconst JDAY_FOR_JULIAN_SWITCH = 2299160;\nconst DATE_FOR_JULIAN_SWITCH = moment.tz('1582-10-14', 'UTC');\n\nclass GregorianCalendarDate extends WesternCalendar {\n  constructor(julianDay) {\n    super(julianDay, GregorianCalendarDate);\n    this.date = DATE_FOR_JULIAN_SWITCH.add(\n      this.julianDay - JDAY_FOR_JULIAN_SWITCH, 'days'\n    );\n  }\n\n  get year() {\n    if (this.era === 'BCE') {\n      return Math.abs(this.date.year() + 1);\n    }\n    return this.date.year();\n  }\n\n  get month() {\n    return this.date.month() + 1;\n  }\n\n  get day() {\n    return Math.floor(this.date.day());\n  }\n\n  get era() {\n    return (this.date.year() < 0) ? 'BCE' : 'CE';\n  }\n}\n\nmodule.exports = GregorianCalendarDate;\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-dates/src/lc/western/gregorian.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 249,
+    "kind": "variable",
+    "name": "moonbeams",
+    "memberof": "src/lc/western/gregorian.js",
+    "static": true,
+    "longname": "src/lc/western/gregorian.js~moonbeams",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/lc/western/gregorian.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 250,
+    "kind": "variable",
+    "name": "moment",
+    "memberof": "src/lc/western/gregorian.js",
+    "static": true,
+    "longname": "src/lc/western/gregorian.js~moment",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/lc/western/gregorian.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 251,
+    "kind": "variable",
+    "name": "WesternCalendar",
+    "memberof": "src/lc/western/gregorian.js",
+    "static": true,
+    "longname": "src/lc/western/gregorian.js~WesternCalendar",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/lc/western/gregorian.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 252,
+    "kind": "variable",
+    "name": "JDAY_FOR_JULIAN_SWITCH",
+    "memberof": "src/lc/western/gregorian.js",
+    "static": true,
+    "longname": "src/lc/western/gregorian.js~JDAY_FOR_JULIAN_SWITCH",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/lc/western/gregorian.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 253,
+    "kind": "variable",
+    "name": "DATE_FOR_JULIAN_SWITCH",
+    "memberof": "src/lc/western/gregorian.js",
+    "static": true,
+    "longname": "src/lc/western/gregorian.js~DATE_FOR_JULIAN_SWITCH",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/lc/western/gregorian.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 254,
+    "kind": "class",
+    "name": "GregorianCalendarDate",
+    "memberof": "src/lc/western/gregorian.js",
+    "static": true,
+    "longname": "src/lc/western/gregorian.js~GregorianCalendarDate",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/lc/western/gregorian.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "WesternCalendar"
+    ],
+    "ignore": true
+  },
+  {
+    "__docId__": 255,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/lc/western/gregorian.js~GregorianCalendarDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/gregorian.js~GregorianCalendarDate#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "ignore": true
+  },
+  {
+    "__docId__": 256,
+    "kind": "member",
+    "name": "date",
+    "memberof": "src/lc/western/gregorian.js~GregorianCalendarDate",
+    "static": false,
+    "longname": "src/lc/western/gregorian.js~GregorianCalendarDate#date",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 257,
+    "kind": "get",
+    "name": "year",
+    "memberof": "src/lc/western/gregorian.js~GregorianCalendarDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/gregorian.js~GregorianCalendarDate#year",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 258,
+    "kind": "get",
+    "name": "month",
+    "memberof": "src/lc/western/gregorian.js~GregorianCalendarDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/gregorian.js~GregorianCalendarDate#month",
+    "access": "public",
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 259,
+    "kind": "get",
+    "name": "day",
+    "memberof": "src/lc/western/gregorian.js~GregorianCalendarDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/gregorian.js~GregorianCalendarDate#day",
+    "access": "public",
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 260,
+    "kind": "get",
+    "name": "era",
+    "memberof": "src/lc/western/gregorian.js~GregorianCalendarDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/gregorian.js~GregorianCalendarDate#era",
+    "access": "public",
+    "description": null,
+    "lineNumber": 31,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 261,
+    "kind": "file",
+    "name": "src/lc/western/index.js",
+    "content": "module.exports = {\n  'GregorianCalendarDate': require('./gregorian'),\n  'JulianCalendarDate': require('./julian'),\n  'jdcal': require('./jdcal')\n};\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-dates/src/lc/western/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 262,
+    "kind": "file",
+    "name": "src/lc/western/julian.js",
+    "content": "const moonbeams = require('moonbeams');\nconst WesternCalendar = require('./western');\n\n// const moment = require('moment-timezone');\n\nclass JDate {\n  constructor(year, month, date) {\n    this._gregorian_date = [year, month, date];\n    this.year = undefined;\n    this.month = undefined;\n    this.day = undefined;\n\n    this.month_day_mapping = {\n      1: 31,\n      3: 31,\n      4: 30,\n      5: 31,\n      6: 30,\n      7: 31,\n      8: 31,\n      9: 30,\n      10: 31,\n      11: 30,\n      12: 31,\n    };\n\n    this.direction = (this.year < 0) ? -1 : 1;\n  }\n\n  normalize() {\n    this.year = this._gregorian_date[0];\n    this.month = this._gregorian_date[1];\n    this.day = this._gregorian_date[2];\n\n    this.day += this.julian_offset();\n\n    this.normalize_month_day();\n    return this;\n  }\n\n  normalize_month_day() {\n    let days_in_month = this.daysInMonth(this.month);\n    if (this.day > days_in_month) {\n      let overflow = this.day - days_in_month;\n      this.month += (this.direction * 1);\n      this.day = overflow;\n    } else if (this.day < 1) {\n      this.month -= 1;\n      this.day = this.daysInMonth(this.month) + this.day;\n    }\n\n    if (this.month > 12) {\n      let overflow_months = this.month - 12;\n      this.year += (this.direction * 1);\n      this.month = overflow_months;\n    }\n  }\n\n  daysInMonth(monday_num) {\n    if (this.month === 2) {\n      return this.isLeapYear() ? 29 : 28;\n    }\n    return this.month_day_mapping[this.month];\n  }\n\n  isLeapYear() {\n    return (this.year % 4) === 0;\n  }\n\n  julian_offset() {\n    let date_number = parseInt(\n      this.toString().split('/').reverse().join('')\n    );\n    if (date_number <= 0) {\n      if (date_number < -2000000) {\n        return 4;\n      } else if (date_number > -1000301) {\n        return 3;\n      } else {\n        return 2;\n      }\n    } else if (date_number <= 1000228) {\n      return 2;\n    } else if (date_number <= 2000228) {\n      return 1;\n    } else if (date_number <= 3000228) {\n      return 0;\n    } else if (date_number <= 3000302) {\n      return -1;\n    } else if (date_number <= 5000303) {\n      return -2;\n    } else if (date_number <= 6000304) {\n      return -3;\n    } else if (date_number <= 7000305) {\n      return -4;\n    } else if (date_number <= 9000306) {\n      return -5;\n    } else if (date_number <= 10000307) {\n      return -6;\n    } else if (date_number <= 11000308) {\n      return -7;\n    } else if (date_number <= 13000309) {\n      return -8;\n    } else if (date_number <= 14000310) {\n      return -9;\n    } else if (date_number <= 17000228) {\n      return -10;\n    } else if (date_number <= 18000228) {\n      return -11;\n    } else if (date_number <= 19000228) {\n      return -12;\n    } else if (date_number <= 21000228) {\n      return -13;\n    } else if (date_number <= 21000314) {\n      return -14;\n    }\n    return 0;\n  }\n\n  toString() {\n    let year = this.year.toString();\n    let month = this.month.toString();\n    let day = this.day.toString();\n    if (year.length < 4) {\n      year = `0${year}`;\n    }\n\n    if (month.length < 2) {\n      month = `0${month}`;\n    }\n\n    if (day.length < 2) {\n      day = `0${day}`;\n    }\n\n    return `${day}/${month}/${year}`;\n  }\n}\n\nfunction julianFromGregorian(gregorian_date) {\n  return new JDate(\n    gregorian_date.year,\n    gregorian_date.month,\n    Math.floor(gregorian_date.day),\n  ).normalize();\n}\n\n\nclass JulianCalendarDate extends WesternCalendar {\n  constructor(julianDay) {\n    super(julianDay, JulianCalendarDate);\n    this.date = julianFromGregorian(\n      moonbeams.jdToCalendar(julianDay)\n    );\n  }\n}\n\nmodule.exports = JulianCalendarDate;\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-dates/src/lc/western/julian.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 263,
+    "kind": "variable",
+    "name": "moonbeams",
+    "memberof": "src/lc/western/julian.js",
+    "static": true,
+    "longname": "src/lc/western/julian.js~moonbeams",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/lc/western/julian.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 264,
+    "kind": "variable",
+    "name": "WesternCalendar",
+    "memberof": "src/lc/western/julian.js",
+    "static": true,
+    "longname": "src/lc/western/julian.js~WesternCalendar",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/lc/western/julian.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 265,
+    "kind": "class",
+    "name": "JDate",
+    "memberof": "src/lc/western/julian.js",
+    "static": true,
+    "longname": "src/lc/western/julian.js~JDate",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/lc/western/julian.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "interface": false,
+    "ignore": true
+  },
+  {
+    "__docId__": 266,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/lc/western/julian.js~JDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/julian.js~JDate#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "ignore": true
+  },
+  {
+    "__docId__": 267,
+    "kind": "member",
+    "name": "_gregorian_date",
+    "memberof": "src/lc/western/julian.js~JDate",
+    "static": false,
+    "longname": "src/lc/western/julian.js~JDate#_gregorian_date",
+    "access": "private",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "type": {
+      "types": [
+        "undefined[]"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 268,
+    "kind": "member",
+    "name": "year",
+    "memberof": "src/lc/western/julian.js~JDate",
+    "static": false,
+    "longname": "src/lc/western/julian.js~JDate#year",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 269,
+    "kind": "member",
+    "name": "month",
+    "memberof": "src/lc/western/julian.js~JDate",
+    "static": false,
+    "longname": "src/lc/western/julian.js~JDate#month",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 270,
+    "kind": "member",
+    "name": "day",
+    "memberof": "src/lc/western/julian.js~JDate",
+    "static": false,
+    "longname": "src/lc/western/julian.js~JDate#day",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 271,
+    "kind": "member",
+    "name": "month_day_mapping",
+    "memberof": "src/lc/western/julian.js~JDate",
+    "static": false,
+    "longname": "src/lc/western/julian.js~JDate#month_day_mapping",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"1\": number, \"3\": number, \"4\": number, \"5\": number, \"6\": number, \"7\": number, \"8\": number, \"9\": number, \"10\": number, \"11\": number, \"12\": number}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 272,
+    "kind": "member",
+    "name": "direction",
+    "memberof": "src/lc/western/julian.js~JDate",
+    "static": false,
+    "longname": "src/lc/western/julian.js~JDate#direction",
+    "access": "public",
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 273,
+    "kind": "method",
+    "name": "normalize",
+    "memberof": "src/lc/western/julian.js~JDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/julian.js~JDate#normalize",
+    "access": "public",
+    "description": null,
+    "lineNumber": 30,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 278,
+    "kind": "method",
+    "name": "normalize_month_day",
+    "memberof": "src/lc/western/julian.js~JDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/julian.js~JDate#normalize_month_day",
+    "access": "public",
+    "description": null,
+    "lineNumber": 41,
+    "undocument": true,
+    "params": [],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 285,
+    "kind": "method",
+    "name": "daysInMonth",
+    "memberof": "src/lc/western/julian.js~JDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/julian.js~JDate#daysInMonth",
+    "access": "public",
+    "description": null,
+    "lineNumber": 59,
+    "undocument": true,
+    "params": [
+      {
+        "name": "monday_num",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 286,
+    "kind": "method",
+    "name": "isLeapYear",
+    "memberof": "src/lc/western/julian.js~JDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/julian.js~JDate#isLeapYear",
+    "access": "public",
+    "description": null,
+    "lineNumber": 66,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 287,
+    "kind": "method",
+    "name": "julian_offset",
+    "memberof": "src/lc/western/julian.js~JDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/julian.js~JDate#julian_offset",
+    "access": "public",
+    "description": null,
+    "lineNumber": 70,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "number"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 288,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/lc/western/julian.js~JDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/julian.js~JDate#toString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 120,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 289,
+    "kind": "function",
+    "name": "julianFromGregorian",
+    "memberof": "src/lc/western/julian.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/lc/western/julian.js~julianFromGregorian",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/lc/western/julian.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 140,
+    "undocument": true,
+    "params": [
+      {
+        "name": "gregorian_date",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 290,
+    "kind": "class",
+    "name": "JulianCalendarDate",
+    "memberof": "src/lc/western/julian.js",
+    "static": true,
+    "longname": "src/lc/western/julian.js~JulianCalendarDate",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/lc/western/julian.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 149,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "WesternCalendar"
+    ],
+    "ignore": true
+  },
+  {
+    "__docId__": 291,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/lc/western/julian.js~JulianCalendarDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/julian.js~JulianCalendarDate#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 150,
+    "undocument": true,
+    "ignore": true
+  },
+  {
+    "__docId__": 292,
+    "kind": "member",
+    "name": "date",
+    "memberof": "src/lc/western/julian.js~JulianCalendarDate",
+    "static": false,
+    "longname": "src/lc/western/julian.js~JulianCalendarDate#date",
+    "access": "public",
+    "description": null,
+    "lineNumber": 152,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 293,
+    "kind": "file",
+    "name": "src/lc/western/western.js",
+    "content": "class WesternCalendar {\n  constructor(julianDay, new_class) {\n    this.julianDay = julianDay;\n    this.offset = 0;\n    this.class = new_class;\n  }\n\n\n  clone(offset) {\n    if (offset === undefined) {\n      offset = 0;\n    }\n    return new this.class(this.julianDay + offset);\n  }\n\n  get year() {\n    if (this.era === 'BCE') {\n      return Math.abs(this.date.year + 1);\n    }\n    return this.date.year;\n  }\n\n  get month() {\n    return this.date.month;\n  }\n\n  get day() {\n    return Math.floor(this.date.day) + this.offset;\n  }\n\n  get era() {\n    return (this.date.year < 0) ? 'BCE' : 'CE';\n  }\n\n  toString() {\n    return `${this.day}/${this.month}/${this.year} ${this.era}`;\n  }\n}\n\nmodule.exports = WesternCalendar;\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-dates/src/lc/western/western.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 294,
+    "kind": "class",
+    "name": "WesternCalendar",
+    "memberof": "src/lc/western/western.js",
+    "static": true,
+    "longname": "src/lc/western/western.js~WesternCalendar",
+    "access": "public",
+    "export": false,
+    "importPath": "@drewsonne/maya-dates/src/lc/western/western.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false,
+    "ignore": true
+  },
+  {
+    "__docId__": 295,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/lc/western/western.js~WesternCalendar",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/western.js~WesternCalendar#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "ignore": true
+  },
+  {
+    "__docId__": 296,
+    "kind": "member",
+    "name": "julianDay",
+    "memberof": "src/lc/western/western.js~WesternCalendar",
+    "static": false,
+    "longname": "src/lc/western/western.js~WesternCalendar#julianDay",
+    "access": "public",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 297,
+    "kind": "member",
+    "name": "offset",
+    "memberof": "src/lc/western/western.js~WesternCalendar",
+    "static": false,
+    "longname": "src/lc/western/western.js~WesternCalendar#offset",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 298,
+    "kind": "member",
+    "name": "class",
+    "memberof": "src/lc/western/western.js~WesternCalendar",
+    "static": false,
+    "longname": "src/lc/western/western.js~WesternCalendar#class",
+    "access": "public",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 299,
+    "kind": "method",
+    "name": "clone",
+    "memberof": "src/lc/western/western.js~WesternCalendar",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/western.js~WesternCalendar#clone",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [
+      {
+        "name": "offset",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 300,
+    "kind": "get",
+    "name": "year",
+    "memberof": "src/lc/western/western.js~WesternCalendar",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/western.js~WesternCalendar#year",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 301,
+    "kind": "get",
+    "name": "month",
+    "memberof": "src/lc/western/western.js~WesternCalendar",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/western.js~WesternCalendar#month",
+    "access": "public",
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 302,
+    "kind": "get",
+    "name": "day",
+    "memberof": "src/lc/western/western.js~WesternCalendar",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/western.js~WesternCalendar#day",
+    "access": "public",
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 303,
+    "kind": "get",
+    "name": "era",
+    "memberof": "src/lc/western/western.js~WesternCalendar",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/western.js~WesternCalendar#era",
+    "access": "public",
+    "description": null,
+    "lineNumber": 31,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 304,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/lc/western/western.js~WesternCalendar",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lc/western/western.js~WesternCalendar#toString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 305,
     "kind": "file",
     "name": "src/operations/calendar-round-iterator.js",
     "content": "/** @ignore */\nconst {origin} = require('../cr/index');\n\n/**\n * Used to iterate through the entire cycle of 18,980 days for the full\n * permutation of Haab and 260-day count.\n * @ignore\n */\nclass CalendarRoundIterator {\n  /**\n   *\n   * @param {CalendarRound} fullDate\n   */\n  constructor(newDate) {\n    /**\n     * @type {CalendarRound}\n     */\n    this.current = undefined;\n\n    /**\n     * @type boolean\n     */\n    this.is_first = undefined;\n\n    let fullDate = newDate;\n    if (fullDate === undefined) {\n      fullDate = origin;\n    }\n    /**\n     * @type {CalendarRound}\n     */\n    this.fullDate = fullDate;\n    this.reset();\n  }\n\n  /**\n   * Reset this iterator so that it can be reused.\n   */\n  reset() {\n    this.current = this.fullDate;\n    this.is_first = true;\n  }\n\n  /**\n   * Move to the next position in the iterator or end the iteration.\n   * @return {{value: null, done: boolean}|{value: CalendarRound, done: boolean}}\n   */\n  next() {\n    if (this.is_first) {\n      this.is_first = false;\n      return {value: this.current, done: false};\n    }\n    const next = this.current.next();\n    if (next.equal(this.fullDate)) {\n      return {value: null, done: true};\n    }\n    this.current = next;\n    return {value: next, done: false};\n  }\n}\n\nmodule.exports = CalendarRoundIterator\n",
@@ -5061,7 +5973,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 248,
+    "__docId__": 306,
     "kind": "variable",
     "name": "origin",
     "memberof": "src/operations/calendar-round-iterator.js",
@@ -5081,7 +5993,7 @@
     }
   },
   {
-    "__docId__": 249,
+    "__docId__": 307,
     "kind": "class",
     "name": "CalendarRoundIterator",
     "memberof": "src/operations/calendar-round-iterator.js",
@@ -5097,7 +6009,7 @@
     "interface": false
   },
   {
-    "__docId__": 250,
+    "__docId__": 308,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/calendar-round-iterator.js~CalendarRoundIterator",
@@ -5122,7 +6034,7 @@
     ]
   },
   {
-    "__docId__": 251,
+    "__docId__": 309,
     "kind": "member",
     "name": "current",
     "memberof": "src/operations/calendar-round-iterator.js~CalendarRoundIterator",
@@ -5141,7 +6053,7 @@
     }
   },
   {
-    "__docId__": 252,
+    "__docId__": 310,
     "kind": "member",
     "name": "is_first",
     "memberof": "src/operations/calendar-round-iterator.js~CalendarRoundIterator",
@@ -5160,7 +6072,7 @@
     }
   },
   {
-    "__docId__": 253,
+    "__docId__": 311,
     "kind": "member",
     "name": "fullDate",
     "memberof": "src/operations/calendar-round-iterator.js~CalendarRoundIterator",
@@ -5179,7 +6091,7 @@
     }
   },
   {
-    "__docId__": 254,
+    "__docId__": 312,
     "kind": "method",
     "name": "reset",
     "memberof": "src/operations/calendar-round-iterator.js~CalendarRoundIterator",
@@ -5194,7 +6106,7 @@
     "return": null
   },
   {
-    "__docId__": 257,
+    "__docId__": 315,
     "kind": "method",
     "name": "next",
     "memberof": "src/operations/calendar-round-iterator.js~CalendarRoundIterator",
@@ -5216,7 +6128,7 @@
     "params": []
   },
   {
-    "__docId__": 260,
+    "__docId__": 318,
     "kind": "file",
     "name": "src/operations/calendar-round-wildcard.js",
     "content": "/** @ignore */\nconst CalendarRoundIterator = require('./calendar-round-iterator');\n\n\n/**\n * A reusable singleton instance of the CalendarRoundIterator\n * @ignore\n * @type {CalendarRoundIterator}\n */\nconst iter = new CalendarRoundIterator();\n\n/**\n * Given a Calendar Round with a wildcard, calculate all possible matching\n * fully qualified Calendar Rounds.\n */\nclass CalendarRoundWildcard {\n  /**\n   * @param {CalendarRound} cr\n   */\n  constructor(cr) {\n    /**\n     * @type {CalendarRound}\n     */\n    this.cr = cr;\n  }\n\n  /**\n   * Run calculation to find all fully qualified Calendar Rounds\n   * @return {CalendarRound[]}\n   */\n  run() {\n    const potentials = [];\n    // Iterate through dates and compare\n    let cr = iter.next();\n    while (!cr.done) {\n      if (this.cr.match(cr.value)) {\n        potentials.push(cr.value);\n      }\n      cr = iter.next();\n    }\n    iter.reset();\n    return potentials;\n  }\n}\n\nmodule.exports = CalendarRoundWildcard;\n",
@@ -5227,7 +6139,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 261,
+    "__docId__": 319,
     "kind": "variable",
     "name": "CalendarRoundIterator",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -5247,7 +6159,7 @@
     }
   },
   {
-    "__docId__": 262,
+    "__docId__": 320,
     "kind": "variable",
     "name": "iter",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -5270,7 +6182,7 @@
     }
   },
   {
-    "__docId__": 263,
+    "__docId__": 321,
     "kind": "class",
     "name": "CalendarRoundWildcard",
     "memberof": "src/operations/calendar-round-wildcard.js",
@@ -5285,7 +6197,7 @@
     "interface": false
   },
   {
-    "__docId__": 264,
+    "__docId__": 322,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -5310,7 +6222,7 @@
     ]
   },
   {
-    "__docId__": 265,
+    "__docId__": 323,
     "kind": "member",
     "name": "cr",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -5329,7 +6241,7 @@
     }
   },
   {
-    "__docId__": 266,
+    "__docId__": 324,
     "kind": "method",
     "name": "run",
     "memberof": "src/operations/calendar-round-wildcard.js~CalendarRoundWildcard",
@@ -5351,7 +6263,7 @@
     "params": []
   },
   {
-    "__docId__": 267,
+    "__docId__": 325,
     "kind": "file",
     "name": "src/operations/fulldate-wildcard.js",
     "content": "/** @ignore */\nconst FullDate = require('../full-date');\n/** @ignore */\nconst LongCountWildcard = require('../operations/longcount-wildcard');\n/** @ignore */\nconst CalendarRoundWildcard = require('../operations/calendar-round-wildcard');\n\n/** @ignore */\nconst concat = (x, y) => x.concat(y);\n\n/** @ignore */\nconst flatMap = (f, xs) => xs.map(f).reduce(concat, []);\n\n/** @ignore */\n// eslint-disable-next-line no-extend-native,func-names\nArray.prototype.flatMap = function (f) {\n  return flatMap(f, this);\n};\n\n/**\n * Given a Calendar Round and Long Count with a wildcard, calculate all possible\n * matching fully qualified Long Counts with CalendarRounds.\n */\nclass FullDateWildcard {\n  /**\n   * @param {FullDate} partialDate\n   */\n  constructor(partialDate) {\n    /**\n     * @type {FullDate}\n     */\n    this.fullDate = partialDate;\n  }\n\n  /**\n   * Run calculation to find all fully qualified Long Counts with Calendar Rounds\n   * @return {FullDate[]}\n   */\n  run() {\n    if (this.fullDate.lc.isPartial()) {\n      const lcs = new LongCountWildcard(this.fullDate.lc).run();\n\n      const mappedLcs = lcs.map(function (potentialLc) {\n          return potentialLc.buildFullDate();\n        },\n      );\n      const flatMappedLcs = mappedLcs.flatMap(\n        (fullDate) => (\n          this.fullDate.cr.isPartial()\n            ? new CalendarRoundWildcard(this.fullDate.cr).run()\n            : [this.fullDate.cr]\n        ).map(\n          (cr) => [].concat(cr, fullDate),\n        ),\n      );\n      const filteredMappedLcs = flatMappedLcs.filter(\n        (pair) => pair[0].equal(pair[1].cr),\n      );\n      return filteredMappedLcs;\n    }\n    // If we have a full formed LC fullDate, and a fullDate CR, then generate the\n    // CR for the LC, and compare them. The fullDate CR will either match the\n    // CR for the LC or it won't.\n    const staticCr = this.fullDate.lc.buildCalendarRound();\n    return (staticCr.match(this.fullDate.cr))\n      ? [new FullDate(staticCr, this.fullDate.lc)]\n      : [];\n  }\n}\n\nmodule.exports = FullDateWildcard;\n",
@@ -5362,7 +6274,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 268,
+    "__docId__": 326,
     "kind": "variable",
     "name": "FullDate",
     "memberof": "src/operations/fulldate-wildcard.js",
@@ -5382,7 +6294,7 @@
     }
   },
   {
-    "__docId__": 269,
+    "__docId__": 327,
     "kind": "variable",
     "name": "LongCountWildcard",
     "memberof": "src/operations/fulldate-wildcard.js",
@@ -5402,7 +6314,7 @@
     }
   },
   {
-    "__docId__": 270,
+    "__docId__": 328,
     "kind": "variable",
     "name": "CalendarRoundWildcard",
     "memberof": "src/operations/fulldate-wildcard.js",
@@ -5422,7 +6334,7 @@
     }
   },
   {
-    "__docId__": 271,
+    "__docId__": 329,
     "kind": "function",
     "name": "concat",
     "memberof": "src/operations/fulldate-wildcard.js",
@@ -5454,7 +6366,7 @@
     "return": null
   },
   {
-    "__docId__": 272,
+    "__docId__": 330,
     "kind": "function",
     "name": "flatMap",
     "memberof": "src/operations/fulldate-wildcard.js",
@@ -5486,7 +6398,7 @@
     "return": null
   },
   {
-    "__docId__": 273,
+    "__docId__": 331,
     "kind": "function",
     "name": "flatMap",
     "memberof": "src/operations/fulldate-wildcard.js",
@@ -5516,7 +6428,7 @@
     }
   },
   {
-    "__docId__": 274,
+    "__docId__": 332,
     "kind": "class",
     "name": "FullDateWildcard",
     "memberof": "src/operations/fulldate-wildcard.js",
@@ -5531,7 +6443,7 @@
     "interface": false
   },
   {
-    "__docId__": 275,
+    "__docId__": 333,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/fulldate-wildcard.js~FullDateWildcard",
@@ -5556,7 +6468,7 @@
     ]
   },
   {
-    "__docId__": 276,
+    "__docId__": 334,
     "kind": "member",
     "name": "fullDate",
     "memberof": "src/operations/fulldate-wildcard.js~FullDateWildcard",
@@ -5575,7 +6487,7 @@
     }
   },
   {
-    "__docId__": 277,
+    "__docId__": 335,
     "kind": "method",
     "name": "run",
     "memberof": "src/operations/fulldate-wildcard.js~FullDateWildcard",
@@ -5597,7 +6509,7 @@
     "params": []
   },
   {
-    "__docId__": 278,
+    "__docId__": 336,
     "kind": "file",
     "name": "src/operations/index.js",
     "content": "module.exports = {\n  LongCountWildcard: require('./longcount-wildcard'),\n  CalendarRoundWildcard: require('./calendar-round-wildcard'),\n  FullDateWildcard: require('./fulldate-wildcard'),\n};\n",
@@ -5608,7 +6520,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 279,
+    "__docId__": 337,
     "kind": "file",
     "name": "src/operations/longcount-addition.js",
     "content": "/**\n * Operation to sum two Long Count Dates\n */\nclass LongcountAddition {\n  /**\n   * @param {object} lcClass - Special param to pass the LongCount class into this operator to\n   * avoid circular require.\n   * @param {LongCount} a - First date to sum\n   * @param {LongCount} b - Second date to sum\n   */\n  constructor(lcClass, a, b) {\n    /**\n     * @type {LongCount}\n     */\n    this.a = a;\n\n    /**\n     * @type {LongCount}\n     */\n    this.b = b;\n\n    /** @ignore */\n    this.LcClass = lcClass;\n  }\n\n  /**\n   * Return the sum result of this Addition operator.\n   * @return {LongCount}\n   */\n  equals() {\n    const aLen = this.a.parts.length;\n    const bLen = this.b.parts.length;\n    const length = Math.max(aLen, bLen);\n    const aParts = this.a.parts.concat(new Array(length - aLen).fill(0));\n    const bParts = this.b.parts.concat(new Array(length - bLen).fill(0));\n\n    const newParts = aParts.map((p, i) => p + bParts[i]);\n\n    let carry = 0;\n    let i = 0;\n    while (i < newParts.length || carry > 0) {\n      newParts[i] += carry;\n      carry = 0;\n      const monthLength = (i === 1) ? 15 : 20;\n      if (newParts[i] >= monthLength) {\n        const positionValue = newParts[i] % monthLength;\n        carry = Math.floor(newParts[i] / monthLength);\n        newParts[i] = positionValue;\n      }\n      i += 1;\n    }\n    return new this.LcClass(...newParts);\n  }\n}\n\nmodule.exports = LongcountAddition;\n",
@@ -5619,7 +6531,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 280,
+    "__docId__": 338,
     "kind": "class",
     "name": "LongcountAddition",
     "memberof": "src/operations/longcount-addition.js",
@@ -5634,7 +6546,7 @@
     "interface": false
   },
   {
-    "__docId__": 281,
+    "__docId__": 339,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/longcount-addition.js~LongcountAddition",
@@ -5679,7 +6591,7 @@
     ]
   },
   {
-    "__docId__": 282,
+    "__docId__": 340,
     "kind": "member",
     "name": "a",
     "memberof": "src/operations/longcount-addition.js~LongcountAddition",
@@ -5698,7 +6610,7 @@
     }
   },
   {
-    "__docId__": 283,
+    "__docId__": 341,
     "kind": "member",
     "name": "b",
     "memberof": "src/operations/longcount-addition.js~LongcountAddition",
@@ -5717,7 +6629,7 @@
     }
   },
   {
-    "__docId__": 284,
+    "__docId__": 342,
     "kind": "member",
     "name": "LcClass",
     "memberof": "src/operations/longcount-addition.js~LongcountAddition",
@@ -5734,7 +6646,7 @@
     }
   },
   {
-    "__docId__": 285,
+    "__docId__": 343,
     "kind": "method",
     "name": "equals",
     "memberof": "src/operations/longcount-addition.js~LongcountAddition",
@@ -5756,7 +6668,7 @@
     "params": []
   },
   {
-    "__docId__": 286,
+    "__docId__": 344,
     "kind": "file",
     "name": "src/operations/longcount-subtraction.js",
     "content": "/**\n * Operation to diff two Long Count Dates\n */\nclass LongcountSubtraction {\n  /**\n   * @param {object} lcClass - Special param to pass the LongCount class into this operator to\n   * avoid circular require.\n   * @param {LongCount} a - First date to diff\n   * @param {LongCount} b - Second date to diff\n   */\n  constructor(lcClass, a, b) {\n    /**\n     * @type {LongCount}\n     */\n    this.a = a;\n\n    /**\n     * @type {LongCount}\n     */\n    this.b = b;\n\n    /** @ignore */\n    this.LcClass = lcClass;\n  }\n\n  /**\n   * Return the diff result of this Subtraction operator.\n   * @return {LongCount}\n   */\n  equals() {\n    const aLen = this.a.parts.length;\n    const bLen = this.b.parts.length;\n    const length = Math.max(aLen, bLen);\n    const aParts = this.a.parts.concat(new Array(length - aLen).fill(0));\n    const bParts = this.b.parts.concat(new Array(length - bLen).fill(0));\n    const isInverted = this.a.lt(this.b);\n\n    const newParts = aParts.map((p, i) => (isInverted ? (bParts[i] - p) : (p - bParts[i])));\n\n    let carry = 0;\n    let i = 0;\n    while (i < newParts.length || carry < 0) {\n      newParts[i] += carry;\n      carry = 0;\n      while (newParts[i] < 0) {\n        carry -= 1;\n        const nextPositionMonthLength = (i === 1) ? 15 : 20;\n        newParts[i] += nextPositionMonthLength;\n      }\n      i += 1;\n    }\n\n    for (i = newParts.length - 1; i > 0; i -= 1) {\n      if (newParts[i] === 0) {\n        newParts.pop();\n      } else {\n        i = 0;\n      }\n    }\n    const newLC = new this.LcClass(...newParts);\n    newLC.isPositive = !isInverted;\n    return newLC;\n  }\n}\n\nmodule.exports = LongcountSubtraction;\n",
@@ -5767,7 +6679,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 287,
+    "__docId__": 345,
     "kind": "class",
     "name": "LongcountSubtraction",
     "memberof": "src/operations/longcount-subtraction.js",
@@ -5782,7 +6694,7 @@
     "interface": false
   },
   {
-    "__docId__": 288,
+    "__docId__": 346,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/longcount-subtraction.js~LongcountSubtraction",
@@ -5827,7 +6739,7 @@
     ]
   },
   {
-    "__docId__": 289,
+    "__docId__": 347,
     "kind": "member",
     "name": "a",
     "memberof": "src/operations/longcount-subtraction.js~LongcountSubtraction",
@@ -5846,7 +6758,7 @@
     }
   },
   {
-    "__docId__": 290,
+    "__docId__": 348,
     "kind": "member",
     "name": "b",
     "memberof": "src/operations/longcount-subtraction.js~LongcountSubtraction",
@@ -5865,7 +6777,7 @@
     }
   },
   {
-    "__docId__": 291,
+    "__docId__": 349,
     "kind": "member",
     "name": "LcClass",
     "memberof": "src/operations/longcount-subtraction.js~LongcountSubtraction",
@@ -5882,7 +6794,7 @@
     }
   },
   {
-    "__docId__": 292,
+    "__docId__": 350,
     "kind": "method",
     "name": "equals",
     "memberof": "src/operations/longcount-subtraction.js~LongcountSubtraction",
@@ -5904,7 +6816,7 @@
     "params": []
   },
   {
-    "__docId__": 293,
+    "__docId__": 351,
     "kind": "file",
     "name": "src/operations/longcount-wildcard.js",
     "content": "/** @ignore */\nconst wildcard = require('../wildcard');\n\n/**\n * Given a Long Count with a wildcard, calculate all possible matching fully\n * qualified Long Counts.\n */\nclass LongCountWildcard {\n  /**\n   * @param {LongCount} lc\n   */\n  constructor(lc) {\n    /**\n     * @type {LongCount}\n     */\n    this.lc = lc;\n  }\n\n  /**\n   * Run calculation to find all fully qualified Long Counts\n   * @return {LongCount[]}\n   */\n  run() {\n    const wcIndexes = this.lc.map(\n      (part, i) => ((part === wildcard) ? i : false),\n    );\n\n    const filteredWcIndexes = wcIndexes.filter(\n      (i) => i !== false,\n    );\n\n    return filteredWcIndexes.reduce(\n      function (potentials, position) {\n        const a = potentials.reduce(\n          function (acc, possible) {\n            const dayMonths = new Array((position === 1) ? 15 : 20);\n            const filledDayMonths = dayMonths.fill();\n            const b = filledDayMonths.map(function (_, i) {\n              const clone = possible.clone();\n              const adjusted = clone.setDateSections(position, i);\n              return adjusted;\n            }).concat(acc);\n            return b;\n          },\n          [],\n        );\n        return a;\n      },\n      [this.lc],\n    );\n\n  }\n}\n\nmodule.exports = LongCountWildcard;\n",
@@ -5915,7 +6827,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 294,
+    "__docId__": 352,
     "kind": "variable",
     "name": "wildcard",
     "memberof": "src/operations/longcount-wildcard.js",
@@ -5935,7 +6847,7 @@
     }
   },
   {
-    "__docId__": 295,
+    "__docId__": 353,
     "kind": "class",
     "name": "LongCountWildcard",
     "memberof": "src/operations/longcount-wildcard.js",
@@ -5950,7 +6862,7 @@
     "interface": false
   },
   {
-    "__docId__": 296,
+    "__docId__": 354,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/operations/longcount-wildcard.js~LongCountWildcard",
@@ -5975,7 +6887,7 @@
     ]
   },
   {
-    "__docId__": 297,
+    "__docId__": 355,
     "kind": "member",
     "name": "lc",
     "memberof": "src/operations/longcount-wildcard.js~LongCountWildcard",
@@ -5994,7 +6906,7 @@
     }
   },
   {
-    "__docId__": 298,
+    "__docId__": 356,
     "kind": "method",
     "name": "run",
     "memberof": "src/operations/longcount-wildcard.js~LongCountWildcard",
@@ -6016,7 +6928,7 @@
     "params": []
   },
   {
-    "__docId__": 299,
+    "__docId__": 357,
     "kind": "file",
     "name": "src/wildcard.js",
     "content": "/**\n * Describes a wildcard in the Calendar Round or Long Count.\n * This class is not directly exposed to the user. There is a singleton in this\n * library to allow for use and equality comparison.\n * @example\n * const mayadates = require('maya-dates')\n * let cr = new mayadates.factory.CalendarRoundFactory().parse(\n *  '4 Ajaw 8 *')\n * console.log(cr.haab.month === mayadates.wildcard)\n * > true\n */\nclass Wildcard {\n  /**\n   * Represent the Wildcard as a string. ie, '*'.\n   * @returns {string}\n   */\n  // eslint-disable-next-line class-methods-use-this\n  toString() {\n    return '*';\n  }\n}\n\nmodule.exports = new Wildcard();\n",
@@ -6027,7 +6939,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 300,
+    "__docId__": 358,
     "kind": "class",
     "name": "Wildcard",
     "memberof": "src/wildcard.js",
@@ -6045,7 +6957,7 @@
     "interface": false
   },
   {
-    "__docId__": 301,
+    "__docId__": 359,
     "kind": "method",
     "name": "toString",
     "memberof": "src/wildcard.js~Wildcard",
@@ -6082,7 +6994,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"@drewsonne/maya-dates\",\n  \"version\": \"1.0.6\",\n  \"description\": \"Node.js package to represent dates in the Maya Calendar\",\n  \"main\": \"src/index.js\",\n  \"scripts\": {\n    \"test\": \"jest\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+ssh://git@github.com/drewsonne/maya-dates.git\"\n  },\n  \"keywords\": [\n    \"digital-humanities\",\n    \"maya\",\n    \"maya-calendar\"\n  ],\n  \"author\": \"Drew J. Sonne\",\n  \"license\": \"GPL-3.0\",\n  \"bugs\": {\n    \"url\": \"https://github.com/drewsonne/maya-dates/issues\"\n  },\n  \"homepage\": \"https://github.com/drewsonne/maya-dates#readme\",\n  \"devDependencies\": {\n    \"esdoc\": \"1.1.0\",\n    \"esdoc-standard-plugin\": \"1.0.0\",\n    \"eslint\": \"^6.8.0\",\n    \"eslint-config-airbnb-base\": \"^14.0.0\",\n    \"eslint-plugin-import\": \"^2.19.1\",\n    \"eslint-plugin-jest\": \"^23.3.0\",\n    \"jest\": \"^24.9.0\"\n  },\n  \"jest\": {\n    \"testEnvironment\": \"node\"\n  },\n  \"dependencies\": {}\n}\n",
+    "content": "{\n  \"name\": \"@drewsonne/maya-dates\",\n  \"version\": \"1.0.6\",\n  \"description\": \"Node.js package to represent dates in the Maya Calendar\",\n  \"main\": \"src/index.js\",\n  \"scripts\": {\n    \"test\": \"jest\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+ssh://git@github.com/drewsonne/maya-dates.git\"\n  },\n  \"keywords\": [\n    \"digital-humanities\",\n    \"maya\",\n    \"maya-calendar\"\n  ],\n  \"author\": \"Drew J. Sonne\",\n  \"license\": \"GPL-3.0\",\n  \"bugs\": {\n    \"url\": \"https://github.com/drewsonne/maya-dates/issues\"\n  },\n  \"homepage\": \"https://github.com/drewsonne/maya-dates#readme\",\n  \"devDependencies\": {\n    \"esdoc\": \"1.1.0\",\n    \"esdoc-standard-plugin\": \"1.0.0\",\n    \"eslint\": \"^6.8.0\",\n    \"eslint-config-airbnb-base\": \"^14.0.0\",\n    \"eslint-plugin-import\": \"^2.19.1\",\n    \"eslint-plugin-jest\": \"^23.3.0\",\n    \"jest\": \"^24.9.0\"\n  },\n  \"jest\": {\n    \"testEnvironment\": \"node\"\n  },\n  \"dependencies\": {\n    \"moonbeams\": \"^2.0.2\",\n    \"moment-timezone\": \"^0.5.26\",\n    \"moment\": \"^2.24.0\"\n  }\n}\n",
     "longname": "/home/drews/Development/maya-dates/package.json",
     "name": "package.json",
     "static": true,
