@@ -1,6 +1,6 @@
 const mayadates = require('../src/index');
+const {wildcard} = mayadates;
 
-const { wildcard } = mayadates;
 
 describe('complex wildcard parsing', () => {
   const partialDates = [
