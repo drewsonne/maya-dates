@@ -2,30 +2,30 @@
  * An encapsulation of a LongCount and Calendar Round which match each other.
  */
 class FullDate {
-  /**
-   * @param {CalendarRound} cr
-   * @param {LongCount} lc
-   */
-  constructor (cr, lc) {
     /**
-     * @type {CalendarRound}
+     * @param {CalendarRound} cr
+     * @param {LongCount} lc
      */
-    this.cr = cr
+    constructor(cr, lc) {
+        /**
+         * @type {CalendarRound}
+         */
+        this.cr = cr;
+
+        /**
+         * @type {LongCount}
+         */
+        this.lc = lc;
+    }
 
     /**
-     * @type {LongCount}
+     * Render the FullDate as a string of both the CR and the LC
+     * @returns {string}
      */
-    this.lc = lc
-  }
-
-  /**
-   * Render the FullDate as a string of both the CR and the LC
-   * @returns {string}
-   */
-  toString () {
-    return `${this.cr} ${this.lc}`
-  }
+    toString() {
+        return `${this.cr} ${this.lc}`;
+    }
 
 }
 
-module.exports = FullDate
+module.exports = FullDate;
