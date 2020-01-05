@@ -74,6 +74,15 @@ class LongCountFactory extends Factory {
    */
   parse(raw) {
     let parts = raw.split(&apos;.&apos;);
+    if (parts.length &lt; 5) {
+      parts = parts.reverse();
+      for (let i = 0; i &lt; 5; i++) {
+        if (parts[i] === undefined) {
+          parts[i] = &apos;0&apos;;
+        }
+      }
+      parts = parts.reverse();
+    }
     for (let i = 0; i &lt; parts.length; i++) {
       if (i === 0) {
         if (parts[i].indexOf(&apos; &apos;) &gt;= 0) {
