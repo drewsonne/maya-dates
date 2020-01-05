@@ -979,13 +979,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#isnegative",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-isNegative",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-isNegative",
     "src/lc/long-count.js~LongCount#isNegative",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#isnegative",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-isNegative",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-isNegative",
     "src/lc/long-count.js~LongCount#isNegative",
     "member"
   ],
@@ -997,13 +997,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#ispositive",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-isPositive",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-isPositive",
     "src/lc/long-count.js~LongCount#isPositive",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#ispositive",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-isPositive",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-isPositive",
     "src/lc/long-count.js~LongCount#isPositive",
     "member"
   ],
@@ -1033,13 +1033,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#kin",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kIn",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kIn",
     "src/lc/long-count.js~LongCount#kIn",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#kin",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kIn",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kIn",
     "src/lc/long-count.js~LongCount#kIn",
     "member"
   ],
@@ -1057,13 +1057,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#kinchiltun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kinchiltun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kinchiltun",
     "src/lc/long-count.js~LongCount#kinchiltun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#kinchiltun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kinchiltun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kinchiltun",
     "src/lc/long-count.js~LongCount#kinchiltun",
     "member"
   ],

@@ -17,7 +17,7 @@ describe('parse long-count fullDate', () => {
 
 test('fail longcount', () => {
   expect(
-    new mayadates.factory.LongCountFactory().parse('hello, world')
+    new mayadates.factory.LongCountFactory().parse('hello, world'),
   ).toBeNull();
 });
 
@@ -95,7 +95,7 @@ test('print short long-count fullDate', () => {
 });
 
 describe('test lord of night glyphs', () => {
-  const {night} = mayadates.lc;
+  const { night } = mayadates.lc;
   const dates = [
     ['9.16.19.17.19', night.G8, 'G8'],
     ['9.17.0.0.0', night.get('G9'), 'G9'],

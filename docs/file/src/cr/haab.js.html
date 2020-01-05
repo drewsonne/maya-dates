@@ -96,7 +96,11 @@ function getHaab(coeff, month) {
 class Haab {
   /**
    * Constructor
+   &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
    * @param {number|Wildcard|string} coeff - The position in the Haab month for this fullDate
+   =======
+   * @param {number|Wildcard|string} coeff - The position in the Haab month for this date
+   &gt;&gt;&gt;&gt;&gt;&gt;&gt; Use consistent function naming
    * @param {string|HaabMonth|Wildcard} month
    */
   constructor(coeff, month) {
@@ -233,23 +237,7 @@ class Haab {
   toString() {
     return `${this.coeff} ${this.name}`;
   }
-<<<<<<< HEAD
-=======
-
-  /**
-   * Return a brand new object with the same configuration as this object.
-   * @return {Haab}
-   */
-  clone() {
-    return new Haab(
-      this.coeff,
-      this.month
-    );
-  }
-
->>>>>>> Remove trailing comma
 }
-
 
 module.exports = {
   getHaab,

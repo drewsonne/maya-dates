@@ -34,7 +34,11 @@ function getHaab(coeff, month) {
 class Haab {
   /**
    * Constructor
+   <<<<<<< HEAD
    * @param {number|Wildcard|string} coeff - The position in the Haab month for this fullDate
+   =======
+   * @param {number|Wildcard|string} coeff - The position in the Haab month for this date
+   >>>>>>> Use consistent function naming
    * @param {string|HaabMonth|Wildcard} month
    */
   constructor(coeff, month) {
@@ -172,7 +176,6 @@ class Haab {
     return `${this.coeff} ${this.name}`;
   }
 }
-
 
 module.exports = {
   getHaab,
