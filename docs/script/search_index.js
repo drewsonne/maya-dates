@@ -852,6 +852,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/lc/long-count.js~longcount#equal",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-equal",
+    "src/lc/long-count.js~LongCount#equal",
+    "method"
+  ],
+  [
     "src/lc/long-count.js~longcount#get_date_sections",
     "class/src/lc/long-count.js~LongCount.html#instance-method-get_date_sections",
     "src/lc/long-count.js~LongCount#get_date_sections",
@@ -901,25 +907,25 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#kalabtun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kalabtun",
-    "src/lc/long-count.js~LongCount#kalabtun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#kalabtun",
     "class/src/lc/long-count.js~LongCount.html#instance-set-kalabtun",
     "src/lc/long-count.js~LongCount#kalabtun",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#kinchiltun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kinchiltun",
-    "src/lc/long-count.js~LongCount#kinchiltun",
+    "src/lc/long-count.js~longcount#kalabtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kalabtun",
+    "src/lc/long-count.js~LongCount#kalabtun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#kinchiltun",
     "class/src/lc/long-count.js~LongCount.html#instance-get-kinchiltun",
+    "src/lc/long-count.js~LongCount#kinchiltun",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#kinchiltun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kinchiltun",
     "src/lc/long-count.js~LongCount#kinchiltun",
     "member"
   ],
@@ -943,13 +949,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#piktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-piktun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-piktun",
     "src/lc/long-count.js~LongCount#piktun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#piktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-piktun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-piktun",
     "src/lc/long-count.js~LongCount#piktun",
     "member"
   ],
@@ -973,25 +979,25 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-tun",
-    "src/lc/long-count.js~LongCount#tun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#tun",
     "class/src/lc/long-count.js~LongCount.html#instance-set-tun",
     "src/lc/long-count.js~LongCount#tun",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#winal",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-winal",
-    "src/lc/long-count.js~LongCount#winal",
+    "src/lc/long-count.js~longcount#tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-tun",
+    "src/lc/long-count.js~LongCount#tun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#winal",
     "class/src/lc/long-count.js~LongCount.html#instance-get-winal",
+    "src/lc/long-count.js~LongCount#winal",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#winal",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-winal",
     "src/lc/long-count.js~LongCount#winal",
     "member"
   ],
