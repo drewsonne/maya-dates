@@ -1,7 +1,11 @@
 {
   "type": "File",
   "start": 0,
+<<<<<<< HEAD
   "end": 4790,
+=======
+  "end": 4493,
+>>>>>>> Remove trailing comma
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +19,11 @@
   "program": {
     "type": "Program",
     "start": 0,
+<<<<<<< HEAD
     "end": 4790,
+=======
+    "end": 4493,
+>>>>>>> Remove trailing comma
     "loc": {
       "start": {
         "line": 1,
@@ -457,7 +465,11 @@
       {
         "type": "ClassDeclaration",
         "start": 296,
+<<<<<<< HEAD
         "end": 4176,
+=======
+        "end": 4459,
+>>>>>>> Remove trailing comma
         "loc": {
           "start": {
             "line": 13,
@@ -490,7 +502,11 @@
         "body": {
           "type": "ClassBody",
           "start": 316,
+<<<<<<< HEAD
           "end": 4176,
+=======
+          "end": 4459,
+>>>>>>> Remove trailing comma
           "loc": {
             "start": {
               "line": 13,
@@ -6858,8 +6874,13 @@
             },
             {
               "type": "ClassMethod",
+<<<<<<< HEAD
               "start": 3835,
               "end": 4019,
+=======
+              "start": 3741,
+              "end": 3886,
+>>>>>>> Remove trailing comma
               "loc": {
                 "start": {
                   "line": 134,
@@ -6898,8 +6919,13 @@
               "params": [],
               "body": {
                 "type": "BlockStatement",
+<<<<<<< HEAD
                 "start": 3847,
                 "end": 4019,
+=======
+                "start": 3749,
+                "end": 3886,
+>>>>>>> Remove trailing comma
                 "loc": {
                   "start": {
                     "line": 134,
@@ -6913,8 +6939,13 @@
                 "body": [
                   {
                     "type": "ReturnStatement",
+<<<<<<< HEAD
                     "start": 3853,
                     "end": 4015,
+=======
+                    "start": 3755,
+                    "end": 3882,
+>>>>>>> Remove trailing comma
                     "loc": {
                       "start": {
                         "line": 135,
@@ -6926,9 +6957,15 @@
                       }
                     },
                     "argument": {
+<<<<<<< HEAD
                       "type": "LogicalExpression",
                       "start": 3860,
                       "end": 4014,
+=======
+                      "type": "NewExpression",
+                      "start": 3762,
+                      "end": 3881,
+>>>>>>> Remove trailing comma
                       "loc": {
                         "start": {
                           "line": 135,
@@ -7471,9 +7508,15 @@
               "trailingComments": [
                 {
                   "type": "CommentBlock",
+<<<<<<< HEAD
                   "value": "*\n   * Render the CalendarRound cycle fullDate as a string\n   * @returns {string}\n   ",
                   "start": 4023,
                   "end": 4112,
+=======
+                  "value": "*\n   * Return true, if this function has any wildcard portions.\n   * @return {boolean}\n   ",
+                  "start": 3890,
+                  "end": 3984,
+>>>>>>> Remove trailing comma
                   "loc": {
                     "start": {
                       "line": 141,
@@ -7489,8 +7532,13 @@
             },
             {
               "type": "ClassMethod",
+<<<<<<< HEAD
               "start": 4115,
               "end": 4174,
+=======
+              "start": 3987,
+              "end": 4172,
+>>>>>>> Remove trailing comma
               "loc": {
                 "start": {
                   "line": 145,
@@ -7505,8 +7553,13 @@
               "computed": false,
               "key": {
                 "type": "Identifier",
+<<<<<<< HEAD
                 "start": 4115,
                 "end": 4123,
+=======
+                "start": 3987,
+                "end": 3997,
+>>>>>>> Remove trailing comma
                 "loc": {
                   "start": {
                     "line": 145,
@@ -7529,8 +7582,13 @@
               "params": [],
               "body": {
                 "type": "BlockStatement",
+<<<<<<< HEAD
                 "start": 4126,
                 "end": 4174,
+=======
+                "start": 4000,
+                "end": 4172,
+>>>>>>> Remove trailing comma
                 "loc": {
                   "start": {
                     "line": 145,
@@ -7544,8 +7602,13 @@
                 "body": [
                   {
                     "type": "ReturnStatement",
+<<<<<<< HEAD
                     "start": 4132,
                     "end": 4170,
+=======
+                    "start": 4006,
+                    "end": 4168,
+>>>>>>> Remove trailing comma
                     "loc": {
                       "start": {
                         "line": 146,
@@ -7557,9 +7620,15 @@
                       }
                     },
                     "argument": {
+<<<<<<< HEAD
                       "type": "TemplateLiteral",
                       "start": 4139,
                       "end": 4169,
+=======
+                      "type": "LogicalExpression",
+                      "start": 4013,
+                      "end": 4167,
+>>>>>>> Remove trailing comma
                       "loc": {
                         "start": {
                           "line": 146,
@@ -7570,11 +7639,32 @@
                           "column": 41
                         }
                       },
+<<<<<<< HEAD
                       "expressions": [
                         {
                           "type": "MemberExpression",
                           "start": 4142,
                           "end": 4154,
+=======
+                      "left": {
+                        "type": "LogicalExpression",
+                        "start": 4013,
+                        "end": 4127,
+                        "loc": {
+                          "start": {
+                            "line": 141,
+                            "column": 11
+                          },
+                          "end": {
+                            "line": 143,
+                            "column": 36
+                          }
+                        },
+                        "left": {
+                          "type": "LogicalExpression",
+                          "start": 4013,
+                          "end": 4087,
+>>>>>>> Remove trailing comma
                           "loc": {
                             "start": {
                               "line": 146,
@@ -7585,10 +7675,17 @@
                               "column": 26
                             }
                           },
+<<<<<<< HEAD
                           "object": {
                             "type": "ThisExpression",
                             "start": 4142,
                             "end": 4146,
+=======
+                          "left": {
+                            "type": "BinaryExpression",
+                            "start": 4014,
+                            "end": 4043,
+>>>>>>> Remove trailing comma
                             "loc": {
                               "start": {
                                 "line": 146,
@@ -7598,6 +7695,7 @@
                                 "line": 146,
                                 "column": 18
                               }
+<<<<<<< HEAD
                             }
                           },
                           "property": {
@@ -7612,9 +7710,91 @@
                               "end": {
                                 "line": 146,
                                 "column": 26
+=======
+                            },
+                            "left": {
+                              "type": "MemberExpression",
+                              "start": 4014,
+                              "end": 4030,
+                              "loc": {
+                                "start": {
+                                  "line": 141,
+                                  "column": 12
+                                },
+                                "end": {
+                                  "line": 141,
+                                  "column": 28
+                                }
+                              },
+                              "object": {
+                                "type": "MemberExpression",
+                                "start": 4014,
+                                "end": 4026,
+                                "loc": {
+                                  "start": {
+                                    "line": 141,
+                                    "column": 12
+                                  },
+                                  "end": {
+                                    "line": 141,
+                                    "column": 24
+                                  }
+                                },
+                                "object": {
+                                  "type": "ThisExpression",
+                                  "start": 4014,
+                                  "end": 4018,
+                                  "loc": {
+                                    "start": {
+                                      "line": 141,
+                                      "column": 12
+                                    },
+                                    "end": {
+                                      "line": 141,
+                                      "column": 16
+                                    }
+                                  }
+                                },
+                                "property": {
+                                  "type": "Identifier",
+                                  "start": 4019,
+                                  "end": 4026,
+                                  "loc": {
+                                    "start": {
+                                      "line": 141,
+                                      "column": 17
+                                    },
+                                    "end": {
+                                      "line": 141,
+                                      "column": 24
+                                    },
+                                    "identifierName": "tzolkin"
+                                  },
+                                  "name": "tzolkin"
+                                },
+                                "computed": false
+                              },
+                              "property": {
+                                "type": "Identifier",
+                                "start": 4027,
+                                "end": 4030,
+                                "loc": {
+                                  "start": {
+                                    "line": 141,
+                                    "column": 25
+                                  },
+                                  "end": {
+                                    "line": 141,
+                                    "column": 28
+                                  },
+                                  "identifierName": "day"
+                                },
+                                "name": "day"
+>>>>>>> Remove trailing comma
                               },
                               "identifierName": "tzolkin"
                             },
+<<<<<<< HEAD
                             "name": "tzolkin"
                           },
                           "computed": false
@@ -7637,6 +7817,36 @@
                             "type": "ThisExpression",
                             "start": 4158,
                             "end": 4162,
+=======
+                            "operator": "===",
+                            "right": {
+                              "type": "Identifier",
+                              "start": 4035,
+                              "end": 4043,
+                              "loc": {
+                                "start": {
+                                  "line": 141,
+                                  "column": 33
+                                },
+                                "end": {
+                                  "line": 141,
+                                  "column": 41
+                                },
+                                "identifierName": "wildcard"
+                              },
+                              "name": "wildcard"
+                            },
+                            "extra": {
+                              "parenthesized": true,
+                              "parenStart": 4013
+                            }
+                          },
+                          "operator": "||",
+                          "right": {
+                            "type": "BinaryExpression",
+                            "start": 4055,
+                            "end": 4086,
+>>>>>>> Remove trailing comma
                             "loc": {
                               "start": {
                                 "line": 146,
@@ -7646,6 +7856,7 @@
                                 "line": 146,
                                 "column": 34
                               }
+<<<<<<< HEAD
                             }
                           },
                           "property": {
@@ -7660,9 +7871,109 @@
                               "end": {
                                 "line": 146,
                                 "column": 39
+=======
+                            },
+                            "left": {
+                              "type": "MemberExpression",
+                              "start": 4055,
+                              "end": 4073,
+                              "loc": {
+                                "start": {
+                                  "line": 142,
+                                  "column": 7
+                                },
+                                "end": {
+                                  "line": 142,
+                                  "column": 25
+                                }
+                              },
+                              "object": {
+                                "type": "MemberExpression",
+                                "start": 4055,
+                                "end": 4067,
+                                "loc": {
+                                  "start": {
+                                    "line": 142,
+                                    "column": 7
+                                  },
+                                  "end": {
+                                    "line": 142,
+                                    "column": 19
+                                  }
+                                },
+                                "object": {
+                                  "type": "ThisExpression",
+                                  "start": 4055,
+                                  "end": 4059,
+                                  "loc": {
+                                    "start": {
+                                      "line": 142,
+                                      "column": 7
+                                    },
+                                    "end": {
+                                      "line": 142,
+                                      "column": 11
+                                    }
+                                  }
+                                },
+                                "property": {
+                                  "type": "Identifier",
+                                  "start": 4060,
+                                  "end": 4067,
+                                  "loc": {
+                                    "start": {
+                                      "line": 142,
+                                      "column": 12
+                                    },
+                                    "end": {
+                                      "line": 142,
+                                      "column": 19
+                                    },
+                                    "identifierName": "tzolkin"
+                                  },
+                                  "name": "tzolkin"
+                                },
+                                "computed": false
+                              },
+                              "property": {
+                                "type": "Identifier",
+                                "start": 4068,
+                                "end": 4073,
+                                "loc": {
+                                  "start": {
+                                    "line": 142,
+                                    "column": 20
+                                  },
+                                  "end": {
+                                    "line": 142,
+                                    "column": 25
+                                  },
+                                  "identifierName": "coeff"
+                                },
+                                "name": "coeff"
+                              },
+                              "computed": false
+                            },
+                            "operator": "===",
+                            "right": {
+                              "type": "Identifier",
+                              "start": 4078,
+                              "end": 4086,
+                              "loc": {
+                                "start": {
+                                  "line": 142,
+                                  "column": 30
+                                },
+                                "end": {
+                                  "line": 142,
+                                  "column": 38
+                                },
+                                "identifierName": "wildcard"
+>>>>>>> Remove trailing comma
                               },
                               "identifierName": "haab"
                             },
+<<<<<<< HEAD
                             "name": "haab"
                           },
                           "computed": false
@@ -7673,6 +7984,19 @@
                           "type": "TemplateElement",
                           "start": 4140,
                           "end": 4140,
+=======
+                            "extra": {
+                              "parenthesized": true,
+                              "parenStart": 4054
+                            }
+                          }
+                        },
+                        "operator": "||",
+                        "right": {
+                          "type": "BinaryExpression",
+                          "start": 4098,
+                          "end": 4126,
+>>>>>>> Remove trailing comma
                           "loc": {
                             "start": {
                               "line": 146,
@@ -7683,16 +8007,140 @@
                               "column": 12
                             }
                           },
+<<<<<<< HEAD
                           "value": {
                             "raw": "",
                             "cooked": ""
+=======
+                          "left": {
+                            "type": "MemberExpression",
+                            "start": 4098,
+                            "end": 4113,
+                            "loc": {
+                              "start": {
+                                "line": 143,
+                                "column": 7
+                              },
+                              "end": {
+                                "line": 143,
+                                "column": 22
+                              }
+                            },
+                            "object": {
+                              "type": "MemberExpression",
+                              "start": 4098,
+                              "end": 4107,
+                              "loc": {
+                                "start": {
+                                  "line": 143,
+                                  "column": 7
+                                },
+                                "end": {
+                                  "line": 143,
+                                  "column": 16
+                                }
+                              },
+                              "object": {
+                                "type": "ThisExpression",
+                                "start": 4098,
+                                "end": 4102,
+                                "loc": {
+                                  "start": {
+                                    "line": 143,
+                                    "column": 7
+                                  },
+                                  "end": {
+                                    "line": 143,
+                                    "column": 11
+                                  }
+                                }
+                              },
+                              "property": {
+                                "type": "Identifier",
+                                "start": 4103,
+                                "end": 4107,
+                                "loc": {
+                                  "start": {
+                                    "line": 143,
+                                    "column": 12
+                                  },
+                                  "end": {
+                                    "line": 143,
+                                    "column": 16
+                                  },
+                                  "identifierName": "haab"
+                                },
+                                "name": "haab"
+                              },
+                              "computed": false
+                            },
+                            "property": {
+                              "type": "Identifier",
+                              "start": 4108,
+                              "end": 4113,
+                              "loc": {
+                                "start": {
+                                  "line": 143,
+                                  "column": 17
+                                },
+                                "end": {
+                                  "line": 143,
+                                  "column": 22
+                                },
+                                "identifierName": "month"
+                              },
+                              "name": "month"
+                            },
+                            "computed": false
+                          },
+                          "operator": "===",
+                          "right": {
+                            "type": "Identifier",
+                            "start": 4118,
+                            "end": 4126,
+                            "loc": {
+                              "start": {
+                                "line": 143,
+                                "column": 27
+                              },
+                              "end": {
+                                "line": 143,
+                                "column": 35
+                              },
+                              "identifierName": "wildcard"
+                            },
+                            "name": "wildcard"
+                          },
+                          "extra": {
+                            "parenthesized": true,
+                            "parenStart": 4097
+                          }
+                        }
+                      },
+                      "operator": "||",
+                      "right": {
+                        "type": "BinaryExpression",
+                        "start": 4138,
+                        "end": 4166,
+                        "loc": {
+                          "start": {
+                            "line": 144,
+                            "column": 7
+>>>>>>> Remove trailing comma
                           },
                           "tail": false
                         },
+<<<<<<< HEAD
                         {
                           "type": "TemplateElement",
                           "start": 4155,
                           "end": 4156,
+=======
+                        "left": {
+                          "type": "MemberExpression",
+                          "start": 4138,
+                          "end": 4153,
+>>>>>>> Remove trailing comma
                           "loc": {
                             "start": {
                               "line": 146,
@@ -7703,16 +8151,91 @@
                               "column": 28
                             }
                           },
+<<<<<<< HEAD
                           "value": {
                             "raw": " ",
                             "cooked": " "
+=======
+                          "object": {
+                            "type": "MemberExpression",
+                            "start": 4138,
+                            "end": 4147,
+                            "loc": {
+                              "start": {
+                                "line": 144,
+                                "column": 7
+                              },
+                              "end": {
+                                "line": 144,
+                                "column": 16
+                              }
+                            },
+                            "object": {
+                              "type": "ThisExpression",
+                              "start": 4138,
+                              "end": 4142,
+                              "loc": {
+                                "start": {
+                                  "line": 144,
+                                  "column": 7
+                                },
+                                "end": {
+                                  "line": 144,
+                                  "column": 11
+                                }
+                              }
+                            },
+                            "property": {
+                              "type": "Identifier",
+                              "start": 4143,
+                              "end": 4147,
+                              "loc": {
+                                "start": {
+                                  "line": 144,
+                                  "column": 12
+                                },
+                                "end": {
+                                  "line": 144,
+                                  "column": 16
+                                },
+                                "identifierName": "haab"
+                              },
+                              "name": "haab"
+                            },
+                            "computed": false
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 4148,
+                            "end": 4153,
+                            "loc": {
+                              "start": {
+                                "line": 144,
+                                "column": 17
+                              },
+                              "end": {
+                                "line": 144,
+                                "column": 22
+                              },
+                              "identifierName": "coeff"
+                            },
+                            "name": "coeff"
+>>>>>>> Remove trailing comma
                           },
                           "tail": false
                         },
+<<<<<<< HEAD
                         {
                           "type": "TemplateElement",
                           "start": 4168,
                           "end": 4168,
+=======
+                        "operator": "===",
+                        "right": {
+                          "type": "Identifier",
+                          "start": 4158,
+                          "end": 4166,
+>>>>>>> Remove trailing comma
                           "loc": {
                             "start": {
                               "line": 146,
@@ -7723,11 +8246,19 @@
                               "column": 40
                             }
                           },
+<<<<<<< HEAD
                           "value": {
                             "raw": "",
                             "cooked": ""
                           },
                           "tail": true
+=======
+                          "name": "wildcard"
+                        },
+                        "extra": {
+                          "parenthesized": true,
+                          "parenStart": 4137
+>>>>>>> Remove trailing comma
                         }
                       ]
                     }
@@ -7738,9 +8269,33 @@
               "leadingComments": [
                 {
                   "type": "CommentBlock",
+<<<<<<< HEAD
                   "value": "*\n   * Render the CalendarRound cycle fullDate as a string\n   * @returns {string}\n   ",
                   "start": 4023,
                   "end": 4112,
+=======
+                  "value": "*\n   * Return true, if this function has any wildcard portions.\n   * @return {boolean}\n   ",
+                  "start": 3890,
+                  "end": 3984,
+                  "loc": {
+                    "start": {
+                      "line": 136,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 139,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "CommentBlock",
+                  "value": "*\n   * Render the CalendarRound cycle date as a string\n   * @returns {string}\n   ",
+                  "start": 4176,
+                  "end": 4261,
+>>>>>>> Remove trailing comma
                   "loc": {
                     "start": {
                       "line": 141,
@@ -7753,6 +8308,7 @@
                   }
                 }
               ]
+<<<<<<< HEAD
             }
           ],
           "trailingComments": null
@@ -7831,6 +8387,17 @@
                 "start": {
                   "line": 151,
                   "column": 6
+=======
+            },
+            {
+              "type": "ClassMethod",
+              "start": 4264,
+              "end": 4457,
+              "loc": {
+                "start": {
+                  "line": 151,
+                  "column": 2
+>>>>>>> Remove trailing comma
                 },
                 "end": {
                   "line": 151,
@@ -7855,6 +8422,7 @@
                   "column": 20
                 }
               },
+<<<<<<< HEAD
               "properties": []
             },
             "leadingComments": null
@@ -8026,6 +8594,24 @@
                 "start": {
                   "line": 162,
                   "column": 2
+=======
+              "static": false,
+              "computed": false,
+              "key": {
+                "type": "Identifier",
+                "start": 4264,
+                "end": 4272,
+                "loc": {
+                  "start": {
+                    "line": 151,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 151,
+                    "column": 10
+                  },
+                  "identifierName": "toString"
+>>>>>>> Remove trailing comma
                 },
                 "end": {
                   "line": 162,
@@ -8034,9 +8620,15 @@
               },
               "declarations": [
                 {
+<<<<<<< HEAD
                   "type": "VariableDeclarator",
                   "start": 4528,
                   "end": 4592,
+=======
+                  "type": "Identifier",
+                  "start": 4273,
+                  "end": 4283,
+>>>>>>> Remove trailing comma
                   "loc": {
                     "start": {
                       "line": 162,
@@ -8047,6 +8639,7 @@
                       "column": 72
                     }
                   },
+<<<<<<< HEAD
                   "id": {
                     "type": "Identifier",
                     "start": 4528,
@@ -8068,6 +8661,30 @@
                     "type": "TemplateLiteral",
                     "start": 4535,
                     "end": 4592,
+=======
+                  "name": "is_numeric"
+                }
+              ],
+              "body": {
+                "type": "BlockStatement",
+                "start": 4285,
+                "end": 4457,
+                "loc": {
+                  "start": {
+                    "line": 151,
+                    "column": 23
+                  },
+                  "end": {
+                    "line": 157,
+                    "column": 3
+                  }
+                },
+                "body": [
+                  {
+                    "type": "IfStatement",
+                    "start": 4291,
+                    "end": 4410,
+>>>>>>> Remove trailing comma
                     "loc": {
                       "start": {
                         "line": 162,
@@ -8078,6 +8695,7 @@
                         "column": 72
                       }
                     },
+<<<<<<< HEAD
                     "expressions": [
                       {
                         "type": "Identifier",
@@ -8093,9 +8711,24 @@
                             "column": 30
                           },
                           "identifierName": "tzolkinCoeff"
+=======
+                    "test": {
+                      "type": "Identifier",
+                      "start": 4295,
+                      "end": 4305,
+                      "loc": {
+                        "start": {
+                          "line": 152,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 152,
+                          "column": 18
+>>>>>>> Remove trailing comma
                         },
                         "name": "tzolkinCoeff"
                       },
+<<<<<<< HEAD
                       {
                         "type": "Identifier",
                         "start": 4554,
@@ -8110,9 +8743,22 @@
                             "column": 44
                           },
                           "identifierName": "tzolkinDay"
+=======
+                      "name": "is_numeric"
+                    },
+                    "consequent": {
+                      "type": "BlockStatement",
+                      "start": 4307,
+                      "end": 4410,
+                      "loc": {
+                        "start": {
+                          "line": 152,
+                          "column": 20
+>>>>>>> Remove trailing comma
                         },
                         "name": "tzolkinDay"
                       },
+<<<<<<< HEAD
                       {
                         "type": "Identifier",
                         "start": 4568,
@@ -8161,6 +8807,331 @@
                           "end": {
                             "line": 162,
                             "column": 16
+=======
+                      "body": [
+                        {
+                          "type": "ReturnStatement",
+                          "start": 4315,
+                          "end": 4404,
+                          "loc": {
+                            "start": {
+                              "line": 153,
+                              "column": 6
+                            },
+                            "end": {
+                              "line": 154,
+                              "column": 22
+                            }
+                          },
+                          "argument": {
+                            "type": "TemplateLiteral",
+                            "start": 4322,
+                            "end": 4403,
+                            "loc": {
+                              "start": {
+                                "line": 153,
+                                "column": 13
+                              },
+                              "end": {
+                                "line": 154,
+                                "column": 21
+                              }
+                            },
+                            "expressions": [
+                              {
+                                "type": "CallExpression",
+                                "start": 4325,
+                                "end": 4358,
+                                "loc": {
+                                  "start": {
+                                    "line": 153,
+                                    "column": 16
+                                  },
+                                  "end": {
+                                    "line": 153,
+                                    "column": 49
+                                  }
+                                },
+                                "callee": {
+                                  "type": "MemberExpression",
+                                  "start": 4325,
+                                  "end": 4346,
+                                  "loc": {
+                                    "start": {
+                                      "line": 153,
+                                      "column": 16
+                                    },
+                                    "end": {
+                                      "line": 153,
+                                      "column": 37
+                                    }
+                                  },
+                                  "object": {
+                                    "type": "MemberExpression",
+                                    "start": 4325,
+                                    "end": 4337,
+                                    "loc": {
+                                      "start": {
+                                        "line": 153,
+                                        "column": 16
+                                      },
+                                      "end": {
+                                        "line": 153,
+                                        "column": 28
+                                      }
+                                    },
+                                    "object": {
+                                      "type": "ThisExpression",
+                                      "start": 4325,
+                                      "end": 4329,
+                                      "loc": {
+                                        "start": {
+                                          "line": 153,
+                                          "column": 16
+                                        },
+                                        "end": {
+                                          "line": 153,
+                                          "column": 20
+                                        }
+                                      }
+                                    },
+                                    "property": {
+                                      "type": "Identifier",
+                                      "start": 4330,
+                                      "end": 4337,
+                                      "loc": {
+                                        "start": {
+                                          "line": 153,
+                                          "column": 21
+                                        },
+                                        "end": {
+                                          "line": 153,
+                                          "column": 28
+                                        },
+                                        "identifierName": "tzolkin"
+                                      },
+                                      "name": "tzolkin"
+                                    },
+                                    "computed": false
+                                  },
+                                  "property": {
+                                    "type": "Identifier",
+                                    "start": 4338,
+                                    "end": 4346,
+                                    "loc": {
+                                      "start": {
+                                        "line": 153,
+                                        "column": 29
+                                      },
+                                      "end": {
+                                        "line": 153,
+                                        "column": 37
+                                      },
+                                      "identifierName": "toString"
+                                    },
+                                    "name": "toString"
+                                  },
+                                  "computed": false
+                                },
+                                "arguments": [
+                                  {
+                                    "type": "Identifier",
+                                    "start": 4347,
+                                    "end": 4357,
+                                    "loc": {
+                                      "start": {
+                                        "line": 153,
+                                        "column": 38
+                                      },
+                                      "end": {
+                                        "line": 153,
+                                        "column": 48
+                                      },
+                                      "identifierName": "is_numeric"
+                                    },
+                                    "name": "is_numeric"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "CallExpression",
+                                "start": 4362,
+                                "end": 4401,
+                                "loc": {
+                                  "start": {
+                                    "line": 153,
+                                    "column": 53
+                                  },
+                                  "end": {
+                                    "line": 154,
+                                    "column": 19
+                                  }
+                                },
+                                "callee": {
+                                  "type": "MemberExpression",
+                                  "start": 4362,
+                                  "end": 4380,
+                                  "loc": {
+                                    "start": {
+                                      "line": 153,
+                                      "column": 53
+                                    },
+                                    "end": {
+                                      "line": 153,
+                                      "column": 71
+                                    }
+                                  },
+                                  "object": {
+                                    "type": "MemberExpression",
+                                    "start": 4362,
+                                    "end": 4371,
+                                    "loc": {
+                                      "start": {
+                                        "line": 153,
+                                        "column": 53
+                                      },
+                                      "end": {
+                                        "line": 153,
+                                        "column": 62
+                                      }
+                                    },
+                                    "object": {
+                                      "type": "ThisExpression",
+                                      "start": 4362,
+                                      "end": 4366,
+                                      "loc": {
+                                        "start": {
+                                          "line": 153,
+                                          "column": 53
+                                        },
+                                        "end": {
+                                          "line": 153,
+                                          "column": 57
+                                        }
+                                      }
+                                    },
+                                    "property": {
+                                      "type": "Identifier",
+                                      "start": 4367,
+                                      "end": 4371,
+                                      "loc": {
+                                        "start": {
+                                          "line": 153,
+                                          "column": 58
+                                        },
+                                        "end": {
+                                          "line": 153,
+                                          "column": 62
+                                        },
+                                        "identifierName": "haab"
+                                      },
+                                      "name": "haab"
+                                    },
+                                    "computed": false
+                                  },
+                                  "property": {
+                                    "type": "Identifier",
+                                    "start": 4372,
+                                    "end": 4380,
+                                    "loc": {
+                                      "start": {
+                                        "line": 153,
+                                        "column": 63
+                                      },
+                                      "end": {
+                                        "line": 153,
+                                        "column": 71
+                                      },
+                                      "identifierName": "toString"
+                                    },
+                                    "name": "toString"
+                                  },
+                                  "computed": false
+                                },
+                                "arguments": [
+                                  {
+                                    "type": "Identifier",
+                                    "start": 4390,
+                                    "end": 4400,
+                                    "loc": {
+                                      "start": {
+                                        "line": 154,
+                                        "column": 8
+                                      },
+                                      "end": {
+                                        "line": 154,
+                                        "column": 18
+                                      },
+                                      "identifierName": "is_numeric"
+                                    },
+                                    "name": "is_numeric"
+                                  }
+                                ]
+                              }
+                            ],
+                            "quasis": [
+                              {
+                                "type": "TemplateElement",
+                                "start": 4323,
+                                "end": 4323,
+                                "loc": {
+                                  "start": {
+                                    "line": 153,
+                                    "column": 14
+                                  },
+                                  "end": {
+                                    "line": 153,
+                                    "column": 14
+                                  }
+                                },
+                                "value": {
+                                  "raw": "",
+                                  "cooked": ""
+                                },
+                                "tail": false
+                              },
+                              {
+                                "type": "TemplateElement",
+                                "start": 4359,
+                                "end": 4360,
+                                "loc": {
+                                  "start": {
+                                    "line": 153,
+                                    "column": 50
+                                  },
+                                  "end": {
+                                    "line": 153,
+                                    "column": 51
+                                  }
+                                },
+                                "value": {
+                                  "raw": ":",
+                                  "cooked": ":"
+                                },
+                                "tail": false
+                              },
+                              {
+                                "type": "TemplateElement",
+                                "start": 4402,
+                                "end": 4402,
+                                "loc": {
+                                  "start": {
+                                    "line": 154,
+                                    "column": 20
+                                  },
+                                  "end": {
+                                    "line": 154,
+                                    "column": 20
+                                  }
+                                },
+                                "value": {
+                                  "raw": "",
+                                  "cooked": ""
+                                },
+                                "tail": true
+                              }
+                            ]
+>>>>>>> Remove trailing comma
                           }
                         },
                         "value": {
@@ -8368,9 +9339,15 @@
                 },
                 "body": [
                   {
+<<<<<<< HEAD
                     "type": "ExpressionStatement",
                     "start": 4637,
                     "end": 4721,
+=======
+                    "type": "ReturnStatement",
+                    "start": 4415,
+                    "end": 4453,
+>>>>>>> Remove trailing comma
                     "loc": {
                       "start": {
                         "line": 164,
@@ -8381,10 +9358,17 @@
                         "column": 88
                       }
                     },
+<<<<<<< HEAD
                     "expression": {
                       "type": "AssignmentExpression",
                       "start": 4637,
                       "end": 4720,
+=======
+                    "argument": {
+                      "type": "TemplateLiteral",
+                      "start": 4422,
+                      "end": 4452,
+>>>>>>> Remove trailing comma
                       "loc": {
                         "start": {
                           "line": 164,
@@ -8395,6 +9379,7 @@
                           "column": 87
                         }
                       },
+<<<<<<< HEAD
                       "operator": "=",
                       "left": {
                         "type": "MemberExpression",
@@ -8431,6 +9416,13 @@
                           "type": "Identifier",
                           "start": 4647,
                           "end": 4651,
+=======
+                      "expressions": [
+                        {
+                          "type": "MemberExpression",
+                          "start": 4425,
+                          "end": 4437,
+>>>>>>> Remove trailing comma
                           "loc": {
                             "start": {
                               "line": 164,
@@ -8475,6 +9467,7 @@
                             },
                             "identifierName": "CalendarRound"
                           },
+<<<<<<< HEAD
                           "name": "CalendarRound"
                         },
                         "arguments": [
@@ -8482,6 +9475,12 @@
                             "type": "Identifier",
                             "start": 4673,
                             "end": 4685,
+=======
+                          "object": {
+                            "type": "ThisExpression",
+                            "start": 4425,
+                            "end": 4429,
+>>>>>>> Remove trailing comma
                             "loc": {
                               "start": {
                                 "line": 164,
@@ -8497,8 +9496,13 @@
                           },
                           {
                             "type": "Identifier",
+<<<<<<< HEAD
                             "start": 4687,
                             "end": 4697,
+=======
+                            "start": 4430,
+                            "end": 4437,
+>>>>>>> Remove trailing comma
                             "loc": {
                               "start": {
                                 "line": 164,
@@ -8508,14 +9512,38 @@
                                 "line": 164,
                                 "column": 64
                               },
+<<<<<<< HEAD
                               "identifierName": "tzolkinDay"
+=======
+                              "identifierName": "tzolkin"
+                            },
+                            "name": "tzolkin"
+                          },
+                          "computed": false
+                        },
+                        {
+                          "type": "MemberExpression",
+                          "start": 4441,
+                          "end": 4450,
+                          "loc": {
+                            "start": {
+                              "line": 156,
+                              "column": 30
+>>>>>>> Remove trailing comma
                             },
                             "name": "tzolkinDay"
                           },
+<<<<<<< HEAD
                           {
                             "type": "Identifier",
                             "start": 4699,
                             "end": 4708,
+=======
+                          "object": {
+                            "type": "ThisExpression",
+                            "start": 4441,
+                            "end": 4445,
+>>>>>>> Remove trailing comma
                             "loc": {
                               "start": {
                                 "line": 164,
@@ -8531,8 +9559,13 @@
                           },
                           {
                             "type": "Identifier",
+<<<<<<< HEAD
                             "start": 4710,
                             "end": 4719,
+=======
+                            "start": 4446,
+                            "end": 4450,
+>>>>>>> Remove trailing comma
                             "loc": {
                               "start": {
                                 "line": 164,
@@ -8542,7 +9575,66 @@
                                 "line": 164,
                                 "column": 86
                               },
+<<<<<<< HEAD
                               "identifierName": "haabMonth"
+=======
+                              "identifierName": "haab"
+                            },
+                            "name": "haab"
+                          },
+                          "computed": false
+                        }
+                      ],
+                      "quasis": [
+                        {
+                          "type": "TemplateElement",
+                          "start": 4423,
+                          "end": 4423,
+                          "loc": {
+                            "start": {
+                              "line": 156,
+                              "column": 12
+                            },
+                            "end": {
+                              "line": 156,
+                              "column": 12
+                            }
+                          },
+                          "value": {
+                            "raw": "",
+                            "cooked": ""
+                          },
+                          "tail": false
+                        },
+                        {
+                          "type": "TemplateElement",
+                          "start": 4438,
+                          "end": 4439,
+                          "loc": {
+                            "start": {
+                              "line": 156,
+                              "column": 27
+                            },
+                            "end": {
+                              "line": 156,
+                              "column": 28
+                            }
+                          },
+                          "value": {
+                            "raw": " ",
+                            "cooked": " "
+                          },
+                          "tail": false
+                        },
+                        {
+                          "type": "TemplateElement",
+                          "start": 4451,
+                          "end": 4451,
+                          "loc": {
+                            "start": {
+                              "line": 156,
+                              "column": 40
+>>>>>>> Remove trailing comma
                             },
                             "name": "haabMonth"
                           }
@@ -8553,6 +9645,7 @@
                 ],
                 "directives": []
               },
+<<<<<<< HEAD
               "alternate": null
             },
             {
@@ -8587,6 +9680,14 @@
                   "type": "Identifier",
                   "start": 4735,
                   "end": 4744,
+=======
+              "leadingComments": [
+                {
+                  "type": "CommentBlock",
+                  "value": "*\n   * Render the CalendarRound cycle date as a string\n   * @returns {string}\n   ",
+                  "start": 4176,
+                  "end": 4261,
+>>>>>>> Remove trailing comma
                   "loc": {
                     "start": {
                       "line": 166,
@@ -8644,8 +9745,13 @@
       },
       {
         "type": "ExpressionStatement",
+<<<<<<< HEAD
         "start": 4755,
         "end": 4789,
+=======
+        "start": 4461,
+        "end": 4492,
+>>>>>>> Remove trailing comma
         "loc": {
           "start": {
             "line": 169,
@@ -8658,8 +9764,13 @@
         },
         "expression": {
           "type": "AssignmentExpression",
+<<<<<<< HEAD
           "start": 4755,
           "end": 4788,
+=======
+          "start": 4461,
+          "end": 4491,
+>>>>>>> Remove trailing comma
           "loc": {
             "start": {
               "line": 169,
@@ -8673,8 +9784,13 @@
           "operator": "=",
           "left": {
             "type": "MemberExpression",
+<<<<<<< HEAD
             "start": 4755,
             "end": 4769,
+=======
+            "start": 4461,
+            "end": 4475,
+>>>>>>> Remove trailing comma
             "loc": {
               "start": {
                 "line": 169,
@@ -8687,8 +9803,13 @@
             },
             "object": {
               "type": "Identifier",
+<<<<<<< HEAD
               "start": 4755,
               "end": 4761,
+=======
+              "start": 4461,
+              "end": 4467,
+>>>>>>> Remove trailing comma
               "loc": {
                 "start": {
                   "line": 169,
@@ -8704,8 +9825,13 @@
             },
             "property": {
               "type": "Identifier",
+<<<<<<< HEAD
               "start": 4762,
               "end": 4769,
+=======
+              "start": 4468,
+              "end": 4475,
+>>>>>>> Remove trailing comma
               "loc": {
                 "start": {
                   "line": 169,
@@ -8723,8 +9849,13 @@
           },
           "right": {
             "type": "Identifier",
+<<<<<<< HEAD
             "start": 4772,
             "end": 4788,
+=======
+            "start": 4478,
+            "end": 4491,
+>>>>>>> Remove trailing comma
             "loc": {
               "start": {
                 "line": 169,
@@ -9429,6 +10560,7 @@
       }
     },
     {
+<<<<<<< HEAD
       "type": {
         "label": ";",
         "beforeExpr": true,
@@ -9443,6 +10575,12 @@
       },
       "start": 106,
       "end": 107,
+=======
+      "type": "CommentBlock",
+      "value": "*\n   * Return true, if this function has any wildcard portions.\n   * @return {boolean}\n   ",
+      "start": 3890,
+      "end": 3984,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 4,
@@ -9456,6 +10594,27 @@
     },
     {
       "type": "CommentBlock",
+<<<<<<< HEAD
+=======
+      "value": "*\n   * Render the CalendarRound cycle date as a string\n   * @returns {string}\n   ",
+      "start": 4176,
+      "end": 4261,
+      "loc": {
+        "start": {
+          "line": 147,
+          "column": 2
+        },
+        "end": {
+          "line": 150,
+          "column": 5
+        }
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "type": "CommentBlock",
+>>>>>>> Remove trailing comma
       "value": "* @ignore ",
       "start": 108,
       "end": 122,
@@ -24223,6 +25382,7 @@
     },
     {
       "type": {
+<<<<<<< HEAD
         "label": "name",
         "beforeExpr": false,
         "startsExpr": true,
@@ -24249,6 +25409,8 @@
     },
     {
       "type": {
+=======
+>>>>>>> Remove trailing comma
         "label": ")",
         "beforeExpr": false,
         "startsExpr": false,
@@ -24259,8 +25421,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4013,
       "end": 4014,
+=======
+      "start": 3880,
+      "end": 3881,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 138,
@@ -24285,8 +25452,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4014,
       "end": 4015,
+=======
+      "start": 3881,
+      "end": 3882,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 138,
@@ -24310,8 +25482,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4018,
       "end": 4019,
+=======
+      "start": 3885,
+      "end": 3886,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 139,
@@ -24325,9 +25502,15 @@
     },
     {
       "type": "CommentBlock",
+<<<<<<< HEAD
       "value": "*\n   * Render the CalendarRound cycle fullDate as a string\n   * @returns {string}\n   ",
       "start": 4023,
       "end": 4112,
+=======
+      "value": "*\n   * Return true, if this function has any wildcard portions.\n   * @return {boolean}\n   ",
+      "start": 3890,
+      "end": 3984,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 141,
@@ -24351,9 +25534,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "toString",
       "start": 4115,
       "end": 4123,
+=======
+      "value": "is_partial",
+      "start": 3987,
+      "end": 3997,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 145,
@@ -24377,8 +25566,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4123,
       "end": 4124,
+=======
+      "start": 3997,
+      "end": 3998,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 145,
@@ -24402,8 +25596,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4124,
       "end": 4125,
+=======
+      "start": 3998,
+      "end": 3999,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 145,
@@ -24427,8 +25626,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4126,
       "end": 4127,
+=======
+      "start": 4000,
+      "end": 4001,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 145,
@@ -24455,8 +25659,13 @@
         "updateContext": null
       },
       "value": "return",
+<<<<<<< HEAD
       "start": 4132,
       "end": 4138,
+=======
+      "start": 4006,
+      "end": 4012,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24480,8 +25689,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4139,
       "end": 4140,
+=======
+      "start": 4013,
+      "end": 4014,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24495,7 +25709,39 @@
     },
     {
       "type": {
+<<<<<<< HEAD
         "label": "template",
+=======
+        "label": "this",
+        "keyword": "this",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "this",
+      "start": 4014,
+      "end": 4018,
+      "loc": {
+        "start": {
+          "line": 141,
+          "column": 12
+        },
+        "end": {
+          "line": 141,
+          "column": 16
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+>>>>>>> Remove trailing comma
         "beforeExpr": false,
         "startsExpr": false,
         "rightAssociative": false,
@@ -24506,9 +25752,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "",
       "start": 4140,
       "end": 4140,
+=======
+      "start": 4018,
+      "end": 4019,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24532,8 +25783,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4140,
       "end": 4142,
+=======
+      "value": "tzolkin",
+      "start": 4019,
+      "end": 4026,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24559,9 +25816,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "this",
       "start": 4142,
       "end": 4146,
+=======
+      "start": 4026,
+      "end": 4027,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24577,6 +25839,35 @@
       "type": {
         "label": ".",
         "beforeExpr": false,
+<<<<<<< HEAD
+=======
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "day",
+      "start": 4027,
+      "end": 4030,
+      "loc": {
+        "start": {
+          "line": 141,
+          "column": 25
+        },
+        "end": {
+          "line": 141,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "==/!=",
+        "beforeExpr": true,
+>>>>>>> Remove trailing comma
         "startsExpr": false,
         "rightAssociative": false,
         "isLoop": false,
@@ -24586,8 +25877,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4146,
       "end": 4147,
+=======
+      "value": "===",
+      "start": 4031,
+      "end": 4034,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24611,9 +25908,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "tzolkin",
       "start": 4147,
       "end": 4154,
+=======
+      "value": "wildcard",
+      "start": 4035,
+      "end": 4043,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24637,8 +25940,65 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4154,
       "end": 4155,
+=======
+      "start": 4043,
+      "end": 4044,
+      "loc": {
+        "start": {
+          "line": 141,
+          "column": 41
+        },
+        "end": {
+          "line": 141,
+          "column": 42
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "||",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": 1,
+        "updateContext": null
+      },
+      "value": "||",
+      "start": 4045,
+      "end": 4047,
+      "loc": {
+        "start": {
+          "line": 141,
+          "column": 43
+        },
+        "end": {
+          "line": 141,
+          "column": 45
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 4054,
+      "end": 4055,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24663,9 +26023,15 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": " ",
       "start": 4155,
       "end": 4156,
+=======
+      "value": "this",
+      "start": 4055,
+      "end": 4059,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24689,8 +26055,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4156,
       "end": 4158,
+=======
+      "start": 4059,
+      "end": 4060,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24716,9 +26087,15 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "this",
       "start": 4158,
       "end": 4162,
+=======
+      "value": "tzolkin",
+      "start": 4060,
+      "end": 4067,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24743,8 +26120,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4162,
       "end": 4163,
+=======
+      "start": 4067,
+      "end": 4068,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24768,9 +26150,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "haab",
       "start": 4163,
       "end": 4167,
+=======
+      "value": "coeff",
+      "start": 4068,
+      "end": 4073,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24794,8 +26182,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4167,
       "end": 4168,
+=======
+      "value": "===",
+      "start": 4074,
+      "end": 4077,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24820,9 +26214,15 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "",
       "start": 4168,
       "end": 4168,
+=======
+      "value": "wildcard",
+      "start": 4078,
+      "end": 4086,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24846,8 +26246,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4168,
       "end": 4169,
+=======
+      "start": 4086,
+      "end": 4087,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24872,8 +26277,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4169,
       "end": 4170,
+=======
+      "value": "||",
+      "start": 4088,
+      "end": 4090,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 146,
@@ -24897,8 +26308,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4173,
       "end": 4174,
+=======
+      "start": 4097,
+      "end": 4098,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 147,
@@ -24922,8 +26338,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4175,
       "end": 4176,
+=======
+      "value": "this",
+      "start": 4098,
+      "end": 4102,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 148,
@@ -24965,9 +26387,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "const",
       "start": 4193,
       "end": 4198,
+=======
+      "start": 4102,
+      "end": 4103,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 151,
@@ -24991,9 +26418,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "singleton",
       "start": 4199,
       "end": 4208,
+=======
+      "value": "haab",
+      "start": 4103,
+      "end": 4107,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 151,
@@ -25018,9 +26451,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "=",
       "start": 4209,
       "end": 4210,
+=======
+      "start": 4107,
+      "end": 4108,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 151,
@@ -25044,8 +26482,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4211,
       "end": 4212,
+=======
+      "value": "month",
+      "start": 4108,
+      "end": 4113,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 151,
@@ -25069,8 +26513,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4212,
       "end": 4213,
+=======
+      "value": "===",
+      "start": 4114,
+      "end": 4117,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 151,
@@ -25095,8 +26545,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4213,
       "end": 4214,
+=======
+      "value": "wildcard",
+      "start": 4118,
+      "end": 4126,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 151,
@@ -25137,9 +26593,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "function",
       "start": 4444,
       "end": 4452,
+=======
+      "start": 4126,
+      "end": 4127,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 161,
@@ -25163,9 +26624,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "getCalendarRound",
       "start": 4453,
       "end": 4469,
+=======
+      "value": "||",
+      "start": 4128,
+      "end": 4130,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 161,
@@ -25189,8 +26656,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4469,
       "end": 4470,
+=======
+      "start": 4137,
+      "end": 4138,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 161,
@@ -25214,9 +26686,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "tzolkinCoeff",
       "start": 4470,
       "end": 4482,
+=======
+      "value": "this",
+      "start": 4138,
+      "end": 4142,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 161,
@@ -25241,8 +26719,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4482,
       "end": 4483,
+=======
+      "start": 4142,
+      "end": 4143,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 161,
@@ -25266,9 +26749,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "tzolkinDay",
       "start": 4484,
       "end": 4494,
+=======
+      "value": "haab",
+      "start": 4143,
+      "end": 4147,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 161,
@@ -25293,8 +26782,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4494,
       "end": 4495,
+=======
+      "start": 4147,
+      "end": 4148,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 161,
@@ -25318,9 +26812,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "haabCoeff",
       "start": 4496,
       "end": 4505,
+=======
+      "value": "coeff",
+      "start": 4148,
+      "end": 4153,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 161,
@@ -25345,8 +26845,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4505,
       "end": 4506,
+=======
+      "value": "===",
+      "start": 4154,
+      "end": 4157,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 161,
@@ -25370,9 +26876,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "haabMonth",
       "start": 4507,
       "end": 4516,
+=======
+      "value": "wildcard",
+      "start": 4158,
+      "end": 4166,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 161,
@@ -25396,8 +26908,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4516,
       "end": 4517,
+=======
+      "start": 4166,
+      "end": 4167,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 161,
@@ -25421,8 +26938,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4518,
       "end": 4519,
+=======
+      "start": 4167,
+      "end": 4168,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 161,
@@ -25448,9 +26970,30 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "const",
       "start": 4522,
       "end": 4527,
+=======
+      "start": 4171,
+      "end": 4172,
+      "loc": {
+        "start": {
+          "line": 145,
+          "column": 2
+        },
+        "end": {
+          "line": 145,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n   * Render the CalendarRound cycle date as a string\n   * @returns {string}\n   ",
+      "start": 4176,
+      "end": 4261,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25474,9 +27017,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "crId",
       "start": 4528,
       "end": 4532,
+=======
+      "value": "toString",
+      "start": 4264,
+      "end": 4272,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25501,9 +27050,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "=",
       "start": 4533,
       "end": 4534,
+=======
+      "start": 4272,
+      "end": 4273,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25527,8 +27081,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4535,
       "end": 4536,
+=======
+      "value": "is_numeric",
+      "start": 4273,
+      "end": 4283,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25553,9 +27113,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "",
       "start": 4536,
       "end": 4536,
+=======
+      "start": 4283,
+      "end": 4284,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25579,8 +27144,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4536,
       "end": 4538,
+=======
+      "start": 4285,
+      "end": 4286,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25596,6 +27166,36 @@
       "type": {
         "label": "name",
         "beforeExpr": false,
+<<<<<<< HEAD
+=======
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "if",
+      "start": 4291,
+      "end": 4293,
+      "loc": {
+        "start": {
+          "line": 152,
+          "column": 4
+        },
+        "end": {
+          "line": 152,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+>>>>>>> Remove trailing comma
         "startsExpr": true,
         "rightAssociative": false,
         "isLoop": false,
@@ -25604,9 +27204,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "tzolkinCoeff",
       "start": 4538,
       "end": 4550,
+=======
+      "start": 4294,
+      "end": 4295,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25630,8 +27235,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4550,
       "end": 4551,
+=======
+      "value": "is_numeric",
+      "start": 4295,
+      "end": 4305,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25656,9 +27267,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": " ",
       "start": 4551,
       "end": 4552,
+=======
+      "start": 4305,
+      "end": 4306,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25682,8 +27298,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4552,
       "end": 4554,
+=======
+      "start": 4307,
+      "end": 4308,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25707,9 +27328,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "tzolkinDay",
       "start": 4554,
       "end": 4564,
+=======
+      "value": "return",
+      "start": 4315,
+      "end": 4321,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25733,8 +27360,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4564,
       "end": 4565,
+=======
+      "start": 4322,
+      "end": 4323,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25759,9 +27391,15 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": " ",
       "start": 4565,
       "end": 4566,
+=======
+      "value": "",
+      "start": 4323,
+      "end": 4323,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25785,8 +27423,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4566,
       "end": 4568,
+=======
+      "start": 4323,
+      "end": 4325,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25810,9 +27453,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "haabCoeff",
       "start": 4568,
       "end": 4577,
+=======
+      "value": "this",
+      "start": 4325,
+      "end": 4329,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25836,8 +27485,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4577,
       "end": 4578,
+=======
+      "start": 4329,
+      "end": 4330,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25862,9 +27516,15 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": " ",
       "start": 4578,
       "end": 4579,
+=======
+      "value": "tzolkin",
+      "start": 4330,
+      "end": 4337,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25888,8 +27548,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4579,
       "end": 4581,
+=======
+      "start": 4337,
+      "end": 4338,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25913,9 +27578,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "haabMonth",
       "start": 4581,
       "end": 4590,
+=======
+      "value": "toString",
+      "start": 4338,
+      "end": 4346,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25939,8 +27610,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4590,
       "end": 4591,
+=======
+      "start": 4346,
+      "end": 4347,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25965,9 +27641,15 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "",
       "start": 4591,
       "end": 4591,
+=======
+      "value": "is_numeric",
+      "start": 4347,
+      "end": 4357,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -25991,8 +27673,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4591,
       "end": 4592,
+=======
+      "start": 4357,
+      "end": 4358,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -26017,8 +27704,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4592,
       "end": 4593,
+=======
+      "start": 4358,
+      "end": 4359,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 162,
@@ -26044,9 +27736,15 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "if",
       "start": 4596,
       "end": 4598,
+=======
+      "value": ":",
+      "start": 4359,
+      "end": 4360,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 163,
@@ -26070,8 +27768,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4599,
       "end": 4600,
+=======
+      "start": 4360,
+      "end": 4362,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 163,
@@ -26095,9 +27798,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "singleton",
       "start": 4600,
       "end": 4609,
+=======
+      "value": "this",
+      "start": 4362,
+      "end": 4366,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 163,
@@ -26122,8 +27831,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4609,
       "end": 4610,
+=======
+      "start": 4366,
+      "end": 4367,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 163,
@@ -26147,9 +27861,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "crId",
       "start": 4610,
       "end": 4614,
+=======
+      "value": "haab",
+      "start": 4367,
+      "end": 4371,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 163,
@@ -26174,8 +27894,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4614,
       "end": 4615,
+=======
+      "start": 4371,
+      "end": 4372,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 163,
@@ -26226,9 +27951,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "undefined",
       "start": 4620,
       "end": 4629,
+=======
+      "value": "toString",
+      "start": 4372,
+      "end": 4380,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 163,
@@ -26277,8 +28008,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4631,
       "end": 4632,
+=======
+      "start": 4380,
+      "end": 4381,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 163,
@@ -26302,9 +28038,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "singleton",
       "start": 4637,
       "end": 4646,
+=======
+      "value": "is_numeric",
+      "start": 4390,
+      "end": 4400,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26329,8 +28071,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4646,
       "end": 4647,
+=======
+      "start": 4400,
+      "end": 4401,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26354,9 +28101,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "crId",
       "start": 4647,
       "end": 4651,
+=======
+      "start": 4401,
+      "end": 4402,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26381,8 +28133,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4651,
       "end": 4652,
+=======
+      "value": "",
+      "start": 4402,
+      "end": 4402,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26407,9 +28165,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "=",
       "start": 4653,
       "end": 4654,
+=======
+      "start": 4402,
+      "end": 4403,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26435,9 +28198,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "new",
       "start": 4655,
       "end": 4658,
+=======
+      "start": 4403,
+      "end": 4404,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26461,9 +28229,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "CalendarRound",
       "start": 4659,
       "end": 4672,
+=======
+      "start": 4409,
+      "end": 4410,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26487,8 +28260,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4672,
       "end": 4673,
+=======
+      "value": "return",
+      "start": 4415,
+      "end": 4421,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26512,9 +28291,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "tzolkinCoeff",
       "start": 4673,
       "end": 4685,
+=======
+      "start": 4422,
+      "end": 4423,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26539,8 +28323,39 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4685,
       "end": 4686,
+=======
+      "value": "",
+      "start": 4423,
+      "end": 4423,
+      "loc": {
+        "start": {
+          "line": 156,
+          "column": 12
+        },
+        "end": {
+          "line": 156,
+          "column": 12
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "${",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 4423,
+      "end": 4425,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26564,9 +28379,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "tzolkinDay",
       "start": 4687,
       "end": 4697,
+=======
+      "value": "this",
+      "start": 4425,
+      "end": 4429,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26591,8 +28412,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4697,
       "end": 4698,
+=======
+      "start": 4429,
+      "end": 4430,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26616,9 +28442,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "haabCoeff",
       "start": 4699,
       "end": 4708,
+=======
+      "value": "tzolkin",
+      "start": 4430,
+      "end": 4437,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26643,8 +28475,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4708,
       "end": 4709,
+=======
+      "start": 4437,
+      "end": 4438,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26668,9 +28505,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "haabMonth",
       "start": 4710,
       "end": 4719,
+=======
+      "value": " ",
+      "start": 4438,
+      "end": 4439,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26694,8 +28537,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4719,
       "end": 4720,
+=======
+      "start": 4439,
+      "end": 4441,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26720,8 +28568,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4720,
       "end": 4721,
+=======
+      "value": "this",
+      "start": 4441,
+      "end": 4445,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 164,
@@ -26745,8 +28599,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4724,
       "end": 4725,
+=======
+      "start": 4445,
+      "end": 4446,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 165,
@@ -26772,9 +28631,15 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "return",
       "start": 4728,
       "end": 4734,
+=======
+      "value": "haab",
+      "start": 4446,
+      "end": 4450,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 166,
@@ -26798,9 +28663,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "singleton",
       "start": 4735,
       "end": 4744,
+=======
+      "start": 4450,
+      "end": 4451,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 166,
@@ -26825,8 +28695,14 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4744,
       "end": 4745,
+=======
+      "value": "",
+      "start": 4451,
+      "end": 4451,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 166,
@@ -26850,9 +28726,14 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "crId",
       "start": 4745,
       "end": 4749,
+=======
+      "start": 4451,
+      "end": 4452,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 166,
@@ -26877,8 +28758,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4749,
       "end": 4750,
+=======
+      "start": 4452,
+      "end": 4453,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 166,
@@ -26903,8 +28789,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4750,
       "end": 4751,
+=======
+      "start": 4456,
+      "end": 4457,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 166,
@@ -26928,8 +28819,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 4752,
       "end": 4753,
+=======
+      "start": 4458,
+      "end": 4459,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 167,
@@ -26954,8 +28850,13 @@
         "binop": null
       },
       "value": "module",
+<<<<<<< HEAD
       "start": 4755,
       "end": 4761,
+=======
+      "start": 4461,
+      "end": 4467,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 169,
@@ -26980,8 +28881,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4761,
       "end": 4762,
+=======
+      "start": 4467,
+      "end": 4468,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 169,
@@ -27006,8 +28912,13 @@
         "binop": null
       },
       "value": "exports",
+<<<<<<< HEAD
       "start": 4762,
       "end": 4769,
+=======
+      "start": 4468,
+      "end": 4475,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 169,
@@ -27033,8 +28944,13 @@
         "updateContext": null
       },
       "value": "=",
+<<<<<<< HEAD
       "start": 4770,
       "end": 4771,
+=======
+      "start": 4476,
+      "end": 4477,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 169,
@@ -27058,9 +28974,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "getCalendarRound",
       "start": 4772,
       "end": 4788,
+=======
+      "value": "CalendarRound",
+      "start": 4478,
+      "end": 4491,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 169,
@@ -27085,8 +29007,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4788,
       "end": 4789,
+=======
+      "start": 4491,
+      "end": 4492,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 169,
@@ -27111,8 +29038,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 4790,
       "end": 4790,
+=======
+      "start": 4493,
+      "end": 4493,
+>>>>>>> Remove trailing comma
       "loc": {
         "start": {
           "line": 170,

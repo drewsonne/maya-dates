@@ -179,6 +179,7 @@ class CalendarRound {
    * @return {CalendarRound}
    */
   shift(increment) {
+<<<<<<< HEAD
     const newHaab = this.haab.shift(increment);
     const newTzolkin = this.tzolkin.shift(increment);
     return getCalendarRound(
@@ -186,6 +187,24 @@ class CalendarRound {
       newTzolkin.day,
       newHaab.coeff,
       newHaab.month,
+=======
+    let new_cr = this.clone();
+    new_cr.haab = new_cr.haab.shift(increment);
+    new_cr.tzolkin = new_cr.tzolkin.shift(increment);
+    return new_cr;
+  }
+
+  /**
+   * Return a brand new object with the same configuration as this object.
+   * @return {CalendarRound}
+   */
+  clone() {
+    return new CalendarRound(
+      this.tzolkin.coeff,
+      this.tzolkin.day,
+      this.haab.coeff,
+      this.haab.month
+>>>>>>> Remove trailing comma
     );
   }
 

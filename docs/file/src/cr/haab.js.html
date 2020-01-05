@@ -233,6 +233,21 @@ class Haab {
   toString() {
     return `${this.coeff} ${this.name}`;
   }
+<<<<<<< HEAD
+=======
+
+  /**
+   * Return a brand new object with the same configuration as this object.
+   * @return {Haab}
+   */
+  clone() {
+    return new Haab(
+      this.coeff,
+      this.month
+    );
+  }
+
+>>>>>>> Remove trailing comma
 }
 
 
