@@ -129,7 +129,7 @@ class CalendarRound {
       this.tzolkin.coeff,
       this.tzolkin.day,
       this.haab.coeff,
-      this.haab.month,
+      this.haab.month
     );
   }
 
