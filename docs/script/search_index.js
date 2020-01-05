@@ -823,13 +823,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#bak_tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-bak_tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-bak_tun",
     "src/lc/long-count.js~LongCount#bak_tun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#bak_tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-bak_tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-bak_tun",
     "src/lc/long-count.js~LongCount#bak_tun",
     "member"
   ],
@@ -919,13 +919,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#kinchiltun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kinchiltun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kinchiltun",
     "src/lc/long-count.js~LongCount#kinchiltun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#kinchiltun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kinchiltun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kinchiltun",
     "src/lc/long-count.js~LongCount#kinchiltun",
     "member"
   ],
@@ -973,25 +973,25 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-tun",
-    "src/lc/long-count.js~LongCount#tun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#tun",
     "class/src/lc/long-count.js~LongCount.html#instance-get-tun",
     "src/lc/long-count.js~LongCount#tun",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#winal",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-winal",
-    "src/lc/long-count.js~LongCount#winal",
+    "src/lc/long-count.js~longcount#tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-tun",
+    "src/lc/long-count.js~LongCount#tun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#winal",
     "class/src/lc/long-count.js~LongCount.html#instance-get-winal",
+    "src/lc/long-count.js~LongCount#winal",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#winal",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-winal",
     "src/lc/long-count.js~LongCount#winal",
     "member"
   ],

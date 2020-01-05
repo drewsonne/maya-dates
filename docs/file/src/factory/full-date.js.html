@@ -52,13 +52,13 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/factory/full-date.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
-const Factory = require(&apos;./base&apos;)
+const Factory = require(&apos;./base&apos;);
 /** @ignore */
-const CalendarRoundFactory = require(&apos;./calendar-round&apos;)
+const CalendarRoundFactory = require(&apos;./calendar-round&apos;);
 /** @ignore */
-const LongCountFactory = require(&apos;./long-count&apos;)
+const LongCountFactory = require(&apos;./long-count&apos;);
 /** @ignore */
-const FullDate = require(&apos;../full-date&apos;)
+const FullDate = require(&apos;../full-date&apos;);
 
 /**
  * Given a date composed of a Long Count and a Calendar Round, create a
@@ -71,18 +71,18 @@ class FullDateFactory extends Factory {
    * @param {String} raw
    * @return {FullDate}
    */
-  parse (raw) {
-    raw = raw.replace(&apos;**&apos;, &apos;* *&apos;)
-    let cr = new CalendarRoundFactory().parse(raw)
-    let lc = new LongCountFactory().parse(raw)
+  parse(raw) {
+    raw = raw.replace(&apos;**&apos;, &apos;* *&apos;);
+    let cr = new CalendarRoundFactory().parse(raw);
+    let lc = new LongCountFactory().parse(raw);
     return new FullDate(
       cr,
       lc,
-    )
+    );
   }
 }
 
-module.exports = FullDateFactory
+module.exports = FullDateFactory;
 </code></pre>
 
 </div>
