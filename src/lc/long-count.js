@@ -35,6 +35,15 @@ class LongCount {
   }
 
   /**
+   * Given two long count dates, check if they are equal
+   * @param {LongCount} other
+   * @return {boolean}
+   */
+  equal(other) {
+    return `${this}` === `${other}`;
+  }
+
+  /**
    * Create a copy object of this long count date
    * @returns {LongCount}
    */
@@ -297,9 +306,11 @@ class LongCount {
 
     let date_length = significant_digits.length;
     if (date_length < 5) {
+      significant_digits = significant_digits.reverse();
       for (let i = 0; i < 5 - date_length; i++) {
         significant_digits.push(' 0');
       }
+      significant_digits = significant_digits.reverse();
     }
 
     for (let i = 0; i < significant_digits.length; i++) {
