@@ -10,13 +10,13 @@
  * > true
  */
 class Wildcard {
-  /**
-   * Represent the Wildcard as a string. ie, '*'.
-   * @returns {string}
-   */
-  toString () {
-    return '*'
-  }
+    /**
+     * Represent the Wildcard as a string. ie, '*'.
+     * @returns {string}
+     */
+    toString() {
+        return '*';
+    }
 }
 
-module.exports = new Wildcard()
+module.exports = new Wildcard();

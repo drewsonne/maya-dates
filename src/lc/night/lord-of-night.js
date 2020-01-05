@@ -8,24 +8,24 @@
  *  console.log(lord_of_night_g8_1 === lord_of_night_g8_2)
  */
 class LordOfNight {
-  /**
-   * @param {number} id
-   */
-  constructor (id) {
     /**
-     * Number of the Lord of the Night
-     * @type {number}
+     * @param {number} id
      */
-    this.id = id
-  }
+    constructor(id) {
+        /**
+         * Number of the Lord of the Night
+         * @type {number}
+         */
+        this.id = id;
+    }
 
-  /**
-   * Represent the Lord of the night as a string G1..G9.
-   * @return {string}
-   */
-  toString () {
-    return `G${this.id}`
-  }
+    /**
+     * Represent the Lord of the night as a string G1..G9.
+     * @return {string}
+     */
+    toString() {
+        return `G${this.id}`;
+    }
 }
 
 /**
@@ -33,19 +33,19 @@ class LordOfNight {
  * @param id
  * @return {LordOfNight}
  */
-function get (id) {
-  return lords_of_the_night[`${id}`]
+function get(id) {
+    return lords_of_the_night[`${id}`];
 }
 
 /** @ignore */
 const lords_of_the_night = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9,
+    1, 2, 3, 4, 5, 6, 7, 8, 9,
 ].reduce(function (obj, n) {
-  let lord = new LordOfNight(n)
-  obj[`${lord}`] = lord
-  return obj
+    let lord = new LordOfNight(n);
+    obj[`${lord}`] = lord;
+    return obj;
 }, {
-  'get': get,
-})
+    'get': get,
+});
 
-module.exports = lords_of_the_night
+module.exports = lords_of_the_night;
