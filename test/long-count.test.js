@@ -34,13 +34,13 @@ describe('parse long-count date', () => {
       expect(date.kalabtun).toBe(numeric_date[6])
       expect(date.kinchiltun).toBe(numeric_date[7])
 
-      expect(date._get_date_sections(0)).toBe(numeric_date[0])
-      expect(date._get_date_sections(4)).toBe(numeric_date[4])
-      expect(date._get_date_sections(10)).toBe(0)
+      expect(date.get_date_sections(0)).toBe(numeric_date[0])
+      expect(date.get_date_sections(4)).toBe(numeric_date[4])
+      expect(date.get_date_sections(10)).toBe(0)
 
       expect(date.toString()).toBe(expected)
 
-      date._set_date_sections(...modifiers)
+      date.set_date_sections(...modifiers)
 
       expect(date.toString()).toBe(expected_modified)
     },

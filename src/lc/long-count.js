@@ -47,7 +47,7 @@ class LongCount {
    * @param {number} index
    * @returns {number}
    */
-  _get_date_sections(index) {
+  get_date_sections(index) {
     let part = this.parts[index];
     if (part === undefined) {
       return 0;
@@ -62,7 +62,7 @@ class LongCount {
    * @returns {LongCount}
    * @private
    */
-  _set_date_sections(index, value) {
+  set_date_sections(index, value) {
     this.parts[index] = value.toString();
     this.raw = this.toString();
     return this;
@@ -81,7 +81,7 @@ class LongCount {
    * @returns {number}
    */
   set k_in(new_k_in) {
-    this._set_date_sections(0, new_k_in);
+    this.set_date_sections(0, new_k_in);
   }
 
   /**
@@ -89,7 +89,7 @@ class LongCount {
    * @returns {number}
    */
   get k_in() {
-    return this._get_date_sections(0);
+    return this.get_date_sections(0);
   }
 
   /**
@@ -97,7 +97,7 @@ class LongCount {
    * @returns {number}
    */
   set winal(new_winal) {
-    this._set_date_sections(1, new_winal);
+    this.set_date_sections(1, new_winal);
   }
 
   /**
@@ -105,7 +105,7 @@ class LongCount {
    * @returns {number}
    */
   get winal() {
-    return this._get_date_sections(1);
+    return this.get_date_sections(1);
   }
 
   /**
@@ -113,7 +113,7 @@ class LongCount {
    * @returns {number}
    */
   set tun(new_tun) {
-    this._set_date_sections(2, new_tun);
+    this.set_date_sections(2, new_tun);
   }
 
   /**
@@ -121,7 +121,7 @@ class LongCount {
    * @returns {number}
    */
   get tun() {
-    return this._get_date_sections(2);
+    return this.get_date_sections(2);
   }
 
   /**
@@ -129,7 +129,7 @@ class LongCount {
    * @returns {number}
    */
   set k_atun(new_k_atun) {
-    this._set_date_sections(3, new_k_atun);
+    this.set_date_sections(3, new_k_atun);
   }
 
   /**
@@ -137,7 +137,7 @@ class LongCount {
    * @returns {number}
    */
   get k_atun() {
-    return this._get_date_sections(3);
+    return this.get_date_sections(3);
   }
 
   /**
@@ -145,7 +145,7 @@ class LongCount {
    * @returns {number}
    */
   set bak_tun(new_bak_tun) {
-    this._set_date_sections(4, new_bak_tun);
+    this.set_date_sections(4, new_bak_tun);
   }
 
   /**
@@ -153,7 +153,7 @@ class LongCount {
    * @returns {number}
    */
   get bak_tun() {
-    return this._get_date_sections(4);
+    return this.get_date_sections(4);
   }
 
   /**
@@ -161,7 +161,7 @@ class LongCount {
    * @returns {number}
    */
   set piktun(new_bak_tun) {
-    this._set_date_sections(5, new_bak_tun);
+    this.set_date_sections(5, new_bak_tun);
   }
 
   /**
@@ -169,7 +169,7 @@ class LongCount {
    * @returns {number}
    */
   get piktun() {
-    return this._get_date_sections(5);
+    return this.get_date_sections(5);
   }
 
   /**
@@ -177,7 +177,7 @@ class LongCount {
    * @returns {number}
    */
   set kalabtun(new_bak_tun) {
-    this._set_date_sections(6, new_bak_tun);
+    this.set_date_sections(6, new_bak_tun);
   }
 
   /**
@@ -185,7 +185,7 @@ class LongCount {
    * @returns {number}
    */
   get kalabtun() {
-    return this._get_date_sections(6);
+    return this.get_date_sections(6);
   }
 
   /**
@@ -193,7 +193,7 @@ class LongCount {
    * @returns {number}
    */
   set kinchiltun(new_bak_tun) {
-    this._set_date_sections(7, new_bak_tun);
+    this.set_date_sections(7, new_bak_tun);
   }
 
   /**
@@ -201,7 +201,7 @@ class LongCount {
    * @returns {number}
    */
   get kinchiltun() {
-    return this._get_date_sections(7);
+    return this.get_date_sections(7);
   }
 
   /**
