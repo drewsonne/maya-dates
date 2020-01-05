@@ -52,9 +52,9 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/factory/calendar-round.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
-const Factory = require(&apos;./base&apos;)
+const Factory = require(&apos;./base&apos;);
 /** @ignore */
-const CalendarRound = require(&apos;../cr/calendar-round&apos;)
+const CalendarRound = require(&apos;../cr/calendar-round&apos;);
 
 /**
  * A factory to create a CalendarRound object from a string
@@ -66,13 +66,13 @@ class CalendarRoundFactory extends Factory {
   /**
    * Defines the pattern describing a Calendar Round
    */
-  constructor () {
-    super()
+  constructor() {
+    super();
     /**
      * Describes how to break the string into a Calendar Round
      * @type {RegExp}
      */
-    this.pattern = /([*\d]+)\s?([^\s]+)\s?([*\d]+)\s?([^\s]+)/
+    this.pattern = /([*\d]+)\s?([^\s]+)\s?([*\d]+)\s?([^\s]+)/;
   }
 
   /**
@@ -80,20 +80,20 @@ class CalendarRoundFactory extends Factory {
    * @param {string} raw - A string containing a Calendar Round
    * @returns {CalendarRound}
    */
-  parse (raw) {
-    let parts = this._split(raw)
+  parse(raw) {
+    let parts = this._split(raw);
     if (parts.length &lt; 4) {
-      return null
+      return null;
     } else {
       return new CalendarRound(
         parts[0], parts[1],
         parts[2], parts[3],
-      )
+      );
     }
   }
 }
 
-module.exports = CalendarRoundFactory
+module.exports = CalendarRoundFactory;
 </code></pre>
 
 </div>

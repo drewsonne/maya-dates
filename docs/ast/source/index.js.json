@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 200,
+  "end": 201,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 200,
+    "end": 201,
     "loc": {
       "start": {
         "line": 1,
@@ -31,7 +31,7 @@
       {
         "type": "ExpressionStatement",
         "start": 0,
-        "end": 199,
+        "end": 200,
         "loc": {
           "start": {
             "line": 1,
@@ -39,7 +39,7 @@
           },
           "end": {
             "line": 7,
-            "column": 1
+            "column": 2
           }
         },
         "expression": {
@@ -1658,6 +1658,32 @@
     },
     {
       "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 199,
+      "end": 200,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 2
+        }
+      }
+    },
+    {
+      "type": {
         "label": "eof",
         "beforeExpr": false,
         "startsExpr": false,
@@ -1669,8 +1695,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 200,
-      "end": 200,
+      "start": 201,
+      "end": 201,
       "loc": {
         "start": {
           "line": 8,
