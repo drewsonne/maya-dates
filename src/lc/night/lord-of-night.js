@@ -30,7 +30,7 @@ class LordOfNight {
 
 /**
  * Return a Lord of the Night by its G id.
- * @param id
+ * @param {string} id - Has the form 'G1', 'G2', etc.
  * @return {LordOfNight}
  */
 function get(id) {

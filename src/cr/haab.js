@@ -13,7 +13,7 @@ const wildcard = require('../wildcard');
 class Haab {
   /**
    * Constructor
-   * @param {number|Wildcard} coeff - The position in the Haab month for this date
+   * @param {number|Wildcard|string} coeff - The position in the Haab month for this date
    * @param {string|HaabMonth|Wildcard} month
    */
   constructor(coeff, month) {
@@ -101,7 +101,7 @@ class Haab {
 
   /**
    * Return a string representation of the Haab month name
-   * @returns {string}
+   * @returns {string|Wildcard}
    */
   get name() {
     if (this.month === wildcard) {
@@ -166,7 +166,7 @@ class HaabMonth {
   constructor(name) {
 
     /**
-     * @type {Map<number, string>}
+     * @type {string[]}
      */
     this.months = [
       undefined,

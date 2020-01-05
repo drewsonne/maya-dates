@@ -24,7 +24,7 @@ class LongCountWildcard {
     let potentials = [this.lc];
     let wildcard_positions = [];
     for (let i = 0; i < this.lc.length; i++) {
-      if (this.lc._get_date_sections(i) === wildcard) {
+      if (this.lc.get_date_sections(i) === wildcard) {
         wildcard_positions.push(i);
       }
     }
@@ -33,7 +33,7 @@ class LongCountWildcard {
       let iterations = (position === 1) ? 15 : 20;
       for (let possible of potentials) {
         for (let k = 0; k < iterations; k++) {
-          let new_lc = possible.clone()._set_date_sections(position, k);
+          let new_lc = possible.clone().set_date_sections(position, k);
           new_potentials.push(new_lc);
         }
       }

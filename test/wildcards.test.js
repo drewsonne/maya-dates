@@ -13,8 +13,8 @@ test('parse long-count date', () => {
   expect(date.k_atun).toBe(2)
   expect(date.bak_tun).toBe(1)
 
-  expect(date._get_date_sections(0)).toBe(5)
-  expect(date._get_date_sections(4)).toBe(1)
+  expect(date.get_date_sections(0)).toBe(5)
+  expect(date.get_date_sections(4)).toBe(1)
 
   expect(date.toString()).toBe(' 1. 2. *. 4. 5')
 })
