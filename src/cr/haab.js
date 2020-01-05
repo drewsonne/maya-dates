@@ -150,7 +150,7 @@ class Haab {
   clone() {
     return new Haab(
       this.coeff,
-      this.month,
+      this.month
     );
   }
 
