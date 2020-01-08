@@ -24,7 +24,7 @@ class FullDateFactory extends Factory {
     let lc = new LongCountFactory().parse(raw);
     return new FullDate(
       cr,
-      lc,
+      lc
     );
   }
 }

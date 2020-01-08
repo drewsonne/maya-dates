@@ -22,7 +22,7 @@ class Factory {
    */
   _split(raw) {
     let matches = raw.match(
-      this.pattern,
+      this.pattern
     );
     if (matches === null) {
       return [];

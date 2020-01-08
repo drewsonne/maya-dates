@@ -12,7 +12,7 @@ describe('compute missing lc wildcard', () => {
       let partial_date = lc_factory.parse(lc);
       let potential_lcs = new mayadates.op.LongCountWildcard(partial_date).run();
       expect(potential_lcs.length).toBe(expected);
-    },
+    }
   );
 });
 
@@ -42,7 +42,7 @@ describe('partial matcher', () => {
   let wc = mayadates.wildcard;
   let full_date = new mayadates.cr.CalendarRound(
     4, 'Ajaw',
-    8, 'Kumk\'u',
+    8, 'Kumk\'u'
   );
   let find_wildcard = new mayadates.op.CalendarRoundWildcard();
   let partial_dates = [

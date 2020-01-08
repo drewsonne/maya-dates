@@ -219,7 +219,7 @@ class LongCount {
    */
   get lord_of_night() {
     return night.get(
-      `G${((this.get_position() - 1) % 9) + 1}`,
+      `G${((this.get_position() - 1) % 9) + 1}`
     );
   }
 
@@ -269,7 +269,7 @@ class LongCount {
    */
   build_calendar_round() {
     return origin.shift(
-      this.get_position(),
+      this.get_position()
     );
   }
 
@@ -280,7 +280,7 @@ class LongCount {
   build_full_date() {
     return new FullDate(
       this.build_calendar_round(),
-      this.clone(),
+      this.clone()
     );
   }
 

@@ -33,7 +33,7 @@ describe('modify long-count date', () => {
     '%s -> %s; %s -> %s',
     (
       numeric_date, expected,
-      modifiers, expected_modified,
+      modifiers, expected_modified
     ) => {
       let date = new mayadates.lc.LongCount(...numeric_date);
 
@@ -57,7 +57,7 @@ describe('modify long-count date', () => {
       date.set_date_sections(...modifiers);
 
       expect(date.toString()).toBe(expected_modified);
-    },
+    }
   );
 
 });
@@ -105,6 +105,6 @@ describe('test lord of night glyphs', () => {
       expect(lc.lord_of_night).toBe(lord_of_night);
       expect(lc.lord_of_night).not.toBeUndefined();
       expect(`${lc.lord_of_night}`).toBe(id);
-    },
+    }
   );
 });
