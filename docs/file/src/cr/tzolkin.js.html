@@ -13,10 +13,10 @@
 
 <header>
   <a href="./">Home</a>
-  
+
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-  
+
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -28,7 +28,7 @@
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
-    
+
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
@@ -55,7 +55,7 @@
 const wildcard = require(&apos;../wildcard&apos;);
 
 /**
- * Describes a date in the 260-day cycle with a position and a day
+ * Describes a fullDate in the 260-day cycle with a position and a day
  * @example
  *    let day = new Tzolkin(4, &quot;Ajaw&quot;);
  *
@@ -179,7 +179,7 @@ class Tzolkin {
   }
 
   /**
-   * Render the 260-day cycle date as a string
+   * Render the 260-day cycle fullDate as a string
    * @returns {string}
    */
   toString(is_numeric) {

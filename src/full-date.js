@@ -25,7 +25,6 @@ class FullDate {
   toString() {
     return `${this.cr} ${this.lc}`;
   }
-
 }
 
 module.exports = FullDate;

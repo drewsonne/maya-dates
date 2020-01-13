@@ -1,7 +1,7 @@
 /** @ignore */
 const Factory = require('./base');
 /** @ignore */
-const CalendarRound = require('../cr/calendar-round');
+const getCalendarRound = require('../cr/calendar-round');
 
 /**
  * A factory to create a CalendarRound object from a string
@@ -28,15 +28,14 @@ class CalendarRoundFactory extends Factory {
    * @returns {CalendarRound}
    */
   parse(raw) {
-    let parts = this._split(raw);
+    const parts = this.split(raw);
     if (parts.length < 4) {
       return null;
-    } else {
-      return new CalendarRound(
-        parts[0], parts[1],
-        parts[2], parts[3],
-      );
     }
+    return getCalendarRound(
+      parts[0], parts[1],
+      parts[2], parts[3],
+    );
   }
 }
 

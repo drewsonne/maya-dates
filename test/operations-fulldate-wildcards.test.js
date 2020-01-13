@@ -1,67 +1,69 @@
-const mayadates = require('../src/index')
-const wildcard = mayadates.wildcard
+const mayadates = require('../src/index');
+
+const { wildcard } = mayadates;
 
 describe('complex wildcard parsing', () => {
-  let partial_dates = [
+  const partialDates = [
     '1 Ok * * 9.*.10.10.10',
     '1Ok * * 9.*.10.10.10',
     '1 Ok ** 9.*.10.10.10',
     '1Ok ** 9.*.10.10.10',
-  ]
-  test.each(partial_dates)(
+  ];
+  it.each(partialDates)(
     '%s',
-    (partial_date) => {
-      let full_date = new mayadates.factory.FullDateFactory().parse(
-        partial_date,
-      )
-      expect(full_date.cr.tzolkin.coeff).toBe(1)
-      expect(full_date.cr.tzolkin.name).toBe('Ok')
-      expect(full_date.cr.haab.coeff).toBe(wildcard)
-      expect(full_date.cr.haab.name).toBe(wildcard)
-      expect(full_date.lc.k_in).toBe(10)
-      expect(full_date.lc.winal).toBe(10)
-      expect(full_date.lc.tun).toBe(10)
-      expect(full_date.lc.k_atun).toBe(wildcard)
-      expect(full_date.lc.bak_tun).toBe(9)
-    })
-})
+    (partialDate) => {
+      const fullDate = new mayadates.factory.FullDateFactory().parse(
+        partialDate,
+      );
+      expect(fullDate.cr.tzolkin.coeff).toBe(1);
+      expect(fullDate.cr.tzolkin.name).toBe('Ok');
+      expect(fullDate.cr.haab.coeff).toBe(wildcard);
+      expect(fullDate.cr.haab.name).toBe(wildcard);
+      expect(fullDate.lc.kIn).toBe(10);
+      expect(fullDate.lc.winal).toBe(10);
+      expect(fullDate.lc.tun).toBe(10);
+      expect(fullDate.lc.kAtun).toBe(wildcard);
+      expect(fullDate.lc.bakTun).toBe(9);
+    },
+  );
+});
 
 describe('complex wildcard inference', () => {
-  let partial_dates = [
+  const partialDates = [
     ['11 Ok 18 Muwan 9.*.*.*.10', 7],
     ['* Ok * Mak 9.*.10.10.10', 2],
     ['1 Ok 13 * 9.*.10.10.10', 1],
     ['* * 18 Muwan 9.*.*.10.10', 6],
-  ]
-  test.each(partial_dates)(
+  ];
+  it.each(partialDates)(
     'len(%s) = %s',
-    (partial_date, expected) => {
-      let full_date_partial = new mayadates.factory.FullDateFactory().parse(
-        partial_date,
-      )
-      let potential_dates = new mayadates.op.
-        FullDateWildcard(full_date_partial).run()
-      expect(potential_dates.length).toBe(expected)
-    })
-})
+    (partialDate, expected) => {
+      const fullDatePartial = new mayadates.factory.FullDateFactory().parse(
+        partialDate,
+      );
+      const potentialDates = new mayadates.op.FullDateWildcard(fullDatePartial).run();
+      expect(potentialDates).toHaveLength(expected);
+    },
+  );
+});
 
 describe('single cr alignment', () => {
-  let full_dates = [
+  const fullDates = [
     ['* Imix 9 K\'ank\'in 13.0.7.2.1', [4, 'Imix', 9, 'K\'ank\'in']],
     ['* * 9 K\'ank\'in 13.0.7.2.1', [4, 'Imix', 9, 'K\'ank\'in']],
     ['* * * K\'ank\'in 13.0.7.2.1', [4, 'Imix', 9, 'K\'ank\'in']],
     ['* * * * 13.0.7.2.1', [4, 'Imix', 9, 'K\'ank\'in']],
-  ]
-  test.each(full_dates)('%s -> %s', (raw, expected) => {
-    let fd_factory = new mayadates.factory.FullDateFactory()
-    let potential_dates = new mayadates.op.FullDateWildcard(
-      fd_factory.parse(raw),
-    ).run()
+  ];
+  it.each(fullDates)('%s -> %s', (raw, expected) => {
+    const fdFactory = new mayadates.factory.FullDateFactory();
+    const potentialDates = new mayadates.op.FullDateWildcard(
+      fdFactory.parse(raw),
+    ).run();
 
-    expect(potential_dates.length).toBe(1)
-    expect(potential_dates[0].cr.tzolkin.coeff).toBe(expected[0])
-    expect(potential_dates[0].cr.tzolkin.name).toBe(expected[1])
-    expect(potential_dates[0].cr.haab.coeff).toBe(expected[2])
-    expect(potential_dates[0].cr.haab.name).toBe(expected[3])
-  })
-})
+    expect(potentialDates).toHaveLength(1);
+    expect(potentialDates[0].cr.tzolkin.coeff).toBe(expected[0]);
+    expect(potentialDates[0].cr.tzolkin.name).toBe(expected[1]);
+    expect(potentialDates[0].cr.haab.coeff).toBe(expected[2]);
+    expect(potentialDates[0].cr.haab.name).toBe(expected[3]);
+  });
+});

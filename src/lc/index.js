@@ -1,4 +1,7 @@
+const LongCount = require('./long-count');
+const LordOfNight = require('./night/lord-of-night');
+
 module.exports = {
-  'LongCount': require('./long-count'),
-  'night': require('./night/lord-of-night'),
+  LongCount,
+  night: LordOfNight,
 };

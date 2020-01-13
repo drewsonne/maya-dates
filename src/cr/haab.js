@@ -1,8 +1,22 @@
 /** @ignore */
 const wildcard = require('../wildcard');
+// const {HaabMonth} = require('./haab-month');
+const {getHaabMonth} = require('./haab-month');
+
+
+const singleton = {};
+
+function getHaab(coeff, month) {
+  const monthName = `${coeff} ${month}`;
+  // const monthName = (typeof name === 'number') ? months[name] : name;
+  if (singleton[monthName] === undefined) {
+    singleton[monthName] = new Haab(coeff, month);
+  }
+  return singleton[monthName];
+}
 
 /**
- * Describes a Haab date with a position and a month
+ * Describes a Haab fullDate with a position and a month
  * @example
  *    let day = new Haab(8, "Kumk'u");
  *
@@ -13,30 +27,35 @@ const wildcard = require('../wildcard');
 class Haab {
   /**
    * Constructor
-   * @param {number|Wildcard|string} coeff - The position in the Haab month for this date
+   * @param {number|Wildcard|string} coeff - The position in the Haab month for this fullDate
    * @param {string|HaabMonth|Wildcard} month
    */
   constructor(coeff, month) {
+    let newCoeff = coeff;
     if (coeff === '*') {
-      coeff = wildcard;
+      newCoeff = wildcard;
     } else if (coeff !== wildcard) {
-      coeff = parseInt(coeff);
+      newCoeff = parseInt(newCoeff, 10);
     }
+    let newMonth = month;
     if (typeof month === 'string') {
       if (month === '*') {
-        month = wildcard;
+        newMonth = wildcard;
       } else {
-        month = new HaabMonth(month);
+        newMonth = getHaabMonth(month);
+        // newMonth = new HaabMonth(month);
       }
     }
     /**
      * @type {HaabMonth|Wildcard}
      */
-    this.month = month;
+    this.month = newMonth;
     /**
      * @type {number|Wildcard}
      */
-    this.coeff = coeff;
+    this.coeff = newCoeff;
+
+    this.private_next = undefined;
 
     this.validate();
   }
@@ -47,13 +66,13 @@ class Haab {
    */
   validate() {
     if (this.coeff > 19 || this.coeff < 0) {
-      throw 'Haab\' coefficient must inclusively between 0 and 19.';
+      throw new Error('Haab\' coefficient must inclusively between 0 and 19.');
     }
-    if (this.name === 'Wayeb' && this.coeff > 4) {
-      throw 'Haab\' coefficient for Wayeb must inclusively between 0 and 4.';
+    if (this.month === getHaabMonth('Wayeb') && this.coeff > 4) {
+      throw new Error('Haab\' coefficient for Wayeb must inclusively between 0 and 4.');
     }
     if (this.month === undefined) {
-      throw 'Haab\' month must be provided';
+      throw new Error('Haab\' month must be provided');
     }
     if (this.month !== wildcard) {
       this.month.validate();
@@ -73,29 +92,28 @@ class Haab {
   /**
    * Ensure this Haab object has the same configuration as another Haab object.
    * Does not take wildcards into account.
-   * @param {Haab} new_haab
+   * @param {Haab} newHaab
    * @return {boolean}
    */
-  equal(new_haab) {
-    return (this.coeff === new_haab.coeff) &&
-      (this.name === new_haab.name);
+  equal(newHaab) {
+    return this === newHaab;
   }
 
   /**
    * Ensure this Haab object has a matching configuration as another Haab object.
    * Takes wildcards into account.
-   * @param {Haab} new_haab
+   * @param {Haab} newHaab
    * @return {boolean}
    */
-  match(new_haab) {
+  match(newHaab) {
     return (
-      (this.coeff === wildcard || new_haab.coeff === wildcard) ?
-        true :
-        (this.coeff === new_haab.coeff)
+      (this.coeff === wildcard || newHaab.coeff === wildcard)
+        ? true
+        : (this.coeff === newHaab.coeff)
     ) && (
-      (this.month === wildcard || new_haab.month === wildcard) ?
-        true :
-        (this.name === new_haab.name)
+      (this.month === wildcard || newHaab.month === wildcard)
+        ? true
+        : (this.name === newHaab.name)
     );
   }
 
@@ -112,32 +130,35 @@ class Haab {
 
   /**
    *
-   * @param {number} incremental
+   * @param {number} newIncremental
    */
-  shift(incremental) {
-    let new_date = this.clone();
-    while (incremental > 0) {
-      let month_length = (new_date.name === this.month.months[19]) ? 5 : 20;
-      if (incremental + new_date.coeff >= month_length) {
-        let distance_to_month_end = month_length - new_date.coeff;
-        new_date.coeff = 0;
-        new_date.month = new_date.month.shift(1);
-        incremental -= distance_to_month_end;
+  shift(newIncremental) {
+    const incremental = newIncremental % 365;
+    if (this.private_next === undefined) {
+      if (incremental > 0) {
+        const monthLength = (this.month === getHaabMonth(19)) ? 5 : 20;
+        if (1 + this.coeff >= monthLength) {
+          const newMonth = this.month.shift(1);
+          this.private_next = getHaab(0, newMonth);
+        } else {
+          this.private_next = getHaab(this.coeff + 1, this.month);
+        }
       } else {
-        new_date.coeff += incremental;
-        incremental = 0;
+        return this;
       }
     }
-    new_date.validate();
-    return new_date;
+    if (incremental === 0) {
+      return this;
+    }
+    return this.private_next.shift(incremental - 1);
   }
 
   /**
-   * Render the Haab date as a string
+   * Render the Haab fullDate as a string
    * @returns {string}
    */
-  toString(is_numeric) {
-    if (is_numeric) {
+  toString(isNumeric) {
+    if (isNumeric) {
       return `${this.coeff}:${this.month.month_position}`;
     }
     return `${this.coeff} ${this.name}`;
@@ -150,99 +171,13 @@ class Haab {
   clone() {
     return new Haab(
       this.coeff,
-      this.month
+      this.month,
     );
   }
-
 }
 
-/**
- * Describes only the month component of a Haab date
- */
-class HaabMonth {
-  /**
-   * @param {string} name - Name of the Haab month
-   */
-  constructor(name) {
-
-    /**
-     * @type {string[]}
-     */
-    this.months = [
-      undefined,
-      'Pop',
-      'Wo',
-      'Sip',
-      'Sotz\'',
-      'Sek',
-      'Xul',
-      'Yaxk\'in',
-      'Mol',
-      'Ch\'en',
-      'Yax',
-      'Sak',
-      'Keh',
-      'Mak',
-      'K\'ank\'in',
-      'Muwan',
-      'Pax',
-      'K\'ayab',
-      'Kumk\'u',
-      'Wayeb',
-    ];
-
-    if (typeof name === 'number') {
-      name = this.months[name];
-    }
-
-    /**
-     * Name of the Haab month
-     * @type {string}
-     */
-    this.name = name;
-
-    /**
-     * @type {number}
-     */
-    this.month_position = this.months.findIndex(
-      m => m === this.name);
-  }
-
-  /**
-   * Return the next month in the Haab cycle
-   * @returns {HaabMonth}
-   */
-  next() {
-    return this.shift(1);
-  }
-
-  /**
-   * Ensure a Haab month name is defined, and that the month name is within the
-   * set of allowable values.
-   */
-  validate() {
-    if (this.name === undefined) {
-      throw 'Haab\' month name must be provided';
-    }
-    if (!this.months.includes(this.name)) {
-      throw `Haab' day (${this.name}) must be in ${this.months}`;
-    }
-  }
-
-  /**
-   * Shift a HaabMonth date forward through time. Does not modify this
-   * object and will return a new object.
-   * @param {number} increment - Number of months to move forward
-   * @return {HaabMonth}
-   */
-  shift(increment) {
-    let new_incremental = (this.month_position + increment) % 19;
-    new_incremental = (new_incremental === 0) ? 19 : new_incremental;
-    return new HaabMonth(new_incremental);
-  }
-}
 
 module.exports = {
-  'Haab': Haab,
-  'HaabMonth': HaabMonth,
+  getHaab,
+  getHaabMonth,
 };

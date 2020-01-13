@@ -19,36 +19,24 @@ class LongCountFactory extends Factory {
    * @param {string} raw - A string containing a Long Count
    * @returns {LongCount}
    */
+  // eslint-disable-next-line class-methods-use-this
   parse(raw) {
-    let parts = raw.split('.');
-    if (parts.length < 5) {
-      parts = parts.reverse();
-      for (let i = 0; i < 5; i++) {
-        if (parts[i] === undefined) {
-          parts[i] = '0';
-        }
-      }
-      parts = parts.reverse();
+    const dates = raw.match(/(?:(?:\*|(?:[\d]{1,2}))\.){1,}(?:(?:\*)|(?:[\d]{1,2}))/);
+    if (dates.length !== 1) {
+      return null;
     }
-    for (let i = 0; i < parts.length; i++) {
-      if (i === 0) {
-        if (parts[i].indexOf(' ') >= 0) {
-          let first_parts = parts[i].split(' ');
-          parts[i] = first_parts[first_parts.length - 1];
-        }
-      } else if (i === (parts.length - 1)) {
-        if (parts[i].indexOf(' ') >= 0) {
-          let first_parts = parts[i].split(' ');
-          parts[i] = first_parts[0];
-        }
-      }
-      if (parts[i] === '*') {
-        parts[i] = wildcard;
-      } else {
-        parts[i] = parseInt(parts[i]);
-      }
-    }
-    return new LongCount(...parts.reverse());
+
+    const parts = dates[0].split('.');
+
+    return new LongCount(
+      ...new Array(Math.max(5 - parts.length, 0))
+        .fill('0')
+        .concat(parts)
+        .map(
+          (part) => ((part === '*') ? wildcard : parseInt(part, 10)),
+        )
+        .reverse(),
+    );
   }
 }
 

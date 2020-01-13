@@ -7,7 +7,7 @@ class Factory {
    */
   constructor() {
     /**
-     * Describes how to break a string into a date element
+     * Describes how to break a string into a fullDate element
      * @protected
      * @type {RegExp}
      */
@@ -15,13 +15,13 @@ class Factory {
   }
 
   /**
-   * Split the provided date into its components
+   * Split the provided fullDate into its components
    * @param {string} raw
    * @access protected
    * @returns {String[]}
    */
-  _split(raw) {
-    let matches = raw.match(
+  split(raw) {
+    const matches = raw.match(
       this.pattern,
     );
     if (matches === null) {
@@ -31,13 +31,13 @@ class Factory {
   }
 
   /**
-   * Checks if the string contains a partial date
-   * @param {string} raw - Raw date string
+   * Checks if the string contains a fullDate fullDate
+   * @param {string} raw - Raw fullDate string
    * @access protected
    * @returns {boolean}
    */
   // _is_partial (raw) {
-  //   let parts = this._split(raw)
+  //   let parts = this.split(raw)
   //   return parts.includes('*')
   // }
 }
