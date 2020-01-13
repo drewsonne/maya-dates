@@ -13,10 +13,10 @@
 
 <header>
   <a href="./">Home</a>
-  
+
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-  
+
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -28,7 +28,7 @@
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
-    
+
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
@@ -57,39 +57,39 @@ and Calendar Round (CR) dates.</p>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">const mayaDates = require(&apos;@drewsonne/maya-dates&apos;)
 // Long Count from Initial Series on east side of Stele E, Quirigua
 let lc = new mayaDates.factory.LongCountFactory().parse(&apos;9.17.0.0.0&apos;)
-console.log(`${lc.build_full_date()}`)</code>
+console.log(`${lc.buildFullDate()}`)</code>
 </code></pre>
 <p>This should print <code>13 Ajaw 18 Kumk&apos;u  9.17. 0. 0. 0</code>.</p>
-<h2 id="instructions">Instructions</h2><p>Most implementations will consist of creating a date, and passing it to an operation.</p>
-<h3 id="date-creation">Date Creation</h3><p>Creating a date can be done either by:</p>
+<h2 id="instructions">Instructions</h2><p>Most implementations will consist of creating a fullDate, and passing it to an operation.</p>
+<h3 id="date-creation">Date Creation</h3><p>Creating a fullDate can be done either by:</p>
 <ul>
-<li>using a factory class (<a href="https://drewsonne.github.io/maya-dates/class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a>, 
+<li>using a factory class (<a href="https://drewsonne.github.io/maya-dates/class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a>,
 <a href="https://drewsonne.github.io/maya-dates/class/src/factory/calendar-round.js~CalendarRoundFactory.html">CalendarRoundFactory</a>,
-<a href="https://drewsonne.github.io/maya-dates/class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a>) 
-and calling its <code>parse(raw_string)</code> function, where <code>raw_string</code> is a LC, CR, 
+<a href="https://drewsonne.github.io/maya-dates/class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a>)
+and calling its <code>parse(raw_string)</code> function, where <code>raw_string</code> is a LC, CR,
 or CR and LC combination encoded as a string. To specify missing values in a
-date, using <code>*</code>. For example,
+fullDate, using <code>*</code>. For example,
 <code>`</code>javascript
 const wildcard = mayadates.wildcard</li>
 </ul>
 <p>let partial_lc = new mayadates.factory.LongCountFactory().parse(&apos;9.17.0.0.<em>&apos;)
 let partial_cr = new mayadates.factory.CalendarRoundFactory().parse(&apos;13 Ajaw </em> Kumk\&apos;u&apos;)
 let partial_date = new mayadates.factory.FullDateFactory().parse(&apos;13 Ajaw <em> Kumk\&apos;u 9.17.0.0.</em>&apos;)</p>
-<p>console.log(<code>LC: ${partial_lc.k_in === wildcard}</code>)
+<p>console.log(<code>LC: ${partial_lc.kIn === wildcard}</code>)
 console.log(<code>CR: ${partial_cr.haab.coeff === wildcard}</code>)
-console.log(<code>Full Date: ${partial_date.lc.k_in === wildcard}</code>)
+console.log(<code>Full Date: ${partial_date.lc.kIn === wildcard}</code>)
 <code>`</code></p>
 <ul>
-<li>passing explicit values into a model class (<a href="https://drewsonne.github.io/maya-dates/class/src/lc/long-count.js~LongCount.html">LongCount</a>, 
-<a href="https://drewsonne.github.io/maya-dates/class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a>, 
+<li>passing explicit values into a model class (<a href="https://drewsonne.github.io/maya-dates/class/src/lc/long-count.js~LongCount.html">LongCount</a>,
+<a href="https://drewsonne.github.io/maya-dates/class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a>,
 FullDate).</li>
 </ul>
-<h3 id="operations">Operations</h3><p>Once a date object has been created, you can either add an integer to a date 
+<h3 id="operations">Operations</h3><p>Once a fullDate object has been created, you can either add an integer to a fullDate
 using <code>shift(number)</code>, or filling in missing values in wildcards. The
 <a href="https://drewsonne.github.io/maya-dates/identifiers.html#operations"><code>operations</code></a>
-namespace provides operators to expand a date with a wildcard into all possible
+namespace provides operators to expand a fullDate with a wildcard into all possible
 values for dates matching that wildcard pattern.</p>
-<h2 id="documentation">Documentation</h2><p>Full documentation and reference can be found at 
+<h2 id="documentation">Documentation</h2><p>Full documentation and reference can be found at
 <a href="https://drewsonne.github.io/maya-dates/">https://drewsonne.github.io/maya-dates/</a>.</p>
 </div>
 </div>

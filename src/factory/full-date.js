@@ -1,6 +1,4 @@
 /** @ignore */
-const Factory = require('./base');
-/** @ignore */
 const CalendarRoundFactory = require('./calendar-round');
 /** @ignore */
 const LongCountFactory = require('./long-count');
@@ -8,23 +6,24 @@ const LongCountFactory = require('./long-count');
 const FullDate = require('../full-date');
 
 /**
- * Given a date composed of a Long Count and a Calendar Round, create a
+ * Given a fullDate composed of a Long Count and a Calendar Round, create a
  * {FullDate} object.
  * @extends {Factory}
  */
-class FullDateFactory extends Factory {
+class FullDateFactory {
   /**
    *
    * @param {String} raw
    * @return {FullDate}
    */
+  // eslint-disable-next-line class-methods-use-this
   parse(raw) {
-    raw = raw.replace('**', '* *');
-    let cr = new CalendarRoundFactory().parse(raw);
-    let lc = new LongCountFactory().parse(raw);
+    const cleanedRaw = raw.replace('**', '* *');
+    const cr = new CalendarRoundFactory().parse(cleanedRaw);
+    const lc = new LongCountFactory().parse(cleanedRaw);
     return new FullDate(
       cr,
-      lc
+      lc,
     );
   }
 }

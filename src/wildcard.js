@@ -14,6 +14,7 @@ class Wildcard {
    * Represent the Wildcard as a string. ie, '*'.
    * @returns {string}
    */
+  // eslint-disable-next-line class-methods-use-this
   toString() {
     return '*';
   }

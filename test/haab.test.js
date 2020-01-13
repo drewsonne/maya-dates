@@ -1,48 +1,51 @@
 const mayadates = require('../src/index');
 
 describe('increment haab months', () => {
-  let tzolkin_days = [
+  const tzolkinDays = [
     ['Pop', 'Wo'],
     ['Xul', 'Yaxk\'in'],
     ['Wayeb', 'Pop'],
   ];
-  test.each(tzolkin_days)(
+  it.each(tzolkinDays)(
     '%s -> %s',
     (previous, next) => {
-      let today = new mayadates.cr.haab.HaabMonth(previous);
-      let tomorrow = today.next();
+      const today = mayadates.cr.haab.getHaabMonth(previous);
+      const tomorrow = today.next();
+      const expected = mayadates.cr.haab.getHaabMonth(next);
       expect(tomorrow.name).toBe(next);
-    });
+      expect(tomorrow).toBe(expected);
+    },
+  );
 });
 
 describe('build haabs', () => {
-  let haabs = [
+  const haabs = [
     [[5, 'Pop'], [6, 'Pop']],
     [[19, 'Pop'], [0, 'Wo']],
     [[19, 'Xul'], [0, 'Yaxk\'in']],
     [[4, 'Wayeb'], [0, 'Pop']],
   ];
-  test.each(haabs)(
+  it.each(haabs)(
     '%s -> %s',
     (prev, next) => {
-      let haab = new mayadates.cr.haab.Haab(prev[0], prev[1]);
+      const haab = mayadates.cr.haab.getHaab(prev[0], prev[1]);
       expect(haab.coeff).toBe(prev[0]);
       expect(haab.name).toBe(prev[1]);
 
-      let tomorrow = haab.next();
+      const tomorrow = haab.next();
       expect(tomorrow.coeff).toBe(next[0]);
       expect(tomorrow.name).toBe(next[1]);
-    }
+    },
   );
 });
 
-test('render haab date', () => {
-  let haab = new mayadates.cr.haab.Haab(5, 'Pop');
+test('render haab fullDate', () => {
+  const haab = mayadates.cr.haab.getHaab(5, 'Pop');
   expect(haab.toString()).toBe('5 Pop');
 });
 
 describe('shift haab', () => {
-  let haabs = [
+  const haabs = [
     [[8, 'Kumk\'u'], 359, [2, 'Kumk\'u']],
     [[8, 'Kumk\'u'], 361, [4, 'Kumk\'u']],
     [[8, 'Kumk\'u'], 363, [6, 'Kumk\'u']],
@@ -56,14 +59,14 @@ describe('shift haab', () => {
     [[8, 'Kumk\'u'], 369, [12, 'Kumk\'u']],
     [[4, 'Wayeb'], 1, [0, 'Pop']],
   ];
-  test.each(haabs)(
+  it.each(haabs)(
     '%s + %s = %s',
     (start, incremental, expected) => {
-      let prev_haab = new mayadates.cr.haab.Haab(...start);
-      let new_haab = prev_haab.shift(incremental);
+      const prevHaab = mayadates.cr.haab.getHaab(...start);
+      const newHaab = prevHaab.shift(incremental);
 
-      expect(new_haab.coeff).toBe(expected[0]);
-      expect(new_haab.name).toBe(expected[1]);
-    }
+      expect(newHaab.coeff).toBe(expected[0]);
+      expect(newHaab.name).toBe(expected[1]);
+    },
   );
 });

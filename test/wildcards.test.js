@@ -1,26 +1,26 @@
-const LongCountFactory = require('../src/factory/long-count')
-const CalendarRoundFactory = require('../src/factory/calendar-round')
-const wildcard = require('../src/wildcard')
+const LongCountFactory = require('../src/factory/long-count');
+const CalendarRoundFactory = require('../src/factory/calendar-round');
+const wildcard = require('../src/wildcard');
 
-test('parse long-count date', () => {
-  let date = new LongCountFactory().parse('1.2.*.4.5')
+test('parse long-count fullDate', () => {
+  const date = new LongCountFactory().parse('1.2.*.4.5');
 
-  expect(date.is_valid()).toBeTruthy()
+  expect(date.isValid()).toBeTruthy();
 
-  expect(date.k_in).toBe(5)
-  expect(date.winal).toBe(4)
-  expect(date.tun).toBe(wildcard)
-  expect(date.k_atun).toBe(2)
-  expect(date.bak_tun).toBe(1)
+  expect(date.kIn).toBe(5);
+  expect(date.winal).toBe(4);
+  expect(date.tun).toBe(wildcard);
+  expect(date.kAtun).toBe(2);
+  expect(date.bakTun).toBe(1);
 
-  expect(date.get_date_sections(0)).toBe(5)
-  expect(date.get_date_sections(4)).toBe(1)
+  expect(date.getDateSections(0)).toBe(5);
+  expect(date.getDateSections(4)).toBe(1);
 
-  expect(date.toString()).toBe(' 1. 2. *. 4. 5')
-})
+  expect(date.toString()).toBe(' 1. 2. *. 4. 5');
+});
 
-describe('test partial lc', () => {
-  let partial_lcs = [
+describe('test fullDate lc', () => {
+  const partialLcs = [
     ['9.0.0.0.*', true],
     ['*.*.*.*.*', true],
     ['9.0.0.*.0', true],
@@ -29,27 +29,29 @@ describe('test partial lc', () => {
     ['*.0.0.0.0', true],
     ['*.*.0.0.0', true],
     ['9.0.0.0.0', false],
-  ]
-  test.each(partial_lcs)(
+  ];
+  it.each(partialLcs)(
     '%s -> %s',
     (partial, expected) => {
-      let partial_date = new LongCountFactory().parse(partial)
-      expect(partial_date.is_partial()).toBe(expected)
-    })
-})
+      const partialDate = new LongCountFactory().parse(partial);
+      expect(partialDate.isPartial()).toBe(expected);
+    },
+  );
+});
 
-describe('test partial cr', () => {
-  let partial_lcs = [
+describe('test fullDate cr', () => {
+  const partialLcs = [
     ['4 Ajaw 8 *', true],
     ['4 Ajaw * Kumk\'u', true],
     ['4 * 8 Kumk\'u', true],
     ['* Ajaw 8 Kumk\'u', true],
     ['4 Ajaw 8 Kumk\'u', false],
-  ]
-  test.each(partial_lcs)(
+  ];
+  it.each(partialLcs)(
     '%s -> %s',
     (partial, expected) => {
-      let partial_date = new CalendarRoundFactory().parse(partial)
-      expect(partial_date.is_partial()).toBe(expected)
-    })
-})
+      const partialDate = new CalendarRoundFactory().parse(partial);
+      expect(partialDate.isPartial()).toBe(expected);
+    },
+  );
+});

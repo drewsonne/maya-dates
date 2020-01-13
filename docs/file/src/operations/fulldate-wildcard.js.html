@@ -13,10 +13,10 @@
 
 <header>
   <a href="./">Home</a>
-  
+
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-  
+
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -28,7 +28,7 @@
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
-    
+
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
@@ -52,7 +52,7 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/operations/fulldate-wildcard.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
-const FullDate = require(&apos;../full-date&apos;);
+const FullDate = require(&apos;../full-fullDate&apos;);
 /** @ignore */
 const LongCountWildcard = require(&apos;../operations/longcount-wildcard&apos;);
 /** @ignore */
@@ -70,7 +70,7 @@ class FullDateWildcard {
     /**
      * @type {FullDate}
      */
-    this.partial = partial_date;
+    this.fullDate = partial_date;
   }
 
   /**
@@ -82,26 +82,26 @@ class FullDateWildcard {
     let potential_lc_fulldates = [];
     let potential_crs;
 
-    let has_cr_partial = this.partial.cr.is_partial();
-    let has_lc_partial = this.partial.lc.is_partial();
+    let has_cr_partial = this.fullDate.cr.isPartial();
+    let has_lc_partial = this.fullDate.lc.isPartial();
     if (has_lc_partial) {
-      let potential_lcs = new LongCountWildcard(this.partial.lc).run();
+      let potential_lcs = new LongCountWildcard(this.fullDate.lc).run();
       for (let potential_lc of potential_lcs) {
-        potential_lc_fulldates.push(potential_lc.build_full_date());
+        potential_lc_fulldates.push(potential_lc.buildFullDate());
       }
     } else {
-      // If we have a full formed LC date, and a partial CR, then generate the
-      // CR for the LC, and compare them. The partial CR will either match the
+      // If we have a full formed LC fullDate, and a fullDate CR, then generate the
+      // CR for the LC, and compare them. The fullDate CR will either match the
       // CR for the LC or it won&apos;t.
-      let static_cr = this.partial.lc.build_calendar_round();
-      return (static_cr.match(this.partial.cr)) ?
-        [new FullDate(static_cr, this.partial.lc)] :
+      let static_cr = this.fullDate.lc.buildCalendarRound();
+      return (static_cr.match(this.fullDate.cr)) ?
+        [new FullDate(static_cr, this.fullDate.lc)] :
         [];
     }
     if (has_cr_partial) {
-      potential_crs = new CalendarRoundWildcard(this.partial.cr).run();
+      potential_crs = new CalendarRoundWildcard(this.fullDate.cr).run();
     } else {
-      potential_crs = [this.partial.cr];
+      potential_crs = [this.fullDate.cr];
     }
     for (let full_date of potential_lc_fulldates) {
       for (let cr of potential_crs) {

@@ -13,10 +13,10 @@
 
 <header>
   <a href="./">Home</a>
-  
+
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-  
+
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -28,7 +28,7 @@
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
-    
+
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
@@ -77,7 +77,7 @@ class LongCountWildcard {
     let potentials = [this.lc];
     let wildcard_positions = [];
     for (let i = 0; i &lt; this.lc.length; i++) {
-      if (this.lc.get_date_sections(i) === wildcard) {
+      if (this.lc.getDateSections(i) === wildcard) {
         wildcard_positions.push(i);
       }
     }
@@ -86,7 +86,7 @@ class LongCountWildcard {
       let iterations = (position === 1) ? 15 : 20;
       for (let possible of potentials) {
         for (let k = 0; k &lt; iterations; k++) {
-          let new_lc = possible.clone().set_date_sections(position, k);
+          let new_lc = possible.clone().setDateSections(position, k);
           new_potentials.push(new_lc);
         }
       }

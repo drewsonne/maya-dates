@@ -24,15 +24,15 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/full-date.js~fulldate",
-    "class/src/full-date.js~FullDate.html",
-    "<span>FullDate</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/full-date.js</span>",
+    "@drewsonne/maya-dates/src/full-fullDate.js~fulldate",
+    "class/src/full-fullDate.js~FullDate.html",
+    "<span>FullDate</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/full-fullDate.js</span>",
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/factory/full-date.js~fulldatefactory",
-    "class/src/factory/full-date.js~FullDateFactory.html",
-    "<span>FullDateFactory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory/full-date.js</span>",
+    "@drewsonne/maya-dates/src/factory/full-fullDate.js~fulldatefactory",
+    "class/src/factory/full-fullDate.js~FullDateFactory.html",
+    "<span>FullDateFactory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory/full-fullDate.js</span>",
     "class"
   ],
   [
@@ -126,7 +126,7 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
-    "src/.external-ecmascript.js~date",
+    "src/.external-ecmascript.js~fullDate",
     "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
     "src/.external-ecmascript.js~Date",
     "external"
@@ -414,9 +414,9 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/cr/calendar-round.js~calendarround#is_partial",
-    "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-is_partial",
-    "src/cr/calendar-round.js~CalendarRound#is_partial",
+    "src/cr/calendar-round.js~calendarround#isPartial",
+    "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-isPartial",
+    "src/cr/calendar-round.js~CalendarRound#isPartial",
     "method"
   ],
   [
@@ -690,9 +690,9 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/factory/base.js~factory#_split",
-    "class/src/factory/base.js~Factory.html#instance-method-_split",
-    "src/factory/base.js~Factory#_split",
+    "src/factory/base.js~factory#split",
+    "class/src/factory/base.js~Factory.html#instance-method-split",
+    "src/factory/base.js~Factory#split",
     "method"
   ],
   [
@@ -732,15 +732,15 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/factory/full-date.js",
-    "file/src/factory/full-date.js.html",
-    "src/factory/full-date.js",
+    "src/factory/full-fullDate.js",
+    "file/src/factory/full-fullDate.js.html",
+    "src/factory/full-fullDate.js",
     "file"
   ],
   [
-    "src/factory/full-date.js~fulldatefactory#parse",
-    "class/src/factory/full-date.js~FullDateFactory.html#instance-method-parse",
-    "src/factory/full-date.js~FullDateFactory#parse",
+    "src/factory/full-fullDate.js~fulldatefactory#parse",
+    "class/src/factory/full-fullDate.js~FullDateFactory.html#instance-method-parse",
+    "src/factory/full-fullDate.js~FullDateFactory#parse",
     "method"
   ],
   [
@@ -762,33 +762,33 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/full-date.js",
-    "file/src/full-date.js.html",
-    "src/full-date.js",
+    "src/full-fullDate.js",
+    "file/src/full-fullDate.js.html",
+    "src/full-fullDate.js",
     "file"
   ],
   [
-    "src/full-date.js~fulldate#constructor",
-    "class/src/full-date.js~FullDate.html#instance-constructor-constructor",
-    "src/full-date.js~FullDate#constructor",
+    "src/full-fullDate.js~fulldate#constructor",
+    "class/src/full-fullDate.js~FullDate.html#instance-constructor-constructor",
+    "src/full-fullDate.js~FullDate#constructor",
     "method"
   ],
   [
-    "src/full-date.js~fulldate#cr",
-    "class/src/full-date.js~FullDate.html#instance-member-cr",
-    "src/full-date.js~FullDate#cr",
+    "src/full-fullDate.js~fulldate#cr",
+    "class/src/full-fullDate.js~FullDate.html#instance-member-cr",
+    "src/full-fullDate.js~FullDate#cr",
     "member"
   ],
   [
-    "src/full-date.js~fulldate#lc",
-    "class/src/full-date.js~FullDate.html#instance-member-lc",
-    "src/full-date.js~FullDate#lc",
+    "src/full-fullDate.js~fulldate#lc",
+    "class/src/full-fullDate.js~FullDate.html#instance-member-lc",
+    "src/full-fullDate.js~FullDate#lc",
     "member"
   ],
   [
-    "src/full-date.js~fulldate#tostring",
-    "class/src/full-date.js~FullDate.html#instance-method-toString",
-    "src/full-date.js~FullDate#toString",
+    "src/full-fullDate.js~fulldate#tostring",
+    "class/src/full-fullDate.js~FullDate.html#instance-method-toString",
+    "src/full-fullDate.js~FullDate#toString",
     "method"
   ],
   [
@@ -810,27 +810,27 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/lc/long-count.js~longcount#bak_tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-bak_tun",
-    "src/lc/long-count.js~LongCount#bak_tun",
+    "src/lc/long-count.js~longcount#bakTun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-bakTun",
+    "src/lc/long-count.js~LongCount#bakTun",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#bak_tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-bak_tun",
-    "src/lc/long-count.js~LongCount#bak_tun",
+    "src/lc/long-count.js~longcount#bakTun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-bakTun",
+    "src/lc/long-count.js~LongCount#bakTun",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#build_calendar_round",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-build_calendar_round",
-    "src/lc/long-count.js~LongCount#build_calendar_round",
+    "src/lc/long-count.js~longcount#buildCalendarRound",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-buildCalendarRound",
+    "src/lc/long-count.js~LongCount#buildCalendarRound",
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#build_full_date",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-build_full_date",
-    "src/lc/long-count.js~LongCount#build_full_date",
+    "src/lc/long-count.js~longcount#buildFullDate",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-buildFullDate",
+    "src/lc/long-count.js~LongCount#buildFullDate",
     "method"
   ],
   [
@@ -858,51 +858,51 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#get_date_sections",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-get_date_sections",
-    "src/lc/long-count.js~LongCount#get_date_sections",
+    "src/lc/long-count.js~longcount#getDateSections",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-getDateSections",
+    "src/lc/long-count.js~LongCount#getDateSections",
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#get_position",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-get_position",
-    "src/lc/long-count.js~LongCount#get_position",
+    "src/lc/long-count.js~longcount#getPosition",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-getPosition",
+    "src/lc/long-count.js~LongCount#getPosition",
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#is_partial",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-is_partial",
-    "src/lc/long-count.js~LongCount#is_partial",
+    "src/lc/long-count.js~longcount#isPartial",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-isPartial",
+    "src/lc/long-count.js~LongCount#isPartial",
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#is_valid",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-is_valid",
-    "src/lc/long-count.js~LongCount#is_valid",
+    "src/lc/long-count.js~longcount#isValid",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-isValid",
+    "src/lc/long-count.js~LongCount#isValid",
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#k_atun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-k_atun",
-    "src/lc/long-count.js~LongCount#k_atun",
+    "src/lc/long-count.js~longcount#kAtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kAtun",
+    "src/lc/long-count.js~LongCount#kAtun",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#k_atun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-k_atun",
-    "src/lc/long-count.js~LongCount#k_atun",
+    "src/lc/long-count.js~longcount#kAtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kAtun",
+    "src/lc/long-count.js~LongCount#kAtun",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#k_in",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-k_in",
-    "src/lc/long-count.js~LongCount#k_in",
+    "src/lc/long-count.js~longcount#kIn",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kIn",
+    "src/lc/long-count.js~LongCount#kIn",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#k_in",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-k_in",
-    "src/lc/long-count.js~LongCount#k_in",
+    "src/lc/long-count.js~longcount#kIn",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kIn",
+    "src/lc/long-count.js~LongCount#kIn",
     "member"
   ],
   [
@@ -936,9 +936,9 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#lord_of_night",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-lord_of_night",
-    "src/lc/long-count.js~LongCount#lord_of_night",
+    "src/lc/long-count.js~longcount#lordOfNight",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-lordOfNight",
+    "src/lc/long-count.js~LongCount#lordOfNight",
     "member"
   ],
   [
@@ -966,9 +966,9 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#set_date_sections",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-set_date_sections",
-    "src/lc/long-count.js~LongCount#set_date_sections",
+    "src/lc/long-count.js~longcount#setDateSections",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-setDateSections",
+    "src/lc/long-count.js~LongCount#setDateSections",
     "method"
   ],
   [
@@ -1062,9 +1062,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/operations/fulldate-wildcard.js~fulldatewildcard#partial",
-    "class/src/operations/fulldate-wildcard.js~FullDateWildcard.html#instance-member-partial",
-    "src/operations/fulldate-wildcard.js~FullDateWildcard#partial",
+    "src/operations/fulldate-wildcard.js~fulldatewildcard#fullDate",
+    "class/src/operations/fulldate-wildcard.js~FullDateWildcard.html#instance-member-fullDate",
+    "src/operations/fulldate-wildcard.js~FullDateWildcard#fullDate",
     "member"
   ],
   [

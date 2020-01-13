@@ -13,10 +13,10 @@
 
 <header>
   <a href="./">Home</a>
-  
+
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-  
+
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -28,7 +28,7 @@
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
-    
+
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
@@ -64,9 +64,9 @@ const origin = require(&apos;../cr/index&apos;).origin;
 class _CalendarRoundIterator {
   /**
    *
-   * @param {CalendarRound} date
+   * @param {CalendarRound} fullDate
    */
-  constructor(date) {
+  constructor(fullDate) {
     /**
      * @type {CalendarRound}
      */
@@ -77,13 +77,13 @@ class _CalendarRoundIterator {
      */
     this.is_first = undefined;
 
-    if (date === undefined) {
-      date = origin;
+    if (fullDate === undefined) {
+      fullDate = origin;
     }
     /**
      * @type {CalendarRound}
      */
-    this.date = date;
+    this.fullDate = fullDate;
     this.reset();
   }
 
@@ -91,7 +91,7 @@ class _CalendarRoundIterator {
    * Reset this iterator so that it can be reused.
    */
   reset() {
-    this.current = this.date;
+    this.current = this.fullDate;
     this.is_first = true;
   }
 
@@ -105,7 +105,7 @@ class _CalendarRoundIterator {
       return {value: this.current, done: false};
     }
     let next = this.current.next();
-    if (next.equal(this.date)) {
+    if (next.equal(this.fullDate)) {
       return {value: null, done: true};
     } else {
       this.current = next;

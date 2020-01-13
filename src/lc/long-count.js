@@ -12,7 +12,8 @@ const night = require('./night/lord-of-night');
  */
 class LongCount {
   /**
-   * @param {...number|Wildcard} cycles - Components in the long count (eg, K'in, Winal, Bak'tun, etc)
+   * @param {...number|Wildcard} cycles - Components in the long count
+   * (eg, K'in, Winal, Bak'tun, etc)
    */
   constructor(...cycles) {
     /**
@@ -22,7 +23,7 @@ class LongCount {
     this.parts = cycles;
 
     /**
-     * Pattern to validate the date
+     * Pattern to validate the fullDate
      * @type {RegExp}
      */
     this.date_pattern = /([\d*]+\.?)+/;
@@ -31,7 +32,7 @@ class LongCount {
      * Convert individual components to a single string
      * @type {string}
      */
-    this.raw = this.toString();
+    // this.raw = this.toString();
   }
 
   /**
@@ -44,7 +45,7 @@ class LongCount {
   }
 
   /**
-   * Create a copy object of this long count date
+   * Create a copy object of this long count fullDate
    * @returns {LongCount}
    */
   clone() {
@@ -52,12 +53,12 @@ class LongCount {
   }
 
   /**
-   * Get specific column in Long Count date
+   * Get specific column in Long Count fullDate
    * @param {number} index
    * @returns {number}
    */
-  get_date_sections(index) {
-    let part = this.parts[index];
+  getDateSections(index) {
+    const part = this.parts[index];
     if (part === undefined) {
       return 0;
     }
@@ -65,15 +66,14 @@ class LongCount {
   }
 
   /**
-   * Set specific column in Long Count date
+   * Set specific column in Long Count fullDate
    * @param {number} index
-   * @param {number} value
+   * @param {number|wildcard} value
    * @returns {LongCount}
-   * @private
    */
-  set_date_sections(index, value) {
-    this.parts[index] = value.toString();
-    this.raw = this.toString();
+  setDateSections(index, newValue) {
+    this.parts[index] = (newValue !== wildcard) ? newValue : parseInt(newValue, 10);
+    // this.raw = this.toString();
     return this;
   }
 
@@ -86,148 +86,166 @@ class LongCount {
   }
 
   /**
-   * Set the k'in component of the date
-   * @returns {number}
+   * Pass the filter down to the parts
+   * @param fn
+   * @return {T[]}
    */
-  set k_in(new_k_in) {
-    this.set_date_sections(0, new_k_in);
+  filter(fn) {
+    return this.parts.filter(fn);
   }
 
   /**
-   * Return the k'in component of the date
-   * @returns {number}
+   * Pass the map down to the parts
+   * @param fn
+   * @return {unknown[]}
    */
-  get k_in() {
-    return this.get_date_sections(0);
+  map(fn) {
+    return this.parts.map(fn);
   }
 
   /**
-   * Set the winal component of the date
+   * Set the k'in component of the fullDate
    * @returns {number}
    */
-  set winal(new_winal) {
-    this.set_date_sections(1, new_winal);
+  set kIn(newKIn) {
+    this.setDateSections(0, newKIn);
   }
 
   /**
-   * Return the winal component of the date
+   * Return the k'in component of the fullDate
+   * @returns {number}
+   */
+  get kIn() {
+    return this.getDateSections(0);
+  }
+
+  /**
+   * Set the winal component of the fullDate
+   * @returns {number}
+   */
+  set winal(newWinal) {
+    this.setDateSections(1, newWinal);
+  }
+
+  /**
+   * Return the winal component of the fullDate
    * @returns {number}
    */
   get winal() {
-    return this.get_date_sections(1);
+    return this.getDateSections(1);
   }
 
   /**
-   * Set the tun component of the date
+   * Set the tun component of the fullDate
    * @returns {number}
    */
-  set tun(new_tun) {
-    this.set_date_sections(2, new_tun);
+  set tun(newTun) {
+    this.setDateSections(2, newTun);
   }
 
   /**
-   * Return the tun component of the date
+   * Return the tun component of the fullDate
    * @returns {number}
    */
   get tun() {
-    return this.get_date_sections(2);
+    return this.getDateSections(2);
   }
 
   /**
-   * Set the k'atun component of the date
+   * Set the k'atun component of the fullDate
    * @returns {number}
    */
-  set k_atun(new_k_atun) {
-    this.set_date_sections(3, new_k_atun);
+  set kAtun(newKAtun) {
+    this.setDateSections(3, newKAtun);
   }
 
   /**
-   * Return the k'atun component of the date
+   * Return the k'atun component of the fullDate
    * @returns {number}
    */
-  get k_atun() {
-    return this.get_date_sections(3);
+  get kAtun() {
+    return this.getDateSections(3);
   }
 
   /**
-   * Set the bak'tun component of the date
+   * Set the bak'tun component of the fullDate
    * @returns {number}
    */
-  set bak_tun(new_bak_tun) {
-    this.set_date_sections(4, new_bak_tun);
+  set bakTun(newBakTun) {
+    this.setDateSections(4, newBakTun);
   }
 
   /**
-   * Return the bak'tun component of the date
+   * Return the bak'tun component of the fullDate
    * @returns {number}
    */
-  get bak_tun() {
-    return this.get_date_sections(4);
+  get bakTun() {
+    return this.getDateSections(4);
   }
 
   /**
-   * Set the piktun component of the date
+   * Set the piktun component of the fullDate
    * @returns {number}
    */
-  set piktun(new_bak_tun) {
-    this.set_date_sections(5, new_bak_tun);
+  set piktun(newBakTun) {
+    this.setDateSections(5, newBakTun);
   }
 
   /**
-   * Return the piktun component of the date
+   * Return the piktun component of the fullDate
    * @returns {number}
    */
   get piktun() {
-    return this.get_date_sections(5);
+    return this.getDateSections(5);
   }
 
   /**
-   * Set the kalabtun component of the date
+   * Set the kalabtun component of the fullDate
    * @returns {number}
    */
-  set kalabtun(new_bak_tun) {
-    this.set_date_sections(6, new_bak_tun);
+  set kalabtun(newBakTun) {
+    this.setDateSections(6, newBakTun);
   }
 
   /**
-   * Return the kalabtun component of the date
+   * Return the kalabtun component of the fullDate
    * @returns {number}
    */
   get kalabtun() {
-    return this.get_date_sections(6);
+    return this.getDateSections(6);
   }
 
   /**
-   * Set the kinchiltun component of the date
+   * Set the kinchiltun component of the fullDate
    * @returns {number}
    */
-  set kinchiltun(new_bak_tun) {
-    this.set_date_sections(7, new_bak_tun);
+  set kinchiltun(newBakTun) {
+    this.setDateSections(7, newBakTun);
   }
 
   /**
-   * Return the kinchiltun component of the date
+   * Return the kinchiltun component of the fullDate
    * @returns {number}
    */
   get kinchiltun() {
-    return this.get_date_sections(7);
+    return this.getDateSections(7);
   }
 
   /**
    *
    * @return {any}
    */
-  get lord_of_night() {
+  get lordOfNight() {
     return night.get(
-      `G${((this.get_position() - 1) % 9) + 1}`
+      `G${((this.getPosition() - 1) % 9) + 1}`,
     );
   }
 
   /**
-   * Ensure the date has only numbers and wildcards separated by points.
+   * Ensure the fullDate has only numbers and wildcards separated by points.
    * @returns {boolean}
    */
-  is_valid() {
+  isValid() {
     return this.date_pattern.test(this.toString());
   }
 
@@ -236,40 +254,35 @@ class LongCount {
    * a {Wildcard} object.
    * @return {boolean}
    */
-  is_partial() {
-    for (let part of this.parts) {
-      if (part === wildcard) {
-        return true;
-      }
-    }
-    return false;
+  isPartial() {
+    return this.parts.some((part) => part === wildcard);
   }
 
   /**
    * Count the number of days since 0.0.0.0.0 for this LC.
    * @return {number}
    */
-  get_position() {
-    if (this.is_partial()) {
-      throw 'Can not get position of partial dates';
+  getPosition() {
+    if (this.isPartial()) {
+      throw new Error('Can not get position of fullDate dates');
     }
-    return this.k_in +
-      this.winal * 20 +
-      this.tun * 360 +
-      this.k_atun * 7200 +
-      this.bak_tun * 144000 +
-      this.piktun * 2880000 +
-      this.kalabtun * 57600000 +
-      this.kinchiltun * 1152000000;
+    return this.kIn
+      + this.winal * 20
+      + this.tun * 360
+      + this.kAtun * 7200
+      + this.bakTun * 144000
+      + this.piktun * 2880000
+      + this.kalabtun * 57600000
+      + this.kinchiltun * 1152000000;
   }
 
   /**
    *
    * @return {CalendarRound}
    */
-  build_calendar_round() {
+  buildCalendarRound() {
     return origin.shift(
-      this.get_position()
+      this.getPosition(),
     );
   }
 
@@ -277,49 +290,49 @@ class LongCount {
    *
    * @return {FullDate}
    */
-  build_full_date() {
+  buildFullDate() {
     return new FullDate(
-      this.build_calendar_round(),
-      this.clone()
+      this.buildCalendarRound(),
+      this.clone(),
     );
   }
 
   /**
-   * Convert the LongCount to a string and pad the sections of the date
+   * Convert the LongCount to a string and pad the sections of the fullDate
    * @returns {string}
    */
   toString() {
-    let significant_digits = [];
+    let significantDigits = [];
     for (let i = this.parts.length - 1; i >= 0; i--) {
-      let part = this.parts[i];
+      const part = this.parts[i];
       if (part !== 0) {
-        significant_digits = this.parts.slice(0, i + 1).reverse();
+        significantDigits = this.parts.slice(0, i + 1).reverse();
         break;
       }
     }
 
-    for (let i = 0; i < significant_digits.length; i++) {
-      if (significant_digits[i] === undefined) {
-        significant_digits[i] = '0';
+    for (let i = 0; i < significantDigits.length; i++) {
+      if (significantDigits[i] === undefined) {
+        significantDigits[i] = '0';
       }
     }
 
-    let date_length = significant_digits.length;
-    if (date_length < 5) {
-      significant_digits = significant_digits.reverse();
-      for (let i = 0; i < 5 - date_length; i++) {
-        significant_digits.push(' 0');
+    const dateLength = significantDigits.length;
+    if (dateLength < 5) {
+      significantDigits = significantDigits.reverse();
+      for (let i = 0; i < 5 - dateLength; i++) {
+        significantDigits.push(' 0');
       }
-      significant_digits = significant_digits.reverse();
+      significantDigits = significantDigits.reverse();
     }
 
-    for (let i = 0; i < significant_digits.length; i++) {
-      let part = significant_digits[i].toString();
+    for (let i = 0; i < significantDigits.length; i++) {
+      const part = significantDigits[i].toString();
       if (part.length < 2) {
-        significant_digits[i] = ' ' + part;
+        significantDigits[i] = ` ${part}`;
       }
     }
-    return significant_digits.join('.');
+    return significantDigits.join('.');
   }
 }
 

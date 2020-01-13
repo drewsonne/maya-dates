@@ -21,25 +21,33 @@ class LongCountWildcard {
    * @return {LongCount[]}
    */
   run() {
-    let potentials = [this.lc];
-    let wildcard_positions = [];
-    for (let i = 0; i < this.lc.length; i++) {
-      if (this.lc.get_date_sections(i) === wildcard) {
-        wildcard_positions.push(i);
-      }
-    }
-    for (let position of wildcard_positions) {
-      let new_potentials = [];
-      let iterations = (position === 1) ? 15 : 20;
-      for (let possible of potentials) {
-        for (let k = 0; k < iterations; k++) {
-          let new_lc = possible.clone().set_date_sections(position, k);
-          new_potentials.push(new_lc);
-        }
-      }
-      potentials = new_potentials;
-    }
-    return potentials;
+    const wcIndexes = this.lc.map(
+      (part, i) => ((part === wildcard) ? i : false),
+    );
+
+    const filteredWcIndexes = wcIndexes.filter(
+      (i) => i !== false,
+    );
+
+    return filteredWcIndexes.reduce(
+      function (potentials, position) {
+        const a = potentials.reduce(
+          function (acc, possible) {
+            const dayMonths = new Array((position === 1) ? 15 : 20);
+            const filledDayMonths = dayMonths.fill();
+            const b = filledDayMonths.map(function (_, i) {
+              const clone = possible.clone();
+              const adjusted = clone.setDateSections(position, i);
+              return adjusted;
+            }).concat(acc);
+            return b;
+          },
+          [],
+        );
+        return a;
+      },
+      [this.lc],
+    );
   }
 }
 

@@ -13,10 +13,10 @@
 
 <header>
   <a href="./">Home</a>
-  
+
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-  
+
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -28,7 +28,7 @@
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
-    
+
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
@@ -56,7 +56,7 @@ const wildcard = require(&apos;../wildcard&apos;);
 /** @ignore */
 const origin = require(&apos;../cr/index&apos;).origin;
 /** @ignore */
-const FullDate = require(&apos;../full-date&apos;);
+const FullDate = require(&apos;../full-fullDate&apos;);
 /** @ignore */
 const night = require(&apos;./night/lord-of-night&apos;);
 
@@ -75,7 +75,7 @@ class LongCount {
     this.parts = cycles;
 
     /**
-     * Pattern to validate the date
+     * Pattern to validate the fullDate
      * @type {RegExp}
      */
     this.date_pattern = /([\d*]+\.?)+/;
@@ -97,7 +97,7 @@ class LongCount {
   }
 
   /**
-   * Create a copy object of this long count date
+   * Create a copy object of this long count fullDate
    * @returns {LongCount}
    */
   clone() {
@@ -105,11 +105,11 @@ class LongCount {
   }
 
   /**
-   * Get specific column in Long Count date
+   * Get specific column in Long Count fullDate
    * @param {number} index
    * @returns {number}
    */
-  get_date_sections(index) {
+  getDateSections(index) {
     let part = this.parts[index];
     if (part === undefined) {
       return 0;
@@ -118,13 +118,13 @@ class LongCount {
   }
 
   /**
-   * Set specific column in Long Count date
+   * Set specific column in Long Count fullDate
    * @param {number} index
    * @param {number} value
    * @returns {LongCount}
    * @private
    */
-  set_date_sections(index, value) {
+  setDateSections(index, value) {
     this.parts[index] = value.toString();
     this.raw = this.toString();
     return this;
@@ -139,148 +139,148 @@ class LongCount {
   }
 
   /**
-   * Set the k&apos;in component of the date
+   * Set the k&apos;in component of the fullDate
    * @returns {number}
    */
-  set k_in(new_k_in) {
-    this.set_date_sections(0, new_k_in);
+  set kIn(new_k_in) {
+    this.setDateSections(0, new_k_in);
   }
 
   /**
-   * Return the k&apos;in component of the date
+   * Return the k&apos;in component of the fullDate
    * @returns {number}
    */
-  get k_in() {
-    return this.get_date_sections(0);
+  get kIn() {
+    return this.getDateSections(0);
   }
 
   /**
-   * Set the winal component of the date
+   * Set the winal component of the fullDate
    * @returns {number}
    */
   set winal(new_winal) {
-    this.set_date_sections(1, new_winal);
+    this.setDateSections(1, new_winal);
   }
 
   /**
-   * Return the winal component of the date
+   * Return the winal component of the fullDate
    * @returns {number}
    */
   get winal() {
-    return this.get_date_sections(1);
+    return this.getDateSections(1);
   }
 
   /**
-   * Set the tun component of the date
+   * Set the tun component of the fullDate
    * @returns {number}
    */
   set tun(new_tun) {
-    this.set_date_sections(2, new_tun);
+    this.setDateSections(2, new_tun);
   }
 
   /**
-   * Return the tun component of the date
+   * Return the tun component of the fullDate
    * @returns {number}
    */
   get tun() {
-    return this.get_date_sections(2);
+    return this.getDateSections(2);
   }
 
   /**
-   * Set the k&apos;atun component of the date
+   * Set the k&apos;atun component of the fullDate
    * @returns {number}
    */
-  set k_atun(new_k_atun) {
-    this.set_date_sections(3, new_k_atun);
+  set kAtun(new_k_atun) {
+    this.setDateSections(3, new_k_atun);
   }
 
   /**
-   * Return the k&apos;atun component of the date
+   * Return the k&apos;atun component of the fullDate
    * @returns {number}
    */
-  get k_atun() {
-    return this.get_date_sections(3);
+  get kAtun() {
+    return this.getDateSections(3);
   }
 
   /**
-   * Set the bak&apos;tun component of the date
+   * Set the bak&apos;tun component of the fullDate
    * @returns {number}
    */
-  set bak_tun(new_bak_tun) {
-    this.set_date_sections(4, new_bak_tun);
+  set bakTun(new_bak_tun) {
+    this.setDateSections(4, new_bak_tun);
   }
 
   /**
-   * Return the bak&apos;tun component of the date
+   * Return the bak&apos;tun component of the fullDate
    * @returns {number}
    */
-  get bak_tun() {
-    return this.get_date_sections(4);
+  get bakTun() {
+    return this.getDateSections(4);
   }
 
   /**
-   * Set the piktun component of the date
+   * Set the piktun component of the fullDate
    * @returns {number}
    */
   set piktun(new_bak_tun) {
-    this.set_date_sections(5, new_bak_tun);
+    this.setDateSections(5, new_bak_tun);
   }
 
   /**
-   * Return the piktun component of the date
+   * Return the piktun component of the fullDate
    * @returns {number}
    */
   get piktun() {
-    return this.get_date_sections(5);
+    return this.getDateSections(5);
   }
 
   /**
-   * Set the kalabtun component of the date
+   * Set the kalabtun component of the fullDate
    * @returns {number}
    */
   set kalabtun(new_bak_tun) {
-    this.set_date_sections(6, new_bak_tun);
+    this.setDateSections(6, new_bak_tun);
   }
 
   /**
-   * Return the kalabtun component of the date
+   * Return the kalabtun component of the fullDate
    * @returns {number}
    */
   get kalabtun() {
-    return this.get_date_sections(6);
+    return this.getDateSections(6);
   }
 
   /**
-   * Set the kinchiltun component of the date
+   * Set the kinchiltun component of the fullDate
    * @returns {number}
    */
   set kinchiltun(new_bak_tun) {
-    this.set_date_sections(7, new_bak_tun);
+    this.setDateSections(7, new_bak_tun);
   }
 
   /**
-   * Return the kinchiltun component of the date
+   * Return the kinchiltun component of the fullDate
    * @returns {number}
    */
   get kinchiltun() {
-    return this.get_date_sections(7);
+    return this.getDateSections(7);
   }
 
   /**
    *
    * @return {any}
    */
-  get lord_of_night() {
+  get lordOfNight() {
     return night.get(
-      `G${((this.get_position() - 1) % 9) + 1}`,
+      `G${((this.getPosition() - 1) % 9) + 1}`,
     );
   }
 
   /**
-   * Ensure the date has only numbers and wildcards separated by points.
+   * Ensure the fullDate has only numbers and wildcards separated by points.
    * @returns {boolean}
    */
-  is_valid() {
+  isValid() {
     return this.date_pattern.test(this.toString());
   }
 
@@ -289,7 +289,7 @@ class LongCount {
    * a {Wildcard} object.
    * @return {boolean}
    */
-  is_partial() {
+  isPartial() {
     for (let part of this.parts) {
       if (part === wildcard) {
         return true;
@@ -302,15 +302,15 @@ class LongCount {
    * Count the number of days since 0.0.0.0.0 for this LC.
    * @return {number}
    */
-  get_position() {
-    if (this.is_partial()) {
-      throw &apos;Can not get position of partial dates&apos;;
+  getPosition() {
+    if (this.isPartial()) {
+      throw &apos;Can not get position of fullDate dates&apos;;
     }
-    return this.k_in +
+    return this.kIn +
       this.winal * 20 +
       this.tun * 360 +
-      this.k_atun * 7200 +
-      this.bak_tun * 144000 +
+      this.kAtun * 7200 +
+      this.bakTun * 144000 +
       this.piktun * 2880000 +
       this.kalabtun * 57600000 +
       this.kinchiltun * 1152000000;
@@ -320,9 +320,9 @@ class LongCount {
    *
    * @return {CalendarRound}
    */
-  build_calendar_round() {
+  buildCalendarRound() {
     return origin.shift(
-      this.get_position(),
+      this.getPosition(),
     );
   }
 
@@ -330,15 +330,15 @@ class LongCount {
    *
    * @return {FullDate}
    */
-  build_full_date() {
+  buildFullDate() {
     return new FullDate(
-      this.build_calendar_round(),
+      this.buildCalendarRound(),
       this.clone(),
     );
   }
 
   /**
-   * Convert the LongCount to a string and pad the sections of the date
+   * Convert the LongCount to a string and pad the sections of the fullDate
    * @returns {string}
    */
   toString() {

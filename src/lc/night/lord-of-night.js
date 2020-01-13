@@ -34,18 +34,19 @@ class LordOfNight {
  * @return {LordOfNight}
  */
 function get(id) {
-  return lords_of_the_night[`${id}`];
+  return lordsOfTheNight[`${id}`];
 }
 
 /** @ignore */
-const lords_of_the_night = [
+const lordsOfTheNight = [
   1, 2, 3, 4, 5, 6, 7, 8, 9,
-].reduce(function (obj, n) {
-  let lord = new LordOfNight(n);
-  obj[`${lord}`] = lord;
-  return obj;
+].reduce((obj, n) => {
+  const lord = new LordOfNight(n);
+  const newObj = obj;
+  newObj[`${lord}`] = lord;
+  return newObj;
 }, {
-  'get': get,
+  get,
 });
 
-module.exports = lords_of_the_night;
+module.exports = lordsOfTheNight;

@@ -1,10 +1,16 @@
 /** @ignore */
-const CalendarRound = require('./calendar-round');
+const getCalendarRound = require('./calendar-round');
+const tzolkin = require('./tzolkin');
+const haab = require('./haab');
+
+const origin = getCalendarRound(
+  4, 'Ajaw',
+  8, 'Kumk\'u',
+);
+
 module.exports = {
-  'CalendarRound': CalendarRound,
-  'tzolkin': require('./tzolkin'),
-  'haab': require('./haab'),
-  'origin': new CalendarRound(
-    4, 'Ajaw',
-    8, 'Kumk\'u'),
+  getCalendarRound,
+  tzolkin,
+  haab,
+  origin,
 };

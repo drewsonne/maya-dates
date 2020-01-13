@@ -5,19 +5,30 @@ const LongCountWildcard = require('../operations/longcount-wildcard');
 /** @ignore */
 const CalendarRoundWildcard = require('../operations/calendar-round-wildcard');
 
+/** @ignore */
+const concat = (x, y) => x.concat(y);
+
+/** @ignore */
+const flatMap = (f, xs) => xs.map(f).reduce(concat, []);
+
+// eslint-disable-next-line no-extend-native,func-names
+Array.prototype.flatMap = function (f) {
+  return flatMap(f, this);
+};
+
 /**
  * Given a Calendar Round and Long Count with a wildcard, calculate all possible
  * matching fully qualified Long Counts with CalendarRounds.
  */
 class FullDateWildcard {
   /**
-   * @param {FullDate} partial_date
+   * @param {FullDate} partialDate
    */
-  constructor(partial_date) {
+  constructor(partialDate) {
     /**
      * @type {FullDate}
      */
-    this.partial = partial_date;
+    this.fullDate = partialDate;
   }
 
   /**
@@ -25,41 +36,35 @@ class FullDateWildcard {
    * @return {FullDate[]}
    */
   run() {
-    let potential_dates = [];
-    let potential_lc_fulldates = [];
-    let potential_crs;
+    if (this.fullDate.lc.isPartial()) {
+      const lcs = new LongCountWildcard(this.fullDate.lc).run();
 
-    let has_cr_partial = this.partial.cr.is_partial();
-    let has_lc_partial = this.partial.lc.is_partial();
-    if (has_lc_partial) {
-      let potential_lcs = new LongCountWildcard(this.partial.lc).run();
-      for (let potential_lc of potential_lcs) {
-        potential_lc_fulldates.push(potential_lc.build_full_date());
-      }
-    } else {
-      // If we have a full formed LC date, and a partial CR, then generate the
-      // CR for the LC, and compare them. The partial CR will either match the
-      // CR for the LC or it won't.
-      let static_cr = this.partial.lc.build_calendar_round();
-      return (static_cr.match(this.partial.cr)) ?
-        [new FullDate(static_cr, this.partial.lc)] :
-        [];
+      const mappedLcs = lcs.map(function (potentialLc) {
+          return potentialLc.buildFullDate();
+        },
+      );
+      const flatMappedLcs = mappedLcs.flatMap(
+        (fullDate) => (
+          this.fullDate.cr.isPartial()
+            ? new CalendarRoundWildcard(this.fullDate.cr).run()
+            : [this.fullDate.cr]
+        ).map(
+          (cr) => [].concat(cr, fullDate),
+        ),
+      );
+      const filteredMappedLcs = flatMappedLcs.filter(
+        (pair) => pair[0].equal(pair[1].cr),
+      );
+      return filteredMappedLcs;
     }
-    if (has_cr_partial) {
-      potential_crs = new CalendarRoundWildcard(this.partial.cr).run();
-    } else {
-      potential_crs = [this.partial.cr];
-    }
-    for (let full_date of potential_lc_fulldates) {
-      for (let cr of potential_crs) {
-        if (cr.equal(full_date.cr)) {
-          potential_dates.push(full_date);
-        }
-      }
-    }
-    return potential_dates;
+    // If we have a full formed LC fullDate, and a fullDate CR, then generate the
+    // CR for the LC, and compare them. The fullDate CR will either match the
+    // CR for the LC or it won't.
+    const staticCr = this.fullDate.lc.buildCalendarRound();
+    return (staticCr.match(this.fullDate.cr))
+      ? [new FullDate(staticCr, this.fullDate.lc)]
+      : [];
   }
 }
 
 module.exports = FullDateWildcard;
-
