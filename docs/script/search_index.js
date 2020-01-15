@@ -18,6 +18,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@drewsonne/maya-dates/src/lc/correlation-constant.js~correlationconstant",
+    "class/src/lc/correlation-constant.js~CorrelationConstant.html",
+    "<span>CorrelationConstant</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/correlation-constant.js</span>",
+    "class"
+  ],
+  [
     "@drewsonne/maya-dates/src/factory/base.js~factory",
     "class/src/factory/base.js~Factory.html",
     "<span>Factory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory/base.js</span>",
@@ -111,6 +117,12 @@ window.esdocSearchIndex = [
     "@drewsonne/maya-dates/src/lc/night/lord-of-night.js~get",
     "function/index.html#static-function-get",
     "<span>get</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/night/lord-of-night.js</span>",
+    "function"
+  ],
+  [
+    "@drewsonne/maya-dates/src/lc/correlation-constant.js~getcorrelationconstant",
+    "function/index.html#static-function-getCorrelationConstant",
+    "<span>getCorrelationConstant</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/correlation-constant.js</span>",
     "function"
   ],
   [
@@ -852,6 +864,30 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/lc/correlation-constant.js",
+    "file/src/lc/correlation-constant.js.html",
+    "src/lc/correlation-constant.js",
+    "file"
+  ],
+  [
+    "src/lc/correlation-constant.js~correlationconstant#constructor",
+    "class/src/lc/correlation-constant.js~CorrelationConstant.html#instance-constructor-constructor",
+    "src/lc/correlation-constant.js~CorrelationConstant#constructor",
+    "method"
+  ],
+  [
+    "src/lc/correlation-constant.js~correlationconstant#name",
+    "class/src/lc/correlation-constant.js~CorrelationConstant.html#instance-member-name",
+    "src/lc/correlation-constant.js~CorrelationConstant#name",
+    "member"
+  ],
+  [
+    "src/lc/correlation-constant.js~correlationconstant#value",
+    "class/src/lc/correlation-constant.js~CorrelationConstant.html#instance-member-value",
+    "src/lc/correlation-constant.js~CorrelationConstant#value",
+    "member"
+  ],
+  [
     "src/lc/index.js",
     "file/src/lc/index.js.html",
     "src/lc/index.js",
@@ -900,6 +936,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/lc/long-count.js~longcount#correlationconstant",
+    "class/src/lc/long-count.js~LongCount.html#instance-member-correlationConstant",
+    "src/lc/long-count.js~LongCount#correlationConstant",
+    "member"
+  ],
+  [
     "src/lc/long-count.js~longcount#date_pattern",
     "class/src/lc/long-count.js~LongCount.html#instance-member-date_pattern",
     "src/lc/long-count.js~LongCount#date_pattern",
@@ -931,13 +973,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#isnegative",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-isNegative",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-isNegative",
     "src/lc/long-count.js~LongCount#isNegative",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#isnegative",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-isNegative",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-isNegative",
     "src/lc/long-count.js~LongCount#isNegative",
     "member"
   ],
@@ -967,25 +1009,25 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#katun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kAtun",
-    "src/lc/long-count.js~LongCount#kAtun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#katun",
     "class/src/lc/long-count.js~LongCount.html#instance-get-kAtun",
     "src/lc/long-count.js~LongCount#kAtun",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#kin",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kIn",
-    "src/lc/long-count.js~LongCount#kIn",
+    "src/lc/long-count.js~longcount#katun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kAtun",
+    "src/lc/long-count.js~LongCount#kAtun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#kin",
     "class/src/lc/long-count.js~LongCount.html#instance-get-kIn",
+    "src/lc/long-count.js~LongCount#kIn",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#kin",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kIn",
     "src/lc/long-count.js~LongCount#kIn",
     "member"
   ],
@@ -1059,6 +1101,12 @@ window.esdocSearchIndex = [
     "src/lc/long-count.js~longcount#plus",
     "class/src/lc/long-count.js~LongCount.html#instance-method-plus",
     "src/lc/long-count.js~LongCount#plus",
+    "method"
+  ],
+  [
+    "src/lc/long-count.js~longcount#setcorrelationconstant",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-setCorrelationConstant",
+    "src/lc/long-count.js~LongCount#setCorrelationConstant",
     "method"
   ],
   [

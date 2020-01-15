@@ -44,7 +44,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/calendar-round.js~CalendarRoundFactory.html">CalendarRoundFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc">lc</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc">lc</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/correlation-constant.js~CorrelationConstant.html">CorrelationConstant</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCorrelationConstant">getCorrelationConstant</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-night">lc/night</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get">get</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html">CalendarRoundWildcard</a></span></span></li>
@@ -69,6 +71,8 @@ const night = require(&apos;./night/lord-of-night&apos;);
 const LongcountAddition = require(&apos;../operations/longcount-addition&apos;);
 /** @ignore */
 const LongcountSubtraction = require(&apos;../operations/longcount-subtraction&apos;);
+/** @ignore */
+const getCorrelationConstant = require(&apos;./correlation-constant&apos;);
 
 /**
  * Long Count cycle
@@ -92,6 +96,12 @@ class LongCount {
     this.date_pattern = /([\d*]+\.?)+/;
 
     /**
+     * Correlation constant to allow alignment with western calendars
+     * @type {CorrelationConstant}
+     */
+    this.correlationConstant = getCorrelationConstant(584283);
+
+    /**
      * @private
      * @type {number}
      */
@@ -100,6 +110,17 @@ class LongCount {
       this.parts[this.parts.length - 1] = -1 * this.parts[this.parts.length - 1];
     }
   }
+
+  /**
+   * Chainable method to set the correlation constant
+   * @param {CorrelationConstant} newConstant
+   * @return {LongCount}
+   */
+  setCorrelationConstant(newConstant) {
+    this.correlationConstant = newConstant;
+    return this;
+  }
+
 
   /**
    * Return true if the Long Count is positive.

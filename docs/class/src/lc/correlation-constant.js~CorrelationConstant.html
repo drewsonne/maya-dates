@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">LongcountAddition | @drewsonne/maya-dates</title>
+  <title data-ice="title">CorrelationConstant | @drewsonne/maya-dates</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -65,11 +65,11 @@
   
   
   
-  <span data-ice="source">| <span><a href="file/src/operations/longcount-addition.js.html#lineNumber4">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/lc/correlation-constant.js.html#lineNumber4">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">LongcountAddition</h1>
+  <h1 data-ice="name">CorrelationConstant</h1>
 
   
 
@@ -85,7 +85,7 @@
 
   
   
-  <div class="description" data-ice="description"><p>Operation to sum two Long Count Dates</p>
+  <div class="description" data-ice="description"><p>Correlation Constant to align Long Counts with Western Calendars</p>
 </div>
   
 
@@ -118,13 +118,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(lcClass: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>, a: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>, b: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/src/lc/correlation-constant.js~CorrelationConstant.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Set a name and value</p>
+</div>
       </div>
     </td>
     <td>
@@ -153,7 +154,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html#instance-member-a">a</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/lc/correlation-constant.js~CorrelationConstant.html#instance-member-name">name</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
         </p>
       </div>
       <div>
@@ -181,7 +182,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html#instance-member-b">b</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/lc/correlation-constant.js~CorrelationConstant.html#instance-member-value">value</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
@@ -198,42 +199,7 @@
 </tbody>
 </table>
 </div>
-<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html#instance-method-equals">equals</a></span></span><span class="code" data-ice="signature">(): <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Return the sum result of this Addition operator.</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
+
 
 
 
@@ -249,18 +215,19 @@
     
     
     
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(lcClass: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>, a: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>, b: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>)</span>
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/operations/longcount-addition.js.html#lineNumber11">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/lc/correlation-constant.js.html#lineNumber10">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Set a name and value</p>
+</div>
 
   
 
@@ -273,26 +240,16 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">lcClass</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></td>
+      <td data-ice="name" class="code" data-depth="0">value</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>Special param to pass the LongCount class into this operator to
-avoid circular require.</p>
-</td>
+      <td data-ice="description"></td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">a</td>
-      <td data-ice="type" class="code"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></td>
+      <td data-ice="name" class="code" data-depth="0">name</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>First date to sum</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">b</td>
-      <td data-ice="type" class="code"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>Second date to sum</p>
-</td>
+      <td data-ice="description"></td>
     </tr>
 </tbody>
   </table>
@@ -320,18 +277,18 @@ avoid circular require.</p>
 <div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-a">
+  <h3 data-ice="anchor" id="instance-member-name">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">a</span><span class="code" data-ice="signature">: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
+    <span class="code" data-ice="name">name</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/operations/longcount-addition.js.html#lineNumber15">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/lc/correlation-constant.js.html#lineNumber19">source</a></span></span>
     </span>
   </h3>
 
@@ -363,18 +320,18 @@ avoid circular require.</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-b">
+  <h3 data-ice="anchor" id="instance-member-value">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">b</span><span class="code" data-ice="signature">: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
+    <span class="code" data-ice="name">value</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/operations/longcount-addition.js.html#lineNumber20">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/lc/correlation-constant.js.html#lineNumber14">source</a></span></span>
     </span>
   </h3>
 
@@ -406,65 +363,7 @@ avoid circular require.</p>
   
 </div>
 </div>
-<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
 
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-equals">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">equals</span><span class="code" data-ice="signature">(): <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/operations/longcount-addition.js.html#lineNumber30">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Return the sum result of this Addition operator.</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-</div>
 </div>
 
 <footer class="footer">

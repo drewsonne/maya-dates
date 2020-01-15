@@ -1,7 +1,7 @@
 {
   "coverage": "100%",
-  "expectCount": 201,
-  "actualCount": 201,
+  "expectCount": 210,
+  "actualCount": 210,
   "files": {
     "src/cr/calendar-round.js": {
       "expectCount": 15,
@@ -63,14 +63,19 @@
       "actualCount": 5,
       "undocumentLines": []
     },
+    "src/lc/correlation-constant.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
     "src/lc/index.js": {
       "expectCount": 2,
       "actualCount": 2,
       "undocumentLines": []
     },
     "src/lc/long-count.js": {
-      "expectCount": 47,
-      "actualCount": 47,
+      "expectCount": 50,
+      "actualCount": 50,
       "undocumentLines": []
     },
     "src/lc/night/lord-of-night.js": {
