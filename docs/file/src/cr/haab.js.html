@@ -13,10 +13,10 @@
 
 <header>
   <a href="./">Home</a>
-
+  
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-
+  
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -28,14 +28,18 @@
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
-
+    
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab-month.js~HaabMonth.html">HaabMonth</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin.js~Tzolkin.html">Tzolkin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHaabMonth">getHaabMonth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHaab">getHaab</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getTzolkinDay">getTzolkinDay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getTzolkin">getTzolkin</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#factory">factory</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/base.js~Factory.html">Factory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/calendar-round.js~CalendarRoundFactory.html">CalendarRoundFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a></span></span></li>
@@ -45,6 +49,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get">get</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html">CalendarRoundWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html">LongcountAddition</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-subtraction.js~LongcountAddition.html">LongcountAddition</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
 </ul>
 </div>
@@ -53,6 +59,27 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/cr/haab.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
 const wildcard = require(&apos;../wildcard&apos;);
+/** @ignore */
+const {getHaabMonth} = require(&apos;./haab-month&apos;);
+
+/** @ignore */
+const singleton = {};
+
+/**
+ * Return a comparable HaabMonth instantiation.
+ * @param {number} coeff
+ * @param {HaabMonth|string} month
+ * @return {Haab}
+ */
+function getHaab(coeff, month) {
+  const monthName = `${coeff} ${month}`;
+  // const monthName = (typeof name === &apos;number&apos;) ? months[name] : name;
+  if (singleton[monthName] === undefined) {
+    // eslint-disable-next-line no-use-before-define
+    singleton[monthName] = new Haab(coeff, month);
+  }
+  return singleton[monthName];
+}
 
 /**
  * Describes a Haab fullDate with a position and a month
@@ -70,26 +97,35 @@ class Haab {
    * @param {string|HaabMonth|Wildcard} month
    */
   constructor(coeff, month) {
+    let newCoeff = coeff;
     if (coeff === &apos;*&apos;) {
-      coeff = wildcard;
+      newCoeff = wildcard;
     } else if (coeff !== wildcard) {
-      coeff = parseInt(coeff);
+      newCoeff = parseInt(newCoeff, 10);
     }
+    let newMonth = month;
     if (typeof month === &apos;string&apos;) {
       if (month === &apos;*&apos;) {
-        month = wildcard;
+        newMonth = wildcard;
       } else {
-        month = new HaabMonth(month);
+        newMonth = getHaabMonth(month);
+        // newMonth = new HaabMonth(month);
       }
     }
     /**
      * @type {HaabMonth|Wildcard}
      */
-    this.month = month;
+    this.month = newMonth;
     /**
      * @type {number|Wildcard}
      */
-    this.coeff = coeff;
+    this.coeff = newCoeff;
+
+    /**
+     * Lazy loaded instance of the next Haab date in the cycle
+     * @type {Haab}
+     */
+    this.private_next = undefined;
 
     this.validate();
   }
@@ -100,13 +136,13 @@ class Haab {
    */
   validate() {
     if (this.coeff &gt; 19 || this.coeff &lt; 0) {
-      throw &apos;Haab\&apos; coefficient must inclusively between 0 and 19.&apos;;
+      throw new Error(&apos;Haab\&apos; coefficient must inclusively between 0 and 19.&apos;);
     }
-    if (this.name === &apos;Wayeb&apos; &amp;&amp; this.coeff &gt; 4) {
-      throw &apos;Haab\&apos; coefficient for Wayeb must inclusively between 0 and 4.&apos;;
+    if (this.month === getHaabMonth(&apos;Wayeb&apos;) &amp;&amp; this.coeff &gt; 4) {
+      throw new Error(&apos;Haab\&apos; coefficient for Wayeb must inclusively between 0 and 4.&apos;);
     }
     if (this.month === undefined) {
-      throw &apos;Haab\&apos; month must be provided&apos;;
+      throw new Error(&apos;Haab\&apos; month must be provided&apos;);
     }
     if (this.month !== wildcard) {
       this.month.validate();
@@ -126,29 +162,28 @@ class Haab {
   /**
    * Ensure this Haab object has the same configuration as another Haab object.
    * Does not take wildcards into account.
-   * @param {Haab} new_haab
+   * @param {Haab} newHaab
    * @return {boolean}
    */
-  equal(new_haab) {
-    return (this.coeff === new_haab.coeff) &amp;&amp;
-      (this.name === new_haab.name);
+  equal(newHaab) {
+    return this === newHaab;
   }
 
   /**
    * Ensure this Haab object has a matching configuration as another Haab object.
    * Takes wildcards into account.
-   * @param {Haab} new_haab
+   * @param {Haab} newHaab
    * @return {boolean}
    */
-  match(new_haab) {
+  match(newHaab) {
     return (
-      (this.coeff === wildcard || new_haab.coeff === wildcard) ?
-        true :
-        (this.coeff === new_haab.coeff)
+      (this.coeff === wildcard || newHaab.coeff === wildcard)
+        ? true
+        : (this.coeff === newHaab.coeff)
     ) &amp;&amp; (
-      (this.month === wildcard || new_haab.month === wildcard) ?
-        true :
-        (this.name === new_haab.name)
+      (this.month === wildcard || newHaab.month === wildcard)
+        ? true
+        : (this.name === newHaab.name)
     );
   }
 
@@ -165,139 +200,42 @@ class Haab {
 
   /**
    *
-   * @param {number} incremental
+   * @param {number} newIncremental
    */
-  shift(incremental) {
-    let new_date = this.clone();
-    while (incremental &gt; 0) {
-      let month_length = (new_date.name === this.month.months[19]) ? 5 : 20;
-      if (incremental + new_date.coeff &gt;= month_length) {
-        let distance_to_month_end = month_length - new_date.coeff;
-        new_date.coeff = 0;
-        new_date.month = new_date.month.shift(1);
-        incremental -= distance_to_month_end;
+  shift(newIncremental) {
+    const incremental = newIncremental % 365;
+    if (this.private_next === undefined) {
+      if (incremental &gt; 0) {
+        const monthLength = (this.month === getHaabMonth(19)) ? 5 : 20;
+        if (1 + this.coeff &gt;= monthLength) {
+          const newMonth = this.month.shift(1);
+          this.private_next = getHaab(0, newMonth);
+        } else {
+          this.private_next = getHaab(this.coeff + 1, this.month);
+        }
       } else {
-        new_date.coeff += incremental;
-        incremental = 0;
+        return this;
       }
     }
-    new_date.validate();
-    return new_date;
+    if (incremental === 0) {
+      return this;
+    }
+    return this.private_next.shift(incremental - 1);
   }
 
   /**
    * Render the Haab fullDate as a string
    * @returns {string}
    */
-  toString(is_numeric) {
-    if (is_numeric) {
-      return `${this.coeff}:${this.month.month_position}`;
-    }
+  toString() {
     return `${this.coeff} ${this.name}`;
   }
-
-  /**
-   * Return a brand new object with the same configuration as this object.
-   * @return {Haab}
-   */
-  clone() {
-    return new Haab(
-      this.coeff,
-      this.month
-    );
-  }
-
 }
 
-/**
- * Describes only the month component of a Haab fullDate
- */
-class HaabMonth {
-  /**
-   * @param {string} name - Name of the Haab month
-   */
-  constructor(name) {
-
-    /**
-     * @type {string[]}
-     */
-    this.months = [
-      undefined,
-      &apos;Pop&apos;,
-      &apos;Wo&apos;,
-      &apos;Sip&apos;,
-      &apos;Sotz\&apos;&apos;,
-      &apos;Sek&apos;,
-      &apos;Xul&apos;,
-      &apos;Yaxk\&apos;in&apos;,
-      &apos;Mol&apos;,
-      &apos;Ch\&apos;en&apos;,
-      &apos;Yax&apos;,
-      &apos;Sak&apos;,
-      &apos;Keh&apos;,
-      &apos;Mak&apos;,
-      &apos;K\&apos;ank\&apos;in&apos;,
-      &apos;Muwan&apos;,
-      &apos;Pax&apos;,
-      &apos;K\&apos;ayab&apos;,
-      &apos;Kumk\&apos;u&apos;,
-      &apos;Wayeb&apos;,
-    ];
-
-    if (typeof name === &apos;number&apos;) {
-      name = this.months[name];
-    }
-
-    /**
-     * Name of the Haab month
-     * @type {string}
-     */
-    this.name = name;
-
-    /**
-     * @type {number}
-     */
-    this.month_position = this.months.findIndex(
-      m =&gt; m === this.name);
-  }
-
-  /**
-   * Return the next month in the Haab cycle
-   * @returns {HaabMonth}
-   */
-  next() {
-    return this.shift(1);
-  }
-
-  /**
-   * Ensure a Haab month name is defined, and that the month name is within the
-   * set of allowable values.
-   */
-  validate() {
-    if (this.name === undefined) {
-      throw &apos;Haab\&apos; month name must be provided&apos;;
-    }
-    if (!this.months.includes(this.name)) {
-      throw `Haab&apos; day (${this.name}) must be in ${this.months}`;
-    }
-  }
-
-  /**
-   * Shift a HaabMonth fullDate forward through time. Does not modify this
-   * object and will return a new object.
-   * @param {number} increment - Number of months to move forward
-   * @return {HaabMonth}
-   */
-  shift(increment) {
-    let new_incremental = (this.month_position + increment) % 19;
-    new_incremental = (new_incremental === 0) ? 19 : new_incremental;
-    return new HaabMonth(new_incremental);
-  }
-}
 
 module.exports = {
-  &apos;Haab&apos;: Haab,
-  &apos;HaabMonth&apos;: HaabMonth,
+  getHaab,
+  getHaabMonth,
 };
 </code></pre>
 

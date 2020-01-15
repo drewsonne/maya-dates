@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 197,
+  "end": 191,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 197,
+    "end": 191,
     "loc": {
       "start": {
         "line": 1,
@@ -31,7 +31,7 @@
       {
         "type": "ExpressionStatement",
         "start": 0,
-        "end": 196,
+        "end": 190,
         "loc": {
           "start": {
             "line": 1,
@@ -45,7 +45,7 @@
         "expression": {
           "type": "AssignmentExpression",
           "start": 0,
-          "end": 195,
+          "end": 189,
           "loc": {
             "start": {
               "line": 1,
@@ -110,7 +110,7 @@
           "right": {
             "type": "ObjectExpression",
             "start": 17,
-            "end": 195,
+            "end": 189,
             "loc": {
               "start": {
                 "line": 1,
@@ -125,7 +125,7 @@
               {
                 "type": "ObjectProperty",
                 "start": 21,
-                "end": 73,
+                "end": 71,
                 "loc": {
                   "start": {
                     "line": 2,
@@ -133,16 +133,16 @@
                   },
                   "end": {
                     "line": 2,
-                    "column": 54
+                    "column": 52
                   }
                 },
                 "method": false,
                 "shorthand": false,
                 "computed": false,
                 "key": {
-                  "type": "StringLiteral",
+                  "type": "Identifier",
                   "start": 21,
-                  "end": 40,
+                  "end": 38,
                   "loc": {
                     "start": {
                       "line": 2,
@@ -150,41 +150,38 @@
                     },
                     "end": {
                       "line": 2,
-                      "column": 21
-                    }
+                      "column": 19
+                    },
+                    "identifierName": "LongCountWildcard"
                   },
-                  "extra": {
-                    "rawValue": "LongCountWildcard",
-                    "raw": "'LongCountWildcard'"
-                  },
-                  "value": "LongCountWildcard"
+                  "name": "LongCountWildcard"
                 },
                 "value": {
                   "type": "CallExpression",
-                  "start": 42,
-                  "end": 73,
+                  "start": 40,
+                  "end": 71,
                   "loc": {
                     "start": {
                       "line": 2,
-                      "column": 23
+                      "column": 21
                     },
                     "end": {
                       "line": 2,
-                      "column": 54
+                      "column": 52
                     }
                   },
                   "callee": {
                     "type": "Identifier",
-                    "start": 42,
-                    "end": 49,
+                    "start": 40,
+                    "end": 47,
                     "loc": {
                       "start": {
                         "line": 2,
-                        "column": 23
+                        "column": 21
                       },
                       "end": {
                         "line": 2,
-                        "column": 30
+                        "column": 28
                       },
                       "identifierName": "require"
                     },
@@ -193,16 +190,16 @@
                   "arguments": [
                     {
                       "type": "StringLiteral",
-                      "start": 50,
-                      "end": 72,
+                      "start": 48,
+                      "end": 70,
                       "loc": {
                         "start": {
                           "line": 2,
-                          "column": 31
+                          "column": 29
                         },
                         "end": {
                           "line": 2,
-                          "column": 53
+                          "column": 51
                         }
                       },
                       "extra": {
@@ -216,8 +213,8 @@
               },
               {
                 "type": "ObjectProperty",
-                "start": 77,
-                "end": 138,
+                "start": 75,
+                "end": 134,
                 "loc": {
                   "start": {
                     "line": 3,
@@ -225,16 +222,16 @@
                   },
                   "end": {
                     "line": 3,
-                    "column": 63
+                    "column": 61
                   }
                 },
                 "method": false,
                 "shorthand": false,
                 "computed": false,
                 "key": {
-                  "type": "StringLiteral",
-                  "start": 77,
-                  "end": 100,
+                  "type": "Identifier",
+                  "start": 75,
+                  "end": 96,
                   "loc": {
                     "start": {
                       "line": 3,
@@ -242,41 +239,38 @@
                     },
                     "end": {
                       "line": 3,
-                      "column": 25
-                    }
+                      "column": 23
+                    },
+                    "identifierName": "CalendarRoundWildcard"
                   },
-                  "extra": {
-                    "rawValue": "CalendarRoundWildcard",
-                    "raw": "'CalendarRoundWildcard'"
-                  },
-                  "value": "CalendarRoundWildcard"
+                  "name": "CalendarRoundWildcard"
                 },
                 "value": {
                   "type": "CallExpression",
-                  "start": 102,
-                  "end": 138,
+                  "start": 98,
+                  "end": 134,
                   "loc": {
                     "start": {
                       "line": 3,
-                      "column": 27
+                      "column": 25
                     },
                     "end": {
                       "line": 3,
-                      "column": 63
+                      "column": 61
                     }
                   },
                   "callee": {
                     "type": "Identifier",
-                    "start": 102,
-                    "end": 109,
+                    "start": 98,
+                    "end": 105,
                     "loc": {
                       "start": {
                         "line": 3,
-                        "column": 27
+                        "column": 25
                       },
                       "end": {
                         "line": 3,
-                        "column": 34
+                        "column": 32
                       },
                       "identifierName": "require"
                     },
@@ -285,16 +279,16 @@
                   "arguments": [
                     {
                       "type": "StringLiteral",
-                      "start": 110,
-                      "end": 137,
+                      "start": 106,
+                      "end": 133,
                       "loc": {
                         "start": {
                           "line": 3,
-                          "column": 35
+                          "column": 33
                         },
                         "end": {
                           "line": 3,
-                          "column": 62
+                          "column": 60
                         }
                       },
                       "extra": {
@@ -308,8 +302,8 @@
               },
               {
                 "type": "ObjectProperty",
-                "start": 142,
-                "end": 192,
+                "start": 138,
+                "end": 186,
                 "loc": {
                   "start": {
                     "line": 4,
@@ -317,16 +311,16 @@
                   },
                   "end": {
                     "line": 4,
-                    "column": 52
+                    "column": 50
                   }
                 },
                 "method": false,
                 "shorthand": false,
                 "computed": false,
                 "key": {
-                  "type": "StringLiteral",
-                  "start": 142,
-                  "end": 160,
+                  "type": "Identifier",
+                  "start": 138,
+                  "end": 154,
                   "loc": {
                     "start": {
                       "line": 4,
@@ -334,41 +328,38 @@
                     },
                     "end": {
                       "line": 4,
-                      "column": 20
-                    }
+                      "column": 18
+                    },
+                    "identifierName": "FullDateWildcard"
                   },
-                  "extra": {
-                    "rawValue": "FullDateWildcard",
-                    "raw": "'FullDateWildcard'"
-                  },
-                  "value": "FullDateWildcard"
+                  "name": "FullDateWildcard"
                 },
                 "value": {
                   "type": "CallExpression",
-                  "start": 162,
-                  "end": 192,
+                  "start": 156,
+                  "end": 186,
                   "loc": {
                     "start": {
                       "line": 4,
-                      "column": 22
+                      "column": 20
                     },
                     "end": {
                       "line": 4,
-                      "column": 52
+                      "column": 50
                     }
                   },
                   "callee": {
                     "type": "Identifier",
-                    "start": 162,
-                    "end": 169,
+                    "start": 156,
+                    "end": 163,
                     "loc": {
                       "start": {
                         "line": 4,
-                        "column": 22
+                        "column": 20
                       },
                       "end": {
                         "line": 4,
-                        "column": 29
+                        "column": 27
                       },
                       "identifierName": "require"
                     },
@@ -377,16 +368,16 @@
                   "arguments": [
                     {
                       "type": "StringLiteral",
-                      "start": 170,
-                      "end": 191,
+                      "start": 164,
+                      "end": 185,
                       "loc": {
                         "start": {
                           "line": 4,
-                          "column": 30
+                          "column": 28
                         },
                         "end": {
                           "line": 4,
-                          "column": 51
+                          "column": 49
                         }
                       },
                       "extra": {
@@ -539,7 +530,7 @@
     },
     {
       "type": {
-        "label": "string",
+        "label": "name",
         "beforeExpr": false,
         "startsExpr": true,
         "rightAssociative": false,
@@ -547,12 +538,11 @@
         "isAssign": false,
         "prefix": false,
         "postfix": false,
-        "binop": null,
-        "updateContext": null
+        "binop": null
       },
       "value": "LongCountWildcard",
       "start": 21,
-      "end": 40,
+      "end": 38,
       "loc": {
         "start": {
           "line": 2,
@@ -560,7 +550,7 @@
         },
         "end": {
           "line": 2,
-          "column": 21
+          "column": 19
         }
       }
     },
@@ -577,16 +567,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 40,
-      "end": 41,
+      "start": 38,
+      "end": 39,
       "loc": {
         "start": {
           "line": 2,
-          "column": 21
+          "column": 19
         },
         "end": {
           "line": 2,
-          "column": 22
+          "column": 20
         }
       }
     },
@@ -603,16 +593,16 @@
         "binop": null
       },
       "value": "require",
-      "start": 42,
-      "end": 49,
+      "start": 40,
+      "end": 47,
       "loc": {
         "start": {
           "line": 2,
-          "column": 23
+          "column": 21
         },
         "end": {
           "line": 2,
-          "column": 30
+          "column": 28
         }
       }
     },
@@ -628,16 +618,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 49,
-      "end": 50,
+      "start": 47,
+      "end": 48,
       "loc": {
         "start": {
           "line": 2,
-          "column": 30
+          "column": 28
         },
         "end": {
           "line": 2,
-          "column": 31
+          "column": 29
         }
       }
     },
@@ -655,16 +645,16 @@
         "updateContext": null
       },
       "value": "./longcount-wildcard",
-      "start": 50,
-      "end": 72,
+      "start": 48,
+      "end": 70,
       "loc": {
         "start": {
           "line": 2,
-          "column": 31
+          "column": 29
         },
         "end": {
           "line": 2,
-          "column": 53
+          "column": 51
         }
       }
     },
@@ -680,16 +670,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 72,
-      "end": 73,
+      "start": 70,
+      "end": 71,
       "loc": {
         "start": {
           "line": 2,
-          "column": 53
+          "column": 51
         },
         "end": {
           "line": 2,
-          "column": 54
+          "column": 52
         }
       }
     },
@@ -706,22 +696,22 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 73,
-      "end": 74,
+      "start": 71,
+      "end": 72,
       "loc": {
         "start": {
           "line": 2,
-          "column": 54
+          "column": 52
         },
         "end": {
           "line": 2,
-          "column": 55
+          "column": 53
         }
       }
     },
     {
       "type": {
-        "label": "string",
+        "label": "name",
         "beforeExpr": false,
         "startsExpr": true,
         "rightAssociative": false,
@@ -729,12 +719,11 @@
         "isAssign": false,
         "prefix": false,
         "postfix": false,
-        "binop": null,
-        "updateContext": null
+        "binop": null
       },
       "value": "CalendarRoundWildcard",
-      "start": 77,
-      "end": 100,
+      "start": 75,
+      "end": 96,
       "loc": {
         "start": {
           "line": 3,
@@ -742,7 +731,7 @@
         },
         "end": {
           "line": 3,
-          "column": 25
+          "column": 23
         }
       }
     },
@@ -759,16 +748,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 100,
-      "end": 101,
+      "start": 96,
+      "end": 97,
       "loc": {
         "start": {
           "line": 3,
-          "column": 25
+          "column": 23
         },
         "end": {
           "line": 3,
-          "column": 26
+          "column": 24
         }
       }
     },
@@ -785,16 +774,16 @@
         "binop": null
       },
       "value": "require",
-      "start": 102,
-      "end": 109,
+      "start": 98,
+      "end": 105,
       "loc": {
         "start": {
           "line": 3,
-          "column": 27
+          "column": 25
         },
         "end": {
           "line": 3,
-          "column": 34
+          "column": 32
         }
       }
     },
@@ -810,16 +799,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 109,
-      "end": 110,
+      "start": 105,
+      "end": 106,
       "loc": {
         "start": {
           "line": 3,
-          "column": 34
+          "column": 32
         },
         "end": {
           "line": 3,
-          "column": 35
+          "column": 33
         }
       }
     },
@@ -837,16 +826,16 @@
         "updateContext": null
       },
       "value": "./calendar-round-wildcard",
-      "start": 110,
-      "end": 137,
+      "start": 106,
+      "end": 133,
       "loc": {
         "start": {
           "line": 3,
-          "column": 35
+          "column": 33
         },
         "end": {
           "line": 3,
-          "column": 62
+          "column": 60
         }
       }
     },
@@ -862,16 +851,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 137,
-      "end": 138,
+      "start": 133,
+      "end": 134,
       "loc": {
         "start": {
           "line": 3,
-          "column": 62
+          "column": 60
         },
         "end": {
           "line": 3,
-          "column": 63
+          "column": 61
         }
       }
     },
@@ -888,22 +877,22 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 138,
-      "end": 139,
+      "start": 134,
+      "end": 135,
       "loc": {
         "start": {
           "line": 3,
-          "column": 63
+          "column": 61
         },
         "end": {
           "line": 3,
-          "column": 64
+          "column": 62
         }
       }
     },
     {
       "type": {
-        "label": "string",
+        "label": "name",
         "beforeExpr": false,
         "startsExpr": true,
         "rightAssociative": false,
@@ -911,12 +900,11 @@
         "isAssign": false,
         "prefix": false,
         "postfix": false,
-        "binop": null,
-        "updateContext": null
+        "binop": null
       },
       "value": "FullDateWildcard",
-      "start": 142,
-      "end": 160,
+      "start": 138,
+      "end": 154,
       "loc": {
         "start": {
           "line": 4,
@@ -924,7 +912,7 @@
         },
         "end": {
           "line": 4,
-          "column": 20
+          "column": 18
         }
       }
     },
@@ -941,16 +929,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 160,
-      "end": 161,
+      "start": 154,
+      "end": 155,
       "loc": {
         "start": {
           "line": 4,
-          "column": 20
+          "column": 18
         },
         "end": {
           "line": 4,
-          "column": 21
+          "column": 19
         }
       }
     },
@@ -967,16 +955,16 @@
         "binop": null
       },
       "value": "require",
-      "start": 162,
-      "end": 169,
+      "start": 156,
+      "end": 163,
       "loc": {
         "start": {
           "line": 4,
-          "column": 22
+          "column": 20
         },
         "end": {
           "line": 4,
-          "column": 29
+          "column": 27
         }
       }
     },
@@ -992,16 +980,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 169,
-      "end": 170,
+      "start": 163,
+      "end": 164,
       "loc": {
         "start": {
           "line": 4,
-          "column": 29
+          "column": 27
         },
         "end": {
           "line": 4,
-          "column": 30
+          "column": 28
         }
       }
     },
@@ -1019,16 +1007,16 @@
         "updateContext": null
       },
       "value": "./fulldate-wildcard",
-      "start": 170,
-      "end": 191,
+      "start": 164,
+      "end": 185,
       "loc": {
         "start": {
           "line": 4,
-          "column": 30
+          "column": 28
         },
         "end": {
           "line": 4,
-          "column": 51
+          "column": 49
         }
       }
     },
@@ -1044,16 +1032,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 191,
-      "end": 192,
+      "start": 185,
+      "end": 186,
       "loc": {
         "start": {
           "line": 4,
-          "column": 51
+          "column": 49
         },
         "end": {
           "line": 4,
-          "column": 52
+          "column": 50
         }
       }
     },
@@ -1070,16 +1058,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 192,
-      "end": 193,
+      "start": 186,
+      "end": 187,
       "loc": {
         "start": {
           "line": 4,
-          "column": 52
+          "column": 50
         },
         "end": {
           "line": 4,
-          "column": 53
+          "column": 51
         }
       }
     },
@@ -1095,8 +1083,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 194,
-      "end": 195,
+      "start": 188,
+      "end": 189,
       "loc": {
         "start": {
           "line": 5,
@@ -1121,8 +1109,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 195,
-      "end": 196,
+      "start": 189,
+      "end": 190,
       "loc": {
         "start": {
           "line": 5,
@@ -1147,8 +1135,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 197,
-      "end": 197,
+      "start": 191,
+      "end": 191,
       "loc": {
         "start": {
           "line": 6,

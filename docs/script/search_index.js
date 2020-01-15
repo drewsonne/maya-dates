@@ -24,15 +24,15 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/full-fullDate.js~fulldate",
-    "class/src/full-fullDate.js~FullDate.html",
-    "<span>FullDate</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/full-fullDate.js</span>",
+    "@drewsonne/maya-dates/src/full-date.js~fulldate",
+    "class/src/full-date.js~FullDate.html",
+    "<span>FullDate</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/full-date.js</span>",
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/factory/full-fullDate.js~fulldatefactory",
-    "class/src/factory/full-fullDate.js~FullDateFactory.html",
-    "<span>FullDateFactory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory/full-fullDate.js</span>",
+    "@drewsonne/maya-dates/src/factory/full-date.js~fulldatefactory",
+    "class/src/factory/full-date.js~FullDateFactory.html",
+    "<span>FullDateFactory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory/full-date.js</span>",
     "class"
   ],
   [
@@ -48,9 +48,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/cr/haab.js~haabmonth",
-    "class/src/cr/haab.js~HaabMonth.html",
-    "<span>HaabMonth</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/haab.js</span>",
+    "@drewsonne/maya-dates/src/cr/haab-month.js~haabmonth",
+    "class/src/cr/haab-month.js~HaabMonth.html",
+    "<span>HaabMonth</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/haab-month.js</span>",
     "class"
   ],
   [
@@ -72,6 +72,18 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@drewsonne/maya-dates/src/operations/longcount-addition.js~longcountaddition",
+    "class/src/operations/longcount-addition.js~LongcountAddition.html",
+    "<span>LongcountAddition</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/operations/longcount-addition.js</span>",
+    "class"
+  ],
+  [
+    "@drewsonne/maya-dates/src/operations/longcount-subtraction.js~longcountaddition",
+    "class/src/operations/longcount-subtraction.js~LongcountAddition.html",
+    "<span>LongcountAddition</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/operations/longcount-subtraction.js</span>",
+    "class"
+  ],
+  [
     "@drewsonne/maya-dates/src/lc/night/lord-of-night.js~lordofnight",
     "class/src/lc/night/lord-of-night.js~LordOfNight.html",
     "<span>LordOfNight</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/night/lord-of-night.js</span>",
@@ -84,9 +96,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/cr/tzolkin.js~tzolkinday",
-    "class/src/cr/tzolkin.js~TzolkinDay.html",
-    "<span>TzolkinDay</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/tzolkin.js</span>",
+    "@drewsonne/maya-dates/src/cr/tzolkin-day.js~tzolkinday",
+    "class/src/cr/tzolkin-day.js~TzolkinDay.html",
+    "<span>TzolkinDay</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/tzolkin-day.js</span>",
     "class"
   ],
   [
@@ -99,6 +111,30 @@ window.esdocSearchIndex = [
     "@drewsonne/maya-dates/src/lc/night/lord-of-night.js~get",
     "function/index.html#static-function-get",
     "<span>get</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/night/lord-of-night.js</span>",
+    "function"
+  ],
+  [
+    "@drewsonne/maya-dates/src/cr/haab.js~gethaab",
+    "function/index.html#static-function-getHaab",
+    "<span>getHaab</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/haab.js</span>",
+    "function"
+  ],
+  [
+    "@drewsonne/maya-dates/src/cr/haab-month.js~gethaabmonth",
+    "function/index.html#static-function-getHaabMonth",
+    "<span>getHaabMonth</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/haab-month.js</span>",
+    "function"
+  ],
+  [
+    "@drewsonne/maya-dates/src/cr/tzolkin.js~gettzolkin",
+    "function/index.html#static-function-getTzolkin",
+    "<span>getTzolkin</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/tzolkin.js</span>",
+    "function"
+  ],
+  [
+    "@drewsonne/maya-dates/src/cr/tzolkin-day.js~gettzolkinday",
+    "function/index.html#static-function-getTzolkinDay",
+    "<span>getTzolkinDay</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/tzolkin-day.js</span>",
     "function"
   ],
   [
@@ -126,7 +162,7 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
-    "src/.external-ecmascript.js~fullDate",
+    "src/.external-ecmascript.js~date",
     "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
     "src/.external-ecmascript.js~Date",
     "external"
@@ -390,12 +426,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/cr/calendar-round.js~calendarround#clone",
-    "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-clone",
-    "src/cr/calendar-round.js~CalendarRound#clone",
-    "method"
-  ],
-  [
     "src/cr/calendar-round.js~calendarround#constructor",
     "class/src/cr/calendar-round.js~CalendarRound.html#instance-constructor-constructor",
     "src/cr/calendar-round.js~CalendarRound#constructor",
@@ -414,7 +444,7 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/cr/calendar-round.js~calendarround#isPartial",
+    "src/cr/calendar-round.js~calendarround#ispartial",
     "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-isPartial",
     "src/cr/calendar-round.js~CalendarRound#isPartial",
     "method"
@@ -456,16 +486,58 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/cr/haab-month.js",
+    "file/src/cr/haab-month.js.html",
+    "src/cr/haab-month.js",
+    "file"
+  ],
+  [
+    "src/cr/haab-month.js~haabmonth#constructor",
+    "class/src/cr/haab-month.js~HaabMonth.html#instance-constructor-constructor",
+    "src/cr/haab-month.js~HaabMonth#constructor",
+    "method"
+  ],
+  [
+    "src/cr/haab-month.js~haabmonth#month_position",
+    "class/src/cr/haab-month.js~HaabMonth.html#instance-member-month_position",
+    "src/cr/haab-month.js~HaabMonth#month_position",
+    "member"
+  ],
+  [
+    "src/cr/haab-month.js~haabmonth#name",
+    "class/src/cr/haab-month.js~HaabMonth.html#instance-member-name",
+    "src/cr/haab-month.js~HaabMonth#name",
+    "member"
+  ],
+  [
+    "src/cr/haab-month.js~haabmonth#next",
+    "class/src/cr/haab-month.js~HaabMonth.html#instance-method-next",
+    "src/cr/haab-month.js~HaabMonth#next",
+    "method"
+  ],
+  [
+    "src/cr/haab-month.js~haabmonth#shift",
+    "class/src/cr/haab-month.js~HaabMonth.html#instance-method-shift",
+    "src/cr/haab-month.js~HaabMonth#shift",
+    "method"
+  ],
+  [
+    "src/cr/haab-month.js~haabmonth#tostring",
+    "class/src/cr/haab-month.js~HaabMonth.html#instance-method-toString",
+    "src/cr/haab-month.js~HaabMonth#toString",
+    "method"
+  ],
+  [
+    "src/cr/haab-month.js~haabmonth#validate",
+    "class/src/cr/haab-month.js~HaabMonth.html#instance-method-validate",
+    "src/cr/haab-month.js~HaabMonth#validate",
+    "method"
+  ],
+  [
     "src/cr/haab.js",
     "file/src/cr/haab.js.html",
     "src/cr/haab.js",
     "file"
-  ],
-  [
-    "src/cr/haab.js~haab#clone",
-    "class/src/cr/haab.js~Haab.html#instance-method-clone",
-    "src/cr/haab.js~Haab#clone",
-    "method"
   ],
   [
     "src/cr/haab.js~haab#coeff",
@@ -510,6 +582,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/cr/haab.js~haab#private_next",
+    "class/src/cr/haab.js~Haab.html#instance-member-private_next",
+    "src/cr/haab.js~Haab#private_next",
+    "member"
+  ],
+  [
     "src/cr/haab.js~haab#shift",
     "class/src/cr/haab.js~Haab.html#instance-method-shift",
     "src/cr/haab.js~Haab#shift",
@@ -528,52 +606,64 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/cr/haab.js~haabmonth#constructor",
-    "class/src/cr/haab.js~HaabMonth.html#instance-constructor-constructor",
-    "src/cr/haab.js~HaabMonth#constructor",
-    "method"
-  ],
-  [
-    "src/cr/haab.js~haabmonth#month_position",
-    "class/src/cr/haab.js~HaabMonth.html#instance-member-month_position",
-    "src/cr/haab.js~HaabMonth#month_position",
-    "member"
-  ],
-  [
-    "src/cr/haab.js~haabmonth#months",
-    "class/src/cr/haab.js~HaabMonth.html#instance-member-months",
-    "src/cr/haab.js~HaabMonth#months",
-    "member"
-  ],
-  [
-    "src/cr/haab.js~haabmonth#name",
-    "class/src/cr/haab.js~HaabMonth.html#instance-member-name",
-    "src/cr/haab.js~HaabMonth#name",
-    "member"
-  ],
-  [
-    "src/cr/haab.js~haabmonth#next",
-    "class/src/cr/haab.js~HaabMonth.html#instance-method-next",
-    "src/cr/haab.js~HaabMonth#next",
-    "method"
-  ],
-  [
-    "src/cr/haab.js~haabmonth#shift",
-    "class/src/cr/haab.js~HaabMonth.html#instance-method-shift",
-    "src/cr/haab.js~HaabMonth#shift",
-    "method"
-  ],
-  [
-    "src/cr/haab.js~haabmonth#validate",
-    "class/src/cr/haab.js~HaabMonth.html#instance-method-validate",
-    "src/cr/haab.js~HaabMonth#validate",
-    "method"
-  ],
-  [
     "src/cr/index.js",
     "file/src/cr/index.js.html",
     "src/cr/index.js",
     "file"
+  ],
+  [
+    "src/cr/tzolkin-day.js",
+    "file/src/cr/tzolkin-day.js.html",
+    "src/cr/tzolkin-day.js",
+    "file"
+  ],
+  [
+    "src/cr/tzolkin-day.js~tzolkinday#constructor",
+    "class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-constructor-constructor",
+    "src/cr/tzolkin-day.js~TzolkinDay#constructor",
+    "method"
+  ],
+  [
+    "src/cr/tzolkin-day.js~tzolkinday#day_position",
+    "class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-member-day_position",
+    "src/cr/tzolkin-day.js~TzolkinDay#day_position",
+    "member"
+  ],
+  [
+    "src/cr/tzolkin-day.js~tzolkinday#name",
+    "class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-member-name",
+    "src/cr/tzolkin-day.js~TzolkinDay#name",
+    "member"
+  ],
+  [
+    "src/cr/tzolkin-day.js~tzolkinday#next",
+    "class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-method-next",
+    "src/cr/tzolkin-day.js~TzolkinDay#next",
+    "method"
+  ],
+  [
+    "src/cr/tzolkin-day.js~tzolkinday#private_next",
+    "class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-member-private_next",
+    "src/cr/tzolkin-day.js~TzolkinDay#private_next",
+    "member"
+  ],
+  [
+    "src/cr/tzolkin-day.js~tzolkinday#shift",
+    "class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-method-shift",
+    "src/cr/tzolkin-day.js~TzolkinDay#shift",
+    "method"
+  ],
+  [
+    "src/cr/tzolkin-day.js~tzolkinday#tostring",
+    "class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-method-toString",
+    "src/cr/tzolkin-day.js~TzolkinDay#toString",
+    "method"
+  ],
+  [
+    "src/cr/tzolkin-day.js~tzolkinday#validate",
+    "class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-method-validate",
+    "src/cr/tzolkin-day.js~TzolkinDay#validate",
+    "method"
   ],
   [
     "src/cr/tzolkin.js",
@@ -624,6 +714,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/cr/tzolkin.js~tzolkin#private_next",
+    "class/src/cr/tzolkin.js~Tzolkin.html#instance-member-private_next",
+    "src/cr/tzolkin.js~Tzolkin#private_next",
+    "member"
+  ],
+  [
     "src/cr/tzolkin.js~tzolkin#shift",
     "class/src/cr/tzolkin.js~Tzolkin.html#instance-method-shift",
     "src/cr/tzolkin.js~Tzolkin#shift",
@@ -642,58 +738,10 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/cr/tzolkin.js~tzolkinday#constructor",
-    "class/src/cr/tzolkin.js~TzolkinDay.html#instance-constructor-constructor",
-    "src/cr/tzolkin.js~TzolkinDay#constructor",
-    "method"
-  ],
-  [
-    "src/cr/tzolkin.js~tzolkinday#day_position",
-    "class/src/cr/tzolkin.js~TzolkinDay.html#instance-member-day_position",
-    "src/cr/tzolkin.js~TzolkinDay#day_position",
-    "member"
-  ],
-  [
-    "src/cr/tzolkin.js~tzolkinday#days",
-    "class/src/cr/tzolkin.js~TzolkinDay.html#instance-member-days",
-    "src/cr/tzolkin.js~TzolkinDay#days",
-    "member"
-  ],
-  [
-    "src/cr/tzolkin.js~tzolkinday#name",
-    "class/src/cr/tzolkin.js~TzolkinDay.html#instance-member-name",
-    "src/cr/tzolkin.js~TzolkinDay#name",
-    "member"
-  ],
-  [
-    "src/cr/tzolkin.js~tzolkinday#next",
-    "class/src/cr/tzolkin.js~TzolkinDay.html#instance-method-next",
-    "src/cr/tzolkin.js~TzolkinDay#next",
-    "method"
-  ],
-  [
-    "src/cr/tzolkin.js~tzolkinday#shift",
-    "class/src/cr/tzolkin.js~TzolkinDay.html#instance-method-shift",
-    "src/cr/tzolkin.js~TzolkinDay#shift",
-    "method"
-  ],
-  [
-    "src/cr/tzolkin.js~tzolkinday#validate",
-    "class/src/cr/tzolkin.js~TzolkinDay.html#instance-method-validate",
-    "src/cr/tzolkin.js~TzolkinDay#validate",
-    "method"
-  ],
-  [
     "src/factory/base.js",
     "file/src/factory/base.js.html",
     "src/factory/base.js",
     "file"
-  ],
-  [
-    "src/factory/base.js~factory#split",
-    "class/src/factory/base.js~Factory.html#instance-method-split",
-    "src/factory/base.js~Factory#split",
-    "method"
   ],
   [
     "src/factory/base.js~factory#constructor",
@@ -706,6 +754,12 @@ window.esdocSearchIndex = [
     "class/src/factory/base.js~Factory.html#instance-member-pattern",
     "src/factory/base.js~Factory#pattern",
     "member"
+  ],
+  [
+    "src/factory/base.js~factory#split",
+    "class/src/factory/base.js~Factory.html#instance-method-split",
+    "src/factory/base.js~Factory#split",
+    "method"
   ],
   [
     "src/factory/calendar-round.js",
@@ -732,15 +786,15 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/factory/full-fullDate.js",
-    "file/src/factory/full-fullDate.js.html",
-    "src/factory/full-fullDate.js",
+    "src/factory/full-date.js",
+    "file/src/factory/full-date.js.html",
+    "src/factory/full-date.js",
     "file"
   ],
   [
-    "src/factory/full-fullDate.js~fulldatefactory#parse",
-    "class/src/factory/full-fullDate.js~FullDateFactory.html#instance-method-parse",
-    "src/factory/full-fullDate.js~FullDateFactory#parse",
+    "src/factory/full-date.js~fulldatefactory#parse",
+    "class/src/factory/full-date.js~FullDateFactory.html#instance-method-parse",
+    "src/factory/full-date.js~FullDateFactory#parse",
     "method"
   ],
   [
@@ -762,33 +816,33 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/full-fullDate.js",
-    "file/src/full-fullDate.js.html",
-    "src/full-fullDate.js",
+    "src/full-date.js",
+    "file/src/full-date.js.html",
+    "src/full-date.js",
     "file"
   ],
   [
-    "src/full-fullDate.js~fulldate#constructor",
-    "class/src/full-fullDate.js~FullDate.html#instance-constructor-constructor",
-    "src/full-fullDate.js~FullDate#constructor",
+    "src/full-date.js~fulldate#constructor",
+    "class/src/full-date.js~FullDate.html#instance-constructor-constructor",
+    "src/full-date.js~FullDate#constructor",
     "method"
   ],
   [
-    "src/full-fullDate.js~fulldate#cr",
-    "class/src/full-fullDate.js~FullDate.html#instance-member-cr",
-    "src/full-fullDate.js~FullDate#cr",
+    "src/full-date.js~fulldate#cr",
+    "class/src/full-date.js~FullDate.html#instance-member-cr",
+    "src/full-date.js~FullDate#cr",
     "member"
   ],
   [
-    "src/full-fullDate.js~fulldate#lc",
-    "class/src/full-fullDate.js~FullDate.html#instance-member-lc",
-    "src/full-fullDate.js~FullDate#lc",
+    "src/full-date.js~fulldate#lc",
+    "class/src/full-date.js~FullDate.html#instance-member-lc",
+    "src/full-date.js~FullDate#lc",
     "member"
   ],
   [
-    "src/full-fullDate.js~fulldate#tostring",
-    "class/src/full-fullDate.js~FullDate.html#instance-method-toString",
-    "src/full-fullDate.js~FullDate#toString",
+    "src/full-date.js~fulldate#tostring",
+    "class/src/full-date.js~FullDate.html#instance-method-toString",
+    "src/full-date.js~FullDate#toString",
     "method"
   ],
   [
@@ -810,25 +864,25 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/lc/long-count.js~longcount#bakTun",
+    "src/lc/long-count.js~longcount#baktun",
     "class/src/lc/long-count.js~LongCount.html#instance-get-bakTun",
     "src/lc/long-count.js~LongCount#bakTun",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#bakTun",
+    "src/lc/long-count.js~longcount#baktun",
     "class/src/lc/long-count.js~LongCount.html#instance-set-bakTun",
     "src/lc/long-count.js~LongCount#bakTun",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#buildCalendarRound",
+    "src/lc/long-count.js~longcount#buildcalendarround",
     "class/src/lc/long-count.js~LongCount.html#instance-method-buildCalendarRound",
     "src/lc/long-count.js~LongCount#buildCalendarRound",
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#buildFullDate",
+    "src/lc/long-count.js~longcount#buildfulldate",
     "class/src/lc/long-count.js~LongCount.html#instance-method-buildFullDate",
     "src/lc/long-count.js~LongCount#buildFullDate",
     "method"
@@ -858,62 +912,92 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#getDateSections",
+    "src/lc/long-count.js~longcount#getdatesections",
     "class/src/lc/long-count.js~LongCount.html#instance-method-getDateSections",
     "src/lc/long-count.js~LongCount#getDateSections",
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#getPosition",
+    "src/lc/long-count.js~longcount#getposition",
     "class/src/lc/long-count.js~LongCount.html#instance-method-getPosition",
     "src/lc/long-count.js~LongCount#getPosition",
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#isPartial",
+    "src/lc/long-count.js~longcount#gt",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-gt",
+    "src/lc/long-count.js~LongCount#gt",
+    "method"
+  ],
+  [
+    "src/lc/long-count.js~longcount#isnegative",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-isNegative",
+    "src/lc/long-count.js~LongCount#isNegative",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#isnegative",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-isNegative",
+    "src/lc/long-count.js~LongCount#isNegative",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#ispartial",
     "class/src/lc/long-count.js~LongCount.html#instance-method-isPartial",
     "src/lc/long-count.js~LongCount#isPartial",
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#isValid",
+    "src/lc/long-count.js~longcount#ispositive",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-isPositive",
+    "src/lc/long-count.js~LongCount#isPositive",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#ispositive",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-isPositive",
+    "src/lc/long-count.js~LongCount#isPositive",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#isvalid",
     "class/src/lc/long-count.js~LongCount.html#instance-method-isValid",
     "src/lc/long-count.js~LongCount#isValid",
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#kAtun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kAtun",
-    "src/lc/long-count.js~LongCount#kAtun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#kAtun",
+    "src/lc/long-count.js~longcount#katun",
     "class/src/lc/long-count.js~LongCount.html#instance-set-kAtun",
     "src/lc/long-count.js~LongCount#kAtun",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#kIn",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kIn",
-    "src/lc/long-count.js~LongCount#kIn",
+    "src/lc/long-count.js~longcount#katun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kAtun",
+    "src/lc/long-count.js~LongCount#kAtun",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#kIn",
+    "src/lc/long-count.js~longcount#kin",
     "class/src/lc/long-count.js~LongCount.html#instance-set-kIn",
     "src/lc/long-count.js~LongCount#kIn",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#kalabtun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kalabtun",
-    "src/lc/long-count.js~LongCount#kalabtun",
+    "src/lc/long-count.js~longcount#kin",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kIn",
+    "src/lc/long-count.js~LongCount#kIn",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#kalabtun",
     "class/src/lc/long-count.js~LongCount.html#instance-get-kalabtun",
+    "src/lc/long-count.js~LongCount#kalabtun",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#kalabtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kalabtun",
     "src/lc/long-count.js~LongCount#kalabtun",
     "member"
   ],
@@ -930,16 +1014,28 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#length",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-length",
-    "src/lc/long-count.js~LongCount#length",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#lordOfNight",
+    "src/lc/long-count.js~longcount#lordofnight",
     "class/src/lc/long-count.js~LongCount.html#instance-get-lordOfNight",
     "src/lc/long-count.js~LongCount#lordOfNight",
     "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#lt",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-lt",
+    "src/lc/long-count.js~LongCount#lt",
+    "method"
+  ],
+  [
+    "src/lc/long-count.js~longcount#map",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-map",
+    "src/lc/long-count.js~LongCount#map",
+    "method"
+  ],
+  [
+    "src/lc/long-count.js~longcount#minus",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-minus",
+    "src/lc/long-count.js~LongCount#minus",
+    "method"
   ],
   [
     "src/lc/long-count.js~longcount#parts",
@@ -960,16 +1056,22 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#raw",
-    "class/src/lc/long-count.js~LongCount.html#instance-member-raw",
-    "src/lc/long-count.js~LongCount#raw",
-    "member"
+    "src/lc/long-count.js~longcount#plus",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-plus",
+    "src/lc/long-count.js~LongCount#plus",
+    "method"
   ],
   [
-    "src/lc/long-count.js~longcount#setDateSections",
+    "src/lc/long-count.js~longcount#setdatesections",
     "class/src/lc/long-count.js~LongCount.html#instance-method-setDateSections",
     "src/lc/long-count.js~LongCount#setDateSections",
     "method"
+  ],
+  [
+    "src/lc/long-count.js~longcount#sign",
+    "class/src/lc/long-count.js~LongCount.html#instance-member-sign",
+    "src/lc/long-count.js~LongCount#sign",
+    "member"
   ],
   [
     "src/lc/long-count.js~longcount#tostring",
@@ -1026,6 +1128,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/operations/calendar-round-iterator.js",
+    "file/src/operations/calendar-round-iterator.js.html",
+    "src/operations/calendar-round-iterator.js",
+    "file"
+  ],
+  [
     "src/operations/calendar-round-wildcard.js",
     "file/src/operations/calendar-round-wildcard.js.html",
     "src/operations/calendar-round-wildcard.js",
@@ -1062,7 +1170,7 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/operations/fulldate-wildcard.js~fulldatewildcard#fullDate",
+    "src/operations/fulldate-wildcard.js~fulldatewildcard#fulldate",
     "class/src/operations/fulldate-wildcard.js~FullDateWildcard.html#instance-member-fullDate",
     "src/operations/fulldate-wildcard.js~FullDateWildcard#fullDate",
     "member"
@@ -1078,6 +1186,66 @@ window.esdocSearchIndex = [
     "file/src/operations/index.js.html",
     "src/operations/index.js",
     "file"
+  ],
+  [
+    "src/operations/longcount-addition.js",
+    "file/src/operations/longcount-addition.js.html",
+    "src/operations/longcount-addition.js",
+    "file"
+  ],
+  [
+    "src/operations/longcount-addition.js~longcountaddition#a",
+    "class/src/operations/longcount-addition.js~LongcountAddition.html#instance-member-a",
+    "src/operations/longcount-addition.js~LongcountAddition#a",
+    "member"
+  ],
+  [
+    "src/operations/longcount-addition.js~longcountaddition#b",
+    "class/src/operations/longcount-addition.js~LongcountAddition.html#instance-member-b",
+    "src/operations/longcount-addition.js~LongcountAddition#b",
+    "member"
+  ],
+  [
+    "src/operations/longcount-addition.js~longcountaddition#constructor",
+    "class/src/operations/longcount-addition.js~LongcountAddition.html#instance-constructor-constructor",
+    "src/operations/longcount-addition.js~LongcountAddition#constructor",
+    "method"
+  ],
+  [
+    "src/operations/longcount-addition.js~longcountaddition#equals",
+    "class/src/operations/longcount-addition.js~LongcountAddition.html#instance-method-equals",
+    "src/operations/longcount-addition.js~LongcountAddition#equals",
+    "method"
+  ],
+  [
+    "src/operations/longcount-subtraction.js",
+    "file/src/operations/longcount-subtraction.js.html",
+    "src/operations/longcount-subtraction.js",
+    "file"
+  ],
+  [
+    "src/operations/longcount-subtraction.js~longcountaddition#a",
+    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-member-a",
+    "src/operations/longcount-subtraction.js~LongcountAddition#a",
+    "member"
+  ],
+  [
+    "src/operations/longcount-subtraction.js~longcountaddition#b",
+    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-member-b",
+    "src/operations/longcount-subtraction.js~LongcountAddition#b",
+    "member"
+  ],
+  [
+    "src/operations/longcount-subtraction.js~longcountaddition#constructor",
+    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-constructor-constructor",
+    "src/operations/longcount-subtraction.js~LongcountAddition#constructor",
+    "method"
+  ],
+  [
+    "src/operations/longcount-subtraction.js~longcountaddition#equals",
+    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-method-equals",
+    "src/operations/longcount-subtraction.js~LongcountAddition#equals",
+    "method"
   ],
   [
     "src/operations/longcount-wildcard.js",

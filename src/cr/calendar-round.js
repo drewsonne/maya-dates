@@ -130,19 +130,6 @@ class CalendarRound {
   }
 
   /**
-   * Return a brand new object with the same configuration as this object.
-   * @return {CalendarRound}
-   */
-  clone() {
-    return getCalendarRound(
-      this.tzolkin.coeff,
-      this.tzolkin.day,
-      this.haab.coeff,
-      this.haab.month,
-    );
-  }
-
-  /**
    * Return true, if this function has any wildcard portions.
    * @return {boolean}
    */
@@ -157,19 +144,15 @@ class CalendarRound {
    * Render the CalendarRound cycle fullDate as a string
    * @returns {string}
    */
-  toString(isNumeric) {
-    if (isNumeric) {
-      return `${this.tzolkin.toString(isNumeric)}:${this.haab.toString(
-        isNumeric,
-      )}`;
-    }
+  toString() {
     return `${this.tzolkin} ${this.haab}`;
   }
 }
 
+/** @ignore */
 const singleton = {};
 
-getCalendarRound = function (tzolkinCoeff, tzolkinDay, haabCoeff, haabMonth) {
+getCalendarRound = (tzolkinCoeff, tzolkinDay, haabCoeff, haabMonth) => {
   const crId = `${tzolkinCoeff} ${tzolkinDay} ${haabCoeff} ${haabMonth}`;
   if (singleton[crId] === undefined) {
     singleton[crId] = new CalendarRound(tzolkinCoeff, tzolkinDay, haabCoeff, haabMonth);

@@ -11,6 +11,7 @@ const concat = (x, y) => x.concat(y);
 /** @ignore */
 const flatMap = (f, xs) => xs.map(f).reduce(concat, []);
 
+/** @ignore */
 // eslint-disable-next-line no-extend-native,func-names
 Array.prototype.flatMap = function (f) {
   return flatMap(f, this);

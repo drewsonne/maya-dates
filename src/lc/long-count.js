@@ -1,11 +1,15 @@
 /** @ignore */
 const wildcard = require('../wildcard');
 /** @ignore */
-const origin = require('../cr/index').origin;
+const {origin} = require('../cr/index');
 /** @ignore */
 const FullDate = require('../full-date');
 /** @ignore */
 const night = require('./night/lord-of-night');
+/** @ignore */
+const LongcountAddition = require('../operations/longcount-addition');
+/** @ignore */
+const LongcountSubtraction = require('../operations/longcount-subtraction');
 
 /**
  * Long Count cycle
@@ -18,7 +22,7 @@ class LongCount {
   constructor(...cycles) {
     /**
      * Date Components
-     * @type {number|Wildcard[]}
+     * @type {number[]|Wildcard[]}
      */
     this.parts = cycles;
 
@@ -29,10 +33,45 @@ class LongCount {
     this.date_pattern = /([\d*]+\.?)+/;
 
     /**
-     * Convert individual components to a single string
-     * @type {string}
+     * @private
+     * @type {number}
      */
-    // this.raw = this.toString();
+    this.sign = (this.parts[this.parts.length - 1] < 0) ? -1 : 1;
+    if (this.isNegative) {
+      this.parts[this.parts.length - 1] = -1 * this.parts[this.parts.length - 1];
+    }
+  }
+
+  /**
+   * Return true if the Long Count is positive.
+   * @return {boolean}
+   */
+  get isPositive() {
+    return this.sign === 1;
+  }
+
+  /**
+   * Return true if the Long Count is operating as a negative Distance Number.
+   * @return {boolean}
+   */
+  get isNegative() {
+    return this.sign === -1;
+  }
+
+  /**
+   * Set this Long Count as being a Long Count or a positive Distance Number
+   * @param {boolean} newPositive
+   */
+  set isPositive(newPositive) {
+    this.sign = newPositive === true ? 1 : -1;
+  }
+
+  /**
+   * Set this Long Count as being a negative Distance Number
+   * @param newNegative
+   */
+  set isNegative(newNegative) {
+    this.isPositive = !newNegative;
   }
 
   /**
@@ -68,7 +107,7 @@ class LongCount {
   /**
    * Set specific column in Long Count fullDate
    * @param {number} index
-   * @param {number|wildcard} value
+   * @param {number|wildcard} newValue
    * @returns {LongCount}
    */
   setDateSections(index, newValue) {
@@ -78,34 +117,34 @@ class LongCount {
   }
 
   /**
-   * Return the number of positions in the long count
-   * @returns {number}
-   */
-  get length() {
-    return this.parts.length;
-  }
-
-  /**
-   * Pass the filter down to the parts
-   * @param fn
-   * @return {T[]}
-   */
-  filter(fn) {
-    return this.parts.filter(fn);
-  }
-
-  /**
    * Pass the map down to the parts
    * @param fn
-   * @return {unknown[]}
+   * @return {object[]}
    */
   map(fn) {
     return this.parts.map(fn);
   }
 
   /**
+   * Compare if this LC is greater than the supplied LC.
+   * @param {LongCount} newLongCount
+   * @return {boolean}
+   */
+  lt(newLongCount) {
+    return this.getPosition() < newLongCount.getPosition();
+  }
+
+  /**
+   * Compare is this LC is less than the supplied LC.
+   * @param {LongCount} newLongCount
+   * @return {boolean}
+   */
+  gt(newLongCount) {
+    return this.getPosition() > newLongCount.getPosition();
+  }
+
+  /**
    * Set the k'in component of the fullDate
-   * @returns {number}
    */
   set kIn(newKIn) {
     this.setDateSections(0, newKIn);
@@ -121,7 +160,6 @@ class LongCount {
 
   /**
    * Set the winal component of the fullDate
-   * @returns {number}
    */
   set winal(newWinal) {
     this.setDateSections(1, newWinal);
@@ -137,7 +175,6 @@ class LongCount {
 
   /**
    * Set the tun component of the fullDate
-   * @returns {number}
    */
   set tun(newTun) {
     this.setDateSections(2, newTun);
@@ -153,7 +190,6 @@ class LongCount {
 
   /**
    * Set the k'atun component of the fullDate
-   * @returns {number}
    */
   set kAtun(newKAtun) {
     this.setDateSections(3, newKAtun);
@@ -169,7 +205,6 @@ class LongCount {
 
   /**
    * Set the bak'tun component of the fullDate
-   * @returns {number}
    */
   set bakTun(newBakTun) {
     this.setDateSections(4, newBakTun);
@@ -185,7 +220,6 @@ class LongCount {
 
   /**
    * Set the piktun component of the fullDate
-   * @returns {number}
    */
   set piktun(newBakTun) {
     this.setDateSections(5, newBakTun);
@@ -201,7 +235,6 @@ class LongCount {
 
   /**
    * Set the kalabtun component of the fullDate
-   * @returns {number}
    */
   set kalabtun(newBakTun) {
     this.setDateSections(6, newBakTun);
@@ -217,7 +250,6 @@ class LongCount {
 
   /**
    * Set the kinchiltun component of the fullDate
-   * @returns {number}
    */
   set kinchiltun(newBakTun) {
     this.setDateSections(7, newBakTun);
@@ -233,7 +265,7 @@ class LongCount {
 
   /**
    *
-   * @return {any}
+   * @return {LordOfNight}
    */
   get lordOfNight() {
     return night.get(
@@ -266,14 +298,14 @@ class LongCount {
     if (this.isPartial()) {
       throw new Error('Can not get position of fullDate dates');
     }
-    return this.kIn
+    return (this.kIn
       + this.winal * 20
       + this.tun * 360
       + this.kAtun * 7200
       + this.bakTun * 144000
       + this.piktun * 2880000
       + this.kalabtun * 57600000
-      + this.kinchiltun * 1152000000;
+      + this.kinchiltun * 1152000000) * this.sign;
   }
 
   /**
@@ -298,12 +330,36 @@ class LongCount {
   }
 
   /**
+   * Return the sum of this Long Count and the supplied
+   * @param {LongCount} newLc
+   * @return {LongcountAddition}
+   */
+  plus(newLc) {
+    /*  We pass the LongCount class in, as to require this in the operation
+     *  will create a circular dependency.
+     */
+    return new LongcountAddition(LongCount, this, newLc);
+  }
+
+  /**
+   * Return the difference between this Long Count and the supplied
+   * @param {LongCount} newLc
+   * @return {LongcountAddition}
+   */
+  minus(newLc) {
+    /*  We pass the LongCount class in, as to require this in the operation
+     *  will create a circular dependency.
+     */
+    return new LongcountSubtraction(LongCount, this, newLc);
+  }
+
+  /**
    * Convert the LongCount to a string and pad the sections of the fullDate
    * @returns {string}
    */
   toString() {
     let significantDigits = [];
-    for (let i = this.parts.length - 1; i >= 0; i--) {
+    for (let i = this.parts.length - 1; i >= 0; i -= 1) {
       const part = this.parts[i];
       if (part !== 0) {
         significantDigits = this.parts.slice(0, i + 1).reverse();
@@ -311,7 +367,7 @@ class LongCount {
       }
     }
 
-    for (let i = 0; i < significantDigits.length; i++) {
+    for (let i = 0; i < significantDigits.length; i += 1) {
       if (significantDigits[i] === undefined) {
         significantDigits[i] = '0';
       }
@@ -320,13 +376,13 @@ class LongCount {
     const dateLength = significantDigits.length;
     if (dateLength < 5) {
       significantDigits = significantDigits.reverse();
-      for (let i = 0; i < 5 - dateLength; i++) {
+      for (let i = 0; i < 5 - dateLength; i += 1) {
         significantDigits.push(' 0');
       }
       significantDigits = significantDigits.reverse();
     }
 
-    for (let i = 0; i < significantDigits.length; i++) {
+    for (let i = 0; i < significantDigits.length; i += 1) {
       const part = significantDigits[i].toString();
       if (part.length < 2) {
         significantDigits[i] = ` ${part}`;

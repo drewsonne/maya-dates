@@ -13,10 +13,10 @@
 
 <header>
   <a href="./">Home</a>
-
+  
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-
+  
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -28,14 +28,18 @@
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
-
+    
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab-month.js~HaabMonth.html">HaabMonth</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin.js~Tzolkin.html">Tzolkin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHaabMonth">getHaabMonth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHaab">getHaab</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getTzolkinDay">getTzolkinDay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getTzolkin">getTzolkin</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#factory">factory</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/base.js~Factory.html">Factory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/calendar-round.js~CalendarRoundFactory.html">CalendarRoundFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a></span></span></li>
@@ -45,6 +49,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get">get</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html">CalendarRoundWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html">LongcountAddition</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-subtraction.js~LongcountAddition.html">LongcountAddition</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
 </ul>
 </div>
@@ -54,23 +60,28 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
 const wildcard = require(&apos;../wildcard&apos;);
 /** @ignore */
-const origin = require(&apos;../cr/index&apos;).origin;
+const {origin} = require(&apos;../cr/index&apos;);
 /** @ignore */
-const FullDate = require(&apos;../full-fullDate&apos;);
+const FullDate = require(&apos;../full-date&apos;);
 /** @ignore */
 const night = require(&apos;./night/lord-of-night&apos;);
+/** @ignore */
+const LongcountAddition = require(&apos;../operations/longcount-addition&apos;);
+/** @ignore */
+const LongcountSubtraction = require(&apos;../operations/longcount-subtraction&apos;);
 
 /**
  * Long Count cycle
  */
 class LongCount {
   /**
-   * @param {...number|Wildcard} cycles - Components in the long count (eg, K&apos;in, Winal, Bak&apos;tun, etc)
+   * @param {...number|Wildcard} cycles - Components in the long count
+   * (eg, K&apos;in, Winal, Bak&apos;tun, etc)
    */
   constructor(...cycles) {
     /**
      * Date Components
-     * @type {number|Wildcard[]}
+     * @type {number[]|Wildcard[]}
      */
     this.parts = cycles;
 
@@ -81,10 +92,45 @@ class LongCount {
     this.date_pattern = /([\d*]+\.?)+/;
 
     /**
-     * Convert individual components to a single string
-     * @type {string}
+     * @private
+     * @type {number}
      */
-    this.raw = this.toString();
+    this.sign = (this.parts[this.parts.length - 1] &lt; 0) ? -1 : 1;
+    if (this.isNegative) {
+      this.parts[this.parts.length - 1] = -1 * this.parts[this.parts.length - 1];
+    }
+  }
+
+  /**
+   * Return true if the Long Count is positive.
+   * @return {boolean}
+   */
+  get isPositive() {
+    return this.sign === 1;
+  }
+
+  /**
+   * Return true if the Long Count is operating as a negative Distance Number.
+   * @return {boolean}
+   */
+  get isNegative() {
+    return this.sign === -1;
+  }
+
+  /**
+   * Set this Long Count as being a Long Count or a positive Distance Number
+   * @param {boolean} newPositive
+   */
+  set isPositive(newPositive) {
+    this.sign = newPositive === true ? 1 : -1;
+  }
+
+  /**
+   * Set this Long Count as being a negative Distance Number
+   * @param newNegative
+   */
+  set isNegative(newNegative) {
+    this.isPositive = !newNegative;
   }
 
   /**
@@ -110,7 +156,7 @@ class LongCount {
    * @returns {number}
    */
   getDateSections(index) {
-    let part = this.parts[index];
+    const part = this.parts[index];
     if (part === undefined) {
       return 0;
     }
@@ -120,30 +166,47 @@ class LongCount {
   /**
    * Set specific column in Long Count fullDate
    * @param {number} index
-   * @param {number} value
+   * @param {number|wildcard} newValue
    * @returns {LongCount}
-   * @private
    */
-  setDateSections(index, value) {
-    this.parts[index] = value.toString();
-    this.raw = this.toString();
+  setDateSections(index, newValue) {
+    this.parts[index] = (newValue !== wildcard) ? newValue : parseInt(newValue, 10);
+    // this.raw = this.toString();
     return this;
   }
 
   /**
-   * Return the number of positions in the long count
-   * @returns {number}
+   * Pass the map down to the parts
+   * @param fn
+   * @return {object[]}
    */
-  get length() {
-    return this.parts.length;
+  map(fn) {
+    return this.parts.map(fn);
+  }
+
+  /**
+   * Compare if this LC is greater than the supplied LC.
+   * @param {LongCount} newLongCount
+   * @return {boolean}
+   */
+  lt(newLongCount) {
+    return this.getPosition() &lt; newLongCount.getPosition();
+  }
+
+  /**
+   * Compare is this LC is less than the supplied LC.
+   * @param {LongCount} newLongCount
+   * @return {boolean}
+   */
+  gt(newLongCount) {
+    return this.getPosition() &gt; newLongCount.getPosition();
   }
 
   /**
    * Set the k&apos;in component of the fullDate
-   * @returns {number}
    */
-  set kIn(new_k_in) {
-    this.setDateSections(0, new_k_in);
+  set kIn(newKIn) {
+    this.setDateSections(0, newKIn);
   }
 
   /**
@@ -156,10 +219,9 @@ class LongCount {
 
   /**
    * Set the winal component of the fullDate
-   * @returns {number}
    */
-  set winal(new_winal) {
-    this.setDateSections(1, new_winal);
+  set winal(newWinal) {
+    this.setDateSections(1, newWinal);
   }
 
   /**
@@ -172,10 +234,9 @@ class LongCount {
 
   /**
    * Set the tun component of the fullDate
-   * @returns {number}
    */
-  set tun(new_tun) {
-    this.setDateSections(2, new_tun);
+  set tun(newTun) {
+    this.setDateSections(2, newTun);
   }
 
   /**
@@ -188,10 +249,9 @@ class LongCount {
 
   /**
    * Set the k&apos;atun component of the fullDate
-   * @returns {number}
    */
-  set kAtun(new_k_atun) {
-    this.setDateSections(3, new_k_atun);
+  set kAtun(newKAtun) {
+    this.setDateSections(3, newKAtun);
   }
 
   /**
@@ -204,10 +264,9 @@ class LongCount {
 
   /**
    * Set the bak&apos;tun component of the fullDate
-   * @returns {number}
    */
-  set bakTun(new_bak_tun) {
-    this.setDateSections(4, new_bak_tun);
+  set bakTun(newBakTun) {
+    this.setDateSections(4, newBakTun);
   }
 
   /**
@@ -220,10 +279,9 @@ class LongCount {
 
   /**
    * Set the piktun component of the fullDate
-   * @returns {number}
    */
-  set piktun(new_bak_tun) {
-    this.setDateSections(5, new_bak_tun);
+  set piktun(newBakTun) {
+    this.setDateSections(5, newBakTun);
   }
 
   /**
@@ -236,10 +294,9 @@ class LongCount {
 
   /**
    * Set the kalabtun component of the fullDate
-   * @returns {number}
    */
-  set kalabtun(new_bak_tun) {
-    this.setDateSections(6, new_bak_tun);
+  set kalabtun(newBakTun) {
+    this.setDateSections(6, newBakTun);
   }
 
   /**
@@ -252,10 +309,9 @@ class LongCount {
 
   /**
    * Set the kinchiltun component of the fullDate
-   * @returns {number}
    */
-  set kinchiltun(new_bak_tun) {
-    this.setDateSections(7, new_bak_tun);
+  set kinchiltun(newBakTun) {
+    this.setDateSections(7, newBakTun);
   }
 
   /**
@@ -268,7 +324,7 @@ class LongCount {
 
   /**
    *
-   * @return {any}
+   * @return {LordOfNight}
    */
   get lordOfNight() {
     return night.get(
@@ -290,12 +346,7 @@ class LongCount {
    * @return {boolean}
    */
   isPartial() {
-    for (let part of this.parts) {
-      if (part === wildcard) {
-        return true;
-      }
-    }
-    return false;
+    return this.parts.some((part) =&gt; part === wildcard);
   }
 
   /**
@@ -304,16 +355,16 @@ class LongCount {
    */
   getPosition() {
     if (this.isPartial()) {
-      throw &apos;Can not get position of fullDate dates&apos;;
+      throw new Error(&apos;Can not get position of fullDate dates&apos;);
     }
-    return this.kIn +
-      this.winal * 20 +
-      this.tun * 360 +
-      this.kAtun * 7200 +
-      this.bakTun * 144000 +
-      this.piktun * 2880000 +
-      this.kalabtun * 57600000 +
-      this.kinchiltun * 1152000000;
+    return (this.kIn
+      + this.winal * 20
+      + this.tun * 360
+      + this.kAtun * 7200
+      + this.bakTun * 144000
+      + this.piktun * 2880000
+      + this.kalabtun * 57600000
+      + this.kinchiltun * 1152000000) * this.sign;
   }
 
   /**
@@ -338,41 +389,65 @@ class LongCount {
   }
 
   /**
+   * Return the sum of this Long Count and the supplied
+   * @param {LongCount} newLc
+   * @return {LongcountAddition}
+   */
+  plus(newLc) {
+    /*  We pass the LongCount class in, as to require this in the operation
+     *  will create a circular dependency.
+     */
+    return new LongcountAddition(LongCount, this, newLc);
+  }
+
+  /**
+   * Return the difference between this Long Count and the supplied
+   * @param {LongCount} newLc
+   * @return {LongcountAddition}
+   */
+  minus(newLc) {
+    /*  We pass the LongCount class in, as to require this in the operation
+     *  will create a circular dependency.
+     */
+    return new LongcountSubtraction(LongCount, this, newLc);
+  }
+
+  /**
    * Convert the LongCount to a string and pad the sections of the fullDate
    * @returns {string}
    */
   toString() {
-    let significant_digits = [];
-    for (let i = this.parts.length - 1; i &gt;= 0; i--) {
-      let part = this.parts[i];
+    let significantDigits = [];
+    for (let i = this.parts.length - 1; i &gt;= 0; i -= 1) {
+      const part = this.parts[i];
       if (part !== 0) {
-        significant_digits = this.parts.slice(0, i + 1).reverse();
+        significantDigits = this.parts.slice(0, i + 1).reverse();
         break;
       }
     }
 
-    for (let i = 0; i &lt; significant_digits.length; i++) {
-      if (significant_digits[i] === undefined) {
-        significant_digits[i] = &apos;0&apos;;
+    for (let i = 0; i &lt; significantDigits.length; i += 1) {
+      if (significantDigits[i] === undefined) {
+        significantDigits[i] = &apos;0&apos;;
       }
     }
 
-    let date_length = significant_digits.length;
-    if (date_length &lt; 5) {
-      significant_digits = significant_digits.reverse();
-      for (let i = 0; i &lt; 5 - date_length; i++) {
-        significant_digits.push(&apos; 0&apos;);
+    const dateLength = significantDigits.length;
+    if (dateLength &lt; 5) {
+      significantDigits = significantDigits.reverse();
+      for (let i = 0; i &lt; 5 - dateLength; i += 1) {
+        significantDigits.push(&apos; 0&apos;);
       }
-      significant_digits = significant_digits.reverse();
+      significantDigits = significantDigits.reverse();
     }
 
-    for (let i = 0; i &lt; significant_digits.length; i++) {
-      let part = significant_digits[i].toString();
+    for (let i = 0; i &lt; significantDigits.length; i += 1) {
+      const part = significantDigits[i].toString();
       if (part.length &lt; 2) {
-        significant_digits[i] = &apos; &apos; + part;
+        significantDigits[i] = ` ${part}`;
       }
     }
-    return significant_digits.join(&apos;.&apos;);
+    return significantDigits.join(&apos;.&apos;);
   }
 }
 
