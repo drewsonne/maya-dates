@@ -149,6 +149,7 @@ class CalendarRound {
   }
 }
 
+/** @ignore */
 const singleton = {};
 
 getCalendarRound = (tzolkinCoeff, tzolkinDay, haabCoeff, haabMonth) => {

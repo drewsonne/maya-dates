@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/cr/haab-month.js | @drewsonne/maya-dates</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Node.js package to represent dates in the Maya Calendar"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@drewsonne/maya-dates"><meta property="twitter:description" content="Node.js package to represent dates in the Maya Calendar"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab-month.js~HaabMonth.html">HaabMonth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin.js~Tzolkin.html">Tzolkin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHaabMonth">getHaabMonth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHaab">getHaab</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getTzolkinDay">getTzolkinDay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getTzolkin">getTzolkin</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#factory">factory</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/base.js~Factory.html">Factory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/calendar-round.js~CalendarRoundFactory.html">CalendarRoundFactory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc">lc</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-night">lc/night</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get">get</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html">CalendarRoundWildcard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html">LongcountAddition</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-subtraction.js~LongcountAddition.html">LongcountAddition</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/cr/haab-month.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
+const months = [
+  undefined,
+  &apos;Pop&apos;,
+  &apos;Wo&apos;,
+  &apos;Sip&apos;,
+  &apos;Sotz\&apos;&apos;,
+  &apos;Sek&apos;,
+  &apos;Xul&apos;,
+  &apos;Yaxk\&apos;in&apos;,
+  &apos;Mol&apos;,
+  &apos;Ch\&apos;en&apos;,
+  &apos;Yax&apos;,
+  &apos;Sak&apos;,
+  &apos;Keh&apos;,
+  &apos;Mak&apos;,
+  &apos;K\&apos;ank\&apos;in&apos;,
+  &apos;Muwan&apos;,
+  &apos;Pax&apos;,
+  &apos;K\&apos;ayab&apos;,
+  &apos;Kumk\&apos;u&apos;,
+  &apos;Wayeb&apos;,
+];
+
+/** @ignore */
+const monthIndices = {
+  undefined: 0,
+  Pop: 1,
+  Wo: 2,
+  Sip: 3,
+  &apos;Sotz\&apos;&apos;: 4,
+  Sek: 5,
+  Xul: 6,
+  &apos;Yaxk\&apos;in&apos;: 7,
+  Mol: 8,
+  &apos;Ch\&apos;en&apos;: 9,
+  Yax: 10,
+  Sak: 11,
+  Keh: 12,
+  Mak: 13,
+  &apos;K\&apos;ank\&apos;in&apos;: 14,
+  Muwan: 15,
+  Pax: 16,
+  &apos;K\&apos;ayab&apos;: 17,
+  &apos;Kumk\&apos;u&apos;: 18,
+  Wayeb: 19,
+};
+
+/** @ignore */
+const singleton = {};
+
+/**
+ * Return a comparable HaabMonth instantiation.
+ * @param name
+ * @return {HaabMonth}
+ */
+function getHaabMonth(name) {
+  const monthName = (typeof name === &apos;number&apos;) ? months[name] : name;
+  if (singleton[monthName] === undefined) {
+    // eslint-disable-next-line no-use-before-define
+    singleton[monthName] = new HaabMonth(monthName);
+  }
+  return singleton[monthName];
+}
+
+/**
+ * Describes only the month component of a Haab fullDate
+ */
+class HaabMonth {
+  /**
+   * @param {string} name - Name of the Haab month
+   */
+  constructor(name) {
+    /**
+     * Name of the Haab month
+     * @type {string}
+     */
+    this.name = name;
+
+    /**
+     * @type {number}
+     */
+    this.month_position = monthIndices[this.name];
+  }
+
+  /**
+   * Return the next month in the Haab cycle
+   * @returns {HaabMonth}
+   */
+  next() {
+    return this.shift(1);
+  }
+
+  /**
+   * Ensure a Haab month name is defined, and that the month name is within the
+   * set of allowable values.
+   */
+  validate() {
+    if (this.name === undefined) {
+      throw new Error(&apos;Haab\&apos; month name must be provided&apos;);
+    }
+    if (!months.includes(this.name)) {
+      throw new Error(`Haab&apos; day (${this.name}) must be in ${months}`);
+    }
+  }
+
+  /**
+   * Shift a HaabMonth fullDate forward through time. Does not modify this
+   * object and will return a new object.
+   * @param {number} increment - Number of months to move forward
+   * @return {HaabMonth}
+   */
+  shift(increment) {
+    let newIncremental = (this.month_position + increment) % 19;
+    newIncremental = (newIncremental === 0) ? 19 : newIncremental;
+    return getHaabMonth(newIncremental);
+  }
+
+  /**
+   * Render this month as a string
+   * @return {string}
+   */
+  toString() {
+    return this.name;
+  }
+}
+
+
+module.exports = {
+  HaabMonth,
+  getHaabMonth,
+};
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

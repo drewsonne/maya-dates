@@ -1,13 +1,22 @@
 /** @ignore */
 const wildcard = require('../wildcard');
+/** @ignore */
 const getTzolkinDay = require('./tzolkin-day');
 
+/** @ignore */
 const singleton = {};
 
+/**
+ * Return a comparable instance of a Tzolkin date.
+ * @param {number} coeff
+ * @param {TzolkinDay|string} day
+ * @return {Tzolkin}
+ */
 function getTzolkin(coeff, day) {
   const monthName = `${coeff} ${day}`;
   // const monthName = (typeof name === 'number') ? months[name] : name;
   if (singleton[monthName] === undefined) {
+    // eslint-disable-next-line no-use-before-define
     singleton[monthName] = new Tzolkin(coeff, day);
   }
   return singleton[monthName];
@@ -56,6 +65,10 @@ class Tzolkin {
      */
     this.coeff = coeff;
 
+    /**
+     * Lazy loaded instance of the next Tzolkin date in the cycle
+     * @type {Tzolkin}
+     */
     this.private_next = undefined;
 
     this.validate();

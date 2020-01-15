@@ -1,22 +1,32 @@
+/**
+ * Operation to sum two Long Count Dates
+ */
 class LongcountAddition {
   /**
-   *
-   * @param {LongCount} a
-   * @param {LongCount} b
+   * @param {object} lcClass - Special param to pass the LongCount class into this operator to
+   * avoid circular require.
+   * @param {LongCount} a - First date to sum
+   * @param {LongCount} b - Second date to sum
    */
   constructor(lcClass, a, b) {
     /**
      * @type {LongCount}
      */
     this.a = a;
+
     /**
      * @type {LongCount}
      */
     this.b = b;
 
+    /** @ignore */
     this.LcClass = lcClass;
   }
 
+  /**
+   * Return the sum result of this Addition operator.
+   * @return {LongCount}
+   */
   equals() {
     const aLen = this.a.parts.length;
     const bLen = this.b.parts.length;

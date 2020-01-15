@@ -1,26 +1,36 @@
 {
   "coverage": "100%",
-  "expectCount": 156,
-  "actualCount": 156,
+  "expectCount": 201,
+  "actualCount": 201,
   "files": {
     "src/cr/calendar-round.js": {
       "expectCount": 15,
       "actualCount": 15,
       "undocumentLines": []
     },
+    "src/cr/haab-month.js": {
+      "expectCount": 12,
+      "actualCount": 12,
+      "undocumentLines": []
+    },
     "src/cr/haab.js": {
-      "expectCount": 21,
-      "actualCount": 21,
+      "expectCount": 16,
+      "actualCount": 16,
       "undocumentLines": []
     },
     "src/cr/index.js": {
-      "expectCount": 1,
-      "actualCount": 1,
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "src/cr/tzolkin-day.js": {
+      "expectCount": 12,
+      "actualCount": 12,
       "undocumentLines": []
     },
     "src/cr/tzolkin.js": {
-      "expectCount": 22,
-      "actualCount": 22,
+      "expectCount": 16,
+      "actualCount": 16,
       "undocumentLines": []
     },
     "src/factory/base.js": {
@@ -34,8 +44,13 @@
       "undocumentLines": []
     },
     "src/factory/full-date.js": {
-      "expectCount": 6,
-      "actualCount": 6,
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "src/factory/index.js": {
+      "expectCount": 3,
+      "actualCount": 3,
       "undocumentLines": []
     },
     "src/factory/long-count.js": {
@@ -48,9 +63,14 @@
       "actualCount": 5,
       "undocumentLines": []
     },
+    "src/lc/index.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
     "src/lc/long-count.js": {
-      "expectCount": 37,
-      "actualCount": 37,
+      "expectCount": 47,
+      "actualCount": 47,
       "undocumentLines": []
     },
     "src/lc/night/lord-of-night.js": {
@@ -58,14 +78,29 @@
       "actualCount": 6,
       "undocumentLines": []
     },
+    "src/operations/calendar-round-iterator.js": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    },
     "src/operations/calendar-round-wildcard.js": {
-      "expectCount": 14,
-      "actualCount": 14,
+      "expectCount": 6,
+      "actualCount": 6,
       "undocumentLines": []
     },
     "src/operations/fulldate-wildcard.js": {
-      "expectCount": 7,
-      "actualCount": 7,
+      "expectCount": 10,
+      "actualCount": 10,
+      "undocumentLines": []
+    },
+    "src/operations/longcount-addition.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "src/operations/longcount-subtraction.js": {
+      "expectCount": 6,
+      "actualCount": 6,
       "undocumentLines": []
     },
     "src/operations/longcount-wildcard.js": {

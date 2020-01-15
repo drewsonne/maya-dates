@@ -13,10 +13,10 @@
 
 <header>
   <a href="./">Home</a>
-
+  
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-
+  
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -28,14 +28,18 @@
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
-
+    
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab-month.js~HaabMonth.html">HaabMonth</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~HaabMonth.html">HaabMonth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin.js~Tzolkin.html">Tzolkin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHaabMonth">getHaabMonth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHaab">getHaab</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getTzolkinDay">getTzolkinDay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getTzolkin">getTzolkin</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#factory">factory</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/base.js~Factory.html">Factory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/calendar-round.js~CalendarRoundFactory.html">CalendarRoundFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a></span></span></li>
@@ -45,6 +49,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get">get</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html">CalendarRoundWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html">LongcountAddition</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-subtraction.js~LongcountAddition.html">LongcountAddition</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-wildcard.js~LongCountWildcard.html">LongCountWildcard</a></span></span></li>
 </ul>
 </div>
@@ -54,40 +60,40 @@
   <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode"></code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
-
-
-
-  <span data-ice="source">| <span><a href="file/src/lc/long-count.js.html#lineNumber13">source</a></span></span>
+  
+  
+  
+  <span data-ice="source">| <span><a href="file/src/lc/long-count.js.html#lineNumber17">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
   <h1 data-ice="name">LongCount</h1>
 
+  
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-
-
-
-
-
-
-
-
-
-
-
-
+  
+  
   <div class="description" data-ice="description"><p>Long Count cycle</p>
 </div>
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
+  
 </div>
 
 
@@ -95,33 +101,33 @@
 <div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
   <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
   <tbody>
-
+  
   <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-
-
+      
+      
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(cycles: ...<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span>)</span>
         </p>
       </div>
       <div>
-
-
-
+        
+        
+        
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 </tbody>
@@ -130,613 +136,705 @@
 <div data-ice="memberSummary"><h2>Member Summary</h2><table class="summary" data-ice="summary">
   <thead><tr><td data-ice="title" colspan="3">Public Members</td></tr></thead>
   <tbody>
-
+  
   <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-      <span class="kind" data-ice="kind">set</span>
-
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-bakTun">bakTun</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-        </p>
-      </div>
-      <div>
-
-
-        <div data-ice="description"><p>Set the bak&apos;tun component of the fullDate</p>
-</div>
-      </div>
-    </td>
-    <td>
-
-
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-
+      
       <span class="kind" data-ice="kind">get</span>
-
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-get-bakTun">bakTun</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Return the bak&apos;tun component of the fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-
-
+      
+      <span class="kind" data-ice="kind">set</span>
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-bakTun">bakTun</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Set the bak&apos;tun component of the fullDate</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-member-date_pattern">date_pattern</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Pattern to validate the fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
+      
       <span class="kind" data-ice="kind">set</span>
-
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-kAtun">kAtun</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-isNegative">isNegative</a></span></span><span class="code" data-ice="signature">(newNegative: <span>*</span>)</span>
         </p>
       </div>
       <div>
-
-
+        
+        
+        <div data-ice="description"><p>Set this Long Count as being a negative Distance Number</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-get-isNegative">isNegative</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Return true if the Long Count is operating as a negative Distance Number.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-get-isPositive">isPositive</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Return true if the Long Count is positive.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">set</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-isPositive">isPositive</a></span></span><span class="code" data-ice="signature">(newPositive: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Set this Long Count as being a Long Count or a positive Distance Number</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">set</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-kAtun">kAtun</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
         <div data-ice="description"><p>Set the k&apos;atun component of the fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
+      
       <span class="kind" data-ice="kind">get</span>
-
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-get-kAtun">kAtun</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Return the k&apos;atun component of the fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
+      
       <span class="kind" data-ice="kind">get</span>
-
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-get-kIn">kIn</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Return the k&apos;in component of the fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
+      
       <span class="kind" data-ice="kind">set</span>
-
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-kIn">kIn</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-kIn">kIn</a></span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Set the k&apos;in component of the fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-      <span class="kind" data-ice="kind">set</span>
-
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-kalabtun">kalabtun</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-        </p>
-      </div>
-      <div>
-
-
-        <div data-ice="description"><p>Set the kalabtun component of the fullDate</p>
-</div>
-      </div>
-    </td>
-    <td>
-
-
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-
+      
       <span class="kind" data-ice="kind">get</span>
-
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-get-kalabtun">kalabtun</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Return the kalabtun component of the fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
+      
       <span class="kind" data-ice="kind">set</span>
-
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-kinchiltun">kinchiltun</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-kalabtun">kalabtun</a></span></span>
         </p>
       </div>
       <div>
-
-
-        <div data-ice="description"><p>Set the kinchiltun component of the fullDate</p>
+        
+        
+        <div data-ice="description"><p>Set the kalabtun component of the fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
+      
       <span class="kind" data-ice="kind">get</span>
-
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-get-kinchiltun">kinchiltun</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Return the kinchiltun component of the fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-      <span class="kind" data-ice="kind">get</span>
-
+      
+      <span class="kind" data-ice="kind">set</span>
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-get-length">length</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-kinchiltun">kinchiltun</a></span></span>
         </p>
       </div>
       <div>
-
-
-        <div data-ice="description"><p>Return the number of positions in the long count</p>
+        
+        
+        <div data-ice="description"><p>Set the kinchiltun component of the fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
+      
       <span class="kind" data-ice="kind">get</span>
-
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-get-lordOfNight">lordOfNight</a></span></span><span class="code" data-ice="signature">: <span>any</span>: <span>*</span></span>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-get-lordOfNight">lordOfNight</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span>: <span>*</span></span>
         </p>
       </div>
       <div>
-
-
-
+        
+        
+        
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-
-
+      
+      
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-member-parts">parts</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span><span>[]</span></span></span>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-member-parts">parts</a></span></span><span class="code" data-ice="signature">: <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span><span>[]</span></span> | <span><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span><span>[]</span></span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Date Components</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-      <span class="kind" data-ice="kind">set</span>
-
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-piktun">piktun</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-        </p>
-      </div>
-      <div>
-
-
-        <div data-ice="description"><p>Set the piktun component of the fullDate</p>
-</div>
-      </div>
-    </td>
-    <td>
-
-
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-
+      
       <span class="kind" data-ice="kind">get</span>
-
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-get-piktun">piktun</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Return the piktun component of the fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-
-
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-member-raw">raw</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
-        </p>
-      </div>
-      <div>
-
-
-        <div data-ice="description"><p>Convert individual components to a single string</p>
-</div>
-      </div>
-    </td>
-    <td>
-
-
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-
-      <span class="kind" data-ice="kind">get</span>
-
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-get-tun">tun</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
-        </p>
-      </div>
-      <div>
-
-
-        <div data-ice="description"><p>Return the tun component of the fullDate</p>
-</div>
-      </div>
-    </td>
-    <td>
-
-
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-
+      
       <span class="kind" data-ice="kind">set</span>
-
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-tun">tun</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-piktun">piktun</a></span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
+        <div data-ice="description"><p>Set the piktun component of the fullDate</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">set</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-tun">tun</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
         <div data-ice="description"><p>Set the tun component of the fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
+      
       <span class="kind" data-ice="kind">get</span>
-
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-get-tun">tun</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Return the tun component of the fullDate</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-get-winal">winal</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Return the winal component of the fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
+      
       <span class="kind" data-ice="kind">set</span>
-
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-winal">winal</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-set-winal">winal</a></span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Set the winal component of the fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+<table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Private Members</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-member-sign">sign</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
     </td>
   </tr>
 </tbody>
@@ -745,300 +843,439 @@
 <div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
   <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
   <tbody>
-
+  
   <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-
-
+      
+      
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-buildCalendarRound">buildCalendarRound</a></span></span><span class="code" data-ice="signature">(): <span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span>
         </p>
       </div>
       <div>
-
-
-
+        
+        
+        
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-
-
+      
+      
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-buildFullDate">buildFullDate</a></span></span><span class="code" data-ice="signature">(): <span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span>
         </p>
       </div>
       <div>
-
-
-
+        
+        
+        
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-
-
+      
+      
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-clone">clone</a></span></span><span class="code" data-ice="signature">(): <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Create a copy object of this long count fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-
-
+      
+      
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-equal">equal</a></span></span><span class="code" data-ice="signature">(other: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Given two long count dates, check if they are equal</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-
-
+      
+      
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-getDateSections">getDateSections</a></span></span><span class="code" data-ice="signature">(index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Get specific column in Long Count fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-
-
+      
+      
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-getPosition">getPosition</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Count the number of days since 0.0.0.0.0 for this LC.</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-
-
+      
+      
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-gt">gt</a></span></span><span class="code" data-ice="signature">(newLongCount: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Compare is this LC is less than the supplied LC.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-isPartial">isPartial</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Returns true if any of the positions in the Long Count have been assigned
 a {Wildcard} object.</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-
-
+      
+      
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-isValid">isValid</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
         <div data-ice="description"><p>Ensure the fullDate has only numbers and wildcards separated by points.</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-
-
-
+      
+      
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-toString">toString</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-lt">lt</a></span></span><span class="code" data-ice="signature">(newLongCount: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
         </p>
       </div>
       <div>
-
-
-        <div data-ice="description"><p>Convert the LongCount to a string and pad the sections of the fullDate</p>
+        
+        
+        <div data-ice="description"><p>Compare if this LC is greater than the supplied LC.</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
     </td>
   </tr>
-</tbody>
-</table>
-<table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Private Methods</td></tr></thead>
-  <tbody>
-
-  <tr data-ice="target">
+<tr data-ice="target">
     <td>
-      <span class="access" data-ice="access">private</span>
-
-
-
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
       <span class="override" data-ice="override"></span>
     </td>
     <td>
       <div>
         <p>
-
-
-
-          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-setDateSections">setDateSections</a></span></span><span class="code" data-ice="signature">(index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-map">map</a></span></span><span class="code" data-ice="signature">(fn: <span>*</span>): <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span><span>[]</span></span></span>
         </p>
       </div>
       <div>
-
-
+        
+        
+        <div data-ice="description"><p>Pass the map down to the parts</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-minus">minus</a></span></span><span class="code" data-ice="signature">(newLc: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>): <span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html">LongcountAddition</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Return the difference between this Long Count and the supplied</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-plus">plus</a></span></span><span class="code" data-ice="signature">(newLc: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>): <span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html">LongcountAddition</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Return the sum of this Long Count and the supplied</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-setDateSections">setDateSections</a></span></span><span class="code" data-ice="signature">(index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, newValue: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span>wildcard</span>): <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
         <div data-ice="description"><p>Set specific column in Long Count fullDate</p>
 </div>
       </div>
     </td>
     <td>
-
-
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html#instance-method-toString">toString</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Convert the LongCount to a string and pad the sections of the fullDate</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
     </td>
   </tr>
 </tbody>
@@ -1054,25 +1291,25 @@ a {Wildcard} object.</p>
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-constructor-constructor">
     <span class="access" data-ice="access">public</span>
-
-
-
-
-
+    
+    
+    
+    
+    
     <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(cycles: ...<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span>)</span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber17">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber22">source</a></span></span>
     </span>
   </h3>
 
+  
+  
+  
+  
 
-
-
-
-
-
+  
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>
@@ -1081,12 +1318,13 @@ a {Wildcard} object.</p>
     <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
     </thead>
     <tbody>
-
+    
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">cycles</td>
       <td data-ice="type" class="code">...<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>Components in the long count (eg, K&apos;in, Winal, Bak&apos;tun, etc)</p>
+      <td data-ice="description"><p>Components in the long count
+(eg, K&apos;in, Winal, Bak&apos;tun, etc)</p>
 </td>
     </tr>
 </tbody>
@@ -1094,105 +1332,49 @@ a {Wildcard} object.</p>
 </div>
 </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
-
+  
+  
 </div>
 </div>
 <div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-set-bak_tun">
+  <h3 data-ice="anchor" id="instance-get-bakTun">
     <span class="access" data-ice="access">public</span>
-
-    <span class="kind" data-ice="kind">set</span>
-
-
-
-    <span class="code" data-ice="name">bakTun</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-    <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber156">source</a></span></span>
-    </span>
-  </h3>
-
-
-
-
-  <div data-ice="description"><p>Set the bak&apos;tun component of the fullDate</p>
-</div>
-
-
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-get-bak_tun">
-    <span class="access" data-ice="access">public</span>
-
+    
     <span class="kind" data-ice="kind">get</span>
-
-
-
+    
+    
+    
     <span class="code" data-ice="name">bakTun</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber164">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber217">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Return the bak&apos;tun component of the fullDate</p>
 </div>
 
-
+  
 
   <div data-ice="properties">
 </div>
@@ -1203,7 +1385,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -1211,144 +1393,376 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-set-bakTun">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">set</span>
+    
+    
+    
+    <span class="code" data-ice="name">bakTun</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber209">source</a></span></span>
+    </span>
+  </h3>
 
+  
+  
+  
+  <div data-ice="description"><p>Set the bak&apos;tun component of the fullDate</p>
+</div>
 
+  
 
+  <div data-ice="properties">
+</div>
 
+  
 
+  
 
+  
 
+  
 
+  
+
+  
+
+  
+
+  
+  
 </div>
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-member-date_pattern">
     <span class="access" data-ice="access">public</span>
-
-
-
-
-
+    
+    
+    
+    
+    
     <span class="code" data-ice="name">date_pattern</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber28">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber33">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Pattern to validate the fullDate</p>
 </div>
 
-
+  
 
   <div data-ice="properties">
 </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-set-k_atun">
+  <h3 data-ice="anchor" id="instance-set-isNegative">
     <span class="access" data-ice="access">public</span>
-
+    
     <span class="kind" data-ice="kind">set</span>
-
-
-
-    <span class="code" data-ice="name">kAtun</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    
+    
+    
+    <span class="code" data-ice="name">isNegative</span><span class="code" data-ice="signature">(newNegative: <span>*</span>)</span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber140">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber73">source</a></span></span>
     </span>
   </h3>
 
+  
+  
+  
+  <div data-ice="description"><p>Set this Long Count as being a negative Distance Number</p>
+</div>
 
+  
 
+  <div data-ice="properties">
+</div>
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-isNegative">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    
+    <span class="code" data-ice="name">isNegative</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber57">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Return true if the Long Count is operating as a negative Distance Number.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-isPositive">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    
+    <span class="code" data-ice="name">isPositive</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber49">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Return true if the Long Count is positive.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-set-isPositive">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">set</span>
+    
+    
+    
+    <span class="code" data-ice="name">isPositive</span><span class="code" data-ice="signature">(newPositive: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber65">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Set this Long Count as being a Long Count or a positive Distance Number</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-set-kAtun">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">set</span>
+    
+    
+    
+    <span class="code" data-ice="name">kAtun</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber194">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
   <div data-ice="description"><p>Set the k&apos;atun component of the fullDate</p>
 </div>
 
-
+  
 
   <div data-ice="properties">
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+  
 
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-get-k_atun">
+  <h3 data-ice="anchor" id="instance-get-kAtun">
     <span class="access" data-ice="access">public</span>
-
+    
     <span class="kind" data-ice="kind">get</span>
-
-
-
+    
+    
+    
     <span class="code" data-ice="name">kAtun</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber148">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber202">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Return the k&apos;atun component of the fullDate</p>
 </div>
 
-
+  
 
   <div data-ice="properties">
 </div>
@@ -1359,7 +1773,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -1367,44 +1781,44 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-get-k_in">
+  <h3 data-ice="anchor" id="instance-get-kIn">
     <span class="access" data-ice="access">public</span>
-
+    
     <span class="kind" data-ice="kind">get</span>
-
-
-
+    
+    
+    
     <span class="code" data-ice="name">kIn</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber100">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber157">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Return the k&apos;in component of the fullDate</p>
 </div>
 
-
+  
 
   <div data-ice="properties">
 </div>
@@ -1415,7 +1829,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -1423,156 +1837,88 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-set-k_in">
+  <h3 data-ice="anchor" id="instance-set-kIn">
     <span class="access" data-ice="access">public</span>
-
+    
     <span class="kind" data-ice="kind">set</span>
-
-
-
-    <span class="code" data-ice="name">kIn</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    
+    
+    
+    <span class="code" data-ice="name">kIn</span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber92">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber149">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Set the k&apos;in component of the fullDate</p>
 </div>
 
-
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-set-kalabtun">
-    <span class="access" data-ice="access">public</span>
-
-    <span class="kind" data-ice="kind">set</span>
-
-
-
-    <span class="code" data-ice="name">kalabtun</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-    <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber188">source</a></span></span>
-    </span>
-  </h3>
-
-
-
-
-  <div data-ice="description"><p>Set the kalabtun component of the fullDate</p>
-</div>
-
-
+  
 
   <div data-ice="properties">
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+  
 
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-get-kalabtun">
     <span class="access" data-ice="access">public</span>
-
+    
     <span class="kind" data-ice="kind">get</span>
-
-
-
+    
+    
+    
     <span class="code" data-ice="name">kalabtun</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber196">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber247">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Return the kalabtun component of the fullDate</p>
 </div>
 
-
+  
 
   <div data-ice="properties">
 </div>
@@ -1583,7 +1929,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -1591,156 +1937,88 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-set-kinchiltun">
+  <h3 data-ice="anchor" id="instance-set-kalabtun">
     <span class="access" data-ice="access">public</span>
-
+    
     <span class="kind" data-ice="kind">set</span>
-
-
-
-    <span class="code" data-ice="name">kinchiltun</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    
+    
+    
+    <span class="code" data-ice="name">kalabtun</span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber204">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber239">source</a></span></span>
     </span>
   </h3>
 
-
-
-
-  <div data-ice="description"><p>Set the kinchiltun component of the fullDate</p>
+  
+  
+  
+  <div data-ice="description"><p>Set the kalabtun component of the fullDate</p>
 </div>
 
-
+  
 
   <div data-ice="properties">
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+  
 
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-get-kinchiltun">
     <span class="access" data-ice="access">public</span>
-
+    
     <span class="kind" data-ice="kind">get</span>
-
-
-
+    
+    
+    
     <span class="code" data-ice="name">kinchiltun</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber212">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber262">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Return the kinchiltun component of the fullDate</p>
 </div>
 
-
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-get-length">
-    <span class="access" data-ice="access">public</span>
-
-    <span class="kind" data-ice="kind">get</span>
-
-
-
-    <span class="code" data-ice="name">length</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
-    <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber84">source</a></span></span>
-    </span>
-  </h3>
-
-
-
-
-  <div data-ice="description"><p>Return the number of positions in the long count</p>
-</div>
-
-
+  
 
   <div data-ice="properties">
 </div>
@@ -1751,7 +2029,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -1759,43 +2037,87 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-get-lord_of_night">
+  <h3 data-ice="anchor" id="instance-set-kinchiltun">
     <span class="access" data-ice="access">public</span>
-
-    <span class="kind" data-ice="kind">get</span>
-
-
-
-    <span class="code" data-ice="name">lordOfNight</span><span class="code" data-ice="signature">: <span>any</span>: <span>*</span></span>
+    
+    <span class="kind" data-ice="kind">set</span>
+    
+    
+    
+    <span class="code" data-ice="name">kinchiltun</span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber220">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber254">source</a></span></span>
     </span>
   </h3>
 
+  
+  
+  
+  <div data-ice="description"><p>Set the kinchiltun component of the fullDate</p>
+</div>
 
+  
 
+  <div data-ice="properties">
+</div>
 
+  
 
+  
 
+  
 
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-lordOfNight">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    
+    <span class="code" data-ice="name">lordOfNight</span><span class="code" data-ice="signature">: <span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span>: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber270">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
 
   <div data-ice="properties">
 </div>
@@ -1805,8 +2127,8 @@ a {Wildcard} object.</p>
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>any</span></td>
-
+          <td class="return-type code" data-ice="returnType"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></td>
+          
         </tr>
       </tbody>
     </table>
@@ -1814,244 +2136,88 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-member-parts">
     <span class="access" data-ice="access">public</span>
-
-
-
-
-
-    <span class="code" data-ice="name">parts</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span><span>[]</span></span></span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">parts</span><span class="code" data-ice="signature">: <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span><span>[]</span></span> | <span><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span><span>[]</span></span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber22">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber27">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Date Components</p>
 </div>
 
-
-
-  <div data-ice="properties">
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-set-piktun">
-    <span class="access" data-ice="access">public</span>
-
-    <span class="kind" data-ice="kind">set</span>
-
-
-
-    <span class="code" data-ice="name">piktun</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-    <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber172">source</a></span></span>
-    </span>
-  </h3>
-
-
-
-
-  <div data-ice="description"><p>Set the piktun component of the fullDate</p>
-</div>
-
-
+  
 
   <div data-ice="properties">
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+  
 
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-get-piktun">
     <span class="access" data-ice="access">public</span>
-
+    
     <span class="kind" data-ice="kind">get</span>
-
-
-
+    
+    
+    
     <span class="code" data-ice="name">piktun</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber180">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber232">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Return the piktun component of the fullDate</p>
 </div>
 
-
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-raw">
-    <span class="access" data-ice="access">public</span>
-
-
-
-
-
-    <span class="code" data-ice="name">raw</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
-    <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber34">source</a></span></span>
-    </span>
-  </h3>
-
-
-
-
-  <div data-ice="description"><p>Convert individual components to a single string</p>
-</div>
-
-
-
-  <div data-ice="properties">
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-get-tun">
-    <span class="access" data-ice="access">public</span>
-
-    <span class="kind" data-ice="kind">get</span>
-
-
-
-    <span class="code" data-ice="name">tun</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
-    <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber132">source</a></span></span>
-    </span>
-  </h3>
-
-
-
-
-  <div data-ice="description"><p>Return the tun component of the fullDate</p>
-</div>
-
-
+  
 
   <div data-ice="properties">
 </div>
@@ -2062,7 +2228,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -2070,44 +2236,132 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-set-piktun">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">set</span>
+    
+    
+    
+    <span class="code" data-ice="name">piktun</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber224">source</a></span></span>
+    </span>
+  </h3>
 
+  
+  
+  
+  <div data-ice="description"><p>Set the piktun component of the fullDate</p>
+</div>
 
+  
 
+  <div data-ice="properties">
+</div>
 
+  
 
+  
 
+  
 
+  
 
+  
+
+  
+
+  
+
+  
+  
 </div>
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-set-tun">
     <span class="access" data-ice="access">public</span>
-
+    
     <span class="kind" data-ice="kind">set</span>
-
-
-
-    <span class="code" data-ice="name">tun</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    
+    
+    
+    <span class="code" data-ice="name">tun</span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber124">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber179">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Set the tun component of the fullDate</p>
 </div>
 
+  
 
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-tun">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    
+    <span class="code" data-ice="name">tun</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber187">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Return the tun component of the fullDate</p>
+</div>
+
+  
 
   <div data-ice="properties">
 </div>
@@ -2118,7 +2372,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -2126,44 +2380,44 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-get-winal">
     <span class="access" data-ice="access">public</span>
-
+    
     <span class="kind" data-ice="kind">get</span>
-
-
-
+    
+    
+    
     <span class="code" data-ice="name">winal</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber116">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber172">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Return the winal component of the fullDate</p>
 </div>
 
-
+  
 
   <div data-ice="properties">
 </div>
@@ -2174,7 +2428,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -2182,102 +2436,135 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-set-winal">
     <span class="access" data-ice="access">public</span>
-
+    
     <span class="kind" data-ice="kind">set</span>
-
-
-
-    <span class="code" data-ice="name">winal</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    
+    
+    
+    <span class="code" data-ice="name">winal</span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber108">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber164">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Set the winal component of the fullDate</p>
 </div>
 
-
+  
 
   <div data-ice="properties">
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+  
 
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
 </div>
-  </div>
+<h2 data-ice="title">Private Members</h2>
 
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-sign">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">sign</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber39">source</a></span></span>
+    </span>
+  </h3>
 
+  
+  
+  
+  
 
+  
 
+  <div data-ice="properties">
+</div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
+  
+  
 </div>
 </div>
 <div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-build_calendar_round">
+  <h3 data-ice="anchor" id="instance-method-buildCalendarRound">
     <span class="access" data-ice="access">public</span>
-
-
-
-
-
+    
+    
+    
+    
+    
     <span class="code" data-ice="name">buildCalendarRound</span><span class="code" data-ice="signature">(): <span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber270">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber315">source</a></span></span>
     </span>
   </h3>
 
+  
+  
+  
+  
 
-
-
-
-
-
+  
 
   <div data-ice="properties">
 </div>
@@ -2288,7 +2575,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -2296,43 +2583,43 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-build_full_date">
+  <h3 data-ice="anchor" id="instance-method-buildFullDate">
     <span class="access" data-ice="access">public</span>
-
-
-
-
-
+    
+    
+    
+    
+    
     <span class="code" data-ice="name">buildFullDate</span><span class="code" data-ice="signature">(): <span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber280">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber325">source</a></span></span>
     </span>
   </h3>
 
+  
+  
+  
+  
 
-
-
-
-
-
+  
 
   <div data-ice="properties">
 </div>
@@ -2343,7 +2630,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -2351,44 +2638,44 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-method-clone">
     <span class="access" data-ice="access">public</span>
-
-
-
-
-
+    
+    
+    
+    
+    
     <span class="code" data-ice="name">clone</span><span class="code" data-ice="signature">(): <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber50">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber90">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Create a copy object of this long count fullDate</p>
 </div>
 
-
+  
 
   <div data-ice="properties">
 </div>
@@ -2399,7 +2686,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -2407,44 +2694,44 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-method-equal">
     <span class="access" data-ice="access">public</span>
-
-
-
-
-
+    
+    
+    
+    
+    
     <span class="code" data-ice="name">equal</span><span class="code" data-ice="signature">(other: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber42">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber82">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Given two long count dates, check if they are equal</p>
 </div>
 
-
+  
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>
@@ -2453,7 +2740,7 @@ a {Wildcard} object.</p>
     <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
     </thead>
     <tbody>
-
+    
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">other</td>
       <td data-ice="type" class="code"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></td>
@@ -2471,7 +2758,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -2479,44 +2766,44 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-get_date_sections">
+  <h3 data-ice="anchor" id="instance-method-getDateSections">
     <span class="access" data-ice="access">public</span>
-
-
-
-
-
+    
+    
+    
+    
+    
     <span class="code" data-ice="name">getDateSections</span><span class="code" data-ice="signature">(index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber59">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber99">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Get specific column in Long Count fullDate</p>
 </div>
 
-
+  
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>
@@ -2525,7 +2812,7 @@ a {Wildcard} object.</p>
     <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
     </thead>
     <tbody>
-
+    
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">index</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
@@ -2543,7 +2830,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -2551,44 +2838,44 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-get_position">
+  <h3 data-ice="anchor" id="instance-method-getPosition">
     <span class="access" data-ice="access">public</span>
-
-
-
-
-
+    
+    
+    
+    
+    
     <span class="code" data-ice="name">getPosition</span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber252">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber297">source</a></span></span>
     </span>
   </h3>
 
-
-
-
+  
+  
+  
   <div data-ice="description"><p>Count the number of days since 0.0.0.0.0 for this LC.</p>
 </div>
 
-
+  
 
   <div data-ice="properties">
 </div>
@@ -2599,7 +2886,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -2607,215 +2894,44 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
+  
+  
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-is_partial">
+  <h3 data-ice="anchor" id="instance-method-gt">
     <span class="access" data-ice="access">public</span>
-
-
-
-
-
-    <span class="code" data-ice="name">isPartial</span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">gt</span><span class="code" data-ice="signature">(newLongCount: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
     <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber239">source</a></span></span>
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber142">source</a></span></span>
     </span>
   </h3>
 
-
-
-
-  <div data-ice="description"><p>Returns true if any of the positions in the Long Count have been assigned
-a {Wildcard} object.</p>
+  
+  
+  
+  <div data-ice="description"><p>Compare is this LC is less than the supplied LC.</p>
 </div>
 
-
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
-
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-is_valid">
-    <span class="access" data-ice="access">public</span>
-
-
-
-
-
-    <span class="code" data-ice="name">isValid</span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
-    <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber230">source</a></span></span>
-    </span>
-  </h3>
-
-
-
-
-  <div data-ice="description"><p>Ensure the fullDate has only numbers and wildcards separated by points.</p>
-</div>
-
-
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
-
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-toString">
-    <span class="access" data-ice="access">public</span>
-
-
-
-
-
-    <span class="code" data-ice="name">toString</span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
-    <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber291">source</a></span></span>
-    </span>
-  </h3>
-
-
-
-
-  <div data-ice="description"><p>Convert the LongCount to a string and pad the sections of the fullDate</p>
-</div>
-
-
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
-
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-<h2 data-ice="title">Private Methods</h2>
-
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-set_date_sections">
-    <span class="access" data-ice="access">private</span>
-
-
-
-
-
-    <span class="code" data-ice="name">setDateSections</span><span class="code" data-ice="signature">(index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
-    <span class="right-info">
-
-
-      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber74">source</a></span></span>
-    </span>
-  </h3>
-
-
-
-
-  <div data-ice="description"><p>Set specific column in Long Count fullDate</p>
-</div>
-
-
+  
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>
@@ -2824,7 +2940,480 @@ a {Wildcard} object.</p>
     <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
     </thead>
     <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">newLongCount</td>
+      <td data-ice="type" class="code"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
 
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-isPartial">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">isPartial</span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber289">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Returns true if any of the positions in the Long Count have been assigned
+a {Wildcard} object.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-isValid">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">isValid</span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber280">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Ensure the fullDate has only numbers and wildcards separated by points.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-lt">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">lt</span><span class="code" data-ice="signature">(newLongCount: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber133">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Compare if this LC is greater than the supplied LC.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">newLongCount</td>
+      <td data-ice="type" class="code"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-map">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">map</span><span class="code" data-ice="signature">(fn: <span>*</span>): <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span><span>[]</span></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber124">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Pass the map down to the parts</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">fn</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span><span>[]</span></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-minus">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">minus</span><span class="code" data-ice="signature">(newLc: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>): <span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html">LongcountAddition</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber349">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Return the difference between this Long Count and the supplied</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">newLc</td>
+      <td data-ice="type" class="code"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html">LongcountAddition</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-plus">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">plus</span><span class="code" data-ice="signature">(newLc: <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span>): <span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html">LongcountAddition</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber337">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Return the sum of this Long Count and the supplied</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">newLc</td>
+      <td data-ice="type" class="code"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html">LongcountAddition</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-setDateSections">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">setDateSections</span><span class="code" data-ice="signature">(index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, newValue: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span>wildcard</span>): <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber113">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Set specific column in Long Count fullDate</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">index</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
@@ -2832,8 +3421,8 @@ a {Wildcard} object.</p>
       <td data-ice="description"></td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">value</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="name" class="code" data-depth="0">newValue</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span>wildcard</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
     </tr>
@@ -2848,7 +3437,7 @@ a {Wildcard} object.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></td>
-
+          
         </tr>
       </tbody>
     </table>
@@ -2856,20 +3445,76 @@ a {Wildcard} object.</p>
 </div>
   </div>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-toString">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">toString</span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/long-count.js.html#lineNumber360">source</a></span></span>
+    </span>
+  </h3>
 
+  
+  
+  
+  <div data-ice="description"><p>Convert the LongCount to a string and pad the sections of the fullDate</p>
+</div>
 
+  
 
+  <div data-ice="properties">
+</div>
 
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
+  
 
+  
 
+  
 
+  
+
+  
+
+  
+
+  
+  
 </div>
 </div>
 </div>

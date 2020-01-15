@@ -42,18 +42,34 @@ class LongCount {
     }
   }
 
+  /**
+   * Return true if the Long Count is positive.
+   * @return {boolean}
+   */
   get isPositive() {
     return this.sign === 1;
   }
 
+  /**
+   * Return true if the Long Count is operating as a negative Distance Number.
+   * @return {boolean}
+   */
   get isNegative() {
     return this.sign === -1;
   }
 
+  /**
+   * Set this Long Count as being a Long Count or a positive Distance Number
+   * @param {boolean} newPositive
+   */
   set isPositive(newPositive) {
     this.sign = newPositive === true ? 1 : -1;
   }
 
+  /**
+   * Set this Long Count as being a negative Distance Number
+   * @param newNegative
+   */
   set isNegative(newNegative) {
     this.isPositive = !newNegative;
   }
@@ -99,7 +115,7 @@ class LongCount {
     // this.raw = this.toString();
     return this;
   }
-  
+
   /**
    * Pass the map down to the parts
    * @param fn
@@ -109,10 +125,20 @@ class LongCount {
     return this.parts.map(fn);
   }
 
+  /**
+   * Compare if this LC is greater than the supplied LC.
+   * @param {LongCount} newLongCount
+   * @return {boolean}
+   */
   lt(newLongCount) {
     return this.getPosition() < newLongCount.getPosition();
   }
 
+  /**
+   * Compare is this LC is less than the supplied LC.
+   * @param {LongCount} newLongCount
+   * @return {boolean}
+   */
   gt(newLongCount) {
     return this.getPosition() > newLongCount.getPosition();
   }
@@ -303,6 +329,11 @@ class LongCount {
     );
   }
 
+  /**
+   * Return the sum of this Long Count and the supplied
+   * @param {LongCount} newLc
+   * @return {LongcountAddition}
+   */
   plus(newLc) {
     /*  We pass the LongCount class in, as to require this in the operation
      *  will create a circular dependency.
@@ -310,6 +341,11 @@ class LongCount {
     return new LongcountAddition(LongCount, this, newLc);
   }
 
+  /**
+   * Return the difference between this Long Count and the supplied
+   * @param {LongCount} newLc
+   * @return {LongcountAddition}
+   */
   minus(newLc) {
     /*  We pass the LongCount class in, as to require this in the operation
      *  will create a circular dependency.

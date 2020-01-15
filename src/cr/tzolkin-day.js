@@ -1,6 +1,7 @@
 /**
  * Mapping of day names to indexes
- * @type {Map<number, string>}
+ * @type {Map<number, string>
+ * @ignore
  */
 const days = [
   undefined,
@@ -29,10 +30,14 @@ const days = [
 /** @ignore */
 const singleton = {};
 
-/** @ignore */
-function getTzolkinDay(newDayName) {
+/**
+ * Return a comparable instance of a Tzolkin day.
+ * @param {TzolkinDay|string} newDayName
+ * @return {TzolkinDay}
+ */function getTzolkinDay(newDayName) {
   const dayName = (typeof newDayName === 'number') ? days[newDayName] : newDayName;
   if (singleton[dayName] === undefined) {
+    // eslint-disable-next-line no-use-before-define
     singleton[dayName] = new TzolkinDay(dayName);
   }
   return singleton[dayName];
@@ -66,6 +71,10 @@ class TzolkinDay {
       (d) => d === this.name,
     );
 
+    /**
+     * Lazy loaded instance of the next Tzolkin Day in the cycle
+     * @type {TzolkinDay}
+     */
     this.private_next = undefined;
   }
 
@@ -106,6 +115,10 @@ class TzolkinDay {
     return this.private_next.shift(incremental - 1);
   }
 
+  /**
+   * Return the name of this Tzolkin day
+   * @return {string}
+   */
   toString() {
     return this.name;
   }

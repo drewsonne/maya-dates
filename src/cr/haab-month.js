@@ -1,3 +1,4 @@
+/** @ignore */
 const months = [
   undefined,
   'Pop',
@@ -21,6 +22,7 @@ const months = [
   'Wayeb',
 ];
 
+/** @ignore */
 const monthIndices = {
   undefined: 0,
   Pop: 1,
@@ -44,8 +46,14 @@ const monthIndices = {
   Wayeb: 19,
 };
 
+/** @ignore */
 const singleton = {};
 
+/**
+ * Return a comparable HaabMonth instantiation.
+ * @param name
+ * @return {HaabMonth}
+ */
 function getHaabMonth(name) {
   const monthName = (typeof name === 'number') ? months[name] : name;
   if (singleton[monthName] === undefined) {

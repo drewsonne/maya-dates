@@ -1,11 +1,17 @@
 /** @ignore */
 const wildcard = require('../wildcard');
-// const {HaabMonth} = require('./haab-month');
-const { getHaabMonth } = require('./haab-month');
+/** @ignore */
+const {getHaabMonth} = require('./haab-month');
 
-
+/** @ignore */
 const singleton = {};
 
+/**
+ * Return a comparable HaabMonth instantiation.
+ * @param {number} coeff
+ * @param {HaabMonth|string} month
+ * @return {Haab}
+ */
 function getHaab(coeff, month) {
   const monthName = `${coeff} ${month}`;
   // const monthName = (typeof name === 'number') ? months[name] : name;
@@ -56,6 +62,10 @@ class Haab {
      */
     this.coeff = newCoeff;
 
+    /**
+     * Lazy loaded instance of the next Haab date in the cycle
+     * @type {Haab}
+     */
     this.private_next = undefined;
 
     this.validate();
