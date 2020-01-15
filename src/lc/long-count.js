@@ -10,6 +10,8 @@ const night = require('./night/lord-of-night');
 const LongcountAddition = require('../operations/longcount-addition');
 /** @ignore */
 const LongcountSubtraction = require('../operations/longcount-subtraction');
+/** @ignore */
+const getCorrelationConstant = require('./correlation-constant');
 
 /**
  * Long Count cycle
@@ -33,6 +35,12 @@ class LongCount {
     this.date_pattern = /([\d*]+\.?)+/;
 
     /**
+     * Correlation constant to allow alignment with western calendars
+     * @type {CorrelationConstant}
+     */
+    this.correlationConstant = getCorrelationConstant(584283);
+
+    /**
      * @private
      * @type {number}
      */
@@ -41,6 +49,17 @@ class LongCount {
       this.parts[this.parts.length - 1] = -1 * this.parts[this.parts.length - 1];
     }
   }
+
+  /**
+   * Chainable method to set the correlation constant
+   * @param {CorrelationConstant} newConstant
+   * @return {LongCount}
+   */
+  setCorrelationConstant(newConstant) {
+    this.correlationConstant = newConstant;
+    return this;
+  }
+
 
   /**
    * Return true if the Long Count is positive.
