@@ -1,6 +1,21 @@
+/**
+ * Correlation Constant to align Long Counts with Western Calendars
+ */
 class CorrelationConstant {
+  /**
+   * Set a name and value
+   * @param {number} value
+   * @param {string} name
+   */
   constructor(value, name) {
+    /**
+     * @type {number}
+     */
     this.value = value;
+
+    /**
+     * @type {string}
+     */
     this.name = name;
   }
 }
