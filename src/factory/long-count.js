@@ -22,7 +22,7 @@ class LongCountFactory extends Factory {
   // eslint-disable-next-line class-methods-use-this
   parse(raw) {
     const dates = raw.match(/(?:(?:\*|(?:[\d]{1,2}))\.){1,}(?:(?:\*)|(?:[\d]{1,2}))/);
-    if (dates.length !== 1) {
+    if (dates === null || dates.length !== 1) {
       return null;
     }
 

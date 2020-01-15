@@ -25,8 +25,8 @@ function getTzolkin(coeff, day) {
 class Tzolkin {
   /**
    * Constructor
-   * @param {number} coeff - The position in the 260-day cycle
-   * @param {string|TzolkinDay} day
+   * @param {number} newCoeff - The position in the 260-day cycle
+   * @param {string|TzolkinDay} newDay
    */
   constructor(newCoeff, newDay) {
     let coeff = newCoeff;
@@ -88,7 +88,7 @@ class Tzolkin {
 
   /**
    *
-   * @param {Number} incremental
+   * @param {Number} newIncremental
    * @return {Tzolkin}
    */
   shift(newIncremental) {

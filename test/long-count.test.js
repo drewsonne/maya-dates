@@ -15,6 +15,12 @@ describe('parse long-count fullDate', () => {
   );
 });
 
+test('fail longcount', () => {
+  expect(
+    new mayadates.factory.LongCountFactory().parse('hello, world')
+  ).toBeNull();
+});
+
 describe('modify long-count fullDate', () => {
   const dates = [
     [
@@ -89,7 +95,7 @@ test('print short long-count fullDate', () => {
 });
 
 describe('test lord of night glyphs', () => {
-  const { night } = mayadates.lc;
+  const {night} = mayadates.lc;
   const dates = [
     ['9.16.19.17.19', night.G8, 'G8'],
     ['9.17.0.0.0', night.get('G9'), 'G9'],
@@ -106,5 +112,54 @@ describe('test lord of night glyphs', () => {
       expect(lc.lordOfNight).not.toBeUndefined();
       expect(`${lc.lordOfNight}`).toBe(id);
     },
+  );
+});
+
+
+describe('comparison', () => {
+  const dates = [
+    [[0, 1], [1], true],
+  ].map((row) => [
+    new mayadates.lc.LongCount(...row[0]),
+    new mayadates.lc.LongCount(...row[1]),
+    row[2],
+  ]);
+  it.each(dates)(
+    '%s > %s = %s',
+    (a, b, aLtB) => {
+      expect(a.gt(b) === aLtB).toBeTruthy();
+      expect(a.lt(b) === aLtB).toBeFalsy();
+    },
+  );
+});
+
+test('sign', () => {
+  const lc = new mayadates.lc.LongCount(1, 1, 1, 1, 1);
+  expect(lc.isPositive).toBeTruthy();
+  expect(lc.isNegative).toBeFalsy();
+
+  lc.isNegative = true;
+  expect(lc.isPositive).toBeFalsy();
+  expect(lc.isNegative).toBeTruthy();
+
+  lc.isPositive = true;
+  expect(lc.isPositive).toBeTruthy();
+  expect(lc.isNegative).toBeFalsy();
+});
+
+test('equality', () => {
+  const lc1 = new mayadates.lc.LongCount(1, 1, 1, 1, 1);
+  const lc2 = new mayadates.lc.LongCount(1, 1, 1, 1, 1);
+  const lc3 = new mayadates.lc.LongCount(2, 2, 2, 2, 2);
+
+  expect(lc1.equal(lc1)).toBeTruthy();
+  expect(lc1.equal(lc2)).toBeTruthy();
+  expect(lc1.equal(lc3)).toBeFalsy();
+});
+
+test('wildcard position failure', () => {
+  const lc = new mayadates.lc.LongCount(1, 1, mayadates.wildcard, 1, 1);
+  expect(() => lc.getPosition(0)).toThrow(
+    'Can not get position of fullDate dates',
   );
 });

@@ -1,7 +1,7 @@
 /** @ignore */
 const wildcard = require('../wildcard');
 // const {HaabMonth} = require('./haab-month');
-const {getHaabMonth} = require('./haab-month');
+const { getHaabMonth } = require('./haab-month');
 
 
 const singleton = {};
@@ -10,6 +10,7 @@ function getHaab(coeff, month) {
   const monthName = `${coeff} ${month}`;
   // const monthName = (typeof name === 'number') ? months[name] : name;
   if (singleton[monthName] === undefined) {
+    // eslint-disable-next-line no-use-before-define
     singleton[monthName] = new Haab(coeff, month);
   }
   return singleton[monthName];
@@ -157,22 +158,8 @@ class Haab {
    * Render the Haab fullDate as a string
    * @returns {string}
    */
-  toString(isNumeric) {
-    if (isNumeric) {
-      return `${this.coeff}:${this.month.month_position}`;
-    }
+  toString() {
     return `${this.coeff} ${this.name}`;
-  }
-
-  /**
-   * Return a brand new object with the same configuration as this object.
-   * @return {Haab}
-   */
-  clone() {
-    return new Haab(
-      this.coeff,
-      this.month,
-    );
   }
 }
 

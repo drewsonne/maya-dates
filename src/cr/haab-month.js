@@ -49,6 +49,7 @@ const singleton = {};
 function getHaabMonth(name) {
   const monthName = (typeof name === 'number') ? months[name] : name;
   if (singleton[monthName] === undefined) {
+    // eslint-disable-next-line no-use-before-define
     singleton[monthName] = new HaabMonth(monthName);
   }
   return singleton[monthName];
