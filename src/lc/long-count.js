@@ -60,6 +60,14 @@ class LongCount {
     return this;
   }
 
+  /**
+   * Return a representation of this Long Count in Julian Days.
+   * @return {number}
+   */
+  get julianDay() {
+    return this.correlationConstant.value + this.getPosition();
+  }
+
 
   /**
    * Return true if the Long Count is positive.
