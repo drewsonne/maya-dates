@@ -1,4 +1,6 @@
 /** @ignore */
+const moonbeams = require('moonbeams');
+/** @ignore */
 const wildcard = require('../wildcard');
 /** @ignore */
 const {origin} = require('../cr/index');
@@ -12,6 +14,10 @@ const LongcountAddition = require('../operations/longcount-addition');
 const LongcountSubtraction = require('../operations/longcount-subtraction');
 /** @ignore */
 const getCorrelationConstant = require('./correlation-constant');
+/** @ignore */
+const GregorianCalendarDate = require('./western/gregorian');
+/** @ignore */
+const JulianCalendarDate = require('./western/julian');
 
 /**
  * Long Count cycle
@@ -68,6 +74,19 @@ class LongCount {
     return this.correlationConstant.value + this.getPosition();
   }
 
+  /**
+   * @return {string}
+   */
+  get gregorian() {
+    return new GregorianCalendarDate(this.julianDay);
+  }
+
+  /**
+   * @return {JulianCalendarDate}
+   */
+  get julian() {
+    return new JulianCalendarDate(this.julianDay);
+  }
 
   /**
    * Return true if the Long Count is positive.

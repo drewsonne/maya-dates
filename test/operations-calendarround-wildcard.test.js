@@ -29,6 +29,7 @@ describe('compute missing cr wildcard', () => {
      * */
     ['* * * *', 18980],
   ];
+
   const crFactory = new mayadates.factory.CalendarRoundFactory();
   it.each(partialDates)('len(%s) = %s',
     (partialDate, expected) => {
@@ -45,6 +46,7 @@ describe('fullDate matcher', () => {
     8, 'Kumk\'u',
   );
   const partialDates = [
+
     [[4, 'Ajaw', 8, wc], true],
     [[4, 'Ajaw', wc, 'Kumk\'u'], true],
     [[4, 'Ajaw', wc, wc], true],

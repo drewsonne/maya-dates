@@ -1,7 +1,7 @@
 {
   "coverage": "100%",
-  "expectCount": 218,
-  "actualCount": 218,
+  "expectCount": 243,
+  "actualCount": 243,
   "files": {
     "src/cr/calendar-round.js": {
       "expectCount": 16,
@@ -74,18 +74,38 @@
       "undocumentLines": []
     },
     "src/lc/index.js": {
-      "expectCount": 2,
-      "actualCount": 2,
+      "expectCount": 3,
+      "actualCount": 3,
       "undocumentLines": []
     },
     "src/lc/long-count.js": {
-      "expectCount": 51,
-      "actualCount": 51,
+      "expectCount": 56,
+      "actualCount": 56,
       "undocumentLines": []
     },
     "src/lc/night/lord-of-night.js": {
       "expectCount": 6,
       "actualCount": 6,
+      "undocumentLines": []
+    },
+    "src/lc/western/gregorian.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    },
+    "src/lc/western/index.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/lc/western/julian.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    },
+    "src/lc/western/western.js": {
+      "expectCount": 11,
+      "actualCount": 11,
       "undocumentLines": []
     },
     "src/operations/calendar-round-iterator.js": {

@@ -48,6 +48,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@drewsonne/maya-dates/src/lc/western/gregorian.js~gregoriancalendardate",
+    "class/src/lc/western/gregorian.js~GregorianCalendarDate.html",
+    "<span>GregorianCalendarDate</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/western/gregorian.js</span>",
+    "class"
+  ],
+  [
     "@drewsonne/maya-dates/src/cr/haab.js~haab",
     "class/src/cr/haab.js~Haab.html",
     "<span>Haab</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/haab.js</span>",
@@ -57,6 +63,12 @@ window.esdocSearchIndex = [
     "@drewsonne/maya-dates/src/cr/haab-month.js~haabmonth",
     "class/src/cr/haab-month.js~HaabMonth.html",
     "<span>HaabMonth</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/haab-month.js</span>",
+    "class"
+  ],
+  [
+    "@drewsonne/maya-dates/src/lc/western/julian.js~juliancalendardate",
+    "class/src/lc/western/julian.js~JulianCalendarDate.html",
+    "<span>JulianCalendarDate</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/western/julian.js</span>",
     "class"
   ],
   [
@@ -105,6 +117,12 @@ window.esdocSearchIndex = [
     "@drewsonne/maya-dates/src/cr/tzolkin-day.js~tzolkinday",
     "class/src/cr/tzolkin-day.js~TzolkinDay.html",
     "<span>TzolkinDay</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/tzolkin-day.js</span>",
+    "class"
+  ],
+  [
+    "@drewsonne/maya-dates/src/lc/western/western.js~westerncalendar",
+    "class/src/lc/western/western.js~WesternCalendar.html",
+    "<span>WesternCalendar</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/western/western.js</span>",
     "class"
   ],
   [
@@ -972,6 +990,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/lc/long-count.js~longcount#gregorian",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-gregorian",
+    "src/lc/long-count.js~LongCount#gregorian",
+    "member"
+  ],
+  [
     "src/lc/long-count.js~longcount#gt",
     "class/src/lc/long-count.js~LongCount.html#instance-method-gt",
     "src/lc/long-count.js~LongCount#gt",
@@ -979,13 +1003,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#isnegative",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-isNegative",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-isNegative",
     "src/lc/long-count.js~LongCount#isNegative",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#isnegative",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-isNegative",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-isNegative",
     "src/lc/long-count.js~LongCount#isNegative",
     "member"
   ],
@@ -997,13 +1021,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#ispositive",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-isPositive",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-isPositive",
     "src/lc/long-count.js~LongCount#isPositive",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#ispositive",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-isPositive",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-isPositive",
     "src/lc/long-count.js~LongCount#isPositive",
     "member"
   ],
@@ -1014,6 +1038,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/lc/long-count.js~longcount#julian",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-julian",
+    "src/lc/long-count.js~LongCount#julian",
+    "member"
+  ],
+  [
     "src/lc/long-count.js~longcount#julianday",
     "class/src/lc/long-count.js~LongCount.html#instance-get-julianDay",
     "src/lc/long-count.js~LongCount#julianDay",
@@ -1021,13 +1051,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#katun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kAtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kAtun",
     "src/lc/long-count.js~LongCount#kAtun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#katun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kAtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kAtun",
     "src/lc/long-count.js~LongCount#kAtun",
     "member"
   ],
@@ -1045,13 +1075,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#kalabtun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kalabtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kalabtun",
     "src/lc/long-count.js~LongCount#kalabtun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#kalabtun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kalabtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kalabtun",
     "src/lc/long-count.js~LongCount#kalabtun",
     "member"
   ],
@@ -1141,25 +1171,25 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-tun",
-    "src/lc/long-count.js~LongCount#tun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#tun",
     "class/src/lc/long-count.js~LongCount.html#instance-set-tun",
     "src/lc/long-count.js~LongCount#tun",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#winal",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-winal",
-    "src/lc/long-count.js~LongCount#winal",
+    "src/lc/long-count.js~longcount#tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-tun",
+    "src/lc/long-count.js~LongCount#tun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#winal",
     "class/src/lc/long-count.js~LongCount.html#instance-set-winal",
+    "src/lc/long-count.js~LongCount#winal",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#winal",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-winal",
     "src/lc/long-count.js~LongCount#winal",
     "member"
   ],
@@ -1186,6 +1216,96 @@ window.esdocSearchIndex = [
     "class/src/lc/night/lord-of-night.js~LordOfNight.html#instance-method-toString",
     "src/lc/night/lord-of-night.js~LordOfNight#toString",
     "method"
+  ],
+  [
+    "src/lc/western/gregorian.js",
+    "file/src/lc/western/gregorian.js.html",
+    "src/lc/western/gregorian.js",
+    "file"
+  ],
+  [
+    "src/lc/western/gregorian.js~gregoriancalendardate#offset",
+    "class/src/lc/western/gregorian.js~GregorianCalendarDate.html#instance-get-offset",
+    "src/lc/western/gregorian.js~GregorianCalendarDate#offset",
+    "member"
+  ],
+  [
+    "src/lc/western/index.js",
+    "file/src/lc/western/index.js.html",
+    "src/lc/western/index.js",
+    "file"
+  ],
+  [
+    "src/lc/western/julian.js",
+    "file/src/lc/western/julian.js.html",
+    "src/lc/western/julian.js",
+    "file"
+  ],
+  [
+    "src/lc/western/julian.js~juliancalendardate#offset",
+    "class/src/lc/western/julian.js~JulianCalendarDate.html#instance-get-offset",
+    "src/lc/western/julian.js~JulianCalendarDate#offset",
+    "member"
+  ],
+  [
+    "src/lc/western/western.js",
+    "file/src/lc/western/western.js.html",
+    "src/lc/western/western.js",
+    "file"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#constructor",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-constructor-constructor",
+    "src/lc/western/western.js~WesternCalendar#constructor",
+    "method"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#date",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-member-date",
+    "src/lc/western/western.js~WesternCalendar#date",
+    "member"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#day",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-get-day",
+    "src/lc/western/western.js~WesternCalendar#day",
+    "member"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#era",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-get-era",
+    "src/lc/western/western.js~WesternCalendar#era",
+    "member"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#isthreshold",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-method-isThreshold",
+    "src/lc/western/western.js~WesternCalendar#isThreshold",
+    "method"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#julianday",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-member-julianDay",
+    "src/lc/western/western.js~WesternCalendar#julianDay",
+    "member"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#month",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-get-month",
+    "src/lc/western/western.js~WesternCalendar#month",
+    "member"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#tostring",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-method-toString",
+    "src/lc/western/western.js~WesternCalendar#toString",
+    "method"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#year",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-get-year",
+    "src/lc/western/western.js~WesternCalendar#year",
+    "member"
   ],
   [
     "src/operations/calendar-round-iterator.js",
