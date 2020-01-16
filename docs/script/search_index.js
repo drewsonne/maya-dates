@@ -84,9 +84,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/operations/longcount-subtraction.js~longcountaddition",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html",
-    "<span>LongcountAddition</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/operations/longcount-subtraction.js</span>",
+    "@drewsonne/maya-dates/src/operations/longcount-subtraction.js~longcountsubtraction",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html",
+    "<span>LongcountSubtraction</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/operations/longcount-subtraction.js</span>",
     "class"
   ],
   [
@@ -1284,27 +1284,27 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/operations/longcount-subtraction.js~longcountaddition#a",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-member-a",
-    "src/operations/longcount-subtraction.js~LongcountAddition#a",
+    "src/operations/longcount-subtraction.js~longcountsubtraction#a",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html#instance-member-a",
+    "src/operations/longcount-subtraction.js~LongcountSubtraction#a",
     "member"
   ],
   [
-    "src/operations/longcount-subtraction.js~longcountaddition#b",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-member-b",
-    "src/operations/longcount-subtraction.js~LongcountAddition#b",
+    "src/operations/longcount-subtraction.js~longcountsubtraction#b",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html#instance-member-b",
+    "src/operations/longcount-subtraction.js~LongcountSubtraction#b",
     "member"
   ],
   [
-    "src/operations/longcount-subtraction.js~longcountaddition#constructor",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-constructor-constructor",
-    "src/operations/longcount-subtraction.js~LongcountAddition#constructor",
+    "src/operations/longcount-subtraction.js~longcountsubtraction#constructor",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html#instance-constructor-constructor",
+    "src/operations/longcount-subtraction.js~LongcountSubtraction#constructor",
     "method"
   ],
   [
-    "src/operations/longcount-subtraction.js~longcountaddition#equals",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-method-equals",
-    "src/operations/longcount-subtraction.js~LongcountAddition#equals",
+    "src/operations/longcount-subtraction.js~longcountsubtraction#equals",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html#instance-method-equals",
+    "src/operations/longcount-subtraction.js~LongcountSubtraction#equals",
     "method"
   ],
   [

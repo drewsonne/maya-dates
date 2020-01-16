@@ -1,7 +1,7 @@
 /**
  * Operation to diff two Long Count Dates
  */
-class LongcountAddition {
+class LongcountSubtraction {
   /**
    * @param {object} lcClass - Special param to pass the LongCount class into this operator to
    * avoid circular require.
@@ -63,4 +63,4 @@ class LongcountAddition {
   }
 }
 
-module.exports = LongcountAddition;
+module.exports = LongcountSubtraction;

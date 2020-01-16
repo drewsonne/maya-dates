@@ -29,7 +29,8 @@ Creating a fullDate can be done either by:
  and calling its `parse(raw_string)` function, where `raw_string` is a LC, CR,
  or CR and LC combination encoded as a string. To specify missing values in a
  fullDate, using `*`. For example,
- ```javascript
+
+```javascript
 const mayadates = require('@drewsonne/maya-dates');
 
 const wildcard = mayadates.wildcard;
