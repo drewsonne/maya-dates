@@ -62,7 +62,7 @@ class WesternCalendar {
    * @return {boolean}
    */
   isThreshold() {
-    return this.day === 1582 && this.month === 10 && [15, 4].includes(this.day);
+    return this.year === 1582 && this.month === 10 && [15, 4].includes(this.day);
   }
 
   /**
