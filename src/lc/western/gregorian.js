@@ -3,6 +3,7 @@ const WesternCalendar = require('./western');
 
 /**
  * Represent a Gregorian date.
+ * @extends {WesternCalendar}
  */
 class GregorianCalendarDate extends WesternCalendar {
 
