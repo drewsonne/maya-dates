@@ -84,9 +84,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/operations/longcount-subtraction.js~longcountaddition",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html",
-    "<span>LongcountAddition</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/operations/longcount-subtraction.js</span>",
+    "@drewsonne/maya-dates/src/operations/longcount-subtraction.js~longcountsubtraction",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html",
+    "<span>LongcountSubtraction</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/operations/longcount-subtraction.js</span>",
     "class"
   ],
   [
@@ -117,6 +117,12 @@ window.esdocSearchIndex = [
     "@drewsonne/maya-dates/src/lc/night/lord-of-night.js~get",
     "function/index.html#static-function-get",
     "<span>get</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/night/lord-of-night.js</span>",
+    "function"
+  ],
+  [
+    "@drewsonne/maya-dates/src/cr/calendar-round.js~getcalendarround",
+    "function/index.html#static-function-getCalendarRound",
+    "<span>getCalendarRound</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/calendar-round.js</span>",
     "function"
   ],
   [
@@ -991,13 +997,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#ispositive",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-isPositive",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-isPositive",
     "src/lc/long-count.js~LongCount#isPositive",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#ispositive",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-isPositive",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-isPositive",
     "src/lc/long-count.js~LongCount#isPositive",
     "member"
   ],
@@ -1008,9 +1014,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#katun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kAtun",
-    "src/lc/long-count.js~LongCount#kAtun",
+    "src/lc/long-count.js~longcount#julianday",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-julianDay",
+    "src/lc/long-count.js~LongCount#julianDay",
     "member"
   ],
   [
@@ -1020,9 +1026,9 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#kin",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kIn",
-    "src/lc/long-count.js~LongCount#kIn",
+    "src/lc/long-count.js~longcount#katun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kAtun",
+    "src/lc/long-count.js~LongCount#kAtun",
     "member"
   ],
   [
@@ -1032,14 +1038,20 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#kalabtun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kalabtun",
-    "src/lc/long-count.js~LongCount#kalabtun",
+    "src/lc/long-count.js~longcount#kin",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kIn",
+    "src/lc/long-count.js~LongCount#kIn",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#kalabtun",
     "class/src/lc/long-count.js~LongCount.html#instance-set-kalabtun",
+    "src/lc/long-count.js~LongCount#kalabtun",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#kalabtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kalabtun",
     "src/lc/long-count.js~LongCount#kalabtun",
     "member"
   ],
@@ -1087,13 +1099,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#piktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-piktun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-piktun",
     "src/lc/long-count.js~LongCount#piktun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#piktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-piktun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-piktun",
     "src/lc/long-count.js~LongCount#piktun",
     "member"
   ],
@@ -1129,13 +1141,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-tun",
     "src/lc/long-count.js~LongCount#tun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-tun",
     "src/lc/long-count.js~LongCount#tun",
     "member"
   ],
@@ -1272,27 +1284,27 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/operations/longcount-subtraction.js~longcountaddition#a",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-member-a",
-    "src/operations/longcount-subtraction.js~LongcountAddition#a",
+    "src/operations/longcount-subtraction.js~longcountsubtraction#a",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html#instance-member-a",
+    "src/operations/longcount-subtraction.js~LongcountSubtraction#a",
     "member"
   ],
   [
-    "src/operations/longcount-subtraction.js~longcountaddition#b",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-member-b",
-    "src/operations/longcount-subtraction.js~LongcountAddition#b",
+    "src/operations/longcount-subtraction.js~longcountsubtraction#b",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html#instance-member-b",
+    "src/operations/longcount-subtraction.js~LongcountSubtraction#b",
     "member"
   ],
   [
-    "src/operations/longcount-subtraction.js~longcountaddition#constructor",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-constructor-constructor",
-    "src/operations/longcount-subtraction.js~LongcountAddition#constructor",
+    "src/operations/longcount-subtraction.js~longcountsubtraction#constructor",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html#instance-constructor-constructor",
+    "src/operations/longcount-subtraction.js~LongcountSubtraction#constructor",
     "method"
   ],
   [
-    "src/operations/longcount-subtraction.js~longcountaddition#equals",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-method-equals",
-    "src/operations/longcount-subtraction.js~LongcountAddition#equals",
+    "src/operations/longcount-subtraction.js~longcountsubtraction#equals",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html#instance-method-equals",
+    "src/operations/longcount-subtraction.js~LongcountSubtraction#equals",
     "method"
   ],
   [

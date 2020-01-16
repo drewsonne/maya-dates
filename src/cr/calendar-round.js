@@ -5,8 +5,6 @@ const haab = require('../cr/haab');
 /** @ignore */
 const wildcard = require('../wildcard');
 
-let getCalendarRound;
-
 /**
  * A combination of 260-day cycles and the Haab cycle.
  * @example
@@ -152,12 +150,20 @@ class CalendarRound {
 /** @ignore */
 const singleton = {};
 
-getCalendarRound = (tzolkinCoeff, tzolkinDay, haabCoeff, haabMonth) => {
+/**
+ * Return a comparable instance of a Calendar Round.
+ * @param {number} tzolkinCoeff
+ * @param {HaabMonth|string} tzolkinDay
+ * @param {number} haabCoeff
+ * @param {HaabMonth|string} haabMonth
+ * @return {CalendarRound}
+ */
+function getCalendarRound(tzolkinCoeff, tzolkinDay, haabCoeff, haabMonth) {
   const crId = `${tzolkinCoeff} ${tzolkinDay} ${haabCoeff} ${haabMonth}`;
   if (singleton[crId] === undefined) {
     singleton[crId] = new CalendarRound(tzolkinCoeff, tzolkinDay, haabCoeff, haabMonth);
   }
   return singleton[crId];
-};
+}
 
 module.exports = getCalendarRound;
