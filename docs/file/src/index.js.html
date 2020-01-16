@@ -36,6 +36,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/haab.js~Haab.html">Haab</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html">TzolkinDay</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/tzolkin.js~Tzolkin.html">Tzolkin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCalendarRound">getCalendarRound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHaabMonth">getHaabMonth</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getHaab">getHaab</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getTzolkinDay">getTzolkinDay</a></span></span></li>
@@ -59,12 +60,26 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">module.exports = {
-  factory: require(&apos;./factory/index&apos;),
-  cr: require(&apos;./cr/index&apos;),
-  lc: require(&apos;./lc/index&apos;),
-  op: require(&apos;./operations/index&apos;),
-  wildcard: require(&apos;./wildcard&apos;),
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
+const FullDate = require(&apos;./full-date&apos;);
+/** @ignore */
+const factory = require(&apos;./factory/index&apos;);
+/** @ignore */
+const cr = require(&apos;./cr/index&apos;);
+/** @ignore */
+const lc = require(&apos;./lc/index&apos;);
+/** @ignore */
+const op = require(&apos;./operations/index&apos;);
+/** @ignore */
+const wildcard = require(&apos;./wildcard&apos;);
+
+module.exports = {
+  factory,
+  cr,
+  lc,
+  op,
+  wildcard,
+  FullDate,
 };
 </code></pre>
 

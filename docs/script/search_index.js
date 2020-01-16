@@ -120,6 +120,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@drewsonne/maya-dates/src/cr/calendar-round.js~getcalendarround",
+    "function/index.html#static-function-getCalendarRound",
+    "<span>getCalendarRound</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/calendar-round.js</span>",
+    "function"
+  ],
+  [
     "@drewsonne/maya-dates/src/lc/correlation-constant.js~getcorrelationconstant",
     "function/index.html#static-function-getCorrelationConstant",
     "<span>getCorrelationConstant</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/correlation-constant.js</span>",
@@ -991,13 +997,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#ispositive",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-isPositive",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-isPositive",
     "src/lc/long-count.js~LongCount#isPositive",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#ispositive",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-isPositive",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-isPositive",
     "src/lc/long-count.js~LongCount#isPositive",
     "member"
   ],
@@ -1008,9 +1014,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#katun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kAtun",
-    "src/lc/long-count.js~LongCount#kAtun",
+    "src/lc/long-count.js~longcount#julianday",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-julianDay",
+    "src/lc/long-count.js~LongCount#julianDay",
     "member"
   ],
   [
@@ -1020,9 +1026,9 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#kin",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kIn",
-    "src/lc/long-count.js~LongCount#kIn",
+    "src/lc/long-count.js~longcount#katun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kAtun",
+    "src/lc/long-count.js~LongCount#kAtun",
     "member"
   ],
   [
@@ -1032,14 +1038,20 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#kalabtun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kalabtun",
-    "src/lc/long-count.js~LongCount#kalabtun",
+    "src/lc/long-count.js~longcount#kin",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kIn",
+    "src/lc/long-count.js~LongCount#kIn",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#kalabtun",
     "class/src/lc/long-count.js~LongCount.html#instance-set-kalabtun",
+    "src/lc/long-count.js~LongCount#kalabtun",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#kalabtun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-kalabtun",
     "src/lc/long-count.js~LongCount#kalabtun",
     "member"
   ],
@@ -1087,13 +1099,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#piktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-piktun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-piktun",
     "src/lc/long-count.js~LongCount#piktun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#piktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-piktun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-piktun",
     "src/lc/long-count.js~LongCount#piktun",
     "member"
   ],
@@ -1129,13 +1141,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-tun",
     "src/lc/long-count.js~LongCount#tun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-tun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-tun",
     "src/lc/long-count.js~LongCount#tun",
     "member"
   ],

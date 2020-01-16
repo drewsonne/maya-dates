@@ -1,11 +1,11 @@
 {
   "coverage": "100%",
-  "expectCount": 210,
-  "actualCount": 210,
+  "expectCount": 218,
+  "actualCount": 218,
   "files": {
     "src/cr/calendar-round.js": {
-      "expectCount": 15,
-      "actualCount": 15,
+      "expectCount": 16,
+      "actualCount": 16,
       "undocumentLines": []
     },
     "src/cr/haab-month.js": {
@@ -63,6 +63,11 @@
       "actualCount": 5,
       "undocumentLines": []
     },
+    "src/index.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
     "src/lc/correlation-constant.js": {
       "expectCount": 6,
       "actualCount": 6,
@@ -74,8 +79,8 @@
       "undocumentLines": []
     },
     "src/lc/long-count.js": {
-      "expectCount": 50,
-      "actualCount": 50,
+      "expectCount": 51,
+      "actualCount": 51,
       "undocumentLines": []
     },
     "src/lc/night/lord-of-night.js": {
