@@ -50,6 +50,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCorrelationConstant">getCorrelationConstant</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-night">lc/night</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get">get</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-western">lc/western</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/gregorian.js~GregorianCalendarDate.html">GregorianCalendarDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/julian.js~JulianCalendarDate.html">JulianCalendarDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html">WesternCalendar</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html">CalendarRoundWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html">LongcountAddition</a></span></span></li>
@@ -60,38 +63,53 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/lc/western/gregorian.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const moonbeams = require(&apos;moonbeams&apos;);
-const moment = require(&apos;moment-timezone&apos;);
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
 const WesternCalendar = require(&apos;./western&apos;);
 
-const JDAY_FOR_JULIAN_SWITCH = 2299160;
-const DATE_FOR_JULIAN_SWITCH = moment.tz(&apos;1582-10-14&apos;, &apos;UTC&apos;);
-
+/**
+ * Represent a Gregorian date.
+ */
 class GregorianCalendarDate extends WesternCalendar {
-  constructor(julianDay) {
-    super(julianDay, GregorianCalendarDate);
-    this.date = DATE_FOR_JULIAN_SWITCH.add(
-      this.julianDay - JDAY_FOR_JULIAN_SWITCH, &apos;days&apos;
-    );
-  }
 
-  get year() {
-    if (this.era === &apos;BCE&apos;) {
-      return Math.abs(this.date.year() + 1);
+  /**
+   * Handle the sliding offset between gregorian and julian dates
+   * @return {number}
+   */
+  get offset() {
+    if (this.julianDay === 2299160) {
+      return 0;
     }
-    return this.date.year();
-  }
-
-  get month() {
-    return this.date.month() + 1;
-  }
-
-  get day() {
-    return Math.floor(this.date.day());
-  }
-
-  get era() {
-    return (this.date.year() &lt; 0) ? &apos;BCE&apos; : &apos;CE&apos;;
+    if (this.julianDay &lt;= 1448283) {
+      return -8;
+    }
+    if (this.julianDay &lt;= 1455864) {
+      return -8;
+    }
+    if (this.julianDay &lt;= 1599864) {
+      return -5;
+    }
+    if (this.julianDay &lt;= 1743864) {
+      return -2;
+    }
+    if (this.julianDay &lt;= 1887864) {
+      return 1;
+    }
+    if (this.julianDay &lt;= 2031864) {
+      return 4;
+    }
+    if (this.julianDay &lt;= 2096664) {
+      return 6;
+    }
+    if (this.julianDay &lt;= 2175864) {
+      return 7;
+    }
+    if (this.julianDay &lt;= 2240664) {
+      return 9;
+    }
+    if (this.julianDay &lt;= 2299160) {
+      return 10;
+    }
+    return 0;
   }
 }
 

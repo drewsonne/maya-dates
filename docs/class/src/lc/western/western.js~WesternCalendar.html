@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">TzolkinDay | @drewsonne/maya-dates</title>
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">WesternCalendar | @drewsonne/maya-dates</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -69,11 +69,11 @@
   
   
   
-  <span data-ice="source">| <span><a href="file/src/cr/tzolkin-day.js.html#lineNumber50">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/lc/western/western.js.html#lineNumber8">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">TzolkinDay</h1>
+  <h1 data-ice="name">WesternCalendar</h1>
 
   
 
@@ -89,7 +89,7 @@
 
   
   
-  <div class="description" data-ice="description"><p>Describes only the day component of a 260-day cycle</p>
+  <div class="description" data-ice="description"><p>Represents either a Julian or Gregorian calendar.</p>
 </div>
   
 
@@ -122,13 +122,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(newName: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(julianDay: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Store a date with reference to a Julian Day.</p>
+</div>
       </div>
     </td>
     <td>
@@ -157,13 +158,70 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-member-day_position">day_position</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html#instance-member-date">date</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Index of the day in the list of Tzolkin&apos; days</p>
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html#instance-get-day">day</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Return the day of the month</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html#instance-get-era">era</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Return whether the date is the common era or before the common era.</p>
 </div>
       </div>
     </td>
@@ -186,13 +244,41 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-member-name">name</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html#instance-member-julianDay">julianDay</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Name of the day in the 260-day cycle</p>
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html#instance-get-month">month</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Return the month</p>
 </div>
       </div>
     </td>
@@ -205,7 +291,7 @@
     <td>
       <span class="access" data-ice="access">public</span>
       
-      
+      <span class="kind" data-ice="kind">get</span>
       
       <span class="override" data-ice="override"></span>
     </td>
@@ -215,13 +301,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-member-private_next">private_next</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html">TzolkinDay</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html#instance-get-year">year</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Lazy loaded instance of the next Tzolkin Day in the cycle</p>
+        <div data-ice="description"><p>Return the year</p>
 </div>
       </div>
     </td>
@@ -251,13 +337,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-method-next">next</a></span></span><span class="code" data-ice="signature">(): <span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html">TzolkinDay</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html#instance-method-isThreshold">isThreshold</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Return the next day in the 260-day cycle</p>
+        <div data-ice="description"><p>Return true if this date is on the Julian/Gregorian threshold</p>
 </div>
       </div>
     </td>
@@ -280,71 +366,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-method-shift">shift</a></span></span><span class="code" data-ice="signature">(incremental: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html#instance-method-toString">toString</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-method-toString">toString</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Return the name of this Tzolkin day</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html#instance-method-validate">validate</a></span></span><span class="code" data-ice="signature">()</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Ensure the Tzolk&apos;in day name is defined and is within the list of
-acceptable day names.</p>
+        <div data-ice="description"><p>Represent this date as a string with era markers.</p>
 </div>
       </div>
     </td>
@@ -371,18 +399,19 @@ acceptable day names.</p>
     
     
     
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(newName: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(julianDay: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/tzolkin-day.js.html#lineNumber54">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/lc/western/western.js.html#lineNumber13">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Store a date with reference to a Julian Day.</p>
+</div>
 
   
 
@@ -395,11 +424,10 @@ acceptable day names.</p>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">newName</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="name" class="code" data-depth="0">julianDay</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>Name or position of the 260-day cycle day</p>
-</td>
+      <td data-ice="description"></td>
     </tr>
 </tbody>
   </table>
@@ -427,26 +455,25 @@ acceptable day names.</p>
 <div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-day_position">
+  <h3 data-ice="anchor" id="instance-member-date">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">day_position</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    <span class="code" data-ice="name">date</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/tzolkin-day.js.html#lineNumber70">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/lc/western/western.js.html#lineNumber22">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Index of the day in the list of Tzolkin&apos; days</p>
-</div>
+  
 
   
 
@@ -471,116 +498,25 @@ acceptable day names.</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-name">
+  <h3 data-ice="anchor" id="instance-get-day">
     <span class="access" data-ice="access">public</span>
     
+    <span class="kind" data-ice="kind">get</span>
     
     
     
-    
-    <span class="code" data-ice="name">name</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+    <span class="code" data-ice="name">day</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/tzolkin-day.js.html#lineNumber64">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/lc/western/western.js.html#lineNumber48">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Name of the day in the 260-day cycle</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-private_next">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">private_next</span><span class="code" data-ice="signature">: <span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html">TzolkinDay</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/cr/tzolkin-day.js.html#lineNumber78">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Lazy loaded instance of the next Tzolkin Day in the cycle</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-</div>
-<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
-
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-next">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">next</span><span class="code" data-ice="signature">(): <span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html">TzolkinDay</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/cr/tzolkin-day.js.html#lineNumber98">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Return the next day in the 260-day cycle</p>
+  <div data-ice="description"><p>Return the day of the month</p>
 </div>
 
   
@@ -593,7 +529,7 @@ acceptable day names.</p>
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html">TzolkinDay</a></span></td>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
           
         </tr>
       </tbody>
@@ -618,96 +554,25 @@ acceptable day names.</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-shift">
+  <h3 data-ice="anchor" id="instance-get-era">
     <span class="access" data-ice="access">public</span>
     
+    <span class="kind" data-ice="kind">get</span>
     
     
     
-    
-    <span class="code" data-ice="name">shift</span><span class="code" data-ice="signature">(incremental: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
+    <span class="code" data-ice="name">era</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/tzolkin-day.js.html#lineNumber106">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/lc/western/western.js.html#lineNumber56">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">incremental</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-toString">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">toString</span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/cr/tzolkin-day.js.html#lineNumber122">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Return the name of this Tzolkin day</p>
+  <div data-ice="description"><p>Return whether the date is the common era or before the common era.</p>
 </div>
 
   
@@ -745,27 +610,25 @@ acceptable day names.</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-validate">
+  <h3 data-ice="anchor" id="instance-member-julianDay">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">validate</span><span class="code" data-ice="signature">()</span>
+    <span class="code" data-ice="name">julianDay</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/tzolkin-day.js.html#lineNumber85">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/lc/western/western.js.html#lineNumber17">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Ensure the Tzolk&apos;in day name is defined and is within the list of
-acceptable day names.</p>
-</div>
+  
 
   
 
@@ -773,6 +636,234 @@ acceptable day names.</p>
 </div>
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-month">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    
+    <span class="code" data-ice="name">month</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/western/western.js.html#lineNumber40">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Return the month</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-year">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    
+    <span class="code" data-ice="name">year</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/western/western.js.html#lineNumber29">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Return the year</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-isThreshold">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">isThreshold</span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/western/western.js.html#lineNumber64">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Return true if this date is on the Julian/Gregorian threshold</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-toString">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">toString</span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/western/western.js.html#lineNumber73">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Represent this date as a string with era markers. If the date is suffixed with
+a &apos;*&apos;, this date is on the Julian/Gregorian threshold date.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 

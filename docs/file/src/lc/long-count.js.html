@@ -50,6 +50,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCorrelationConstant">getCorrelationConstant</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-night">lc/night</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get">get</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-western">lc/western</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/gregorian.js~GregorianCalendarDate.html">GregorianCalendarDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/julian.js~JulianCalendarDate.html">JulianCalendarDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html">WesternCalendar</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html">CalendarRoundWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html">LongcountAddition</a></span></span></li>
@@ -61,6 +64,8 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/lc/long-count.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
+const moonbeams = require(&apos;moonbeams&apos;);
+/** @ignore */
 const wildcard = require(&apos;../wildcard&apos;);
 /** @ignore */
 const {origin} = require(&apos;../cr/index&apos;);
@@ -74,6 +79,10 @@ const LongcountAddition = require(&apos;../operations/longcount-addition&apos;);
 const LongcountSubtraction = require(&apos;../operations/longcount-subtraction&apos;);
 /** @ignore */
 const getCorrelationConstant = require(&apos;./correlation-constant&apos;);
+/** @ignore */
+const GregorianCalendarDate = require(&apos;./western/gregorian&apos;);
+/** @ignore */
+const JulianCalendarDate = require(&apos;./western/julian&apos;);
 
 /**
  * Long Count cycle
@@ -130,6 +139,19 @@ class LongCount {
     return this.correlationConstant.value + this.getPosition();
   }
 
+  /**
+   * @return {string}
+   */
+  get gregorian() {
+    return new GregorianCalendarDate(this.julianDay);
+  }
+
+  /**
+   * @return {JulianCalendarDate}
+   */
+  get julian() {
+    return new JulianCalendarDate(this.julianDay);
+  }
 
   /**
    * Return true if the Long Count is positive.

@@ -50,6 +50,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCorrelationConstant">getCorrelationConstant</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-night">lc/night</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get">get</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-western">lc/western</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/gregorian.js~GregorianCalendarDate.html">GregorianCalendarDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/julian.js~JulianCalendarDate.html">JulianCalendarDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html">WesternCalendar</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#operations">operations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/calendar-round-wildcard.js~CalendarRoundWildcard.html">CalendarRoundWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/fulldate-wildcard.js~FullDateWildcard.html">FullDateWildcard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/operations/longcount-addition.js~LongcountAddition.html">LongcountAddition</a></span></span></li>
@@ -60,44 +63,87 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/lc/western/western.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">class WesternCalendar {
-  constructor(julianDay, new_class) {
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
+const moonbeams = require(&apos;moonbeams&apos;);
+
+/**
+ * Represents either a Julian or Gregorian calendar.
+ * @abstract
+ */
+class WesternCalendar {
+  /**
+   * Store a date with reference to a Julian Day.
+   * @param {number} julianDay
+   */
+  constructor(julianDay) {
+    /**
+     * @type {number}
+     */
     this.julianDay = julianDay;
-    this.offset = 0;
-    this.class = new_class;
+
+    /**
+     * @type {Date}
+     */
+    this.date = moonbeams.jdToCalendar(julianDay + this.offset);
   }
 
-
-  clone(offset) {
-    if (offset === undefined) {
-      offset = 0;
-    }
-    return new this.class(this.julianDay + offset);
-  }
-
+  /**
+   * Return the year
+   * @return {number}
+   */
   get year() {
     if (this.era === &apos;BCE&apos;) {
-      return Math.abs(this.date.year + 1);
+      return Math.abs(this.date.year - 1);
     }
     return this.date.year;
   }
 
+  /**
+   * Return the month
+   * @return {number}
+   */
   get month() {
     return this.date.month;
   }
 
+  /**
+   * Return the day of the month
+   * @return {number}
+   */
   get day() {
-    return Math.floor(this.date.day) + this.offset;
+    return Math.floor(this.date.day);
   }
 
+  /**
+   * Return whether the date is the common era or before the common era.
+   * @return {string}
+   */
   get era() {
     return (this.date.year &lt; 0) ? &apos;BCE&apos; : &apos;CE&apos;;
   }
 
+  /**
+   * Return true if this date is on the Julian/Gregorian threshold
+   * @return {boolean}
+   */
+  isThreshold() {
+    return this.day === 1582 &amp;&amp; this.month === 10 &amp;&amp; [15, 4].includes(this.day);
+  }
+
+  /**
+   * Represent this date as a string with era markers. If the date is suffixed with
+   * a &apos;*&apos;, this date is on the Julian/Gregorian threshold date.
+   * @return {string}
+   */
   toString() {
-    return `${this.day}/${this.month}/${this.year} ${this.era}`;
+    const date = `${this.day}/${this.month}/${this.year} ${this.era}`;
+    if (this.isThreshold()) {
+      return `${date}*`;
+    }
+    return date;
   }
 }
+
 
 module.exports = WesternCalendar;
 </code></pre>

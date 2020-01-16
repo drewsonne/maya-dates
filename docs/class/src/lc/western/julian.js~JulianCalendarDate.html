@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../">
-  <title data-ice="title">src/lc/night/lord-of-night.js | @drewsonne/maya-dates</title>
+  <title data-ice="title">JulianCalendarDate | @drewsonne/maya-dates</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -62,60 +62,151 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/lc/night/lord-of-night.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
- * Describes one of the 9 Lords of the night.
- * This class is accessible through its instantiated values, or the get()
- * method.
- * @example
- *  let lord_of_night_g8_1 = mayadates.lc.night.get(&apos;G8&apos;)
- *  let lord_of_night_g8_2 = mayadates.lc.night.G8
- *  console.log(lord_of_night_g8_1 === lord_of_night_g8_2)
- */
-class LordOfNight {
-  /**
-   * @param {number} id
-   */
-  constructor(id) {
-    /**
-     * Number of the Lord of the Night
-     * @type {number}
-     */
-    this.id = id;
-  }
+<div class="content" data-ice="content"><div class="header-notice">
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode"></code></pre></div>
+  <span data-ice="access">public</span>
+  <span data-ice="kind">class</span>
+  
+  
+  
+  <span data-ice="source">| <span><a href="file/src/lc/western/julian.js.html#lineNumber7">source</a></span></span>
+</div>
 
-  /**
-   * Represent the Lord of the night as a string G1..G9.
-   * @return {string}
-   */
-  toString() {
-    return `G${this.id}`;
-  }
-}
+<div class="self-detail detail">
+  <h1 data-ice="name">JulianCalendarDate</h1>
 
-/**
- * Return a Lord of the Night by its G id.
- * @param {string} id - Has the form &apos;G1&apos;, &apos;G2&apos;, etc.
- * @return {LordOfNight}
- */
-function get(id) {
-  return lordsOfTheNight[`${id}`];
-}
+  
 
-/** @ignore */
-const lordsOfTheNight = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9,
-].reduce((obj, n) =&gt; {
-  const lord = new LordOfNight(n);
-  const newObj = obj;
-  newObj[`${lord}`] = lord;
-  return newObj;
-}, {
-  get,
-});
+  
+  
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>src/lc/western/gregorian.js~WesternCalendar</span> &#x2192; JulianCalendarDate</div></div>
+  
+  
+  
+  
+  
+  
 
-module.exports = lordsOfTheNight;
-</code></pre>
+  
+  
+  <div class="description" data-ice="description"><p>Represent a Julian date.</p>
+</div>
+  
+
+  
+
+  
+
+  
+
+  
+</div>
+
+
+
+
+<div data-ice="memberSummary"><h2>Member Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Members</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/western/julian.js~JulianCalendarDate.html#instance-get-offset">offset</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Handle the sliding offset between gregorian and julian dates</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+<div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-offset">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    
+    <span class="code" data-ice="name">offset</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/western/julian.js.html#lineNumber13">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Handle the sliding offset between gregorian and julian dates</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
 
 </div>
 
