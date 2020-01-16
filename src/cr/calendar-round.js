@@ -77,14 +77,7 @@ class CalendarRound {
    * @returns {CalendarRound}
    */
   next() {
-    const newTzolkin = this.tzolkin.next();
-    const newHaab = this.haab.next();
-    return getCalendarRound(
-      newTzolkin.coeff,
-      newTzolkin.day,
-      newHaab.coeff,
-      newHaab.month,
-    );
+    return this.shift(1);
   }
 
   /**
@@ -119,6 +112,7 @@ class CalendarRound {
   shift(increment) {
     const newHaab = this.haab.shift(increment);
     const newTzolkin = this.tzolkin.shift(increment);
+    // eslint-disable-next-line no-use-before-define
     return getCalendarRound(
       newTzolkin.coeff,
       newTzolkin.day,
