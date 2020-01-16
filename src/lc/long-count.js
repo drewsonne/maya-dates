@@ -75,13 +75,15 @@ class LongCount {
   }
 
   /**
-   * @return {string}
+   * Return a Gregorian representation of this long count date, offset by the correlation constant.
+   * @return {GregorianCalendarDate}
    */
   get gregorian() {
     return new GregorianCalendarDate(this.julianDay);
   }
 
   /**
+   * Return a Julian representation of this long count date, offset by the correlation constant.
    * @return {JulianCalendarDate}
    */
   get julian() {
