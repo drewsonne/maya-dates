@@ -18,6 +18,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@drewsonne/maya-dates/src/lc/correlation-constant.js~correlationconstant",
+    "class/src/lc/correlation-constant.js~CorrelationConstant.html",
+    "<span>CorrelationConstant</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/correlation-constant.js</span>",
+    "class"
+  ],
+  [
     "@drewsonne/maya-dates/src/factory/base.js~factory",
     "class/src/factory/base.js~Factory.html",
     "<span>Factory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory/base.js</span>",
@@ -42,6 +48,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@drewsonne/maya-dates/src/lc/western/gregorian.js~gregoriancalendardate",
+    "class/src/lc/western/gregorian.js~GregorianCalendarDate.html",
+    "<span>GregorianCalendarDate</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/western/gregorian.js</span>",
+    "class"
+  ],
+  [
     "@drewsonne/maya-dates/src/cr/haab.js~haab",
     "class/src/cr/haab.js~Haab.html",
     "<span>Haab</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/haab.js</span>",
@@ -51,6 +63,12 @@ window.esdocSearchIndex = [
     "@drewsonne/maya-dates/src/cr/haab-month.js~haabmonth",
     "class/src/cr/haab-month.js~HaabMonth.html",
     "<span>HaabMonth</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/haab-month.js</span>",
+    "class"
+  ],
+  [
+    "@drewsonne/maya-dates/src/lc/western/julian.js~juliancalendardate",
+    "class/src/lc/western/julian.js~JulianCalendarDate.html",
+    "<span>JulianCalendarDate</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/western/julian.js</span>",
     "class"
   ],
   [
@@ -78,9 +96,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/operations/longcount-subtraction.js~longcountaddition",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html",
-    "<span>LongcountAddition</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/operations/longcount-subtraction.js</span>",
+    "@drewsonne/maya-dates/src/operations/longcount-subtraction.js~longcountsubtraction",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html",
+    "<span>LongcountSubtraction</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/operations/longcount-subtraction.js</span>",
     "class"
   ],
   [
@@ -102,6 +120,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@drewsonne/maya-dates/src/lc/western/western.js~westerncalendar",
+    "class/src/lc/western/western.js~WesternCalendar.html",
+    "<span>WesternCalendar</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/western/western.js</span>",
+    "class"
+  ],
+  [
     "@drewsonne/maya-dates/src/wildcard.js~wildcard",
     "class/src/wildcard.js~Wildcard.html",
     "<span>Wildcard</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/wildcard.js</span>",
@@ -111,6 +135,18 @@ window.esdocSearchIndex = [
     "@drewsonne/maya-dates/src/lc/night/lord-of-night.js~get",
     "function/index.html#static-function-get",
     "<span>get</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/night/lord-of-night.js</span>",
+    "function"
+  ],
+  [
+    "@drewsonne/maya-dates/src/cr/calendar-round.js~getcalendarround",
+    "function/index.html#static-function-getCalendarRound",
+    "<span>getCalendarRound</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/calendar-round.js</span>",
+    "function"
+  ],
+  [
+    "@drewsonne/maya-dates/src/lc/correlation-constant.js~getcorrelationconstant",
+    "function/index.html#static-function-getCorrelationConstant",
+    "<span>getCorrelationConstant</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/correlation-constant.js</span>",
     "function"
   ],
   [
@@ -852,6 +888,30 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/lc/correlation-constant.js",
+    "file/src/lc/correlation-constant.js.html",
+    "src/lc/correlation-constant.js",
+    "file"
+  ],
+  [
+    "src/lc/correlation-constant.js~correlationconstant#constructor",
+    "class/src/lc/correlation-constant.js~CorrelationConstant.html#instance-constructor-constructor",
+    "src/lc/correlation-constant.js~CorrelationConstant#constructor",
+    "method"
+  ],
+  [
+    "src/lc/correlation-constant.js~correlationconstant#name",
+    "class/src/lc/correlation-constant.js~CorrelationConstant.html#instance-member-name",
+    "src/lc/correlation-constant.js~CorrelationConstant#name",
+    "member"
+  ],
+  [
+    "src/lc/correlation-constant.js~correlationconstant#value",
+    "class/src/lc/correlation-constant.js~CorrelationConstant.html#instance-member-value",
+    "src/lc/correlation-constant.js~CorrelationConstant#value",
+    "member"
+  ],
+  [
     "src/lc/index.js",
     "file/src/lc/index.js.html",
     "src/lc/index.js",
@@ -900,6 +960,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/lc/long-count.js~longcount#correlationconstant",
+    "class/src/lc/long-count.js~LongCount.html#instance-member-correlationConstant",
+    "src/lc/long-count.js~LongCount#correlationConstant",
+    "member"
+  ],
+  [
     "src/lc/long-count.js~longcount#date_pattern",
     "class/src/lc/long-count.js~LongCount.html#instance-member-date_pattern",
     "src/lc/long-count.js~LongCount#date_pattern",
@@ -922,6 +988,12 @@ window.esdocSearchIndex = [
     "class/src/lc/long-count.js~LongCount.html#instance-method-getPosition",
     "src/lc/long-count.js~LongCount#getPosition",
     "method"
+  ],
+  [
+    "src/lc/long-count.js~longcount#gregorian",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-gregorian",
+    "src/lc/long-count.js~LongCount#gregorian",
+    "member"
   ],
   [
     "src/lc/long-count.js~longcount#gt",
@@ -966,14 +1038,26 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/lc/long-count.js~longcount#katun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kAtun",
-    "src/lc/long-count.js~LongCount#kAtun",
+    "src/lc/long-count.js~longcount#julian",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-julian",
+    "src/lc/long-count.js~LongCount#julian",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#julianday",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-julianDay",
+    "src/lc/long-count.js~LongCount#julianDay",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#katun",
     "class/src/lc/long-count.js~LongCount.html#instance-get-kAtun",
+    "src/lc/long-count.js~LongCount#kAtun",
+    "member"
+  ],
+  [
+    "src/lc/long-count.js~longcount#katun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-kAtun",
     "src/lc/long-count.js~LongCount#kAtun",
     "member"
   ],
@@ -1045,13 +1129,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#piktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-piktun",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-piktun",
     "src/lc/long-count.js~LongCount#piktun",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#piktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-piktun",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-piktun",
     "src/lc/long-count.js~LongCount#piktun",
     "member"
   ],
@@ -1059,6 +1143,12 @@ window.esdocSearchIndex = [
     "src/lc/long-count.js~longcount#plus",
     "class/src/lc/long-count.js~LongCount.html#instance-method-plus",
     "src/lc/long-count.js~LongCount#plus",
+    "method"
+  ],
+  [
+    "src/lc/long-count.js~longcount#setcorrelationconstant",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-setCorrelationConstant",
+    "src/lc/long-count.js~LongCount#setCorrelationConstant",
     "method"
   ],
   [
@@ -1093,13 +1183,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/lc/long-count.js~longcount#winal",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-winal",
+    "class/src/lc/long-count.js~LongCount.html#instance-set-winal",
     "src/lc/long-count.js~LongCount#winal",
     "member"
   ],
   [
     "src/lc/long-count.js~longcount#winal",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-winal",
+    "class/src/lc/long-count.js~LongCount.html#instance-get-winal",
     "src/lc/long-count.js~LongCount#winal",
     "member"
   ],
@@ -1126,6 +1216,96 @@ window.esdocSearchIndex = [
     "class/src/lc/night/lord-of-night.js~LordOfNight.html#instance-method-toString",
     "src/lc/night/lord-of-night.js~LordOfNight#toString",
     "method"
+  ],
+  [
+    "src/lc/western/gregorian.js",
+    "file/src/lc/western/gregorian.js.html",
+    "src/lc/western/gregorian.js",
+    "file"
+  ],
+  [
+    "src/lc/western/gregorian.js~gregoriancalendardate#offset",
+    "class/src/lc/western/gregorian.js~GregorianCalendarDate.html#instance-get-offset",
+    "src/lc/western/gregorian.js~GregorianCalendarDate#offset",
+    "member"
+  ],
+  [
+    "src/lc/western/index.js",
+    "file/src/lc/western/index.js.html",
+    "src/lc/western/index.js",
+    "file"
+  ],
+  [
+    "src/lc/western/julian.js",
+    "file/src/lc/western/julian.js.html",
+    "src/lc/western/julian.js",
+    "file"
+  ],
+  [
+    "src/lc/western/julian.js~juliancalendardate#offset",
+    "class/src/lc/western/julian.js~JulianCalendarDate.html#instance-get-offset",
+    "src/lc/western/julian.js~JulianCalendarDate#offset",
+    "member"
+  ],
+  [
+    "src/lc/western/western.js",
+    "file/src/lc/western/western.js.html",
+    "src/lc/western/western.js",
+    "file"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#constructor",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-constructor-constructor",
+    "src/lc/western/western.js~WesternCalendar#constructor",
+    "method"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#date",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-member-date",
+    "src/lc/western/western.js~WesternCalendar#date",
+    "member"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#day",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-get-day",
+    "src/lc/western/western.js~WesternCalendar#day",
+    "member"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#era",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-get-era",
+    "src/lc/western/western.js~WesternCalendar#era",
+    "member"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#isthreshold",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-method-isThreshold",
+    "src/lc/western/western.js~WesternCalendar#isThreshold",
+    "method"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#julianday",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-member-julianDay",
+    "src/lc/western/western.js~WesternCalendar#julianDay",
+    "member"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#month",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-get-month",
+    "src/lc/western/western.js~WesternCalendar#month",
+    "member"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#tostring",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-method-toString",
+    "src/lc/western/western.js~WesternCalendar#toString",
+    "method"
+  ],
+  [
+    "src/lc/western/western.js~westerncalendar#year",
+    "class/src/lc/western/western.js~WesternCalendar.html#instance-get-year",
+    "src/lc/western/western.js~WesternCalendar#year",
+    "member"
   ],
   [
     "src/operations/calendar-round-iterator.js",
@@ -1224,27 +1404,27 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/operations/longcount-subtraction.js~longcountaddition#a",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-member-a",
-    "src/operations/longcount-subtraction.js~LongcountAddition#a",
+    "src/operations/longcount-subtraction.js~longcountsubtraction#a",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html#instance-member-a",
+    "src/operations/longcount-subtraction.js~LongcountSubtraction#a",
     "member"
   ],
   [
-    "src/operations/longcount-subtraction.js~longcountaddition#b",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-member-b",
-    "src/operations/longcount-subtraction.js~LongcountAddition#b",
+    "src/operations/longcount-subtraction.js~longcountsubtraction#b",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html#instance-member-b",
+    "src/operations/longcount-subtraction.js~LongcountSubtraction#b",
     "member"
   ],
   [
-    "src/operations/longcount-subtraction.js~longcountaddition#constructor",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-constructor-constructor",
-    "src/operations/longcount-subtraction.js~LongcountAddition#constructor",
+    "src/operations/longcount-subtraction.js~longcountsubtraction#constructor",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html#instance-constructor-constructor",
+    "src/operations/longcount-subtraction.js~LongcountSubtraction#constructor",
     "method"
   ],
   [
-    "src/operations/longcount-subtraction.js~longcountaddition#equals",
-    "class/src/operations/longcount-subtraction.js~LongcountAddition.html#instance-method-equals",
-    "src/operations/longcount-subtraction.js~LongcountAddition#equals",
+    "src/operations/longcount-subtraction.js~longcountsubtraction#equals",
+    "class/src/operations/longcount-subtraction.js~LongcountSubtraction.html#instance-method-equals",
+    "src/operations/longcount-subtraction.js~LongcountSubtraction#equals",
     "method"
   ],
   [

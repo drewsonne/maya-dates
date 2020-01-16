@@ -1,6 +1,6 @@
 {
   "name": "@drewsonne/maya-dates",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Node.js package to represent dates in the Maya Calendar",
   "main": "src/index.js",
   "scripts": {
@@ -33,5 +33,9 @@
   "jest": {
     "testEnvironment": "node"
   },
-  "dependencies": {}
+  "dependencies": {
+    "moonbeams": "^2.0.2",
+    "moment-timezone": "^0.5.26",
+    "moment": "^2.24.0"
+  }
 }

@@ -1,4 +1,6 @@
 /** @ignore */
+const moonbeams = require('moonbeams');
+/** @ignore */
 const wildcard = require('../wildcard');
 /** @ignore */
 const {origin} = require('../cr/index');
@@ -10,6 +12,12 @@ const night = require('./night/lord-of-night');
 const LongcountAddition = require('../operations/longcount-addition');
 /** @ignore */
 const LongcountSubtraction = require('../operations/longcount-subtraction');
+/** @ignore */
+const getCorrelationConstant = require('./correlation-constant');
+/** @ignore */
+const GregorianCalendarDate = require('./western/gregorian');
+/** @ignore */
+const JulianCalendarDate = require('./western/julian');
 
 /**
  * Long Count cycle
@@ -33,6 +41,12 @@ class LongCount {
     this.date_pattern = /([\d*]+\.?)+/;
 
     /**
+     * Correlation constant to allow alignment with western calendars
+     * @type {CorrelationConstant}
+     */
+    this.correlationConstant = getCorrelationConstant(584283);
+
+    /**
      * @private
      * @type {number}
      */
@@ -40,6 +54,38 @@ class LongCount {
     if (this.isNegative) {
       this.parts[this.parts.length - 1] = -1 * this.parts[this.parts.length - 1];
     }
+  }
+
+  /**
+   * Chainable method to set the correlation constant
+   * @param {CorrelationConstant} newConstant
+   * @return {LongCount}
+   */
+  setCorrelationConstant(newConstant) {
+    this.correlationConstant = newConstant;
+    return this;
+  }
+
+  /**
+   * Return a representation of this Long Count in Julian Days.
+   * @return {number}
+   */
+  get julianDay() {
+    return this.correlationConstant.value + this.getPosition();
+  }
+
+  /**
+   * @return {string}
+   */
+  get gregorian() {
+    return new GregorianCalendarDate(this.julianDay);
+  }
+
+  /**
+   * @return {JulianCalendarDate}
+   */
+  get julian() {
+    return new JulianCalendarDate(this.julianDay);
   }
 
   /**
