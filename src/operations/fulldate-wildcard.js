@@ -42,7 +42,7 @@ class FullDateWildcard {
 
       const mappedLcs = lcs.map(function (potentialLc) {
           return potentialLc.buildFullDate();
-        },
+        }
       );
       const flatMappedLcs = mappedLcs.flatMap(
         (fullDate) => (
@@ -50,11 +50,11 @@ class FullDateWildcard {
             ? new CalendarRoundWildcard(this.fullDate.cr).run()
             : [this.fullDate.cr]
         ).map(
-          (cr) => [].concat(cr, fullDate),
-        ),
+          (cr) => [].concat(cr, fullDate)
+        )
       );
       const filteredMappedLcs = flatMappedLcs.filter(
-        (pair) => pair[0].equal(pair[1].cr),
+        (pair) => pair[0].equal(pair[1].cr)
       );
       return filteredMappedLcs;
     }

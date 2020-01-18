@@ -27,17 +27,18 @@ function getCalendarRound(tzolkinCoeff, tzolkinDay, haabCoeff, haabMonth) {
 }
 
 /**
- * A combination of 260-day cycles and the Haab cycle.
+ * A combination of 260-day cycles and the Haab cycle. This class should not
+ * be instantiated directly, and should be accessed through getCalendarRound.
+ * @see {getCalendarRound}
  * @example
  *  let cr = new CalendarRound(4, "Ajaw", 8, "Kumk'u");
  */
 class CalendarRound {
   /**
-   *
    * @param {number} tzolkinCoeff Coefficient for the 260-day cycle
-   * @param {string} tzolkinDay Name of the name in the 260-day cycle
+   * @param {string|TzolkinDay} tzolkinDay Name of the name in the 260-day cycle
    * @param {number} haabCoeff Day in the Haab month
-   * @param {string} haabMonth Name of the Haab month
+   * @param {string|HaabMonth} haabMonth Name of the Haab month
    */
   constructor(tzolkinCoeff, tzolkinDay, haabCoeff, haabMonth) {
     /**
@@ -57,27 +58,28 @@ class CalendarRound {
   /**
    * Validate that the Calendar Round has a correct 260-day and Haab
    * configuration
+   * @throws {Error} If the Calendar Round is invalid.
    */
   validate() {
     let validHaabCoeffs = [];
     if ([
-      'Kaban', 'Ik\'', 'Manik\'', 'Eb',
+      'Kaban', 'Ik\'', 'Manik\'', 'Eb'
     ].includes(this.tzolkin.name)) {
       validHaabCoeffs = [0, 5, 10, 15];
     } else if ([
-      'Etz\'nab', 'Ak\'bal', 'Lamat', 'Ben',
+      'Etz\'nab', 'Ak\'bal', 'Lamat', 'Ben'
     ].includes(this.tzolkin.name)) {
       validHaabCoeffs = [1, 6, 11, 16];
     } else if ([
-      'Kawak', 'K\'an', 'Muluk', 'Ix',
+      'Kawak', 'K\'an', 'Muluk', 'Ix'
     ].includes(this.tzolkin.name)) {
       validHaabCoeffs = [2, 7, 12, 17];
     } else if ([
-      'Ajaw', 'Chikchan', 'Ok', 'Men',
+      'Ajaw', 'Chikchan', 'Ok', 'Men'
     ].includes(this.tzolkin.name)) {
       validHaabCoeffs = [3, 8, 13, 18];
     } else if ([
-      'Imix', 'Kimi', 'Chuwen', 'Kib',
+      'Imix', 'Kimi', 'Chuwen', 'Kib'
     ].includes(this.tzolkin.name)) {
       validHaabCoeffs = [4, 9, 14, 19];
     } else if ([wildcard].includes(this.tzolkin.name)) {
@@ -108,8 +110,7 @@ class CalendarRound {
    * @return {Boolean}
    */
   equal(newCr) {
-    return this.haab.equal(newCr.haab)
-      && this.tzolkin.equal(newCr.tzolkin);
+    return this === newCr;
   }
 
   /**
@@ -125,7 +126,7 @@ class CalendarRound {
   }
 
   /**
-   * Shift a CalendarRound fullDate forward through time. Does not modify this
+   * Shift a CalendarRound forward through time. Does not modify this
    * object and will return a new object.
    * @param {number} increment
    * @return {CalendarRound}
@@ -138,7 +139,7 @@ class CalendarRound {
       newTzolkin.coeff,
       newTzolkin.day,
       newHaab.coeff,
-      newHaab.month,
+      newHaab.month
     );
   }
 

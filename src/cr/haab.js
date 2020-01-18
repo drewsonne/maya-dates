@@ -144,26 +144,23 @@ class Haab {
   }
 
   /**
-   *
-   * @param {number} newIncremental
+   * Move this date through the Haab cycle.
+   * @param {number} numDays
+   * @return {Haab}
    */
-  shift(newIncremental) {
-    const incremental = newIncremental % 365;
-    if (this.private_next === undefined) {
-      if (incremental > 0) {
-        const monthLength = (this.month === getHaabMonth(19)) ? 5 : 20;
-        if (1 + this.coeff >= monthLength) {
-          const newMonth = this.month.shift(1);
-          this.private_next = getHaab(0, newMonth);
-        } else {
-          this.private_next = getHaab(this.coeff + 1, this.month);
-        }
-      } else {
-        return this;
-      }
-    }
+  shift(numDays) {
+    const incremental = numDays % 365;
     if (incremental === 0) {
       return this;
+    }
+    if (this.private_next === undefined) {
+      const monthLength = (this.month === getHaabMonth(19)) ? 5 : 20;
+      if (1 + this.coeff >= monthLength) {
+        const newMonth = this.month.shift(1);
+        this.private_next = getHaab(0, newMonth);
+      } else {
+        this.private_next = getHaab(this.coeff + 1, this.month);
+      }
     }
     return this.private_next.shift(incremental - 1);
   }
@@ -179,5 +176,5 @@ class Haab {
 
 module.exports = {
   getHaab,
-  getHaabMonth,
+  getHaabMonth
 };

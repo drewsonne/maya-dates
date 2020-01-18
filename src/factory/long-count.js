@@ -33,9 +33,9 @@ class LongCountFactory extends Factory {
         .fill('0')
         .concat(parts)
         .map(
-          (part) => ((part === '*') ? wildcard : parseInt(part, 10)),
+          (part) => ((part === '*') ? wildcard : parseInt(part, 10))
         )
-        .reverse(),
+        .reverse()
     );
   }
 }

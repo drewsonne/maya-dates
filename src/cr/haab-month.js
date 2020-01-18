@@ -19,7 +19,7 @@ const months = [
   'Pax',
   'K\'ayab',
   'Kumk\'u',
-  'Wayeb',
+  'Wayeb'
 ];
 
 /** @ignore */
@@ -43,7 +43,7 @@ const monthIndices = {
   Pax: 16,
   'K\'ayab': 17,
   'Kumk\'u': 18,
-  Wayeb: 19,
+  Wayeb: 19
 };
 
 /** @ignore */

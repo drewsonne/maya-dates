@@ -17,5 +17,5 @@ module.exports = {
   lc,
   op,
   wildcard,
-  FullDate,
+  FullDate
 };

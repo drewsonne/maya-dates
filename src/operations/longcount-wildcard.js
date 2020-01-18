@@ -22,11 +22,11 @@ class LongCountWildcard {
    */
   run() {
     const wcIndexes = this.lc.map(
-      (part, i) => ((part === wildcard) ? i : false),
+      (part, i) => ((part === wildcard) ? i : false)
     );
 
     const filteredWcIndexes = wcIndexes.filter(
-      (i) => i !== false,
+      (i) => i !== false
     );
 
     return filteredWcIndexes.reduce(
@@ -42,11 +42,11 @@ class LongCountWildcard {
             }).concat(acc);
             return b;
           },
-          [],
+          []
         );
         return a;
       },
-      [this.lc],
+      [this.lc]
     );
 
   }
