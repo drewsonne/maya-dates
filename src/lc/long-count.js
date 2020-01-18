@@ -317,7 +317,7 @@ class LongCount {
    */
   get lordOfNight() {
     return night.get(
-      `G${((this.getPosition() - 1) % 9) + 1}`,
+      `G${((this.getPosition() - 1) % 9) + 1}`
     );
   }
 
@@ -362,7 +362,7 @@ class LongCount {
    */
   buildCalendarRound() {
     return origin.shift(
-      this.getPosition(),
+      this.getPosition()
     );
   }
 
@@ -373,7 +373,7 @@ class LongCount {
   buildFullDate() {
     return new FullDate(
       this.buildCalendarRound(),
-      this.clone(),
+      this.clone()
     );
   }
 

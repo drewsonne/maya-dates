@@ -23,7 +23,7 @@ class FullDateFactory {
     const lc = new LongCountFactory().parse(cleanedRaw);
     return new FullDate(
       cr,
-      lc,
+      lc
     );
   }
 }

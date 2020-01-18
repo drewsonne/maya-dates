@@ -1,5 +1,9 @@
+const LongCountWildcard = require('./longcount-wildcard');
+const CalendarRoundWildcard = require('./calendar-round-wildcard');
+const FullDateWildcard = require('./fulldate-wildcard');
+
 module.exports = {
-  LongCountWildcard: require('./longcount-wildcard'),
-  CalendarRoundWildcard: require('./calendar-round-wildcard'),
-  FullDateWildcard: require('./fulldate-wildcard'),
+  LongCountWildcard,
+  CalendarRoundWildcard,
+  FullDateWildcard
 };

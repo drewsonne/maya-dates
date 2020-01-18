@@ -34,7 +34,7 @@ class CalendarRoundFactory extends Factory {
     }
     return getCalendarRound(
       parts[0], parts[1],
-      parts[2], parts[3],
+      parts[2], parts[3]
     );
   }
 }

@@ -8,12 +8,12 @@ const haab = require('./haab');
 /** @ignore */
 const origin = getCalendarRound(
   4, 'Ajaw',
-  8, 'Kumk\'u',
+  8, 'Kumk\'u'
 );
 
 module.exports = {
   getCalendarRound,
   tzolkin,
   haab,
-  origin,
+  origin
 };

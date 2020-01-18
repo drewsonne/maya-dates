@@ -13,5 +13,6 @@ parserOptions:
   ecmaVersion: 2018
 rules:
   "jest/consistent-test-it": error
+  comma-dangle: off
 plugins:
   - jest

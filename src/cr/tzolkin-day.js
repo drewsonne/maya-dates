@@ -68,7 +68,7 @@ class TzolkinDay {
      * @type {number}
      */
     this.day_position = days.findIndex(
-      (d) => d === this.name,
+      (d) => d === this.name
     );
 
     /**

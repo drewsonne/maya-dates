@@ -8,5 +8,5 @@ const LongCountFactory = require('./long-count');
 module.exports = {
   CalendarRoundFactory,
   LongCountFactory,
-  FullDateFactory,
+  FullDateFactory
 };
