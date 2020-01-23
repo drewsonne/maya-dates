@@ -189,6 +189,7 @@ class CalendarRound {
   }
 }
 
+/** @ignore */
 const origin = getCalendarRound(
   4, 'Ajaw',
   8, 'Kumk\'u'

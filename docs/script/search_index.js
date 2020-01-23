@@ -24,6 +24,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@drewsonne/maya-dates/src/lc/distance-number.js~distancenumber",
+    "class/src/lc/distance-number.js~DistanceNumber.html",
+    "<span>DistanceNumber</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/distance-number.js</span>",
+    "class"
+  ],
+  [
     "@drewsonne/maya-dates/src/factory/base.js~factory",
     "class/src/factory/base.js~Factory.html",
     "<span>Factory</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/factory/base.js</span>",
@@ -492,6 +498,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/cr/calendar-round.js~calendarround#minus",
+    "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-minus",
+    "src/cr/calendar-round.js~CalendarRound#minus",
+    "method"
+  ],
+  [
     "src/cr/calendar-round.js~calendarround#next",
     "class/src/cr/calendar-round.js~CalendarRound.html#instance-method-next",
     "src/cr/calendar-round.js~CalendarRound#next",
@@ -912,6 +924,240 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/lc/distance-number.js",
+    "file/src/lc/distance-number.js.html",
+    "src/lc/distance-number.js",
+    "file"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#baktun",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-set-bakTun",
+    "src/lc/distance-number.js~DistanceNumber#bakTun",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#baktun",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-get-bakTun",
+    "src/lc/distance-number.js~DistanceNumber#bakTun",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#clone",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-clone",
+    "src/lc/distance-number.js~DistanceNumber#clone",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#constructor",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-constructor-constructor",
+    "src/lc/distance-number.js~DistanceNumber#constructor",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#date_pattern",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-member-date_pattern",
+    "src/lc/distance-number.js~DistanceNumber#date_pattern",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#equal",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-equal",
+    "src/lc/distance-number.js~DistanceNumber#equal",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#getdatesections",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-getDateSections",
+    "src/lc/distance-number.js~DistanceNumber#getDateSections",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#getposition",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-getPosition",
+    "src/lc/distance-number.js~DistanceNumber#getPosition",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#gt",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-gt",
+    "src/lc/distance-number.js~DistanceNumber#gt",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#isnegative",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-get-isNegative",
+    "src/lc/distance-number.js~DistanceNumber#isNegative",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#isnegative",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-set-isNegative",
+    "src/lc/distance-number.js~DistanceNumber#isNegative",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#ispartial",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-isPartial",
+    "src/lc/distance-number.js~DistanceNumber#isPartial",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#ispositive",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-get-isPositive",
+    "src/lc/distance-number.js~DistanceNumber#isPositive",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#ispositive",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-set-isPositive",
+    "src/lc/distance-number.js~DistanceNumber#isPositive",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#isvalid",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-isValid",
+    "src/lc/distance-number.js~DistanceNumber#isValid",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#katun",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-set-kAtun",
+    "src/lc/distance-number.js~DistanceNumber#kAtun",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#katun",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-get-kAtun",
+    "src/lc/distance-number.js~DistanceNumber#kAtun",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#kin",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-set-kIn",
+    "src/lc/distance-number.js~DistanceNumber#kIn",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#kin",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-get-kIn",
+    "src/lc/distance-number.js~DistanceNumber#kIn",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#kalabtun",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-set-kalabtun",
+    "src/lc/distance-number.js~DistanceNumber#kalabtun",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#kalabtun",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-get-kalabtun",
+    "src/lc/distance-number.js~DistanceNumber#kalabtun",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#kinchiltun",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-set-kinchiltun",
+    "src/lc/distance-number.js~DistanceNumber#kinchiltun",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#kinchiltun",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-get-kinchiltun",
+    "src/lc/distance-number.js~DistanceNumber#kinchiltun",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#lt",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-lt",
+    "src/lc/distance-number.js~DistanceNumber#lt",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#map",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-map",
+    "src/lc/distance-number.js~DistanceNumber#map",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#minus",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-minus",
+    "src/lc/distance-number.js~DistanceNumber#minus",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#normalise",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-normalise",
+    "src/lc/distance-number.js~DistanceNumber#normalise",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#parts",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-member-parts",
+    "src/lc/distance-number.js~DistanceNumber#parts",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#piktun",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-set-piktun",
+    "src/lc/distance-number.js~DistanceNumber#piktun",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#piktun",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-get-piktun",
+    "src/lc/distance-number.js~DistanceNumber#piktun",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#plus",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-plus",
+    "src/lc/distance-number.js~DistanceNumber#plus",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#setdatesections",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-setDateSections",
+    "src/lc/distance-number.js~DistanceNumber#setDateSections",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#sign",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-member-sign",
+    "src/lc/distance-number.js~DistanceNumber#sign",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#tostring",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-toString",
+    "src/lc/distance-number.js~DistanceNumber#toString",
+    "method"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#tun",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-set-tun",
+    "src/lc/distance-number.js~DistanceNumber#tun",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#tun",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-get-tun",
+    "src/lc/distance-number.js~DistanceNumber#tun",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#winal",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-set-winal",
+    "src/lc/distance-number.js~DistanceNumber#winal",
+    "member"
+  ],
+  [
+    "src/lc/distance-number.js~distancenumber#winal",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-get-winal",
+    "src/lc/distance-number.js~DistanceNumber#winal",
+    "member"
+  ],
+  [
     "src/lc/index.js",
     "file/src/lc/index.js.html",
     "src/lc/index.js",
@@ -924,16 +1170,10 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/lc/long-count.js~longcount#baktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-bakTun",
-    "src/lc/long-count.js~LongCount#bakTun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#baktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-bakTun",
-    "src/lc/long-count.js~LongCount#bakTun",
-    "member"
+    "src/lc/long-count.js~longcount#asdistancenumber",
+    "class/src/lc/long-count.js~LongCount.html#instance-method-asDistanceNumber",
+    "src/lc/long-count.js~LongCount#asDistanceNumber",
+    "method"
   ],
   [
     "src/lc/long-count.js~longcount#buildcalendarround",
@@ -966,76 +1206,10 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#date_pattern",
-    "class/src/lc/long-count.js~LongCount.html#instance-member-date_pattern",
-    "src/lc/long-count.js~LongCount#date_pattern",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#equal",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-equal",
-    "src/lc/long-count.js~LongCount#equal",
-    "method"
-  ],
-  [
-    "src/lc/long-count.js~longcount#getdatesections",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-getDateSections",
-    "src/lc/long-count.js~LongCount#getDateSections",
-    "method"
-  ],
-  [
-    "src/lc/long-count.js~longcount#getposition",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-getPosition",
-    "src/lc/long-count.js~LongCount#getPosition",
-    "method"
-  ],
-  [
     "src/lc/long-count.js~longcount#gregorian",
     "class/src/lc/long-count.js~LongCount.html#instance-get-gregorian",
     "src/lc/long-count.js~LongCount#gregorian",
     "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#gt",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-gt",
-    "src/lc/long-count.js~LongCount#gt",
-    "method"
-  ],
-  [
-    "src/lc/long-count.js~longcount#isnegative",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-isNegative",
-    "src/lc/long-count.js~LongCount#isNegative",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#isnegative",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-isNegative",
-    "src/lc/long-count.js~LongCount#isNegative",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#ispartial",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-isPartial",
-    "src/lc/long-count.js~LongCount#isPartial",
-    "method"
-  ],
-  [
-    "src/lc/long-count.js~longcount#ispositive",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-isPositive",
-    "src/lc/long-count.js~LongCount#isPositive",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#ispositive",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-isPositive",
-    "src/lc/long-count.js~LongCount#isPositive",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#isvalid",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-isValid",
-    "src/lc/long-count.js~LongCount#isValid",
-    "method"
   ],
   [
     "src/lc/long-count.js~longcount#julian",
@@ -1050,94 +1224,16 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#katun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kAtun",
-    "src/lc/long-count.js~LongCount#kAtun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#katun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kAtun",
-    "src/lc/long-count.js~LongCount#kAtun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#kin",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kIn",
-    "src/lc/long-count.js~LongCount#kIn",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#kin",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kIn",
-    "src/lc/long-count.js~LongCount#kIn",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#kalabtun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kalabtun",
-    "src/lc/long-count.js~LongCount#kalabtun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#kalabtun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kalabtun",
-    "src/lc/long-count.js~LongCount#kalabtun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#kinchiltun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-kinchiltun",
-    "src/lc/long-count.js~LongCount#kinchiltun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#kinchiltun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-kinchiltun",
-    "src/lc/long-count.js~LongCount#kinchiltun",
-    "member"
-  ],
-  [
     "src/lc/long-count.js~longcount#lordofnight",
     "class/src/lc/long-count.js~LongCount.html#instance-get-lordOfNight",
     "src/lc/long-count.js~LongCount#lordOfNight",
     "member"
   ],
   [
-    "src/lc/long-count.js~longcount#lt",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-lt",
-    "src/lc/long-count.js~LongCount#lt",
-    "method"
-  ],
-  [
-    "src/lc/long-count.js~longcount#map",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-map",
-    "src/lc/long-count.js~LongCount#map",
-    "method"
-  ],
-  [
     "src/lc/long-count.js~longcount#minus",
     "class/src/lc/long-count.js~LongCount.html#instance-method-minus",
     "src/lc/long-count.js~LongCount#minus",
     "method"
-  ],
-  [
-    "src/lc/long-count.js~longcount#parts",
-    "class/src/lc/long-count.js~LongCount.html#instance-member-parts",
-    "src/lc/long-count.js~LongCount#parts",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#piktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-piktun",
-    "src/lc/long-count.js~LongCount#piktun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#piktun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-piktun",
-    "src/lc/long-count.js~LongCount#piktun",
-    "member"
   ],
   [
     "src/lc/long-count.js~longcount#plus",
@@ -1150,48 +1246,6 @@ window.esdocSearchIndex = [
     "class/src/lc/long-count.js~LongCount.html#instance-method-setCorrelationConstant",
     "src/lc/long-count.js~LongCount#setCorrelationConstant",
     "method"
-  ],
-  [
-    "src/lc/long-count.js~longcount#setdatesections",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-setDateSections",
-    "src/lc/long-count.js~LongCount#setDateSections",
-    "method"
-  ],
-  [
-    "src/lc/long-count.js~longcount#sign",
-    "class/src/lc/long-count.js~LongCount.html#instance-member-sign",
-    "src/lc/long-count.js~LongCount#sign",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#tostring",
-    "class/src/lc/long-count.js~LongCount.html#instance-method-toString",
-    "src/lc/long-count.js~LongCount#toString",
-    "method"
-  ],
-  [
-    "src/lc/long-count.js~longcount#tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-tun",
-    "src/lc/long-count.js~LongCount#tun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#tun",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-tun",
-    "src/lc/long-count.js~LongCount#tun",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#winal",
-    "class/src/lc/long-count.js~LongCount.html#instance-set-winal",
-    "src/lc/long-count.js~LongCount#winal",
-    "member"
-  ],
-  [
-    "src/lc/long-count.js~longcount#winal",
-    "class/src/lc/long-count.js~LongCount.html#instance-get-winal",
-    "src/lc/long-count.js~LongCount#winal",
-    "member"
   ],
   [
     "src/lc/night/lord-of-night.js",

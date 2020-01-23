@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 401,
+  "end": 400,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 401,
+    "end": 400,
     "loc": {
       "start": {
         "line": 1,
@@ -865,7 +865,7 @@
       {
         "type": "ExpressionStatement",
         "start": 326,
-        "end": 400,
+        "end": 399,
         "loc": {
           "start": {
             "line": 14,
@@ -879,7 +879,7 @@
         "expression": {
           "type": "AssignmentExpression",
           "start": 326,
-          "end": 399,
+          "end": 398,
           "loc": {
             "start": {
               "line": 14,
@@ -944,7 +944,7 @@
           "right": {
             "type": "ObjectExpression",
             "start": 343,
-            "end": 399,
+            "end": 398,
             "loc": {
               "start": {
                 "line": 14,
@@ -3166,32 +3166,6 @@
     },
     {
       "type": {
-        "label": ",",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 396,
-      "end": 397,
-      "loc": {
-        "start": {
-          "line": 20,
-          "column": 10
-        },
-        "end": {
-          "line": 20,
-          "column": 11
-        }
-      }
-    },
-    {
-      "type": {
         "label": "}",
         "beforeExpr": false,
         "startsExpr": false,
@@ -3202,8 +3176,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 398,
-      "end": 399,
+      "start": 397,
+      "end": 398,
       "loc": {
         "start": {
           "line": 21,
@@ -3228,8 +3202,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 399,
-      "end": 400,
+      "start": 398,
+      "end": 399,
       "loc": {
         "start": {
           "line": 21,
@@ -3254,8 +3228,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 401,
-      "end": 401,
+      "start": 400,
+      "end": 400,
       "loc": {
         "start": {
           "line": 22,

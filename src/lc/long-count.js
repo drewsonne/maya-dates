@@ -135,6 +135,10 @@ class LongCount extends DistanceNumber {
     return new LongcountSubtraction(LongCount, this, newLc);
   }
 
+  /**
+   * Return this Long Count as a Distance Number
+   * @return {DistanceNumber}
+   */
   asDistanceNumber() {
     return new DistanceNumber(...this.parts);
   }

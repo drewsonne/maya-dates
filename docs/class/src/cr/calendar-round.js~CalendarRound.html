@@ -46,6 +46,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc">lc</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/correlation-constant.js~CorrelationConstant.html">CorrelationConstant</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/distance-number.js~DistanceNumber.html">DistanceNumber</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCorrelationConstant">getCorrelationConstant</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-night">lc/night</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span></li>
@@ -69,7 +70,7 @@
   
   
   
-  <span data-ice="source">| <span><a href="file/src/cr/calendar-round.js.html#lineNumber34">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/cr/calendar-round.js.html#lineNumber38">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -89,11 +90,12 @@
 
   
   
-  <div class="description" data-ice="description"><p>A combination of 260-day cycles and the Haab cycle.</p>
+  <div class="description" data-ice="description"><p>A combination of 260-day cycles and the Haab cycle. This class should not
+be instantiated directly, and should be accessed through getCalendarRound.</p>
 </div>
   
 
-  
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="{getCalendarRound}">{getCalendarRound}</a></span></li></ul></div>
 
   <div data-ice="exampleDocs">
     <h4>Example:</h4>
@@ -129,7 +131,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(tzolkinCoeff: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, tzolkinDay: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, haabCoeff: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, haabMonth: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(tzolkinCoeff: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, tzolkinDay: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html">TzolkinDay</a></span>, haabCoeff: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, haabMonth: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="class/src/cr/haab-month.js~HaabMonth.html">HaabMonth</a></span>)</span>
         </p>
       </div>
       <div>
@@ -316,6 +318,35 @@
           
           
           
+          <span class="code" data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html#instance-method-minus">minus</a></span></span><span class="code" data-ice="signature">(targetCr: <span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span>): <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Return a long count date representing the difference between two dates.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html#instance-method-next">next</a></span></span><span class="code" data-ice="signature">(): <span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span>
         </p>
       </div>
@@ -351,7 +382,7 @@
       <div>
         
         
-        <div data-ice="description"><p>Shift a CalendarRound fullDate forward through time.</p>
+        <div data-ice="description"><p>Shift a CalendarRound forward through time.</p>
 </div>
       </div>
     </td>
@@ -437,11 +468,11 @@ configuration</p>
     
     
     
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(tzolkinCoeff: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, tzolkinDay: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, haabCoeff: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, haabMonth: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>)</span>
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(tzolkinCoeff: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, tzolkinDay: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html">TzolkinDay</a></span>, haabCoeff: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, haabMonth: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="class/src/cr/haab-month.js~HaabMonth.html">HaabMonth</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber42">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber45">source</a></span></span>
     </span>
   </h3>
 
@@ -469,7 +500,7 @@ configuration</p>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">tzolkinDay</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="class/src/cr/tzolkin-day.js~TzolkinDay.html">TzolkinDay</a></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>Name of the name in the 260-day cycle</p>
 </td>
@@ -483,7 +514,7 @@ configuration</p>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">haabMonth</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="class/src/cr/haab-month.js~HaabMonth.html">HaabMonth</a></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>Name of the Haab month</p>
 </td>
@@ -525,7 +556,7 @@ configuration</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber52">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber55">source</a></span></span>
     </span>
   </h3>
 
@@ -569,7 +600,7 @@ configuration</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber47">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber50">source</a></span></span>
     </span>
   </h3>
 
@@ -616,7 +647,7 @@ configuration</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber110">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber114">source</a></span></span>
     </span>
   </h3>
 
@@ -689,7 +720,7 @@ wildcards and the other does not, this function will return false.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber149">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber176">source</a></span></span>
     </span>
   </h3>
 
@@ -745,7 +776,7 @@ wildcards and the other does not, this function will return false.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber121">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber148">source</a></span></span>
     </span>
   </h3>
 
@@ -807,6 +838,78 @@ wildcards and the other does not, this function will return true.</p>
   
 </div>
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-minus">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">minus</span><span class="code" data-ice="signature">(targetCr: <span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span>): <span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber123">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Return a long count date representing the difference between two dates.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">targetCr</td>
+      <td data-ice="type" class="code"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-method-next">
     <span class="access" data-ice="access">public</span>
     
@@ -818,7 +921,7 @@ wildcards and the other does not, this function will return true.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber100">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber104">source</a></span></span>
     </span>
   </h3>
 
@@ -874,14 +977,14 @@ wildcards and the other does not, this function will return true.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber133">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber160">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Shift a CalendarRound fullDate forward through time. Does not modify this
+  <div data-ice="description"><p>Shift a CalendarRound forward through time. Does not modify this
 object and will return a new object.</p>
 </div>
 
@@ -947,7 +1050,7 @@ object and will return a new object.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber160">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber187">source</a></span></span>
     </span>
   </h3>
 
@@ -1003,7 +1106,7 @@ object and will return a new object.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber61">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/cr/calendar-round.js.html#lineNumber65">source</a></span></span>
     </span>
   </h3>
 
@@ -1025,7 +1128,19 @@ configuration</p>
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span></p></td>
+        <td data-ice="throwDesc"><p>If the Calendar Round is invalid.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
