@@ -46,6 +46,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc">lc</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/correlation-constant.js~CorrelationConstant.html">CorrelationConstant</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/distance-number.js~DistanceNumber.html">DistanceNumber</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCorrelationConstant">getCorrelationConstant</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-night">lc/night</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span></li>
@@ -209,26 +210,23 @@ class Haab {
   }
 
   /**
-   *
-   * @param {number} newIncremental
+   * Move this date through the Haab cycle.
+   * @param {number} numDays
+   * @return {Haab}
    */
-  shift(newIncremental) {
-    const incremental = newIncremental % 365;
-    if (this.private_next === undefined) {
-      if (incremental &gt; 0) {
-        const monthLength = (this.month === getHaabMonth(19)) ? 5 : 20;
-        if (1 + this.coeff &gt;= monthLength) {
-          const newMonth = this.month.shift(1);
-          this.private_next = getHaab(0, newMonth);
-        } else {
-          this.private_next = getHaab(this.coeff + 1, this.month);
-        }
-      } else {
-        return this;
-      }
-    }
+  shift(numDays) {
+    const incremental = numDays % 365;
     if (incremental === 0) {
       return this;
+    }
+    if (this.private_next === undefined) {
+      const monthLength = (this.month === getHaabMonth(19)) ? 5 : 20;
+      if (1 + this.coeff &gt;= monthLength) {
+        const newMonth = this.month.shift(1);
+        this.private_next = getHaab(0, newMonth);
+      } else {
+        this.private_next = getHaab(this.coeff + 1, this.month);
+      }
     }
     return this.private_next.shift(incremental - 1);
   }
@@ -244,7 +242,7 @@ class Haab {
 
 module.exports = {
   getHaab,
-  getHaabMonth,
+  getHaabMonth
 };
 </code></pre>
 

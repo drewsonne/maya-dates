@@ -112,3 +112,21 @@ test('render calendar round', () => {
     '4 Ajaw 8 Kumk\'u',
   );
 });
+
+describe('calendar round diff\'s', () => {
+  const dates = [
+    ['5 Kimi 4 Mol', '6 Manik\' 5 Mol', [1]],
+    ['5 Kimi 4 Mol', '7 Ok 13 Xul', [-1, 17, 14, 5, 16]]
+  ];
+  const crFactory = new mayadates.factory.CalendarRoundFactory();
+  it.each(dates)(
+    '%s - %s = %s',
+    (fromRaw, toRaw, expectRaw) => {
+      const from = crFactory.parse(fromRaw);
+      const to = crFactory.parse(toRaw);
+      const expected = new mayadates.lc.DistanceNumber(...expectRaw).normalise();
+
+      expect(from.minus(to)).toStrictEqual(expected);
+    }
+  );
+});

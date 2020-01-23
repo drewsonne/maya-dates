@@ -4,6 +4,8 @@ const tzolkin = require('../cr/tzolkin');
 const haab = require('../cr/haab');
 /** @ignore */
 const wildcard = require('../wildcard');
+/** @ignore */
+const DistanceNumber = require('../lc/distance-number');
 
 
 /** @ignore */
@@ -114,6 +116,30 @@ class CalendarRound {
   }
 
   /**
+   * Return a long count date representing the difference between two dates.
+   * @param {CalendarRound} targetCr
+   * @return {LongCount}
+   */
+  minus(targetCr) {
+    /** @ignore */
+    const foundOrigin = false;
+    const foundTarget = false;
+    let current = this;
+    let count = 0;
+    while (!foundTarget) {
+      // eslint-disable-next-line no-use-before-define
+      if (current.equal(origin)) {
+        debugger;
+      } else if (current.equal(targetCr)) {
+        return new DistanceNumber(count).normalise();
+      } else {
+        current = current.next();
+        count += 1;
+      }
+    }
+  }
+
+  /**
    * Check that this Calendar Round matches another CalendarRound. If one CR has
    * wildcards and the other does not, this function will return true.
    * @param {CalendarRound} newCr
@@ -163,5 +189,11 @@ class CalendarRound {
   }
 }
 
+/** @ignore */
+const origin = getCalendarRound(
+  4, 'Ajaw',
+  8, 'Kumk\'u'
+);
 
-module.exports = getCalendarRound;
+
+module.exports = {getCalendarRound, origin};
