@@ -1,7 +1,7 @@
 /** @ignore */
 const Factory = require('./base');
 /** @ignore */
-const getCalendarRound = require('../cr/calendar-round');
+const { getCalendarRound } = require('../cr/calendar-round');
 
 /**
  * A factory to create a CalendarRound object from a string
