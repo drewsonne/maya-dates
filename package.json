@@ -3,9 +3,6 @@
   "version": "1.0.9",
   "description": "Node.js package to represent dates in the Maya Calendar",
   "main": "src/index.js",
-  "scripts": {
-    "test": "jest"
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/drewsonne/maya-dates.git"
@@ -15,12 +12,9 @@
     "maya",
     "maya-calendar"
   ],
-  "author": "Drew J. Sonne",
+  "author": "Drew J. Sonne <drew.sonne@gmail.com>",
   "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/drewsonne/maya-dates/issues"
-  },
-  "homepage": "https://github.com/drewsonne/maya-dates#readme",
+  "private": false,
   "devDependencies": {
     "esdoc": "1.1.0",
     "esdoc-standard-plugin": "1.0.0",
@@ -30,6 +24,9 @@
     "eslint-plugin-jest": "^23.3.0",
     "jest": "^24.9.0"
   },
+  "scripts": {
+    "test": "jest"
+  },
   "jest": {
     "testEnvironment": "node"
   },
@@ -37,5 +34,9 @@
     "moonbeams": "^2.0.2",
     "moment-timezone": "^0.5.26",
     "moment": "^2.24.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/drewsonne/maya-dates/issues"
+  },
+  "homepage": "https://github.com/drewsonne/maya-dates#readme"
 }
