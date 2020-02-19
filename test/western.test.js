@@ -1,5 +1,7 @@
-const getCorrelationConstant = require('../src/lc/correlation-constant');
-const LongCountFactory = require('../src/factory/long-count');
+import mayadates from '../src/index';
+
+const {getCorrelationConstant} = mayadates.lc;
+const {LongCountFactory} = mayadates.factory;
 
 class MockDateCorrelation {
   constructor(lc, gregorian, julian, jday, mayaDay) {

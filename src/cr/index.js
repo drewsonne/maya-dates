@@ -1,10 +1,10 @@
-import { getCalendarRound, origin } from './calendar-round';
+import cr from './calendar-round';
 import tzolkin from './tzolkin';
 import haab from './haab';
 
 export default {
-  getCalendarRound,
+  getCalendarRound: cr.getCalendarRound,
+  origin: cr.origin,
   tzolkin,
   haab,
-  origin
 };

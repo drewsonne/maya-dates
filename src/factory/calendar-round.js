@@ -1,5 +1,5 @@
 import Factory from './base';
-import getCalendarRound from '../cr/calendar-round';
+import cr from '../cr/calendar-round';
 
 /**
  * A factory to create a CalendarRound object from a string
@@ -30,7 +30,7 @@ export default class CalendarRoundFactory extends Factory {
     if (parts.length < 4) {
       return null;
     }
-    return getCalendarRound(
+    return cr.getCalendarRound(
       parts[0], parts[1],
       parts[2], parts[3]
     );

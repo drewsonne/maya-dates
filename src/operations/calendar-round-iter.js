@@ -1,4 +1,4 @@
-import origin from '../cr/index'
+import cr from '../cr/index';
 
 /**
  * Used to iterate through the entire cycle of 18,980 days for the full
@@ -8,7 +8,7 @@ import origin from '../cr/index'
 export default class CalendarRoundIterator {
   /**
    *
-   * @param {CalendarRound} fullDate
+   * @param {CalendarRound} newDate
    */
   constructor(newDate) {
     /**
@@ -23,7 +23,7 @@ export default class CalendarRoundIterator {
 
     let fullDate = newDate;
     if (fullDate === undefined) {
-      fullDate = origin;
+      fullDate = cr.origin;
     }
     /**
      * @type {CalendarRound}

@@ -1,11 +1,8 @@
-/** @ignore */
-const LongCountWildcard = require('./longcount-wildcard');
-/** @ignore */
-const CalendarRoundWildcard = require('./calendar-round-wildcard');
-/** @ignore */
-const FullDateWildcard = require('./fulldate-wildcard');
+import LongCountWildcard from './longcount-wildcard';
+import CalendarRoundWildcard from './calendar-round-wildcard';
+import FullDateWildcard from './fulldate-wildcard';
 
-module.exports = {
+export default {
   LongCountWildcard,
   CalendarRoundWildcard,
   FullDateWildcard

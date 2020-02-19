@@ -125,7 +125,7 @@ class HaabMonth {
   }
 }
 
-export default {
+export {
   HaabMonth,
   getHaabMonth,
 };

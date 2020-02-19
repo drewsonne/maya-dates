@@ -1,4 +1,4 @@
-import origin from '../cr/calendar-round';
+import cr  from '../cr/calendar-round';
 import FullDate from '../full-date';
 import night from './night/lord-of-night';
 import LongcountAddition from '../operations/longcount-addition';
@@ -82,7 +82,7 @@ export default class LongCount extends DistanceNumber {
    * @return {CalendarRound}
    */
   buildCalendarRound() {
-    return origin.shift(
+    return cr.origin.shift(
       this.getPosition()
     );
   }

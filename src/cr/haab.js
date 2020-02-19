@@ -1,5 +1,5 @@
 import wildcard from '../wildcard';
-import getHaabMonth from './haab-month';
+import { getHaabMonth } from './haab-month';
 
 /** @ignore */
 const singleton = {};
