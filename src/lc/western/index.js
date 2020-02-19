@@ -1,9 +1,7 @@
-/** @ignore */
-const GregorianCalendarDate = require('./gregorian');
-/** @ignore */
-const JulianCalendarDate = require('./julian');
+import GregorianCalendarDate from './gregorian';
+import JulianCalendarDate from './julian';
 
-module.exports = {
+export default {
   GregorianCalendarDate,
-  JulianCalendarDate,
+  JulianCalendarDate
 };

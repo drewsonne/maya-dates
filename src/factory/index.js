@@ -1,11 +1,8 @@
-/** @ignore */
-const FullDateFactory = require('./full-date');
-/** @ignore */
-const CalendarRoundFactory = require('./calendar-round');
-/** @ignore */
-const LongCountFactory = require('./long-count');
+import FullDateFactory from './full-date';
+import CalendarRoundFactory from './calendar-round';
+import LongCountFactory from './long-count';
 
-module.exports = {
+export default {
   CalendarRoundFactory,
   LongCountFactory,
   FullDateFactory

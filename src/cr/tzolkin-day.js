@@ -34,7 +34,8 @@ const singleton = {};
  * Return a comparable instance of a Tzolkin day.
  * @param {TzolkinDay|string} newDayName
  * @return {TzolkinDay}
- */function getTzolkinDay(newDayName) {
+ */
+export default function getTzolkinDay(newDayName) {
   const dayName = (typeof newDayName === 'number') ? days[newDayName] : newDayName;
   if (singleton[dayName] === undefined) {
     // eslint-disable-next-line no-use-before-define
@@ -123,5 +124,3 @@ class TzolkinDay {
     return this.name;
   }
 }
-
-module.exports = getTzolkinDay;

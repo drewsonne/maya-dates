@@ -1,7 +1,5 @@
-/** @ignore */
-const Factory = require('./base');
-/** @ignore */
-const { getCalendarRound } = require('../cr/calendar-round');
+import Factory from './base';
+import getCalendarRound from '../cr/calendar-round';
 
 /**
  * A factory to create a CalendarRound object from a string
@@ -9,7 +7,7 @@ const { getCalendarRound } = require('../cr/calendar-round');
  * @example
  *    let cr = new CalendarRoundFactory().parse("4 Ajaw 8 Kumk'u");
  */
-class CalendarRoundFactory extends Factory {
+export default class CalendarRoundFactory extends Factory {
   /**
    * Defines the pattern describing a Calendar Round
    */
@@ -38,5 +36,3 @@ class CalendarRoundFactory extends Factory {
     );
   }
 }
-
-module.exports = CalendarRoundFactory;

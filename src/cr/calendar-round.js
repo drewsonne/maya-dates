@@ -1,11 +1,7 @@
-/** @ignore */
-const tzolkin = require('../cr/tzolkin')
-/** @ignore */
-const haab = require('../cr/haab')
-/** @ignore */
-const wildcard = require('../wildcard')
-/** @ignore */
-const DistanceNumber = require('../lc/distance-number')
+import tzolkin from './tzolkin';
+import haab from './haab';
+import wildcard from '../wildcard';
+import DistanceNumber from '../lc/distance-number';
 
 /** @ignore */
 const singleton = {}
@@ -205,4 +201,7 @@ const origin = getCalendarRound(
   8, 'Kumk\'u',
 )
 
-module.exports = {getCalendarRound, origin}
+export default {
+  getCalendarRound,
+  origin
+};

@@ -1,9 +1,12 @@
 /** @ignore */
+
 const FullDate = require('../full-date');
 /** @ignore */
 const LongCountWildcard = require('../operations/longcount-wildcard');
 /** @ignore */
 const CalendarRoundWildcard = require('../operations/calendar-round-wildcard');
+
+import FullDate from "../full-date";
 
 /** @ignore */
 const concat = (x, y) => x.concat(y);

@@ -1,11 +1,10 @@
-/** @ignore */
-const WesternCalendar = require('./western');
+import WesternCalendar from './western';
 
 /**
  * Represent a Gregorian date.
  * @extends {WesternCalendar}
  */
-class GregorianCalendarDate extends WesternCalendar {
+export default class GregorianCalendarDate extends WesternCalendar {
 
   /**
    * Handle the sliding offset between gregorian and julian dates
@@ -48,5 +47,3 @@ class GregorianCalendarDate extends WesternCalendar {
     return 0;
   }
 }
-
-module.exports = GregorianCalendarDate;

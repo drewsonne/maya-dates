@@ -38,5 +38,6 @@
   "bugs": {
     "url": "https://github.com/drewsonne/maya-dates/issues"
   },
-  "homepage": "https://github.com/drewsonne/maya-dates#readme"
+  "homepage": "https://github.com/drewsonne/maya-dates#readme",
+  "preset": "react-native"
 }
