@@ -1,4 +1,6 @@
-const LongCount = require('../src/lc/long-count');
+import mayadates from '../src/index';
+
+const { LongCount } = mayadates.lc;
 
 describe('longcount subtraction', () => {
   const dates = [

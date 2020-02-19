@@ -1,6 +1,7 @@
-const LongCountFactory = require('../src/factory/long-count');
-const CalendarRoundFactory = require('../src/factory/calendar-round');
-const wildcard = require('../src/wildcard');
+import mayadates from '../src/index';
+
+const { wildcard } = mayadates;
+const { CalendarRoundFactory, LongCountFactory } = mayadates.factory;
 
 test('parse long-count fullDate', () => {
   const date = new LongCountFactory().parse('1.2.*.4.5');
