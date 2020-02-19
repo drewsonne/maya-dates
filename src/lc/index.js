@@ -1,13 +1,9 @@
-/** @ignore */
-const LongCount = require('./long-count');
-/** @ignore */
-const LordOfNight = require('./night/lord-of-night');
-/** @ignore */
-const western = require('./western/index');
-/** @ignore */
-const DistanceNumber = require('./distance-number');
+import LongCount from './long-count';
+import LordOfNight from './night/lord-of-night';
+import western from './western/western';
+import DistanceNumber from './distance-number';
 
-module.exports = {
+export default {
   DistanceNumber,
   LongCount,
   night: LordOfNight,

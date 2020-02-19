@@ -1,6 +1,6 @@
-const mayadates = require('../src/index')
+import mayadates from '../src/index';
+import wildcard from '../src/wildcard';
 
-const {wildcard} = mayadates
 /**
  * @test {CalendarRoundFactory}
  * @test {CalendarRound#next}

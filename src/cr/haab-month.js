@@ -125,8 +125,7 @@ class HaabMonth {
   }
 }
 
-
-module.exports = {
+export default {
   HaabMonth,
   getHaabMonth,
 };

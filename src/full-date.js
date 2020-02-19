@@ -1,7 +1,7 @@
 /**
  * An encapsulation of a LongCount and Calendar Round which match each other.
  */
-class FullDate {
+export default class FullDate {
   /**
    * @param {CalendarRound} cr
    * @param {LongCount} lc
@@ -26,5 +26,3 @@ class FullDate {
     return `${this.cr} ${this.lc}`;
   }
 }
-
-module.exports = FullDate;

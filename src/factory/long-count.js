@@ -1,9 +1,6 @@
-/** @ignore */
-const Factory = require('./base');
-/** @ignore */
-const LongCount = require('../lc/long-count');
-/** @ignore */
-const wildcard = require('../wildcard');
+import Factory from './base';
+import LongCount from '../lc/long-count';
+import wildcard from '../wildcard';
 
 /**
  * A factory to create a LongCount object from a string
@@ -13,7 +10,7 @@ const wildcard = require('../wildcard');
  * @example
  *    let cr = new LongCountFactory().parse("9.4.2.*.1");
  */
-class LongCountFactory extends Factory {
+export default class LongCountFactory extends Factory {
   /**
    * Given a string, parse it and create a Long Count
    * @param {string} raw - A string containing a Long Count
@@ -39,5 +36,3 @@ class LongCountFactory extends Factory {
     );
   }
 }
-
-module.exports = LongCountFactory;

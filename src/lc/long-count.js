@@ -1,30 +1,17 @@
-/** @ignore */
-const moonbeams = require('moonbeams');
-/** @ignore */
-const wildcard = require('../wildcard');
-/** @ignore */
-const {origin} = require('../cr/calendar-round');
-/** @ignore */
-const FullDate = require('../full-date');
-/** @ignore */
-const night = require('./night/lord-of-night');
-/** @ignore */
-const LongcountAddition = require('../operations/longcount-addition');
-/** @ignore */
-const LongcountSubtraction = require('../operations/longcount-subtraction');
-/** @ignore */
-const getCorrelationConstant = require('./correlation-constant');
-/** @ignore */
-const GregorianCalendarDate = require('./western/gregorian');
-/** @ignore */
-const JulianCalendarDate = require('./western/julian');
-/** @ignore */
-const DistanceNumber = require('./distance-number');
+import origin from '../cr/calendar-round';
+import FullDate from '../full-date';
+import night from './night/lord-of-night';
+import LongcountAddition from '../operations/longcount-addition';
+import LongcountSubtraction from '../operations/longcount-subtraction';
+import getCorrelationConstant from './correlation-constant';
+import GregorianCalendarDate from './western/gregorian';
+import JulianCalendarDate from './western/julian';
+import DistanceNumber from './distance-number';
 
 /**
  * Long Count cycle
  */
-class LongCount extends DistanceNumber {
+export default class LongCount extends DistanceNumber {
   /**
    * @param {...number|Wildcard} cycles - Components in the long count
    * (eg, K'in, Winal, Bak'tun, etc)
@@ -143,5 +130,3 @@ class LongCount extends DistanceNumber {
     return new DistanceNumber(...this.parts);
   }
 }
-
-module.exports = LongCount;
