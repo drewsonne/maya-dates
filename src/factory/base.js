@@ -1,7 +1,7 @@
 /**
  * An abstract class to handle the create of an object from a string
  */
-class Factory {
+export default class Factory {
   /**
    * Define properties to be override by sub-classes
    */
@@ -41,5 +41,3 @@ class Factory {
   //   return parts.includes('*')
   // }
 }
-
-module.exports = Factory;

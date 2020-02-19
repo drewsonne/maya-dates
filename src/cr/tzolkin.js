@@ -1,7 +1,5 @@
-/** @ignore */
-const wildcard = require('../wildcard');
-/** @ignore */
-const getTzolkinDay = require('./tzolkin-day');
+import wildcard from '../wildcard';
+import getTzolkinDay from './tzolkin-day';
 
 /** @ignore */
 const singleton = {};
@@ -173,8 +171,7 @@ class Tzolkin {
   }
 }
 
-
-module.exports = {
+export default {
   getTzolkinDay,
   getTzolkin,
 };

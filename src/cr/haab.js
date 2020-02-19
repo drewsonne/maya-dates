@@ -1,7 +1,5 @@
-/** @ignore */
-const wildcard = require('../wildcard');
-/** @ignore */
-const {getHaabMonth} = require('./haab-month');
+import wildcard from '../wildcard';
+import getHaabMonth from './haab-month';
 
 /** @ignore */
 const singleton = {};
@@ -174,7 +172,7 @@ class Haab {
   }
 }
 
-module.exports = {
+export default {
   getHaab,
   getHaabMonth
 };

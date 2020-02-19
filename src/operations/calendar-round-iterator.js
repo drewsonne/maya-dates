@@ -1,12 +1,11 @@
-/** @ignore */
-const {origin} = require('../cr/index');
+import origin from '../cr/index'
 
 /**
  * Used to iterate through the entire cycle of 18,980 days for the full
  * permutation of Haab and 260-day count.
  * @ignore
  */
-class CalendarRoundIterator {
+export default class CalendarRoundIterator {
   /**
    *
    * @param {CalendarRound} fullDate
@@ -58,5 +57,3 @@ class CalendarRoundIterator {
     return {value: next, done: false};
   }
 }
-
-module.exports = CalendarRoundIterator

@@ -19,4 +19,4 @@ class Wildcard {
   }
 }
 
-module.exports = new Wildcard();
+export default new Wildcard();
