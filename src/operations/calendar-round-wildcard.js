@@ -1,4 +1,4 @@
-import CalendarRoundIterator from './calendar-round-iterator';
+import CalendarRoundIterator from './calendar-round-iter';
 
 /**
  * A reusable singleton instance of the CalendarRoundIterator

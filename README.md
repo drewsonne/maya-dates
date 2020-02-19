@@ -51,15 +51,15 @@ console.log(`Full Date: ${partial_date.lc.kIn === wildcard}`);
 ```javascript
 const mayadates = require('@drewsonne/maya-dates');
 
-const cr = mayadates.cr.getCalendarRound(
+const calendarRound = mayadates.calendarRound.getCalendarRound(
     13, 'Ajaw',
-    18,  mayadates.cr.getHaabMonth('Kumk\'u')
+    18,  mayadates.calendarRound.getHaabMonth('Kumk\'u')
 );
 const lc = mayadates.lc.LongCount(0, 0, 0, 17, 9);
-const fullDate = new mayadates.FullDate(cr, lc);
+const fullDate = new mayadates.FullDate(calendarRound, lc);
 
 console.log(`${lc}`);
-console.log(`${cr}`);
+console.log(`${calendarRound}`);
 console.log(`${fullDate}`);
 ```
 

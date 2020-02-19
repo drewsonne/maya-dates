@@ -1,5 +1,4 @@
 import mayadates from '../src/index';
-import wildcard from '../src/wildcard';
 
 /**
  * @test {CalendarRoundFactory}
@@ -72,19 +71,19 @@ describe('parse calendar-round wildcards', () => {
   const sources = [
     [
       '* Ak\'bal 6 Muwan',
-      [wildcard, 'Ak\'bal', 6, 'Muwan'],
+      [mayadates.wildcard, 'Ak\'bal', 6, 'Muwan'],
       '* Ak\'bal 6 Muwan'],
     [
       '2 Ak\'bal *Muwan',
-      [2, 'Ak\'bal', wildcard, 'Muwan'],
+      [2, 'Ak\'bal', mayadates.wildcard, 'Muwan'],
       '2 Ak\'bal * Muwan'],
     [
       '*Ak\'bal 6 *',
-      [wildcard, 'Ak\'bal', 6, wildcard],
+      [mayadates.wildcard, 'Ak\'bal', 6, mayadates.wildcard],
       '* Ak\'bal 6 *'],
     [
       '2Ak\'bal 6*',
-      [2, 'Ak\'bal', 6, wildcard],
+      [2, 'Ak\'bal', 6, mayadates.wildcard],
       '2 Ak\'bal 6 *',
     ],
   ]

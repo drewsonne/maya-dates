@@ -1,4 +1,4 @@
-const mayadates = require('../src/index');
+import mayadates from '../src/index';
 
 describe('compute missing lc wildcard', () => {
   const lcs = [

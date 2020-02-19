@@ -1,567 +1,326 @@
 {
   "type": "File",
   "start": 0,
-  "end": 202,
+  "end": 159,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 10,
+      "line": 8,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 202,
+    "end": 159,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 10,
+        "line": 8,
         "column": 0
       }
     },
     "sourceType": "module",
     "body": [
       {
-        "type": "VariableDeclaration",
-        "start": 15,
-        "end": 68,
+        "type": "ImportDeclaration",
+        "start": 0,
+        "end": 48,
         "loc": {
           "start": {
-            "line": 2,
+            "line": 1,
             "column": 0
           },
           "end": {
-            "line": 2,
-            "column": 53
+            "line": 1,
+            "column": 48
           }
         },
-        "declarations": [
+        "specifiers": [
           {
-            "type": "VariableDeclarator",
-            "start": 21,
-            "end": 67,
-            "loc": {
-              "start": {
-                "line": 2,
-                "column": 6
-              },
-              "end": {
-                "line": 2,
-                "column": 52
-              }
-            },
-            "id": {
-              "type": "Identifier",
-              "start": 21,
-              "end": 42,
-              "loc": {
-                "start": {
-                  "line": 2,
-                  "column": 6
-                },
-                "end": {
-                  "line": 2,
-                  "column": 27
-                },
-                "identifierName": "GregorianCalendarDate"
-              },
-              "name": "GregorianCalendarDate",
-              "leadingComments": null
-            },
-            "init": {
-              "type": "CallExpression",
-              "start": 45,
-              "end": 67,
-              "loc": {
-                "start": {
-                  "line": 2,
-                  "column": 30
-                },
-                "end": {
-                  "line": 2,
-                  "column": 52
-                }
-              },
-              "callee": {
-                "type": "Identifier",
-                "start": 45,
-                "end": 52,
-                "loc": {
-                  "start": {
-                    "line": 2,
-                    "column": 30
-                  },
-                  "end": {
-                    "line": 2,
-                    "column": 37
-                  },
-                  "identifierName": "require"
-                },
-                "name": "require"
-              },
-              "arguments": [
-                {
-                  "type": "StringLiteral",
-                  "start": 53,
-                  "end": 66,
-                  "loc": {
-                    "start": {
-                      "line": 2,
-                      "column": 38
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 51
-                    }
-                  },
-                  "extra": {
-                    "rawValue": "./gregorian",
-                    "raw": "'./gregorian'"
-                  },
-                  "value": "./gregorian"
-                }
-              ]
-            },
-            "leadingComments": null
-          }
-        ],
-        "kind": "const",
-        "leadingComments": [
-          {
-            "type": "CommentBlock",
-            "value": "* @ignore ",
-            "start": 0,
-            "end": 14,
+            "type": "ImportDefaultSpecifier",
+            "start": 7,
+            "end": 28,
             "loc": {
               "start": {
                 "line": 1,
-                "column": 0
+                "column": 7
               },
               "end": {
                 "line": 1,
-                "column": 14
-              }
-            }
-          }
-        ],
-        "trailingComments": [
-          {
-            "type": "CommentBlock",
-            "value": "* @ignore ",
-            "start": 69,
-            "end": 83,
-            "loc": {
-              "start": {
-                "line": 3,
-                "column": 0
-              },
-              "end": {
-                "line": 3,
-                "column": 14
-              }
-            }
-          }
-        ]
-      },
-      {
-        "type": "VariableDeclaration",
-        "start": 84,
-        "end": 131,
-        "loc": {
-          "start": {
-            "line": 4,
-            "column": 0
-          },
-          "end": {
-            "line": 4,
-            "column": 47
-          }
-        },
-        "declarations": [
-          {
-            "type": "VariableDeclarator",
-            "start": 90,
-            "end": 130,
-            "loc": {
-              "start": {
-                "line": 4,
-                "column": 6
-              },
-              "end": {
-                "line": 4,
-                "column": 46
+                "column": 28
               }
             },
-            "id": {
+            "local": {
               "type": "Identifier",
-              "start": 90,
-              "end": 108,
+              "start": 7,
+              "end": 28,
               "loc": {
                 "start": {
-                  "line": 4,
-                  "column": 6
-                },
-                "end": {
-                  "line": 4,
-                  "column": 24
-                },
-                "identifierName": "JulianCalendarDate"
-              },
-              "name": "JulianCalendarDate",
-              "leadingComments": null
-            },
-            "init": {
-              "type": "CallExpression",
-              "start": 111,
-              "end": 130,
-              "loc": {
-                "start": {
-                  "line": 4,
-                  "column": 27
-                },
-                "end": {
-                  "line": 4,
-                  "column": 46
-                }
-              },
-              "callee": {
-                "type": "Identifier",
-                "start": 111,
-                "end": 118,
-                "loc": {
-                  "start": {
-                    "line": 4,
-                    "column": 27
-                  },
-                  "end": {
-                    "line": 4,
-                    "column": 34
-                  },
-                  "identifierName": "require"
-                },
-                "name": "require"
-              },
-              "arguments": [
-                {
-                  "type": "StringLiteral",
-                  "start": 119,
-                  "end": 129,
-                  "loc": {
-                    "start": {
-                      "line": 4,
-                      "column": 35
-                    },
-                    "end": {
-                      "line": 4,
-                      "column": 45
-                    }
-                  },
-                  "extra": {
-                    "rawValue": "./julian",
-                    "raw": "'./julian'"
-                  },
-                  "value": "./julian"
-                }
-              ]
-            },
-            "leadingComments": null
-          }
-        ],
-        "kind": "const",
-        "leadingComments": [
-          {
-            "type": "CommentBlock",
-            "value": "* @ignore ",
-            "start": 69,
-            "end": 83,
-            "loc": {
-              "start": {
-                "line": 3,
-                "column": 0
-              },
-              "end": {
-                "line": 3,
-                "column": 14
-              }
-            }
-          }
-        ]
-      },
-      {
-        "type": "ExpressionStatement",
-        "start": 133,
-        "end": 201,
-        "loc": {
-          "start": {
-            "line": 6,
-            "column": 0
-          },
-          "end": {
-            "line": 9,
-            "column": 2
-          }
-        },
-        "expression": {
-          "type": "AssignmentExpression",
-          "start": 133,
-          "end": 200,
-          "loc": {
-            "start": {
-              "line": 6,
-              "column": 0
-            },
-            "end": {
-              "line": 9,
-              "column": 1
-            }
-          },
-          "operator": "=",
-          "left": {
-            "type": "MemberExpression",
-            "start": 133,
-            "end": 147,
-            "loc": {
-              "start": {
-                "line": 6,
-                "column": 0
-              },
-              "end": {
-                "line": 6,
-                "column": 14
-              }
-            },
-            "object": {
-              "type": "Identifier",
-              "start": 133,
-              "end": 139,
-              "loc": {
-                "start": {
-                  "line": 6,
-                  "column": 0
-                },
-                "end": {
-                  "line": 6,
-                  "column": 6
-                },
-                "identifierName": "module"
-              },
-              "name": "module"
-            },
-            "property": {
-              "type": "Identifier",
-              "start": 140,
-              "end": 147,
-              "loc": {
-                "start": {
-                  "line": 6,
+                  "line": 1,
                   "column": 7
                 },
                 "end": {
-                  "line": 6,
-                  "column": 14
+                  "line": 1,
+                  "column": 28
                 },
-                "identifierName": "exports"
+                "identifierName": "GregorianCalendarDate"
               },
-              "name": "exports"
+              "name": "GregorianCalendarDate"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 34,
+          "end": 47,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 34
             },
-            "computed": false
+            "end": {
+              "line": 1,
+              "column": 47
+            }
           },
-          "right": {
-            "type": "ObjectExpression",
-            "start": 150,
-            "end": 200,
+          "extra": {
+            "rawValue": "./gregorian",
+            "raw": "'./gregorian'"
+          },
+          "value": "./gregorian"
+        }
+      },
+      {
+        "type": "ImportDeclaration",
+        "start": 49,
+        "end": 91,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 42
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportDefaultSpecifier",
+            "start": 56,
+            "end": 74,
             "loc": {
               "start": {
-                "line": 6,
-                "column": 17
+                "line": 2,
+                "column": 7
               },
               "end": {
-                "line": 9,
-                "column": 1
+                "line": 2,
+                "column": 25
               }
             },
-            "properties": [
-              {
-                "type": "ObjectProperty",
-                "start": 154,
-                "end": 175,
-                "loc": {
-                  "start": {
-                    "line": 7,
-                    "column": 2
-                  },
-                  "end": {
-                    "line": 7,
-                    "column": 23
-                  }
+            "local": {
+              "type": "Identifier",
+              "start": 56,
+              "end": 74,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 7
                 },
-                "method": false,
-                "shorthand": true,
-                "computed": false,
-                "key": {
-                  "type": "Identifier",
-                  "start": 154,
-                  "end": 175,
-                  "loc": {
-                    "start": {
-                      "line": 7,
-                      "column": 2
-                    },
-                    "end": {
-                      "line": 7,
-                      "column": 23
-                    },
-                    "identifierName": "GregorianCalendarDate"
-                  },
-                  "name": "GregorianCalendarDate"
+                "end": {
+                  "line": 2,
+                  "column": 25
                 },
-                "value": {
-                  "type": "Identifier",
-                  "start": 154,
-                  "end": 175,
-                  "loc": {
-                    "start": {
-                      "line": 7,
-                      "column": 2
-                    },
-                    "end": {
-                      "line": 7,
-                      "column": 23
-                    },
-                    "identifierName": "GregorianCalendarDate"
-                  },
-                  "name": "GregorianCalendarDate"
+                "identifierName": "JulianCalendarDate"
+              },
+              "name": "JulianCalendarDate"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 80,
+          "end": 90,
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 31
+            },
+            "end": {
+              "line": 2,
+              "column": 41
+            }
+          },
+          "extra": {
+            "rawValue": "./julian",
+            "raw": "'./julian'"
+          },
+          "value": "./julian"
+        }
+      },
+      {
+        "type": "ExportDefaultDeclaration",
+        "start": 93,
+        "end": 158,
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 0
+          },
+          "end": {
+            "line": 7,
+            "column": 2
+          }
+        },
+        "declaration": {
+          "type": "ObjectExpression",
+          "start": 108,
+          "end": 157,
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 15
+            },
+            "end": {
+              "line": 7,
+              "column": 1
+            }
+          },
+          "properties": [
+            {
+              "type": "ObjectProperty",
+              "start": 112,
+              "end": 133,
+              "loc": {
+                "start": {
+                  "line": 5,
+                  "column": 2
                 },
-                "extra": {
-                  "shorthand": true
+                "end": {
+                  "line": 5,
+                  "column": 23
                 }
               },
-              {
-                "type": "ObjectProperty",
-                "start": 179,
-                "end": 197,
+              "method": false,
+              "shorthand": true,
+              "computed": false,
+              "key": {
+                "type": "Identifier",
+                "start": 112,
+                "end": 133,
                 "loc": {
                   "start": {
-                    "line": 8,
+                    "line": 5,
                     "column": 2
                   },
                   "end": {
-                    "line": 8,
-                    "column": 20
-                  }
-                },
-                "method": false,
-                "shorthand": true,
-                "computed": false,
-                "key": {
-                  "type": "Identifier",
-                  "start": 179,
-                  "end": 197,
-                  "loc": {
-                    "start": {
-                      "line": 8,
-                      "column": 2
-                    },
-                    "end": {
-                      "line": 8,
-                      "column": 20
-                    },
-                    "identifierName": "JulianCalendarDate"
+                    "line": 5,
+                    "column": 23
                   },
-                  "name": "JulianCalendarDate"
+                  "identifierName": "GregorianCalendarDate"
                 },
-                "value": {
-                  "type": "Identifier",
-                  "start": 179,
-                  "end": 197,
-                  "loc": {
-                    "start": {
-                      "line": 8,
-                      "column": 2
-                    },
-                    "end": {
-                      "line": 8,
-                      "column": 20
-                    },
-                    "identifierName": "JulianCalendarDate"
+                "name": "GregorianCalendarDate"
+              },
+              "value": {
+                "type": "Identifier",
+                "start": 112,
+                "end": 133,
+                "loc": {
+                  "start": {
+                    "line": 5,
+                    "column": 2
                   },
-                  "name": "JulianCalendarDate"
+                  "end": {
+                    "line": 5,
+                    "column": 23
+                  },
+                  "identifierName": "GregorianCalendarDate"
                 },
-                "extra": {
-                  "shorthand": true
-                }
+                "name": "GregorianCalendarDate"
+              },
+              "extra": {
+                "shorthand": true
               }
-            ]
-          }
+            },
+            {
+              "type": "ObjectProperty",
+              "start": 137,
+              "end": 155,
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 2
+                },
+                "end": {
+                  "line": 6,
+                  "column": 20
+                }
+              },
+              "method": false,
+              "shorthand": true,
+              "computed": false,
+              "key": {
+                "type": "Identifier",
+                "start": 137,
+                "end": 155,
+                "loc": {
+                  "start": {
+                    "line": 6,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 6,
+                    "column": 20
+                  },
+                  "identifierName": "JulianCalendarDate"
+                },
+                "name": "JulianCalendarDate"
+              },
+              "value": {
+                "type": "Identifier",
+                "start": 137,
+                "end": 155,
+                "loc": {
+                  "start": {
+                    "line": 6,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 6,
+                    "column": 20
+                  },
+                  "identifierName": "JulianCalendarDate"
+                },
+                "name": "JulianCalendarDate"
+              },
+              "extra": {
+                "shorthand": true
+              }
+            }
+          ],
+          "leadingComments": [],
+          "trailingComments": []
         }
       }
     ],
     "directives": []
   },
-  "comments": [
-    {
-      "type": "CommentBlock",
-      "value": "* @ignore ",
-      "start": 0,
-      "end": 14,
-      "loc": {
-        "start": {
-          "line": 1,
-          "column": 0
-        },
-        "end": {
-          "line": 1,
-          "column": 14
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "* @ignore ",
-      "start": 69,
-      "end": 83,
-      "loc": {
-        "start": {
-          "line": 3,
-          "column": 0
-        },
-        "end": {
-          "line": 3,
-          "column": 14
-        }
-      }
-    }
-  ],
+  "comments": [],
   "tokens": [
     {
-      "type": "CommentBlock",
-      "value": "* @ignore ",
-      "start": 0,
-      "end": 14,
-      "loc": {
-        "start": {
-          "line": 1,
-          "column": 0
-        },
-        "end": {
-          "line": 1,
-          "column": 14
-        }
-      }
-    },
-    {
       "type": {
-        "label": "const",
-        "keyword": "const",
+        "label": "import",
+        "keyword": "import",
         "beforeExpr": false,
-        "startsExpr": false,
+        "startsExpr": true,
         "rightAssociative": false,
         "isLoop": false,
         "isAssign": false,
@@ -570,17 +329,17 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "const",
-      "start": 15,
-      "end": 20,
+      "value": "import",
+      "start": 0,
+      "end": 6,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 1,
           "column": 0
         },
         "end": {
-          "line": 2,
-          "column": 5
+          "line": 1,
+          "column": 6
         }
       }
     },
@@ -597,43 +356,16 @@
         "binop": null
       },
       "value": "GregorianCalendarDate",
-      "start": 21,
-      "end": 42,
+      "start": 7,
+      "end": 28,
       "loc": {
         "start": {
-          "line": 2,
-          "column": 6
+          "line": 1,
+          "column": 7
         },
         "end": {
-          "line": 2,
-          "column": 27
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "=",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": true,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "=",
-      "start": 43,
-      "end": 44,
-      "loc": {
-        "start": {
-          "line": 2,
+          "line": 1,
           "column": 28
-        },
-        "end": {
-          "line": 2,
-          "column": 29
         }
       }
     },
@@ -649,42 +381,17 @@
         "postfix": false,
         "binop": null
       },
-      "value": "require",
-      "start": 45,
-      "end": 52,
+      "value": "from",
+      "start": 29,
+      "end": 33,
       "loc": {
         "start": {
-          "line": 2,
-          "column": 30
+          "line": 1,
+          "column": 29
         },
         "end": {
-          "line": 2,
-          "column": 37
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "(",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 52,
-      "end": 53,
-      "loc": {
-        "start": {
-          "line": 2,
-          "column": 37
-        },
-        "end": {
-          "line": 2,
-          "column": 38
+          "line": 1,
+          "column": 33
         }
       }
     },
@@ -702,41 +409,16 @@
         "updateContext": null
       },
       "value": "./gregorian",
-      "start": 53,
-      "end": 66,
+      "start": 34,
+      "end": 47,
       "loc": {
         "start": {
-          "line": 2,
-          "column": 38
+          "line": 1,
+          "column": 34
         },
         "end": {
-          "line": 2,
-          "column": 51
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ")",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 66,
-      "end": 67,
-      "loc": {
-        "start": {
-          "line": 2,
-          "column": 51
-        },
-        "end": {
-          "line": 2,
-          "column": 52
+          "line": 1,
+          "column": 47
         }
       }
     },
@@ -753,41 +435,25 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 67,
-      "end": 68,
+      "start": 47,
+      "end": 48,
       "loc": {
         "start": {
-          "line": 2,
-          "column": 52
+          "line": 1,
+          "column": 47
         },
         "end": {
-          "line": 2,
-          "column": 53
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "* @ignore ",
-      "start": 69,
-      "end": 83,
-      "loc": {
-        "start": {
-          "line": 3,
-          "column": 0
-        },
-        "end": {
-          "line": 3,
-          "column": 14
+          "line": 1,
+          "column": 48
         }
       }
     },
     {
       "type": {
-        "label": "const",
-        "keyword": "const",
+        "label": "import",
+        "keyword": "import",
         "beforeExpr": false,
-        "startsExpr": false,
+        "startsExpr": true,
         "rightAssociative": false,
         "isLoop": false,
         "isAssign": false,
@@ -796,17 +462,17 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "const",
-      "start": 84,
-      "end": 89,
+      "value": "import",
+      "start": 49,
+      "end": 55,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 2,
           "column": 0
         },
         "end": {
-          "line": 4,
-          "column": 5
+          "line": 2,
+          "column": 6
         }
       }
     },
@@ -823,43 +489,16 @@
         "binop": null
       },
       "value": "JulianCalendarDate",
-      "start": 90,
-      "end": 108,
+      "start": 56,
+      "end": 74,
       "loc": {
         "start": {
-          "line": 4,
-          "column": 6
+          "line": 2,
+          "column": 7
         },
         "end": {
-          "line": 4,
-          "column": 24
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "=",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": true,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "=",
-      "start": 109,
-      "end": 110,
-      "loc": {
-        "start": {
-          "line": 4,
+          "line": 2,
           "column": 25
-        },
-        "end": {
-          "line": 4,
-          "column": 26
         }
       }
     },
@@ -875,42 +514,17 @@
         "postfix": false,
         "binop": null
       },
-      "value": "require",
-      "start": 111,
-      "end": 118,
+      "value": "from",
+      "start": 75,
+      "end": 79,
       "loc": {
         "start": {
-          "line": 4,
-          "column": 27
+          "line": 2,
+          "column": 26
         },
         "end": {
-          "line": 4,
-          "column": 34
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "(",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 118,
-      "end": 119,
-      "loc": {
-        "start": {
-          "line": 4,
-          "column": 34
-        },
-        "end": {
-          "line": 4,
-          "column": 35
+          "line": 2,
+          "column": 30
         }
       }
     },
@@ -928,41 +542,16 @@
         "updateContext": null
       },
       "value": "./julian",
-      "start": 119,
-      "end": 129,
+      "start": 80,
+      "end": 90,
       "loc": {
         "start": {
-          "line": 4,
-          "column": 35
+          "line": 2,
+          "column": 31
         },
         "end": {
-          "line": 4,
-          "column": 45
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ")",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 129,
-      "end": 130,
-      "loc": {
-        "start": {
-          "line": 4,
-          "column": 45
-        },
-        "end": {
-          "line": 4,
-          "column": 46
+          "line": 2,
+          "column": 41
         }
       }
     },
@@ -979,48 +568,23 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 130,
-      "end": 131,
+      "start": 90,
+      "end": 91,
       "loc": {
         "start": {
-          "line": 4,
-          "column": 46
+          "line": 2,
+          "column": 41
         },
         "end": {
-          "line": 4,
-          "column": 47
+          "line": 2,
+          "column": 42
         }
       }
     },
     {
       "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "module",
-      "start": 133,
-      "end": 139,
-      "loc": {
-        "start": {
-          "line": 6,
-          "column": 0
-        },
-        "end": {
-          "line": 6,
-          "column": 6
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ".",
+        "label": "export",
+        "keyword": "export",
         "beforeExpr": false,
         "startsExpr": false,
         "rightAssociative": false,
@@ -1031,69 +595,45 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 139,
-      "end": 140,
+      "value": "export",
+      "start": 93,
+      "end": 99,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 4,
           "column": 6
-        },
-        "end": {
-          "line": 6,
-          "column": 7
         }
       }
     },
     {
       "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "exports",
-      "start": 140,
-      "end": 147,
-      "loc": {
-        "start": {
-          "line": 6,
-          "column": 7
-        },
-        "end": {
-          "line": 6,
-          "column": 14
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "=",
+        "label": "default",
+        "keyword": "default",
         "beforeExpr": true,
         "startsExpr": false,
         "rightAssociative": false,
         "isLoop": false,
-        "isAssign": true,
+        "isAssign": false,
         "prefix": false,
         "postfix": false,
         "binop": null,
         "updateContext": null
       },
-      "value": "=",
-      "start": 148,
-      "end": 149,
+      "value": "default",
+      "start": 100,
+      "end": 107,
       "loc": {
         "start": {
-          "line": 6,
-          "column": 15
+          "line": 4,
+          "column": 7
         },
         "end": {
-          "line": 6,
-          "column": 16
+          "line": 4,
+          "column": 14
         }
       }
     },
@@ -1109,16 +649,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 150,
-      "end": 151,
+      "start": 108,
+      "end": 109,
       "loc": {
         "start": {
-          "line": 6,
-          "column": 17
+          "line": 4,
+          "column": 15
         },
         "end": {
-          "line": 6,
-          "column": 18
+          "line": 4,
+          "column": 16
         }
       }
     },
@@ -1135,15 +675,15 @@
         "binop": null
       },
       "value": "GregorianCalendarDate",
-      "start": 154,
-      "end": 175,
+      "start": 112,
+      "end": 133,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 5,
           "column": 2
         },
         "end": {
-          "line": 7,
+          "line": 5,
           "column": 23
         }
       }
@@ -1161,15 +701,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 175,
-      "end": 176,
+      "start": 133,
+      "end": 134,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 5,
           "column": 23
         },
         "end": {
-          "line": 7,
+          "line": 5,
           "column": 24
         }
       }
@@ -1187,42 +727,16 @@
         "binop": null
       },
       "value": "JulianCalendarDate",
-      "start": 179,
-      "end": 197,
+      "start": 137,
+      "end": 155,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 6,
           "column": 2
         },
         "end": {
-          "line": 8,
+          "line": 6,
           "column": 20
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ",",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 197,
-      "end": 198,
-      "loc": {
-        "start": {
-          "line": 8,
-          "column": 20
-        },
-        "end": {
-          "line": 8,
-          "column": 21
         }
       }
     },
@@ -1238,15 +752,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 199,
-      "end": 200,
+      "start": 156,
+      "end": 157,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 7,
           "column": 0
         },
         "end": {
-          "line": 9,
+          "line": 7,
           "column": 1
         }
       }
@@ -1264,15 +778,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 200,
-      "end": 201,
+      "start": 157,
+      "end": 158,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 7,
           "column": 1
         },
         "end": {
-          "line": 9,
+          "line": 7,
           "column": 2
         }
       }
@@ -1290,15 +804,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 202,
-      "end": 202,
+      "start": 159,
+      "end": 159,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 8,
           "column": 0
         },
         "end": {
-          "line": 10,
+          "line": 8,
           "column": 0
         }
       }

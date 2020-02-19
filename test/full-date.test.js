@@ -1,4 +1,4 @@
-const mayadate = require('../src/index');
+import mayadate from '../src/index';
 
 test('full date rendering', () => {
   const fullDate = new mayadate.factory.FullDateFactory()

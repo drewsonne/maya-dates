@@ -50,7 +50,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCorrelationConstant">getCorrelationConstant</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-night">lc/night</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get">get</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-western">lc/western</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/gregorian.js~GregorianCalendarDate.html">GregorianCalendarDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/julian.js~JulianCalendarDate.html">JulianCalendarDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html">WesternCalendar</a></span></span></li>
@@ -64,19 +63,14 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/lc/distance-number.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
-const moonbeams = require(&apos;moonbeams&apos;);
-/** @ignore */
-const wildcard = require(&apos;../wildcard&apos;);
-/** @ignore */
-const LongcountAddition = require(&apos;../operations/longcount-addition&apos;);
-/** @ignore */
-const LongcountSubtraction = require(&apos;../operations/longcount-subtraction&apos;);
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import wildcard from &apos;../wildcard&apos;;
+import LongcountAddition from &apos;../operations/longcount-addition&apos;;
+import LongcountSubtraction from &apos;../operations/longcount-subtraction&apos;;
 
 /**
  * Long Count cycle
  */
-class DistanceNumber {
+export default class DistanceNumber {
   /**
    * @param {...number|Wildcard} cycles - Components in the long count
    * (eg, K&apos;in, Winal, Bak&apos;tun, etc)
@@ -448,8 +442,6 @@ class DistanceNumber {
     return significantDigits.join(&apos;.&apos;);
   }
 }
-
-module.exports = DistanceNumber;
 </code></pre>
 
 </div>

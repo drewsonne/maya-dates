@@ -22,13 +22,18 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jest": "^23.3.0",
-    "jest": "^24.9.0"
+    "jest-cli": "^25.1.0",
+    "regenerator-runtime": "^0.13.3",
+    "@babel/preset-env": "^7.8.4"
   },
   "scripts": {
     "test": "jest"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   },
   "dependencies": {
     "moonbeams": "^2.0.2",

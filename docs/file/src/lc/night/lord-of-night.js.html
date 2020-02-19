@@ -50,7 +50,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCorrelationConstant">getCorrelationConstant</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-night">lc/night</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get">get</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-western">lc/western</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/gregorian.js~GregorianCalendarDate.html">GregorianCalendarDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/julian.js~JulianCalendarDate.html">JulianCalendarDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html">WesternCalendar</a></span></span></li>
@@ -73,6 +72,7 @@
  *  let lord_of_night_g8_2 = mayadates.lc.night.G8
  *  console.log(lord_of_night_g8_1 === lord_of_night_g8_2)
  */
+// eslint-disable-next-line max-classes-per-file
 class LordOfNight {
   /**
    * @param {number} id
@@ -94,28 +94,30 @@ class LordOfNight {
   }
 }
 
-/**
- * Return a Lord of the Night by its G id.
- * @param {string} id - Has the form &apos;G1&apos;, &apos;G2&apos;, etc.
- * @return {LordOfNight}
- */
-function get(id) {
-  return lordsOfTheNight[`${id}`];
+class _LordsOfTheNight {
+  constructor() {
+    this.G1 = new LordOfNight(1);
+    this.G2 = new LordOfNight(2);
+    this.G3 = new LordOfNight(3);
+    this.G4 = new LordOfNight(4);
+    this.G5 = new LordOfNight(5);
+    this.G6 = new LordOfNight(6);
+    this.G7 = new LordOfNight(7);
+    this.G8 = new LordOfNight(8);
+    this.G9 = new LordOfNight(9);
+  }
+
+  /**
+   * Return a Lord of the Night by its G id.
+   * @param {string} id - Has the form &apos;G1&apos;, &apos;G2&apos;, etc.
+   * @return {LordOfNight}
+   */
+  get(id) {
+    return this[`${id}`];
+  }
 }
 
-/** @ignore */
-const lordsOfTheNight = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9,
-].reduce((obj, n) =&gt; {
-  const lord = new LordOfNight(n);
-  const newObj = obj;
-  newObj[`${lord}`] = lord;
-  return newObj;
-}, {
-  get,
-});
-
-module.exports = lordsOfTheNight;
+export default new _LordsOfTheNight();
 </code></pre>
 
 </div>
