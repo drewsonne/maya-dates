@@ -4,8 +4,7 @@
  * library to allow for use and equality comparison.
  * @example
  * const mayadates = require('maya-dates')
- * let cr = new mayadates.factory.CalendarRoundFactory().parse(
- *  '4 Ajaw 8 *')
+ * let cr = new mayadates.factory.CalendarRoundFactory().parse('4 Ajaw 8 *')
  * console.log(cr.haab.month === mayadates.wildcard)
  * > true
  */
