@@ -1,17 +1,11 @@
-/** @ignore */
-const FullDate = require('./full-date');
-/** @ignore */
-const factory = require('./factory/index');
-/** @ignore */
-const cr = require('./cr/index');
-/** @ignore */
-const lc = require('./lc/index');
-/** @ignore */
-const op = require('./operations/index');
-/** @ignore */
-const wildcard = require('./wildcard');
+import FullDate from './full-date';
+import factory from './factory/index';
+import cr from './cr/index';
+import lc from './lc/index';
+import op from './operations/index';
+import wildcard from './wildcard';
 
-module.exports = {
+export default {
   factory,
   cr,
   lc,

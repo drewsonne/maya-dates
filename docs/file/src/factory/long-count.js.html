@@ -50,7 +50,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCorrelationConstant">getCorrelationConstant</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-night">lc/night</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get">get</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-western">lc/western</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/gregorian.js~GregorianCalendarDate.html">GregorianCalendarDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/julian.js~JulianCalendarDate.html">JulianCalendarDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html">WesternCalendar</a></span></span></li>
@@ -64,12 +63,9 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/factory/long-count.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
-const Factory = require(&apos;./base&apos;);
-/** @ignore */
-const LongCount = require(&apos;../lc/long-count&apos;);
-/** @ignore */
-const wildcard = require(&apos;../wildcard&apos;);
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Factory from &apos;./base&apos;;
+import LongCount from &apos;../lc/long-count&apos;;
+import wildcard from &apos;../wildcard&apos;;
 
 /**
  * A factory to create a LongCount object from a string
@@ -79,7 +75,7 @@ const wildcard = require(&apos;../wildcard&apos;);
  * @example
  *    let cr = new LongCountFactory().parse(&quot;9.4.2.*.1&quot;);
  */
-class LongCountFactory extends Factory {
+export default class LongCountFactory extends Factory {
   /**
    * Given a string, parse it and create a Long Count
    * @param {string} raw - A string containing a Long Count
@@ -105,8 +101,6 @@ class LongCountFactory extends Factory {
     );
   }
 }
-
-module.exports = LongCountFactory;
 </code></pre>
 
 </div>

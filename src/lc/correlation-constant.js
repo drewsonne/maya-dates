@@ -43,7 +43,7 @@ const correlationConstants = [[394483, 'Bowditch'],
  * @param {string} name - Optional name when creating a new Correlation Constant
  * @return {CorrelationConstant}
  */
-function getCorrelationConstant(id, name) {
+export default function getCorrelationConstant(id, name) {
   if (id in correlationConstants) {
     return correlationConstants[id];
   }
@@ -55,6 +55,3 @@ function getCorrelationConstant(id, name) {
   correlationConstants[newCorrConst.value] = newCorrConst;
   return newCorrConst;
 }
-
-
-module.exports = getCorrelationConstant;

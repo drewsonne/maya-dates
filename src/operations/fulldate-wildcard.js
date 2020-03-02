@@ -1,9 +1,6 @@
-/** @ignore */
-const FullDate = require('../full-date');
-/** @ignore */
-const LongCountWildcard = require('../operations/longcount-wildcard');
-/** @ignore */
-const CalendarRoundWildcard = require('../operations/calendar-round-wildcard');
+import FullDate from '../full-date';
+import LongCountWildcard from './longcount-wildcard';
+import CalendarRoundWildcard from './calendar-round-wildcard';
 
 /** @ignore */
 const concat = (x, y) => x.concat(y);
@@ -21,7 +18,7 @@ Array.prototype.flatMap = function (f) {
  * Given a Calendar Round and Long Count with a wildcard, calculate all possible
  * matching fully qualified Long Counts with CalendarRounds.
  */
-class FullDateWildcard {
+export default class FullDateWildcard {
   /**
    * @param {FullDate} partialDate
    */
@@ -40,10 +37,7 @@ class FullDateWildcard {
     if (this.fullDate.lc.isPartial()) {
       const lcs = new LongCountWildcard(this.fullDate.lc).run();
 
-      const mappedLcs = lcs.map(function (potentialLc) {
-          return potentialLc.buildFullDate();
-        }
-      );
+      const mappedLcs = lcs.map((potentialLc) => potentialLc.buildFullDate());
       const flatMappedLcs = mappedLcs.flatMap(
         (fullDate) => (
           this.fullDate.cr.isPartial()
@@ -67,5 +61,3 @@ class FullDateWildcard {
       : [];
   }
 }
-
-module.exports = FullDateWildcard;

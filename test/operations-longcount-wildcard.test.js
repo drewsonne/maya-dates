@@ -1,4 +1,4 @@
-const mayadates = require('../src/index');
+import mayadates from '../src/index';
 
 test('compute missing wildcard', () => {
   const lc = new mayadates.factory.LongCountFactory().parse(

@@ -50,7 +50,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCorrelationConstant">getCorrelationConstant</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-night">lc/night</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get">get</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-western">lc/western</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/gregorian.js~GregorianCalendarDate.html">GregorianCalendarDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/julian.js~JulianCalendarDate.html">JulianCalendarDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html">WesternCalendar</a></span></span></li>
@@ -64,14 +63,13 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/operations/longcount-wildcard.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
-const wildcard = require(&apos;../wildcard&apos;);
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import wildcard from &apos;../wildcard&apos;;
 
 /**
  * Given a Long Count with a wildcard, calculate all possible matching fully
  * qualified Long Counts.
  */
-class LongCountWildcard {
+export default class LongCountWildcard {
   /**
    * @param {LongCount} lc
    */
@@ -87,38 +85,23 @@ class LongCountWildcard {
    * @return {LongCount[]}
    */
   run() {
-    const wcIndexes = this.lc.map(
+    return this.lc.map(
       (part, i) =&gt; ((part === wildcard) ? i : false)
-    );
-
-    const filteredWcIndexes = wcIndexes.filter(
+    ).filter(
       (i) =&gt; i !== false
-    );
-
-    return filteredWcIndexes.reduce(
-      function (potentials, position) {
-        const a = potentials.reduce(
-          function (acc, possible) {
-            const dayMonths = new Array((position === 1) ? 15 : 20);
-            const filledDayMonths = dayMonths.fill();
-            const b = filledDayMonths.map(function (_, i) {
-              const clone = possible.clone();
-              const adjusted = clone.setDateSections(position, i);
-              return adjusted;
-            }).concat(acc);
-            return b;
-          },
-          []
-        );
-        return a;
-      },
+    ).reduce(
+      (potentials, position) =&gt; potentials.reduce(
+        (acc, possible) =&gt; new Array(
+          (position === 1) ? 15 : 20
+        ).fill().map(
+          (_, i) =&gt; possible.clone().setDateSections(position, i)
+        ).concat(acc),
+        []
+      ),
       [this.lc]
     );
-
   }
 }
-
-module.exports = LongCountWildcard;
 </code></pre>
 
 </div>

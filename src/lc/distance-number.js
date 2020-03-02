@@ -1,16 +1,11 @@
-/** @ignore */
-const moonbeams = require('moonbeams')
-/** @ignore */
-const wildcard = require('../wildcard')
-/** @ignore */
-const LongcountAddition = require('../operations/longcount-addition')
-/** @ignore */
-const LongcountSubtraction = require('../operations/longcount-subtraction')
+import wildcard from '../wildcard';
+import LongcountAddition from '../operations/longcount-addition';
+import LongcountSubtraction from '../operations/longcount-subtraction';
 
 /**
  * Long Count cycle
  */
-class DistanceNumber {
+export default class DistanceNumber {
   /**
    * @param {...number|Wildcard} cycles - Components in the long count
    * (eg, K'in, Winal, Bak'tun, etc)
@@ -388,5 +383,3 @@ class DistanceNumber {
     return `${this.sign === -1 ? '-' : ''}${significantDigits.join('.')}`
   }
 }
-
-module.exports = DistanceNumber

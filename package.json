@@ -1,11 +1,8 @@
 {
   "name": "@drewsonne/maya-dates",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Node.js package to represent dates in the Maya Calendar",
   "main": "src/index.js",
-  "scripts": {
-    "test": "jest"
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/drewsonne/maya-dates.git"
@@ -15,12 +12,9 @@
     "maya",
     "maya-calendar"
   ],
-  "author": "Drew J. Sonne",
+  "author": "Drew J. Sonne <drew.sonne@gmail.com>",
   "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/drewsonne/maya-dates/issues"
-  },
-  "homepage": "https://github.com/drewsonne/maya-dates#readme",
+  "private": false,
   "devDependencies": {
     "esdoc": "1.1.0",
     "esdoc-standard-plugin": "1.0.0",
@@ -28,14 +22,27 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jest": "^23.3.0",
-    "jest": "^24.9.0"
+    "jest-cli": "^25.1.0",
+    "regenerator-runtime": "^0.13.3",
+    "@babel/preset-env": "^7.8.4"
+  },
+  "scripts": {
+    "test": "jest"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   },
   "dependencies": {
     "moonbeams": "^2.0.2",
     "moment-timezone": "^0.5.26",
     "moment": "^2.24.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/drewsonne/maya-dates/issues"
+  },
+  "homepage": "https://github.com/drewsonne/maya-dates#readme",
+  "preset": "react-native"
 }
