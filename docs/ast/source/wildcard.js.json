@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 632,
+  "end": 621,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 24,
+      "line": 23,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 632,
+    "end": 621,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 24,
+        "line": 23,
         "column": 0
       }
     },
@@ -30,29 +30,29 @@
     "body": [
       {
         "type": "Identifier",
-        "start": 408,
-        "end": 599,
+        "start": 397,
+        "end": 588,
         "loc": {
           "start": {
-            "line": 12,
+            "line": 11,
             "column": 0
           },
           "end": {
-            "line": 21,
+            "line": 20,
             "column": 1
           }
         },
         "id": {
           "type": "Identifier",
-          "start": 414,
-          "end": 422,
+          "start": 403,
+          "end": 411,
           "loc": {
             "start": {
-              "line": 12,
+              "line": 11,
               "column": 6
             },
             "end": {
-              "line": 12,
+              "line": 11,
               "column": 14
             },
             "identifierName": "Wildcard"
@@ -63,30 +63,30 @@
         "superClass": null,
         "body": {
           "type": "ClassBody",
-          "start": 423,
-          "end": 599,
+          "start": 412,
+          "end": 588,
           "loc": {
             "start": {
-              "line": 12,
+              "line": 11,
               "column": 15
             },
             "end": {
-              "line": 21,
+              "line": 20,
               "column": 1
             }
           },
           "body": [
             {
               "type": "ClassMethod",
-              "start": 565,
-              "end": 597,
+              "start": 554,
+              "end": 586,
               "loc": {
                 "start": {
-                  "line": 18,
+                  "line": 17,
                   "column": 2
                 },
                 "end": {
-                  "line": 20,
+                  "line": 19,
                   "column": 3
                 }
               },
@@ -94,15 +94,15 @@
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 565,
-                "end": 573,
+                "start": 554,
+                "end": 562,
                 "loc": {
                   "start": {
-                    "line": 18,
+                    "line": 17,
                     "column": 2
                   },
                   "end": {
-                    "line": 18,
+                    "line": 17,
                     "column": 10
                   },
                   "identifierName": "toString"
@@ -118,44 +118,44 @@
               "params": [],
               "body": {
                 "type": "BlockStatement",
-                "start": 576,
-                "end": 597,
+                "start": 565,
+                "end": 586,
                 "loc": {
                   "start": {
-                    "line": 18,
+                    "line": 17,
                     "column": 13
                   },
                   "end": {
-                    "line": 20,
+                    "line": 19,
                     "column": 3
                   }
                 },
                 "body": [
                   {
                     "type": "ReturnStatement",
-                    "start": 582,
-                    "end": 593,
+                    "start": 571,
+                    "end": 582,
                     "loc": {
                       "start": {
-                        "line": 19,
+                        "line": 18,
                         "column": 4
                       },
                       "end": {
-                        "line": 19,
+                        "line": 18,
                         "column": 15
                       }
                     },
                     "argument": {
                       "type": "StringLiteral",
-                      "start": 589,
-                      "end": 592,
+                      "start": 578,
+                      "end": 581,
                       "loc": {
                         "start": {
-                          "line": 19,
+                          "line": 18,
                           "column": 11
                         },
                         "end": {
-                          "line": 19,
+                          "line": 18,
                           "column": 14
                         }
                       },
@@ -173,15 +173,15 @@
                 {
                   "type": "CommentBlock",
                   "value": "*\n   * Represent the Wildcard as a string. ie, '*'.\n   * @returns {string}\n   ",
-                  "start": 427,
-                  "end": 509,
+                  "start": 416,
+                  "end": 498,
                   "loc": {
                     "start": {
-                      "line": 13,
+                      "line": 12,
                       "column": 2
                     },
                     "end": {
-                      "line": 16,
+                      "line": 15,
                       "column": 5
                     }
                   }
@@ -189,15 +189,15 @@
                 {
                   "type": "CommentLine",
                   "value": " eslint-disable-next-line class-methods-use-this",
-                  "start": 512,
-                  "end": 562,
+                  "start": 501,
+                  "end": 551,
                   "loc": {
                     "start": {
-                      "line": 17,
+                      "line": 16,
                       "column": 2
                     },
                     "end": {
-                      "line": 17,
+                      "line": 16,
                       "column": 52
                     }
                   }
@@ -212,43 +212,43 @@
       },
       {
         "type": "Identifier",
-        "start": 601,
-        "end": 631,
+        "start": 590,
+        "end": 620,
         "loc": {
           "start": {
-            "line": 23,
+            "line": 22,
             "column": 0
           },
           "end": {
-            "line": 23,
+            "line": 22,
             "column": 30
           }
         },
         "declaration": {
           "type": "NewExpression",
-          "start": 616,
-          "end": 630,
+          "start": 605,
+          "end": 619,
           "loc": {
             "start": {
-              "line": 23,
+              "line": 22,
               "column": 15
             },
             "end": {
-              "line": 23,
+              "line": 22,
               "column": 29
             }
           },
           "callee": {
             "type": "Identifier",
-            "start": 620,
-            "end": 628,
+            "start": 609,
+            "end": 617,
             "loc": {
               "start": {
-                "line": 23,
+                "line": 22,
                 "column": 19
               },
               "end": {
-                "line": 23,
+                "line": 22,
                 "column": 27
               },
               "identifierName": "Wildcard"
@@ -263,43 +263,43 @@
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 601,
-        "end": 631,
+        "start": 590,
+        "end": 620,
         "loc": {
           "start": {
-            "line": 23,
+            "line": 22,
             "column": 0
           },
           "end": {
-            "line": 23,
+            "line": 22,
             "column": 30
           }
         },
         "declaration": {
           "type": "ClassDeclaration",
-          "start": 408,
-          "end": 599,
+          "start": 397,
+          "end": 588,
           "loc": {
             "start": {
-              "line": 12,
+              "line": 11,
               "column": 0
             },
             "end": {
-              "line": 21,
+              "line": 20,
               "column": 1
             }
           },
           "id": {
             "type": "Identifier",
-            "start": 414,
-            "end": 422,
+            "start": 403,
+            "end": 411,
             "loc": {
               "start": {
-                "line": 12,
+                "line": 11,
                 "column": 6
               },
               "end": {
-                "line": 12,
+                "line": 11,
                 "column": 14
               },
               "identifierName": "Wildcard"
@@ -310,30 +310,30 @@
           "superClass": null,
           "body": {
             "type": "ClassBody",
-            "start": 423,
-            "end": 599,
+            "start": 412,
+            "end": 588,
             "loc": {
               "start": {
-                "line": 12,
+                "line": 11,
                 "column": 15
               },
               "end": {
-                "line": 21,
+                "line": 20,
                 "column": 1
               }
             },
             "body": [
               {
                 "type": "ClassMethod",
-                "start": 565,
-                "end": 597,
+                "start": 554,
+                "end": 586,
                 "loc": {
                   "start": {
-                    "line": 18,
+                    "line": 17,
                     "column": 2
                   },
                   "end": {
-                    "line": 20,
+                    "line": 19,
                     "column": 3
                   }
                 },
@@ -341,15 +341,15 @@
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 565,
-                  "end": 573,
+                  "start": 554,
+                  "end": 562,
                   "loc": {
                     "start": {
-                      "line": 18,
+                      "line": 17,
                       "column": 2
                     },
                     "end": {
-                      "line": 18,
+                      "line": 17,
                       "column": 10
                     },
                     "identifierName": "toString"
@@ -365,44 +365,44 @@
                 "params": [],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 576,
-                  "end": 597,
+                  "start": 565,
+                  "end": 586,
                   "loc": {
                     "start": {
-                      "line": 18,
+                      "line": 17,
                       "column": 13
                     },
                     "end": {
-                      "line": 20,
+                      "line": 19,
                       "column": 3
                     }
                   },
                   "body": [
                     {
                       "type": "ReturnStatement",
-                      "start": 582,
-                      "end": 593,
+                      "start": 571,
+                      "end": 582,
                       "loc": {
                         "start": {
-                          "line": 19,
+                          "line": 18,
                           "column": 4
                         },
                         "end": {
-                          "line": 19,
+                          "line": 18,
                           "column": 15
                         }
                       },
                       "argument": {
                         "type": "StringLiteral",
-                        "start": 589,
-                        "end": 592,
+                        "start": 578,
+                        "end": 581,
                         "loc": {
                           "start": {
-                            "line": 19,
+                            "line": 18,
                             "column": 11
                           },
                           "end": {
-                            "line": 19,
+                            "line": 18,
                             "column": 14
                           }
                         },
@@ -420,15 +420,15 @@
                   {
                     "type": "CommentBlock",
                     "value": "*\n   * Represent the Wildcard as a string. ie, '*'.\n   * @returns {string}\n   ",
-                    "start": 427,
-                    "end": 509,
+                    "start": 416,
+                    "end": 498,
                     "loc": {
                       "start": {
-                        "line": 13,
+                        "line": 12,
                         "column": 2
                       },
                       "end": {
-                        "line": 16,
+                        "line": 15,
                         "column": 5
                       }
                     }
@@ -436,15 +436,15 @@
                   {
                     "type": "CommentLine",
                     "value": " eslint-disable-next-line class-methods-use-this",
-                    "start": 512,
-                    "end": 562,
+                    "start": 501,
+                    "end": 551,
                     "loc": {
                       "start": {
-                        "line": 17,
+                        "line": 16,
                         "column": 2
                       },
                       "end": {
-                        "line": 17,
+                        "line": 16,
                         "column": 52
                       }
                     }
@@ -456,16 +456,16 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\n * Describes a wildcard in the Calendar Round or Long Count.\n * This class is not directly exposed to the user. There is a singleton in this\n * library to allow for use and equality comparison.\n * @example\n * import mayadates from '@drewsonne/maya-dates'\n * let cr = new mayadates.factory.CalendarRoundFactory().parse(\n *  '4 Ajaw 8 *')\n * console.log(cr.haab.month === mayadates.wildcard)\n * > true\n ",
+              "value": "*\n * Describes a wildcard in the Calendar Round or Long Count.\n * This class is not directly exposed to the user. There is a singleton in this\n * library to allow for use and equality comparison.\n * @example\n * const mayadates = require('maya-dates')\n * let cr = new mayadates.factory.CalendarRoundFactory().parse('4 Ajaw 8 *')\n * console.log(cr.haab.month === mayadates.wildcard)\n * > true\n ",
               "start": 0,
-              "end": 407,
+              "end": 396,
               "loc": {
                 "start": {
                   "line": 1,
                   "column": 0
                 },
                 "end": {
-                  "line": 11,
+                  "line": 10,
                   "column": 3
                 }
               }
@@ -478,15 +478,15 @@
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 601,
-        "end": 631,
+        "start": 590,
+        "end": 620,
         "loc": {
           "start": {
-            "line": 23,
+            "line": 22,
             "column": 0
           },
           "end": {
-            "line": 23,
+            "line": 22,
             "column": 30
           }
         },
@@ -495,11 +495,11 @@
           "kind": "let",
           "loc": {
             "start": {
-              "line": 23,
+              "line": 22,
               "column": 0
             },
             "end": {
-              "line": 23,
+              "line": 22,
               "column": 30
             }
           },
@@ -529,16 +529,16 @@
   "comments": [
     {
       "type": "CommentBlock",
-      "value": "*\n * Describes a wildcard in the Calendar Round or Long Count.\n * This class is not directly exposed to the user. There is a singleton in this\n * library to allow for use and equality comparison.\n * @example\n * import mayadates from '@drewsonne/maya-dates'\n * let cr = new mayadates.factory.CalendarRoundFactory().parse(\n *  '4 Ajaw 8 *')\n * console.log(cr.haab.month === mayadates.wildcard)\n * > true\n ",
+      "value": "*\n * Describes a wildcard in the Calendar Round or Long Count.\n * This class is not directly exposed to the user. There is a singleton in this\n * library to allow for use and equality comparison.\n * @example\n * const mayadates = require('maya-dates')\n * let cr = new mayadates.factory.CalendarRoundFactory().parse('4 Ajaw 8 *')\n * console.log(cr.haab.month === mayadates.wildcard)\n * > true\n ",
       "start": 0,
-      "end": 407,
+      "end": 396,
       "loc": {
         "start": {
           "line": 1,
           "column": 0
         },
         "end": {
-          "line": 11,
+          "line": 10,
           "column": 3
         }
       }
@@ -546,15 +546,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n   * Represent the Wildcard as a string. ie, '*'.\n   * @returns {string}\n   ",
-      "start": 427,
-      "end": 509,
+      "start": 416,
+      "end": 498,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 12,
           "column": 2
         },
         "end": {
-          "line": 16,
+          "line": 15,
           "column": 5
         }
       }
@@ -562,15 +562,15 @@
     {
       "type": "CommentLine",
       "value": " eslint-disable-next-line class-methods-use-this",
-      "start": 512,
-      "end": 562,
+      "start": 501,
+      "end": 551,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 16,
           "column": 2
         },
         "end": {
-          "line": 17,
+          "line": 16,
           "column": 52
         }
       }
@@ -579,16 +579,16 @@
   "tokens": [
     {
       "type": "CommentBlock",
-      "value": "*\n * Describes a wildcard in the Calendar Round or Long Count.\n * This class is not directly exposed to the user. There is a singleton in this\n * library to allow for use and equality comparison.\n * @example\n * import mayadates from '@drewsonne/maya-dates'\n * let cr = new mayadates.factory.CalendarRoundFactory().parse(\n *  '4 Ajaw 8 *')\n * console.log(cr.haab.month === mayadates.wildcard)\n * > true\n ",
+      "value": "*\n * Describes a wildcard in the Calendar Round or Long Count.\n * This class is not directly exposed to the user. There is a singleton in this\n * library to allow for use and equality comparison.\n * @example\n * const mayadates = require('maya-dates')\n * let cr = new mayadates.factory.CalendarRoundFactory().parse('4 Ajaw 8 *')\n * console.log(cr.haab.month === mayadates.wildcard)\n * > true\n ",
       "start": 0,
-      "end": 407,
+      "end": 396,
       "loc": {
         "start": {
           "line": 1,
           "column": 0
         },
         "end": {
-          "line": 11,
+          "line": 10,
           "column": 3
         }
       }
@@ -608,15 +608,15 @@
         "updateContext": null
       },
       "value": "class",
-      "start": 408,
-      "end": 413,
+      "start": 397,
+      "end": 402,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 11,
           "column": 0
         },
         "end": {
-          "line": 12,
+          "line": 11,
           "column": 5
         }
       }
@@ -634,15 +634,15 @@
         "binop": null
       },
       "value": "Wildcard",
-      "start": 414,
-      "end": 422,
+      "start": 403,
+      "end": 411,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 11,
           "column": 6
         },
         "end": {
-          "line": 12,
+          "line": 11,
           "column": 14
         }
       }
@@ -659,15 +659,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 423,
-      "end": 424,
+      "start": 412,
+      "end": 413,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 11,
           "column": 15
         },
         "end": {
-          "line": 12,
+          "line": 11,
           "column": 16
         }
       }
@@ -675,15 +675,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n   * Represent the Wildcard as a string. ie, '*'.\n   * @returns {string}\n   ",
-      "start": 427,
-      "end": 509,
+      "start": 416,
+      "end": 498,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 12,
           "column": 2
         },
         "end": {
-          "line": 16,
+          "line": 15,
           "column": 5
         }
       }
@@ -691,15 +691,15 @@
     {
       "type": "CommentLine",
       "value": " eslint-disable-next-line class-methods-use-this",
-      "start": 512,
-      "end": 562,
+      "start": 501,
+      "end": 551,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 16,
           "column": 2
         },
         "end": {
-          "line": 17,
+          "line": 16,
           "column": 52
         }
       }
@@ -717,15 +717,15 @@
         "binop": null
       },
       "value": "toString",
-      "start": 565,
-      "end": 573,
+      "start": 554,
+      "end": 562,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 17,
           "column": 2
         },
         "end": {
-          "line": 18,
+          "line": 17,
           "column": 10
         }
       }
@@ -742,15 +742,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 573,
-      "end": 574,
+      "start": 562,
+      "end": 563,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 17,
           "column": 10
         },
         "end": {
-          "line": 18,
+          "line": 17,
           "column": 11
         }
       }
@@ -767,15 +767,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 574,
-      "end": 575,
+      "start": 563,
+      "end": 564,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 17,
           "column": 11
         },
         "end": {
-          "line": 18,
+          "line": 17,
           "column": 12
         }
       }
@@ -792,15 +792,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 576,
-      "end": 577,
+      "start": 565,
+      "end": 566,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 17,
           "column": 13
         },
         "end": {
-          "line": 18,
+          "line": 17,
           "column": 14
         }
       }
@@ -820,15 +820,15 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 582,
-      "end": 588,
+      "start": 571,
+      "end": 577,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 18,
           "column": 4
         },
         "end": {
-          "line": 19,
+          "line": 18,
           "column": 10
         }
       }
@@ -847,15 +847,15 @@
         "updateContext": null
       },
       "value": "*",
-      "start": 589,
-      "end": 592,
+      "start": 578,
+      "end": 581,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 18,
           "column": 11
         },
         "end": {
-          "line": 19,
+          "line": 18,
           "column": 14
         }
       }
@@ -873,15 +873,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 592,
-      "end": 593,
+      "start": 581,
+      "end": 582,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 18,
           "column": 14
         },
         "end": {
-          "line": 19,
+          "line": 18,
           "column": 15
         }
       }
@@ -898,15 +898,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 596,
-      "end": 597,
+      "start": 585,
+      "end": 586,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 19,
           "column": 2
         },
         "end": {
-          "line": 20,
+          "line": 19,
           "column": 3
         }
       }
@@ -923,15 +923,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 598,
-      "end": 599,
+      "start": 587,
+      "end": 588,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 20,
           "column": 0
         },
         "end": {
-          "line": 21,
+          "line": 20,
           "column": 1
         }
       }
@@ -951,15 +951,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 601,
-      "end": 607,
+      "start": 590,
+      "end": 596,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 22,
           "column": 0
         },
         "end": {
-          "line": 23,
+          "line": 22,
           "column": 6
         }
       }
@@ -979,15 +979,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 608,
-      "end": 615,
+      "start": 597,
+      "end": 604,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 22,
           "column": 7
         },
         "end": {
-          "line": 23,
+          "line": 22,
           "column": 14
         }
       }
@@ -1007,15 +1007,15 @@
         "updateContext": null
       },
       "value": "new",
-      "start": 616,
-      "end": 619,
+      "start": 605,
+      "end": 608,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 22,
           "column": 15
         },
         "end": {
-          "line": 23,
+          "line": 22,
           "column": 18
         }
       }
@@ -1033,15 +1033,15 @@
         "binop": null
       },
       "value": "Wildcard",
-      "start": 620,
-      "end": 628,
+      "start": 609,
+      "end": 617,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 22,
           "column": 19
         },
         "end": {
-          "line": 23,
+          "line": 22,
           "column": 27
         }
       }
@@ -1058,15 +1058,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 628,
-      "end": 629,
+      "start": 617,
+      "end": 618,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 22,
           "column": 27
         },
         "end": {
-          "line": 23,
+          "line": 22,
           "column": 28
         }
       }
@@ -1083,15 +1083,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 629,
-      "end": 630,
+      "start": 618,
+      "end": 619,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 22,
           "column": 28
         },
         "end": {
-          "line": 23,
+          "line": 22,
           "column": 29
         }
       }
@@ -1109,15 +1109,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 630,
-      "end": 631,
+      "start": 619,
+      "end": 620,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 22,
           "column": 29
         },
         "end": {
-          "line": 23,
+          "line": 22,
           "column": 30
         }
       }
@@ -1135,15 +1135,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 632,
-      "end": 632,
+      "start": 621,
+      "end": 621,
       "loc": {
         "start": {
-          "line": 24,
+          "line": 23,
           "column": 0
         },
         "end": {
-          "line": 24,
+          "line": 23,
           "column": 0
         }
       }
