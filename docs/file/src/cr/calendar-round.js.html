@@ -50,7 +50,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCorrelationConstant">getCorrelationConstant</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-night">lc/night</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get">get</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-western">lc/western</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/gregorian.js~GregorianCalendarDate.html">GregorianCalendarDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/julian.js~JulianCalendarDate.html">JulianCalendarDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html">WesternCalendar</a></span></span></li>
@@ -64,18 +63,13 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/cr/calendar-round.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @ignore */
-const tzolkin = require(&apos;../cr/tzolkin&apos;);
-/** @ignore */
-const haab = require(&apos;../cr/haab&apos;);
-/** @ignore */
-const wildcard = require(&apos;../wildcard&apos;);
-/** @ignore */
-const DistanceNumber = require(&apos;../lc/distance-number&apos;);
-
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import tzolkin from &apos;./tzolkin&apos;;
+import haab from &apos;./haab&apos;;
+import wildcard from &apos;../wildcard&apos;;
+import DistanceNumber from &apos;../lc/distance-number&apos;;
 
 /** @ignore */
-const singleton = {};
+const singleton = {}
 
 /**
  * Return a comparable instance of a Calendar Round.
@@ -85,13 +79,14 @@ const singleton = {};
  * @param {HaabMonth|string} haabMonth
  * @return {CalendarRound}
  */
-function getCalendarRound(tzolkinCoeff, tzolkinDay, haabCoeff, haabMonth) {
-  const crId = `${tzolkinCoeff} ${tzolkinDay} ${haabCoeff} ${haabMonth}`;
+function getCalendarRound (tzolkinCoeff, tzolkinDay, haabCoeff, haabMonth) {
+  const crId = `${tzolkinCoeff} ${tzolkinDay} ${haabCoeff} ${haabMonth}`
   if (singleton[crId] === undefined) {
     // eslint-disable-next-line no-use-before-define
-    singleton[crId] = new CalendarRound(tzolkinCoeff, tzolkinDay, haabCoeff, haabMonth);
+    singleton[crId] = new CalendarRound(tzolkinCoeff, tzolkinDay, haabCoeff,
+      haabMonth)
   }
-  return singleton[crId];
+  return singleton[crId]
 }
 
 /**
@@ -108,19 +103,19 @@ class CalendarRound {
    * @param {number} haabCoeff Day in the Haab month
    * @param {string|HaabMonth} haabMonth Name of the Haab month
    */
-  constructor(tzolkinCoeff, tzolkinDay, haabCoeff, haabMonth) {
+  constructor (tzolkinCoeff, tzolkinDay, haabCoeff, haabMonth) {
     /**
      * 260-day cycle component of the Calendar Round
      * @type {Tzolkin}
      */
-    this.tzolkin = tzolkin.getTzolkin(tzolkinCoeff, tzolkinDay);
+    this.tzolkin = tzolkin.getTzolkin(tzolkinCoeff, tzolkinDay)
     /**
      * Haab cycle component of the Calendar Round
      * @type {Haab}
      */
-    this.haab = haab.getHaab(haabCoeff, haabMonth);
+    this.haab = haab.getHaab(haabCoeff, haabMonth)
 
-    this.validate();
+    this.validate()
   }
 
   /**
@@ -128,38 +123,40 @@ class CalendarRound {
    * configuration
    * @throws {Error} If the Calendar Round is invalid.
    */
-  validate() {
-    let validHaabCoeffs = [];
+  validate () {
+    let validHaabCoeffs = []
     if ([
-      &apos;Kaban&apos;, &apos;Ik\&apos;&apos;, &apos;Manik\&apos;&apos;, &apos;Eb&apos;
+      &apos;Kaban&apos;, &apos;Ik\&apos;&apos;, &apos;Manik\&apos;&apos;, &apos;Eb&apos;,
     ].includes(this.tzolkin.name)) {
-      validHaabCoeffs = [0, 5, 10, 15];
+      validHaabCoeffs = [0, 5, 10, 15]
     } else if ([
-      &apos;Etz\&apos;nab&apos;, &apos;Ak\&apos;bal&apos;, &apos;Lamat&apos;, &apos;Ben&apos;
+      &apos;Etz\&apos;nab&apos;, &apos;Ak\&apos;bal&apos;, &apos;Lamat&apos;, &apos;Ben&apos;,
     ].includes(this.tzolkin.name)) {
-      validHaabCoeffs = [1, 6, 11, 16];
+      validHaabCoeffs = [1, 6, 11, 16]
     } else if ([
-      &apos;Kawak&apos;, &apos;K\&apos;an&apos;, &apos;Muluk&apos;, &apos;Ix&apos;
+      &apos;Kawak&apos;, &apos;K\&apos;an&apos;, &apos;Muluk&apos;, &apos;Ix&apos;,
     ].includes(this.tzolkin.name)) {
-      validHaabCoeffs = [2, 7, 12, 17];
+      validHaabCoeffs = [2, 7, 12, 17]
     } else if ([
-      &apos;Ajaw&apos;, &apos;Chikchan&apos;, &apos;Ok&apos;, &apos;Men&apos;
+      &apos;Ajaw&apos;, &apos;Chikchan&apos;, &apos;Ok&apos;, &apos;Men&apos;,
     ].includes(this.tzolkin.name)) {
-      validHaabCoeffs = [3, 8, 13, 18];
+      validHaabCoeffs = [3, 8, 13, 18]
     } else if ([
-      &apos;Imix&apos;, &apos;Kimi&apos;, &apos;Chuwen&apos;, &apos;Kib&apos;
+      &apos;Imix&apos;, &apos;Kimi&apos;, &apos;Chuwen&apos;, &apos;Kib&apos;,
     ].includes(this.tzolkin.name)) {
-      validHaabCoeffs = [4, 9, 14, 19];
+      validHaabCoeffs = [4, 9, 14, 19]
     } else if ([wildcard].includes(this.tzolkin.name)) {
-      validHaabCoeffs = [...Array(19).keys()];
+      validHaabCoeffs = [...Array(19).keys()]
     } else {
-      throw new Error(`Could not allocate Tzolk&apos;in (${this.tzolkin.name}) to permissible month coeffs.`);
+      throw new Error(
+        `Could not allocate Tzolk&apos;in (${this.tzolkin.name}) to permissible month coeffs.`)
     }
 
-    validHaabCoeffs.push(wildcard);
+    validHaabCoeffs.push(wildcard)
 
     if (!validHaabCoeffs.includes(this.haab.coeff)) {
-      throw new Error(`${this} should have Haab coeff in ${validHaabCoeffs} for day ${this.tzolkin.name}`);
+      throw new Error(
+        `${this} should have Haab coeff in ${validHaabCoeffs} for day ${this.tzolkin.name}`)
     }
   }
 
@@ -167,8 +164,8 @@ class CalendarRound {
    * Increment both the Haab and 260-day cycle to the next day in the Calendar Round
    * @returns {CalendarRound}
    */
-  next() {
-    return this.shift(1);
+  next () {
+    return this.shift(1)
   }
 
   /**
@@ -177,8 +174,8 @@ class CalendarRound {
    * @param {CalendarRound} newCr
    * @return {Boolean}
    */
-  equal(newCr) {
-    return this === newCr;
+  equal (newCr) {
+    return this === newCr
   }
 
   /**
@@ -186,21 +183,29 @@ class CalendarRound {
    * @param {CalendarRound} targetCr
    * @return {LongCount}
    */
-  minus(targetCr) {
+  minus (targetCr) {
     /** @ignore */
-    const foundOrigin = false;
-    const foundTarget = false;
-    let current = this;
-    let count = 0;
+    let foundOrigin = false
+    const foundTarget = false
+    let current = this
+    let count = 0
+    let cycleCount = undefined
     while (!foundTarget) {
       // eslint-disable-next-line no-use-before-define
       if (current.equal(origin)) {
-        debugger;
+        foundOrigin = true
+        cycleCount = count
+        count = 0
+        current = current.next()
       } else if (current.equal(targetCr)) {
-        return new DistanceNumber(count).normalise();
+        return new DistanceNumber(
+          foundOrigin
+            ? -(18979 - cycleCount - count)
+            : count,
+        ).normalise()
       } else {
-        current = current.next();
-        count += 1;
+        current = current.next()
+        count += 1
       }
     }
   }
@@ -211,10 +216,10 @@ class CalendarRound {
    * @param {CalendarRound} newCr
    * @return {boolean}
    */
-  match(newCr) {
-    const haabMatches = this.haab.match(newCr.haab);
-    const tzolkinMatches = this.tzolkin.match(newCr.tzolkin);
-    return haabMatches &amp;&amp; tzolkinMatches;
+  match (newCr) {
+    const haabMatches = this.haab.match(newCr.haab)
+    const tzolkinMatches = this.tzolkin.match(newCr.tzolkin)
+    return haabMatches &amp;&amp; tzolkinMatches
   }
 
   /**
@@ -223,46 +228,48 @@ class CalendarRound {
    * @param {number} increment
    * @return {CalendarRound}
    */
-  shift(increment) {
-    const newHaab = this.haab.shift(increment);
-    const newTzolkin = this.tzolkin.shift(increment);
+  shift (increment) {
+    const newHaab = this.haab.shift(increment)
+    const newTzolkin = this.tzolkin.shift(increment)
     // eslint-disable-next-line no-use-before-define
     return getCalendarRound(
       newTzolkin.coeff,
       newTzolkin.day,
       newHaab.coeff,
-      newHaab.month
-    );
+      newHaab.month,
+    )
   }
 
   /**
    * Return true, if this function has any wildcard portions.
    * @return {boolean}
    */
-  isPartial() {
+  isPartial () {
     return (this.tzolkin.day === wildcard)
       || (this.tzolkin.coeff === wildcard)
       || (this.haab.month === wildcard)
-      || (this.haab.coeff === wildcard);
+      || (this.haab.coeff === wildcard)
   }
 
   /**
    * Render the CalendarRound cycle fullDate as a string
    * @returns {string}
    */
-  toString() {
-    return `${this.tzolkin} ${this.haab}`;
+  toString () {
+    return `${this.tzolkin} ${this.haab}`
   }
 }
 
 /** @ignore */
 const origin = getCalendarRound(
   4, &apos;Ajaw&apos;,
-  8, &apos;Kumk\&apos;u&apos;
-);
+  8, &apos;Kumk\&apos;u&apos;,
+)
 
-
-module.exports = {getCalendarRound, origin};
+export default {
+  getCalendarRound,
+  origin
+};
 </code></pre>
 
 </div>

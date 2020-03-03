@@ -138,12 +138,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "@drewsonne/maya-dates/src/lc/night/lord-of-night.js~get",
-    "function/index.html#static-function-get",
-    "<span>get</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/night/lord-of-night.js</span>",
-    "function"
-  ],
-  [
     "@drewsonne/maya-dates/src/cr/calendar-round.js~getcalendarround",
     "function/index.html#static-function-getCalendarRound",
     "<span>getCalendarRound</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/calendar-round.js</span>",
@@ -1362,9 +1356,9 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/operations/calendar-round-iterator.js",
-    "file/src/operations/calendar-round-iterator.js.html",
-    "src/operations/calendar-round-iterator.js",
+    "src/operations/calendar-round-iter.js",
+    "file/src/operations/calendar-round-iter.js.html",
+    "src/operations/calendar-round-iter.js",
     "file"
   ],
   [

@@ -1,11 +1,10 @@
-/** @ignore */
-const moonbeams = require('moonbeams');
+import moonbeams from 'moonbeams';
 
 /**
  * Represents either a Julian or Gregorian calendar.
  * @abstract
  */
-class WesternCalendar {
+export default class WesternCalendar {
   /**
    * Store a date with reference to a Julian Day.
    * @param {number} julianDay
@@ -78,6 +77,3 @@ class WesternCalendar {
     return date;
   }
 }
-
-
-module.exports = WesternCalendar;

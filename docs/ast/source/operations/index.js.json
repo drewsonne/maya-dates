@@ -1,780 +1,450 @@
 {
   "type": "File",
   "start": 0,
-  "end": 317,
+  "end": 255,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 13,
+      "line": 10,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 317,
+    "end": 255,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 13,
+        "line": 10,
         "column": 0
       }
     },
     "sourceType": "module",
     "body": [
       {
-        "type": "VariableDeclaration",
-        "start": 15,
-        "end": 73,
+        "type": "ImportDeclaration",
+        "start": 0,
+        "end": 53,
         "loc": {
           "start": {
-            "line": 2,
+            "line": 1,
             "column": 0
           },
           "end": {
-            "line": 2,
-            "column": 58
+            "line": 1,
+            "column": 53
           }
         },
-        "declarations": [
+        "specifiers": [
           {
-            "type": "VariableDeclarator",
-            "start": 21,
-            "end": 72,
-            "loc": {
-              "start": {
-                "line": 2,
-                "column": 6
-              },
-              "end": {
-                "line": 2,
-                "column": 57
-              }
-            },
-            "id": {
-              "type": "Identifier",
-              "start": 21,
-              "end": 38,
-              "loc": {
-                "start": {
-                  "line": 2,
-                  "column": 6
-                },
-                "end": {
-                  "line": 2,
-                  "column": 23
-                },
-                "identifierName": "LongCountWildcard"
-              },
-              "name": "LongCountWildcard",
-              "leadingComments": null
-            },
-            "init": {
-              "type": "CallExpression",
-              "start": 41,
-              "end": 72,
-              "loc": {
-                "start": {
-                  "line": 2,
-                  "column": 26
-                },
-                "end": {
-                  "line": 2,
-                  "column": 57
-                }
-              },
-              "callee": {
-                "type": "Identifier",
-                "start": 41,
-                "end": 48,
-                "loc": {
-                  "start": {
-                    "line": 2,
-                    "column": 26
-                  },
-                  "end": {
-                    "line": 2,
-                    "column": 33
-                  },
-                  "identifierName": "require"
-                },
-                "name": "require"
-              },
-              "arguments": [
-                {
-                  "type": "StringLiteral",
-                  "start": 49,
-                  "end": 71,
-                  "loc": {
-                    "start": {
-                      "line": 2,
-                      "column": 34
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 56
-                    }
-                  },
-                  "extra": {
-                    "rawValue": "./longcount-wildcard",
-                    "raw": "'./longcount-wildcard'"
-                  },
-                  "value": "./longcount-wildcard"
-                }
-              ]
-            },
-            "leadingComments": null
-          }
-        ],
-        "kind": "const",
-        "leadingComments": [
-          {
-            "type": "CommentBlock",
-            "value": "* @ignore ",
-            "start": 0,
-            "end": 14,
+            "type": "ImportDefaultSpecifier",
+            "start": 7,
+            "end": 24,
             "loc": {
               "start": {
                 "line": 1,
-                "column": 0
+                "column": 7
               },
               "end": {
                 "line": 1,
-                "column": 14
-              }
-            }
-          }
-        ],
-        "trailingComments": [
-          {
-            "type": "CommentBlock",
-            "value": "* @ignore ",
-            "start": 74,
-            "end": 88,
-            "loc": {
-              "start": {
-                "line": 3,
-                "column": 0
-              },
-              "end": {
-                "line": 3,
-                "column": 14
-              }
-            }
-          }
-        ]
-      },
-      {
-        "type": "VariableDeclaration",
-        "start": 89,
-        "end": 156,
-        "loc": {
-          "start": {
-            "line": 4,
-            "column": 0
-          },
-          "end": {
-            "line": 4,
-            "column": 67
-          }
-        },
-        "declarations": [
-          {
-            "type": "VariableDeclarator",
-            "start": 95,
-            "end": 155,
-            "loc": {
-              "start": {
-                "line": 4,
-                "column": 6
-              },
-              "end": {
-                "line": 4,
-                "column": 66
+                "column": 24
               }
             },
-            "id": {
+            "local": {
               "type": "Identifier",
-              "start": 95,
-              "end": 116,
+              "start": 7,
+              "end": 24,
               "loc": {
                 "start": {
-                  "line": 4,
-                  "column": 6
-                },
-                "end": {
-                  "line": 4,
-                  "column": 27
-                },
-                "identifierName": "CalendarRoundWildcard"
-              },
-              "name": "CalendarRoundWildcard",
-              "leadingComments": null
-            },
-            "init": {
-              "type": "CallExpression",
-              "start": 119,
-              "end": 155,
-              "loc": {
-                "start": {
-                  "line": 4,
-                  "column": 30
-                },
-                "end": {
-                  "line": 4,
-                  "column": 66
-                }
-              },
-              "callee": {
-                "type": "Identifier",
-                "start": 119,
-                "end": 126,
-                "loc": {
-                  "start": {
-                    "line": 4,
-                    "column": 30
-                  },
-                  "end": {
-                    "line": 4,
-                    "column": 37
-                  },
-                  "identifierName": "require"
-                },
-                "name": "require"
-              },
-              "arguments": [
-                {
-                  "type": "StringLiteral",
-                  "start": 127,
-                  "end": 154,
-                  "loc": {
-                    "start": {
-                      "line": 4,
-                      "column": 38
-                    },
-                    "end": {
-                      "line": 4,
-                      "column": 65
-                    }
-                  },
-                  "extra": {
-                    "rawValue": "./calendar-round-wildcard",
-                    "raw": "'./calendar-round-wildcard'"
-                  },
-                  "value": "./calendar-round-wildcard"
-                }
-              ]
-            },
-            "leadingComments": null
-          }
-        ],
-        "kind": "const",
-        "leadingComments": [
-          {
-            "type": "CommentBlock",
-            "value": "* @ignore ",
-            "start": 74,
-            "end": 88,
-            "loc": {
-              "start": {
-                "line": 3,
-                "column": 0
-              },
-              "end": {
-                "line": 3,
-                "column": 14
-              }
-            }
-          }
-        ],
-        "trailingComments": [
-          {
-            "type": "CommentBlock",
-            "value": "* @ignore ",
-            "start": 157,
-            "end": 171,
-            "loc": {
-              "start": {
-                "line": 5,
-                "column": 0
-              },
-              "end": {
-                "line": 5,
-                "column": 14
-              }
-            }
-          }
-        ]
-      },
-      {
-        "type": "VariableDeclaration",
-        "start": 172,
-        "end": 228,
-        "loc": {
-          "start": {
-            "line": 6,
-            "column": 0
-          },
-          "end": {
-            "line": 6,
-            "column": 56
-          }
-        },
-        "declarations": [
-          {
-            "type": "VariableDeclarator",
-            "start": 178,
-            "end": 227,
-            "loc": {
-              "start": {
-                "line": 6,
-                "column": 6
-              },
-              "end": {
-                "line": 6,
-                "column": 55
-              }
-            },
-            "id": {
-              "type": "Identifier",
-              "start": 178,
-              "end": 194,
-              "loc": {
-                "start": {
-                  "line": 6,
-                  "column": 6
-                },
-                "end": {
-                  "line": 6,
-                  "column": 22
-                },
-                "identifierName": "FullDateWildcard"
-              },
-              "name": "FullDateWildcard",
-              "leadingComments": null
-            },
-            "init": {
-              "type": "CallExpression",
-              "start": 197,
-              "end": 227,
-              "loc": {
-                "start": {
-                  "line": 6,
-                  "column": 25
-                },
-                "end": {
-                  "line": 6,
-                  "column": 55
-                }
-              },
-              "callee": {
-                "type": "Identifier",
-                "start": 197,
-                "end": 204,
-                "loc": {
-                  "start": {
-                    "line": 6,
-                    "column": 25
-                  },
-                  "end": {
-                    "line": 6,
-                    "column": 32
-                  },
-                  "identifierName": "require"
-                },
-                "name": "require"
-              },
-              "arguments": [
-                {
-                  "type": "StringLiteral",
-                  "start": 205,
-                  "end": 226,
-                  "loc": {
-                    "start": {
-                      "line": 6,
-                      "column": 33
-                    },
-                    "end": {
-                      "line": 6,
-                      "column": 54
-                    }
-                  },
-                  "extra": {
-                    "rawValue": "./fulldate-wildcard",
-                    "raw": "'./fulldate-wildcard'"
-                  },
-                  "value": "./fulldate-wildcard"
-                }
-              ]
-            },
-            "leadingComments": null
-          }
-        ],
-        "kind": "const",
-        "leadingComments": [
-          {
-            "type": "CommentBlock",
-            "value": "* @ignore ",
-            "start": 157,
-            "end": 171,
-            "loc": {
-              "start": {
-                "line": 5,
-                "column": 0
-              },
-              "end": {
-                "line": 5,
-                "column": 14
-              }
-            }
-          }
-        ]
-      },
-      {
-        "type": "ExpressionStatement",
-        "start": 230,
-        "end": 316,
-        "loc": {
-          "start": {
-            "line": 8,
-            "column": 0
-          },
-          "end": {
-            "line": 12,
-            "column": 2
-          }
-        },
-        "expression": {
-          "type": "AssignmentExpression",
-          "start": 230,
-          "end": 315,
-          "loc": {
-            "start": {
-              "line": 8,
-              "column": 0
-            },
-            "end": {
-              "line": 12,
-              "column": 1
-            }
-          },
-          "operator": "=",
-          "left": {
-            "type": "MemberExpression",
-            "start": 230,
-            "end": 244,
-            "loc": {
-              "start": {
-                "line": 8,
-                "column": 0
-              },
-              "end": {
-                "line": 8,
-                "column": 14
-              }
-            },
-            "object": {
-              "type": "Identifier",
-              "start": 230,
-              "end": 236,
-              "loc": {
-                "start": {
-                  "line": 8,
-                  "column": 0
-                },
-                "end": {
-                  "line": 8,
-                  "column": 6
-                },
-                "identifierName": "module"
-              },
-              "name": "module"
-            },
-            "property": {
-              "type": "Identifier",
-              "start": 237,
-              "end": 244,
-              "loc": {
-                "start": {
-                  "line": 8,
+                  "line": 1,
                   "column": 7
                 },
                 "end": {
-                  "line": 8,
-                  "column": 14
+                  "line": 1,
+                  "column": 24
                 },
-                "identifierName": "exports"
+                "identifierName": "LongCountWildcard"
               },
-              "name": "exports"
+              "name": "LongCountWildcard"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 30,
+          "end": 52,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 30
             },
-            "computed": false
+            "end": {
+              "line": 1,
+              "column": 52
+            }
           },
-          "right": {
-            "type": "ObjectExpression",
-            "start": 247,
-            "end": 315,
+          "extra": {
+            "rawValue": "./longcount-wildcard",
+            "raw": "'./longcount-wildcard'"
+          },
+          "value": "./longcount-wildcard"
+        }
+      },
+      {
+        "type": "ImportDeclaration",
+        "start": 54,
+        "end": 116,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 62
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportDefaultSpecifier",
+            "start": 61,
+            "end": 82,
             "loc": {
               "start": {
-                "line": 8,
-                "column": 17
+                "line": 2,
+                "column": 7
               },
               "end": {
-                "line": 12,
-                "column": 1
+                "line": 2,
+                "column": 28
               }
             },
-            "properties": [
-              {
-                "type": "ObjectProperty",
-                "start": 251,
-                "end": 268,
-                "loc": {
-                  "start": {
-                    "line": 9,
-                    "column": 2
-                  },
-                  "end": {
-                    "line": 9,
-                    "column": 19
-                  }
+            "local": {
+              "type": "Identifier",
+              "start": 61,
+              "end": 82,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 7
                 },
-                "method": false,
-                "shorthand": true,
-                "computed": false,
-                "key": {
-                  "type": "Identifier",
-                  "start": 251,
-                  "end": 268,
-                  "loc": {
-                    "start": {
-                      "line": 9,
-                      "column": 2
-                    },
-                    "end": {
-                      "line": 9,
-                      "column": 19
-                    },
-                    "identifierName": "LongCountWildcard"
-                  },
-                  "name": "LongCountWildcard"
+                "end": {
+                  "line": 2,
+                  "column": 28
                 },
-                "value": {
-                  "type": "Identifier",
-                  "start": 251,
-                  "end": 268,
-                  "loc": {
-                    "start": {
-                      "line": 9,
-                      "column": 2
-                    },
-                    "end": {
-                      "line": 9,
-                      "column": 19
-                    },
-                    "identifierName": "LongCountWildcard"
-                  },
-                  "name": "LongCountWildcard"
-                },
-                "extra": {
-                  "shorthand": true
-                }
+                "identifierName": "CalendarRoundWildcard"
               },
-              {
-                "type": "ObjectProperty",
-                "start": 272,
-                "end": 293,
-                "loc": {
-                  "start": {
-                    "line": 10,
-                    "column": 2
-                  },
-                  "end": {
-                    "line": 10,
-                    "column": 23
-                  }
-                },
-                "method": false,
-                "shorthand": true,
-                "computed": false,
-                "key": {
-                  "type": "Identifier",
-                  "start": 272,
-                  "end": 293,
-                  "loc": {
-                    "start": {
-                      "line": 10,
-                      "column": 2
-                    },
-                    "end": {
-                      "line": 10,
-                      "column": 23
-                    },
-                    "identifierName": "CalendarRoundWildcard"
-                  },
-                  "name": "CalendarRoundWildcard"
-                },
-                "value": {
-                  "type": "Identifier",
-                  "start": 272,
-                  "end": 293,
-                  "loc": {
-                    "start": {
-                      "line": 10,
-                      "column": 2
-                    },
-                    "end": {
-                      "line": 10,
-                      "column": 23
-                    },
-                    "identifierName": "CalendarRoundWildcard"
-                  },
-                  "name": "CalendarRoundWildcard"
-                },
-                "extra": {
-                  "shorthand": true
-                }
-              },
-              {
-                "type": "ObjectProperty",
-                "start": 297,
-                "end": 313,
-                "loc": {
-                  "start": {
-                    "line": 11,
-                    "column": 2
-                  },
-                  "end": {
-                    "line": 11,
-                    "column": 18
-                  }
-                },
-                "method": false,
-                "shorthand": true,
-                "computed": false,
-                "key": {
-                  "type": "Identifier",
-                  "start": 297,
-                  "end": 313,
-                  "loc": {
-                    "start": {
-                      "line": 11,
-                      "column": 2
-                    },
-                    "end": {
-                      "line": 11,
-                      "column": 18
-                    },
-                    "identifierName": "FullDateWildcard"
-                  },
-                  "name": "FullDateWildcard"
-                },
-                "value": {
-                  "type": "Identifier",
-                  "start": 297,
-                  "end": 313,
-                  "loc": {
-                    "start": {
-                      "line": 11,
-                      "column": 2
-                    },
-                    "end": {
-                      "line": 11,
-                      "column": 18
-                    },
-                    "identifierName": "FullDateWildcard"
-                  },
-                  "name": "FullDateWildcard"
-                },
-                "extra": {
-                  "shorthand": true
-                }
-              }
-            ]
+              "name": "CalendarRoundWildcard"
+            }
           }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 88,
+          "end": 115,
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 34
+            },
+            "end": {
+              "line": 2,
+              "column": 61
+            }
+          },
+          "extra": {
+            "rawValue": "./calendar-round-wildcard",
+            "raw": "'./calendar-round-wildcard'"
+          },
+          "value": "./calendar-round-wildcard"
+        }
+      },
+      {
+        "type": "ImportDeclaration",
+        "start": 117,
+        "end": 168,
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 0
+          },
+          "end": {
+            "line": 3,
+            "column": 51
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportDefaultSpecifier",
+            "start": 124,
+            "end": 140,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 7
+              },
+              "end": {
+                "line": 3,
+                "column": 23
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 124,
+              "end": 140,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 7
+                },
+                "end": {
+                  "line": 3,
+                  "column": 23
+                },
+                "identifierName": "FullDateWildcard"
+              },
+              "name": "FullDateWildcard"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 146,
+          "end": 167,
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 29
+            },
+            "end": {
+              "line": 3,
+              "column": 50
+            }
+          },
+          "extra": {
+            "rawValue": "./fulldate-wildcard",
+            "raw": "'./fulldate-wildcard'"
+          },
+          "value": "./fulldate-wildcard"
+        }
+      },
+      {
+        "type": "ExportDefaultDeclaration",
+        "start": 170,
+        "end": 254,
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 0
+          },
+          "end": {
+            "line": 9,
+            "column": 2
+          }
+        },
+        "declaration": {
+          "type": "ObjectExpression",
+          "start": 185,
+          "end": 253,
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 15
+            },
+            "end": {
+              "line": 9,
+              "column": 1
+            }
+          },
+          "properties": [
+            {
+              "type": "ObjectProperty",
+              "start": 189,
+              "end": 206,
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 2
+                },
+                "end": {
+                  "line": 6,
+                  "column": 19
+                }
+              },
+              "method": false,
+              "shorthand": true,
+              "computed": false,
+              "key": {
+                "type": "Identifier",
+                "start": 189,
+                "end": 206,
+                "loc": {
+                  "start": {
+                    "line": 6,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 6,
+                    "column": 19
+                  },
+                  "identifierName": "LongCountWildcard"
+                },
+                "name": "LongCountWildcard"
+              },
+              "value": {
+                "type": "Identifier",
+                "start": 189,
+                "end": 206,
+                "loc": {
+                  "start": {
+                    "line": 6,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 6,
+                    "column": 19
+                  },
+                  "identifierName": "LongCountWildcard"
+                },
+                "name": "LongCountWildcard"
+              },
+              "extra": {
+                "shorthand": true
+              }
+            },
+            {
+              "type": "ObjectProperty",
+              "start": 210,
+              "end": 231,
+              "loc": {
+                "start": {
+                  "line": 7,
+                  "column": 2
+                },
+                "end": {
+                  "line": 7,
+                  "column": 23
+                }
+              },
+              "method": false,
+              "shorthand": true,
+              "computed": false,
+              "key": {
+                "type": "Identifier",
+                "start": 210,
+                "end": 231,
+                "loc": {
+                  "start": {
+                    "line": 7,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 7,
+                    "column": 23
+                  },
+                  "identifierName": "CalendarRoundWildcard"
+                },
+                "name": "CalendarRoundWildcard"
+              },
+              "value": {
+                "type": "Identifier",
+                "start": 210,
+                "end": 231,
+                "loc": {
+                  "start": {
+                    "line": 7,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 7,
+                    "column": 23
+                  },
+                  "identifierName": "CalendarRoundWildcard"
+                },
+                "name": "CalendarRoundWildcard"
+              },
+              "extra": {
+                "shorthand": true
+              }
+            },
+            {
+              "type": "ObjectProperty",
+              "start": 235,
+              "end": 251,
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 2
+                },
+                "end": {
+                  "line": 8,
+                  "column": 18
+                }
+              },
+              "method": false,
+              "shorthand": true,
+              "computed": false,
+              "key": {
+                "type": "Identifier",
+                "start": 235,
+                "end": 251,
+                "loc": {
+                  "start": {
+                    "line": 8,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 8,
+                    "column": 18
+                  },
+                  "identifierName": "FullDateWildcard"
+                },
+                "name": "FullDateWildcard"
+              },
+              "value": {
+                "type": "Identifier",
+                "start": 235,
+                "end": 251,
+                "loc": {
+                  "start": {
+                    "line": 8,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 8,
+                    "column": 18
+                  },
+                  "identifierName": "FullDateWildcard"
+                },
+                "name": "FullDateWildcard"
+              },
+              "extra": {
+                "shorthand": true
+              }
+            }
+          ],
+          "leadingComments": [],
+          "trailingComments": []
         }
       }
     ],
     "directives": []
   },
-  "comments": [
-    {
-      "type": "CommentBlock",
-      "value": "* @ignore ",
-      "start": 0,
-      "end": 14,
-      "loc": {
-        "start": {
-          "line": 1,
-          "column": 0
-        },
-        "end": {
-          "line": 1,
-          "column": 14
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "* @ignore ",
-      "start": 74,
-      "end": 88,
-      "loc": {
-        "start": {
-          "line": 3,
-          "column": 0
-        },
-        "end": {
-          "line": 3,
-          "column": 14
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "* @ignore ",
-      "start": 157,
-      "end": 171,
-      "loc": {
-        "start": {
-          "line": 5,
-          "column": 0
-        },
-        "end": {
-          "line": 5,
-          "column": 14
-        }
-      }
-    }
-  ],
+  "comments": [],
   "tokens": [
     {
-      "type": "CommentBlock",
-      "value": "* @ignore ",
-      "start": 0,
-      "end": 14,
-      "loc": {
-        "start": {
-          "line": 1,
-          "column": 0
-        },
-        "end": {
-          "line": 1,
-          "column": 14
-        }
-      }
-    },
-    {
       "type": {
-        "label": "const",
-        "keyword": "const",
+        "label": "import",
+        "keyword": "import",
         "beforeExpr": false,
-        "startsExpr": false,
+        "startsExpr": true,
         "rightAssociative": false,
         "isLoop": false,
         "isAssign": false,
@@ -783,17 +453,17 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "const",
-      "start": 15,
-      "end": 20,
+      "value": "import",
+      "start": 0,
+      "end": 6,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 1,
           "column": 0
         },
         "end": {
-          "line": 2,
-          "column": 5
+          "line": 1,
+          "column": 6
         }
       }
     },
@@ -810,43 +480,16 @@
         "binop": null
       },
       "value": "LongCountWildcard",
-      "start": 21,
-      "end": 38,
+      "start": 7,
+      "end": 24,
       "loc": {
         "start": {
-          "line": 2,
-          "column": 6
+          "line": 1,
+          "column": 7
         },
         "end": {
-          "line": 2,
-          "column": 23
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "=",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": true,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "=",
-      "start": 39,
-      "end": 40,
-      "loc": {
-        "start": {
-          "line": 2,
+          "line": 1,
           "column": 24
-        },
-        "end": {
-          "line": 2,
-          "column": 25
         }
       }
     },
@@ -862,42 +505,17 @@
         "postfix": false,
         "binop": null
       },
-      "value": "require",
-      "start": 41,
-      "end": 48,
+      "value": "from",
+      "start": 25,
+      "end": 29,
       "loc": {
         "start": {
-          "line": 2,
-          "column": 26
+          "line": 1,
+          "column": 25
         },
         "end": {
-          "line": 2,
-          "column": 33
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "(",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 48,
-      "end": 49,
-      "loc": {
-        "start": {
-          "line": 2,
-          "column": 33
-        },
-        "end": {
-          "line": 2,
-          "column": 34
+          "line": 1,
+          "column": 29
         }
       }
     },
@@ -915,41 +533,16 @@
         "updateContext": null
       },
       "value": "./longcount-wildcard",
-      "start": 49,
-      "end": 71,
+      "start": 30,
+      "end": 52,
       "loc": {
         "start": {
-          "line": 2,
-          "column": 34
+          "line": 1,
+          "column": 30
         },
         "end": {
-          "line": 2,
-          "column": 56
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ")",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 71,
-      "end": 72,
-      "loc": {
-        "start": {
-          "line": 2,
-          "column": 56
-        },
-        "end": {
-          "line": 2,
-          "column": 57
+          "line": 1,
+          "column": 52
         }
       }
     },
@@ -966,41 +559,25 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 72,
-      "end": 73,
+      "start": 52,
+      "end": 53,
       "loc": {
         "start": {
-          "line": 2,
-          "column": 57
+          "line": 1,
+          "column": 52
         },
         "end": {
-          "line": 2,
-          "column": 58
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "* @ignore ",
-      "start": 74,
-      "end": 88,
-      "loc": {
-        "start": {
-          "line": 3,
-          "column": 0
-        },
-        "end": {
-          "line": 3,
-          "column": 14
+          "line": 1,
+          "column": 53
         }
       }
     },
     {
       "type": {
-        "label": "const",
-        "keyword": "const",
+        "label": "import",
+        "keyword": "import",
         "beforeExpr": false,
-        "startsExpr": false,
+        "startsExpr": true,
         "rightAssociative": false,
         "isLoop": false,
         "isAssign": false,
@@ -1009,17 +586,17 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "const",
-      "start": 89,
-      "end": 94,
+      "value": "import",
+      "start": 54,
+      "end": 60,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 2,
           "column": 0
         },
         "end": {
-          "line": 4,
-          "column": 5
+          "line": 2,
+          "column": 6
         }
       }
     },
@@ -1036,43 +613,16 @@
         "binop": null
       },
       "value": "CalendarRoundWildcard",
-      "start": 95,
-      "end": 116,
+      "start": 61,
+      "end": 82,
       "loc": {
         "start": {
-          "line": 4,
-          "column": 6
+          "line": 2,
+          "column": 7
         },
         "end": {
-          "line": 4,
-          "column": 27
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "=",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": true,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "=",
-      "start": 117,
-      "end": 118,
-      "loc": {
-        "start": {
-          "line": 4,
+          "line": 2,
           "column": 28
-        },
-        "end": {
-          "line": 4,
-          "column": 29
         }
       }
     },
@@ -1088,42 +638,17 @@
         "postfix": false,
         "binop": null
       },
-      "value": "require",
-      "start": 119,
-      "end": 126,
+      "value": "from",
+      "start": 83,
+      "end": 87,
       "loc": {
         "start": {
-          "line": 4,
-          "column": 30
+          "line": 2,
+          "column": 29
         },
         "end": {
-          "line": 4,
-          "column": 37
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "(",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 126,
-      "end": 127,
-      "loc": {
-        "start": {
-          "line": 4,
-          "column": 37
-        },
-        "end": {
-          "line": 4,
-          "column": 38
+          "line": 2,
+          "column": 33
         }
       }
     },
@@ -1141,41 +666,16 @@
         "updateContext": null
       },
       "value": "./calendar-round-wildcard",
-      "start": 127,
-      "end": 154,
+      "start": 88,
+      "end": 115,
       "loc": {
         "start": {
-          "line": 4,
-          "column": 38
+          "line": 2,
+          "column": 34
         },
         "end": {
-          "line": 4,
-          "column": 65
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ")",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 154,
-      "end": 155,
-      "loc": {
-        "start": {
-          "line": 4,
-          "column": 65
-        },
-        "end": {
-          "line": 4,
-          "column": 66
+          "line": 2,
+          "column": 61
         }
       }
     },
@@ -1192,41 +692,25 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 155,
-      "end": 156,
+      "start": 115,
+      "end": 116,
       "loc": {
         "start": {
-          "line": 4,
-          "column": 66
+          "line": 2,
+          "column": 61
         },
         "end": {
-          "line": 4,
-          "column": 67
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "* @ignore ",
-      "start": 157,
-      "end": 171,
-      "loc": {
-        "start": {
-          "line": 5,
-          "column": 0
-        },
-        "end": {
-          "line": 5,
-          "column": 14
+          "line": 2,
+          "column": 62
         }
       }
     },
     {
       "type": {
-        "label": "const",
-        "keyword": "const",
+        "label": "import",
+        "keyword": "import",
         "beforeExpr": false,
-        "startsExpr": false,
+        "startsExpr": true,
         "rightAssociative": false,
         "isLoop": false,
         "isAssign": false,
@@ -1235,17 +719,17 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "const",
-      "start": 172,
-      "end": 177,
+      "value": "import",
+      "start": 117,
+      "end": 123,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 3,
           "column": 0
         },
         "end": {
-          "line": 6,
-          "column": 5
+          "line": 3,
+          "column": 6
         }
       }
     },
@@ -1262,43 +746,16 @@
         "binop": null
       },
       "value": "FullDateWildcard",
-      "start": 178,
-      "end": 194,
+      "start": 124,
+      "end": 140,
       "loc": {
         "start": {
-          "line": 6,
-          "column": 6
+          "line": 3,
+          "column": 7
         },
         "end": {
-          "line": 6,
-          "column": 22
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "=",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": true,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "=",
-      "start": 195,
-      "end": 196,
-      "loc": {
-        "start": {
-          "line": 6,
+          "line": 3,
           "column": 23
-        },
-        "end": {
-          "line": 6,
-          "column": 24
         }
       }
     },
@@ -1314,42 +771,17 @@
         "postfix": false,
         "binop": null
       },
-      "value": "require",
-      "start": 197,
-      "end": 204,
+      "value": "from",
+      "start": 141,
+      "end": 145,
       "loc": {
         "start": {
-          "line": 6,
-          "column": 25
+          "line": 3,
+          "column": 24
         },
         "end": {
-          "line": 6,
-          "column": 32
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "(",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 204,
-      "end": 205,
-      "loc": {
-        "start": {
-          "line": 6,
-          "column": 32
-        },
-        "end": {
-          "line": 6,
-          "column": 33
+          "line": 3,
+          "column": 28
         }
       }
     },
@@ -1367,41 +799,16 @@
         "updateContext": null
       },
       "value": "./fulldate-wildcard",
-      "start": 205,
-      "end": 226,
+      "start": 146,
+      "end": 167,
       "loc": {
         "start": {
-          "line": 6,
-          "column": 33
+          "line": 3,
+          "column": 29
         },
         "end": {
-          "line": 6,
-          "column": 54
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ")",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 226,
-      "end": 227,
-      "loc": {
-        "start": {
-          "line": 6,
-          "column": 54
-        },
-        "end": {
-          "line": 6,
-          "column": 55
+          "line": 3,
+          "column": 50
         }
       }
     },
@@ -1418,48 +825,23 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 227,
-      "end": 228,
+      "start": 167,
+      "end": 168,
       "loc": {
         "start": {
-          "line": 6,
-          "column": 55
+          "line": 3,
+          "column": 50
         },
         "end": {
-          "line": 6,
-          "column": 56
+          "line": 3,
+          "column": 51
         }
       }
     },
     {
       "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "module",
-      "start": 230,
-      "end": 236,
-      "loc": {
-        "start": {
-          "line": 8,
-          "column": 0
-        },
-        "end": {
-          "line": 8,
-          "column": 6
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ".",
+        "label": "export",
+        "keyword": "export",
         "beforeExpr": false,
         "startsExpr": false,
         "rightAssociative": false,
@@ -1470,69 +852,45 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 236,
-      "end": 237,
+      "value": "export",
+      "start": 170,
+      "end": 176,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 5,
+          "column": 0
+        },
+        "end": {
+          "line": 5,
           "column": 6
-        },
-        "end": {
-          "line": 8,
-          "column": 7
         }
       }
     },
     {
       "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "exports",
-      "start": 237,
-      "end": 244,
-      "loc": {
-        "start": {
-          "line": 8,
-          "column": 7
-        },
-        "end": {
-          "line": 8,
-          "column": 14
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "=",
+        "label": "default",
+        "keyword": "default",
         "beforeExpr": true,
         "startsExpr": false,
         "rightAssociative": false,
         "isLoop": false,
-        "isAssign": true,
+        "isAssign": false,
         "prefix": false,
         "postfix": false,
         "binop": null,
         "updateContext": null
       },
-      "value": "=",
-      "start": 245,
-      "end": 246,
+      "value": "default",
+      "start": 177,
+      "end": 184,
       "loc": {
         "start": {
-          "line": 8,
-          "column": 15
+          "line": 5,
+          "column": 7
         },
         "end": {
-          "line": 8,
-          "column": 16
+          "line": 5,
+          "column": 14
         }
       }
     },
@@ -1548,16 +906,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 247,
-      "end": 248,
+      "start": 185,
+      "end": 186,
       "loc": {
         "start": {
-          "line": 8,
-          "column": 17
+          "line": 5,
+          "column": 15
         },
         "end": {
-          "line": 8,
-          "column": 18
+          "line": 5,
+          "column": 16
         }
       }
     },
@@ -1574,15 +932,15 @@
         "binop": null
       },
       "value": "LongCountWildcard",
-      "start": 251,
-      "end": 268,
+      "start": 189,
+      "end": 206,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 6,
           "column": 2
         },
         "end": {
-          "line": 9,
+          "line": 6,
           "column": 19
         }
       }
@@ -1600,15 +958,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 268,
-      "end": 269,
+      "start": 206,
+      "end": 207,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 6,
           "column": 19
         },
         "end": {
-          "line": 9,
+          "line": 6,
           "column": 20
         }
       }
@@ -1626,15 +984,15 @@
         "binop": null
       },
       "value": "CalendarRoundWildcard",
-      "start": 272,
-      "end": 293,
+      "start": 210,
+      "end": 231,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 7,
           "column": 2
         },
         "end": {
-          "line": 10,
+          "line": 7,
           "column": 23
         }
       }
@@ -1652,15 +1010,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 293,
-      "end": 294,
+      "start": 231,
+      "end": 232,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 7,
           "column": 23
         },
         "end": {
-          "line": 10,
+          "line": 7,
           "column": 24
         }
       }
@@ -1678,15 +1036,15 @@
         "binop": null
       },
       "value": "FullDateWildcard",
-      "start": 297,
-      "end": 313,
+      "start": 235,
+      "end": 251,
       "loc": {
         "start": {
-          "line": 11,
+          "line": 8,
           "column": 2
         },
         "end": {
-          "line": 11,
+          "line": 8,
           "column": 18
         }
       }
@@ -1703,15 +1061,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 314,
-      "end": 315,
+      "start": 252,
+      "end": 253,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 9,
           "column": 0
         },
         "end": {
-          "line": 12,
+          "line": 9,
           "column": 1
         }
       }
@@ -1729,15 +1087,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 315,
-      "end": 316,
+      "start": 253,
+      "end": 254,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 9,
           "column": 1
         },
         "end": {
-          "line": 12,
+          "line": 9,
           "column": 2
         }
       }
@@ -1755,15 +1113,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 317,
-      "end": 317,
+      "start": 255,
+      "end": 255,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 10,
           "column": 0
         },
         "end": {
-          "line": 13,
+          "line": 10,
           "column": 0
         }
       }

@@ -1,6 +1,6 @@
 {
   "name": "@drewsonne/maya-dates",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Node.js package to represent dates in the Maya Calendar",
   "main": "src/index.js",
   "repository": {
@@ -22,13 +22,21 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jest": "^23.3.0",
-    "jest": "^24.9.0"
+    "jest-cli": "^25.1.0",
+    "regenerator-runtime": "^0.13.3",
+    "@babel/preset-env": "^7.8.4"
+  },
+  "scripts": {
+    "test": "jest"
   },
   "scripts": {
     "test": "jest"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   },
   "dependencies": {
     "moonbeams": "^2.0.2",
@@ -38,5 +46,6 @@
   "bugs": {
     "url": "https://github.com/drewsonne/maya-dates/issues"
   },
-  "homepage": "https://github.com/drewsonne/maya-dates#readme"
+  "homepage": "https://github.com/drewsonne/maya-dates#readme",
+  "preset": "react-native"
 }

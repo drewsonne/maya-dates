@@ -1,5 +1,6 @@
-const mayadates = require('../src/index');
-const {wildcard} = mayadates;
+import mayadates from '../src/index';
+
+const { wildcard } = mayadates;
 
 
 describe('complex wildcard parsing', () => {

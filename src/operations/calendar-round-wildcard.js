@@ -1,6 +1,4 @@
-/** @ignore */
-const CalendarRoundIterator = require('./calendar-round-iterator');
-
+import CalendarRoundIterator from './calendar-round-iter';
 
 /**
  * A reusable singleton instance of the CalendarRoundIterator
@@ -13,7 +11,7 @@ const iter = new CalendarRoundIterator();
  * Given a Calendar Round with a wildcard, calculate all possible matching
  * fully qualified Calendar Rounds.
  */
-class CalendarRoundWildcard {
+export default class CalendarRoundWildcard {
   /**
    * @param {CalendarRound} cr
    */
@@ -42,5 +40,3 @@ class CalendarRoundWildcard {
     return potentials;
   }
 }
-
-module.exports = CalendarRoundWildcard;

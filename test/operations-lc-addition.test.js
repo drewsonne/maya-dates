@@ -1,4 +1,6 @@
-const LongCount = require('../src/lc/long-count');
+import mayadates from '../src/index';
+
+const { LongCount } = mayadates.lc;
 
 describe('longcount addition', () => {
   const dates = [
@@ -16,6 +18,4 @@ describe('longcount addition', () => {
   it.each(dates)('%s + %s = %s', (from, increment, to) => {
     expect(from.plus(increment).equals()).toStrictEqual(to);
   });
-
 });
-

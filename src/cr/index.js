@@ -1,14 +1,10 @@
-/** @ignore */
-const { origin, getCalendarRound } = require('./calendar-round');
-/** @ignore */
-const tzolkin = require('./tzolkin');
-/** @ignore */
-const haab = require('./haab');
+import cr from './calendar-round';
+import tzolkin from './tzolkin';
+import haab from './haab';
 
-
-module.exports = {
-  getCalendarRound,
+export default {
+  getCalendarRound: cr.getCalendarRound,
+  origin: cr.origin,
   tzolkin,
   haab,
-  origin
 };

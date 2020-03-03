@@ -1,4 +1,4 @@
-const mayadates = require('../src/index');
+import mayadates from '../src/index';
 
 describe('parse long-count fullDate', () => {
   const dates = [
@@ -95,7 +95,7 @@ test('print short long-count fullDate', () => {
 });
 
 describe('test lord of night glyphs', () => {
-  const { night } = mayadates.lc;
+  const {night} = mayadates.lc;
   const dates = [
     ['9.16.19.17.19', night.G8, 'G8'],
     ['9.17.0.0.0', night.get('G9'), 'G9'],
