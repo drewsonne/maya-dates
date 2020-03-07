@@ -1,6 +1,6 @@
 {
   "name": "@drewsonne/maya-dates",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Node.js package to represent dates in the Maya Calendar",
   "main": "src/index.js",
   "repository": {
@@ -25,9 +25,6 @@
     "jest-cli": "^25.1.0",
     "regenerator-runtime": "^0.13.3",
     "@babel/preset-env": "^7.8.4"
-  },
-  "scripts": {
-    "test": "jest"
   },
   "scripts": {
     "test": "jest"
