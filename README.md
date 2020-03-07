@@ -1,5 +1,7 @@
 # @drewsonne/maya-dates
 
+![Documentation Coverage](./docs/badge.svg)
+
 A library for interacting with and modifying both the Maya Long Count (LC)
 and Calendar Round (CR) dates.
 

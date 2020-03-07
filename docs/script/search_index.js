@@ -114,6 +114,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@drewsonne/maya-dates/src/lc/night/lord-of-night.js~lordsofthenight",
+    "class/src/lc/night/lord-of-night.js~LordsOfTheNight.html",
+    "<span>LordsOfTheNight</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/lc/night/lord-of-night.js</span>",
+    "class"
+  ],
+  [
     "@drewsonne/maya-dates/src/cr/tzolkin.js~tzolkin",
     "class/src/cr/tzolkin.js~Tzolkin.html",
     "<span>Tzolkin</span> <span class=\"search-result-import-path\">@drewsonne/maya-dates/src/cr/tzolkin.js</span>",
@@ -960,6 +966,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/lc/distance-number.js~distancenumber#exactlyequal",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-exactlyEqual",
+    "src/lc/distance-number.js~DistanceNumber#exactlyEqual",
+    "method"
+  ],
+  [
     "src/lc/distance-number.js~distancenumber#getdatesections",
     "class/src/lc/distance-number.js~DistanceNumber.html#instance-method-getDateSections",
     "src/lc/distance-number.js~DistanceNumber#getDateSections",
@@ -1116,6 +1128,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/lc/distance-number.js~distancenumber#sigparts",
+    "class/src/lc/distance-number.js~DistanceNumber.html#instance-get-sigParts",
+    "src/lc/distance-number.js~DistanceNumber#sigParts",
+    "member"
+  ],
+  [
     "src/lc/distance-number.js~distancenumber#sign",
     "class/src/lc/distance-number.js~DistanceNumber.html#instance-member-sign",
     "src/lc/distance-number.js~DistanceNumber#sign",
@@ -1263,6 +1281,18 @@ window.esdocSearchIndex = [
     "src/lc/night/lord-of-night.js~lordofnight#tostring",
     "class/src/lc/night/lord-of-night.js~LordOfNight.html#instance-method-toString",
     "src/lc/night/lord-of-night.js~LordOfNight#toString",
+    "method"
+  ],
+  [
+    "src/lc/night/lord-of-night.js~lordsofthenight#constructor",
+    "class/src/lc/night/lord-of-night.js~LordsOfTheNight.html#instance-constructor-constructor",
+    "src/lc/night/lord-of-night.js~LordsOfTheNight#constructor",
+    "method"
+  ],
+  [
+    "src/lc/night/lord-of-night.js~lordsofthenight#get",
+    "class/src/lc/night/lord-of-night.js~LordsOfTheNight.html#instance-method-get",
+    "src/lc/night/lord-of-night.js~LordsOfTheNight#get",
     "method"
   ],
   [

@@ -5,7 +5,6 @@ import WesternCalendar from './western';
  * @extends {WesternCalendar}
  */
 export default class JulianCalendarDate extends WesternCalendar {
-
   /**
    * Handle the sliding offset between gregorian and julian dates
    * @return {number}
