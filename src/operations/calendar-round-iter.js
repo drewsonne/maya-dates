@@ -6,11 +6,7 @@ import cr from '../cr/index';
  * @ignore
  */
 export default class CalendarRoundIterator {
-  /**
-   *
-   * @param {CalendarRound} newDate
-   */
-  constructor(newDate) {
+  constructor() {
     /**
      * @type {CalendarRound}
      */
@@ -21,14 +17,10 @@ export default class CalendarRoundIterator {
      */
     this.is_first = undefined;
 
-    let fullDate = newDate;
-    if (fullDate === undefined) {
-      fullDate = cr.origin;
-    }
     /**
      * @type {CalendarRound}
      */
-    this.fullDate = fullDate;
+    this.fullDate = cr.origin;
     this.reset();
   }
 
@@ -47,13 +39,13 @@ export default class CalendarRoundIterator {
   next() {
     if (this.is_first) {
       this.is_first = false;
-      return {value: this.current, done: false};
+      return { value: this.current, done: false };
     }
     const next = this.current.next();
     if (next.equal(this.fullDate)) {
-      return {value: null, done: true};
+      return { value: null, done: true };
     }
     this.current = next;
-    return {value: next, done: false};
+    return { value: next, done: false };
   }
 }

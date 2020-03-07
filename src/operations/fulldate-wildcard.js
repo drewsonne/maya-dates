@@ -47,10 +47,9 @@ export default class FullDateWildcard {
           (cr) => [].concat(cr, fullDate)
         )
       );
-      const filteredMappedLcs = flatMappedLcs.filter(
+      return flatMappedLcs.filter(
         (pair) => pair[0].equal(pair[1].cr)
       );
-      return filteredMappedLcs;
     }
     // If we have a full formed LC fullDate, and a fullDate CR, then generate the
     // CR for the LC, and compare them. The fullDate CR will either match the
