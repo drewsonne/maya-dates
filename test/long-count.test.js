@@ -151,10 +151,18 @@ test('equality', () => {
   const lc1 = new mayadates.lc.LongCount(1, 1, 1, 1, 1);
   const lc2 = new mayadates.lc.LongCount(1, 1, 1, 1, 1);
   const lc3 = new mayadates.lc.LongCount(2, 2, 2, 2, 2);
+  const lc4 = new mayadates.lc.LongCount(0, 3, 3, 3, 3);
+  const lc5 = new mayadates.lc.LongCount(3, 3, 3, 3);
 
   expect(lc1.equal(lc1)).toBeTruthy();
+  expect(lc1.exactlyEqual(lc1)).toBeTruthy();
+
   expect(lc1.equal(lc2)).toBeTruthy();
+  expect(lc1.exactlyEqual(lc2)).toBeTruthy();
   expect(lc1.equal(lc3)).toBeFalsy();
+
+  expect(lc4.equal(lc5)).toBeTruthy();
+  expect(lc4.exactlyEqual(lc5)).toBeFalsy();
 });
 
 test('wildcard position failure', () => {
