@@ -151,7 +151,7 @@ test('equality', () => {
   const lc1 = new mayadates.lc.LongCount(1, 1, 1, 1, 1);
   const lc2 = new mayadates.lc.LongCount(1, 1, 1, 1, 1);
   const lc3 = new mayadates.lc.LongCount(2, 2, 2, 2, 2);
-  const lc4 = new mayadates.lc.LongCount(0, 3, 3, 3, 3);
+  const lc4 = new mayadates.lc.LongCount(3, 3, 3, 3, 0);
   const lc5 = new mayadates.lc.LongCount(3, 3, 3, 3);
 
   expect(lc1.equal(lc1)).toBeTruthy();
@@ -170,4 +170,9 @@ test('wildcard position failure', () => {
   expect(() => lc.getPosition(0)).toThrow(
     'Can not get position of fullDate dates',
   );
+});
+
+test('significant digits', () => {
+  const lc = new mayadates.lc.LongCount(1, 1, 1, 1, 0, 0, 0);
+  expect(lc.sigParts).toEqual([1, 1, 1, 1]);
 });
