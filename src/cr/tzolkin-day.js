@@ -1,6 +1,6 @@
 /**
  * Mapping of day names to indexes
- * @type {Map<number, string>
+ * @type {string[]}
  * @ignore
  */
 const days = [

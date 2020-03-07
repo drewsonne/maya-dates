@@ -91,6 +91,10 @@ export default class DistanceNumber {
       && this.parts.every((e, i) => e === other.parts[i]);
   }
 
+  /**
+   * Only digits in the LC with significant digits
+   * @return {number[]|Wildcard[]}
+   */
   get sigParts() {
     return this.parts.slice(
       this.parts.findIndex(

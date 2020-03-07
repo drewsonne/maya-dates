@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/operations/longcount-subtraction.js | @drewsonne/maya-dates</title>
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">LordsOfTheNight | @drewsonne/maya-dates</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -63,75 +63,250 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/operations/longcount-subtraction.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
- * Operation to diff two Long Count Dates
- */
-class LongcountSubtraction {
-  /**
-   * @param {object} lcClass - Special param to pass the LongCount class into this operator to
-   * avoid circular require.
-   * @param {LongCount} a - First date to diff
-   * @param {LongCount} b - Second date to diff
-   */
-  constructor(lcClass, a, b) {
-    /**
-     * @type {LongCount}
-     */
-    this.a = a;
+<div class="content" data-ice="content"><div class="header-notice">
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode"></code></pre></div>
+  <span data-ice="access">public</span>
+  <span data-ice="kind">class</span>
+  
+  
+  
+  <span data-ice="source">| <span><a href="file/src/lc/night/lord-of-night.js.html#lineNumber35">source</a></span></span>
+</div>
 
-    /**
-     * @type {LongCount}
-     */
-    this.b = b;
+<div class="self-detail detail">
+  <h1 data-ice="name">LordsOfTheNight</h1>
 
-    /** @ignore */
-    this.LcClass = lcClass;
-  }
+  
 
-  /**
-   * Return the diff result of this Subtraction operator.
-   * @return {LongCount}
-   */
-  equals() {
-    const aLen = this.a.parts.length;
-    const bLen = this.b.parts.length;
-    const length = Math.max(aLen, bLen);
-    const aParts = this.a.parts.concat(new Array(length - aLen).fill(0));
-    const bParts = this.b.parts.concat(new Array(length - bLen).fill(0));
-    const isInverted = this.a.lt(this.b);
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-    const newParts = aParts.map((p, i) =&gt; (isInverted ? (bParts[i] - p) : (p - bParts[i])));
+  
+  
+  <div class="description" data-ice="description"><p>Collection of al the 9 Lords of the night.</p>
+</div>
+  
 
-    let carry = 0;
-    let i = 0;
-    while (i &lt; newParts.length || carry &lt; 0) {
-      newParts[i] += carry;
-      carry = 0;
-      while (newParts[i] &lt; 0) {
-        carry -= 1;
-        const nextPositionMonthLength = (i === 1) ? 15 : 20;
-        newParts[i] += nextPositionMonthLength;
-      }
-      i += 1;
-    }
+  
 
-    for (i = newParts.length - 1; i &gt; 0; i -= 1) {
-      if (newParts[i] === 0) {
-        newParts.pop();
-      } else {
-        i = 0;
-      }
-    }
-    const newLC = new this.LcClass(...newParts);
-    newLC.isPositive = !isInverted;
-    return newLC;
-  }
-}
+  
 
-module.exports = LongcountSubtraction;
-</code></pre>
+  
 
+  
+</div>
+
+
+
+<div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordsOfTheNight.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">()</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Populate holder with all Lords of the night.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordsOfTheNight.html#instance-method-get">get</a></span></span><span class="code" data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Return a Lord of the Night by its G id.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+<div data-ice="constructorDetails"><h2 data-ice="title">Public Constructors</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-constructor-constructor">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">()</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/night/lord-of-night.js.html#lineNumber39">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Populate holder with all Lords of the night.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+
+<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-get">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">get</span><span class="code" data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/lc/night/lord-of-night.js.html#lineNumber65">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Return a Lord of the Night by its G id.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">id</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Has the form &apos;G1&apos;, &apos;G2&apos;, etc.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
 </div>
 
 <footer class="footer">

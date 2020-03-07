@@ -29,16 +29,31 @@ class LordOfNight {
   }
 }
 
-class _LordsOfTheNight {
+/**
+ * Collection of al the 9 Lords of the night.
+ */
+class LordsOfTheNight {
+  /**
+   * Populate holder with all Lords of the night.
+   */
   constructor() {
+    /** @ignore */
     this.G1 = new LordOfNight(1);
+    /** @ignore */
     this.G2 = new LordOfNight(2);
+    /** @ignore */
     this.G3 = new LordOfNight(3);
+    /** @ignore */
     this.G4 = new LordOfNight(4);
+    /** @ignore */
     this.G5 = new LordOfNight(5);
+    /** @ignore */
     this.G6 = new LordOfNight(6);
+    /** @ignore */
     this.G7 = new LordOfNight(7);
+    /** @ignore */
     this.G8 = new LordOfNight(8);
+    /** @ignore */
     this.G9 = new LordOfNight(9);
   }
 
@@ -52,4 +67,4 @@ class _LordsOfTheNight {
   }
 }
 
-export default new _LordsOfTheNight();
+export default new LordsOfTheNight();
