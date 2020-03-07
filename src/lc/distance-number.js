@@ -75,9 +75,11 @@ export default class DistanceNumber {
     const thisMinParts = this.sigParts;
     const otherMinParts = other.sigParts;
 
-    return (this.sign === other.sign)
-      && (thisMinParts.length === otherMinParts.length)
-      && thisMinParts.every((e, i) => e === otherMinParts[i]);
+    const signEqual = this.sign === other.sign;
+    const lengthEqual = thisMinParts.length === otherMinParts.length;
+    const partsEqual = thisMinParts.every((e, i) => e === otherMinParts[i]);
+
+    return signEqual && lengthEqual && partsEqual;
   }
 
   /**
@@ -86,9 +88,10 @@ export default class DistanceNumber {
    * @return {boolean}
    */
   exactlyEqual(other) {
-    return (this.sign === other.sign)
-      && (this.parts.length === other.parts.length)
-      && this.parts.every((e, i) => e === other.parts[i]);
+    const signsEqual = (this.sign === other.sign);
+    const lengthEqual = (this.parts.length === other.parts.length);
+    const partsEqual = this.parts.every((e, i) => e === other.parts[i]);
+    return signsEqual && lengthEqual && partsEqual;
   }
 
   /**
@@ -96,11 +99,15 @@ export default class DistanceNumber {
    * @return {number[]|Wildcard[]}
    */
   get sigParts() {
-    return this.parts.slice(
-      this.parts.findIndex(
-        (p) => p !== 0
-      )
-    );
+    let sigParts = [];
+    for (let i = 0; i < this.parts.length; i++) {
+      if (this.parts[i] === 0) {
+        i = this.parts.length;
+      } else {
+        sigParts.push(this.parts[i]);
+      }
+    }
+    return sigParts;
   }
 
   /**
