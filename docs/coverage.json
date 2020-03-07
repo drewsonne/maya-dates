@@ -1,7 +1,7 @@
 {
-  "coverage": "93.86%",
-  "expectCount": 212,
-  "actualCount": 199,
+  "coverage": "98.59%",
+  "expectCount": 214,
+  "actualCount": 211,
   "files": {
     "src/cr/calendar-round.js": {
       "expectCount": 15,
@@ -59,8 +59,8 @@
       "undocumentLines": []
     },
     "src/lc/distance-number.js": {
-      "expectCount": 39,
-      "actualCount": 39,
+      "expectCount": 41,
+      "actualCount": 41,
       "undocumentLines": []
     },
     "src/lc/long-count.js": {
@@ -70,20 +70,9 @@
     },
     "src/lc/night/lord-of-night.js": {
       "expectCount": 17,
-      "actualCount": 5,
+      "actualCount": 16,
       "undocumentLines": [
-        32,
-        33,
-        34,
-        35,
-        36,
-        37,
-        38,
-        39,
-        40,
-        41,
-        42,
-        55
+        70
       ]
     },
     "src/lc/western/gregorian.js": {
@@ -103,8 +92,10 @@
     },
     "src/operations/calendar-round-iter.js": {
       "expectCount": 7,
-      "actualCount": 7,
-      "undocumentLines": []
+      "actualCount": 6,
+      "undocumentLines": [
+        9
+      ]
     },
     "src/operations/calendar-round-wildcard.js": {
       "expectCount": 5,

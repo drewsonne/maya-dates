@@ -50,6 +50,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/long-count.js~LongCount.html">LongCount</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCorrelationConstant">getCorrelationConstant</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-night">lc/night</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordOfNight.html">LordOfNight</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/night/lord-of-night.js~LordsOfTheNight.html">LordsOfTheNight</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lc-western">lc/western</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/gregorian.js~GregorianCalendarDate.html">GregorianCalendarDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/julian.js~JulianCalendarDate.html">JulianCalendarDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lc/western/western.js~WesternCalendar.html">WesternCalendar</a></span></span></li>
@@ -71,11 +72,7 @@
  * @ignore
  */
 export default class CalendarRoundIterator {
-  /**
-   *
-   * @param {CalendarRound} newDate
-   */
-  constructor(newDate) {
+  constructor() {
     /**
      * @type {CalendarRound}
      */
@@ -86,14 +83,10 @@ export default class CalendarRoundIterator {
      */
     this.is_first = undefined;
 
-    let fullDate = newDate;
-    if (fullDate === undefined) {
-      fullDate = cr.origin;
-    }
     /**
      * @type {CalendarRound}
      */
-    this.fullDate = fullDate;
+    this.fullDate = cr.origin;
     this.reset();
   }
 
@@ -112,14 +105,14 @@ export default class CalendarRoundIterator {
   next() {
     if (this.is_first) {
       this.is_first = false;
-      return {value: this.current, done: false};
+      return { value: this.current, done: false };
     }
     const next = this.current.next();
     if (next.equal(this.fullDate)) {
-      return {value: null, done: true};
+      return { value: null, done: true };
     }
     this.current = next;
-    return {value: next, done: false};
+    return { value: next, done: false };
   }
 }
 </code></pre>

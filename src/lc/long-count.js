@@ -1,4 +1,4 @@
-import cr  from '../cr/calendar-round';
+import cr from '../cr/calendar-round';
 import FullDate from '../full-date';
 import night from './night/lord-of-night';
 import LongcountAddition from '../operations/longcount-addition';
