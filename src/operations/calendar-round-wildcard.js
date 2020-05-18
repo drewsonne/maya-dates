@@ -1,42 +1,23 @@
-import CalendarRoundIterator from './calendar-round-iter';
-
-/**
- * A reusable singleton instance of the CalendarRoundIterator
- * @ignore
- * @type {CalendarRoundIterator}
- */
-const iter = new CalendarRoundIterator();
-
-/**
- * Given a Calendar Round with a wildcard, calculate all possible matching
- * fully qualified Calendar Rounds.
- */
-export default class CalendarRoundWildcard {
-  /**
-   * @param {CalendarRound} cr
-   */
-  constructor(cr) {
-    /**
-     * @type {CalendarRound}
-     */
-    this.cr = cr;
-  }
-
-  /**
-   * Run calculation to find all fully qualified Calendar Rounds
-   * @return {CalendarRound[]}
-   */
-  run() {
-    const potentials = [];
-    // Iterate through dates and compare
-    let cr = iter.next();
-    while (!cr.done) {
-      if (this.cr.match(cr.value)) {
-        potentials.push(cr.value);
-      }
-      cr = iter.next();
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const calendar_round_iter_1 = require("./calendar-round-iter");
+const iter = new calendar_round_iter_1.default();
+class CalendarRoundWildcard {
+    constructor(cr) {
+        this.cr = cr;
     }
-    iter.reset();
-    return potentials;
-  }
+    run() {
+        const potentials = [];
+        let cr = iter.next();
+        while (!cr.done) {
+            if (this.cr.match(cr.value)) {
+                potentials.push(cr.value);
+            }
+            cr = iter.next();
+        }
+        iter.reset();
+        return potentials;
+    }
 }
+exports.default = CalendarRoundWildcard;
+//# sourceMappingURL=calendar-round-wildcard.js.map
