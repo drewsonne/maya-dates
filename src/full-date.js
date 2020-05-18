@@ -1,28 +1,13 @@
-/**
- * An encapsulation of a LongCount and Calendar Round which match each other.
- */
-export default class FullDate {
-  /**
-   * @param {CalendarRound} cr
-   * @param {LongCount} lc
-   */
-  constructor(cr, lc) {
-    /**
-     * @type {CalendarRound}
-     */
-    this.cr = cr;
-
-    /**
-     * @type {LongCount}
-     */
-    this.lc = lc;
-  }
-
-  /**
-   * Render the FullDate as a string of both the CR and the LC
-   * @returns {string}
-   */
-  toString() {
-    return `${this.cr} ${this.lc}`;
-  }
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+class FullDate {
+    constructor(cr, lc) {
+        this.cr = cr;
+        this.lc = lc;
+    }
+    toString() {
+        return `${this.cr} ${this.lc}`;
+    }
 }
+exports.default = FullDate;
+//# sourceMappingURL=full-date.js.map

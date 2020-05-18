@@ -1,0 +1,1 @@
+{"version":3,"file":"full-date.spec.js","sourceRoot":"","sources":["full-date.spec.ts"],"names":[],"mappings":";;AAAA,oDAAmD;AACnD,iBAAc;AACd,+BAA2B;AAE3B,EAAE,CAAC,qBAAqB,EAAE,GAAG,EAAE;IAC7B,MAAM,QAAQ,GAAG,IAAI,mBAAe,EAAE;SACnC,KAAK,CAAC,sBAAsB,CAAC,CAAC;IACjC,aAAM,CAAC,GAAG,QAAQ,EAAE,CAAC,CAAC,EAAE,CAAC,KAAK,CAAC,yBAAyB,CAAC,CAAC;AAC5D,CAAC,CAAC,CAAC"}

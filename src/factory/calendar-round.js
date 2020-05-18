@@ -1,38 +1,37 @@
-import Factory from './base';
-import cr from '../cr/calendar-round';
-
-/**
- * A factory to create a CalendarRound object from a string
- * @extends {Factory}
- * @example
- *    let cr = new CalendarRoundFactory().parse("4 Ajaw 8 Kumk'u");
- */
-export default class CalendarRoundFactory extends Factory {
-  /**
-   * Defines the pattern describing a Calendar Round
-   */
-  constructor() {
-    super();
-    /**
-     * Describes how to break the string into a Calendar Round
-     * @type {RegExp}
-     */
-    this.pattern = /([*\d]+)\s?([^\s]+)\s?([*\d]+)\s?([^\s]+)/;
-  }
-
-  /**
-   * Given a string, parse it and create a Calendar Round
-   * @param {string} raw - A string containing a Calendar Round
-   * @returns {CalendarRound}
-   */
-  parse(raw) {
-    const parts = this.split(raw);
-    if (parts.length < 4) {
-      return null;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const base_1 = require("./base");
+const calendar_round_1 = require("../cr/calendar-round");
+const tzolkin_1 = require("../cr/tzolkin");
+const haab_1 = require("../cr/haab");
+const tzolkinDay_1 = require("../cr/component/tzolkinDay");
+const haabMonth_1 = require("../cr/component/haabMonth");
+const wildcard_1 = require("../wildcard");
+const coefficient_1 = require("../cr/component/coefficient");
+class CalendarRoundFactory extends base_1.default {
+    constructor() {
+        super();
+        this.pattern = /([*\d]+)\s?([^\s]+)\s?([*\d]+)\s?([^\s]+)/;
     }
-    return cr.getCalendarRound(
-      parts[0], parts[1],
-      parts[2], parts[3]
-    );
-  }
+    parse(raw) {
+        const parts = this.split(raw);
+        if (parts.length < 4) {
+            return null;
+        }
+        return calendar_round_1.getCalendarRound(tzolkin_1.getTzolkin(this.parseCoefficient(parts[0]), tzolkinDay_1.getTzolkinDay(parts[1])), haab_1.getHaab(this.parseCoefficient(parts[2]), haabMonth_1.getHaabMonth(parts[3])));
+    }
+    isNumberString(potentialNumber) {
+        return potentialNumber.match(/^\d+$/g) !== null;
+    }
+    parseCoefficient(potentialCoeff) {
+        if (potentialCoeff === '*') {
+            return new wildcard_1.Wildcard();
+        }
+        if (!this.isNumberString(potentialCoeff)) {
+            throw new Error(`Could not parse '${potentialCoeff}' as Wildcard or Coefficient`);
+        }
+        return new coefficient_1.default(+potentialCoeff);
+    }
 }
+exports.default = CalendarRoundFactory;
+//# sourceMappingURL=calendar-round.js.map
