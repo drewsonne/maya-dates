@@ -3,6 +3,7 @@
   "version": "1.0.13",
   "description": "Node.js package to represent dates in the Maya Calendar",
   "main": "src/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/drewsonne/maya-dates.git"
@@ -16,24 +17,20 @@
   "license": "GPL-3.0",
   "private": false,
   "devDependencies": {
-    "esdoc": "1.1.0",
-    "esdoc-standard-plugin": "1.0.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-jest": "^23.3.0",
-    "jest-cli": "^25.1.0",
+    "@babel/preset-env": "^7.8.4",
+    "@types/chai": "^4.2.10",
+    "@types/mocha": "^7.0.2",
+    "chai": "^4.2.0",
+    "mocha": "^7.1.0",
+    "nyc": "^15.0.0",
     "regenerator-runtime": "^0.13.3",
-    "@babel/preset-env": "^7.8.4"
+    "ts-node": "^8.6.2",
+    "typedoc": "^0.16.11",
+    "typescript": "^3.8.3"
   },
   "scripts": {
-    "test": "jest"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "transform": {
-      "^.+\\.[t|j]sx?$": "babel-jest"
-    }
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "build": "tsc"
   },
   "dependencies": {
     "moonbeams": "^2.0.2",
@@ -43,6 +40,5 @@
   "bugs": {
     "url": "https://github.com/drewsonne/maya-dates/issues"
   },
-  "homepage": "https://github.com/drewsonne/maya-dates#readme",
-  "preset": "react-native"
+  "homepage": "https://github.com/drewsonne/maya-dates#readme"
 }

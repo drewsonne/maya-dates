@@ -13,10 +13,10 @@
 
 <header>
   <a href="./">Home</a>
-  
+
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-  
+
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -28,7 +28,7 @@
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
-    
+
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
@@ -142,7 +142,7 @@ class TzolkinDay {
      * Lazy loaded instance of the next Tzolkin Day in the cycle
      * @type {TzolkinDay}
      */
-    this.private_next = undefined;
+    this.privateNext = undefined;
   }
 
   /**
@@ -174,12 +174,12 @@ class TzolkinDay {
     if (incremental === 0) {
       return this;
     }
-    if (this.private_next === undefined) {
+    if (this.privateNext === undefined) {
       let newIncremental = (this.day_position + 1) % 20;
       newIncremental = (newIncremental === 0) ? 20 : newIncremental;
-      this.private_next = getTzolkinDay(newIncremental);
+      this.privateNext = getTzolkinDay(newIncremental);
     }
-    return this.private_next.shift(incremental - 1);
+    return this.privateNext.shift(incremental - 1);
   }
 
   /**

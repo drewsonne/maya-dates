@@ -13,10 +13,10 @@
 
 <header>
   <a href="./">Home</a>
-  
+
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-  
+
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -28,7 +28,7 @@
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
-    
+
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/full-date.js~FullDate.html">FullDate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#cr">cr</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cr/calendar-round.js~CalendarRound.html">CalendarRound</a></span></span></li>
@@ -134,7 +134,7 @@ class Haab {
      * Lazy loaded instance of the next Haab date in the cycle
      * @type {Haab}
      */
-    this.private_next = undefined;
+    this.privateNext = undefined;
 
     this.validate();
   }
@@ -217,16 +217,16 @@ class Haab {
     if (incremental === 0) {
       return this;
     }
-    if (this.private_next === undefined) {
+    if (this.privateNext === undefined) {
       const monthLength = (this.month === getHaabMonth(19)) ? 5 : 20;
       if (1 + this.coeff &gt;= monthLength) {
         const newMonth = this.month.shift(1);
-        this.private_next = getHaab(0, newMonth);
+        this.privateNext = getHaab(0, newMonth);
       } else {
-        this.private_next = getHaab(this.coeff + 1, this.month);
+        this.privateNext = getHaab(this.coeff + 1, this.month);
       }
     }
-    return this.private_next.shift(incremental - 1);
+    return this.privateNext.shift(incremental - 1);
   }
 
   /**
