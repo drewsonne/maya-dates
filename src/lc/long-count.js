@@ -1,132 +1,53 @@
-import cr from '../cr/calendar-round';
-import FullDate from '../full-date';
-import night from './night/lord-of-night';
-import LongcountAddition from '../operations/longcount-addition';
-import LongcountSubtraction from '../operations/longcount-subtraction';
-import getCorrelationConstant from './correlation-constant';
-import GregorianCalendarDate from './western/gregorian';
-import JulianCalendarDate from './western/julian';
-import DistanceNumber from './distance-number';
-
-/**
- * Long Count cycle
- */
-export default class LongCount extends DistanceNumber {
-  /**
-   * @param {...number|Wildcard} cycles - Components in the long count
-   * (eg, K'in, Winal, Bak'tun, etc)
-   */
-  constructor(...cycles) {
-    super(...cycles);
-    /**
-     * Correlation constant to allow alignment with western calendars
-     * @type {CorrelationConstant}
-     */
-    this.correlationConstant = getCorrelationConstant(584283);
-  }
-
-  /**
-   * Chainable method to set the correlation constant
-   * @param {CorrelationConstant} newConstant
-   * @return {LongCount}
-   */
-  setCorrelationConstant(newConstant) {
-    this.correlationConstant = newConstant;
-    return this;
-  }
-
-  /**
-   * Return a representation of this Long Count in Julian Days.
-   * @return {number}
-   */
-  get julianDay() {
-    return this.correlationConstant.value + this.getPosition();
-  }
-
-  /**
-   * Return a Gregorian representation of this long count date, offset by the correlation constant.
-   * @return {GregorianCalendarDate}
-   */
-  get gregorian() {
-    return new GregorianCalendarDate(this.julianDay);
-  }
-
-  /**
-   * Return a Julian representation of this long count date, offset by the correlation constant.
-   * @return {JulianCalendarDate}
-   */
-  get julian() {
-    return new JulianCalendarDate(this.julianDay);
-  }
-
-  /**
-   * Create a copy object of this long count fullDate
-   * @returns {LongCount}
-   */
-  clone() {
-    return new LongCount(...this.parts);
-  }
-
-  /**
-   *
-   * @return {LordOfNight}
-   */
-  get lordOfNight() {
-    return night.get(
-      `G${((this.getPosition() - 1) % 9) + 1}`
-    );
-  }
-
-  /**
-   *
-   * @return {CalendarRound}
-   */
-  buildCalendarRound() {
-    return cr.origin.shift(
-      this.getPosition()
-    );
-  }
-
-  /**
-   *
-   * @return {FullDate}
-   */
-  buildFullDate() {
-    return new FullDate(
-      this.buildCalendarRound(),
-      this.clone()
-    );
-  }
-
-  /**
-   * Return the sum of this Long Count and the supplied
-   * @param {LongCount} newLc
-   * @return {LongcountAddition}
-   */
-  plus(newLc) {
-    /*  We pass the LongCount class in, as to require this in the operation
-     *  will create a circular dependency.
-     */
-    return new LongcountAddition(LongCount, this, newLc);
-  }
-
-  /**
-   * Return the difference between this Long Count and the supplied
-   * @param {LongCount} newLc
-   * @return {LongcountAddition}
-   */
-  minus(newLc) {
-    /*  We pass the LongCount class in, as to require this in the operation
-     *  will create a circular dependency.
-     */
-    return new LongcountSubtraction(LongCount, this, newLc);
-  }
-
-  /**
-   * Return this Long Count as a Distance Number
-   * @return {DistanceNumber}
-   */
-  asDistanceNumber() {
-    return new DistanceNumber(...this.parts);
-  }
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const calendar_round_1 = require("../cr/calendar-round");
+const full_date_1 = require("../full-date");
+const lord_of_night_1 = require("./night/lord-of-night");
+const longcount_addition_1 = require("../operations/longcount-addition");
+const longcount_subtraction_1 = require("../operations/longcount-subtraction");
+const correlation_constant_1 = require("./correlation-constant");
+const gregorian_1 = require("./western/gregorian");
+const julian_1 = require("./western/julian");
+const distance_number_1 = require("./distance-number");
+class LongCount extends distance_number_1.default {
+    constructor(...cycles) {
+        super(...cycles);
+        this.correlationConstant = correlation_constant_1.default(584283);
+    }
+    setCorrelationConstant(newConstant) {
+        this.correlationConstant = newConstant;
+        return this;
+    }
+    get julianDay() {
+        return this.correlationConstant.value + this.getPosition();
+    }
+    get gregorian() {
+        return new gregorian_1.default(this.julianDay);
+    }
+    get julian() {
+        return new julian_1.default(this.julianDay);
+    }
+    clone() {
+        return new LongCount(...this.parts);
+    }
+    get lordOfNight() {
+        return lord_of_night_1.default.get(`G${((this.getPosition() - 1) % 9) + 1}`);
+    }
+    buildCalendarRound() {
+        return calendar_round_1.default.origin.shift(this.getPosition());
+    }
+    buildFullDate() {
+        return new full_date_1.default(this.buildCalendarRound(), this.clone());
+    }
+    plus(newLc) {
+        return new longcount_addition_1.default(LongCount, this, newLc);
+    }
+    minus(newLc) {
+        return new longcount_subtraction_1.default(LongCount, this, newLc);
+    }
+    asDistanceNumber() {
+        return new distance_number_1.default(...this.parts);
+    }
 }
+exports.default = LongCount;
+//# sourceMappingURL=long-count.js.map

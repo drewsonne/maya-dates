@@ -1,51 +1,29 @@
-import cr from '../cr/index';
-
-/**
- * Used to iterate through the entire cycle of 18,980 days for the full
- * permutation of Haab and 260-day count.
- * @ignore
- */
-export default class CalendarRoundIterator {
-  constructor() {
-    /**
-     * @type {CalendarRound}
-     */
-    this.current = undefined;
-
-    /**
-     * @type boolean
-     */
-    this.is_first = undefined;
-
-    /**
-     * @type {CalendarRound}
-     */
-    this.fullDate = cr.origin;
-    this.reset();
-  }
-
-  /**
-   * Reset this iterator so that it can be reused.
-   */
-  reset() {
-    this.current = this.fullDate;
-    this.is_first = true;
-  }
-
-  /**
-   * Move to the next position in the iterator or end the iteration.
-   * @return {{value: null, done: boolean}|{value: CalendarRound, done: boolean}}
-   */
-  next() {
-    if (this.is_first) {
-      this.is_first = false;
-      return { value: this.current, done: false };
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const calendar_round_1 = require("../cr/calendar-round");
+class CalendarRoundIterator {
+    constructor() {
+        this.current = undefined;
+        this.isFirst = undefined;
+        this.fullDate = calendar_round_1.origin;
+        this.reset();
     }
-    const next = this.current.next();
-    if (next.equal(this.fullDate)) {
-      return { value: null, done: true };
+    reset() {
+        this.current = this.fullDate;
+        this.isFirst = true;
     }
-    this.current = next;
-    return { value: next, done: false };
-  }
+    next() {
+        if (this.isFirst) {
+            this.isFirst = false;
+            return { value: this.current, done: false };
+        }
+        const next = this.current.next();
+        if (next.equal(this.fullDate)) {
+            return { value: null, done: true };
+        }
+        this.current = next;
+        return { value: next, done: false };
+    }
 }
+exports.default = CalendarRoundIterator;
+//# sourceMappingURL=calendar-round-iter.js.map
