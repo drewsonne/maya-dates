@@ -1,20 +1,36 @@
 {
   "compilerOptions": {
+    "target": "ES5",
     "module": "commonjs",
-    "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "sourceMap": true,
-    "declaration": true,
-    "target": "ES6",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "lib": [
+      "es6",
       "ES2016.Array.Include",
       "es2015",
       "es2016"
     ],
-    "jsx": "react"
+    "types": ["node"],
+    "declaration": true,
+    "outDir": "lib",
+    "rootDir": "src",
+    "strict": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true
   },
+  "exclude": [
+    "lib",
+    "node_modules",
+    "src/**/*.spec.ts"
+  ],
   "include": [
-    "./src/**/*"
-  ]
+    "src",
+    "decs.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
