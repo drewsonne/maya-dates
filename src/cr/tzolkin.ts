@@ -2,6 +2,7 @@
 import {TzolkinDay} from "./component/tzolkinDay";
 import {Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
+import WildcardCoefficient from "./component/wildcardCoefficient";
 
 const singleton: { [key: string]: Tzolkin } = {};
 
@@ -33,7 +34,7 @@ export function getTzolkin(coeff: ICoefficient, day: TzolkinDay | Wildcard): Tzo
 export class Tzolkin {
   day: TzolkinDay | Wildcard;
   coeff: ICoefficient;
-  privateNext: Tzolkin;
+  _privateNext: Tzolkin | null;
 
   /**
    * Constructor
@@ -54,7 +55,7 @@ export class Tzolkin {
      * Lazy loaded instance of the next Tzolkin date in the cycle
      * @type {Tzolkin}
      */
-    this.privateNext = undefined;
+    this._privateNext = null;
 
     this.validate();
   }
@@ -90,26 +91,36 @@ export class Tzolkin {
   shift(newIncremental: number): Tzolkin {
     if (
       !(this.day instanceof Wildcard) &&
-      !(this.coeff instanceof Wildcard)
+      !(this.coeff instanceof WildcardCoefficient)
     ) {
       const incremental = newIncremental % 260;
-      if (this.privateNext === undefined) {
-        if (this.coeff instanceof NumberCoefficient) {
-          let newCoeff = (this.coeff.value + 1) % 13;
-          newCoeff = (newCoeff % 13) === 0 ? 13 : newCoeff;
-          this.privateNext = getTzolkin(
-            new NumberCoefficient(newCoeff),
-            (this.day.shift(1) as TzolkinDay)
-          );
-        } else {
-          throw new Error('this.coeff is not a NumberCoefficient')
-        }
-      }
       if (incremental === 0) {
         return this;
       }
       return this.privateNext.shift(incremental - 1);
+    } else {
+      throw new Error("Tzolkin must not have wildcards to shift")
     }
+  }
+
+  get privateNext(): Tzolkin {
+    if (this._privateNext === null) {
+      if (this.coeff instanceof NumberCoefficient) {
+        let newCoeff = (this.coeff.value + 1) % 13;
+        newCoeff = (newCoeff % 13) === 0 ? 13 : newCoeff;
+        if (this.day instanceof TzolkinDay) {
+          this._privateNext = getTzolkin(
+            new NumberCoefficient(newCoeff),
+            (this.day.shift(1) as TzolkinDay)
+          );
+        } else {
+          throw new Error("this.day must be a TzolkinDay to shift")
+        }
+      } else {
+        throw new Error('this.coeff is not a NumberCoefficient')
+      }
+    }
+    return this._privateNext
   }
 
   /**
