@@ -1,13 +1,15 @@
 export default class HashMap {
   private valueToIndex: { [key: string]: number };
-  private indexToValue: string[];
+  private indexToValue: (string | undefined)[];
 
-  constructor(raw: string[]) {
+  constructor(raw: (undefined | string)[]) {
     this.indexToValue = raw;
     const initialValueToIndex: { [key: string]: number } = {};
     this.valueToIndex = this.indexToValue.reduce(
       (obj, elem, idx) => {
-        obj[elem] = idx;
+        if (elem !== undefined) {
+          obj[elem] = idx;
+        }
         return obj
       },
       initialValueToIndex

@@ -1,15 +1,21 @@
-import moonbeams from 'moonbeams';
-
 /**
  * Represents either a Julian or Gregorian calendar.
  * @abstract
  */
-export default class WesternCalendar {
+/// <reference path="../../../decs.d.ts" />
+import * as moonbeams from "moonbeams";
+
+export default abstract class WesternCalendar {
+  protected julianDay: number;
+  private _date: moonbeams.MBCalendar | null;
+
+  abstract get offset(): number;
+
   /**
    * Store a date with reference to a Julian Day.
    * @param {number} julianDay
    */
-  constructor(julianDay) {
+  constructor(julianDay: number) {
     /**
      * @type {number}
      */
@@ -18,7 +24,14 @@ export default class WesternCalendar {
     /**
      * @type {Date}
      */
-    this.date = moonbeams.jdToCalendar(julianDay + this.offset);
+    this._date = null
+  }
+
+  get date(): moonbeams.MBCalendar {
+    if (this._date === null) {
+      this._date = moonbeams.jdToCalendar(this.julianDay + this.offset);
+    }
+    return this._date
   }
 
   /**

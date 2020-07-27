@@ -7,13 +7,13 @@ export default abstract class Factory {
   /**
    * Define properties to be override by sub-classes
    */
-  constructor() {
+  constructor(pattern: RegExp) {
     /**
      * Describes how to break a string into a fullDate element
      * @protected
      * @type {RegExp}
      */
-    this.pattern = null;
+    this.pattern = pattern;
   }
 
   /**
