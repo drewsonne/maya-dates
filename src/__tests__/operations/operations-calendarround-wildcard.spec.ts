@@ -23,14 +23,17 @@ describe('compute missing lc wildcard', () => {
     const [lc, expected] = args;
     it(`len(${lc}) = ${expected}`, () => {
       const partialDate = lcFactory.parse(lc);
-      const potentialLcs = new LongCountWildcard(partialDate).run();
-      expect(potentialLcs.length).to.equal(expected);
+      expect(partialDate).is.not.null
+      if (partialDate !== null) {
+        const potentialLcs = new LongCountWildcard(partialDate).run();
+        expect(potentialLcs.length).to.equal(expected);
+      }
     });
   });
 });
 
 describe('compute missing cr wildcard', () => {
-  const partialDates = [
+  const partialDates: [string, number][] = [
     ['12Imix * Pop', 4],
     ['* Imix 9K\'ank\'in', 13],
     ['* Imix *K\'ank\'in', 52],
@@ -66,7 +69,7 @@ describe('fullDate matcher', () => {
       getHaabMonth('Kumk\'u')
     ),
   );
-  const partialDates = [
+  const partialDates: [(number | string | Wildcard)[], boolean][] = [
     [[4, 'Ajaw', 8, wc], true],
     [[4, 'Ajaw', wc, 'Kumk\'u'], true],
     [[4, 'Ajaw', wc, wc], true],
@@ -83,7 +86,7 @@ describe('fullDate matcher', () => {
     [[wc, wc, wc, 'Kumk\'u'], true],
     [[wc, wc, wc, wc], true],
   ]
-  partialDates.forEach((args: [[Wildcard | number, Wildcard | string, Wildcard | number, Wildcard | string], boolean]) => {
+  partialDates.forEach((args: [(number | string | Wildcard)[], boolean]) => {
     const [partial, expected] = args;
     it(`${partial} = ${expected}`, () => {
       const partialDate = getCalendarRound(

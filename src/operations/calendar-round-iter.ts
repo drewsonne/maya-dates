@@ -5,27 +5,32 @@
  */
 import {CalendarRound, origin} from "../cr/calendar-round";
 
+interface NextResult {
+  value: null | CalendarRound
+  done: boolean
+}
+
 export default class CalendarRoundIterator {
   fullDate: CalendarRound;
   current: CalendarRound;
   isFirst: boolean;
 
   constructor() {
-    /**
-     * @type {CalendarRound}
-     */
-    this.current = undefined;
 
     /**
      * @type boolean
      */
-    this.isFirst = undefined;
+    this.isFirst = true;
 
     /**
      * @type {CalendarRound}
      */
     this.fullDate = origin;
-    this.reset();
+
+    /**
+     * @type {CalendarRound}
+     */
+    this.current = this.fullDate;
   }
 
   /**
@@ -40,7 +45,7 @@ export default class CalendarRoundIterator {
    * Move to the next position in the iterator or end the iteration.
    * @return {{value: null, done: boolean}|{value: CalendarRound, done: boolean}}
    */
-  next() {
+  next(): NextResult {
     if (this.isFirst) {
       this.isFirst = false;
       return {value: this.current, done: false};

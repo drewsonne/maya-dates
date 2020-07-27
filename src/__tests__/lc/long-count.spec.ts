@@ -22,13 +22,14 @@ describe('parse long-count fullDate', () => {
 });
 
 it('fail longcount', () => {
-  expect(
-    new LongCountFactory().parse('hello, world'),
-  ).to.be.null;
+  const failParse = () => {
+    new LongCountFactory().parse('hello, world')
+  }
+  expect(failParse).to.throw()
 });
 
 describe('modify long-count fullDate', () => {
-  const dates = [
+  const dates: [number[], string, number[], string][] = [
     [
       [1, 2, 3, 4, 5, 6, 7, 8],
       ' 8. 7. 6. 5. 4. 3. 2. 1',
@@ -112,22 +113,24 @@ describe('test lord of night glyphs', () => {
     const [date, lordOfNight, id] = args;
     it(`${date} -> ${lordOfNight} (${id})`, () => {
       const lc = factory.parse(date);
-      expect(lc.lordOfNight).to.equal(lordOfNight);
-      expect(lc.lordOfNight).not.to.be.undefined;
-      expect(`${lc.lordOfNight}`).to.equal(id);
+      expect(lc!.lordOfNight).to.equal(lordOfNight);
+      expect(lc!.lordOfNight).not.to.be.undefined;
+      expect(`${lc!.lordOfNight}`).to.equal(id);
     });
   });
 });
 
 
 describe('comparison', () => {
-  [
+  const dataset: [number[], number[], boolean][] = [
     [[0, 1], [1], true],
-  ].map((row: [number[], number[], boolean]) => [
+  ]
+  const expanded: [LongCount, LongCount, boolean][] = dataset.map((row: [number[], number[], boolean]) => [
     new LongCount(...row[0]),
     new LongCount(...row[1]),
     row[2],
-  ]).forEach((args: [LongCount, LongCount, boolean]) => {
+  ])
+  expanded.forEach((args: [LongCount, LongCount, boolean]) => {
     const [a, b, aLtB] = args;
     it(`${a} > ${b} = ${aLtB}`, () => {
       expect(a.gt(b) === aLtB).to.be.true;

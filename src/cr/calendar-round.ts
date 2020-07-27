@@ -75,12 +75,8 @@ export class CalendarRound {
       'Imix', 'Kimi', 'Chuwen', 'Kib',
     ].includes(`${this.tzolkin.day}`)) {
       validHaabCoeffs = [4, 9, 14, 19];
-    } else if (this.tzolkin.name instanceof Wildcard) {
-      validHaabCoeffs = [...Array(19).keys()];
     } else {
-      throw new Error(
-        `Could not allocate Tzolk'in (${this.tzolkin.name}) to permissible month coeffs.`
-      );
+      validHaabCoeffs = Array.from(Array(19).keys());
     }
 
     if (this.haab.coeff !== undefined) {
