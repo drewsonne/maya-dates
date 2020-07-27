@@ -3,26 +3,28 @@ import LongCountWildcard from './longcount-wildcard';
 import CalendarRoundWildcard from './calendar-round-wildcard';
 
 /** @ignore */
-const concat = (x, y) => x.concat(y);
+// const concat = (x, y) => x.concat(y);
 
 /** @ignore */
-const flatMap = (f, xs) => xs.map(f).reduce(concat, []);
+// const flatMap = (f, xs) => xs.map(f).reduce(concat, []);
 
 /** @ignore */
 // eslint-disable-next-line no-extend-native,func-names
-Array.prototype.flatMap = function (f) {
-  return flatMap(f, this);
-};
+// Array.prototype.flatMap = function (f) {
+//   return flatMap(f, this);
+// };
 
 /**
  * Given a Calendar Round and Long Count with a wildcard, calculate all possible
  * matching fully qualified Long Counts with CalendarRounds.
  */
 export default class FullDateWildcard {
+  private fullDate: FullDate;
+
   /**
    * @param {FullDate} partialDate
    */
-  constructor(partialDate) {
+  constructor(partialDate: FullDate) {
     /**
      * @type {FullDate}
      */
@@ -44,7 +46,7 @@ export default class FullDateWildcard {
             ? new CalendarRoundWildcard(this.fullDate.cr).run()
             : [this.fullDate.cr]
         ).map(
-          (cr) => [].concat(cr, fullDate)
+          (cr) => [cr].concat([fullDate])
         )
       );
       return flatMappedLcs.filter(
