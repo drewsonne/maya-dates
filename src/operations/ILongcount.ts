@@ -1,6 +1,6 @@
 import {Wildcard} from "../wildcard";
-import LongCount from "../lc/long-count";
+import DistanceNumber from "../lc/distance-number";
 
 export default interface ILongcount {
-  new (...cycles: (number | Wildcard)[]): LongCount
+  new (...cycles: (number | Wildcard)[]): DistanceNumber
 }

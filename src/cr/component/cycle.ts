@@ -22,19 +22,18 @@ abstract class Cycle<T> extends Base {
   /**
    * A cache of the next object in the cycle
    */
-  protected privateNext: Cycle<T>;
+  private _privateNext: null | Cycle<T>;
   /**
    * Absolute position within the linear cycle for this object.
    */
-  position: number;
-  protected value: string | Wildcard;
+  public position: number;
   protected generator: (cycleName: number | string) => Cycle<T>;
   protected cycleLength: number;
 
   constructor(
     value: number | string | Wildcard,
     lookup: HashMap,
-    generator: (cycleName: number | string| Wildcard) => Cycle<T>
+    generator: (cycleName: number | string | Wildcard) => Cycle<T>
   ) {
     super(
       (typeof value === 'number') ?
@@ -43,9 +42,12 @@ abstract class Cycle<T> extends Base {
     );
     this.generator = generator;
     this.cycleLength = lookup.length;
+    this._privateNext = null
 
     if (typeof this.value === 'string') {
       this.position = lookup.getIndex(this.value)
+    } else {
+      throw new Error("Position could not be set.")
     }
   }
 
@@ -64,12 +66,16 @@ abstract class Cycle<T> extends Base {
     if (incremental === 0) {
       return this;
     }
-    if (this.privateNext === undefined) {
+    return this.privateNext.shift(incremental - 1)
+  }
+
+  get privateNext(): Cycle<T> {
+    if (this._privateNext === null) {
       let newPosition = (this.position + 1) % (this.cycleLength - 1);
       newPosition = (newPosition === 0) ? (this.cycleLength - 1) : newPosition;
-      this.privateNext = this.generator(newPosition);
+      this._privateNext = this.generator(newPosition);
     }
-    return this.privateNext.shift(incremental - 1)
+    return this._privateNext
   }
 
   /**
