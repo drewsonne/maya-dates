@@ -2,7 +2,6 @@ import {Wildcard} from "../../wildcard";
 import {getCalendarRound} from "../../cr/calendar-round";
 import {getTzolkin} from "../../cr/tzolkin";
 import {getHaab} from "../../cr/haab";
-import Coefficient from "../../cr/component/coefficient";
 import {getHaabMonth} from "../../cr/component/haabMonth";
 import {getTzolkinDay} from "../../cr/component/tzolkinDay";
 import CalendarRoundFactory from "../../factory/calendar-round";
@@ -11,9 +10,11 @@ import 'mocha'
 import {expect} from 'chai'
 import LongCountFactory from "../../factory/long-count";
 import LongCountWildcard from "../../operations/longcount-wildcard";
+import NumberCoefficient from "../../cr/component/numberCoefficient";
+import {coefficientParser as _} from "../../cr/component/coefficient";
 
 describe('compute missing lc wildcard', () => {
-  const lcs = [
+  const lcs: [string, number][] = [
     // ['10.10.17.14.0', ]
     ['10.10.17.14.*', 20],
   ];
@@ -57,11 +58,11 @@ describe('fullDate matcher', () => {
   const wc = new Wildcard();
   const fullDate = getCalendarRound(
     getTzolkin(
-      new Coefficient(4),
+      new NumberCoefficient(4),
       getTzolkinDay('Ajaw')
     ),
     getHaab(
-      new Coefficient(8),
+      new NumberCoefficient(8),
       getHaabMonth('Kumk\'u')
     ),
   );
@@ -81,13 +82,13 @@ describe('fullDate matcher', () => {
     [[wc, wc, 8, wc], true],
     [[wc, wc, wc, 'Kumk\'u'], true],
     [[wc, wc, wc, wc], true],
-  ];
+  ]
   partialDates.forEach((args: [[Wildcard | number, Wildcard | string, Wildcard | number, Wildcard | string], boolean]) => {
     const [partial, expected] = args;
     it(`${partial} = ${expected}`, () => {
       const partialDate = getCalendarRound(
-        getTzolkin(partial[0], getTzolkinDay(partial[1])),
-        getHaab(partial[0], getHaabMonth(partial[1]))
+        getTzolkin(_(partial[0]), getTzolkinDay(partial[1])),
+        getHaab(_(partial[2]), getHaabMonth(partial[3]))
       );
       expect(partialDate.match(fullDate)).to.equal(expected);
     });

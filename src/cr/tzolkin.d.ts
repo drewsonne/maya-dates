@@ -1,17 +1,16 @@
 import { TzolkinDay } from "./component/tzolkinDay";
-import Coefficient from "./component/coefficient";
 import { Wildcard } from "../wildcard";
-export declare function getTzolkin(coeff: number | Wildcard, day: TzolkinDay): Tzolkin;
+export declare function getTzolkin(coeff: ICoefficient, day: TzolkinDay | Wildcard): Tzolkin;
 export declare class Tzolkin {
-    day: TzolkinDay;
-    coeff: Coefficient;
+    day: TzolkinDay | Wildcard;
+    coeff: ICoefficient;
     privateNext: Tzolkin;
-    constructor(newCoeff: number | Wildcard, newDay: TzolkinDay);
+    constructor(newCoeff: ICoefficient, newDay: TzolkinDay | Wildcard);
     next(): Tzolkin;
     validate(): boolean;
     shift(newIncremental: number): Tzolkin;
-    equal(newTzolkin: any): boolean;
-    match(newTzolkin: any): boolean;
+    equal(newTzolkin: Tzolkin): boolean;
+    match(newTzolkin: Tzolkin): boolean;
     get name(): string | Wildcard;
     toString(): string;
 }

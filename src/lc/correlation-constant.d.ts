@@ -1,5 +1,7 @@
-declare class CorrelationConstant {
-    constructor(value: any, name: any);
+export declare class CorrelationConstant {
+    value: number;
+    name: string;
+    constructor(value: number, name: string);
 }
-export default function getCorrelationConstant(id: any, name: any): CorrelationConstant;
-export {};
+export declare function getCorrelationConstant(id: string): CorrelationConstant;
+export declare function getCorrelationConstant(id: number): CorrelationConstant;

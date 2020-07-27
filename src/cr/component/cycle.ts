@@ -1,18 +1,16 @@
-import Base from "./base";
 import HashMap from "../../structs/hashMap";
 import {Wildcard} from "../../wildcard";
+import Base from "./base";
 
 function singletonGenerator<T>(lookup: HashMap, classGenerator: (name: string) => T): (cycleName: number | string | Wildcard) => T {
   const singleton: { [key: string]: T } = {};
 
   function cycleSingleton(newCycleName: number | string | Wildcard): T {
     let cycleName = (typeof newCycleName === 'number') ? lookup.getValue(newCycleName) : newCycleName;
-    if (cycleName === '*') {
-      cycleName = new Wildcard();
-    }
+    let cycleIsWildcard = false;
     const cycleNameHash = `${cycleName}`;
     if (singleton[cycleNameHash] === undefined) {
-      singleton[cycleNameHash] = classGenerator(cycleName)
+      singleton[cycleNameHash] = classGenerator(cycleNameHash)
     }
     return singleton[cycleNameHash];
   }
@@ -36,7 +34,7 @@ abstract class Cycle<T> extends Base {
   constructor(
     value: number | string | Wildcard,
     lookup: HashMap,
-    generator: (cycleName: number | string) => Cycle<T>
+    generator: (cycleName: number | string| Wildcard) => Cycle<T>
   ) {
     super(
       (typeof value === 'number') ?
