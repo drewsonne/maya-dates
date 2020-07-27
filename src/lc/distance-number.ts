@@ -2,6 +2,8 @@
  * Long Count cycle
  */
 import {isWildcard, Wildcard} from "../wildcard";
+import LongcountAddition from "../operations/longcount-addition";
+import LongcountSubtraction from "../operations/longcount-subtraction";
 
 export default class DistanceNumber {
   parts: (number | Wildcard)[];
@@ -61,7 +63,7 @@ export default class DistanceNumber {
    * @param {boolean} newPositive
    */
   set isPositive(newPositive: boolean) {
-    this.sign = newPositive === true ? 1 : -1;
+    this.sign = newPositive ? 1 : -1;
   }
 
   /**
@@ -399,7 +401,13 @@ export default class DistanceNumber {
       false,
     );
     this.sign = foundNegative ? -1 : 1;
-    this.parts = norm.parts.map((part) => Math.abs(part));
+    this.parts = norm.parts.map((part) => {
+      if(typeof part === 'number') {
+        return Math.abs(part)
+      } else {
+        throw new Error("part is not number")
+      }
+    });
     return this;
   }
 

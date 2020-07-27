@@ -3,10 +3,11 @@
  */
 import LongCount from "../lc/long-count";
 import ILongcount from "./ILongcount";
+import DistanceNumber from "../lc/distance-number";
 
 export default class LongcountAddition {
-  private a: LongCount;
-  private b: LongCount
+  private a: DistanceNumber;
+  private b: DistanceNumber
   private LcClass: ILongcount;
 
   /**
@@ -15,7 +16,7 @@ export default class LongcountAddition {
    * @param {LongCount} a - First date to sum
    * @param {LongCount} b - Second date to sum
    */
-  constructor(lcClass: ILongcount, a: LongCount, b: LongCount) {
+  constructor(lcClass: ILongcount, a: DistanceNumber, b: DistanceNumber) {
     /**
      * @type {LongCount}
      */
