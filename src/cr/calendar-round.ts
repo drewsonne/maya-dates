@@ -115,7 +115,7 @@ export class CalendarRound {
     let current: CalendarRound = this;
     let count: number = 0;
     let cycleCount: number = 0;
-    let result: DistanceNumber;
+    let result: DistanceNumber | null = null;
     while (!foundTarget) {
       // eslint-disable-next-line no-use-before-define
       if (current.equal(origin)) {
@@ -135,7 +135,11 @@ export class CalendarRound {
         count += 1;
       }
     }
-    return result;
+    if (result instanceof DistanceNumber) {
+      return result;
+    } else {
+      throw new Error("Could not assign a DistanceNumber")
+    }
   }
 
   /**
