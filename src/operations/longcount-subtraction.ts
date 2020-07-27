@@ -1,14 +1,21 @@
 /**
  * Operation to diff two Long Count Dates
  */
-class LongcountSubtraction {
+import ILongcount from "./ILongcount";
+import LongCount from "../lc/long-count";
+
+export default class LongcountSubtraction {
+  private a: LongCount;
+  private b: LongCount
+  private LcClass: ILongcount
+
   /**
    * @param {object} lcClass - Special param to pass the LongCount class into this operator to
    * avoid circular require.
    * @param {LongCount} a - First date to diff
    * @param {LongCount} b - Second date to diff
    */
-  constructor(lcClass, a, b) {
+  constructor(lcClass: ILongcount, a: LongCount, b: LongCount) {
     /**
      * @type {LongCount}
      */
@@ -35,7 +42,18 @@ class LongcountSubtraction {
     const bParts = this.b.parts.concat(new Array(length - bLen).fill(0));
     const isInverted = this.a.lt(this.b);
 
-    const newParts = aParts.map((p, i) => (isInverted ? (bParts[i] - p) : (p - bParts[i])));
+    const newParts = aParts.map((p, i) => {
+      const bPart = bParts[i]
+      if (typeof p === 'number') {
+        if (typeof bPart === 'number') {
+          return (isInverted ? (bPart - p) : (p - bPart))
+        } else {
+          throw new Error("'bPart' is not a number")
+        }
+      } else {
+        throw new Error("'p' is not a number")
+      }
+    });
 
     let carry = 0;
     let i = 0;

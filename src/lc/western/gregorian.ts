@@ -9,7 +9,7 @@ export default class GregorianCalendarDate extends WesternCalendar {
    * Handle the sliding offset between gregorian and julian dates
    * @return {number}
    */
-  get offset() {
+  get offset() :number{
     if (this.julianDay === 2299160) {
       return 0;
     }

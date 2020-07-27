@@ -1,4 +1,3 @@
-import {Wildcard} from '../wildcard';
 import LongCount from "../lc/long-count";
 
 /**
@@ -24,16 +23,23 @@ export default class LongCountWildcard {
    */
   run(): LongCount[] {
     return this.lc.map(
-      (part, i) => ((part instanceof Wildcard) ? i : false)
+      (part, i) => (typeof part === 'number' ? false : i)
     ).filter((i) => i !== false).reduce(
-      (potentials, position) => potentials.reduce(
-        (acc: LongCount[], possible: LongCount) => new Array(
-          (position === 1) ? 15 : 20
-        ).fill().map(
-          (_: any, i: number) => possible.clone().setDateSections(position, i)
-        ).concat(acc),
-        []
-      ),
+      (potentials, position) => {
+        return potentials.reduce(
+          (acc: LongCount[], possible: LongCount) => {
+            let arrayResult = new Array(
+              (position === 1) ? 15 : 20
+            )
+            let fillResult = arrayResult.fill(undefined)
+            let result = fillResult.map(
+              (_: any, i: number) => possible.clone().setDateSections(position, i)
+            ).concat(acc)
+            return result
+          }, []
+        )
+
+      },
       [this.lc]
     );
   }

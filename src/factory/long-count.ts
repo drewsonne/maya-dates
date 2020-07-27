@@ -11,16 +11,20 @@ import {Wildcard} from '../wildcard';
  *    let cr = new LongCountFactory().parse("9.4.2.*.1");
  */
 export default class LongCountFactory extends Factory {
+  constructor() {
+    super(/(?:(?:\*|(?:[\d]{1,2}))\.){1,}(?:(?:\*)|(?:[\d]{1,2}))/);
+  }
+
   /**
    * Given a string, parse it and create a Long Count
    * @param {string} raw - A string containing a Long Count
    * @returns {LongCount}
    */
   // eslint-disable-next-line class-methods-use-this
-  parse(raw: string) {
+  parse(raw: string): LongCount {
     const dates = raw.match(/(?:(?:\*|(?:[\d]{1,2}))\.){1,}(?:(?:\*)|(?:[\d]{1,2}))/);
     if (dates === null || dates.length !== 1) {
-      return null;
+      throw new Error("Could not match Long Count")
     }
 
     const parts = dates[0].split('.');

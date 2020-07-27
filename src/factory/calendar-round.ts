@@ -13,19 +13,15 @@ import {coefficientParser as _} from "../cr/component/coefficient";
  *    let cr = new CalendarRoundFactory().parse("4 Ajaw 8 Kumk'u");
  */
 export default class CalendarRoundFactory extends Factory {
-
-  pattern: RegExp;
-
   /**
    * Defines the pattern describing a Calendar Round
    */
   constructor() {
-    super();
     /**
      * Describes how to break the string into a Calendar Round
      * @type {RegExp}
      */
-    this.pattern = /([*\d]+)\s?([^\s]+)\s?([*\d]+)\s?([^\s]+)/;
+    super(/([*\d]+)\s?([^\s]+)\s?([*\d]+)\s?([^\s]+)/);
   }
 
   /**
@@ -36,7 +32,7 @@ export default class CalendarRoundFactory extends Factory {
   parse(raw: string): CalendarRound {
     const parts: string[] = this.split(raw);
     if (parts.length < 4) {
-      return null;
+      throw new Error("Calendar Round does not have enough components");
     }
 
     let tzolkinPart = getTzolkin(
