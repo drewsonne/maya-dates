@@ -3,6 +3,7 @@ import {expect} from 'chai'
 import {getHaabMonth, HaabMonth} from "../../cr/component/haabMonth";
 import {getHaab} from "../../cr/haab";
 import NumberCoefficient from "../../cr/component/numberCoefficient";
+import {Wildcard} from "../../wildcard";
 
 describe('increment haab months', () => {
   const tzolkinDays = [
@@ -26,13 +27,13 @@ describe('increment haab months', () => {
 });
 
 describe('build haabs', () => {
-  const haabs = [
+  const haabs: [[number, string], [number, HaabMonth | Wildcard]][] = [
     [[5, 'Pop'], [6, getHaabMonth('Pop')]],
     [[19, 'Pop'], [0, getHaabMonth('Wo')]],
     [[19, 'Xul'], [0, getHaabMonth('Yaxk\'in')]],
     [[4, 'Wayeb'], [0, getHaabMonth('Pop')]],
   ];
-  haabs.forEach((args: [[number, string], [number, HaabMonth]]) => {
+  haabs.forEach((args: [[number, string], [number, HaabMonth | Wildcard]]) => {
     const [prev, next] = args;
     it(`${prev} -> ${next}`, () => {
       const haab = getHaab(new NumberCoefficient(prev[0]), getHaabMonth(prev[1]));
@@ -60,7 +61,7 @@ it('render haab fullDate', () => {
 describe('shift haab', () => {
   const kumku = getHaabMonth('Kumk\'u');
   const pop = getHaabMonth('Pop');
-  const haabs = [
+  const haabs: [[number, string], number, [number, HaabMonth | Wildcard]][] = [
     [[8, 'Kumk\'u'], 359, [2, kumku]],
     [[8, 'Kumk\'u'], 361, [4, kumku]],
     [[8, 'Kumk\'u'], 363, [6, kumku]],
@@ -74,7 +75,7 @@ describe('shift haab', () => {
     [[8, 'Kumk\'u'], 369, [12, kumku]],
     [[4, 'Wayeb'], 1, [0, pop]],
   ];
-  haabs.forEach((args: [[number, string], number, [number, string]]) => {
+  haabs.forEach((args: [[number, string], number, [number, HaabMonth | Wildcard]]) => {
     const [start, incremental, expected] = args;
     it(`${start} + ${incremental} = ${expected}`, () => {
       const prevHaab = getHaab(

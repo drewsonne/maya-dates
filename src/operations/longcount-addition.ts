@@ -1,14 +1,21 @@
 /**
  * Operation to sum two Long Count Dates
  */
-class LongcountAddition {
+import LongCount from "../lc/long-count";
+import ILongcount from "./ILongcount";
+
+export default class LongcountAddition {
+  private a: LongCount;
+  private b: LongCount
+  private LcClass: ILongcount;
+
   /**
    * @param {object} lcClass - Special param to pass the LongCount class into this operator to
    * avoid circular require.
    * @param {LongCount} a - First date to sum
    * @param {LongCount} b - Second date to sum
    */
-  constructor(lcClass, a, b) {
+  constructor(lcClass: ILongcount, a: LongCount, b: LongCount) {
     /**
      * @type {LongCount}
      */
@@ -34,7 +41,19 @@ class LongcountAddition {
     const aParts = this.a.parts.concat(new Array(length - aLen).fill(0));
     const bParts = this.b.parts.concat(new Array(length - bLen).fill(0));
 
-    const newParts = aParts.map((p, i) => p + bParts[i]);
+    const newParts = aParts.map((p, i) => {
+      const bPart = bParts[i]
+      if (typeof p === 'number') {
+        if (typeof bPart === 'number') {
+          return p + bPart
+        } else {
+          throw new Error("'bPart' is not a number")
+        }
+      } else {
+        throw new Error("'p' is not a number")
+      }
+
+    });
 
     let carry = 0;
     let i = 0;
@@ -53,4 +72,4 @@ class LongcountAddition {
   }
 }
 
-module.exports = LongcountAddition;
+

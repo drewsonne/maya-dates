@@ -6,6 +6,8 @@ import {LordOfTheNight, lords} from "./night/lord-of-night";
 import {Wildcard} from "../wildcard";
 import {CorrelationConstant, getCorrelationConstant} from "./correlation-constant";
 import {origin} from "../cr/calendar-round";
+import LongcountAddition from "../operations/longcount-addition";
+import LongcountSubtraction from "../operations/longcount-subtraction";
 
 /**
  * Long Count cycle

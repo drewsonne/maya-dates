@@ -15,12 +15,12 @@ import NumberCoefficient from "../../cr/component/numberCoefficient";
  * @test {CalendarRound#next}
  */
 describe('increment calendar-rounds', () => {
-  const tzolkinDays = [
+  const tzolkinDays: [string, [number, TzolkinDay | Wildcard, number, HaabMonth | Wildcard]][] = [
     ['2Ak\'bal 6 Muwan', [3, getTzolkinDay('K\'an'), 7, getHaabMonth('Muwan')]],
     ['4 Ajaw 8 Kumk\'u', [5, getTzolkinDay('Imix'), 9, getHaabMonth('Kumk\'u')]],
     ['13 Kimi 4 Wayeb', [1, getTzolkinDay('Manik\''), 0, getHaabMonth('Pop')]],
   ];
-  tzolkinDays.forEach((args: [string, [number, TzolkinDay, number, HaabMonth]]) => {
+  tzolkinDays.forEach((args: [string, [number, TzolkinDay | Wildcard, number, HaabMonth | Wildcard]]) => {
     const [today, next] = args;
     it(`${today} -> ${next}`, () => {
       const cr = new CalendarRoundFactory().parse(today);
@@ -40,7 +40,7 @@ describe('increment calendar-rounds', () => {
 });
 
 describe('shift calendar-rounds', () => {
-  const tzolkinDays = [
+  const tzolkinDays: [string, number, [number, string, number, string]][] = [
     ['4 Ajaw 8 Kumk\'u', 0, [4, 'Ajaw', 8, 'Kumk\'u']],
     ['4 Ajaw 8 Kumk\'u', 1, [5, 'Imix', 9, 'Kumk\'u']],
     ['4 Ajaw 8 Kumk\'u', 10, [1, 'Ok', 18, 'Kumk\'u']],
@@ -73,7 +73,7 @@ it('failed calendar-round parse', () => {
 });
 
 describe('parse calendar-round', () => {
-  const sources = [
+  const sources: [string, [number, string, number, string]][] = [
     ['2 Ak\'bal 6 Muwan', [2, 'Ak\'bal', 6, 'Muwan']],
     ['2 Ak\'bal 6Muwan', [2, 'Ak\'bal', 6, 'Muwan']],
     ['2Ak\'bal 6 Muwan', [2, 'Ak\'bal', 6, 'Muwan']],
@@ -127,7 +127,7 @@ function checkCrAgainstCr(cr: CalendarRound, crComponents: (number | string | Wi
 
 describe('parse calendar-round wildcards', () => {
   const wildcard = new Wildcard();
-  const sources = [
+  const sources: [string, (Wildcard | number | string)[], string][] = [
     [
       '* Ak\'bal 6 Muwan',
       [wildcard, 'Ak\'bal', 6, 'Muwan'],
@@ -146,7 +146,7 @@ describe('parse calendar-round wildcards', () => {
       '2 Ak\'bal 6 *',
     ],
   ];
-  sources.forEach((args: [string, [Wildcard | number | string, Wildcard | number | string, Wildcard | number | string, Wildcard | number | string], string]) => {
+  sources.forEach((args: [string, (Wildcard | number | string)[], string]) => {
     const [source, expected, name] = args;
     it(`${source}, ${expected}, ${name}`, () => {
       const cr = new CalendarRoundFactory().parse(source);
@@ -176,7 +176,7 @@ it('render calendar round', () => {
 // 7Ok     13 Xul  --> 5971
 
 describe('calendar round diff\'s', () => {
-  const dates = [
+  const dates: [string, string, number[]][] = [
     ['5 Kimi 4 Mol', '6 Manik\' 5 Mol', [1]],
     ['5 Kimi 4 Mol', '13 Ix 12 Mol', [8]],
     ['5 Kimi 4 Mol', '7 Ok 13 Xul', [4, 0, 7]],

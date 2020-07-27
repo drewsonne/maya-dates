@@ -1,4 +1,5 @@
 import CalendarRoundIterator from './calendar-round-iter';
+import {CalendarRound} from "../cr/calendar-round";
 
 /**
  * A reusable singleton instance of the CalendarRoundIterator
@@ -12,10 +13,12 @@ const iter = new CalendarRoundIterator();
  * fully qualified Calendar Rounds.
  */
 export default class CalendarRoundWildcard {
+  private cr: CalendarRound;
+
   /**
    * @param {CalendarRound} cr
    */
-  constructor(cr) {
+  constructor(cr: CalendarRound) {
     /**
      * @type {CalendarRound}
      */
@@ -31,8 +34,12 @@ export default class CalendarRoundWildcard {
     // Iterate through dates and compare
     let cr = iter.next();
     while (!cr.done) {
-      if (this.cr.match(cr.value)) {
-        potentials.push(cr.value);
+      if (cr.value !== null) {
+        if (this.cr.match(cr.value)) {
+          potentials.push(cr.value);
+        }
+      } else {
+        throw new Error("Iteration result is null")
       }
       cr = iter.next();
     }
