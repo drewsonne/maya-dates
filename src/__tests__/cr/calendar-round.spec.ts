@@ -2,13 +2,13 @@ import {expect} from 'chai'
 import 'mocha'
 import CalendarRoundFactory from "../../factory/calendar-round";
 import {Wildcard} from "../../wildcard";
-import {getCalendarRound} from "../../cr/calendar-round";
+import {CalendarRound, getCalendarRound} from "../../cr/calendar-round";
 import {getTzolkin} from "../../cr/tzolkin";
 import {getHaab} from "../../cr/haab";
 import DistanceNumber from "../../lc/distance-number";
-import Coefficient from "../../cr/component/coefficient";
 import {getTzolkinDay, TzolkinDay} from "../../cr/component/tzolkinDay";
 import {getHaabMonth, HaabMonth} from "../../cr/component/haabMonth";
+import NumberCoefficient from "../../cr/component/numberCoefficient";
 
 /**
  * @test {CalendarRoundFactory}
@@ -25,9 +25,15 @@ describe('increment calendar-rounds', () => {
     it(`${today} -> ${next}`, () => {
       const cr = new CalendarRoundFactory().parse(today);
       const tomorrow = cr.next();
-      expect(tomorrow.tzolkin.coeff.value).to.equal(next[0]);
+      expect(tomorrow.tzolkin.coeff).to.be.an.instanceOf(NumberCoefficient)
+      if (tomorrow.tzolkin.coeff instanceof NumberCoefficient) {
+        expect(tomorrow.tzolkin.coeff.value).to.equal(next[0]);
+      }
       expect(tomorrow.tzolkin.day).to.equal(next[1]);
-      expect(tomorrow.haab.coeff.value).to.equal(next[2]);
+      expect(tomorrow.haab.coeff).to.be.an.instanceOf(NumberCoefficient)
+      if (tomorrow.haab.coeff instanceof NumberCoefficient) {
+        expect(tomorrow.haab.coeff.value).to.equal(next[2]);
+      }
       expect(tomorrow.haab.month).to.equal(next[3]);
     });
   });
@@ -45,10 +51,18 @@ describe('shift calendar-rounds', () => {
     it(`${today} + ${increment} = ${expected}`, () => {
       const cr = new CalendarRoundFactory().parse(today);
       const tomorrow = cr.shift(increment);
-      expect(tomorrow.tzolkin.coeff).to.equal(expected[0]);
-      expect(tomorrow.tzolkin.name).to.be(expected[1]);
-      expect(tomorrow.haab.coeff).to.equal(expected[2]);
-      expect(tomorrow.haab.name).to.be(expected[3]);
+
+      expect(tomorrow.tzolkin.coeff).to.be.an.instanceOf(NumberCoefficient)
+      if (tomorrow.tzolkin.coeff instanceof NumberCoefficient) {
+        expect(tomorrow.tzolkin.coeff.value).to.equal(expected[0]);
+      }
+      expect(tomorrow.tzolkin.name).to.eq(expected[1]);
+
+      expect(tomorrow.haab.coeff).to.be.an.instanceOf(NumberCoefficient)
+      if (tomorrow.haab.coeff instanceof NumberCoefficient) {
+        expect(tomorrow.haab.coeff.value).to.equal(expected[2]);
+      }
+      expect(tomorrow.haab.name).to.eq(expected[3]);
     });
   });
 });
@@ -69,13 +83,47 @@ describe('parse calendar-round', () => {
     const [source, expected] = args;
     it(`${source} -> ${expected}`, () => {
       const cr = new CalendarRoundFactory().parse(source);
-      expect(cr.tzolkin.coeff).to.equal(expected[0]);
-      expect(cr.tzolkin.name).to.be(expected[1]);
-      expect(cr.haab.coeff).to.equal(expected[2]);
-      expect(cr.haab.name).to.be(expected[3]);
+      expect(cr.tzolkin.coeff).to.be.an.instanceOf(NumberCoefficient)
+      if (cr.tzolkin.coeff instanceof NumberCoefficient) {
+        expect(cr.tzolkin.coeff.value).to.equal(expected[0]);
+      }
+      expect(cr.tzolkin.name).to.eq(expected[1]);
+
+      expect(cr.haab.coeff).to.be.an.instanceOf(NumberCoefficient)
+      if (cr.haab.coeff instanceof NumberCoefficient) {
+        expect(cr.haab.coeff.value).to.equal(expected[2]);
+      }
+      expect(cr.haab.name).to.eq(expected[3]);
     });
   })
 });
+
+function checkCrAgainstCr(cr: CalendarRound, crComponents: (number | string | Wildcard)[]) {
+  const crParts = [
+    cr.tzolkin.coeff,
+    cr.tzolkin.day,
+    cr.haab.coeff,
+    cr.haab.month
+  ]
+  return crComponents.map((expectedValue: (number | string | Wildcard), index: number) => {
+    const actualValue = crParts[index]
+    if (expectedValue instanceof Wildcard) {
+      expect(actualValue).to.be.an.instanceOf(Wildcard)
+    } else if (typeof expectedValue === 'string') {
+      expect(`${actualValue}`).to.be.eq(`${expectedValue}`)
+    } else if (typeof expectedValue === 'number') {
+      expect(actualValue).to.be.an.instanceOf(NumberCoefficient)
+      if (actualValue instanceof NumberCoefficient) {
+        expect(actualValue.value).to.eq(expectedValue)
+      } else {
+        return false
+      }
+    } else {
+      return false
+    }
+    return true
+  }).every((result) => result)
+}
 
 describe('parse calendar-round wildcards', () => {
   const wildcard = new Wildcard();
@@ -102,12 +150,10 @@ describe('parse calendar-round wildcards', () => {
     const [source, expected, name] = args;
     it(`${source}, ${expected}, ${name}`, () => {
       const cr = new CalendarRoundFactory().parse(source);
-      expect(cr.tzolkin.coeff).to.equal(expected[0]);
-      expect(cr.tzolkin.name).to.equal(expected[1]);
-      expect(cr.haab.coeff).to.equal(expected[2]);
-      expect(cr.haab.name).to.equal(expected[3]);
-
-      expect(cr.toString()).to.be(name);
+      expect(
+        checkCrAgainstCr(cr, expected)
+      ).to.be.true
+      expect(cr.toString()).to.eq(name);
     });
   })
 });
@@ -115,8 +161,8 @@ describe('parse calendar-round wildcards', () => {
 it('render calendar round', () => {
   expect(
     getCalendarRound(
-      getTzolkin(new Coefficient(4), getTzolkinDay('Ajaw')),
-      getHaab(new Coefficient(8), getTzolkinDay('Kumk\'u')),
+      getTzolkin(new NumberCoefficient(4), getTzolkinDay('Ajaw')),
+      getHaab(new NumberCoefficient(8), getTzolkinDay('Kumk\'u')),
     ).toString(),
   ).to.equal(
     '4 Ajaw 8 Kumk\'u',
@@ -147,7 +193,7 @@ describe('calendar round diff\'s', () => {
         ...expectRaw,
       ).normalise();
 
-      expect(from.minus(to)).to.equal(expected)
+      expect(from.minus(to).equal(expected)).to.be.true
     });
   })
 });

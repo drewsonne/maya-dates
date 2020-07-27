@@ -1,4 +1,6 @@
+import LongCount from "../lc/long-count";
 export default class LongCountWildcard {
-    constructor(lc: any);
-    run(): any;
+    private lc;
+    constructor(lc: LongCount);
+    run(): LongCount[];
 }
