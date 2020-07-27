@@ -35,7 +35,7 @@ export function getHaab(coeff: ICoefficient, month: Wildcard | HaabMonth): Haab 
 export class Haab {
   coeff: ICoefficient;
   month: Wildcard | HaabMonth;
-  privateNext: Haab;
+  _privateNext: null | Haab;
 
   /**
    * Constructor
@@ -56,7 +56,7 @@ export class Haab {
      * Lazy loaded instance of the next Haab date in the cycle
      * @type {Haab}
      */
-    this.privateNext = undefined;
+    this._privateNext = null;
 
     this.validate();
   }
@@ -137,15 +137,7 @@ export class Haab {
         if (incremental === 0) {
           return this;
         }
-        if (this.privateNext === undefined) {
-          const monthLength = (this.month === getHaabMonth(19)) ? 5 : 20;
-          if (1 + this.coeff.value >= monthLength) {
-            const newMonth = this.month.shift(1);
-            this.privateNext = getHaab(_(0), newMonth);
-          } else {
-            this.privateNext = getHaab(this.coeff.increment(), this.month);
-          }
-        }
+
         return this.privateNext.shift(incremental - 1);
       } else {
         throw new Error("Coefficient is not an integer")
@@ -153,6 +145,27 @@ export class Haab {
     } else {
       throw new Error("Can not shift Haab date with wildcard")
     }
+  }
+
+  get privateNext(): Haab {
+    if (this._privateNext === null) {
+      const monthLength = (this.month === getHaabMonth(19)) ? 5 : 20;
+      if (this.coeff instanceof NumberCoefficient) {
+        if (1 + this.coeff.value >= monthLength) {
+          if (this.month instanceof HaabMonth) {
+            const newMonth = this.month.shift(1);
+            this._privateNext = getHaab(_(0), newMonth);
+          } else {
+            throw new Error("Month must not be wildcard to shift")
+          }
+        } else {
+          this._privateNext = getHaab(this.coeff.increment(), this.month);
+        }
+      } else {
+        throw new Error("Month Coefficient must not be a wildcard to shift")
+      }
+    }
+    return this._privateNext
   }
 
   get coeffValue(): Wildcard | number {
