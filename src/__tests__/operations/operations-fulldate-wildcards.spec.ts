@@ -1,7 +1,7 @@
-import mayadates from '../index';
+import FullDateFactory from "../../factory/full-date";
+import {Wildcard} from "../../wildcard";
 
-const { wildcard } = mayadates;
-
+import {expect} from 'chai'
 
 describe('complex wildcard parsing', () => {
   const partialDates = [
@@ -13,18 +13,18 @@ describe('complex wildcard parsing', () => {
   it.each(partialDates)(
     '%s',
     (partialDate) => {
-      const fullDate = new mayadates.factory.FullDateFactory().parse(
+      const fullDate = new FullDateFactory().parse(
         partialDate,
       );
-      expect(fullDate.cr.tzolkin.coeff).toBe(1);
-      expect(fullDate.cr.tzolkin.name).toBe('Ok');
-      expect(fullDate.cr.haab.coeff).toBe(wildcard);
-      expect(fullDate.cr.haab.name).toBe(wildcard);
-      expect(fullDate.lc.kIn).toBe(10);
-      expect(fullDate.lc.winal).toBe(10);
-      expect(fullDate.lc.tun).toBe(10);
-      expect(fullDate.lc.kAtun).toBe(wildcard);
-      expect(fullDate.lc.bakTun).toBe(9);
+      expect(fullDate.cr.tzolkin.coeff).to.eq(1);
+      expect(fullDate.cr.tzolkin.name).to.eq('Ok');
+      expect(fullDate.cr.haab.coeff).to.be.an.instanceOf(Wildcard);
+      expect(fullDate.cr.haab.name).to.be.an.instanceOf(Wildcard);
+      expect(fullDate.lc.kIn).to.eq(10);
+      expect(fullDate.lc.winal).to.eq(10);
+      expect(fullDate.lc.tun).to.eq(10);
+      expect(fullDate.lc.kAtun).to.be.an.instanceOf(Wildcard);
+      expect(fullDate.lc.bakTun).to.eq(9);
     },
   );
 });
@@ -62,9 +62,9 @@ describe('single cr alignment', () => {
     ).run();
 
     expect(potentialDates).toHaveLength(1);
-    expect(potentialDates[0].cr.tzolkin.coeff).toBe(expected[0]);
-    expect(potentialDates[0].cr.tzolkin.name).toBe(expected[1]);
-    expect(potentialDates[0].cr.haab.coeff).toBe(expected[2]);
-    expect(potentialDates[0].cr.haab.name).toBe(expected[3]);
+    expect(potentialDates[0].cr.tzolkin.coeff).to.eq(expected[0]);
+    expect(potentialDates[0].cr.tzolkin.name).to.eq(expected[1]);
+    expect(potentialDates[0].cr.haab.coeff).to.eq(expected[2]);
+    expect(potentialDates[0].cr.haab.name).to.eq(expected[3]);
   });
 });

@@ -44,13 +44,13 @@ describe('build tzolkins', () => {
     '%s -> %s',
     (prev, next) => {
       const tz = mayadates.cr.tzolkin.getTzolkin(prev[0], prev[1]);
-      expect(tz.coeff).toBe(prev[0]);
-      expect(tz.name).toBe(prev[1]);
+      expect(tz.coeff).to.eq(prev[0]);
+      expect(tz.name).to.eq(prev[1]);
 
       const expected = mayadates.cr.tzolkin.getTzolkin(next[0], next[1]);
       const tomorrow = tz.next();
-      expect(tomorrow.coeff).toBe(next[0]);
-      expect(tomorrow.name).toBe(next[1]);
+      expect(tomorrow.coeff).to.eq(next[0]);
+      expect(tomorrow.name).to.eq(next[1]);
       expect(tomorrow).toStrictEqual(expected);
     },
   );
@@ -77,5 +77,5 @@ describe('shift tzolkins', () => {
 
 test('render tzolkin fullDate', () => {
   const haab = mayadates.cr.tzolkin.getTzolkin(5, 'Imix');
-  expect(haab.toString()).toBe('5 Imix');
+  expect(haab.toString()).to.eq('5 Imix');
 });

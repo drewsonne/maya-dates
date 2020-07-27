@@ -54,21 +54,21 @@ describe('long-count to gregorian/julian', () => {
 
   it.each(dates.map((d) => [d.lc, d.gregorian, d.jday]))('lc(%s) -> g(%s: %s)', (lcRaw, gregorian) => {
     const lc = lcFactory.parse(lcRaw).setCorrelationConstant(corr);
-    expect(`${lc.gregorian}`).toBe(gregorian);
+    expect(`${lc.gregorian}`).to.eq(gregorian);
   });
 
   it.each(dates.map((d) => [d.lc, d.julian, d.jday]))('lc(%s) -> j(%s: %s)', (lcRaw, julian) => {
     const lc = lcFactory.parse(lcRaw).setCorrelationConstant(corr);
-    expect(`${lc.julian}`).toBe(julian);
+    expect(`${lc.julian}`).to.eq(julian);
   });
 
   it.each(dates.map((d) => [d.lc, d.jday]))('lc(%s) -> jday(%s)', (lcRaw, jday) => {
     const lc = lcFactory.parse(lcRaw).setCorrelationConstant(corr);
-    expect(lc.julianDay).toBe(jday);
+    expect(lc.julianDay).to.eq(jday);
   });
 
   it.each(dates.map((d) => [d.lc, d.maya_day]))('lc(%s) -> mayaDay(%s)', (lcRaw, mayaNumber) => {
     const lc = lcFactory.parse(lcRaw).setCorrelationConstant(corr);
-    expect(lc.getPosition()).toBe(mayaNumber);
+    expect(lc.getPosition()).to.eq(mayaNumber);
   });
 });
