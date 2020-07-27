@@ -35,9 +35,7 @@ export const getTzolkinDay = singletonGenerator<(TzolkinDay | Wildcard)>(
  * Describes only the day component of a 260-day cycle
  */
 export class TzolkinDay extends Cycle<(TzolkinDay|Wildcard)> {
-
-  value: string | Wildcard;
-
+  
   /**
    * @param {string|number} newName - Name or position of the 260-day cycle day
    */
