@@ -25,15 +25,15 @@ const months: HashMap = new HashMap([
   'Wayeb'
 ]);
 
-export const getHaabMonth = singletonGenerator<HaabMonth>(
+export const getHaabMonth = singletonGenerator<(HaabMonth | Wildcard)>(
   months,
-  (name: string) => new HaabMonth(name)
+  (name: string) => (name == '*') ? new Wildcard() : new HaabMonth(name)
 );
 
 /**
  * Describes only the month component of a Haab fullDate
  */
-export class HaabMonth extends Cycle<HaabMonth> {
+export class HaabMonth extends Cycle<(HaabMonth | Wildcard)> {
 
   /**
    * @param {string} raw - Name of the Haab month
@@ -52,7 +52,7 @@ export class HaabMonth extends Cycle<HaabMonth> {
         throw new Error('Haab\' month name must be provided');
       }
       if (!months.includes(this.value)) {
-        throw new Error(`Haab' day (${this.value}) must be in ${months}`);
+        throw new Error(`Haab' month (${this.value}) must be in ${months}`);
       }
     }
     return true

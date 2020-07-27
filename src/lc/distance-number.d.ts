@@ -14,9 +14,9 @@ export default class DistanceNumber {
     clone(): DistanceNumber;
     getDateSections(index: number): number | Wildcard;
     setDateSections(index: number, newValue: number | Wildcard): this;
-    map(fn: any): unknown[];
-    lt(newLongCount: any): boolean;
-    gt(newLongCount: any): boolean;
+    map(fn: (lcPart: (number | Wildcard), lcPartIndex: number) => any): any[];
+    lt(newLongCount: DistanceNumber): boolean;
+    gt(newLongCount: DistanceNumber): boolean;
     set kIn(newKIn: number | Wildcard);
     get kIn(): number | Wildcard;
     set winal(newWinal: number | Wildcard);
@@ -33,11 +33,11 @@ export default class DistanceNumber {
     get kalabtun(): number | Wildcard;
     set kinchiltun(newBakTun: number | Wildcard);
     get kinchiltun(): number | Wildcard;
-    isValid(): any;
+    isValid(): boolean;
     isPartial(): boolean;
     getPosition(): number;
-    plus(newLc: any): LongcountAddition;
-    minus(newLc: any): LongcountSubtraction;
-    normalise(): this;
+    plus(newLc: DistanceNumber): LongcountAddition;
+    minus(newLc: DistanceNumber): LongcountSubtraction;
+    normalise(): DistanceNumber;
     toString(): string;
 }

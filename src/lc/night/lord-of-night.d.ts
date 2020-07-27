@@ -1,23 +1,23 @@
-declare class LordOfNight {
+declare class LordOfTheNight {
     id: number;
     constructor(id: number);
     toString(): string;
 }
-declare class LordsOfTheNight {
-    G1: LordOfNight;
-    G2: LordOfNight;
-    G3: LordOfNight;
-    G4: LordOfNight;
-    G5: LordOfNight;
-    G6: LordOfNight;
-    G7: LordOfNight;
-    G8: LordOfNight;
-    G9: LordOfNight;
+declare class _LordsOfTheNight {
+    G1: LordOfTheNight;
+    G2: LordOfTheNight;
+    G3: LordOfTheNight;
+    G4: LordOfTheNight;
+    G5: LordOfTheNight;
+    G6: LordOfTheNight;
+    G7: LordOfTheNight;
+    G8: LordOfTheNight;
+    G9: LordOfTheNight;
     lookup: {
-        [key: string]: LordOfNight;
+        [key: string]: LordOfTheNight;
     };
     constructor();
-    get(id: string): LordOfNight;
+    get(id: string): LordOfTheNight;
 }
-declare const _default: LordsOfTheNight;
-export default _default;
+declare const lords: _LordsOfTheNight;
+export { lords, LordOfTheNight };

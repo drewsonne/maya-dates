@@ -3,7 +3,7 @@ import 'mocha'
 import {expect} from 'chai'
 import LongCount from "../../lc/long-count";
 import {Wildcard} from "../../wildcard";
-import night from '../../lc/night/lord-of-night'
+import {LordOfTheNight, lords} from "../../lc/night/lord-of-night"
 
 describe('parse long-count fullDate', () => {
   const dates = [
@@ -100,12 +100,12 @@ it('print short long-count fullDate', () => {
 });
 
 describe('test lord of night glyphs', () => {
-  const dates = [
-    ['9.16.19.17.19', night.G8, 'G8'],
-    ['9.17.0.0.0', night.get('G9'), 'G9'],
-    ['9.17.0.0.5', night.G5, 'G5'],
-    ['9.17.0.0.9', night.G9, 'G9'],
-    ['9.17.0.0.10', night.get('G1'), 'G1'],
+  const dates: [string, LordOfTheNight, string][] = [
+    ['9.16.19.17.19', lords.G8, 'G8'],
+    ['9.17.0.0.0', lords.get('G9'), 'G9'],
+    ['9.17.0.0.5', lords.G5, 'G5'],
+    ['9.17.0.0.9', lords.G9, 'G9'],
+    ['9.17.0.0.10', lords.get('G1'), 'G1'],
   ];
   const factory = new LongCountFactory();
   dates.forEach((args) => {
@@ -131,7 +131,7 @@ describe('comparison', () => {
     const [a, b, aLtB] = args;
     it(`${a} > ${b} = ${aLtB}`, () => {
       expect(a.gt(b) === aLtB).to.be.true;
-      expect(a.lt(b) === aLtB).to.be.true;
+      expect(a.lt(b) === aLtB).to.be.false;
     })
   });
 });
