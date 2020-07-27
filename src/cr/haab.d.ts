@@ -1,12 +1,11 @@
 import { HaabMonth } from "./component/haabMonth";
-import Coefficient from "./component/coefficient";
 import { Wildcard } from "../wildcard";
-export declare function getHaab(coeff: Coefficient | Wildcard, month: Wildcard | HaabMonth): Haab;
+export declare function getHaab(coeff: ICoefficient, month: Wildcard | HaabMonth): Haab;
 export declare class Haab {
-    coeff: Coefficient;
+    coeff: ICoefficient;
     month: Wildcard | HaabMonth;
     privateNext: Haab;
-    constructor(coeff: Coefficient, month: Wildcard | HaabMonth);
+    constructor(coeff: ICoefficient, month: Wildcard | HaabMonth);
     validate(): boolean;
     next(): Haab;
     equal(otherHaab: Haab): boolean;

@@ -2,7 +2,7 @@ import 'mocha'
 import {expect} from 'chai'
 import {getHaabMonth, HaabMonth} from "../../cr/component/haabMonth";
 import {getHaab} from "../../cr/haab";
-import Coefficient from "../../cr/component/coefficient";
+import NumberCoefficient from "../../cr/component/numberCoefficient";
 
 describe('increment haab months', () => {
   const tzolkinDays = [
@@ -14,10 +14,13 @@ describe('increment haab months', () => {
     const [previous, next] = args;
     it(`${previous} -> ${next}`, () => {
       const today = getHaabMonth(previous);
-      const tomorrow = today.next();
-      const expected = getHaabMonth(next);
-      // expect(tomorrow.name).to.equal(next);
-      expect(tomorrow).to.equal(expected);
+      expect(today).to.be.an.instanceOf(HaabMonth)
+      if (today instanceof HaabMonth) {
+        const tomorrow = today.next();
+        const expected = getHaabMonth(next);
+        // expect(tomorrow.name).to.equal(next);
+        expect(tomorrow).to.equal(expected);
+      }
     });
   });
 });
@@ -32,19 +35,25 @@ describe('build haabs', () => {
   haabs.forEach((args: [[number, string], [number, HaabMonth]]) => {
     const [prev, next] = args;
     it(`${prev} -> ${next}`, () => {
-      const haab = getHaab(prev[0], getHaabMonth(prev[1]));
-      expect(haab.coeff.value).to.equal(prev[0]);
+      const haab = getHaab(new NumberCoefficient(prev[0]), getHaabMonth(prev[1]));
+      expect(haab.coeff).to.be.an.instanceOf(NumberCoefficient)
+      if (haab.coeff instanceof NumberCoefficient) {
+        expect(haab.coeff.value).to.equal(prev[0]);
+      }
       expect(haab.name).to.equal(prev[1]);
 
       const tomorrow = haab.next();
-      expect(tomorrow.coeff.value).to.equal(next[0]);
+      expect(tomorrow.coeff).to.be.an.instanceOf(NumberCoefficient)
+      if (tomorrow.coeff instanceof NumberCoefficient) {
+        expect(tomorrow.coeff.value).to.equal(next[0]);
+      }
       expect(tomorrow.month).to.equal(next[1]);
     });
   });
 });
 
 it('render haab fullDate', () => {
-  const haab = getHaab(new Coefficient(5), 'Pop');
+  const haab = getHaab(new NumberCoefficient(5), 'Pop');
   expect(haab.toString()).to.equal('5 Pop');
 });
 
@@ -69,12 +78,14 @@ describe('shift haab', () => {
     const [start, incremental, expected] = args;
     it(`${start} + ${incremental} = ${expected}`, () => {
       const prevHaab = getHaab(
-        new Coefficient(start[0]),
+        new NumberCoefficient(start[0]),
         getHaabMonth(start[1])
       );
       const newHaab = prevHaab.shift(incremental);
-
-      expect(newHaab.coeff.value).to.equal(expected[0]);
+      expect(newHaab.coeff).to.be.an.instanceOf(NumberCoefficient)
+      if (newHaab.coeff instanceof NumberCoefficient) {
+        expect(newHaab.coeff.value).to.equal(expected[0]);
+      }
       expect(newHaab.month).to.equal(expected[1]);
     });
   });

@@ -1,7 +1,7 @@
 /**
  * Long Count cycle
  */
-import {Wildcard} from "../wildcard";
+import {isWildcard, Wildcard} from "../wildcard";
 
 export default class DistanceNumber {
   parts: (number | Wildcard)[];
@@ -31,8 +31,12 @@ export default class DistanceNumber {
      */
     this.sign = (this.parts[this.parts.length - 1] < 0) ? -1 : 1;
     if (this.isNegative) {
-      this.parts[this.parts.length - 1] = -1
-        * this.parts[this.parts.length - 1];
+      let lastComponent = this.parts[this.parts.length - 1]
+      if (typeof lastComponent === 'number') {
+        this.parts[this.parts.length - 1] = -1 * lastComponent
+      } else {
+        throw new Error("Last component is not a number")
+      }
     }
   }
 
@@ -149,7 +153,7 @@ export default class DistanceNumber {
    * @param fn
    * @return {object[]}
    */
-  map(fn:) {
+  map(fn: (lcPart: (number | Wildcard), lcPartIndex: number) => any): any[] {
     return this.parts.map(fn);
   }
 
@@ -305,7 +309,7 @@ export default class DistanceNumber {
    * @return {boolean}
    */
   isPartial(): boolean {
-    return this.parts.some((part) => part === wildcard);
+    return this.parts.some((part) => part instanceof Wildcard);
   }
 
   /**
@@ -316,14 +320,32 @@ export default class DistanceNumber {
     if (this.isPartial()) {
       throw new Error('Can not get position of fullDate dates');
     }
-    return (this.kIn
-      + this.winal * 20
-      + this.tun * 360
-      + this.kAtun * 7200
-      + this.bakTun * 144000
-      + this.piktun * 2880000
-      + this.kalabtun * 57600000
-      + this.kinchiltun * 1152000000) * this.sign;
+    let total = 0
+    if (!isWildcard(this.kIn)) {
+      total += this.kIn
+    }
+    if (!isWildcard(this.winal)) {
+      total += this.winal * 20
+    }
+    if (!isWildcard(this.tun)) {
+      total += this.tun * 360
+    }
+    if (!isWildcard(this.kAtun)) {
+      total += this.kAtun * 7200
+    }
+    if (!isWildcard(this.bakTun)) {
+      total += this.bakTun * 144000
+    }
+    if (!isWildcard(this.piktun)) {
+      total += this.piktun * 2880000
+    }
+    if (!isWildcard(this.kalabtun)) {
+      total += this.kalabtun * 57600000
+    }
+    if (!isWildcard(this.kinchiltun)) {
+      total += this.kinchiltun * 1152000000
+    }
+    return total * this.sign;
   }
 
   /**

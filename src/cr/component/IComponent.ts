@@ -1,3 +1,4 @@
 interface IComponent {
   isWildcard(): boolean
+
 }
