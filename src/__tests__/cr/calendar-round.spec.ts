@@ -68,8 +68,8 @@ describe('shift calendar-rounds', () => {
 });
 
 it('failed calendar-round parse', () => {
-  const cr = new CalendarRoundFactory().parse('World');
-  expect(cr).to.be.null;
+  let testFunc = () => new CalendarRoundFactory().parse('World');
+  expect(testFunc).to.throw;
 });
 
 describe('parse calendar-round', () => {

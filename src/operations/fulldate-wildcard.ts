@@ -1,11 +1,10 @@
 import FullDate from '../full-date';
 import LongCountWildcard from './longcount-wildcard';
-import CalendarRoundWildcard from './calendar-round-wildcard';
 
 /** @ignore */
 // const concat = (x, y) => x.concat(y);
-
-/** @ignore */
+//
+// /** @ignore */
 // const flatMap = (f, xs) => xs.map(f).reduce(concat, []);
 
 /** @ignore */
@@ -35,23 +34,19 @@ export default class FullDateWildcard {
    * Run calculation to find all fully qualified Long Counts with Calendar Rounds
    * @return {FullDate[]}
    */
-  run() {
-    if (this.fullDate.lc.isPartial()) {
-      const lcs = new LongCountWildcard(this.fullDate.lc).run();
+  run(): FullDate[] {
+    if (!this.fullDate.isPartial()) {
+      return [this.fullDate]
+    }
 
-      const mappedLcs = lcs.map((potentialLc) => potentialLc.buildFullDate());
-      const flatMappedLcs = mappedLcs.flatMap(
-        (fullDate) => (
-          this.fullDate.cr.isPartial()
-            ? new CalendarRoundWildcard(this.fullDate.cr).run()
-            : [this.fullDate.cr]
-        ).map(
-          (cr) => [cr].concat([fullDate])
-        )
-      );
-      return flatMappedLcs.filter(
-        (pair) => pair[0].equal(pair[1].cr)
-      );
+    if (this.fullDate.lc.isPartial()) {
+      const partialCr = this.fullDate.cr.isPartial()
+      const fullDatesFromPartialLc: FullDate[] = new LongCountWildcard(this.fullDate.lc)
+        .run()
+        .map((potentialLc) => potentialLc.buildFullDate());
+      return fullDatesFromPartialLc.filter((fullDate) => {
+        return partialCr ? fullDate.cr.match(this.fullDate.cr) : fullDate.cr.equal(this.fullDate.cr)
+      })
     }
     // If we have a full formed LC fullDate, and a fullDate CR, then generate the
     // CR for the LC, and compare them. The fullDate CR will either match the
