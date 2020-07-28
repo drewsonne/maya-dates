@@ -81,5 +81,3 @@ export default class LongcountSubtraction {
     return newLC;
   }
 }
-
-module.exports = LongcountSubtraction;

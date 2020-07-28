@@ -1,7 +1,9 @@
 import {getTzolkinDay, TzolkinDay} from "../../cr/component/tzolkinDay";
 
 import {expect} from 'chai'
+import 'mocha'
 import {getTzolkin} from "../../cr/tzolkin";
+import NumberCoefficient from "../../cr/component/numberCoefficient";
 
 describe('increment tzolkin days', () => {
   const tzolkinDays: [string, string][] = [
@@ -53,15 +55,21 @@ describe('build tzolkins', () => {
     let [prev, next] = args
     it(`${prev} -> ${next}`, () => {
 
-      const tz = getTzolkin(prev[0], prev[1]);
-      expect(tz.coeff).to.eq(prev[0]);
+      const tz = getTzolkin(new NumberCoefficient(prev[0]), getTzolkinDay(prev[1]));
+      expect(tz.coeff).to.be.an.instanceOf(NumberCoefficient)
+      if (tz.coeff instanceof NumberCoefficient) {
+        expect(tz.coeff.value).to.eq(prev[0]);
+      }
       expect(tz.name).to.eq(prev[1]);
 
-      const expected = getTzolkin(next[0], next[1]);
+      const expected = getTzolkin(new NumberCoefficient(next[0]), getTzolkinDay(next[1]));
       const tomorrow = tz.next();
-      expect(tomorrow.coeff).to.eq(next[0]);
+      expect(tomorrow.coeff).to.be.an.instanceOf(NumberCoefficient)
+      if (tomorrow.coeff instanceof NumberCoefficient) {
+        expect(tomorrow.coeff.value).to.eq(next[0]);
+      }
       expect(tomorrow.name).to.eq(next[1]);
-      expect(tomorrow).to.eq(expected);
+      expect(tomorrow.equal(expected)).to.be.true;
     })
   });
 });
@@ -86,6 +94,6 @@ describe('shift tzolkins', () => {
 });
 
 it('render tzolkin fullDate', () => {
-  const haab = getTzolkin(5, 'Imix');
+  const haab = getTzolkin(new NumberCoefficient(5), getTzolkinDay('Imix'));
   expect(haab.toString()).to.eq('5 Imix');
 });

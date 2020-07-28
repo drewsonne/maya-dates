@@ -5,14 +5,14 @@ import {Wildcard} from "../wildcard";
 import CalendarRoundFactory from "../factory/calendar-round";
 
 
-test('parse long-count fullDate', () => {
+it('parse long-count fullDate', () => {
   const date = new LongCountFactory().parse('1.2.*.4.5');
 
   expect(date.isValid()).to.be.true
 
   expect(date.kIn).to.eq(5);
   expect(date.winal).to.eq(4);
-  expect(date.tun).to.eq(Wildcard);
+  expect(date.tun).to.be.an.instanceOf(Wildcard);
   expect(date.kAtun).to.eq(2);
   expect(date.bakTun).to.eq(1);
 

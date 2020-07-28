@@ -1,9 +1,9 @@
-import mayadates from '../index';
-
-const { LongCount } = mayadates.lc;
+import {expect} from 'chai'
+import 'mocha'
+import LongCount from "../../lc/long-count";
 
 describe('longcount subtraction', () => {
-  const dates = [
+  const dates: [LongCount, LongCount, LongCount][] = [
     [[1, 4, 13, 19, 12], [1], [0, 4, 13, 19, 12]],
     [[0, 5, 13, 19, 12], [1], [19, 4, 13, 19, 12]],
     [[0, 2, 13, 19, 12], [40], [0, 0, 13, 19, 12]],
@@ -16,7 +16,11 @@ describe('longcount subtraction', () => {
     new LongCount(...row[2]),
   ]);
 
-  it.each(dates)('%s - %s = %s', (from, increment, to) => {
-    expect(from.minus(increment).equals()).toStrictEqual(to);
-  });
+  dates.forEach((args) => {
+    let [from, increment, to] = args
+    it(`${from} - ${increment} = ${to}`, () => {
+      expect(from.minus(increment).equals().equal(to)).to.be.true;
+    })
+  })
+
 });

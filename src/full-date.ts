@@ -20,4 +20,8 @@ export default class FullDate {
   toString(): string {
     return `${this.cr} ${this.lc}`;
   }
+
+  isPartial(): boolean {
+    return this.cr.isPartial() || this.lc.isPartial()
+  }
 }
