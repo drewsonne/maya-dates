@@ -1,6 +1,6 @@
-import mayadates from '../index';
-
-const { LongCount } = mayadates.lc;
+import {expect} from 'chai'
+import 'mocha'
+import LongCount from "../../lc/long-count";
 
 describe('longcount addition', () => {
   const dates = [
@@ -15,7 +15,10 @@ describe('longcount addition', () => {
     new LongCount(...row[2]),
   ]);
 
-  it.each(dates)('%s + %s = %s', (from, increment, to) => {
-    expect(from.plus(increment).equals()).toStrictEqual(to);
+  dates.forEach((args) => {
+    let [from, increment, to] = args
+    it(`${from} + ${increment} = ${to}`, () => {
+      expect(from.plus(increment).equals().equal(to)).to.be.true;
+    })
   });
 });
