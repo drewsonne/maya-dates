@@ -1,6 +1,7 @@
 import {Wildcard} from "../../wildcard";
 import WildcardCoefficient from "./wildcardCoefficient";
 import NumberCoefficient from "./numberCoefficient";
+import ICoefficient from "./iCoefficient";
 
 function coefficientParser(rawCoefficient: number | string | Wildcard): ICoefficient {
   if (rawCoefficient instanceof Wildcard) {

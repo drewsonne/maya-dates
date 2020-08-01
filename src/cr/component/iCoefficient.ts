@@ -1,3 +1,5 @@
+import IComponent from "./iComponent";
+
 export default interface ICoefficient extends IComponent {
   validate(): boolean;
 

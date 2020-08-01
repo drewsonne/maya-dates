@@ -1,4 +1,5 @@
 import {Wildcard} from "../../wildcard";
+import IComponent from "./iComponent";
 
 export default abstract class Base implements IComponent {
   protected value: Wildcard | any;
