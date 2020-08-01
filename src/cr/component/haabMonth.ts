@@ -1,5 +1,5 @@
 import HashMap from "../../structs/hashMap";
-import {Cycle, singletonGenerator} from "./cycle";
+import {Cycle} from "./cycle";
 import {Wildcard} from "../../wildcard";
 
 const months: HashMap = new HashMap([
@@ -25,10 +25,23 @@ const months: HashMap = new HashMap([
   'Wayeb'
 ]);
 
-export const getHaabMonth = singletonGenerator<(HaabMonth | Wildcard)>(
-  months,
-  (name: string) => (name == '*') ? new Wildcard() : new HaabMonth(name)
-);
+
+export function getHaabMonth(newCycleName: (string | number | Wildcard)): (HaabMonth | Wildcard) {
+  const singleton: { [key: string]: (HaabMonth | Wildcard) } = {};
+
+  if (typeof newCycleName === "number" || typeof newCycleName === "string") {
+
+    let cycleName = (typeof newCycleName === 'number') ? months.getValue(newCycleName) : newCycleName;
+    const cycleNameHash = `${cycleName}`;
+    if (singleton[cycleNameHash] === undefined) {
+      singleton[cycleNameHash] = (cycleNameHash == '*') ? new Wildcard() : new HaabMonth(cycleNameHash)
+    }
+
+    return singleton[cycleNameHash];
+  } else {
+    return newCycleName
+  }
+}
 
 /**
  * Describes only the month component of a Haab fullDate
