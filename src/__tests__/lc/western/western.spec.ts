@@ -1,6 +1,7 @@
 import {expect} from 'chai'
 import {getCorrelationConstant} from "../../../lc/correlation-constant";
 import LongCountFactory from "../../../factory/long-count";
+import GregorianFactory from "../../../factory/gregorian";
 
 class MockDateCorrelation {
   public lc: string;
@@ -21,6 +22,7 @@ class MockDateCorrelation {
 describe('long-count to gregorian/julian', () => {
   const corr = getCorrelationConstant('GMT');
   const lcFactory = new LongCountFactory();
+  const gregorianFactory = new GregorianFactory();
   const dates: MockDateCorrelation[] = [
     // LC, Gregorian(dd/mm/yyyy), Julian(dd/mm/yyyy), JDay, MayaDay
     new MockDateCorrelation('13.4.8.8.18', '13/3/2100 CE', '28/2/2100 CE', 2488141, 1903858),
@@ -65,6 +67,13 @@ describe('long-count to gregorian/julian', () => {
   })
 
   dates.forEach((dc) => {
+    it(`g(${dc.gregorian}) -> lc(${dc.lc})`, () => {
+      const g = gregorianFactory.parse(dc.gregorian)
+      expect(g.julianDay).to.eq(dc.jday)
+    })
+  })
+
+  dates.forEach((dc) => {
     it(`lc(${dc.lc}) -> j(${dc.julian}: ${dc.jday})`, () => {
       const lc = lcFactory.parse(dc.lc).setCorrelationConstant(corr);
       expect(`${lc.julian}`).to.eq(dc.julian);
@@ -84,4 +93,5 @@ describe('long-count to gregorian/julian', () => {
       expect(lc.getPosition()).to.eq(dc.mayaDay);
     })
   })
+
 });
