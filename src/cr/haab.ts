@@ -3,6 +3,7 @@ import {getHaabMonth, HaabMonth} from "./component/haabMonth";
 import {Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
 import {coefficientParser as _} from "./component/coefficient";
+import ICoefficient from "./component/iCoefficient";
 
 const singleton: { [key: string]: Haab } = {};
 
