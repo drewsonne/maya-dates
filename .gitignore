@@ -6,3 +6,5 @@ src/**/*.d.ts
 src/**/*.js.map
 src/**/*.js
 lib
+.nyc_output
+Develop
