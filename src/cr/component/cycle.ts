@@ -1,5 +1,5 @@
 import HashMap from "../../structs/hashMap";
-import {Wildcard} from "../../wildcard";
+import {isWildcard, Wildcard} from "../../wildcard";
 import Base from "./base";
 
 function singletonGenerator<T>(lookup: HashMap, classGenerator: (name: string) => T): (cycleName: number | string | Wildcard) => T {
@@ -27,13 +27,13 @@ abstract class Cycle<T> extends Base {
    * Absolute position within the linear cycle for this object.
    */
   public position: number;
-  protected generator: (cycleName: number | string) => Cycle<T>;
+  protected generator: (cycleName: number | string) => (T | Wildcard);
   protected cycleLength: number;
 
   constructor(
     value: number | string | Wildcard,
     lookup: HashMap,
-    generator: (cycleName: number | string | Wildcard) => Cycle<T>
+    generator: (cycleName: number | string | Wildcard) => (T | Wildcard)
   ) {
     super(
       (typeof value === 'number') ?
@@ -73,9 +73,18 @@ abstract class Cycle<T> extends Base {
     if (this._privateNext === null) {
       let newPosition = (this.position + 1) % (this.cycleLength - 1);
       newPosition = (newPosition === 0) ? (this.cycleLength - 1) : newPosition;
-      this._privateNext = this.generator(newPosition);
+      let potentialPosition = this.generator(newPosition);
+      if (isWildcard(potentialPosition)) {
+        throw new Error("Can not cycle with wildcrd")
+      } else {
+        this._privateNext = potentialPosition
+      }
     }
-    return this._privateNext
+    if (this._privateNext !== null) {
+      return this._privateNext
+    } else {
+      throw new Error("Can not cycle with wildcrd")
+    }
   }
 
   /**
