@@ -1,4 +1,5 @@
 import WildcardCoefficient from "./wildcardCoefficient";
+import ICoefficient from "./iCoefficient";
 
 export default class NumberCoefficient implements ICoefficient {
 

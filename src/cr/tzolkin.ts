@@ -3,6 +3,7 @@ import {TzolkinDay} from "./component/tzolkinDay";
 import {Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
 import WildcardCoefficient from "./component/wildcardCoefficient";
+import ICoefficient from "./component/iCoefficient"
 
 const singleton: { [key: string]: Tzolkin } = {};
 
