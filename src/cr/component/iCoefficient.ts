@@ -1,4 +1,4 @@
-interface ICoefficient extends IComponent {
+export default interface ICoefficient extends IComponent {
   validate(): boolean;
 
   isIn(validCoeffs: number[]): Boolean;
