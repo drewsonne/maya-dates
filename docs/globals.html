@@ -63,85 +63,57 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#drewsonnemaya-dates" id="drewsonnemaya-dates" style="color: inherit; text-decoration: none;">
-					<h1>@drewsonne/maya-dates</h1>
-				</a>
-				<p><img src="./docs/badge.svg" alt="Documentation Coverage"></p>
-				<p>A library for interacting with and modifying both the Maya Long Count (LC)
-				and Calendar Round (CR) dates.</p>
-				<a href="#quickstart" id="quickstart" style="color: inherit; text-decoration: none;">
-					<h1>Quickstart</h1>
-				</a>
-				<pre><code class="language-sh">npm install [-g] @drewsonne/maya-dates</code></pre>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> mayadates = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@drewsonne/maya-dates'</span>);
-<span class="hljs-comment">// Long Count from Initial Series on east side of Stele E, Quirigua</span>
-<span class="hljs-keyword">let</span> lc = <span class="hljs-keyword">new</span> mayadates.factory.LongCountFactory().parse(<span class="hljs-string">'9.17.0.0.0'</span>);
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${lc.buildFullDate()}</span>`</span>);</code></pre>
-				<p>This should print <code>13 Ajaw 18 Kumk&#39;u  9.17. 0. 0. 0</code>.</p>
-				<a href="#instructions" id="instructions" style="color: inherit; text-decoration: none;">
-					<h2>Instructions</h2>
-				</a>
-				<p>Most implementations will consist of creating a fullDate, and passing it to an operation.</p>
-				<a href="#date-creation" id="date-creation" style="color: inherit; text-decoration: none;">
-					<h3>Date Creation</h3>
-				</a>
-				<p>Creating a fullDate can be done either by:</p>
-				<ul>
-					<li>using a factory class (<a href="https://drewsonne.github.io/maya-dates/class/src/factory/long-count.js~LongCountFactory.html">LongCountFactory</a>,
-						<a href="https://drewsonne.github.io/maya-dates/class/src/factory/calendar-round.js~CalendarRoundFactory.html">CalendarRoundFactory</a>,
-						<a href="https://drewsonne.github.io/maya-dates/class/src/factory/full-date.js~FullDateFactory.html">FullDateFactory</a>)
-						and calling its <code>parse(raw_string)</code> function, where <code>raw_string</code> is a LC, CR,
-						or CR and LC combination encoded as a string. To specify missing values in a
-					fullDate, using <code>*</code>. For example,</li>
-				</ul>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> mayadates = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@drewsonne/maya-dates'</span>);
-
-<span class="hljs-keyword">const</span> wildcard = mayadates.wildcard;
-
-<span class="hljs-keyword">const</span> partial_lc = <span class="hljs-keyword">new</span> mayadates.factory.LongCountFactory().parse(<span class="hljs-string">'9.17.0.0.*'</span>);
-<span class="hljs-keyword">const</span> partial_cr = <span class="hljs-keyword">new</span> mayadates.factory.CalendarRoundFactory().parse(<span class="hljs-string">'13 Ajaw * Kumk\'u'</span>);
-<span class="hljs-keyword">const</span> partial_date = <span class="hljs-keyword">new</span> mayadates.factory.FullDateFactory().parse(<span class="hljs-string">'13 Ajaw * Kumk\'u 9.17.0.0.*'</span>);
-
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`LC: <span class="hljs-subst">${partial_lc.kIn === wildcard}</span>`</span>);
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`CR: <span class="hljs-subst">${partial_cr.haab.coeff === wildcard}</span>`</span>);
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Full Date: <span class="hljs-subst">${partial_date.lc.kIn === wildcard}</span>`</span>);</code></pre>
-				<ul>
-					<li>passing explicit values into a model factory or class (<a href="https://drewsonne.github.io/maya-dates/docs/function/index.html#static-function-getCalendarRound">getCalendarRound</a>,
-						<a href="https://drewsonne.github.io/maya-dates/class/src/lc/long-count.js~LongCount.html">LongCount</a>,
-					<a href="https://drewsonne.github.io/maya-dates/docs/class/src/full-date.js~FullDate.html">FullDate</a>).</li>
-				</ul>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> mayadates = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@drewsonne/maya-dates'</span>);
-
-<span class="hljs-keyword">const</span> calendarRound = mayadates.calendarRound.getCalendarRound(
-    <span class="hljs-number">13</span>, <span class="hljs-string">'Ajaw'</span>,
-    <span class="hljs-number">18</span>,  mayadates.calendarRound.getHaabMonth(<span class="hljs-string">'Kumk\'u'</span>)
-);
-<span class="hljs-keyword">const</span> lc = mayadates.lc.LongCount(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">17</span>, <span class="hljs-number">9</span>);
-<span class="hljs-keyword">const</span> fullDate = <span class="hljs-keyword">new</span> mayadates.FullDate(calendarRound, lc);
-
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${lc}</span>`</span>);
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${calendarRound}</span>`</span>);
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${fullDate}</span>`</span>);</code></pre>
-				<a href="#operations" id="operations" style="color: inherit; text-decoration: none;">
-					<h3>Operations</h3>
-				</a>
-				<p>Once a full date object has been created, you can either add an integer to a fullDate
-					using <code>shift(number)</code>, or filling in missing values in wildcards. The
-					<a href="https://drewsonne.github.io/maya-dates/identifiers.html#operations"><code>operations</code></a>
-					namespace provides operators to expand a fullDate with a wildcard into all possible
-				values for dates matching that wildcard pattern.</p>
-				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
-					<h2>Documentation</h2>
-				</a>
-				<p>Full documentation and reference can be found at
-				<a href="https://drewsonne.github.io/maya-dates/">https://drewsonne.github.io/maya-dates/</a>.</p>
-			</div>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>External modules</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-external-module"><a href="modules/_cr_calendar_round_.html" class="tsd-kind-icon">&quot;cr/calendar-<wbr>round&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_cr_component_base_.html" class="tsd-kind-icon">&quot;cr/component/base&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_cr_component_coefficient_.html" class="tsd-kind-icon">&quot;cr/component/coefficient&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_cr_component_cycle_.html" class="tsd-kind-icon">&quot;cr/component/cycle&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_cr_component_haabmonth_.html" class="tsd-kind-icon">&quot;cr/component/haab<wbr>Month&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_cr_component_icoefficient_.html" class="tsd-kind-icon">&quot;cr/component/i<wbr>Coefficient&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_cr_component_icomponent_.html" class="tsd-kind-icon">&quot;cr/component/i<wbr>Component&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_cr_component_numbercoefficient_.html" class="tsd-kind-icon">&quot;cr/component/number<wbr>Coefficient&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_cr_component_tzolkinday_.html" class="tsd-kind-icon">&quot;cr/component/tzolkin<wbr>Day&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_cr_component_wildcardcoefficient_.html" class="tsd-kind-icon">&quot;cr/component/wildcard<wbr>Coefficient&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_cr_haab_.html" class="tsd-kind-icon">&quot;cr/haab&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_cr_tzolkin_.html" class="tsd-kind-icon">&quot;cr/tzolkin&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_factory_base_.html" class="tsd-kind-icon">&quot;factory/base&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_factory_calendar_round_.html" class="tsd-kind-icon">&quot;factory/calendar-<wbr>round&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_factory_full_date_.html" class="tsd-kind-icon">&quot;factory/full-<wbr>date&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_factory_long_count_.html" class="tsd-kind-icon">&quot;factory/long-<wbr>count&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_full_date_.html" class="tsd-kind-icon">&quot;full-<wbr>date&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_index_.html" class="tsd-kind-icon">&quot;index&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_lc_correlation_constant_.html" class="tsd-kind-icon">&quot;lc/correlation-<wbr>constant&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_lc_distance_number_.html" class="tsd-kind-icon">&quot;lc/distance-<wbr>number&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_lc_long_count_.html" class="tsd-kind-icon">&quot;lc/long-<wbr>count&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_lc_night_lord_of_night_.html" class="tsd-kind-icon">&quot;lc/night/lord-<wbr>of-<wbr>night&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_lc_western_gregorian_.html" class="tsd-kind-icon">&quot;lc/western/gregorian&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_lc_western_julian_.html" class="tsd-kind-icon">&quot;lc/western/julian&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_lc_western_western_.html" class="tsd-kind-icon">&quot;lc/western/western&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_operations_ilongcount_.html" class="tsd-kind-icon">&quot;operations/ILongcount&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_operations_calendar_round_iter_.html" class="tsd-kind-icon">&quot;operations/calendar-<wbr>round-<wbr>iter&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_operations_calendar_round_wildcard_.html" class="tsd-kind-icon">&quot;operations/calendar-<wbr>round-<wbr>wildcard&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_operations_fulldate_wildcard_.html" class="tsd-kind-icon">&quot;operations/fulldate-<wbr>wildcard&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_operations_longcount_addition_.html" class="tsd-kind-icon">&quot;operations/longcount-<wbr>addition&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_operations_longcount_subtraction_.html" class="tsd-kind-icon">&quot;operations/longcount-<wbr>subtraction&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_operations_longcount_wildcard_.html" class="tsd-kind-icon">&quot;operations/longcount-<wbr>wildcard&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_structs_hashmap_.html" class="tsd-kind-icon">&quot;structs/hash<wbr>Map&quot;</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/_wildcard_.html" class="tsd-kind-icon">&quot;wildcard&quot;</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
+					<li class="globals current ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
