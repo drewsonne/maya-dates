@@ -97,14 +97,6 @@ export class Haab {
   }
 
   /**
-   * Ensure this Haab object has the same configuration as another Haab object.
-   * Does not take wildcards into account.
-   */
-  equal(otherHaab: Haab): boolean {
-    return this === otherHaab;
-  }
-
-  /**
    * Ensure this Haab object has a matching configuration as another Haab object.
    * Takes wildcards into account.
    */
@@ -153,7 +145,7 @@ export class Haab {
   get privateNext(): Haab {
     if (this._privateNext === null) {
       const wayeb = getHaabMonth(19)
-      const isWayeb = this.month.equal(wayeb)
+      const isWayeb = this.month === wayeb
       const monthLength = (isWayeb) ? 5 : 20;
       if (this.coeff instanceof NumberCoefficient) {
         if (1 + this.coeff.value >= monthLength) {
