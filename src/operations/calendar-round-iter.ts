@@ -51,7 +51,7 @@ export default class CalendarRoundIterator {
       return {value: this.current, done: false};
     }
     const next = this.current.next();
-    if (next.equal(this.fullDate)) {
+    if (next === this.fullDate) {
       return {value: null, done: true};
     }
     this.current = next;

@@ -6,7 +6,7 @@
 import * as moonbeams from "moonbeams";
 
 export default abstract class WesternCalendar {
-  protected julianDay: number;
+  public julianDay: number;
   private _date: moonbeams.MBCalendar | null;
 
   abstract get offset(): number;

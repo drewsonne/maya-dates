@@ -402,7 +402,7 @@ export default class DistanceNumber {
     );
     this.sign = foundNegative ? -1 : 1;
     this.parts = norm.parts.map((part) => {
-      if(typeof part === 'number') {
+      if (typeof part === 'number') {
         return Math.abs(part)
       } else {
         throw new Error("part is not number")
@@ -427,7 +427,7 @@ export default class DistanceNumber {
 
     for (let i = 0; i < significantDigits.length; i += 1) {
       if (significantDigits[i] === undefined) {
-        significantDigits[i] = '0';
+        significantDigits[i] = 0;
       }
     }
 
@@ -435,17 +435,17 @@ export default class DistanceNumber {
     if (dateLength < 5) {
       significantDigits = significantDigits.reverse();
       for (let i = 0; i < 5 - dateLength; i += 1) {
-        significantDigits.push(' 0');
+        significantDigits.push(0);
       }
       significantDigits = significantDigits.reverse();
     }
 
+
+    let stringSignificantDigits: string[] = new Array<string>(significantDigits.length)
     for (let i = 0; i < significantDigits.length; i += 1) {
       const part = significantDigits[i].toString();
-      if (part.length < 2) {
-        significantDigits[i] = ` ${part}`;
-      }
+      stringSignificantDigits[i] = (part.length < 2) ? ` ${part}` : `${part}`;
     }
-    return `${this.sign === -1 ? '-' : ''}${significantDigits.join('.')}`;
+    return `${this.sign === -1 ? '-' : ''}${stringSignificantDigits.join('.')}`;
   }
 }

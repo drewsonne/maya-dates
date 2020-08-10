@@ -1,6 +1,6 @@
 import HashMap from "../../structs/hashMap";
-import {Cycle, singletonGenerator} from "./cycle";
 import {Wildcard} from "../../wildcard";
+import Cycle from "./cycle";
 
 const days: HashMap = new HashMap([
   undefined,
@@ -26,16 +26,26 @@ const days: HashMap = new HashMap([
   'Ajaw',
 ]);
 
-export const getTzolkinDay = singletonGenerator<(TzolkinDay | Wildcard)>(
-  days,
-  (name: string) => (name === '*') ? new Wildcard() : new TzolkinDay(name)
-);
+const singleton: { [key: string]: TzolkinDay } = {};
+
+export function getTzolkinDay(name: string | number | Wildcard): (TzolkinDay | Wildcard) {
+
+  let cycleName = (typeof name === 'number') ? days.getValue(name) : name;
+  const cycleNameHash = `${cycleName}`;
+  if (cycleNameHash === '*') {
+    return new Wildcard()
+  }
+  if (singleton[cycleNameHash] === undefined) {
+    singleton[cycleNameHash] = new TzolkinDay(name)
+  }
+  return singleton[cycleNameHash];
+}
 
 /**
  * Describes only the day component of a 260-day cycle
  */
-export class TzolkinDay extends Cycle<(TzolkinDay|Wildcard)> {
-  
+export class TzolkinDay extends Cycle {
+
   /**
    * @param {string|number} newName - Name or position of the 260-day cycle day
    */

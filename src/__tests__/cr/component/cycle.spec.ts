@@ -1,10 +1,10 @@
 import 'mocha'
 import {expect} from 'chai'
-import {Cycle, singletonGenerator} from "../../../cr/component/cycle";
 import HashMap from "../../../structs/hashMap";
 import {Wildcard} from "../../../wildcard";
+import Cycle from "../../../cr/component/cycle";
 
-it('object creation', () => {
+it('cycle object creation', () => {
   const mockCycle = new HashMap([
     undefined,
     'hallo',
@@ -13,12 +13,11 @@ it('object creation', () => {
     'foobar'
   ]);
 
-  const getMockObject = singletonGenerator<MockCycle>(
-    mockCycle,
-    (name: string) => new MockCycle(name, mockCycle)
-  );
+  function getMockObject(cycleName: Wildcard | number | string): (Cycle | Wildcard) {
+    return new MockCycle(cycleName, mockCycle)
+  }
 
-  class MockCycle extends Cycle<MockCycle> {
+  class MockCycle extends Cycle {
 
     constructor(
       value: number | string | Wildcard,
@@ -33,13 +32,16 @@ it('object creation', () => {
   }
 
   const mock = getMockObject('mock');
-  const first = mock.shift(1);
-  const next = mock.next();
-  const third = mock.shift(3);
+  expect(mock).to.be.an.instanceOf(MockCycle);
+  if (mock instanceof MockCycle) {
+    const first = mock.shift(1);
+    const next = mock.next();
+    const third = mock.shift(3);
 
-  expect(mock.position).to.equal(3);
-  expect(`${mock}`).to.equal('mock');
-  expect(`${first}`).to.equal('foobar');
-  expect(`${third}`).to.equal('world');
-  expect(first).to.equal(next);
+    expect(mock.position).to.equal(3);
+    expect(`${mock}`).to.equal('mock');
+    expect(`${first}`).to.equal('foobar');
+    expect(`${third}`).to.equal('world');
+    expect(first).to.equal(next);
+  }
 });

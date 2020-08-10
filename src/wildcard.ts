@@ -17,6 +17,10 @@ export class Wildcard {
   toString(): string {
     return '*';
   }
+
+  equal(otherWildcard: any) {
+    return otherWildcard instanceof Wildcard
+  }
 }
 
 export function isWildcard(token: any): token is Wildcard {

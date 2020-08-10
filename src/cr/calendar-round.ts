@@ -5,6 +5,7 @@ import {getHaabMonth} from "./component/haabMonth";
 import {getTzolkinDay} from "./component/tzolkinDay";
 import NumberCoefficient from "./component/numberCoefficient";
 import {Wildcard} from "../wildcard";
+import WildcardCoefficient from "./component/wildcardCoefficient";
 
 /** @ignore */
 const singleton: { [key: string]: CalendarRound } = {};
@@ -97,15 +98,6 @@ export class CalendarRound {
   }
 
   /**
-   * Check that this CalendarRound matches another CalendarRound. If one CR has
-   * wildcards and the other does not, this function will return false.
-   * @param {CalendarRound} newCr
-   */
-  equal(newCr: CalendarRound): boolean {
-    return this === newCr;
-  }
-
-  /**
    * Return a long count date representing the difference between two dates.
    */
   minus(targetCr: CalendarRound): DistanceNumber {
@@ -118,22 +110,21 @@ export class CalendarRound {
     let result: DistanceNumber | null = null;
     while (!foundTarget) {
       // eslint-disable-next-line no-use-before-define
-      if (current.equal(origin)) {
-        foundOrigin = true;
-        cycleCount = count;
-        count = 0;
-        current = current.next();
-      } else if (current.equal(targetCr)) {
+      if (current === targetCr) {
         result = new DistanceNumber(
           foundOrigin
             ? -(18979 - cycleCount - count)
             : count,
         ).normalise();
         foundTarget = true;
+      } else if (current === origin) {
+        foundOrigin = true;
+        cycleCount = count;
+        count = 0;
       } else {
-        current = current.next();
         count += 1;
       }
+      current = current.next();
     }
     if (result instanceof DistanceNumber) {
       return result;
@@ -168,9 +159,9 @@ export class CalendarRound {
    */
   isPartial(): boolean {
     return (this.tzolkin.day instanceof Wildcard)
-      || (this.tzolkin.coeff instanceof Wildcard)
+      || (this.tzolkin.coeff instanceof WildcardCoefficient)
       || (this.haab.month instanceof Wildcard)
-      || (this.haab.coeff instanceof Wildcard);
+      || (this.haab.coeff instanceof WildcardCoefficient);
   }
 
   /**

@@ -1,4 +1,5 @@
 import {expect} from 'chai'
+import 'mocha'
 import LongCountFactory from "../../factory/long-count";
 import LongCountWildcard from "../../operations/longcount-wildcard";
 

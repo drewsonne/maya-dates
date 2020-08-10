@@ -5,6 +5,7 @@ import {expect} from 'chai'
 import 'mocha'
 import FullDateWildcard from "../../operations/fulldate-wildcard";
 import NumberCoefficient from "../../cr/component/numberCoefficient";
+import WildcardCoefficient from "../../cr/component/wildcardCoefficient";
 
 describe('complex wildcard parsing', () => {
   const partialDates: string[] = [
@@ -23,7 +24,7 @@ describe('complex wildcard parsing', () => {
         expect(fullDate.cr.tzolkin.coeff.value).to.eq(1);
       }
       expect(fullDate.cr.tzolkin.name).to.eq('Ok');
-      expect(fullDate.cr.haab.coeff).to.be.an.instanceOf(Wildcard);
+      expect(fullDate.cr.haab.coeff).to.be.an.instanceOf(WildcardCoefficient);
       expect(fullDate.cr.haab.month).to.be.an.instanceOf(Wildcard);
       expect(fullDate.lc.kIn).to.eq(10);
       expect(fullDate.lc.winal).to.eq(10);

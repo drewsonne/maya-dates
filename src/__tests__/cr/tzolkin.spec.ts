@@ -84,10 +84,10 @@ describe('shift tzolkins', () => {
   tzolkins.forEach((args) => {
     let [start, incremental, expected] = args
     it(`${start} + ${incremental} = ${expected}`, () => {
-      const date = getTzolkin(new NumberCoefficient(start[0]), start[1]);
+      const date = getTzolkin(new NumberCoefficient(start[0]), getTzolkinDay(start[1]));
       const newTz = date.shift(incremental);
 
-      const expectedDate = getTzolkin(new NumberCoefficient(expected[0]), expected[1]);
+      const expectedDate = getTzolkin(new NumberCoefficient(expected[0]), getTzolkinDay(expected[1]));
       expect(newTz === expectedDate).to.be.true;
     })
   });

@@ -1,7 +1,7 @@
 import {Wildcard} from "../../wildcard";
 import ICoefficient from "./iCoefficient";
 
-export default class WildcardCoefficient extends Wildcard implements ICoefficient {
+export default class WildcardCoefficient implements ICoefficient {
   isWildcard(): boolean {
     return true;
   }

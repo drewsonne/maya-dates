@@ -71,8 +71,10 @@ export class Haab {
       if (this.coeff.value > 19 || this.coeff.value < 0) {
         throw new Error('Haab\' coefficient must inclusively between 0 and 19.');
       }
-      if (this.coeff.value > 4 && this.month === getHaabMonth('Wayeb')) {
-        throw new Error('Haab\' coefficient for Wayeb must inclusively between 0 and 4.');
+      if (this.month === getHaabMonth('Wayeb')) {
+        if (this.coeff.value > 4) {
+          throw new Error('Haab\' coefficient for Wayeb must inclusively between 0 and 4.');
+        }
       }
     }
 
@@ -92,14 +94,6 @@ export class Haab {
    */
   next() {
     return this.shift(1);
-  }
-
-  /**
-   * Ensure this Haab object has the same configuration as another Haab object.
-   * Does not take wildcards into account.
-   */
-  equal(otherHaab: Haab): boolean {
-    return this === otherHaab;
   }
 
   /**
@@ -150,12 +144,18 @@ export class Haab {
 
   get privateNext(): Haab {
     if (this._privateNext === null) {
-      const monthLength = (this.month === getHaabMonth(19)) ? 5 : 20;
+      const wayeb = getHaabMonth(19)
+      const isWayeb = this.month === wayeb
+      const monthLength = (isWayeb) ? 5 : 20;
       if (this.coeff instanceof NumberCoefficient) {
         if (1 + this.coeff.value >= monthLength) {
           if (this.month instanceof HaabMonth) {
             const newMonth = this.month.shift(1);
-            this._privateNext = getHaab(_(0), newMonth);
+            if (newMonth instanceof HaabMonth) {
+              this._privateNext = getHaab(_(0), newMonth);
+            } else {
+              throw new Error("Unexpected HaabMonth type")
+            }
           } else {
             throw new Error("Month must not be wildcard to shift")
           }
@@ -169,19 +169,12 @@ export class Haab {
     return this._privateNext
   }
 
-  get coeffValue(): Wildcard | number {
-    if (this.coeff instanceof NumberCoefficient) {
-      return this.coeff.value
-    }
-    return this.coeff
-  }
-
   /**
    * Render the Haab fullDate as a string
    * @returns {string}
    */
   toString() {
-    return `${this.coeffValue} ${this.name}`;
+    return `${this.coeff} ${this.name}`;
   }
 }
 

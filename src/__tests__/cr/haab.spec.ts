@@ -6,7 +6,7 @@ import NumberCoefficient from "../../cr/component/numberCoefficient";
 import {Wildcard} from "../../wildcard";
 
 describe('increment haab months', () => {
-  const tzolkinDays = [
+  const tzolkinDays: [string, string][] = [
     ['Pop', 'Wo'],
     ['Xul', 'Yaxk\'in'],
     ['Wayeb', 'Pop'],
@@ -54,7 +54,7 @@ describe('build haabs', () => {
 });
 
 it('render haab fullDate', () => {
-  const haab = getHaab(new NumberCoefficient(5), 'Pop');
+  const haab = getHaab(new NumberCoefficient(5), getHaabMonth('Pop'));
   expect(haab.toString()).to.equal('5 Pop');
 });
 
