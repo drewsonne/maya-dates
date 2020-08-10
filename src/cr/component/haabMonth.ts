@@ -25,9 +25,9 @@ const months: HashMap = new HashMap([
   'Wayeb'
 ]);
 
+const singleton: { [key: string]: (HaabMonth | Wildcard) } = {};
 
 export function getHaabMonth(newCycleName: (string | number | Wildcard)): (HaabMonth | Wildcard) {
-  const singleton: { [key: string]: (HaabMonth | Wildcard) } = {};
 
   if (typeof newCycleName === "number" || typeof newCycleName === "string") {
 
@@ -70,9 +70,5 @@ export class HaabMonth extends Cycle {
       }
     }
     return true
-  }
-
-  equal(otherMonth: any): boolean {
-    return this.position === otherMonth.position
   }
 }

@@ -30,12 +30,12 @@ describe('increment calendar-rounds', () => {
       if (tomorrow.tzolkin.coeff instanceof NumberCoefficient) {
         expect(tomorrow.tzolkin.coeff.value).to.equal(next[0]);
       }
-      expect(tomorrow.tzolkin.day.equal(next[1])).to.be.true;
+      expect(tomorrow.tzolkin.day).to.equal(next[1])
       expect(tomorrow.haab.coeff).to.be.an.instanceOf(NumberCoefficient)
       if (tomorrow.haab.coeff instanceof NumberCoefficient) {
         expect(tomorrow.haab.coeff.value).to.equal(next[2]);
       }
-      expect(tomorrow.haab.month.equal(next[3])).to.be.true
+      expect(tomorrow.haab.month).to.equal(next[3])
     });
   });
 });
@@ -99,16 +99,18 @@ describe('parse calendar-round', () => {
   })
 });
 
-function checkCrAgainstCr(cr: CalendarRound, crComponents: (number | string | Wildcard)[]) {
+function checkCrAgainstCr(cr: CalendarRound, crComponents: (number | string | Wildcard | WildcardCoefficient)[]) {
   const crParts = [
     cr.tzolkin.coeff,
     cr.tzolkin.day,
     cr.haab.coeff,
     cr.haab.month
   ]
-  return crComponents.map((expectedValue: (number | string | Wildcard), index: number) => {
+  return crComponents.map((expectedValue: (number | string | Wildcard | WildcardCoefficient), index: number) => {
     const actualValue = crParts[index]
     if (expectedValue instanceof Wildcard) {
+      expect(actualValue).to.be.an.instanceOf(Wildcard)
+    } else if (expectedValue instanceof WildcardCoefficient) {
       expect(actualValue).to.be.an.instanceOf(WildcardCoefficient)
     } else if (typeof expectedValue === 'string') {
       expect(`${actualValue}`).to.be.eq(`${expectedValue}`)
@@ -128,26 +130,27 @@ function checkCrAgainstCr(cr: CalendarRound, crComponents: (number | string | Wi
 
 describe('parse calendar-round wildcards', () => {
   const wildcard = new Wildcard();
-  const sources: [string, (Wildcard | number | string)[], string][] = [
-    [
-      '* Ak\'bal 6 Muwan',
-      [wildcard, 'Ak\'bal', 6, 'Muwan'],
-      '* Ak\'bal 6 Muwan'],
-    [
-      '2 Ak\'bal *Muwan',
-      [2, 'Ak\'bal', wildcard, 'Muwan'],
-      '2 Ak\'bal * Muwan'],
+  const wildcardCoeff = new WildcardCoefficient();
+  const sources: [string, (Wildcard | WildcardCoefficient | number | string)[], string][] = [
+    // [
+    //   '* Ak\'bal 6 Muwan',
+    //   [wildcard, 'Ak\'bal', 6, 'Muwan'],
+    //   '* Ak\'bal 6 Muwan'],
+    // [
+    //   '2 Ak\'bal *Muwan',
+    //   [2, 'Ak\'bal', wildcard, 'Muwan'],
+    //   '2 Ak\'bal * Muwan'],
     [
       '*Ak\'bal 6 *',
-      [wildcard, 'Ak\'bal', 6, wildcard],
+      [wildcardCoeff, 'Ak\'bal', 6, wildcard],
       '* Ak\'bal 6 *'],
-    [
-      '2Ak\'bal 6*',
-      [2, 'Ak\'bal', 6, wildcard],
-      '2 Ak\'bal 6 *',
-    ],
+    // [
+    //   '2Ak\'bal 6*',
+    //   [2, 'Ak\'bal', 6, wildcard],
+    //   '2 Ak\'bal 6 *',
+    // ],
   ];
-  sources.forEach((args: [string, (Wildcard | number | string)[], string]) => {
+  sources.forEach((args: [string, (Wildcard | WildcardCoefficient | number | string)[], string]) => {
     const [source, expected, name] = args;
     it(`${source}, ${expected}, ${name}`, () => {
       const cr = new CalendarRoundFactory().parse(source);
@@ -178,18 +181,21 @@ it('render calendar round', () => {
 
 describe('calendar round diff\'s', () => {
   const dates: [string, string, number[]][] = [
+    ['4 Ajaw 8 Kumk\'u', '3 Kawak 7 Kumk\'u', [-1]],
+    ['4 Ajaw 8 Kumk\'u', '4 Ajaw 8 Kumk\'u', [0]],
     ['5 Kimi 4 Mol', '6 Manik\' 5 Mol', [1]],
     ['5 Kimi 4 Mol', '13 Ix 12 Mol', [8]],
     ['5 Kimi 4 Mol', '3 Kawak 7 Kumk\'u', [13, 2, 3, 2]],
-    ['5 Kimi 4 Mol', '4 Ajaw 8 Kumk\'u', [2, 5, 12, 16]],
-    // ['5 Kimi 4 Mol', '7 Ok 13 Xul', [4, 0, 7]],
-    // ['5 Kimi 4 Mol', '6 Kimi 9 Muwan', [0, -11]],
-    // ['5 Kimi 4 Mol', '4 Chikchan 3 Mol', [-1]],
+    ['5 Kimi 4 Mol', '4 Ajaw 8 Kumk\'u', [14, 2, 3, 2]],
+    ['5 Kimi 4 Mol', '7 Ok 13 Xul', [4, 0, 7]],
+    ['5 Kimi 4 Mol', '6 Kimi 9 Muwan', [0, -11]],
+    ['5 Kimi 4 Mol', '4 Chikchan 3 Mol', [-1]],
   ];
   const crFactory = new CalendarRoundFactory();
   dates.forEach((args: [string, string, number[]]) => {
     const [fromRaw, toRaw, expectRaw] = args;
     it(`${fromRaw} - ${toRaw} = ${expectRaw}`, () => {
+      // expect(1 === 1).to.be.false
       const from = crFactory.parse(fromRaw);
       const to = crFactory.parse(toRaw);
       const expected = new DistanceNumber(
@@ -208,7 +214,7 @@ it('test cr equality', () => {
   const cr1 = crFactory.parse('5 Kimi 4 Mol')
   const cr2 = crFactory.parse('5 Kimi 4 Mol')
 
-  expect(cr1.equal(cr2)).to.be.true
+  expect(cr1 === cr2).to.be.true
 })
 
 
@@ -216,7 +222,7 @@ it('test cr full-cycle count', () => {
   const start = origin
   let current: CalendarRound = origin.next()
   let counter: number = 1;
-  while (!start.equal(current)) {
+  while (start !== current) {
     current = current.next()
     counter += 1
   }

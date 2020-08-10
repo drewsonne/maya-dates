@@ -40,13 +40,14 @@ export default class FullDateWildcard {
     }
 
     if (this.fullDate.lc.isPartial()) {
-      const partialCr = this.fullDate.cr.isPartial()
+      const isPartialCr = this.fullDate.cr.isPartial()
       const fullDatesFromPartialLc: FullDate[] = new LongCountWildcard(this.fullDate.lc)
         .run()
         .map((potentialLc) => potentialLc.buildFullDate());
+      let that = this;
       return fullDatesFromPartialLc.filter((fullDate) => {
-        return partialCr ? fullDate.cr.match(this.fullDate.cr) : fullDate.cr.equal(this.fullDate.cr)
-      })
+        return isPartialCr ? fullDate.cr.match(this.fullDate.cr) : (fullDate.cr === this.fullDate.cr)
+      }, this)
     }
     // If we have a full formed LC fullDate, and a fullDate CR, then generate the
     // CR for the LC, and compare them. The fullDate CR will either match the

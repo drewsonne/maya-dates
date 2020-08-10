@@ -15,9 +15,9 @@ export default class FullDateFactory {
    */
   // eslint-disable-next-line class-methods-use-this
   parse(raw: string) {
-    const cleanedRaw = raw.replace('**', '* *');
-    const cr = new CalendarRoundFactory().parse(cleanedRaw);
-    const lc = new LongCountFactory().parse(cleanedRaw);
+    raw = raw.replace('**', '* *');
+    const cr = new CalendarRoundFactory().parse(raw);
+    const lc = new LongCountFactory().parse(raw);
     return new FullDate(
       cr,
       lc

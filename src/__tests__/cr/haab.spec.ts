@@ -6,7 +6,7 @@ import NumberCoefficient from "../../cr/component/numberCoefficient";
 import {Wildcard} from "../../wildcard";
 
 describe('increment haab months', () => {
-  const tzolkinDays = [
+  const tzolkinDays: [string, string][] = [
     ['Pop', 'Wo'],
     ['Xul', 'Yaxk\'in'],
     ['Wayeb', 'Pop'],
