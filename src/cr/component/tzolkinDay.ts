@@ -26,9 +26,9 @@ const days: HashMap = new HashMap([
   'Ajaw',
 ]);
 
+const singleton: { [key: string]: TzolkinDay } = {};
 
 export function getTzolkinDay(name: string | number | Wildcard): (TzolkinDay | Wildcard) {
-  const singleton: { [key: string]: TzolkinDay } = {};
 
   let cycleName = (typeof name === 'number') ? days.getValue(name) : name;
   const cycleNameHash = `${cycleName}`;
@@ -67,10 +67,6 @@ export class TzolkinDay extends Cycle {
       }
     }
     return true
-  }
-
-  equal(otherDay: any) {
-    return otherDay === this
   }
 }
 
