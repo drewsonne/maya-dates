@@ -197,7 +197,6 @@ describe('calendar round diff\'s', () => {
   dates.forEach((args: [string, string, number[]]) => {
     const [fromRaw, toRaw, expectRaw] = args;
     it(`${fromRaw} - ${toRaw} = ${expectRaw}`, () => {
-      // expect(1 === 1).to.be.false
       const from = crFactory.parse(fromRaw);
       const to = crFactory.parse(toRaw);
       const expected = new DistanceNumber(
