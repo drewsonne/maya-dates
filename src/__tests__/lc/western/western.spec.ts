@@ -2,7 +2,6 @@ import {expect} from 'chai'
 import 'mocha'
 import {getCorrelationConstant} from "../../../lc/correlation-constant";
 import LongCountFactory from "../../../factory/long-count";
-import GregorianFactory from "../../../factory/gregorian";
 
 class MockDateCorrelation {
   public lc: string;
@@ -66,16 +65,6 @@ describe('long-count to gregorian/julian', () => {
     })
   })
 });
-
-// describe('gregorian to longcount', () => {
-//   const gregorianFactory = new GregorianFactory();
-//   dates.forEach((dc) => {
-//     it(`g(${dc.gregorian}), j(${dc.jday}) -> lc(${dc.lc})`, () => {
-//       const g = gregorianFactory.parse(dc.gregorian, dc.jday)
-//       expect(g.julianDay).to.eq(dc.jday)
-//     });
-//   });
-// });
 
 describe('longcount to julian', () => {
   dates.forEach((dc) => {
