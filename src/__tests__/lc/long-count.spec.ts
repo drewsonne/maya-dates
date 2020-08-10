@@ -3,7 +3,7 @@ import 'mocha'
 import {expect} from 'chai'
 import LongCount from "../../lc/long-count";
 import {Wildcard} from "../../wildcard";
-import {LordOfTheNight, lords} from "../../lc/night/lord-of-night"
+import {LordOfTheNight, lords} from "../../lc/night/lord-of-night";
 
 describe('parse long-count fullDate', () => {
   const dates = [
