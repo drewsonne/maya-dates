@@ -1,6 +1,6 @@
 {
   "name": "@drewsonne/maya-dates",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Node.js package to represent dates in the Maya Calendar",
   "main": "src/index.js",
   "types": "dist/index.d.ts",
