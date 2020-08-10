@@ -203,12 +203,11 @@ describe('calendar round diff\'s', () => {
         ...expectRaw,
       ).normalise();
 
-      let diff = from.minus(to)
-      expect(`${diff}`).to.be.eq(`${expected}`)
-      // expect(diff.equal(expected)).to.be.true
-    });
+      let diff = from.minus(to);
+      expect(diff.equal(expected)).to.be.true
+    })
   })
-});
+})
 
 it('test cr equality', () => {
   const crFactory = new CalendarRoundFactory();

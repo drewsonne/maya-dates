@@ -169,14 +169,6 @@ export class Haab {
     return this._privateNext
   }
 
-  //
-  // get coeffValue(): Wildcard | number {
-  //   if (this.coeff instanceof NumberCoefficient) {
-  //     return this.coeff.value
-  //   }
-  //   return this.coeff
-  // }
-
   /**
    * Render the Haab fullDate as a string
    * @returns {string}

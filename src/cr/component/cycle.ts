@@ -2,21 +2,6 @@ import HashMap from "../../structs/hashMap";
 import {isWildcard, Wildcard} from "../../wildcard";
 import Base from "./base";
 
-// function singletonGenerator<T>(lookup: HashMap, classGenerator: (name: string) => T): (cycleName: number | string | Wildcard) => T {
-//   const singleton: { [key: string]: T } = {};
-//
-//   function cycleSingleton(newCycleName: number | string | Wildcard): T {
-//     let cycleName = (typeof newCycleName === 'number') ? lookup.getValue(newCycleName) : newCycleName;
-//     let cycleIsWildcard = false;
-//     const cycleNameHash = `${cycleName}`;
-//     if (singleton[cycleNameHash] === undefined) {
-//       singleton[cycleNameHash] = classGenerator(cycleNameHash)
-//     }
-//     return singleton[cycleNameHash];
-//   }
-//
-//   return cycleSingleton
-// }
 
 export default abstract class Cycle extends Base {
   /**
