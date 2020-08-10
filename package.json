@@ -33,7 +33,7 @@
     "moonbeams": "^2.0.3"
   },
   "scripts": {
-    "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "test": "mocha -r ts-node/register 'src/**/*.spec.ts'",
     "build": "tsc",
     "build:check": "tsc --noEmit",
     "build:clean": " ./scripts/clean-build.sh"
