@@ -1,6 +1,6 @@
 import HashMap from "../../structs/hashMap";
-import {Cycle} from "./cycle";
 import {Wildcard} from "../../wildcard";
+import Cycle from "./cycle";
 
 const months: HashMap = new HashMap([
   undefined,
@@ -46,13 +46,14 @@ export function getHaabMonth(newCycleName: (string | number | Wildcard)): (HaabM
 /**
  * Describes only the month component of a Haab fullDate
  */
-export class HaabMonth extends Cycle<(HaabMonth | Wildcard)> {
+export class HaabMonth extends Cycle {
 
   /**
    * @param {string} raw - Name of the Haab month
    */
   constructor(raw: string | Wildcard) {
     super(raw, months, getHaabMonth);
+    this.validate()
   }
 
   /**
@@ -69,5 +70,9 @@ export class HaabMonth extends Cycle<(HaabMonth | Wildcard)> {
       }
     }
     return true
+  }
+
+  equal(otherMonth: any): boolean {
+    return this.position === otherMonth.position
   }
 }

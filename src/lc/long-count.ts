@@ -1,5 +1,4 @@
 import FullDate from '../full-date';
-import GregorianCalendarDate from './western/gregorian';
 import JulianCalendarDate from './western/julian';
 import DistanceNumber from './distance-number';
 import {LordOfTheNight, lords} from "./night/lord-of-night";
@@ -8,6 +7,7 @@ import {CorrelationConstant, getCorrelationConstant} from "./correlation-constan
 import {origin} from "../cr/calendar-round";
 import LongcountAddition from "../operations/longcount-addition";
 import LongcountSubtraction from "../operations/longcount-subtraction";
+import GregorianCalendarDate from "./western/gregorian";
 
 /**
  * Long Count cycle

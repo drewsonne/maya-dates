@@ -54,7 +54,7 @@ describe('build haabs', () => {
 });
 
 it('render haab fullDate', () => {
-  const haab = getHaab(new NumberCoefficient(5), 'Pop');
+  const haab = getHaab(new NumberCoefficient(5), getHaabMonth('Pop'));
   expect(haab.toString()).to.equal('5 Pop');
 });
 

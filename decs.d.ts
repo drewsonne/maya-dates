@@ -6,4 +6,6 @@ declare module 'moonbeams' {
   }
 
   export function jdToCalendar(julianDate: number): MBCalendar;
+
+  export function calendarToJd(year: number, month: number, day: number): number
 }
