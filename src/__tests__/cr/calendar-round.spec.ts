@@ -99,56 +99,58 @@ describe('parse calendar-round', () => {
   })
 });
 
-function checkCrAgainstCr(cr: CalendarRound, crComponents: (number | string | Wildcard | WildcardCoefficient)[]) {
-  const crParts = [
-    cr.tzolkin.coeff,
-    cr.tzolkin.day,
-    cr.haab.coeff,
-    cr.haab.month
+function checkCrAgainstCr(actualCr: CalendarRound, expectedCrComponents: (number | string | Wildcard | WildcardCoefficient)[]) {
+  const actualCrParts = [
+    actualCr.tzolkin.coeff,
+    actualCr.tzolkin.day,
+    actualCr.haab.coeff,
+    actualCr.haab.month
   ]
-  return crComponents.map((expectedValue: (number | string | Wildcard | WildcardCoefficient), index: number) => {
-    const actualValue = crParts[index]
-    if (expectedValue instanceof Wildcard) {
-      expect(actualValue).to.be.an.instanceOf(Wildcard)
-    } else if (expectedValue instanceof WildcardCoefficient) {
-      expect(actualValue).to.be.an.instanceOf(WildcardCoefficient)
-    } else if (typeof expectedValue === 'string') {
-      expect(`${actualValue}`).to.be.eq(`${expectedValue}`)
-    } else if (typeof expectedValue === 'number') {
-      expect(actualValue).to.be.an.instanceOf(NumberCoefficient)
-      if (actualValue instanceof NumberCoefficient) {
-        expect(actualValue.value).to.eq(expectedValue)
+  return expectedCrComponents.map(
+    (expectedValue: (number | string | Wildcard | WildcardCoefficient), index: number) => {
+      const actualValue = actualCrParts[index]
+      if (expectedValue instanceof Wildcard) {
+        expect(actualValue).to.be.an.instanceOf(Wildcard)
+      } else if (expectedValue instanceof WildcardCoefficient) {
+        expect(actualValue).to.be.an.instanceOf(WildcardCoefficient)
+      } else if (typeof expectedValue === 'string') {
+        expect(`${actualValue}`).to.be.eq(`${expectedValue}`)
+      } else if (typeof expectedValue === 'number') {
+        expect(actualValue).to.be.an.instanceOf(NumberCoefficient)
+        if (actualValue instanceof NumberCoefficient) {
+          expect(actualValue.value).to.eq(expectedValue)
+        } else {
+          return false
+        }
       } else {
         return false
       }
-    } else {
-      return false
+      return true
     }
-    return true
-  }).every((result) => result)
+  ).every((result) => result)
 }
 
 describe('parse calendar-round wildcards', () => {
   const wildcard = new Wildcard();
   const wildcardCoeff = new WildcardCoefficient();
   const sources: [string, (Wildcard | WildcardCoefficient | number | string)[], string][] = [
-    // [
-    //   '* Ak\'bal 6 Muwan',
-    //   [wildcard, 'Ak\'bal', 6, 'Muwan'],
-    //   '* Ak\'bal 6 Muwan'],
-    // [
-    //   '2 Ak\'bal *Muwan',
-    //   [2, 'Ak\'bal', wildcard, 'Muwan'],
-    //   '2 Ak\'bal * Muwan'],
+    [
+      '* Ak\'bal 6 Muwan',
+      [wildcardCoeff, 'Ak\'bal', 6, 'Muwan'],
+      '* Ak\'bal 6 Muwan'],
+    [
+      '2 Ak\'bal *Muwan',
+      [2, 'Ak\'bal', wildcardCoeff, 'Muwan'],
+      '2 Ak\'bal * Muwan'],
     [
       '*Ak\'bal 6 *',
       [wildcardCoeff, 'Ak\'bal', 6, wildcard],
       '* Ak\'bal 6 *'],
-    // [
-    //   '2Ak\'bal 6*',
-    //   [2, 'Ak\'bal', 6, wildcard],
-    //   '2 Ak\'bal 6 *',
-    // ],
+    [
+      '2Ak\'bal 6*',
+      [2, 'Ak\'bal', 6, wildcard],
+      '2 Ak\'bal 6 *',
+    ],
   ];
   sources.forEach((args: [string, (Wildcard | WildcardCoefficient | number | string)[], string]) => {
     const [source, expected, name] = args;
