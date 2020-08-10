@@ -35,7 +35,8 @@
   "scripts": {
     "test": "mocha -r ts-node/register src/**/*.spec.ts",
     "build": "tsc",
-    "build:check": "tsc --noEmit"
+    "build:check": "tsc --noEmit",
+    "build:clean": " ./scripts/clean-build.sh"
   },
   "files": [
     "lib"

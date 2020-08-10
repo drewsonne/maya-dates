@@ -102,7 +102,7 @@ export class CalendarRound {
    * @param {CalendarRound} newCr
    */
   equal(newCr: CalendarRound): boolean {
-    return this === newCr;
+    return this === newCr
   }
 
   /**
@@ -118,12 +118,16 @@ export class CalendarRound {
     let result: DistanceNumber | null = null;
     while (!foundTarget) {
       // eslint-disable-next-line no-use-before-define
+      // console.log(`INFO (121): ${current} - ${targetCr} = ${current.equal(targetCr)}`)
+      // console.log(`INFO (122): ${current} - ${origin} = ${current.equal(origin)}`)
       if (current.equal(origin)) {
+        // console.log(`INFO (124): ${current} - ${origin} = ${current.equal(origin)}`)
         foundOrigin = true;
         cycleCount = count;
         count = 0;
         current = current.next();
       } else if (current.equal(targetCr)) {
+        // console.log(`INFO (130): ${current} - ${targetCr} = ${current.equal(targetCr)}`)
         result = new DistanceNumber(
           foundOrigin
             ? -(18979 - cycleCount - count)
@@ -131,6 +135,11 @@ export class CalendarRound {
         ).normalise();
         foundTarget = true;
       } else {
+        console.log(`INFO(138) ${count}, ${current}`)
+        // if (current.haab.equal(targetCr.haab)) {
+        //   debugger
+        // }
+        console.log(`INFO (142) ${count}, ${current}`)
         current = current.next();
         count += 1;
       }

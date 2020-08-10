@@ -2,38 +2,38 @@ import HashMap from "../../structs/hashMap";
 import {isWildcard, Wildcard} from "../../wildcard";
 import Base from "./base";
 
-function singletonGenerator<T>(lookup: HashMap, classGenerator: (name: string) => T): (cycleName: number | string | Wildcard) => T {
-  const singleton: { [key: string]: T } = {};
+// function singletonGenerator<T>(lookup: HashMap, classGenerator: (name: string) => T): (cycleName: number | string | Wildcard) => T {
+//   const singleton: { [key: string]: T } = {};
+//
+//   function cycleSingleton(newCycleName: number | string | Wildcard): T {
+//     let cycleName = (typeof newCycleName === 'number') ? lookup.getValue(newCycleName) : newCycleName;
+//     let cycleIsWildcard = false;
+//     const cycleNameHash = `${cycleName}`;
+//     if (singleton[cycleNameHash] === undefined) {
+//       singleton[cycleNameHash] = classGenerator(cycleNameHash)
+//     }
+//     return singleton[cycleNameHash];
+//   }
+//
+//   return cycleSingleton
+// }
 
-  function cycleSingleton(newCycleName: number | string | Wildcard): T {
-    let cycleName = (typeof newCycleName === 'number') ? lookup.getValue(newCycleName) : newCycleName;
-    let cycleIsWildcard = false;
-    const cycleNameHash = `${cycleName}`;
-    if (singleton[cycleNameHash] === undefined) {
-      singleton[cycleNameHash] = classGenerator(cycleNameHash)
-    }
-    return singleton[cycleNameHash];
-  }
-
-  return cycleSingleton
-}
-
-abstract class Cycle<T> extends Base {
+export default abstract class Cycle extends Base {
   /**
    * A cache of the next object in the cycle
    */
-  private _privateNext: null | Cycle<T>;
+  private _privateNext: null | Cycle;
   /**
    * Absolute position within the linear cycle for this object.
    */
   public position: number;
-  protected generator: (cycleName: number | string) => (T | Wildcard);
+  protected generator: (cycleName: number | string) => (Cycle | Wildcard);
   protected cycleLength: number;
 
   constructor(
     value: number | string | Wildcard,
     lookup: HashMap,
-    generator: (cycleName: number | string | Wildcard) => (T | Wildcard)
+    generator: (cycleName: number | string | Wildcard) => (Cycle | Wildcard)
   ) {
     super(
       (typeof value === 'number') ?
@@ -54,7 +54,7 @@ abstract class Cycle<T> extends Base {
   /**
    * Return the next object in the cycle
    */
-  next(): Cycle<T> {
+  next(): Cycle {
     return this.shift(1);
   }
 
@@ -62,14 +62,14 @@ abstract class Cycle<T> extends Base {
    * Move an incremental number of steps in the cycle, and return the object found there.
    * @param incremental - The number of steps to move through in the cycle.
    */
-  shift(incremental: number): Cycle<T> {
+  shift(incremental: number): Cycle {
     if (incremental === 0) {
       return this;
     }
     return this.privateNext.shift(incremental - 1)
   }
 
-  get privateNext(): Cycle<T> {
+  get privateNext(): Cycle {
     if (this._privateNext === null) {
       let newPosition = (this.position + 1) % (this.cycleLength - 1);
       newPosition = (newPosition === 0) ? (this.cycleLength - 1) : newPosition;
@@ -96,9 +96,4 @@ abstract class Cycle<T> extends Base {
 
   abstract validate(): boolean;
 
-}
-
-export {
-  singletonGenerator,
-  Cycle
 }

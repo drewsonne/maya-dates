@@ -3,22 +3,27 @@ import WildcardCoefficient from "./wildcardCoefficient";
 import NumberCoefficient from "./numberCoefficient";
 import ICoefficient from "./iCoefficient";
 
+
+const coefficientNumberCoefficient: { [key: string]: ICoefficient } = {}
+
 function coefficientParser(rawCoefficient: number | string | Wildcard): ICoefficient {
-  if (rawCoefficient instanceof Wildcard) {
-    return new WildcardCoefficient()
-  } else if (typeof rawCoefficient == 'number') {
-    return new NumberCoefficient(rawCoefficient)
-  } else if (typeof rawCoefficient == 'string') {
-    if (rawCoefficient == '*') {
-      return new WildcardCoefficient()
-    } else if (!isNaN(+rawCoefficient)) {
-      return new NumberCoefficient(+rawCoefficient)
+  const hash = `${rawCoefficient}`
+  if (coefficientNumberCoefficient[hash] === undefined) {
+    if (rawCoefficient instanceof Wildcard) {
+      coefficientNumberCoefficient[hash] = new WildcardCoefficient()
+    } else if (typeof rawCoefficient == 'number') {
+      coefficientNumberCoefficient[hash] = new NumberCoefficient(rawCoefficient)
     } else {
-      throw new Error("String coefficient is neither wildcard nor numeric")
+      if (rawCoefficient == '*') {
+        coefficientNumberCoefficient[hash] = new WildcardCoefficient()
+      } else if (!isNaN(+rawCoefficient)) {
+        coefficientNumberCoefficient[hash] = new NumberCoefficient(+rawCoefficient)
+      } else {
+        throw new Error("String coefficient is neither wildcard nor numeric")
+      }
     }
-  } else {
-    throw new Error("Unexpected coefficient type")
   }
+  return coefficientNumberCoefficient[hash]
 }
 
 export {
