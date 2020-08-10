@@ -76,17 +76,23 @@
 								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_cr_component_tzolkinday_.tzolkinday.html" class="tsd-kind-icon">Tzolkin<wbr>Day</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_cr_component_tzolkinday_.html#days" class="tsd-kind-icon">days</a></li>
-								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_cr_component_tzolkinday_.html#gettzolkinday" class="tsd-kind-icon">get<wbr>Tzolkin<wbr>Day</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_cr_component_tzolkinday_.html#singleton" class="tsd-kind-icon">singleton</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_cr_component_tzolkinday_.html#gettzolkinday" class="tsd-kind-icon">get<wbr>Tzolkin<wbr>Day</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Variables</h2>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
 					<a name="days" class="tsd-anchor"></a>
@@ -94,40 +100,53 @@
 					<div class="tsd-signature tsd-kind-icon">days<span class="tsd-signature-symbol">:</span> <a href="../classes/_structs_hashmap_.hashmap.html" class="tsd-signature-type">HashMap</a><span class="tsd-signature-symbol"> = new HashMap([undefined,&#x27;Imix&#x27;,&#x27;Ik\&#x27;&#x27;,&#x27;Ak\&#x27;bal&#x27;,&#x27;K\&#x27;an&#x27;,&#x27;Chikchan&#x27;,&#x27;Kimi&#x27;,&#x27;Manik\&#x27;&#x27;,&#x27;Lamat&#x27;,&#x27;Muluk&#x27;,&#x27;Ok&#x27;,&#x27;Chuwen&#x27;,&#x27;Eb&#x27;,&#x27;Ben&#x27;,&#x27;Ix&#x27;,&#x27;Men&#x27;,&#x27;Kib&#x27;,&#x27;Kaban&#x27;,&#x27;Etz\&#x27;nab&#x27;,&#x27;Kawak&#x27;,&#x27;Ajaw&#x27;,])</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/drewsonne/maya-dates/blob/354a4bc/src/cr/component/tzolkinDay.ts#L5">cr/component/tzolkinDay.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/drewsonne/maya-dates/blob/6273e4c/src/cr/component/tzolkinDay.ts#L5">cr/component/tzolkinDay.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
-					<a name="gettzolkinday" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Tzolkin<wbr>Day</h3>
-					<div class="tsd-signature tsd-kind-icon">get<wbr>Tzolkin<wbr>Day<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>cycleName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../classes/_wildcard_.wildcard.html" class="tsd-signature-type">Wildcard</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> = singletonGenerator&lt;(TzolkinDay | Wildcard)&gt;(days,(name: string) &#x3D;&gt; (name &#x3D;&#x3D;&#x3D; &#x27;*&#x27;) ? new Wildcard() : new TzolkinDay(name))</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="singleton" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> singleton</h3>
+					<div class="tsd-signature tsd-kind-icon">singleton<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/drewsonne/maya-dates/blob/354a4bc/src/cr/component/tzolkinDay.ts#L29">cr/component/tzolkinDay.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/drewsonne/maya-dates/blob/6273e4c/src/cr/component/tzolkinDay.ts#L29">cr/component/tzolkinDay.ts:29</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>cycleName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../classes/_wildcard_.wildcard.html" class="tsd-signature-type">Wildcard</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>cycleName: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../classes/_wildcard_.wildcard.html" class="tsd-signature-type">Wildcard</a></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-									</li>
-								</ul>
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="../classes/_cr_component_tzolkinday_.tzolkinday.html" class="tsd-signature-type">TzolkinDay</a></h5>
 							</li>
 						</ul>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="gettzolkinday" class="tsd-anchor"></a>
+					<h3>get<wbr>Tzolkin<wbr>Day</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Tzolkin<wbr>Day<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../classes/_wildcard_.wildcard.html" class="tsd-signature-type">Wildcard</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_wildcard_.wildcard.html" class="tsd-signature-type">Wildcard</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_cr_component_tzolkinday_.tzolkinday.html" class="tsd-signature-type">TzolkinDay</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/drewsonne/maya-dates/blob/6273e4c/src/cr/component/tzolkinDay.ts#L31">cr/component/tzolkinDay.ts:31</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../classes/_wildcard_.wildcard.html" class="tsd-signature-type">Wildcard</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../classes/_wildcard_.wildcard.html" class="tsd-signature-type">Wildcard</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_cr_component_tzolkinday_.tzolkinday.html" class="tsd-signature-type">TzolkinDay</a></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -150,7 +169,10 @@
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_cr_component_tzolkinday_.html#days" class="tsd-kind-icon">days</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_cr_component_tzolkinday_.html#singleton" class="tsd-kind-icon">singleton</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_cr_component_tzolkinday_.html#gettzolkinday" class="tsd-kind-icon">get<wbr>Tzolkin<wbr>Day</a>
 					</li>
 				</ul>
