@@ -183,3 +183,9 @@ it('significant digits', () => {
     new LongCount(1, 1, 1, 1, 0, 0, 0).sigParts
   ).to.eql([1, 1, 1, 1]);
 });
+
+it('render long count', () => {
+  expect(
+    new LongCount(1, 1, 1, 1, 0, 0, 0).toString()
+  ).to.eq(` 0. 1. 1. 1. 1`)
+})
