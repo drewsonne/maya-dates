@@ -1,5 +1,6 @@
 import FullDate from '../full-date';
 import LongCountWildcard from './longcount-wildcard';
+import IPart from "../i-part";
 
 /** @ignore */
 // const concat = (x, y) => x.concat(y);
@@ -17,7 +18,7 @@ import LongCountWildcard from './longcount-wildcard';
  * Given a Calendar Round and Long Count with a wildcard, calculate all possible
  * matching fully qualified Long Counts with CalendarRounds.
  */
-export default class FullDateWildcard {
+export default class FullDateWildcard implements IPart {
   private fullDate: FullDate;
 
   /**
@@ -28,6 +29,13 @@ export default class FullDateWildcard {
      * @type {FullDate}
      */
     this.fullDate = partialDate;
+  }
+
+  equal(other: IPart): boolean {
+    if (other instanceof FullDateWildcard) {
+      return this.fullDate.equal(other.fullDate)
+    }
+    return false;
   }
 
   /**

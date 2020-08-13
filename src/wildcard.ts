@@ -8,7 +8,9 @@
  * console.log(cr.haab.month === mayadates.wildcard)
  * > true
  */
-export class Wildcard {
+import IPart from "./i-part";
+
+export class Wildcard implements IPart {
   /**
    * Represent the Wildcard as a string. ie, '*'.
    * @returns {string}
@@ -18,8 +20,8 @@ export class Wildcard {
     return '*';
   }
 
-  equal(otherWildcard: any) {
-    return otherWildcard instanceof Wildcard
+  equal(other: IPart): boolean {
+    return other instanceof Wildcard
   }
 }
 

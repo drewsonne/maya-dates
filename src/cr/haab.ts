@@ -4,6 +4,7 @@ import {Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
 import {coefficientParser as _} from "./component/coefficient";
 import ICoefficient from "./component/iCoefficient";
+import IPart from "../i-part";
 
 const singleton: { [key: string]: Haab } = {};
 
@@ -33,7 +34,7 @@ export function getHaab(coeff: ICoefficient, month: Wildcard | HaabMonth): Haab 
  *    let day = new Haab(8, new HaabMonth("Kumk'u"));
  *
  */
-export class Haab {
+export class Haab implements IPart {
   coeff: ICoefficient;
   month: Wildcard | HaabMonth;
   _privateNext: null | Haab;
@@ -175,6 +176,13 @@ export class Haab {
    */
   toString() {
     return `${this.coeff} ${this.name}`;
+  }
+
+  equal(other: IPart): boolean {
+    if (other instanceof Haab) {
+      return other === this
+    }
+    return false;
   }
 }
 

@@ -1,5 +1,6 @@
 import CalendarRoundIterator from './calendar-round-iter';
 import {CalendarRound} from "../cr/calendar-round";
+import IPart from "../i-part";
 
 /**
  * A reusable singleton instance of the CalendarRoundIterator
@@ -12,7 +13,7 @@ const iter = new CalendarRoundIterator();
  * Given a Calendar Round with a wildcard, calculate all possible matching
  * fully qualified Calendar Rounds.
  */
-export default class CalendarRoundWildcard {
+export default class CalendarRoundWildcard implements IPart {
   private cr: CalendarRound;
 
   /**
@@ -45,5 +46,12 @@ export default class CalendarRoundWildcard {
     }
     iter.reset();
     return potentials;
+  }
+
+  equal(other: IPart): boolean {
+    if (other instanceof CalendarRoundWildcard) {
+      return this.cr.equal(other.cr)
+    }
+    return false
   }
 }
