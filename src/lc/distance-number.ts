@@ -85,9 +85,12 @@ export default class DistanceNumber {
 
     const signEqual = this.sign === other.sign;
     const lengthEqual = thisMinParts.length === otherMinParts.length;
-    const partsEqual = thisMinParts.every((e, i) => e === otherMinParts[i]);
+    const partsEqual: boolean[] = thisMinParts.map((e, i) => {
+      return isWildcard(e) ? isWildcard(otherMinParts[i]) : e === otherMinParts[i]
+    });
+    const everyPartEqual = partsEqual.every((p) => p)
 
-    return signEqual && lengthEqual && partsEqual;
+    return signEqual && lengthEqual && everyPartEqual;
   }
 
   /**
@@ -98,7 +101,9 @@ export default class DistanceNumber {
   exactlyEqual(other: DistanceNumber): boolean {
     const signsEqual = (this.sign === other.sign);
     const lengthEqual = (this.parts.length === other.parts.length);
-    const partsEqual = this.parts.every((e, i) => e === other.parts[i]);
+    const partsEqual = this.parts.every((e, i) => {
+      return isWildcard(e) ? isWildcard(other.parts[i]) : e === other.parts[i]
+    });
     return signsEqual && lengthEqual && partsEqual;
   }
 

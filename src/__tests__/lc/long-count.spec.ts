@@ -4,6 +4,7 @@ import {expect} from 'chai'
 import LongCount from "../../lc/long-count";
 import {Wildcard} from "../../wildcard";
 import {LordOfTheNight, lords} from "../../lc/night/lord-of-night";
+import exp = require("constants");
 
 describe('parse long-count fullDate', () => {
   const dates = [
@@ -159,6 +160,10 @@ it('equality', () => {
   const lc3 = new LongCount(2, 2, 2, 2, 2);
   const lc4 = new LongCount(3, 3, 3, 3, 0);
   const lc5 = new LongCount(3, 3, 3, 3);
+  const lc6 = new LongCount(new Wildcard(), new Wildcard(), 1, 1, 1)
+  const lc7 = new LongCount(new Wildcard(), new Wildcard(), 1, 1, 1)
+  const lc8 = new LongCount(10, 10, 10, 2, new Wildcard())
+  const lc9 = new LongCount(10, 10, 10, 2, new Wildcard())
 
   expect(lc1.equal(lc1)).to.be.true;
   expect(lc1.exactlyEqual(lc1)).to.be.true;
@@ -169,6 +174,13 @@ it('equality', () => {
 
   expect(lc4.equal(lc5)).to.be.true;
   expect(lc4.exactlyEqual(lc5)).to.be.false;
+
+  expect(lc6.equal(lc7)).to.be.true
+  expect(lc6.exactlyEqual(lc7)).to.be.true
+
+  expect(lc8.equal(lc9)).to.be.true
+  expect(lc9.exactlyEqual(lc9)).to.be.true
+
 });
 
 it('wildcard position failure', () => {
