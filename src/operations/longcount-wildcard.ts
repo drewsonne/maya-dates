@@ -1,10 +1,11 @@
 import LongCount from "../lc/long-count";
+import IPart from "../i-part";
 
 /**
  * Given a Long Count with a wildcard, calculate all possible matching fully
  * qualified Long Counts.
  */
-export default class LongCountWildcard {
+export default class LongCountWildcard implements IPart {
   private lc: LongCount;
 
   /**
@@ -15,6 +16,13 @@ export default class LongCountWildcard {
      * @type {LongCount}
      */
     this.lc = lc;
+  }
+
+  equal(other: IPart): boolean {
+    if (other instanceof LongCountWildcard) {
+      return other.lc.equal(other.lc)
+    }
+    return false
   }
 
   /**

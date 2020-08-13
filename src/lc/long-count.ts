@@ -8,6 +8,7 @@ import {origin} from "../cr/calendar-round";
 import LongcountAddition from "../operations/longcount-addition";
 import LongcountSubtraction from "../operations/longcount-subtraction";
 import GregorianCalendarDate from "./western/gregorian";
+import IPart from "../i-part";
 
 /**
  * Long Count cycle
@@ -118,7 +119,7 @@ export default class LongCount extends DistanceNumber {
    * @param {LongCount} newLc
    * @return {LongcountAddition}
    */
-  minus(newLc:LongCount) {
+  minus(newLc: LongCount) {
     /*  We pass the LongCount class in, as to require this in the operation
      *  will create a circular dependency.
      */

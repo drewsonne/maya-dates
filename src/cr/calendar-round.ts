@@ -6,6 +6,7 @@ import {getTzolkinDay} from "./component/tzolkinDay";
 import NumberCoefficient from "./component/numberCoefficient";
 import {Wildcard} from "../wildcard";
 import WildcardCoefficient from "./component/wildcardCoefficient";
+import IPart from "../i-part";
 
 /** @ignore */
 const singleton: { [key: string]: CalendarRound } = {};
@@ -25,6 +26,7 @@ export function getCalendarRound(
   return singleton[crId];
 }
 
+// @ts-ignore
 /**
  * A combination of 260-day cycles and the Haab cycle. This class should not
  * be instantiated directly, and should be accessed through getCalendarRound.
@@ -32,7 +34,7 @@ export function getCalendarRound(
  * @example
  *  let cr = new CalendarRound(4, "Ajaw", 8, "Kumk'u");
  */
-export class CalendarRound {
+export class CalendarRound implements IPart {
   tzolkin: Tzolkin;
   haab: Haab;
 
@@ -169,6 +171,13 @@ export class CalendarRound {
    */
   toString(): string {
     return `${this.tzolkin} ${this.haab}`;
+  }
+
+  equal(other: IPart): boolean {
+    if (other instanceof CalendarRound) {
+      throw new Error('Not Implemented')
+    }
+    return false;
   }
 }
 
