@@ -1,6 +1,6 @@
 {
   "name": "@drewsonne/maya-dates",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Node.js package to represent dates in the Maya Calendar",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -44,7 +44,8 @@
     "build:docs": "typedoc --out docs src/"
   },
   "files": [
-    "lib"
+    "lib",
+    "decs.d.ts"
   ],
   "bugs": {
     "url": "https://github.com/drewsonne/maya-dates/issues"
