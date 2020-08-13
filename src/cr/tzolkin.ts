@@ -4,6 +4,7 @@ import {Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
 import WildcardCoefficient from "./component/wildcardCoefficient";
 import ICoefficient from "./component/iCoefficient"
+import IPart from "../i-part";
 
 const singleton: { [key: string]: Tzolkin } = {};
 
@@ -32,7 +33,7 @@ export function getTzolkin(coeff: ICoefficient, day: TzolkinDay | Wildcard): Tzo
  *    let day = new Tzolkin(4, new TzolkinDay("Ajaw"));
  *
  */
-export class Tzolkin {
+export class Tzolkin implements IPart {
   day: TzolkinDay | Wildcard;
   coeff: ICoefficient;
   _privateNext: Tzolkin | null;
@@ -130,9 +131,11 @@ export class Tzolkin {
    * @param {Tzolkin} newTzolkin
    * @return {boolean}
    */
-  equal(newTzolkin: Tzolkin) {
-    return (this.coeff.equal(newTzolkin.coeff))
-      && (this.name === newTzolkin.name);
+  equal(other: IPart): boolean {
+    if (other instanceof Tzolkin) {
+      return this === other
+    }
+    return false;
   }
 
   /**

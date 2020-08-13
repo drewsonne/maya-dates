@@ -4,8 +4,9 @@
 import {isWildcard, Wildcard} from "../wildcard";
 import LongcountAddition from "../operations/longcount-addition";
 import LongcountSubtraction from "../operations/longcount-subtraction";
+import IPart from "../i-part";
 
-export default class DistanceNumber {
+export default class DistanceNumber implements IPart {
   parts: (number | Wildcard)[];
   datePattern: RegExp;
   sign: number;
@@ -79,18 +80,21 @@ export default class DistanceNumber {
    * @param {DistanceNumber} other
    * @return {boolean}
    */
-  equal(other: DistanceNumber): boolean {
-    const thisMinParts = this.sigParts;
-    const otherMinParts = other.sigParts;
+  equal(other: IPart): boolean {
+    if (other instanceof DistanceNumber) {
+      const thisMinParts = this.sigParts;
+      const otherMinParts = other.sigParts;
 
-    const signEqual = this.sign === other.sign;
-    const lengthEqual = thisMinParts.length === otherMinParts.length;
-    const partsEqual: boolean[] = thisMinParts.map((e, i) => {
-      return isWildcard(e) ? isWildcard(otherMinParts[i]) : e === otherMinParts[i]
-    });
-    const everyPartEqual = partsEqual.every((p) => p)
+      const signEqual = this.sign === other.sign;
+      const lengthEqual = thisMinParts.length === otherMinParts.length;
+      const partsEqual: boolean[] = thisMinParts.map((e, i) => {
+        return isWildcard(e) ? isWildcard(otherMinParts[i]) : e === otherMinParts[i]
+      });
+      const everyPartEqual = partsEqual.every((p) => p)
 
-    return signEqual && lengthEqual && everyPartEqual;
+      return signEqual && lengthEqual && everyPartEqual;
+    }
+    return false;
   }
 
   /**

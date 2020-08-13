@@ -4,8 +4,9 @@
 import ILongcount from "./ILongcount";
 import LongCount from "../lc/long-count";
 import DistanceNumber from "../lc/distance-number";
+import IPart from "../i-part";
 
-export default class LongcountSubtraction {
+export default class LongcountSubtraction implements IPart {
   private a: DistanceNumber
   private b: DistanceNumber
   private LcClass: ILongcount
@@ -79,5 +80,12 @@ export default class LongcountSubtraction {
     const newLC = new this.LcClass(...newParts);
     newLC.isPositive = !isInverted;
     return newLC;
+  }
+
+  equal(other: IPart): boolean {
+    if (other instanceof LongcountSubtraction) {
+      return this.a.equal(other.a) && this.b.equal(other.b)
+    }
+    return false;
   }
 }

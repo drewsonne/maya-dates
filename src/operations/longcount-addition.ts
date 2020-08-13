@@ -4,8 +4,9 @@
 import LongCount from "../lc/long-count";
 import ILongcount from "./ILongcount";
 import DistanceNumber from "../lc/distance-number";
+import IPart from "../i-part";
 
-export default class LongcountAddition {
+export default class LongcountAddition implements IPart {
   private a: DistanceNumber;
   private b: DistanceNumber
   private LcClass: ILongcount;
@@ -29,6 +30,13 @@ export default class LongcountAddition {
 
     /** @ignore */
     this.LcClass = lcClass;
+  }
+
+  equal(other: IPart): boolean {
+    if (other instanceof LongcountAddition) {
+      return this.a.equal(other.a) && this.b.equal(other.b)
+    }
+    return false
   }
 
   /**
