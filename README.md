@@ -2,7 +2,7 @@
 
 ![Documentation Coverage](./docs/badge.svg)
 
-A library for interacting with and modifying both the Maya Long Count (LC)
+A typescript library for interacting with and modifying both the Maya Long Count (LC)
 and Calendar Round (CR) dates.
 
 # Quickstart
@@ -10,10 +10,10 @@ and Calendar Round (CR) dates.
 npm install [-g] @drewsonne/maya-dates
 ```
 
-```javascript
-const mayadates = require('@drewsonne/maya-dates');
+```typescript
+import LongCountFactory from "@drewsonne/maya-dates/lib/factory/long-count";
 // Long Count from Initial Series on east side of Stele E, Quirigua
-let lc = new mayadates.factory.LongCountFactory().parse('9.17.0.0.0');
+let lc = new LongCountFactory().parse('9.17.0.0.0');
 console.log(`${lc.buildFullDate()}`);
 ```
 This should print `13 Ajaw 18 Kumk'u  9.17. 0. 0. 0`.
@@ -32,18 +32,21 @@ Creating a fullDate can be done either by:
  or CR and LC combination encoded as a string. To specify missing values in a
  fullDate, using `*`. For example,
 
-```javascript
-const mayadates = require('@drewsonne/maya-dates');
+```typescript
+import {Wildcard, isWildcard} from "@drewsonne/maya-dates/lib/wildcard"
+import LongCountFactory from "@drewsonne/maya-dates/lib/factory/long-count";
+import CalendarRoundFactory from "@drewsonne/maya-dates/lib/factory/calendar-round";
+import FullDateFactory from "@drewsonne/maya-dates/lib/factory/full-date";
 
-const wildcard = mayadates.wildcard;
+const wildcard = new Wildcard();
 
-const partial_lc = new mayadates.factory.LongCountFactory().parse('9.17.0.0.*');
-const partial_cr = new mayadates.factory.CalendarRoundFactory().parse('13 Ajaw * Kumk\'u');
-const partial_date = new mayadates.factory.FullDateFactory().parse('13 Ajaw * Kumk\'u 9.17.0.0.*');
+const partial_lc = new LongCountFactory().parse('9.17.0.0.*');
+const partial_cr = new CalendarRoundFactory().parse('13 Ajaw * Kumk\'u');
+const partial_date = new FullDateFactory().parse('13 Ajaw * Kumk\'u 9.17.0.0.*');
 
-console.log(`LC: ${partial_lc.kIn === wildcard}`);
-console.log(`CR: ${partial_cr.haab.coeff === wildcard}`);
-console.log(`Full Date: ${partial_date.lc.kIn === wildcard}`);
+console.log(`LC: ${isWildcard(partial_lc.kIn)}`);
+console.log(`CR: ${isWildcard(partial_cr.haab.coeff)}`);
+console.log(`Full Date: ${isWildcard(partial_date.lc.kIn)}`);
 ```
 
  - passing explicit values into a model factory or class ([getCalendarRound](https://drewsonne.github.io/maya-dates/docs/function/index.html#static-function-getCalendarRound),
@@ -51,14 +54,22 @@ console.log(`Full Date: ${partial_date.lc.kIn === wildcard}`);
  [FullDate](https://drewsonne.github.io/maya-dates/docs/class/src/full-date.js~FullDate.html)).
 
 ```javascript
-const mayadates = require('@drewsonne/maya-dates');
+import {getCalendarRound} from "@drewsonne/maya-dates/lib/cr/calendar-round";
+import {getHaab} from "@drewsonne/maya-dates/lib/cr/haab";
+import {getTzolkin} from "@drewsonne/maya-dates/lib/cr/tzolkin";
+import {getHaabMonth} from "@drewsonne/maya-dates/lib/cr/component/haabMonth";
+import {getTzolkinDay} from "@drewsonne/maya-dates/lib/cr/component/tzolkinDay";
+import {coefficientParser as _} from "@drewsonne/maya-dates/lib/cr/component/coefficient"
 
-const calendarRound = mayadates.calendarRound.getCalendarRound(
-    13, 'Ajaw',
-    18,  mayadates.calendarRound.getHaabMonth('Kumk\'u')
+import {FullDate} from "@drewsonne/maya-dates/lib/full-date"
+import {LongCount} from "@drewsonne/maya-dates/lib/lc/long-count"
+
+const calendarRound = getCalendarRound(
+    getTzolkin(_(13), getTzolkinDay('Ajaw')),
+    getHaab(_(18), getHaabMonth('Kumk\'u'))
 );
-const lc = mayadates.lc.LongCount(0, 0, 0, 17, 9);
-const fullDate = new mayadates.FullDate(calendarRound, lc);
+const lc = new LongCount(0, 0, 0, 17, 9);
+const fullDate = new FullDate(calendarRound, lc);
 
 console.log(`${lc}`);
 console.log(`${calendarRound}`);
