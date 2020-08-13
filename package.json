@@ -44,7 +44,7 @@
     "build:docs": "typedoc --out docs src/"
   },
   "files": [
-    "./lib/"
+    "lib"
   ],
   "bugs": {
     "url": "https://github.com/drewsonne/maya-dates/issues"
