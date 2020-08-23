@@ -1,6 +1,7 @@
 import FullDate from '../full-date';
 import LongCountWildcard from './longcount-wildcard';
 import IPart from "../i-part";
+import Comment from '../comment';
 
 /** @ignore */
 // const concat = (x, y) => x.concat(y);
@@ -20,6 +21,7 @@ import IPart from "../i-part";
  */
 export default class FullDateWildcard implements IPart {
   private fullDate: FullDate;
+  comment: Comment | undefined;
 
   /**
    * @param {FullDate} partialDate

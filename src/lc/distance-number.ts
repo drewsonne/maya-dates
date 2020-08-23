@@ -5,11 +5,13 @@ import {isWildcard, Wildcard} from "../wildcard";
 import LongcountAddition from "../operations/longcount-addition";
 import LongcountSubtraction from "../operations/longcount-subtraction";
 import IPart from "../i-part";
+import Comment from "../comment";
 
 export default class DistanceNumber implements IPart {
   parts: (number | Wildcard)[];
   datePattern: RegExp;
   sign: number;
+  comment: Comment | undefined
 
   /**
    * @param {...number|Wildcard} cycles - Components in the long count
