@@ -9,8 +9,10 @@
  * > true
  */
 import IPart from "./i-part";
+import Comment from "./comment";
 
 export class Wildcard implements IPart {
+  comment: Comment | undefined;
   /**
    * Represent the Wildcard as a string. ie, '*'.
    * @returns {string}

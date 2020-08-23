@@ -7,6 +7,7 @@ import NumberCoefficient from "./component/numberCoefficient";
 import {Wildcard} from "../wildcard";
 import WildcardCoefficient from "./component/wildcardCoefficient";
 import IPart from "../i-part";
+import Comment from '../comment';
 
 /** @ignore */
 const singleton: { [key: string]: CalendarRound } = {};
@@ -37,6 +38,7 @@ export function getCalendarRound(
 export class CalendarRound implements IPart {
   tzolkin: Tzolkin;
   haab: Haab;
+  comment: Comment | undefined;
 
   constructor(tzolkin: Tzolkin, haab: Haab) {
     /**
@@ -50,7 +52,7 @@ export class CalendarRound implements IPart {
 
     this.validate();
   }
-
+  
   /**
    * Validate that the Calendar Round has a correct 260-day and Haab
    * configuration
