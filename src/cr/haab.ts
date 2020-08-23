@@ -5,6 +5,7 @@ import NumberCoefficient from "./component/numberCoefficient";
 import {coefficientParser as _} from "./component/coefficient";
 import ICoefficient from "./component/iCoefficient";
 import IPart from "../i-part";
+import Comment from "../comment";
 
 const singleton: { [key: string]: Haab } = {};
 
@@ -37,6 +38,7 @@ export function getHaab(coeff: ICoefficient, month: Wildcard | HaabMonth): Haab 
 export class Haab implements IPart {
   coeff: ICoefficient;
   month: Wildcard | HaabMonth;
+  comment: Comment | undefined;
   _privateNext: null | Haab;
 
   /**

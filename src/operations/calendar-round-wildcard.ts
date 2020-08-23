@@ -1,6 +1,7 @@
 import CalendarRoundIterator from './calendar-round-iter';
 import {CalendarRound} from "../cr/calendar-round";
 import IPart from "../i-part";
+import Comment from '../comment';
 
 /**
  * A reusable singleton instance of the CalendarRoundIterator
@@ -15,6 +16,7 @@ const iter = new CalendarRoundIterator();
  */
 export default class CalendarRoundWildcard implements IPart {
   private cr: CalendarRound;
+  comment: Comment | undefined;
 
   /**
    * @param {CalendarRound} cr

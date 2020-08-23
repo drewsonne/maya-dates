@@ -5,11 +5,13 @@ import ILongcount from "./ILongcount";
 import LongCount from "../lc/long-count";
 import DistanceNumber from "../lc/distance-number";
 import IPart from "../i-part";
+import Comment from "../comment";
 
 export default class LongcountSubtraction implements IPart {
   private a: DistanceNumber
   private b: DistanceNumber
   private LcClass: ILongcount
+  comment: Comment | undefined;
 
   /**
    * @param {object} lcClass - Special param to pass the LongCount class into this operator to

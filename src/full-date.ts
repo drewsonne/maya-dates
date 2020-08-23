@@ -4,11 +4,13 @@
 import LongCount from "./lc/long-count";
 import {CalendarRound} from "./cr/calendar-round";
 import IPart from "./i-part";
+import Comment from "./comment";
 
 export default class FullDate implements IPart {
 
   cr: CalendarRound;
   lc: LongCount;
+  comment: Comment | undefined;
 
   constructor(cr: CalendarRound, lc: LongCount) {
     this.cr = cr;

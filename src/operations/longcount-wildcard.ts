@@ -1,5 +1,6 @@
 import LongCount from "../lc/long-count";
 import IPart from "../i-part";
+import Comment from "../comment";
 
 /**
  * Given a Long Count with a wildcard, calculate all possible matching fully
@@ -7,6 +8,7 @@ import IPart from "../i-part";
  */
 export default class LongCountWildcard implements IPart {
   private lc: LongCount;
+  comment: Comment | undefined;
 
   /**
    * @param {LongCount} lc
