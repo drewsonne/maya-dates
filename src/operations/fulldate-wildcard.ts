@@ -3,17 +3,6 @@ import LongCountWildcard from './longcount-wildcard';
 import {IPart} from "../i-part";
 import Comment from '../comment';
 
-/** @ignore */
-// const concat = (x, y) => x.concat(y);
-//
-// /** @ignore */
-// const flatMap = (f, xs) => xs.map(f).reduce(concat, []);
-
-/** @ignore */
-// eslint-disable-next-line no-extend-native,func-names
-// Array.prototype.flatMap = function (f) {
-//   return flatMap(f, this);
-// };
 
 /**
  * Given a Calendar Round and Long Count with a wildcard, calculate all possible
@@ -66,5 +55,9 @@ export default class FullDateWildcard implements IPart {
     return (staticCr.match(this.fullDate.cr))
       ? [new FullDate(staticCr, this.fullDate.lc)]
       : [];
+  }
+
+  toString(): string {
+    return this.fullDate.toString()
   }
 }
