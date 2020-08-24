@@ -5,7 +5,7 @@ import ILongcount from "./ILongcount";
 import LongCount from "../lc/long-count";
 import DistanceNumber from "../lc/distance-number";
 import {IPart} from "../i-part";
-import Comment from "../comment";
+import {Comment, isComment} from "../comment";
 
 export default class LongcountSubtraction implements IPart {
   private a: DistanceNumber
@@ -32,6 +32,20 @@ export default class LongcountSubtraction implements IPart {
 
     /** @ignore */
     this.LcClass = lcClass;
+  }
+
+  setComment(comment: Comment): LongcountSubtraction {
+    this.comment = comment
+    return this;
+  }
+
+  appendComment(comment: Comment): LongcountSubtraction {
+    if (isComment(this.comment)) {
+      this.comment = this.comment.merge(comment)
+    } else {
+      this.setComment(comment)
+    }
+    return this
   }
 
   /**

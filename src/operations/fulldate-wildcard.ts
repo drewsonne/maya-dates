@@ -1,7 +1,7 @@
 import FullDate from '../full-date';
 import LongCountWildcard from './longcount-wildcard';
 import {IPart} from "../i-part";
-import Comment from '../comment';
+import {Comment, isComment} from '../comment';
 
 
 /**
@@ -20,6 +20,20 @@ export default class FullDateWildcard implements IPart {
      * @type {FullDate}
      */
     this.fullDate = partialDate;
+  }
+
+  setComment(comment: Comment): FullDateWildcard {
+    this.comment = comment
+    return this;
+  }
+
+  appendComment(comment: Comment): FullDateWildcard {
+    if (isComment(this.comment)) {
+      this.comment = this.comment.merge(comment)
+    } else {
+      this.setComment(comment)
+    }
+    return this
   }
 
   equal(other: IPart): boolean {

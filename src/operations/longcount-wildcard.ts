@@ -1,6 +1,6 @@
 import LongCount from "../lc/long-count";
 import {IPart} from "../i-part";
-import Comment from "../comment";
+import {Comment, isComment} from "../comment";
 
 /**
  * Given a Long Count with a wildcard, calculate all possible matching fully
@@ -18,6 +18,20 @@ export default class LongCountWildcard implements IPart {
      * @type {LongCount}
      */
     this.lc = lc;
+  }
+
+  setComment(comment: Comment): LongCountWildcard {
+    this.comment = comment
+    return this;
+  }
+
+  appendComment(comment: Comment): LongCountWildcard {
+    if (isComment(this.comment)) {
+      this.comment = this.comment.merge(comment)
+    } else {
+      this.setComment(comment)
+    }
+    return this
   }
 
   equal(other: IPart): boolean {

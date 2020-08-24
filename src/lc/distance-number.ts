@@ -4,8 +4,8 @@
 import {isWildcard, Wildcard} from "../wildcard";
 import LongcountAddition from "../operations/longcount-addition";
 import LongcountSubtraction from "../operations/longcount-subtraction";
-import Comment from "../comment";
-import { IPart } from "../i-part";
+import {Comment, isComment} from "../comment";
+import {IPart} from "../i-part";
 
 export default class DistanceNumber implements IPart {
   parts: (number | Wildcard)[];
@@ -43,6 +43,20 @@ export default class DistanceNumber implements IPart {
         throw new Error("Last component is not a number")
       }
     }
+  }
+
+  setComment(comment: Comment): DistanceNumber {
+    this.comment = comment
+    return this;
+  }
+
+  appendComment(comment: Comment): DistanceNumber {
+    if (isComment(this.comment)) {
+      this.comment = this.comment.merge(comment)
+    } else {
+      this.setComment(comment)
+    }
+    return this
   }
 
   /**

@@ -6,8 +6,8 @@ import {getTzolkinDay} from "./component/tzolkinDay";
 import NumberCoefficient from "./component/numberCoefficient";
 import {Wildcard} from "../wildcard";
 import WildcardCoefficient from "./component/wildcardCoefficient";
-import Comment from '../comment';
-import { IPart } from '../i-part';
+import {Comment, isComment} from '../comment';
+import {IPart} from '../i-part';
 
 /** @ignore */
 const singleton: { [key: string]: CalendarRound } = {};
@@ -51,6 +51,20 @@ export class CalendarRound implements IPart {
     this.haab = haab;
 
     this.validate();
+  }
+
+  setComment(comment: Comment): CalendarRound {
+    this.comment = comment
+    return this;
+  }
+
+  appendComment(comment: Comment): CalendarRound {
+    if (isComment(this.comment)) {
+      this.comment = this.comment.merge(comment)
+    } else {
+      this.setComment(comment)
+    }
+    return this
   }
 
   /**

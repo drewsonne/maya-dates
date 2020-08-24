@@ -1,4 +1,4 @@
-export default class Comment {
+export class Comment {
   content: string;
 
   constructor(content: string) {
@@ -12,4 +12,8 @@ export default class Comment {
   toString(): string {
     return this.content
   }
+}
+
+export function isComment(c: any): c is Comment {
+  return c instanceof Comment
 }

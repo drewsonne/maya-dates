@@ -4,8 +4,8 @@ import {Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
 import {coefficientParser as _} from "./component/coefficient";
 import ICoefficient from "./component/iCoefficient";
-import Comment from "../comment";
-import { IPart } from "../i-part";
+import {Comment, isComment} from "../comment";
+import {IPart} from "../i-part";
 
 const singleton: { [key: string]: Haab } = {};
 
@@ -63,6 +63,20 @@ export class Haab implements IPart {
     this._privateNext = null;
 
     this.validate();
+  }
+
+  setComment(comment: Comment): Haab {
+    this.comment = comment
+    return this;
+  }
+
+  appendComment(comment: Comment): Haab {
+    if (isComment(this.comment)) {
+      this.comment = this.comment.merge(comment)
+    } else {
+      this.setComment(comment)
+    }
+    return this
   }
 
   /**

@@ -4,8 +4,8 @@ import {Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
 import WildcardCoefficient from "./component/wildcardCoefficient";
 import ICoefficient from "./component/iCoefficient"
-import Comment from "../comment";
-import { IPart } from "../i-part";
+import {IPart} from "../i-part";
+import {Comment, isComment} from "../comment";
 
 const singleton: { [key: string]: Tzolkin } = {};
 
@@ -62,6 +62,20 @@ export class Tzolkin implements IPart {
     this._privateNext = null;
 
     this.validate();
+  }
+
+  setComment(comment: Comment): Tzolkin {
+    this.comment = comment
+    return this;
+  }
+
+  appendComment(comment: Comment): Tzolkin {
+    if (isComment(this.comment)) {
+      this.comment = this.comment.merge(comment)
+    } else {
+      this.setComment(comment)
+    }
+    return this
   }
 
   /**

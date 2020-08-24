@@ -3,8 +3,8 @@
  */
 import LongCount from "./lc/long-count";
 import {CalendarRound} from "./cr/calendar-round";
-import Comment from "./comment";
-import { IPart } from "./i-part";
+import {Comment, isComment} from "./comment";
+import {IPart} from "./i-part";
 
 export default class FullDate implements IPart {
 
@@ -15,6 +15,20 @@ export default class FullDate implements IPart {
   constructor(cr: CalendarRound, lc: LongCount) {
     this.cr = cr;
     this.lc = lc;
+  }
+
+  setComment(comment: Comment): FullDate {
+    this.comment = comment
+    return this;
+  }
+
+  appendComment(comment: Comment): FullDate {
+    if (isComment(this.comment)) {
+      this.comment = this.comment.merge(comment)
+    } else {
+      this.setComment(comment)
+    }
+    return this
   }
 
   /**
@@ -29,7 +43,7 @@ export default class FullDate implements IPart {
   }
 
   equal(other: IPart): boolean {
-    if(other instanceof FullDate) {
+    if (other instanceof FullDate) {
       throw new Error('Not Implemented')
     }
     return false;

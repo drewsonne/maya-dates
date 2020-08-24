@@ -1,7 +1,7 @@
 import CalendarRoundIterator from './calendar-round-iter';
 import {CalendarRound} from "../cr/calendar-round";
 import {IPart} from "../i-part";
-import Comment from '../comment';
+import {Comment, isComment} from '../comment';
 
 /**
  * A reusable singleton instance of the CalendarRoundIterator
@@ -26,6 +26,20 @@ export default class CalendarRoundWildcard implements IPart {
      * @type {CalendarRound}
      */
     this.cr = cr;
+  }
+
+  setComment(comment: Comment): CalendarRoundWildcard {
+    this.comment = comment
+    return this;
+  }
+
+  appendComment(comment: Comment): CalendarRoundWildcard {
+    if (isComment(this.comment)) {
+      this.comment = this.comment.merge(comment)
+    } else {
+      this.setComment(comment)
+    }
+    return this
   }
 
   /**

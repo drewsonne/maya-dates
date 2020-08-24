@@ -1,3 +1,4 @@
+import {Comment, isComment} from "./comment";
 /**
  * Describes a wildcard in the Calendar Round or Long Count.
  * This class is not directly exposed to the user. There is a singleton in this
@@ -9,9 +10,22 @@
  * > true
  */
 import {IPart} from "./i-part";
-import Comment from "./comment";
 
 export class Wildcard implements IPart {
+  setComment(comment: Comment): Wildcard {
+    this.comment = comment
+    return this;
+  }
+
+  appendComment(comment: Comment): Wildcard {
+    if (isComment(this.comment)) {
+      this.comment = this.comment.merge(comment)
+    } else {
+      this.setComment(comment)
+    }
+    return this
+  }
+
   comment: Comment | undefined;
 
   /**
