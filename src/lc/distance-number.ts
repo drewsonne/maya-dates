@@ -4,8 +4,8 @@
 import {isWildcard, Wildcard} from "../wildcard";
 import LongcountAddition from "../operations/longcount-addition";
 import LongcountSubtraction from "../operations/longcount-subtraction";
-import IPart from "../i-part";
 import Comment from "../comment";
+import { IPart } from "../i-part";
 
 export default class DistanceNumber implements IPart {
   parts: (number | Wildcard)[];

@@ -9,7 +9,7 @@
     "lib": [
       "es6",
       "ES2016.Array.Include",
-      "es2015",
+      "es2015"
     ],
     "types": ["node"],
     "declaration": true,
@@ -28,7 +28,8 @@
   ],
   "include": [
     "./src",
-    "decs.d.ts"
+    "decs.d.ts",
+    "./lib"
   ],
   "publishConfig": {
     "access": "public"

@@ -4,7 +4,7 @@
 import LongCount from "../lc/long-count";
 import ILongcount from "./ILongcount";
 import DistanceNumber from "../lc/distance-number";
-import IPart from "../i-part";
+import {IPart} from "../i-part";
 import Comment from "../comment";
 
 export default class LongcountAddition implements IPart {

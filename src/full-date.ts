@@ -3,8 +3,8 @@
  */
 import LongCount from "./lc/long-count";
 import {CalendarRound} from "./cr/calendar-round";
-import IPart from "./i-part";
 import Comment from "./comment";
+import { IPart } from "./i-part";
 
 export default class FullDate implements IPart {
 

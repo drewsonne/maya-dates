@@ -1,6 +1,6 @@
 import CalendarRoundIterator from './calendar-round-iter';
 import {CalendarRound} from "../cr/calendar-round";
-import IPart from "../i-part";
+import {IPart} from "../i-part";
 import Comment from '../comment';
 
 /**

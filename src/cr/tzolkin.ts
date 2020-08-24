@@ -4,8 +4,8 @@ import {Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
 import WildcardCoefficient from "./component/wildcardCoefficient";
 import ICoefficient from "./component/iCoefficient"
-import IPart from "../i-part";
 import Comment from "../comment";
+import { IPart } from "../i-part";
 
 const singleton: { [key: string]: Tzolkin } = {};
 
