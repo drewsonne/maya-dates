@@ -175,7 +175,7 @@ export class CalendarRound extends CommentWrapper implements IPart {
 
   equal(other: IPart): boolean {
     if (other instanceof CalendarRound) {
-      throw new Error('Not Implemented')
+      return this === other
     }
     return false;
   }
