@@ -4,29 +4,19 @@ import {Comment, isComment} from "./comment";
  * This class is not directly exposed to the user. There is a singleton in this
  * library to allow for use and equality comparison.
  * @example
- * const mayadates = require('maya-dates')
- * let cr = new mayadates.factory.CalendarRoundFactory().parse('4 Ajaw 8 *')
- * console.log(cr.haab.month === mayadates.wildcard)
+ * import {CalendarRoundFactory, Wildcard} from '@drewsonne/maya-dates'
+ * let cr = new CalendarRoundFactory().parse('4 Ajaw 8 *')
+ * console.log(cr.haab.month.equal(new Wildcard()))
  * > true
  */
 import {IPart} from "./i-part";
+import {CommentWrapper} from "./comment-wrapper";
 
-export class Wildcard implements IPart {
-  setComment(comment: Comment): Wildcard {
-    this.comment = comment
-    return this;
+export class Wildcard extends CommentWrapper implements IPart {
+
+  constructor() {
+    super();
   }
-
-  appendComment(comment: Comment): Wildcard {
-    if (isComment(this.comment)) {
-      this.comment = this.comment.merge(comment)
-    } else {
-      this.setComment(comment)
-    }
-    return this
-  }
-
-  comment: Comment | undefined;
 
   /**
    * Represent the Wildcard as a string. ie, '*'.

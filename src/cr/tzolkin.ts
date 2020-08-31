@@ -6,6 +6,7 @@ import WildcardCoefficient from "./component/wildcardCoefficient";
 import ICoefficient from "./component/iCoefficient"
 import {IPart} from "../i-part";
 import {Comment, isComment} from "../comment";
+import {CommentWrapper} from "../comment-wrapper";
 
 const singleton: { [key: string]: Tzolkin } = {};
 
@@ -34,10 +35,9 @@ export function getTzolkin(coeff: ICoefficient, day: TzolkinDay | Wildcard): Tzo
  *    let day = new Tzolkin(4, new TzolkinDay("Ajaw"));
  *
  */
-export class Tzolkin implements IPart {
+export class Tzolkin extends CommentWrapper implements IPart {
   day: TzolkinDay | Wildcard;
   coeff: ICoefficient;
-  comment: Comment | undefined;
   _privateNext: Tzolkin | null;
 
   /**
@@ -46,6 +46,7 @@ export class Tzolkin implements IPart {
    * @param {string|TzolkinDay} newDay
    */
   constructor(newCoeff: ICoefficient, newDay: TzolkinDay | Wildcard) {
+    super();
     /**
      * @type {TzolkinDay}
      */

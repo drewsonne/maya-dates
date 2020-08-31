@@ -8,6 +8,7 @@ import {Wildcard} from "../wildcard";
 import WildcardCoefficient from "./component/wildcardCoefficient";
 import {Comment, isComment} from '../comment';
 import {IPart} from '../i-part';
+import {CommentWrapper} from "../comment-wrapper";
 
 /** @ignore */
 const singleton: { [key: string]: CalendarRound } = {};
@@ -35,12 +36,12 @@ export function getCalendarRound(
  * @example
  *  let cr = new CalendarRound(4, "Ajaw", 8, "Kumk'u");
  */
-export class CalendarRound implements IPart {
+export class CalendarRound extends CommentWrapper implements IPart {
   tzolkin: Tzolkin;
   haab: Haab;
-  comment: Comment | undefined;
 
   constructor(tzolkin: Tzolkin, haab: Haab) {
+    super();
     /**
      * 260-day cycle component of the Calendar Round
      */
