@@ -11,6 +11,16 @@ import {getHaabMonth, HaabMonth} from "../../cr/component/haabMonth";
 import NumberCoefficient from "../../cr/component/numberCoefficient";
 import WildcardCoefficient from "../../cr/component/wildcardCoefficient";
 
+describe('test cr cycle', () => {
+  let counter = 1;
+  let cr = origin.next()
+  while (!origin.equal(cr)) {
+    cr = cr.next()
+    counter += 1
+  }
+  expect(counter).to.eq(18980)
+})
+
 /**
  * @test {CalendarRoundFactory}
  * @test {CalendarRound#next}
