@@ -4,8 +4,8 @@ import {Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
 import {coefficientParser as _} from "./component/coefficient";
 import ICoefficient from "./component/iCoefficient";
-import {Comment, isComment} from "../comment";
 import {IPart} from "../i-part";
+import {CommentWrapper} from "../comment-wrapper";
 
 const singleton: { [key: string]: Haab } = {};
 
@@ -17,11 +17,8 @@ const singleton: { [key: string]: Haab } = {};
  */
 export function getHaab(coeff: ICoefficient, month: Wildcard | HaabMonth): Haab {
   const monthName = `${coeff} ${month}`;
-  // const monthName = (typeof name === 'number') ? months[name] : name;
   if (singleton[monthName] === undefined) {
-    // eslint-disable-next-line no-use-before-define
-    const newMonth = (typeof month === 'string') ? getHaabMonth(month) : month;
-    singleton[monthName] = new Haab(coeff, newMonth);
+    singleton[monthName] = new Haab(coeff, month);
   }
   return singleton[monthName];
 }
@@ -35,10 +32,9 @@ export function getHaab(coeff: ICoefficient, month: Wildcard | HaabMonth): Haab 
  *    let day = new Haab(8, new HaabMonth("Kumk'u"));
  *
  */
-export class Haab implements IPart {
+export class Haab extends CommentWrapper implements IPart {
   coeff: ICoefficient;
   month: Wildcard | HaabMonth;
-  comment: Comment | undefined;
   _privateNext: null | Haab;
 
   /**
@@ -47,6 +43,7 @@ export class Haab implements IPart {
    * @param {string|HaabMonth|Wildcard} month
    */
   constructor(coeff: ICoefficient, month: Wildcard | HaabMonth) {
+    super();
     /**
      * @type {HaabMonth|Wildcard}
      */
@@ -63,20 +60,6 @@ export class Haab implements IPart {
     this._privateNext = null;
 
     this.validate();
-  }
-
-  setComment(comment: Comment): Haab {
-    this.comment = comment
-    return this;
-  }
-
-  appendComment(comment: Comment): Haab {
-    if (isComment(this.comment)) {
-      this.comment = this.comment.merge(comment)
-    } else {
-      this.setComment(comment)
-    }
-    return this
   }
 
   /**

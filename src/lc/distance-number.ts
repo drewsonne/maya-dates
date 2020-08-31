@@ -6,21 +6,21 @@ import LongcountAddition from "../operations/longcount-addition";
 import LongcountSubtraction from "../operations/longcount-subtraction";
 import {Comment, isComment} from "../comment";
 import {IPart} from "../i-part";
+import {CommentWrapper} from "../comment-wrapper";
 
-export default class DistanceNumber implements IPart {
+export default class DistanceNumber extends CommentWrapper implements IPart {
   parts: (number | Wildcard)[];
   datePattern: RegExp;
   sign: number;
-  comment: Comment | undefined
 
   /**
    * @param {...number|Wildcard} cycles - Components in the long count
    * (eg, K'in, Winal, Bak'tun, etc)
    */
   constructor(...cycles: (number | Wildcard)[]) {
+    super();
     /**
      * Date Components
-     * @type {number[]|Wildcard[]}
      */
     this.parts = cycles;
 
