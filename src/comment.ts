@@ -9,6 +9,10 @@ export class Comment {
     return new Comment(`${this} ${other}`)
   }
 
+  empty(): boolean {
+    return this.content.length == 0
+  }
+
   toString(): string {
     return this.content
   }

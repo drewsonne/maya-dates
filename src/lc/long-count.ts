@@ -14,6 +14,11 @@ import {IPart} from "../i-part";
  * Long Count cycle
  */
 export default class LongCount extends DistanceNumber {
+
+  static fromDistanceNumber(dn: DistanceNumber): LongCount {
+    return new LongCount(...dn.parts)
+  }
+
   private correlationConstant: CorrelationConstant;
 
   /**
