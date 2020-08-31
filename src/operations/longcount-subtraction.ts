@@ -1,64 +1,18 @@
 /**
  * Operation to diff two Long Count Dates
  */
-import ILongcount from "./ILongcount";
 import LongCount from "../lc/long-count";
-import DistanceNumber from "../lc/distance-number";
+import LongcountOperation from "./longcount-operation";
 import {IPart} from "../i-part";
-import {Comment, isComment} from "../comment";
 
-export default class LongcountSubtraction implements IPart {
-  private a: DistanceNumber
-  private b: DistanceNumber
-  private LcClass: ILongcount
-  comment: Comment | undefined;
-
-  /**
-   * @param {object} lcClass - Special param to pass the LongCount class into this operator to
-   * avoid circular require.
-   * @param {LongCount} a - First date to diff
-   * @param {LongCount} b - Second date to diff
-   */
-  constructor(lcClass: ILongcount, a: DistanceNumber, b: DistanceNumber) {
-    /**
-     * @type {LongCount}
-     */
-    this.a = a;
-
-    /**
-     * @type {LongCount}
-     */
-    this.b = b;
-
-    /** @ignore */
-    this.LcClass = lcClass;
-  }
-
-  setComment(comment: Comment): LongcountSubtraction {
-    this.comment = comment
-    return this;
-  }
-
-  appendComment(comment: Comment): LongcountSubtraction {
-    if (isComment(this.comment)) {
-      this.comment = this.comment.merge(comment)
-    } else {
-      this.setComment(comment)
-    }
-    return this
-  }
+export default class LongcountSubtraction extends LongcountOperation {
 
   /**
    * Return the diff result of this Subtraction operator.
    * @return {LongCount}
    */
-  equals() {
-    const aLen = this.a.parts.length;
-    const bLen = this.b.parts.length;
-    const length = Math.max(aLen, bLen);
-    const aParts = this.a.parts.concat(new Array(length - aLen).fill(0));
-    const bParts = this.b.parts.concat(new Array(length - bLen).fill(0));
-    const isInverted = this.a.lt(this.b);
+  equals(): IPart {
+    const [aParts, bParts, isInverted] = this.buildOperationComponents()
 
     const newParts = aParts.map((p, i) => {
       const bPart = bParts[i]
@@ -98,7 +52,7 @@ export default class LongcountSubtraction implements IPart {
     return newLC;
   }
 
-  equal(other: IPart): boolean {
+  equal(other: any): boolean {
     if (other instanceof LongcountSubtraction) {
       return this.a.equal(other.a) && this.b.equal(other.b)
     }

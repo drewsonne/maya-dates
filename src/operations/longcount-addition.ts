@@ -2,69 +2,16 @@
  * Operation to sum two Long Count Dates
  */
 import LongCount from "../lc/long-count";
-import ILongcount from "./ILongcount";
-import DistanceNumber from "../lc/distance-number";
-import {IPart} from "../i-part";
-import {Comment, isComment} from "../comment";
+import LongcountOperation from "./longcount-operation";
 
-export default class LongcountAddition implements IPart {
-  private a: DistanceNumber;
-  private b: DistanceNumber
-  private LcClass: ILongcount;
-  comment: Comment | undefined;
-
-  /**
-   * @param {object} lcClass - Special param to pass the LongCount class into this operator to
-   * avoid circular require.
-   * @param {LongCount} a - First date to sum
-   * @param {LongCount} b - Second date to sum
-   */
-  constructor(lcClass: ILongcount, a: DistanceNumber, b: DistanceNumber) {
-    /**
-     * @type {LongCount}
-     */
-    this.a = a;
-
-    /**
-     * @type {LongCount}
-     */
-    this.b = b;
-
-    /** @ignore */
-    this.LcClass = lcClass;
-  }
-
-  setComment(comment: Comment): LongcountAddition {
-    this.comment = comment
-    return this;
-  }
-
-  appendComment(comment: Comment): LongcountAddition {
-    if (isComment(this.comment)) {
-      this.comment = this.comment.merge(comment)
-    } else {
-      this.setComment(comment)
-    }
-    return this
-  }
-
-  equal(other: IPart): boolean {
-    if (other instanceof LongcountAddition) {
-      return this.a.equal(other.a) && this.b.equal(other.b)
-    }
-    return false
-  }
+export default class LongcountAddition extends LongcountOperation {
 
   /**
    * Return the sum result of this Addition operator.
    * @return {LongCount}
    */
   equals() {
-    const aLen = this.a.parts.length;
-    const bLen = this.b.parts.length;
-    const length = Math.max(aLen, bLen);
-    const aParts = this.a.parts.concat(new Array(length - aLen).fill(0));
-    const bParts = this.b.parts.concat(new Array(length - bLen).fill(0));
+    const [aParts, bParts, isInverted] = this.buildOperationComponents()
 
     const newParts = aParts.map((p, i) => {
       const bPart = bParts[i]
@@ -94,6 +41,13 @@ export default class LongcountAddition implements IPart {
       i += 1;
     }
     return new this.LcClass(...newParts);
+  }
+
+  equal(other: any): boolean {
+    if (other instanceof LongcountAddition) {
+      return this.a.equal(other.a) && this.b.equal(other.b)
+    }
+    return false
   }
 }
 

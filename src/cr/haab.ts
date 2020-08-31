@@ -1,11 +1,11 @@
 /** @ignore */
-import {getHaabMonth, HaabMonth} from "./component/haabMonth";
-import {Wildcard} from "../wildcard";
+import {getHaabMonth, HaabMonth, HaabMonths} from "./component/haabMonth";
+import {isWildcard, Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
 import {coefficientParser as _} from "./component/coefficient";
 import ICoefficient from "./component/iCoefficient";
-import {Comment, isComment} from "../comment";
 import {IPart} from "../i-part";
+import {CommentWrapper} from "../comment-wrapper";
 
 const singleton: { [key: string]: Haab } = {};
 
@@ -17,11 +17,8 @@ const singleton: { [key: string]: Haab } = {};
  */
 export function getHaab(coeff: ICoefficient, month: Wildcard | HaabMonth): Haab {
   const monthName = `${coeff} ${month}`;
-  // const monthName = (typeof name === 'number') ? months[name] : name;
   if (singleton[monthName] === undefined) {
-    // eslint-disable-next-line no-use-before-define
-    const newMonth = (typeof month === 'string') ? getHaabMonth(month) : month;
-    singleton[monthName] = new Haab(coeff, newMonth);
+    singleton[monthName] = new Haab(coeff, month);
   }
   return singleton[monthName];
 }
@@ -35,11 +32,10 @@ export function getHaab(coeff: ICoefficient, month: Wildcard | HaabMonth): Haab 
  *    let day = new Haab(8, new HaabMonth("Kumk'u"));
  *
  */
-export class Haab implements IPart {
+export class Haab extends CommentWrapper implements IPart {
   coeff: ICoefficient;
   month: Wildcard | HaabMonth;
-  comment: Comment | undefined;
-  _privateNext: null | Haab;
+  private nextHolder: null | Haab;
 
   /**
    * Constructor
@@ -47,6 +43,7 @@ export class Haab implements IPart {
    * @param {string|HaabMonth|Wildcard} month
    */
   constructor(coeff: ICoefficient, month: Wildcard | HaabMonth) {
+    super();
     /**
      * @type {HaabMonth|Wildcard}
      */
@@ -60,35 +57,21 @@ export class Haab implements IPart {
      * Lazy loaded instance of the next Haab date in the cycle
      * @type {Haab}
      */
-    this._privateNext = null;
+    this.nextHolder = null;
 
     this.validate();
-  }
-
-  setComment(comment: Comment): Haab {
-    this.comment = comment
-    return this;
-  }
-
-  appendComment(comment: Comment): Haab {
-    if (isComment(this.comment)) {
-      this.comment = this.comment.merge(comment)
-    } else {
-      this.setComment(comment)
-    }
-    return this
   }
 
   /**
    * Ensure the Haab's coefficients are within range and the month is defined
    * @return {boolean}
    */
-  validate() {
+  validate(): boolean {
     if (this.coeff instanceof NumberCoefficient) {
       if (this.coeff.value > 19 || this.coeff.value < 0) {
         throw new Error('Haab\' coefficient must inclusively between 0 and 19.');
       }
-      if (this.month === getHaabMonth('Wayeb')) {
+      if (this.month === getHaabMonth(HaabMonths.WAYEB)) {
         if (this.coeff.value > 4) {
           throw new Error('Haab\' coefficient for Wayeb must inclusively between 0 and 4.');
         }
@@ -98,7 +81,7 @@ export class Haab implements IPart {
     if (this.month === undefined) {
       throw new Error('Haab\' month must be provided');
     }
-    if (!(this.month instanceof Wildcard)) {
+    if (!(isWildcard(this.month))) {
       this.month.validate();
     }
 
@@ -109,7 +92,7 @@ export class Haab implements IPart {
    * Return the next day in the Haab cycle
    * @returns {Haab}
    */
-  next() {
+  next(): Haab {
     return this.shift(1);
   }
 
@@ -121,7 +104,7 @@ export class Haab implements IPart {
     return (
       this.coeff.match(otherHaab.coeff)
     ) && (
-      (this.month instanceof Wildcard || otherHaab.month instanceof Wildcard)
+      (isWildcard(this.month) || isWildcard(otherHaab.month))
         ? true
         : (this.name === otherHaab.name)
     );
@@ -141,16 +124,14 @@ export class Haab implements IPart {
    * @return {Haab}
    */
   shift(numDays: number): Haab {
-    if (
-      !(this.month instanceof Wildcard)
-    ) {
+    if (!isWildcard(this.month)) {
       if (this.coeff instanceof NumberCoefficient) {
         const incremental = numDays % 365;
         if (incremental === 0) {
           return this;
         }
 
-        return this.privateNext.shift(incremental - 1);
+        return this.nextCalculator().shift(incremental - 1);
       } else {
         throw new Error("Coefficient is not an integer")
       }
@@ -159,8 +140,8 @@ export class Haab implements IPart {
     }
   }
 
-  get privateNext(): Haab {
-    if (this._privateNext === null) {
+  private nextCalculator(): Haab {
+    if (this.nextHolder === null) {
       const wayeb = getHaabMonth(19)
       const isWayeb = this.month === wayeb
       const monthLength = (isWayeb) ? 5 : 20;
@@ -169,7 +150,7 @@ export class Haab implements IPart {
           if (this.month instanceof HaabMonth) {
             const newMonth = this.month.shift(1);
             if (newMonth instanceof HaabMonth) {
-              this._privateNext = getHaab(_(0), newMonth);
+              this.nextHolder = getHaab(_(0), newMonth);
             } else {
               throw new Error("Unexpected HaabMonth type")
             }
@@ -177,13 +158,13 @@ export class Haab implements IPart {
             throw new Error("Month must not be wildcard to shift")
           }
         } else {
-          this._privateNext = getHaab(this.coeff.increment(), this.month);
+          this.nextHolder = getHaab(this.coeff.increment(), this.month);
         }
       } else {
         throw new Error("Month Coefficient must not be a wildcard to shift")
       }
     }
-    return this._privateNext
+    return this.nextHolder
   }
 
   /**

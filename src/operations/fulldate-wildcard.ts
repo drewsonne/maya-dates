@@ -1,39 +1,19 @@
 import FullDate from '../full-date';
 import LongCountWildcard from './longcount-wildcard';
 import {IPart} from "../i-part";
-import {Comment, isComment} from '../comment';
+import {CommentWrapper} from "../comment-wrapper";
 
 
 /**
  * Given a Calendar Round and Long Count with a wildcard, calculate all possible
  * matching fully qualified Long Counts with CalendarRounds.
  */
-export default class FullDateWildcard implements IPart {
-  private fullDate: FullDate;
-  comment: Comment | undefined;
+export default class FullDateWildcard extends CommentWrapper implements IPart {
+  private readonly fullDate: FullDate;
 
-  /**
-   * @param {FullDate} partialDate
-   */
   constructor(partialDate: FullDate) {
-    /**
-     * @type {FullDate}
-     */
+    super();
     this.fullDate = partialDate;
-  }
-
-  setComment(comment: Comment): FullDateWildcard {
-    this.comment = comment
-    return this;
-  }
-
-  appendComment(comment: Comment): FullDateWildcard {
-    if (isComment(this.comment)) {
-      this.comment = this.comment.merge(comment)
-    } else {
-      this.setComment(comment)
-    }
-    return this
   }
 
   equal(other: IPart): boolean {

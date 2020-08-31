@@ -13,7 +13,6 @@ export default class FullDateFactory {
    * @param {String} raw
    * @return {FullDate}
    */
-  // eslint-disable-next-line class-methods-use-this
   parse(raw: string) {
     raw = raw.replace('**', '* *');
     const cr = new CalendarRoundFactory().parse(raw);

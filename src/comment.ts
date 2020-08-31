@@ -9,6 +9,14 @@ export class Comment {
     return new Comment(`${this} ${other}`)
   }
 
+  empty(): boolean {
+    return this.content.length == 0
+  }
+
+  equals(otherComment: Comment): boolean {
+    return this.content === otherComment.content;
+  }
+
   toString(): string {
     return this.content
   }

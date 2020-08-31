@@ -37,12 +37,7 @@ describe('compute missing cr wildcard', () => {
     ['12Imix * Pop', 4],
     ['* Imix 9K\'ank\'in', 13],
     ['* Imix *K\'ank\'in', 52],
-    /** ['* * * K\'ank\'in', 988],
-     * @TODO Re-enable before final publishing.
-     * Compare the existing maya-calendar output against the output of this
-     * test. This output says there are 1040 calendar rounds for this wildcard
-     * format, whereas the existing maya-calendar says there should be 988.
-     * */
+    ['* * * K\'ank\'in', 1040],
     ['* * * *', 18980],
   ];
 

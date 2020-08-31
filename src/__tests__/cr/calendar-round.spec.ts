@@ -1,7 +1,7 @@
 import {expect} from 'chai'
 import 'mocha'
 import CalendarRoundFactory from "../../factory/calendar-round";
-import {Wildcard} from "../../wildcard";
+import {isWildcard, Wildcard} from "../../wildcard";
 import {CalendarRound, getCalendarRound, origin} from "../../cr/calendar-round";
 import {getTzolkin} from "../../cr/tzolkin";
 import {getHaab} from "../../cr/haab";
@@ -109,7 +109,7 @@ function checkCrAgainstCr(actualCr: CalendarRound, expectedCrComponents: (number
   return expectedCrComponents.map(
     (expectedValue: (number | string | Wildcard | WildcardCoefficient), index: number) => {
       const actualValue = actualCrParts[index]
-      if (expectedValue instanceof Wildcard) {
+      if (isWildcard(expectedValue)) {
         expect(actualValue).to.be.an.instanceOf(Wildcard)
       } else if (expectedValue instanceof WildcardCoefficient) {
         expect(actualValue).to.be.an.instanceOf(WildcardCoefficient)
