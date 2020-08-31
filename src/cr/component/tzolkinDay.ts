@@ -2,28 +2,51 @@ import HashMap from "../../structs/hashMap";
 import {Wildcard} from "../../wildcard";
 import Cycle from "./cycle";
 
+export enum TzolkinDays {
+  IMIX = 'Imix',
+  IK = 'Ik\'',
+  AK_BAL = 'Ak\'bal',
+  K_AN = 'K\'an',
+  CHIKCHAN = 'Chikchan',
+  KIMI = 'Kimi',
+  MANIK = 'Manik\'',
+  LAMAT = 'Lamat',
+  MULUK = 'Muluk',
+  OK = 'Ok',
+  CHUWEN = 'Chuwen',
+  EB = 'Eb',
+  BEN = 'Ben',
+  IX = 'Ix',
+  MEN = 'Men',
+  KIB = 'Kib',
+  KABAN = 'Kaban',
+  ETZ_NAB = 'Etz\'nab',
+  KAWAK = 'Kawak',
+  AJAW = 'Ajaw',
+}
+
 const days: HashMap = new HashMap([
   undefined,
-  'Imix',
-  'Ik\'',
-  'Ak\'bal',
-  'K\'an',
-  'Chikchan',
-  'Kimi',
-  'Manik\'',
-  'Lamat',
-  'Muluk',
-  'Ok',
-  'Chuwen',
-  'Eb',
-  'Ben',
-  'Ix',
-  'Men',
-  'Kib',
-  'Kaban',
-  'Etz\'nab',
-  'Kawak',
-  'Ajaw',
+  TzolkinDays.IMIX,
+  TzolkinDays.IK,
+  TzolkinDays.AK_BAL,
+  TzolkinDays.K_AN,
+  TzolkinDays.CHIKCHAN,
+  TzolkinDays.KIMI,
+  TzolkinDays.MANIK,
+  TzolkinDays.LAMAT,
+  TzolkinDays.MULUK,
+  TzolkinDays.OK,
+  TzolkinDays.CHUWEN,
+  TzolkinDays.EB,
+  TzolkinDays.BEN,
+  TzolkinDays.IX,
+  TzolkinDays.MEN,
+  TzolkinDays.KIB,
+  TzolkinDays.KABAN,
+  TzolkinDays.ETZ_NAB,
+  TzolkinDays.KAWAK,
+  TzolkinDays.AJAW,
 ]);
 
 const singleton: { [key: string]: TzolkinDay } = {};
@@ -68,5 +91,6 @@ export class TzolkinDay extends Cycle {
     }
     return true
   }
+
 }
 

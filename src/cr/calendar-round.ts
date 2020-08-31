@@ -2,7 +2,7 @@ import {getTzolkin, Tzolkin} from './tzolkin';
 import {getHaab, Haab} from './haab';
 import DistanceNumber from '../lc/distance-number';
 import {getHaabMonth} from "./component/haabMonth";
-import {getTzolkinDay} from "./component/tzolkinDay";
+import {getTzolkinDay, TzolkinDays} from "./component/tzolkinDay";
 import NumberCoefficient from "./component/numberCoefficient";
 import {Wildcard} from "../wildcard";
 import WildcardCoefficient from "./component/wildcardCoefficient";
@@ -60,24 +60,24 @@ export class CalendarRound extends CommentWrapper implements IPart {
   validate() {
     let validHaabCoeffs: number[] = [];
     if ([
-      'Kaban', 'Ik\'', 'Manik\'', 'Eb',
-    ].includes(`${this.tzolkin.day}`)) {
+      TzolkinDays.KABAN, TzolkinDays.IK, TzolkinDays.MANIK, TzolkinDays.EB,
+    ].map(d => `${d}`).includes(`${this.tzolkin.day}`)) {
       validHaabCoeffs = [0, 5, 10, 15];
     } else if ([
-      'Etz\'nab', 'Ak\'bal', 'Lamat', 'Ben',
-    ].includes(`${this.tzolkin.day}`)) {
+      TzolkinDays.ETZ_NAB, TzolkinDays.AK_BAL, TzolkinDays.LAMAT, TzolkinDays.BEN,
+    ].map(d => `${d}`).includes(`${this.tzolkin.day}`)) {
       validHaabCoeffs = [1, 6, 11, 16];
     } else if ([
-      'Kawak', 'K\'an', 'Muluk', 'Ix',
-    ].includes(`${this.tzolkin.day}`)) {
+      TzolkinDays.KAWAK, TzolkinDays.K_AN, TzolkinDays.MULUK, TzolkinDays.IX,
+    ].map(d => `${d}`).includes(`${this.tzolkin.day}`)) {
       validHaabCoeffs = [2, 7, 12, 17];
     } else if ([
-      'Ajaw', 'Chikchan', 'Ok', 'Men',
-    ].includes(`${this.tzolkin.day}`)) {
+      TzolkinDays.AJAW, TzolkinDays.CHIKCHAN, TzolkinDays.OK, TzolkinDays.MEN,
+    ].map(d => `${d}`).includes(`${this.tzolkin.day}`)) {
       validHaabCoeffs = [3, 8, 13, 18];
     } else if ([
-      'Imix', 'Kimi', 'Chuwen', 'Kib',
-    ].includes(`${this.tzolkin.day}`)) {
+      TzolkinDays.IMIX, TzolkinDays.KIMI, TzolkinDays.CHUWEN, TzolkinDays.KIB,
+    ].map(d => `${d}`).includes(`${this.tzolkin.day}`)) {
       validHaabCoeffs = [4, 9, 14, 19];
     } else {
       validHaabCoeffs = Array.from(Array(19).keys());
@@ -91,6 +91,7 @@ export class CalendarRound extends CommentWrapper implements IPart {
       }
     }
   }
+
 
   /**
    * Increment both the Haab and 260-day cycle to the next day in the Calendar Round
