@@ -17,9 +17,7 @@ const singleton: { [key: string]: Tzolkin } = {};
  */
 export function getTzolkin(coeff: ICoefficient, day: TzolkinDay | Wildcard): Tzolkin {
   const monthName = `${coeff} ${day}`;
-  // const monthName = (typeof name === 'number') ? months[name] : name;
   if (singleton[monthName] === undefined) {
-    // eslint-disable-next-line no-use-before-define
     singleton[monthName] = new Tzolkin(coeff, day);
   }
   return singleton[monthName];
@@ -37,7 +35,7 @@ export function getTzolkin(coeff: ICoefficient, day: TzolkinDay | Wildcard): Tzo
 export class Tzolkin extends CommentWrapper implements IPart {
   day: TzolkinDay | Wildcard;
   coeff: ICoefficient;
-  _privateNext: Tzolkin | null;
+  private nextHolder: Tzolkin | null;
 
   /**
    * Constructor
@@ -59,7 +57,7 @@ export class Tzolkin extends CommentWrapper implements IPart {
      * Lazy loaded instance of the next Tzolkin date in the cycle
      * @type {Tzolkin}
      */
-    this._privateNext = null;
+    this.nextHolder = null;
 
     this.validate();
   }
@@ -101,19 +99,19 @@ export class Tzolkin extends CommentWrapper implements IPart {
       if (incremental === 0) {
         return this;
       }
-      return this.privateNext.shift(incremental - 1);
+      return this.nextCalculator().shift(incremental - 1);
     } else {
       throw new Error("Tzolkin must not have wildcards to shift")
     }
   }
 
-  get privateNext(): Tzolkin {
-    if (this._privateNext === null) {
+  nextCalculator(): Tzolkin {
+    if (this.nextHolder === null) {
       if (this.coeff instanceof NumberCoefficient) {
         let newCoeff = (this.coeff.value + 1) % 13;
         newCoeff = (newCoeff % 13) === 0 ? 13 : newCoeff;
         if (this.day instanceof TzolkinDay) {
-          this._privateNext = getTzolkin(
+          this.nextHolder = getTzolkin(
             new NumberCoefficient(newCoeff),
             (this.day.shift(1) as TzolkinDay)
           );
@@ -124,7 +122,7 @@ export class Tzolkin extends CommentWrapper implements IPart {
         throw new Error('this.coeff is not a NumberCoefficient')
       }
     }
-    return this._privateNext
+    return this.nextHolder
   }
 
   /**
