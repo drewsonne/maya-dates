@@ -10,6 +10,10 @@ export abstract class CommentWrapper {
     this.comment = new Comment('')
   }
 
+  reset() {
+    this.comment = new Comment('');
+  }
+
   setComment(comment: Comment | string): any {
     let castComment: Comment = new Comment('');
     if (isStringPrimitive(comment)) {
