@@ -1,5 +1,5 @@
 import HashMap from "../../structs/hashMap";
-import {Wildcard} from "../../wildcard";
+import {isWildcard, Wildcard} from "../../wildcard";
 import Cycle from "./cycle";
 
 export enum HaabMonths {
@@ -83,7 +83,7 @@ export class HaabMonth extends Cycle {
    * set of allowable values.
    */
   validate(): boolean {
-    if (!(this.value instanceof Wildcard)) {
+    if (!isWildcard(this.value)) {
       if (this.value === undefined) {
         throw new Error('Haab\' month name must be provided');
       }

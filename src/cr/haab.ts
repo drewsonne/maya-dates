@@ -124,9 +124,7 @@ export class Haab extends CommentWrapper implements IPart {
    * @return {Haab}
    */
   shift(numDays: number): Haab {
-    if (
-      !(this.month instanceof Wildcard)
-    ) {
+    if (!isWildcard(this.month)) {
       if (this.coeff instanceof NumberCoefficient) {
         const incremental = numDays % 365;
         if (incremental === 0) {

@@ -79,7 +79,7 @@ export class Tzolkin extends CommentWrapper implements IPart {
     if (this.day === undefined) {
       throw new Error('Tzolk\'in day must be provided');
     }
-    if (!(this.day instanceof Wildcard)) {
+    if (!isWildcard(this.day)) {
       this.day.validate();
     }
     return true;
@@ -151,7 +151,7 @@ export class Tzolkin extends CommentWrapper implements IPart {
     return (
       this.coeff.match(newTzolkin.coeff)
     ) && (
-      (this.day instanceof Wildcard || newTzolkin.day instanceof Wildcard)
+      (isWildcard(this.day) || isWildcard(newTzolkin.day))
         ? true
         : (this.name === newTzolkin.name)
     );
@@ -162,7 +162,7 @@ export class Tzolkin extends CommentWrapper implements IPart {
    * @returns {string}
    */
   get name(): string | Wildcard {
-    if (this.day instanceof Wildcard) {
+    if (isWildcard(this.day)) {
       return this.day;
     }
     return `${this.day}`;

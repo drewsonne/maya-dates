@@ -26,8 +26,7 @@ export class Wildcard extends CommentWrapper implements IPart {
   }
 
   equal(other: IPart): boolean {
-    return other instanceof Wildcard
-  }
+    return isWildcard(other)  }
 }
 
 export function isWildcard(token: any): token is Wildcard {

@@ -321,7 +321,7 @@ export default class DistanceNumber extends CommentWrapper implements IPart {
    * @return {boolean}
    */
   isPartial(): boolean {
-    return this.parts.some((part) => part instanceof Wildcard);
+    return this.parts.some((part) => isWildcard(part));
   }
 
   /**

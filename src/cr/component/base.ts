@@ -1,4 +1,4 @@
-import {Wildcard} from "../../wildcard";
+import {isWildcard, Wildcard} from "../../wildcard";
 import IComponent from "./iComponent";
 
 export default abstract class Base implements IComponent {
@@ -9,7 +9,7 @@ export default abstract class Base implements IComponent {
   }
 
   isWildcard(): boolean {
-    return this.value instanceof Wildcard
+    return isWildcard(this.value)
   }
 
   toString(): string {

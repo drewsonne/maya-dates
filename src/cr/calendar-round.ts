@@ -4,7 +4,7 @@ import DistanceNumber from '../lc/distance-number';
 import {getHaabMonth} from "./component/haabMonth";
 import {getTzolkinDay, TzolkinDays} from "./component/tzolkinDay";
 import NumberCoefficient from "./component/numberCoefficient";
-import {Wildcard} from "../wildcard";
+import {isWildcard, Wildcard} from "../wildcard";
 import WildcardCoefficient from "./component/wildcardCoefficient";
 import {IPart} from '../i-part';
 import {CommentWrapper} from "../comment-wrapper";
@@ -160,9 +160,9 @@ export class CalendarRound extends CommentWrapper implements IPart {
    * Return true, if this function has any wildcard portions.
    */
   isPartial(): boolean {
-    return (this.tzolkin.day instanceof Wildcard)
+    return isWildcard(this.tzolkin.day)
       || (this.tzolkin.coeff instanceof WildcardCoefficient)
-      || (this.haab.month instanceof Wildcard)
+      || isWildcard(this.haab.month)
       || (this.haab.coeff instanceof WildcardCoefficient);
   }
 
