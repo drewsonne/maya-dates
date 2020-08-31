@@ -5,7 +5,6 @@ import NumberCoefficient from "./component/numberCoefficient";
 import WildcardCoefficient from "./component/wildcardCoefficient";
 import ICoefficient from "./component/iCoefficient"
 import {IPart} from "../i-part";
-import {Comment, isComment} from "../comment";
 import {CommentWrapper} from "../comment-wrapper";
 
 const singleton: { [key: string]: Tzolkin } = {};

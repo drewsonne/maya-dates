@@ -1,6 +1,5 @@
 import LongCount from "../lc/long-count";
 import {IPart} from "../i-part";
-import {Comment, isComment} from "../comment";
 import {CommentWrapper} from "../comment-wrapper";
 
 /**

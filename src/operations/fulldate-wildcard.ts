@@ -1,7 +1,6 @@
 import FullDate from '../full-date';
 import LongCountWildcard from './longcount-wildcard';
 import {IPart} from "../i-part";
-import {Comment, isComment} from '../comment';
 import {CommentWrapper} from "../comment-wrapper";
 
 

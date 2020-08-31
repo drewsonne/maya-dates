@@ -6,7 +6,6 @@ import {getTzolkinDay} from "./component/tzolkinDay";
 import NumberCoefficient from "./component/numberCoefficient";
 import {Wildcard} from "../wildcard";
 import WildcardCoefficient from "./component/wildcardCoefficient";
-import {Comment, isComment} from '../comment';
 import {IPart} from '../i-part';
 import {CommentWrapper} from "../comment-wrapper";
 

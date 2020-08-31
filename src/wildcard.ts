@@ -1,4 +1,3 @@
-import {Comment, isComment} from "./comment";
 /**
  * Describes a wildcard in the Calendar Round or Long Count.
  * This class is not directly exposed to the user. There is a singleton in this

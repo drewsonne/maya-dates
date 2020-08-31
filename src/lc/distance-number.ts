@@ -4,7 +4,6 @@
 import {isWildcard, Wildcard} from "../wildcard";
 import LongcountAddition from "../operations/longcount-addition";
 import LongcountSubtraction from "../operations/longcount-subtraction";
-import {Comment, isComment} from "../comment";
 import {IPart} from "../i-part";
 import {CommentWrapper} from "../comment-wrapper";
 

@@ -2,7 +2,6 @@ import 'mocha'
 import {expect} from 'chai'
 import {CommentWrapper} from "../comment-wrapper";
 import {IPart} from "../i-part";
-import exp = require("constants");
 
 class MockCommentWrapper extends CommentWrapper {
   public constructor() {
