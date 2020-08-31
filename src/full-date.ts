@@ -3,19 +3,20 @@
  */
 import LongCount from "./lc/long-count";
 import {CalendarRound} from "./cr/calendar-round";
-import IPart from "./i-part";
-import Comment from "./comment";
+import {IPart} from "./i-part";
+import {CommentWrapper} from "./comment-wrapper";
 
-export default class FullDate implements IPart {
+export default class FullDate extends CommentWrapper implements IPart {
 
   cr: CalendarRound;
   lc: LongCount;
-  comment: Comment | undefined;
 
   constructor(cr: CalendarRound, lc: LongCount) {
+    super();
     this.cr = cr;
     this.lc = lc;
   }
+
 
   /**
    * Render the FullDate as a string of both the CR and the LC
@@ -29,7 +30,7 @@ export default class FullDate implements IPart {
   }
 
   equal(other: IPart): boolean {
-    if(other instanceof FullDate) {
+    if (other instanceof FullDate) {
       throw new Error('Not Implemented')
     }
     return false;

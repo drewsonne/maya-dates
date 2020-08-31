@@ -1,7 +1,8 @@
-import Comment from "./comment";
 
-export default interface IPart {
-  comment: Comment | undefined;
+export interface IPart {
+  equal(other: any): boolean;
+}
 
-  equal(other: IPart): boolean;
+export function isPart(o: any): o is IPart {
+  return ((o as IPart).equal !== undefined)
 }

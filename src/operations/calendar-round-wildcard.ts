@@ -1,7 +1,7 @@
 import CalendarRoundIterator from './calendar-round-iter';
 import {CalendarRound} from "../cr/calendar-round";
-import IPart from "../i-part";
-import Comment from '../comment';
+import {IPart} from "../i-part";
+import {CommentWrapper} from "../comment-wrapper";
 
 /**
  * A reusable singleton instance of the CalendarRoundIterator
@@ -14,19 +14,17 @@ const iter = new CalendarRoundIterator();
  * Given a Calendar Round with a wildcard, calculate all possible matching
  * fully qualified Calendar Rounds.
  */
-export default class CalendarRoundWildcard implements IPart {
-  private cr: CalendarRound;
-  comment: Comment | undefined;
+export default class CalendarRoundWildcard extends CommentWrapper implements IPart {
+  private readonly cr: CalendarRound;
 
   /**
    * @param {CalendarRound} cr
    */
   constructor(cr: CalendarRound) {
-    /**
-     * @type {CalendarRound}
-     */
+    super();
     this.cr = cr;
   }
+
 
   /**
    * Run calculation to find all fully qualified Calendar Rounds

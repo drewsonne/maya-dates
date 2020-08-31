@@ -1,22 +1,19 @@
 import LongCount from "../lc/long-count";
-import IPart from "../i-part";
-import Comment from "../comment";
+import {IPart} from "../i-part";
+import {CommentWrapper} from "../comment-wrapper";
 
 /**
  * Given a Long Count with a wildcard, calculate all possible matching fully
  * qualified Long Counts.
  */
-export default class LongCountWildcard implements IPart {
-  private lc: LongCount;
-  comment: Comment | undefined;
+export default class LongCountWildcard extends CommentWrapper implements IPart {
+  private readonly lc: LongCount;
 
   /**
    * @param {LongCount} lc
    */
   constructor(lc: LongCount) {
-    /**
-     * @type {LongCount}
-     */
+    super();
     this.lc = lc;
   }
 

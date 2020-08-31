@@ -1,4 +1,4 @@
-import {Wildcard} from "../../wildcard";
+import {isWildcard, Wildcard} from "../../wildcard";
 import WildcardCoefficient from "./wildcardCoefficient";
 import NumberCoefficient from "./numberCoefficient";
 import ICoefficient from "./iCoefficient";
@@ -9,7 +9,7 @@ const coefficientNumberCoefficient: { [key: string]: ICoefficient } = {}
 function coefficientParser(rawCoefficient: number | string | Wildcard): ICoefficient {
   const hash = `${rawCoefficient}`
   if (coefficientNumberCoefficient[hash] === undefined) {
-    if (rawCoefficient instanceof Wildcard) {
+    if (isWildcard(rawCoefficient)) {
       coefficientNumberCoefficient[hash] = new WildcardCoefficient()
     } else if (typeof rawCoefficient == 'number') {
       coefficientNumberCoefficient[hash] = new NumberCoefficient(rawCoefficient)

@@ -1,11 +1,11 @@
 /** @ignore */
 import {TzolkinDay} from "./component/tzolkinDay";
-import {Wildcard} from "../wildcard";
+import {isWildcard, Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
 import WildcardCoefficient from "./component/wildcardCoefficient";
 import ICoefficient from "./component/iCoefficient"
-import IPart from "../i-part";
-import Comment from "../comment";
+import {IPart} from "../i-part";
+import {CommentWrapper} from "../comment-wrapper";
 
 const singleton: { [key: string]: Tzolkin } = {};
 
@@ -17,9 +17,7 @@ const singleton: { [key: string]: Tzolkin } = {};
  */
 export function getTzolkin(coeff: ICoefficient, day: TzolkinDay | Wildcard): Tzolkin {
   const monthName = `${coeff} ${day}`;
-  // const monthName = (typeof name === 'number') ? months[name] : name;
   if (singleton[monthName] === undefined) {
-    // eslint-disable-next-line no-use-before-define
     singleton[monthName] = new Tzolkin(coeff, day);
   }
   return singleton[monthName];
@@ -34,11 +32,10 @@ export function getTzolkin(coeff: ICoefficient, day: TzolkinDay | Wildcard): Tzo
  *    let day = new Tzolkin(4, new TzolkinDay("Ajaw"));
  *
  */
-export class Tzolkin implements IPart {
+export class Tzolkin extends CommentWrapper implements IPart {
   day: TzolkinDay | Wildcard;
   coeff: ICoefficient;
-  comment: Comment | undefined;
-  _privateNext: Tzolkin | null;
+  private nextHolder: Tzolkin | null;
 
   /**
    * Constructor
@@ -46,6 +43,7 @@ export class Tzolkin implements IPart {
    * @param {string|TzolkinDay} newDay
    */
   constructor(newCoeff: ICoefficient, newDay: TzolkinDay | Wildcard) {
+    super();
     /**
      * @type {TzolkinDay}
      */
@@ -59,7 +57,7 @@ export class Tzolkin implements IPart {
      * Lazy loaded instance of the next Tzolkin date in the cycle
      * @type {Tzolkin}
      */
-    this._privateNext = null;
+    this.nextHolder = null;
 
     this.validate();
   }
@@ -81,7 +79,7 @@ export class Tzolkin implements IPart {
     if (this.day === undefined) {
       throw new Error('Tzolk\'in day must be provided');
     }
-    if (!(this.day instanceof Wildcard)) {
+    if (!isWildcard(this.day)) {
       this.day.validate();
     }
     return true;
@@ -94,26 +92,26 @@ export class Tzolkin implements IPart {
    */
   shift(newIncremental: number): Tzolkin {
     if (
-      !(this.day instanceof Wildcard) &&
+      !(isWildcard(this.day)) &&
       !(this.coeff instanceof WildcardCoefficient)
     ) {
       const incremental = newIncremental % 260;
       if (incremental === 0) {
         return this;
       }
-      return this.privateNext.shift(incremental - 1);
+      return this.nextCalculator().shift(incremental - 1);
     } else {
       throw new Error("Tzolkin must not have wildcards to shift")
     }
   }
 
-  get privateNext(): Tzolkin {
-    if (this._privateNext === null) {
+  nextCalculator(): Tzolkin {
+    if (this.nextHolder === null) {
       if (this.coeff instanceof NumberCoefficient) {
         let newCoeff = (this.coeff.value + 1) % 13;
         newCoeff = (newCoeff % 13) === 0 ? 13 : newCoeff;
         if (this.day instanceof TzolkinDay) {
-          this._privateNext = getTzolkin(
+          this.nextHolder = getTzolkin(
             new NumberCoefficient(newCoeff),
             (this.day.shift(1) as TzolkinDay)
           );
@@ -124,13 +122,13 @@ export class Tzolkin implements IPart {
         throw new Error('this.coeff is not a NumberCoefficient')
       }
     }
-    return this._privateNext
+    return this.nextHolder
   }
 
   /**
    * Ensure this Tzolkin object has the same configuration as another Tzolkin
    * object. Does not take wildcards into account.
-   * @param {Tzolkin} newTzolkin
+   * @param {Tzolkin} other
    * @return {boolean}
    */
   equal(other: IPart): boolean {
@@ -153,7 +151,7 @@ export class Tzolkin implements IPart {
     return (
       this.coeff.match(newTzolkin.coeff)
     ) && (
-      (this.day instanceof Wildcard || newTzolkin.day instanceof Wildcard)
+      (isWildcard(this.day) || isWildcard(newTzolkin.day))
         ? true
         : (this.name === newTzolkin.name)
     );
@@ -164,7 +162,7 @@ export class Tzolkin implements IPart {
    * @returns {string}
    */
   get name(): string | Wildcard {
-    if (this.day instanceof Wildcard) {
+    if (isWildcard(this.day)) {
       return this.day;
     }
     return `${this.day}`;

@@ -4,23 +4,22 @@
 import {isWildcard, Wildcard} from "../wildcard";
 import LongcountAddition from "../operations/longcount-addition";
 import LongcountSubtraction from "../operations/longcount-subtraction";
-import IPart from "../i-part";
-import Comment from "../comment";
+import {IPart} from "../i-part";
+import {CommentWrapper} from "../comment-wrapper";
 
-export default class DistanceNumber implements IPart {
+export default class DistanceNumber extends CommentWrapper implements IPart {
   parts: (number | Wildcard)[];
   datePattern: RegExp;
   sign: number;
-  comment: Comment | undefined
 
   /**
    * @param {...number|Wildcard} cycles - Components in the long count
    * (eg, K'in, Winal, Bak'tun, etc)
    */
   constructor(...cycles: (number | Wildcard)[]) {
+    super();
     /**
      * Date Components
-     * @type {number[]|Wildcard[]}
      */
     this.parts = cycles;
 
@@ -322,7 +321,7 @@ export default class DistanceNumber implements IPart {
    * @return {boolean}
    */
   isPartial(): boolean {
-    return this.parts.some((part) => part instanceof Wildcard);
+    return this.parts.some((part) => isWildcard(part));
   }
 
   /**
@@ -393,19 +392,12 @@ export default class DistanceNumber implements IPart {
     const totalKIn = this.getPosition();
     const norm = new DistanceNumber();
     norm.kIn = totalKIn % 20;
-    // eslint-disable-next-line no-mixed-operators
     norm.winal = (totalKIn - norm.getPosition()) / 20 % 18;
-    // eslint-disable-next-line no-mixed-operators
     norm.tun = (totalKIn - norm.getPosition()) / 360 % 20;
-    // eslint-disable-next-line no-mixed-operators
     norm.kAtun = (totalKIn - norm.getPosition()) / 7200 % 20;
-    // eslint-disable-next-line no-mixed-operators
     norm.bakTun = (totalKIn - norm.getPosition()) / 144000 % 20;
-    // eslint-disable-next-line no-mixed-operators
     norm.piktun = (totalKIn - norm.getPosition()) / 2880000 % 20;
-    // eslint-disable-next-line no-mixed-operators
     norm.kalabtun = (totalKIn - norm.getPosition()) / 57600000 % 20;
-    // eslint-disable-next-line no-mixed-operators
     norm.kinchiltun = (totalKIn - norm.getPosition()) / 1152000000 % 20;
     const foundNegative = norm.parts.reduce(
       (found, part) => found || (part < 0),

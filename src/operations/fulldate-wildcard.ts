@@ -1,35 +1,18 @@
 import FullDate from '../full-date';
 import LongCountWildcard from './longcount-wildcard';
-import IPart from "../i-part";
-import Comment from '../comment';
+import {IPart} from "../i-part";
+import {CommentWrapper} from "../comment-wrapper";
 
-/** @ignore */
-// const concat = (x, y) => x.concat(y);
-//
-// /** @ignore */
-// const flatMap = (f, xs) => xs.map(f).reduce(concat, []);
-
-/** @ignore */
-// eslint-disable-next-line no-extend-native,func-names
-// Array.prototype.flatMap = function (f) {
-//   return flatMap(f, this);
-// };
 
 /**
  * Given a Calendar Round and Long Count with a wildcard, calculate all possible
  * matching fully qualified Long Counts with CalendarRounds.
  */
-export default class FullDateWildcard implements IPart {
-  private fullDate: FullDate;
-  comment: Comment | undefined;
+export default class FullDateWildcard extends CommentWrapper implements IPart {
+  private readonly fullDate: FullDate;
 
-  /**
-   * @param {FullDate} partialDate
-   */
   constructor(partialDate: FullDate) {
-    /**
-     * @type {FullDate}
-     */
+    super();
     this.fullDate = partialDate;
   }
 
@@ -66,5 +49,9 @@ export default class FullDateWildcard implements IPart {
     return (staticCr.match(this.fullDate.cr))
       ? [new FullDate(staticCr, this.fullDate.lc)]
       : [];
+  }
+
+  toString(): string {
+    return this.fullDate.toString()
   }
 }

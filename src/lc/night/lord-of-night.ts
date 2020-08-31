@@ -7,7 +7,6 @@
  *  let lord_of_night_g8_2 = mayadates.lc.night.G8
  *  console.log(lord_of_night_g8_1 === lord_of_night_g8_2)
  */
-// eslint-disable-next-line max-classes-per-file
 class LordOfTheNight {
   id: number;
 

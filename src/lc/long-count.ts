@@ -8,12 +8,17 @@ import {origin} from "../cr/calendar-round";
 import LongcountAddition from "../operations/longcount-addition";
 import LongcountSubtraction from "../operations/longcount-subtraction";
 import GregorianCalendarDate from "./western/gregorian";
-import IPart from "../i-part";
+import {IPart} from "../i-part";
 
 /**
  * Long Count cycle
  */
 export default class LongCount extends DistanceNumber {
+
+  static fromDistanceNumber(dn: DistanceNumber): LongCount {
+    return new LongCount(...dn.parts)
+  }
+
   private correlationConstant: CorrelationConstant;
 
   /**

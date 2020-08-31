@@ -7,7 +7,7 @@ export default abstract class Cycle extends Base {
   /**
    * A cache of the next object in the cycle
    */
-  private _privateNext: null | Cycle;
+  private nextHolder: null | Cycle;
   /**
    * Absolute position within the linear cycle for this object.
    */
@@ -15,7 +15,7 @@ export default abstract class Cycle extends Base {
   protected generator: (cycleName: number | string) => (Cycle | Wildcard);
   protected cycleLength: number;
 
-  constructor(
+  protected constructor(
     value: number | string | Wildcard,
     lookup: HashMap,
     generator: (cycleName: number | string | Wildcard) => (Cycle | Wildcard)
@@ -27,7 +27,7 @@ export default abstract class Cycle extends Base {
     );
     this.generator = generator;
     this.cycleLength = lookup.length;
-    this._privateNext = null
+    this.nextHolder = null
 
     if (typeof this.value === 'string') {
       this.position = lookup.getIndex(this.value)
@@ -51,22 +51,22 @@ export default abstract class Cycle extends Base {
     if (incremental === 0) {
       return this;
     }
-    return this.privateNext.shift(incremental - 1)
+    return this.nextCalculator().shift(incremental - 1)
   }
 
-  get privateNext(): Cycle {
-    if (this._privateNext === null) {
+  private nextCalculator(): Cycle {
+    if (this.nextHolder === null) {
       let newPosition = (this.position + 1) % (this.cycleLength - 1);
       newPosition = (newPosition === 0) ? (this.cycleLength - 1) : newPosition;
       let potentialPosition = this.generator(newPosition);
       if (isWildcard(potentialPosition)) {
         throw new Error("Can not cycle with wildcrd")
       } else {
-        this._privateNext = potentialPosition
+        this.nextHolder = potentialPosition
       }
     }
-    if (this._privateNext !== null) {
-      return this._privateNext
+    if (this.nextHolder !== null) {
+      return this.nextHolder
     } else {
       throw new Error("Can not cycle with wildcrd")
     }

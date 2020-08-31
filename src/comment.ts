@@ -1,4 +1,4 @@
-export default class Comment {
+export class Comment {
   content: string;
 
   constructor(content: string) {
@@ -9,7 +9,19 @@ export default class Comment {
     return new Comment(`${this} ${other}`)
   }
 
+  empty(): boolean {
+    return this.content.length == 0
+  }
+
+  equals(otherComment: Comment): boolean {
+    return this.content === otherComment.content;
+  }
+
   toString(): string {
     return this.content
   }
+}
+
+export function isComment(c: any): c is Comment {
+  return c instanceof Comment
 }
