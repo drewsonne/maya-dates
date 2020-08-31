@@ -1,4 +1,7 @@
 import {Comment, isComment} from "./comment";
+import {IPart, isPart} from "./i-part";
+import {isStringPrimitive} from "./guards";
+
 
 export abstract class CommentWrapper {
   comment: Comment;
@@ -7,18 +10,49 @@ export abstract class CommentWrapper {
     this.comment = new Comment('')
   }
 
-  setComment(comment: Comment): any {
-    this.comment = comment
+  setComment(comment: Comment | string): any {
+    let castComment: Comment = new Comment('');
+    if (isStringPrimitive(comment)) {
+      castComment = new Comment(comment);
+    } else {
+      castComment = castComment.merge(comment)
+    }
+    this.comment = castComment
     return this;
   }
 
-  appendComment(comment: Comment): any {
-    if (isComment(this.comment)) {
-      this.comment = this.comment.merge(comment)
+  appendComment(comment: Comment | string): any {
+    let castComment: Comment = new Comment('')
+    if (isStringPrimitive(comment)) {
+      castComment = new Comment(comment);
     } else {
-      this.setComment(comment)
+      castComment = castComment.merge(comment)
+    }
+    if (isComment(this.comment)) {
+      this.comment = this.comment.merge(castComment)
+    } else {
+      this.setComment(castComment)
     }
     return this
+  }
+
+  commentIsEqual(otherCommentWrapper: CommentWrapper): boolean {
+    return this.comment.equals(otherCommentWrapper.comment);
+  }
+
+  equalWithComment(otherCommentWrapper: IPart): boolean {
+    let result = true
+    if (wrapsComment(otherCommentWrapper)) {
+      result &&= this.commentIsEqual(otherCommentWrapper)
+      if (isPart(this)) {
+        result &&= otherCommentWrapper.equal(this)
+      } else {
+        result = false
+      }
+    } else {
+      result = false
+    }
+    return result
   }
 }
 

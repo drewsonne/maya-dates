@@ -13,6 +13,10 @@ export class Comment {
     return this.content.length == 0
   }
 
+  equals(otherComment: Comment): boolean {
+    return this.content === otherComment.content;
+  }
+
   toString(): string {
     return this.content
   }
