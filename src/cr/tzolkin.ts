@@ -65,20 +65,6 @@ export class Tzolkin extends CommentWrapper implements IPart {
     this.validate();
   }
 
-  setComment(comment: Comment): Tzolkin {
-    this.comment = comment
-    return this;
-  }
-
-  appendComment(comment: Comment): Tzolkin {
-    if (isComment(this.comment)) {
-      this.comment = this.comment.merge(comment)
-    } else {
-      this.setComment(comment)
-    }
-    return this
-  }
-
   /**
    * Return the next day in the 260-day cycle
    * @returns {Tzolkin}

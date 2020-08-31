@@ -54,20 +54,6 @@ export class CalendarRound extends CommentWrapper implements IPart {
     this.validate();
   }
 
-  setComment(comment: Comment): CalendarRound {
-    this.comment = comment
-    return this;
-  }
-
-  appendComment(comment: Comment): CalendarRound {
-    if (isComment(this.comment)) {
-      this.comment = this.comment.merge(comment)
-    } else {
-      this.setComment(comment)
-    }
-    return this
-  }
-
   /**
    * Validate that the Calendar Round has a correct 260-day and Haab
    * configuration

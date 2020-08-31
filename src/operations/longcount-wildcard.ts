@@ -18,20 +18,6 @@ export default class LongCountWildcard extends CommentWrapper implements IPart {
     this.lc = lc;
   }
 
-  setComment(comment: Comment): LongCountWildcard {
-    this.comment = comment
-    return this;
-  }
-
-  appendComment(comment: Comment): LongCountWildcard {
-    if (isComment(this.comment)) {
-      this.comment = this.comment.merge(comment)
-    } else {
-      this.setComment(comment)
-    }
-    return this
-  }
-
   equal(other: IPart): boolean {
     if (other instanceof LongCountWildcard) {
       return other.lc.equal(other.lc)

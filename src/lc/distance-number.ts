@@ -45,20 +45,6 @@ export default class DistanceNumber extends CommentWrapper implements IPart {
     }
   }
 
-  setComment(comment: Comment): DistanceNumber {
-    this.comment = comment
-    return this;
-  }
-
-  appendComment(comment: Comment): DistanceNumber {
-    if (isComment(this.comment)) {
-      this.comment = this.comment.merge(comment)
-    } else {
-      this.setComment(comment)
-    }
-    return this
-  }
-
   /**
    * Return true if the Long Count is positive.
    * @return {boolean}

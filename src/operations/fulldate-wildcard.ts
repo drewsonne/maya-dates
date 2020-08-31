@@ -17,20 +17,6 @@ export default class FullDateWildcard extends CommentWrapper implements IPart {
     this.fullDate = partialDate;
   }
 
-  setComment(comment: Comment): FullDateWildcard {
-    this.comment = comment
-    return this;
-  }
-
-  appendComment(comment: Comment): FullDateWildcard {
-    if (isComment(this.comment)) {
-      this.comment = this.comment.merge(comment)
-    } else {
-      this.setComment(comment)
-    }
-    return this
-  }
-
   equal(other: IPart): boolean {
     if (other instanceof FullDateWildcard) {
       return this.fullDate.equal(other.fullDate)
