@@ -21,7 +21,6 @@ export function getCalendarRound(
 ): CalendarRound {
   const crId = `${tzolkin} ${haab}`;
   if (singleton[crId] === undefined) {
-    // eslint-disable-next-line no-use-before-define
     singleton[crId] = new CalendarRound(tzolkin, haab);
   }
   return singleton[crId];
@@ -113,7 +112,6 @@ export class CalendarRound extends CommentWrapper implements IPart {
     let cycleCount: number = 0;
     let result: DistanceNumber | null = null;
     while (!foundTarget) {
-      // eslint-disable-next-line no-use-before-define
       if (current === targetCr) {
         result = new DistanceNumber(
           foundOrigin
@@ -151,7 +149,6 @@ export class CalendarRound extends CommentWrapper implements IPart {
    * object and will return a new object.
    */
   shift(increment: number): CalendarRound {
-    // eslint-disable-next-line no-use-before-define
     return getCalendarRound(
       this.tzolkin.shift(increment),
       this.haab.shift(increment)

@@ -20,7 +20,6 @@ export default class LongCountFactory extends Factory {
    * @param {string} raw - A string containing a Long Count
    * @returns {LongCount}
    */
-  // eslint-disable-next-line class-methods-use-this
   parse(raw: string): LongCount {
     const dates = raw.match(this.pattern);
     if (dates === null || dates.length !== 1) {

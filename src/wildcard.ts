@@ -21,7 +21,6 @@ export class Wildcard extends CommentWrapper implements IPart {
    * Represent the Wildcard as a string. ie, '*'.
    * @returns {string}
    */
-  // eslint-disable-next-line class-methods-use-this
   toString(): string {
     return '*';
   }

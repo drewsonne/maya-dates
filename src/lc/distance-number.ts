@@ -392,19 +392,12 @@ export default class DistanceNumber extends CommentWrapper implements IPart {
     const totalKIn = this.getPosition();
     const norm = new DistanceNumber();
     norm.kIn = totalKIn % 20;
-    // eslint-disable-next-line no-mixed-operators
     norm.winal = (totalKIn - norm.getPosition()) / 20 % 18;
-    // eslint-disable-next-line no-mixed-operators
     norm.tun = (totalKIn - norm.getPosition()) / 360 % 20;
-    // eslint-disable-next-line no-mixed-operators
     norm.kAtun = (totalKIn - norm.getPosition()) / 7200 % 20;
-    // eslint-disable-next-line no-mixed-operators
     norm.bakTun = (totalKIn - norm.getPosition()) / 144000 % 20;
-    // eslint-disable-next-line no-mixed-operators
     norm.piktun = (totalKIn - norm.getPosition()) / 2880000 % 20;
-    // eslint-disable-next-line no-mixed-operators
     norm.kalabtun = (totalKIn - norm.getPosition()) / 57600000 % 20;
-    // eslint-disable-next-line no-mixed-operators
     norm.kinchiltun = (totalKIn - norm.getPosition()) / 1152000000 % 20;
     const foundNegative = norm.parts.reduce(
       (found, part) => found || (part < 0),
