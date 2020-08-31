@@ -1,5 +1,5 @@
 /** @ignore */
-import {getHaabMonth, HaabMonth} from "./component/haabMonth";
+import {getHaabMonth, HaabMonth, HaabMonths} from "./component/haabMonth";
 import {isWildcard, Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
 import {coefficientParser as _} from "./component/coefficient";
@@ -71,7 +71,7 @@ export class Haab extends CommentWrapper implements IPart {
       if (this.coeff.value > 19 || this.coeff.value < 0) {
         throw new Error('Haab\' coefficient must inclusively between 0 and 19.');
       }
-      if (this.month === getHaabMonth('Wayeb')) {
+      if (this.month === getHaabMonth(HaabMonths.WAYEB)) {
         if (this.coeff.value > 4) {
           throw new Error('Haab\' coefficient for Wayeb must inclusively between 0 and 4.');
         }

@@ -1,6 +1,6 @@
 /** @ignore */
 import {TzolkinDay} from "./component/tzolkinDay";
-import {Wildcard} from "../wildcard";
+import {isWildcard, Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
 import WildcardCoefficient from "./component/wildcardCoefficient";
 import ICoefficient from "./component/iCoefficient"
@@ -92,7 +92,7 @@ export class Tzolkin extends CommentWrapper implements IPart {
    */
   shift(newIncremental: number): Tzolkin {
     if (
-      !(this.day instanceof Wildcard) &&
+      !(isWildcard(this.day)) &&
       !(this.coeff instanceof WildcardCoefficient)
     ) {
       const incremental = newIncremental % 260;
@@ -128,7 +128,7 @@ export class Tzolkin extends CommentWrapper implements IPart {
   /**
    * Ensure this Tzolkin object has the same configuration as another Tzolkin
    * object. Does not take wildcards into account.
-   * @param {Tzolkin} newTzolkin
+   * @param {Tzolkin} other
    * @return {boolean}
    */
   equal(other: IPart): boolean {

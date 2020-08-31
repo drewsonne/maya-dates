@@ -2,27 +2,49 @@ import HashMap from "../../structs/hashMap";
 import {Wildcard} from "../../wildcard";
 import Cycle from "./cycle";
 
+export enum HaabMonths {
+  POP = 'Pop',
+  WO = 'Wo',
+  SIP = 'Sip',
+  SOTZ = 'Sotz\'',
+  SEK = 'Sek',
+  XUL = 'Xul',
+  YAXK_IN = 'Yaxk\'in',
+  MOL = 'Mol',
+  CH_EN = 'Ch\'en',
+  YAX = 'Yax',
+  SAK = 'Sak',
+  KEH = 'Keh',
+  MAK = 'Mak',
+  K_ANK_IN = 'K\'ank\'in',
+  MUWAN = 'Muwan',
+  PAX = 'Pax',
+  K_AYAB = 'K\'ayab',
+  KUMK_U = 'Kumk\'u',
+  WAYEB = 'Wayeb'
+}
+
 const months: HashMap = new HashMap([
   undefined,
-  'Pop',
-  'Wo',
-  'Sip',
-  'Sotz\'',
-  'Sek',
-  'Xul',
-  'Yaxk\'in',
-  'Mol',
-  'Ch\'en',
-  'Yax',
-  'Sak',
-  'Keh',
-  'Mak',
-  'K\'ank\'in',
-  'Muwan',
-  'Pax',
-  'K\'ayab',
-  'Kumk\'u',
-  'Wayeb'
+  HaabMonths.POP,
+  HaabMonths.WO,
+  HaabMonths.SIP,
+  HaabMonths.SOTZ,
+  HaabMonths.SEK,
+  HaabMonths.XUL,
+  HaabMonths.YAXK_IN,
+  HaabMonths.MOL,
+  HaabMonths.CH_EN,
+  HaabMonths.YAX,
+  HaabMonths.SAK,
+  HaabMonths.KEH,
+  HaabMonths.MAK,
+  HaabMonths.K_ANK_IN,
+  HaabMonths.MUWAN,
+  HaabMonths.PAX,
+  HaabMonths.K_AYAB,
+  HaabMonths.KUMK_U,
+  HaabMonths.WAYEB
 ]);
 
 const singleton: { [key: string]: (HaabMonth | Wildcard) } = {};
