@@ -20,20 +20,20 @@
   "license": "GPL-3.0",
   "private": false,
   "devDependencies": {
-    "@babel/preset-env": "^7.8.4",
-    "@types/chai": "^4.2.10",
-    "@types/mocha": "^8.0.3",
-    "@types/node": "^14.6.0",
-    "chai": "^4.2.0",
-    "mocha": "^8.1.1",
-    "nyc": "^15.1.0",
-    "regenerator-runtime": "^0.13.3",
-    "ts-node": "^8.10.2",
-    "typedoc": "^0.16.11"
+    "@babel/preset-env": "~7.8",
+    "@types/chai": "~4.2",
+    "@types/mocha": "~8.0",
+    "@types/node": "~14.6",
+    "chai": "~4.2",
+    "mocha": "~8.1",
+    "nyc": "~15.1",
+    "regenerator-runtime": "~0.13",
+    "ts-node": "~8.10",
+    "typedoc": "~0.22"
   },
   "dependencies": {
-    "moonbeams": "^2.0.3",
-    "typescript": "^4.0.2"
+    "moonbeams": "~2.0",
+    "typescript": "~4.5"
   },
   "scripts": {
     "test": "mocha -r ts-node/register 'src/**/*.spec.ts'",
