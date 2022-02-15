@@ -1,6 +1,6 @@
 {
   "name": "@drewsonne/maya-dates",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Typescript package to manipulate dates in the Maya Calendar",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -20,20 +20,20 @@
   "license": "GPL-3.0",
   "private": false,
   "devDependencies": {
-    "@babel/preset-env": "^7.8.4",
-    "@types/chai": "^4.2.10",
-    "@types/mocha": "^8.0.3",
-    "@types/node": "^14.6.0",
-    "chai": "^4.2.0",
-    "mocha": "^8.1.1",
-    "nyc": "^15.1.0",
-    "regenerator-runtime": "^0.13.3",
-    "ts-node": "^8.10.2",
-    "typedoc": "^0.16.11"
+    "@babel/preset-env": "~7.16",
+    "@types/chai": "~4.3",
+    "@types/mocha": "~9.1",
+    "@types/node": "~17.0",
+    "chai": "~4.3",
+    "mocha": "~9.2",
+    "nyc": "~15.1",
+    "regenerator-runtime": "~0.13",
+    "ts-node": "~10.5",
+    "typedoc": "~0.22"
   },
   "dependencies": {
-    "moonbeams": "^2.0.3",
-    "typescript": "^4.0.2"
+    "moonbeams": "~2.0",
+    "typescript": "~4.5"
   },
   "scripts": {
     "test": "mocha -r ts-node/register 'src/**/*.spec.ts'",
