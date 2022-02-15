@@ -8,3 +8,4 @@ src/**/*.js
 lib
 .nyc_output
 Develop
+.DS_Store
