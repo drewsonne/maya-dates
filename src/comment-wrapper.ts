@@ -10,7 +10,7 @@ export abstract class CommentWrapper {
     this.comment = new Comment('')
   }
 
-  reset() {
+  resetComment() {
     this.comment = new Comment('');
   }
 
