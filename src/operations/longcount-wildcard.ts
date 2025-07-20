@@ -19,7 +19,7 @@ export default class LongCountWildcard extends CommentWrapper implements IPart {
 
   equal(other: IPart): boolean {
     if (other instanceof LongCountWildcard) {
-      return other.lc.equal(other.lc)
+      return this.lc.equal(other.lc)
     }
     return false
   }
