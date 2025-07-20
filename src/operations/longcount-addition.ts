@@ -1,5 +1,5 @@
 /**
- * Operation to sum two Long Count Dates
+ * Operation to sum two {@link LongCount} dates.
  */
 import LongCount from "../lc/long-count";
 import LongcountOperation from "./longcount-operation";
@@ -7,8 +7,7 @@ import LongcountOperation from "./longcount-operation";
 export default class LongcountAddition extends LongcountOperation {
 
   /**
-   * Return the sum result of this Addition operator.
-   * @return {LongCount}
+   * Calculate the resulting {@link LongCount}.
    */
   equals() {
     const [aParts, bParts, isInverted] = this.buildOperationComponents()

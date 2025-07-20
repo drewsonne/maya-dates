@@ -1,7 +1,5 @@
 /**
- * Used to iterate through the entire cycle of 18,980 days for the full
- * permutation of Haab and 260-day count.
- * @ignore
+ * Iterator over the full 18,980 day Calendar Round cycle.
  */
 import {CalendarRound, origin} from "../cr/calendar-round";
 
@@ -33,17 +31,14 @@ export default class CalendarRoundIterator {
     this.current = this.fullDate;
   }
 
-  /**
-   * Reset this iterator so that it can be reused.
-   */
+  /** Reset the iterator to the start of the cycle. */
   reset() {
     this.current = this.fullDate;
     this.isFirst = true;
   }
 
   /**
-   * Move to the next position in the iterator or end the iteration.
-   * @return {{value: null, done: boolean}|{value: CalendarRound, done: boolean}}
+   * Move to the next position in the cycle.
    */
   next(): NextResult {
     if (this.isFirst) {
