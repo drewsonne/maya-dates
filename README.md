@@ -81,7 +81,7 @@ values for dates matching that wildcard pattern.
 
 ## Documentation
 
-Full API documentation is generated with **TypeDoc** and published as part of the Docusaurus site.
+Full API documentation is generated with **TypeDoc** and published via GitHub Pages.
 You can browse the documentation at
-[https://drewsonne.github.io/maya-dates/docs/api/](https://drewsonne.github.io/maya-dates/docs/api/).
+[https://drewsonne.github.io/maya-dates/](https://drewsonne.github.io/maya-dates/).
 
