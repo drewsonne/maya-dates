@@ -1,0 +1,29 @@
+name: Publish Docs
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm run build:docs
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          destination_dir: maya-dates
+          external_repository: drewsonne/drewsonne.github.io
+          publish_branch: main
+          keep_files: true
+          user_name: GitHub Actions
+          user_email: actions@github.com
+
