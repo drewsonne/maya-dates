@@ -1,12 +1,14 @@
 name: Publish Docs
 
-permissions:
-  contents: write
-
 on:
   push:
     branches:
       - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
@@ -16,16 +18,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'npm'
       - run: npm ci
       - run: npm run build:docs
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - uses: actions/upload-pages-artifact@v1
         with:
-          personal_token: ${{ secrets.GH_PAGES_TOKEN }}
-          publish_dir: ./docs
-          destination_dir: maya-dates
-          external_repository: drewsonne/drewsonne.github.io
-          publish_branch: main
-          keep_files: true
-          user_name: GitHub Actions
-          user_email: actions@github.com
+          path: ./docs
+      - uses: actions/deploy-pages@v1
