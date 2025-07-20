@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 jobs:
-  build-and-upload:
+  docs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,7 +21,18 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build:docs
+      - uses: actions/configure-pages@v5
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: docs
+          destination: _site
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs
-      - uses: actions/deploy-pages@v4
+          path: ./_site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
