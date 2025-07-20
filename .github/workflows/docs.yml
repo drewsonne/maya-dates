@@ -1,5 +1,8 @@
 name: Publish Docs
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
@@ -26,4 +29,3 @@ jobs:
           keep_files: true
           user_name: GitHub Actions
           user_email: actions@github.com
-
