@@ -3,12 +3,12 @@ import LongCount from '../lc/long-count';
 import {Wildcard} from '../wildcard';
 
 /**
- * A factory to create a LongCount object from a string
- * @extends {Factory}
+ * Parses textual representations of Long Count dates.
+ *
  * @example
- *    let cr = new LongCountFactory().parse("9.4.2.4.1");
- * @example
- *    let cr = new LongCountFactory().parse("9.4.2.*.1");
+ * ```typescript
+ * const lc = new LongCountFactory().parse('9.4.2.4.1');
+ * ```
  */
 export default class LongCountFactory extends Factory {
   constructor() {
@@ -16,9 +16,10 @@ export default class LongCountFactory extends Factory {
   }
 
   /**
-   * Given a string, parse it and create a Long Count
-   * @param {string} raw - A string containing a Long Count
-   * @returns {LongCount}
+   * Parse a textual Long Count value.
+   *
+   * @param raw - String containing the Long Count.
+   * @returns Parsed {@link LongCount} instance.
    */
   parse(raw: string): LongCount {
     const dates = raw.match(this.pattern);

@@ -5,8 +5,7 @@ import {CommentWrapper} from "../comment-wrapper";
 
 
 /**
- * Given a Calendar Round and Long Count with a wildcard, calculate all possible
- * matching fully qualified Long Counts with CalendarRounds.
+ * Expand a partial {@link FullDate} into all valid permutations.
  */
 export default class FullDateWildcard extends CommentWrapper implements IPart {
   private readonly fullDate: FullDate;
@@ -24,8 +23,7 @@ export default class FullDateWildcard extends CommentWrapper implements IPart {
   }
 
   /**
-   * Run calculation to find all fully qualified Long Counts with Calendar Rounds
-   * @return {FullDate[]}
+   * Produce all fully qualified full dates.
    */
   run(): FullDate[] {
     if (!this.fullDate.isPartial()) {

@@ -3,13 +3,20 @@ import {IPart, isPart} from "./i-part";
 import {isStringPrimitive} from "./guards";
 
 
+/**
+ * Mixin providing comment functionality for domain objects.
+ */
 export abstract class CommentWrapper {
+  /** Attached comment. */
   comment: Comment;
 
   protected constructor() {
     this.comment = new Comment('')
   }
 
+  /**
+   * Replace the current comment.
+   */
   setComment(comment: Comment | string): any {
     let castComment: Comment = new Comment('');
     if (isStringPrimitive(comment)) {
@@ -21,6 +28,9 @@ export abstract class CommentWrapper {
     return this;
   }
 
+  /**
+   * Append additional text to the current comment.
+   */
   appendComment(comment: Comment | string): any {
     let castComment: Comment = new Comment('')
     if (isStringPrimitive(comment)) {
@@ -36,10 +46,16 @@ export abstract class CommentWrapper {
     return this
   }
 
+  /**
+   * Compare this wrapper's comment against another wrapper.
+   */
   commentIsEqual(otherCommentWrapper: CommentWrapper): boolean {
     return this.comment.equals(otherCommentWrapper.comment);
   }
 
+  /**
+   * Check equality including the associated comment.
+   */
   equalWithComment(otherCommentWrapper: IPart): boolean {
     let result = true
     if (wrapsComment(otherCommentWrapper)) {
@@ -56,6 +72,9 @@ export abstract class CommentWrapper {
   }
 }
 
+/**
+ * Type guard for {@link CommentWrapper}.
+ */
 export function wrapsComment(o: any): o is CommentWrapper {
   return ((o as CommentWrapper).setComment !== undefined)
     && ((o as CommentWrapper).appendComment !== undefined)
