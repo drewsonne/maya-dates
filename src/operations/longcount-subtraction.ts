@@ -1,5 +1,5 @@
 /**
- * Operation to diff two Long Count Dates
+ * Operation to subtract one {@link LongCount} from another.
  */
 import LongCount from "../lc/long-count";
 import LongcountOperation from "./longcount-operation";
@@ -8,8 +8,7 @@ import {IPart} from "../i-part";
 export default class LongcountSubtraction extends LongcountOperation {
 
   /**
-   * Return the diff result of this Subtraction operator.
-   * @return {LongCount}
+   * Calculate the resulting {@link LongCount} difference.
    */
   equals(): IPart {
     const [aParts, bParts, isInverted] = this.buildOperationComponents()
