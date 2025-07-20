@@ -7,10 +7,12 @@ import {getHaabMonth} from "../cr/component/haabMonth";
 import {coefficientParser as _} from "../cr/component/coefficient";
 
 /**
- * A factory to create a CalendarRound object from a string
- * @extends {Factory}
+ * Parses Calendar Round strings into concrete objects.
+ *
  * @example
- *    let cr = new CalendarRoundFactory().parse("4 Ajaw 8 Kumk'u");
+ * ```typescript
+ * const cr = new CalendarRoundFactory().parse('4 Ajaw 8 Kumk\'u');
+ * ```
  */
 export default class CalendarRoundFactory extends Factory {
   /**
@@ -25,9 +27,10 @@ export default class CalendarRoundFactory extends Factory {
   }
 
   /**
-   * Given a string, parse it and create a Calendar Round
-   * @param {string} raw - A string containing a Calendar Round
-   * @returns {CalendarRound}
+   * Parse a textual Calendar Round representation.
+   *
+   * @param raw - String containing the Calendar Round.
+   * @returns Parsed {@link CalendarRound} instance.
    */
   parse(raw: string): CalendarRound {
     const parts: string[] = this.split(raw);

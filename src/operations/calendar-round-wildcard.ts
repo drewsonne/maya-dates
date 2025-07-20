@@ -4,21 +4,18 @@ import {IPart} from "../i-part";
 import {CommentWrapper} from "../comment-wrapper";
 
 /**
- * A reusable singleton instance of the CalendarRoundIterator
- * @ignore
- * @type {CalendarRoundIterator}
+ * Reusable singleton instance of {@link CalendarRoundIterator}.
  */
 const iter = new CalendarRoundIterator();
 
 /**
- * Given a Calendar Round with a wildcard, calculate all possible matching
- * fully qualified Calendar Rounds.
+ * Expand a Calendar Round containing wildcards into all valid combinations.
  */
 export default class CalendarRoundWildcard extends CommentWrapper implements IPart {
   private readonly cr: CalendarRound;
 
   /**
-   * @param {CalendarRound} cr
+   * @param cr - Calendar Round to expand.
    */
   constructor(cr: CalendarRound) {
     super();
@@ -27,8 +24,7 @@ export default class CalendarRoundWildcard extends CommentWrapper implements IPa
 
 
   /**
-   * Run calculation to find all fully qualified Calendar Rounds
-   * @return {CalendarRound[]}
+   * Generate all fully qualified Calendar Rounds matching the pattern.
    */
   run() {
     const potentials = [];
