@@ -14,6 +14,10 @@ export abstract class CommentWrapper {
     this.comment = new Comment('')
   }
 
+  resetComment() {
+    this.comment = new Comment('');
+  }
+
   /**
    * Replace the current comment.
    */
