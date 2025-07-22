@@ -63,3 +63,17 @@ describe('i-part comment-wrapper', () => {
     expect(d1.commentIsEqual(c1)).to.be.false
   })
 })
+
+describe('resetComment functionality', () => {
+  it('should reset comment to empty', () => {
+    const wrapper = new MockCommentWrapper().setComment('filled')
+    wrapper.resetComment()
+    expect(wrapper.comment.empty()).to.be.true
+  })
+
+  it('should allow chaining after reset', () => {
+    const wrapper = new MockCommentWrapper().setComment('initial')
+    wrapper.resetComment().setComment('next')
+    expect(wrapper.comment.toString()).to.eq('next')
+  })
+})

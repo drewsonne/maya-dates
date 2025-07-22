@@ -15,6 +15,14 @@ export abstract class CommentWrapper {
   }
 
   /**
+   * Reset the current comment back to an empty comment.
+   */
+  resetComment(): any {
+    this.comment = new Comment('');
+    return this;
+  }
+
+  /**
    * Replace the current comment.
    */
   setComment(comment: Comment | string): this {
