@@ -71,7 +71,7 @@ export class HaabMonth extends Cycle {
    */
   constructor(raw: string | Wildcard) {
     super(raw, months, getHaabMonth);
-    this.validate()
+    this.validate();
   }
 
   /**
