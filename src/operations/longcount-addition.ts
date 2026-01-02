@@ -31,10 +31,12 @@ export default class LongcountAddition extends LongcountOperation {
     while (i < newParts.length || carry > 0) {
       newParts[i] += carry;
       carry = 0;
-      const monthLength = (i === 1) ? 15 : 20;
-      if (newParts[i] >= monthLength) {
-        const positionValue = newParts[i] % monthLength;
-        carry = Math.floor(newParts[i] / monthLength);
+      // Per spec [R1, R2]: 1 tun = 18 winal (not 15!)
+      // Position 0 = k'in (base 20), Position 1 = winal (base 18), Position 2+ = base 20
+      const positionBase = (i === 1) ? 18 : 20;
+      if (newParts[i] >= positionBase) {
+        const positionValue = newParts[i] % positionBase;
+        carry = Math.floor(newParts[i] / positionBase);
         newParts[i] = positionValue;
       }
       i += 1;
