@@ -640,9 +640,15 @@ Total matches = r₁ × r₂ × ... × rₙ
 ```
 
 **Example**: `* * * * *.*.*.*.*`
+
+**Note**: This is an approximation to demonstrate combinatorial explosion. The exact count varies because:
+- Haab coefficient range depends on the month (0-19 for regular months, 0-4 for Wayeb)
+- Higher Long Count cycles beyond B'ak'tun are theoretically unbounded
+
+Approximate calculation:
 ```
-= 13 × 20 × 20 × 20 × 20 × (varies) × 20 × 18 × 20 × 20
-= extremely large!
+≈ 13 × 20 × (avg ~18) × 19 × (varies) × 20 × 18 × 18 × 20
+≈ billions of combinations
 ```
 
 ---
