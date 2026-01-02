@@ -135,7 +135,7 @@ describe('fromDayNumber', () => {
     // 1000 days
     const haab1000 = Haab.fromDayNumber(1000);
     expect(haab1000.coeff).to.be.an.instanceOf(NumberCoefficient);
-    expect(haab1000.coeff).to.be.an.instanceOf(NumberCoefficient);
+    expect(haab1000.month).to.be.an.instanceOf(HaabMonth);
 
     // 10000 days (multiple cycles)
     const haab10000 = Haab.fromDayNumber(10000);
