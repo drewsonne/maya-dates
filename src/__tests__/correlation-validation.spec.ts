@@ -71,13 +71,13 @@ describe('Maya Date Correlations from JSON Dataset', () => {
   });
 
   describe('GMT Correlation (584285) Validation', () => {
-    it('should validate direct source correlations using GMT constant', () => {
-      const directData = getDirectSourceData();
-      const lcFactory = new LongCountFactory();
-      const gmtCorr = getCorrelationConstant('GMT');
+    const directData = getDirectSourceData();
+    const lcFactory = new LongCountFactory();
+    const gmtCorr = getCorrelationConstant('GMT');
 
-      // Test a few direct source correlations
-      directData.slice(0, 5).forEach(correlation => {
+    // Test a few direct source correlations
+    directData.slice(0, 5).forEach(correlation => {
+      it(`should validate ${correlation.maya_long_count} ${correlation.event} using GMT constant`, () => {
         const lc = lcFactory.parse(correlation.maya_long_count).setCorrelationConstant(gmtCorr);
         
         if (correlation.western_calendar === 'gregorian') {
