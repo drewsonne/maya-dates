@@ -54,11 +54,11 @@ export function getHaabMonth(newCycleName: (string | number | Wildcard)): (HaabM
     let cycleName = (typeof newCycleName === 'number') ? months.getValue(newCycleName) : newCycleName;
     const cycleNameHash = `${cycleName}`;
     if (singleton[cycleNameHash] === undefined) {
-      singleton[cycleNameHash] = (cycleNameHash == '*') ? new Wildcard() : new HaabMonth(cycleNameHash)
+      singleton[cycleNameHash] = (cycleNameHash == '*') ? new Wildcard() : new HaabMonth(cycleNameHash);
     }
     return singleton[cycleNameHash];
   } else {
-    return newCycleName
+    return newCycleName;
   }
 }
 
@@ -71,7 +71,7 @@ export class HaabMonth extends Cycle {
    */
   constructor(raw: string | Wildcard) {
     super(raw, months, getHaabMonth);
-    this.validate()
+    this.validate();
   }
 
   /**
