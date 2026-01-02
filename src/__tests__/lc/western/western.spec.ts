@@ -140,11 +140,11 @@ describe('JSON Dataset Correlation Tests', () => {
     });
   });
 
-  describe('Sample correlations from JSON dataset', () => {
+  describe('Gregorian calendar correlations from JSON dataset', () => {
     // Filter to only Gregorian calendar dates
-    const sampleData = jsonGmtData.filter(d => d.western_calendar === 'gregorian');
+    const gregorianData = jsonGmtData.filter(d => d.western_calendar === 'gregorian');
 
-    sampleData.forEach((correlation: CorrelationData) => {
+    gregorianData.forEach((correlation: CorrelationData) => {
       it(`should process ${correlation.maya_long_count} -> ${correlation.western_date}`, () => {
         // Use the correlation constant from the JSON data
         const correlationConstant = getCorrelationConstant(correlation.correlation_jdn);
