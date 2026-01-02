@@ -2,6 +2,11 @@ import FullDateFactory from "../factory/full-date";
 import LongCountFactory from "../factory/long-count";
 import 'mocha'
 import {expect} from 'chai'
+import {
+  getGMTCorrelationData,
+  findCorrelation,
+  CorrelationData
+} from "./test-data-loader";
 
 it('full date rendering', () => {
   const fullDate = new FullDateFactory()
@@ -66,4 +71,50 @@ it('isPartial should detect wildcards', () => {
   expect(fd2.isPartial()).to.be.true;
   expect(fd3.isPartial()).to.be.true;
   expect(fd4.isPartial()).to.be.true;
+});
+
+describe('Historical Full Date Validation using JSON Dataset', () => {
+  it('should validate Calendar Round and Long Count combinations from historical sources', () => {
+    // Get a sample of historical data for validation
+    const historicalData = getGMTCorrelationData()
+      .filter(d => d.western_calendar === 'gregorian')
+      .slice(0, 10);
+
+    historicalData.forEach((correlation: CorrelationData) => {
+      const fullDateString = `${correlation.calendar_round} ${correlation.maya_long_count}`;
+      
+      // Parse should succeed - if it fails, the spellings don't match
+      const fullDate = new FullDateFactory().parse(fullDateString);
+      
+      expect(fullDate).to.not.be.null;
+      // Compare Long Count string directly - normalize spacing
+      const actualLC = fullDate.lc.toString().trim().replace(/\s+/g, '.').replace(/\.+/g, '.');
+      expect(actualLC).to.equal(correlation.maya_long_count);
+    });
+  });
+
+  it('should handle event-based historical dates', () => {
+    // Test specific historical events from the dataset
+    const birthEvents = getGMTCorrelationData().filter(d => 
+      d.event === 'born' && d.western_calendar === 'gregorian'
+    ).slice(0, 3);
+
+    birthEvents.forEach((correlation: CorrelationData) => {
+      // Create a full date from the historical data
+      const lcString = correlation.maya_long_count;
+      const lc = new LongCountFactory().parse(lcString);
+      
+      expect(lc).to.not.be.null;
+      // Normalize for comparison - the toString() adds spaces
+      const actualLC = lc.toString().trim().replace(/\s+/g, '.');
+      // Extract just the numeric parts for comparison
+      const actualParts = actualLC.match(/\d+/g)?.join('.');
+      const expectedParts = lcString.match(/\d+/g)?.join('.');
+      expect(actualParts).to.equal(expectedParts);
+      
+      // Verify this is a valid date that can be processed
+      expect(lc.getPosition()).to.be.a('number');
+      expect(lc.getPosition()).to.be.greaterThan(0);
+    });
+  });
 });
