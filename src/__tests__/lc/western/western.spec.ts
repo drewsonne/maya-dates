@@ -77,11 +77,7 @@ describe('gregorian to longcount', () => {
   dates.forEach((dc) => {
     it(`g(${dc.gregorian}) -> correct date representation`, () => {
       const g = gregorianFactory.parse(dc.gregorian);
-      // Verify that the parsed date matches the expected Gregorian date string
-      // The toString() method should return the same format as the input (without asterisk if not threshold)
-      const expectedDate = dc.gregorian.replace(/\*/g, '').trim();
-      const actualDate = `${g}`.trim();
-      expect(actualDate).to.eq(expectedDate);
+      expect(`${g}`).to.eq(dc.gregorian);
     });
   });
 });
