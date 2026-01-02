@@ -72,23 +72,24 @@ export class Tzolkin extends CommentWrapper implements IPart {
    * Create a Tzolk'in date from a day number (days since epoch) using direct formula per [R1] §4.4.
    * 
    * Formula: 
-   * - adjmod(x, n) = ((x − 1) mod n) + 1
+   * - adjmod(x, n) = ((x - 1) mod n) + 1
    * - number = adjmod(d + tzEpochNumber, 13)
    * - nameIndex = adjmod(d + tzEpochName, 20)
    * 
-   * @param {number} dayNumber - Days since epoch (MDN)
+   * @param {number} dayNumber - Days since epoch (MDN), can be negative for dates before epoch
    * @return {Tzolkin}
    */
   static fromDayNumber(dayNumber: number): Tzolkin {
-    // Adjusted modulus per spec [R1]: adjmod(x, n) = ((x − 1) mod n) + 1
-    const adjMod = (x: number, n: number) => ((x - 1) % n) + 1;
+    // Adjusted modulus per spec [R1] with proper negative handling
+    // Use ((x - 1) % n + n) % n + 1 to ensure result is always in [1, n]
+    const adjMod = (x: number, n: number) => ((x - 1) % n + n) % n + 1;
     
     const number = adjMod(dayNumber + Tzolkin.EPOCH_NUMBER, 13);
     const nameIndex = adjMod(dayNumber + Tzolkin.EPOCH_NAME_INDEX, 20);
     
     return getTzolkin(
       new NumberCoefficient(number),
-      new TzolkinDay(nameIndex)
+      getTzolkinDay(nameIndex)
     );
   }
 
@@ -122,14 +123,15 @@ export class Tzolkin extends CommentWrapper implements IPart {
   }
 
   /**
-   * Shift this Tzolk'in date forward by a number of days using direct formula per [R1].
+   * Shift this Tzolk'in date by a number of days using direct formula per [R1].
+   * Positive values shift forward in the 260-day cycle; negative values shift backward.
    * 
    * Uses the adjusted modulus formula from spec §4.3-4.4:
-   * - adjmod(x, n) = ((x − 1) mod n) + 1
+   * - adjmod(x, n) = ((x - 1) mod n) + 1
    * - number = adjmod(currentNumber + days, 13)
    * - nameIndex = adjmod(currentNameIndex + days, 20)
    * 
-   * @param {Number} newIncremental - Number of days to shift forward
+   * @param {Number} newIncremental - Number of days to shift (positive for forward, negative for backward)
    * @return {Tzolkin}
    */
   shift(newIncremental: number): Tzolkin {
@@ -144,9 +146,9 @@ export class Tzolkin extends CommentWrapper implements IPart {
         return this;
       }
       
-      // Direct formula per spec [R1] §4.4
-      // adjmod(x, n) = ((x − 1) mod n) + 1
-      const adjMod = (x: number, n: number) => ((x - 1) % n) + 1;
+      // Direct formula per spec [R1] §4.4 with proper negative handling
+      // Use ((x - 1) % n + n) % n + 1 to ensure result is always in [1, n]
+      const adjMod = (x: number, n: number) => ((x - 1) % n + n) % n + 1;
       
       const newCoeff = adjMod(this.coeff.value + incremental, 13);
       const newDayPosition = adjMod(this.day.position + incremental, 20);
