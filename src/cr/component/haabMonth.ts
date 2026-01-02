@@ -58,7 +58,7 @@ export function getHaabMonth(newCycleName: (string | number | Wildcard)): (HaabM
     }
     return singleton[cycleNameHash];
   } else {
-    return newCycleName
+    return newCycleName;
   }
 }
 
