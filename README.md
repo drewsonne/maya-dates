@@ -85,6 +85,8 @@ values for dates matching that wildcard pattern.
 
 ## Development
 
+See [docs/WORKFLOW.md](docs/WORKFLOW.md) for the development workflow and contribution guidelines.
+
 ### Building
 ```sh
 npm run build          # Compile TypeScript to JavaScript
