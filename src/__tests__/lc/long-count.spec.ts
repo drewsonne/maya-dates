@@ -4,6 +4,8 @@ import {expect} from 'chai'
 import LongCount from "../../lc/long-count";
 import {Wildcard} from "../../wildcard";
 import {LordOfTheNight, lords} from "../../lc/night/lord-of-night";
+import GregorianFactory from '../../factory/gregorian';
+import {getCorrelationConstant} from '../../lc/correlation-constant';
 
 describe('parse long-count fullDate', () => {
   const dates = [
@@ -204,7 +206,6 @@ it('render long count', () => {
 describe('Gregorian to Long Count conversion', () => {
   it('should convert Gregorian date to Long Count using fromGregorian', () => {
     // 21 December 2012 CE is 13.0.0.0.0 in Long Count
-    const GregorianFactory = require('../../factory/gregorian').default;
     const gregorianFactory = new GregorianFactory();
     const gregorian = gregorianFactory.parse('21/12/2012 CE');
     
@@ -250,7 +251,6 @@ describe('Gregorian to Long Count conversion', () => {
 
   it('should convert a historical date (9.17.0.0.0)', () => {
     // 9.17.0.0.0 is a known historical date
-    const GregorianFactory = require('../../factory/gregorian').default;
     const gregorianFactory = new GregorianFactory();
     
     // First, convert 9.17.0.0.0 to Gregorian to get the expected date
@@ -335,10 +335,8 @@ describe('Gregorian to Long Count conversion', () => {
   });
 
   it('should preserve correlation constant when provided', () => {
-    const GregorianFactory = require('../../factory/gregorian').default;
-    const {getCorrelationConstant} = require('../../lc/correlation-constant');
-    
     const gregorianFactory = new GregorianFactory();
+    
     const gregorian = gregorianFactory.parse('21/12/2012 CE');
     const customCorrelation = getCorrelationConstant(584285); // Modified GMT
     
