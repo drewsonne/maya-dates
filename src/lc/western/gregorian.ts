@@ -28,14 +28,8 @@ export default class GregorianCalendarDate extends WesternCalendar {
     if (this.julianDay <= 1887864) {
       return 1;
     }
-    if (this.julianDay <= 1955908) {
-      return 4;
-    }
-    if (this.julianDay <= 1984764) {
-      return 5;
-    }
     if (this.julianDay <= 2031864) {
-      return 2;
+      return 4;
     }
     if (this.julianDay <= 2096664) {
       return 6;
