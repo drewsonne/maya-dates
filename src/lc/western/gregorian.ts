@@ -15,6 +15,20 @@ import WesternCalendar from './western';
  * was first adopted, transitioning from Julian. Dates after this are "true" Gregorian
  * rather than proleptic (extended backwards). The offset at JDN 2299160 (Oct 4, 1582)
  * is used for the final proleptic date before the calendar switch.
+ *
+ * Mathematical derivation:
+ * The offset at any point in time equals the cumulative number of leap days that
+ * exist in the Julian calendar but not in the proleptic Gregorian calendar (or vice versa).
+ * - Every century year (e.g., 100, 200, 300) is a leap year in Julian but NOT in Gregorian
+ *   (UNLESS divisible by 400, like 400, 800, 1200, which ARE leap years in both)
+ * - The boundaries below correspond to these century transitions where the offset changes
+ *
+ * The JDN values and corresponding offsets can be verified using the moonbeams library's
+ * calendarToJd() function for both GREGORIAN and JULIAN calendar systems, which implements
+ * the standard astronomical calendar conversion algorithms (based on Meeus, "Astronomical
+ * Algorithms", and similar references).
+ *
+ * @see {@link https://github.com/drewsonne/moonbeams|moonbeams library}
  */
 const OFFSET_TABLE: ReadonlyArray<readonly [number, number]> = [
   [1011734, -8],  // ~3113 BCE - covers Maya creation date and earlier
