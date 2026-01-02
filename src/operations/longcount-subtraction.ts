@@ -33,8 +33,10 @@ export default class LongcountSubtraction extends LongcountOperation {
       carry = 0;
       while (newParts[i] < 0) {
         carry -= 1;
-        const nextPositionMonthLength = (i === 1) ? 15 : 20;
-        newParts[i] += nextPositionMonthLength;
+        // Per spec [R1, R2]: 1 tun = 18 winal (not 15!)
+        // Position 0 = k'in (base 20), Position 1 = winal (base 18), Position 2+ = base 20
+        const nextPositionBase = (i === 1) ? 18 : 20;
+        newParts[i] += nextPositionBase;
       }
       i += 1;
     }
