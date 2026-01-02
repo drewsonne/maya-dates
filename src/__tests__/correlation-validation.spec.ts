@@ -1,5 +1,8 @@
 import {expect} from 'chai';
 import 'mocha';
+import type {
+  CorrelationData
+} from './test-data-loader';
 import {
   loadCorrelationData,
   getDataByCorrelation,
@@ -9,7 +12,6 @@ import {
   getUniqueLongCounts,
   getAvailableCorrelations
 } from './test-data-loader';
-import type { CorrelationData } from './test-data-loader';
 import LongCountFactory from '../factory/long-count';
 import FullDateFactory from '../factory/full-date';
 import {getCorrelationConstant} from '../lc/correlation-constant';
