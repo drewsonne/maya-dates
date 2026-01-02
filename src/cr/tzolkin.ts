@@ -2,7 +2,6 @@
 import {TzolkinDay, getTzolkinDay} from "./component/tzolkinDay";
 import {isWildcard, Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
-import WildcardCoefficient from "./component/wildcardCoefficient";
 import ICoefficient from "./component/iCoefficient"
 import {IPart} from "../i-part";
 import {CommentWrapper} from "../comment-wrapper";
@@ -44,6 +43,18 @@ export class Tzolkin extends CommentWrapper implements IPart {
   private nextHolder: Tzolkin | null;
 
   /**
+   * Adjusted modulus per spec [R1] with proper negative handling.
+   * Uses formula ((x - 1) % n + n) % n + 1 to ensure result is always in [1, n].
+   * 
+   * @param {number} x - The value to apply adjusted modulus to
+   * @param {number} n - The modulus divisor
+   * @return {number} Result in range [1, n]
+   */
+  private static adjMod(x: number, n: number): number {
+    return ((x - 1) % n + n) % n + 1;
+  }
+
+  /**
    * Constructor
    * @param {number} newCoeff - The position in the 260-day cycle
    * @param {string|TzolkinDay} newDay
@@ -80,12 +91,8 @@ export class Tzolkin extends CommentWrapper implements IPart {
    * @return {Tzolkin}
    */
   static fromDayNumber(dayNumber: number): Tzolkin {
-    // Adjusted modulus per spec [R1] with proper negative handling
-    // Use ((x - 1) % n + n) % n + 1 to ensure result is always in [1, n]
-    const adjMod = (x: number, n: number) => ((x - 1) % n + n) % n + 1;
-    
-    const number = adjMod(dayNumber + Tzolkin.EPOCH_NUMBER, 13);
-    const nameIndex = adjMod(dayNumber + Tzolkin.EPOCH_NAME_INDEX, 20);
+    const number = Tzolkin.adjMod(dayNumber + Tzolkin.EPOCH_NUMBER, 13);
+    const nameIndex = Tzolkin.adjMod(dayNumber + Tzolkin.EPOCH_NAME_INDEX, 20);
     
     return getTzolkin(
       new NumberCoefficient(number),
@@ -144,19 +151,15 @@ export class Tzolkin extends CommentWrapper implements IPart {
         return this;
       }
       
-      // Direct formula per spec [R1] §4.4 with proper negative handling
-      // Use ((x - 1) % n + n) % n + 1 to ensure result is always in [1, n]
-      const adjMod = (x: number, n: number) => ((x - 1) % n + n) % n + 1;
-      
-      const newCoeff = adjMod(this.coeff.value + incremental, 13);
-      const newDayPosition = adjMod(this.day.position + incremental, 20);
+      const newCoeff = Tzolkin.adjMod(this.coeff.value + incremental, 13);
+      const newDayPosition = Tzolkin.adjMod(this.day.position + incremental, 20);
       
       return getTzolkin(
         new NumberCoefficient(newCoeff),
         getTzolkinDay(newDayPosition)
       );
     } else {
-      throw new Error("Tzolkin must not have wildcards to shift")
+      throw new Error("Tzolkin must not have wildcards to shift.");
     }
   }
 
