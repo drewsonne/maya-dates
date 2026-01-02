@@ -2,7 +2,7 @@ import FullDate from '../full-date';
 import JulianCalendarDate from './western/julian';
 import DistanceNumber from './distance-number';
 import {LordOfTheNight, lords} from "./night/lord-of-night";
-import {Wildcard} from "../wildcard";
+import {Wildcard, isWildcard} from "../wildcard";
 import {CorrelationConstant, getCorrelationConstant} from "./correlation-constant";
 import {origin} from "../cr/calendar-round";
 import LongcountAddition from "../operations/longcount-addition";
@@ -137,5 +137,47 @@ export default class LongCount extends DistanceNumber {
    */
   asDistanceNumber() {
     return new DistanceNumber(...this.parts);
+  }
+
+  /**
+   * Compare two Long Count dates for equality.
+   * Unlike DistanceNumber.equal(), this compares all parts, handling trailing zeros correctly.
+   * This ensures dates with k'in=0 are compared correctly (e.g., 0.0.0.0.0 vs 0.2.12.13.0).
+   * @param {IPart} other
+   * @return {boolean}
+   */
+  equal(other: IPart): boolean {
+    if (other instanceof LongCount) {
+      // Normalize both by removing trailing zeros, then compare
+      const thisParts = this.normalizedParts();
+      const otherParts = other.normalizedParts();
+      
+      if (thisParts.length !== otherParts.length) {
+        return false;
+      }
+      
+      if (this.sign !== other.sign) {
+        return false;
+      }
+      
+      return thisParts.every((part, i) => {
+        const otherPart = otherParts[i];
+        return isWildcard(part) ? isWildcard(otherPart) : part === otherPart;
+      });
+    }
+    return false;
+  }
+
+  /**
+   * Get normalized parts by removing trailing zeros.
+   * @return {(number | Wildcard)[]}
+   */
+  private normalizedParts(): (number | Wildcard)[] {
+    const parts = [...this.parts];
+    // Remove trailing zeros (but keep at least one part)
+    while (parts.length > 1 && parts[parts.length - 1] === 0) {
+      parts.pop();
+    }
+    return parts;
   }
 }
