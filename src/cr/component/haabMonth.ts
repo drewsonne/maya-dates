@@ -1,66 +1,92 @@
-import {Wildcard, isWildcard} from "../../wildcard";
-import {Cycle} from "./cycle";
-import {HashMap} from "../../structs/hashMap";
+import HashMap from "../../structs/hashMap";
+import {isWildcard, Wildcard} from "../../wildcard";
+import Cycle from "./cycle";
 
-const months = [
-  'Pop',
-  'Wo',
-  'Sip',
-  'Sotz\'',
-  'Sek',
-  'Xul',
-  'Yaxk\'in',
-  'Mol',
-  'Ch\'en',
-  'Yax',
-  'Sak',
-  'Keh',
-  'Mak',
-  'K\'ank\'in',
-  'Muwan',
-  'Pax',
-  'K\'ayab',
-  'Kumk\'u',
-  'Wayeb',
-];
+export enum HaabMonths {
+  POP = 'Pop',
+  WO = 'Wo',
+  SIP = 'Sip',
+  SOTZ = 'Sotz\'',
+  SEK = 'Sek',
+  XUL = 'Xul',
+  YAXK_IN = 'Yaxk\'in',
+  MOL = 'Mol',
+  CH_EN = 'Ch\'en',
+  YAX = 'Yax',
+  SAK = 'Sak',
+  KEH = 'Keh',
+  MAK = 'Mak',
+  K_ANK_IN = 'K\'ank\'in',
+  MUWAN = 'Muwan',
+  PAX = 'Pax',
+  K_AYAB = 'K\'ayab',
+  KUMK_U = 'Kumk\'u',
+  WAYEB = 'Wayeb'
+}
+
+const months: HashMap = new HashMap([
+  undefined,
+  HaabMonths.POP,
+  HaabMonths.WO,
+  HaabMonths.SIP,
+  HaabMonths.SOTZ,
+  HaabMonths.SEK,
+  HaabMonths.XUL,
+  HaabMonths.YAXK_IN,
+  HaabMonths.MOL,
+  HaabMonths.CH_EN,
+  HaabMonths.YAX,
+  HaabMonths.SAK,
+  HaabMonths.KEH,
+  HaabMonths.MAK,
+  HaabMonths.K_ANK_IN,
+  HaabMonths.MUWAN,
+  HaabMonths.PAX,
+  HaabMonths.K_AYAB,
+  HaabMonths.KUMK_U,
+  HaabMonths.WAYEB
+]);
+
+const singleton: { [key: string]: (HaabMonth | Wildcard) } = {};
+
+export function getHaabMonth(newCycleName: (string | number | Wildcard)): (HaabMonth | Wildcard) {
+
+  if (typeof newCycleName === "number" || typeof newCycleName === "string") {
+
+    let cycleName = (typeof newCycleName === 'number') ? months.getValue(newCycleName) : newCycleName;
+    const cycleNameHash = `${cycleName}`;
+    if (singleton[cycleNameHash] === undefined) {
+      singleton[cycleNameHash] = (cycleNameHash == '*') ? new Wildcard() : new HaabMonth(cycleNameHash)
+    }
+
+    return singleton[cycleNameHash];
+  } else {
+    return newCycleName
+  }
+}
 
 /**
- * Haab month component of a Calendar Round date.
+ * Describes only the month component of a Haab fullDate
  */
 export class HaabMonth extends Cycle {
+
   /**
-   * @param {string | number | Wildcard} value - Name or position of the Haab month
+   * @param {string} raw - Name of the Haab month
    */
-  constructor(value: string | number | Wildcard) {
-    super(
-      value,
-      new HashMap<string, number>(
-        months.map((name, i) => [name, i]),
-      ),
-    );
+  constructor(raw: string | Wildcard) {
+    super(raw, months, getHaabMonth);
+    this.validate()
   }
 
   /**
-   * Return the next month in the cycle.
-   * @return {HaabMonth}
-   */
-  next(): HaabMonth {
-    return new HaabMonth(super.next().value);
-  }
-
-  /**
-   * Ensure the Haab month name is valid.
-   * @return {boolean}
+   * Ensure a Haab month name is defined, and that the month name is within the
+   * set of allowable values.
    */
   validate(): boolean {
     if (!isWildcard(this.value)) {
       if (this.value === undefined) {
         throw new Error('Haab\' month name must be provided');
       }
-      // Note: typeof check removed as it's unreachable - the Cycle constructor
-      // ensures value is never undefined (throws error), and if it's not a Wildcard,
-      // it must be a string by type definition
-      if (!months.includes(this.value)) {
         throw new Error(`Haab' month (${this.value}) must be in ${months}`);
       }
     }
