@@ -54,10 +54,33 @@ export class CalendarRound extends CommentWrapper implements IPart {
 
   /**
    * Validate that the Calendar Round has a correct 260-day and Haab
-   * configuration
+   * configuration using both enumeration and mathematical compatibility check.
+   * 
+   * Per spec [R7], a Calendar Round exists iff the residues satisfy:
+   * r365 ≡ r260 (mod 5), where gcd(365, 260) = 5
+   * 
    * @throws {Error} If the Calendar Round is invalid.
    */
   validate() {
+    // First, perform mathematical compatibility check per spec [R7]
+    // A Calendar Round date exists iff r365 ≡ r260 (mod 5)
+    if (this.haab.coeff instanceof NumberCoefficient && 
+        this.tzolkin.coeff instanceof NumberCoefficient) {
+      const haabResidue = this.haab.coeff.value;
+      const tzolkinResidue = this.tzolkin.coeff.value;
+      
+      // Check mathematical compatibility: residues must match mod gcd(365, 260) = 5
+      if (haabResidue % 5 !== tzolkinResidue % 5) {
+        throw new Error(
+          `Calendar Round compatibility failed: Haab' coefficient ${haabResidue} ` +
+          `and Tzolk'in coefficient ${tzolkinResidue} must satisfy ` +
+          `${haabResidue} ≡ ${tzolkinResidue} (mod 5) per [R7]`
+        );
+      }
+    }
+    
+    // Second, perform detailed enumeration check (original validation logic)
+    // This provides more specific error messages for known day combinations
     let validHaabCoeffs: number[] = [];
     if ([
       TzolkinDays.KABAN, TzolkinDays.IK, TzolkinDays.MANIK, TzolkinDays.EB,
