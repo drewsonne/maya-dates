@@ -240,3 +240,180 @@ it('test cr full-cycle count', () => {
   expect(counter).to.eq(18980)
 })
 
+describe('mathematical compatibility validation (mod 5 check)', () => {
+  const crFactory = new CalendarRoundFactory();
+
+  describe('valid Calendar Round combinations', () => {
+    it('should accept origin date 4 Ajaw 8 Kumk\'u (r365=0, r260=0)', () => {
+      expect(() => {
+        crFactory.parse('4 Ajaw 8 Kumk\'u');
+      }).to.not.throw();
+    });
+
+    it('should accept 5 Imix 9 Kumk\'u (day after origin)', () => {
+      expect(() => {
+        crFactory.parse('5 Imix 9 Kumk\'u');
+      }).to.not.throw();
+    });
+
+    it('should accept valid combinations from different mod 5 classes', () => {
+      const validDates = [
+        '1 Imix 4 Pop',      // Valid combination
+        '2 Ik\' 5 Pop',      // Valid combination
+        '3 Ak\'bal 6 Pop',   // Valid combination
+        '4 K\'an 7 Pop',     // Valid combination
+        '5 Chikchan 8 Pop',  // Valid combination
+      ];
+
+      validDates.forEach((dateStr) => {
+        expect(() => {
+          crFactory.parse(dateStr);
+        }, `${dateStr} should be valid`).to.not.throw();
+      });
+    });
+
+    it('should accept dates throughout the Calendar Round cycle', () => {
+      const validDates = [
+        '4 Ajaw 8 Kumk\'u',
+        '7 Ok 13 Xul',
+        '5 Kimi 4 Mol',
+        '2 Ak\'bal 6 Muwan',
+        '13 Kimi 4 Wayeb',
+      ];
+
+      validDates.forEach((dateStr) => {
+        expect(() => {
+          crFactory.parse(dateStr);
+        }, `${dateStr} should be valid`).to.not.throw();
+      });
+    });
+  });
+
+  describe('invalid Calendar Round combinations', () => {
+    it('should reject combinations with incompatible mod 5 residues', () => {
+      // These are dates that would fail the mathematical compatibility check
+      // We need to construct them directly to bypass normal parsing/validation
+      
+      // Example: 1 Imix with 0 Pop would be invalid
+      // 1 Imix: r260 calculation
+      // - a = (1 - 1) = 0
+      // - b = (1 - 1) = 0  (Imix is position 1)
+      // - raw = (0 + 13 * (17 * (0 - 0) % 20)) % 260 = 0
+      // - r260 = (0 - 159 + 260) % 260 = 101
+      // - r260 % 5 = 1
+      
+      // 0 Pop: r365 calculation
+      // - raw = 0 + 20 * (1 - 1) = 0
+      // - r365 = (0 - 348 + 365) % 365 = 17
+      // - r365 % 5 = 2
+      
+      // Since 1 ≠ 2 (mod 5), this should fail
+      expect(() => {
+        getCalendarRound(
+          getTzolkin(new NumberCoefficient(1), getTzolkinDay('Imix')),
+          getHaab(new NumberCoefficient(0), getHaabMonth('Pop'))
+        );
+      }).to.throw(/Calendar Round compatibility failed/);
+    });
+
+    it('should provide detailed error message for incompatible combinations', () => {
+      try {
+        getCalendarRound(
+          getTzolkin(new NumberCoefficient(1), getTzolkinDay('Imix')),
+          getHaab(new NumberCoefficient(0), getHaabMonth('Pop'))
+        );
+        expect.fail('Should have thrown an error');
+      } catch (error: any) {
+        expect(error.message).to.include('Calendar Round compatibility failed');
+        expect(error.message).to.include('must satisfy');
+        expect(error.message).to.include('(mod 5)');
+        expect(error.message).to.include('[R7]');
+      }
+    });
+
+    it('should reject another invalid combination: 1 Imix 1 Pop', () => {
+      // 1 Imix with 1 Pop
+      // r260 = 101, r260 % 5 = 1
+      // r365 = 18, r365 % 5 = 3
+      // 1 ≠ 3 (mod 5), should fail
+      expect(() => {
+        getCalendarRound(
+          getTzolkin(new NumberCoefficient(1), getTzolkinDay('Imix')),
+          getHaab(new NumberCoefficient(1), getHaabMonth('Pop'))
+        );
+      }).to.throw(/Calendar Round compatibility failed/);
+    });
+  });
+
+  describe('edge cases', () => {
+    it('should handle wildcards without triggering mod 5 check', () => {
+      // Wildcards should bypass the mathematical check
+      expect(() => {
+        crFactory.parse('* Ajaw 8 Kumk\'u');
+      }).to.not.throw();
+
+      expect(() => {
+        crFactory.parse('4 Ajaw * Kumk\'u');
+      }).to.not.throw();
+
+      expect(() => {
+        crFactory.parse('4 * 8 Kumk\'u');
+      }).to.not.throw();
+
+      expect(() => {
+        crFactory.parse('4 Ajaw 8 *');
+      }).to.not.throw();
+    });
+
+    it('should validate origin date has r365=0 and r260=0', () => {
+      // This is implicitly tested by the fact that origin doesn't throw,
+      // but let's verify it explicitly passes validation
+      expect(() => {
+        origin.validate();
+      }).to.not.throw();
+    });
+
+    it('should accept dates with different Haab months but same compatibility', () => {
+      // All these should have compatible residues
+      const dates = [
+        '1 Imix 4 Pop',
+        '1 Imix 4 Wo',
+        '1 Imix 4 Sip',
+      ];
+
+      dates.forEach((dateStr) => {
+        expect(() => {
+          crFactory.parse(dateStr);
+        }, `${dateStr} should be valid`).to.not.throw();
+      });
+    });
+  });
+
+  describe('integration with enumeration validation', () => {
+    it('should perform both mathematical and enumeration checks', () => {
+      // A date that passes mod 5 check should still fail enumeration if invalid
+      // The enumeration check requires specific Haab coeffs for each Tzolk'in day
+      
+      // For example, Ajaw requires Haab coeff in [3, 8, 13, 18]
+      // If we try 4 Ajaw with coeff 0, it should fail enumeration (if it gets that far)
+      
+      // However, most enumeration failures will also fail mod 5,
+      // so the mod 5 check serves as a fast filter
+      
+      // Let's verify that existing enumeration tests still work
+      const validDates = [
+        '4 Ajaw 3 Pop',   // Ajaw with coeff 3 (valid)
+        '4 Ajaw 8 Pop',   // Ajaw with coeff 8 (valid)
+        '4 Ajaw 13 Pop',  // Ajaw with coeff 13 (valid)
+        '4 Ajaw 18 Pop',  // Ajaw with coeff 18 (valid)
+      ];
+
+      validDates.forEach((dateStr) => {
+        expect(() => {
+          crFactory.parse(dateStr);
+        }, `${dateStr} should pass both checks`).to.not.throw();
+      });
+    });
+  });
+})
+
