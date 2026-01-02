@@ -11,7 +11,27 @@ import GregorianCalendarDate from "./western/gregorian";
 import {IPart} from "../i-part";
 
 /**
- * Long Count cycle
+ * Long Count cycle.
+ * 
+ * The Long Count is a mixed-radix numeral system used by the ancient Maya to track
+ * days elapsed since a creation-era base date. This implementation uses the standard
+ * epoch per scholarly literature [R1, R2]:
+ * 
+ * **Epoch (Maya Day Number (MDN) = 0): 13.0.0.0.0 4 Ajaw 8 Kumk'u**
+ * 
+ * This date represents the completion of the 13th bak'tun in Maya cosmology and serves
+ * as the anchor for all Long Count calculations and correlation with Western calendars.
+ * MDN is analogous to Julian Day Number, but for the Maya calendar system.
+ * 
+ * **Units (mixed-radix system):**
+ * - 1 k'in = 1 day
+ * - 1 winal = 20 k'in
+ * - 1 tun = 18 winal = 360 days
+ * - 1 k'atun = 20 tun = 7,200 days
+ * - 1 bak'tun = 20 k'atun = 144,000 days
+ * 
+ * @see Reingold, Dershowitz, & Clamen (1993) [R1]
+ * @see Martin & Skidmore (2012) [R2]
  */
 export default class LongCount extends DistanceNumber {
 
