@@ -3,7 +3,7 @@
  *
  * @param x - Value to test.
  */
-export function isNumberPrimitive(x: any): x is number {
+export function isNumberPrimitive(x: unknown): x is number {
   return typeof x === "number";
 }
 
@@ -12,6 +12,6 @@ export function isNumberPrimitive(x: any): x is number {
  *
  * @param x - Value to test.
  */
-export function isStringPrimitive(x: any): x is string {
+export function isStringPrimitive(x: unknown): x is string {
   return typeof x === "string";
 }

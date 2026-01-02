@@ -8,7 +8,7 @@ import {Wildcard} from "../wildcard";
  * Base class for operations that manipulate {@link LongCount} values.
  */
 export default abstract class LongcountOperation extends CommentWrapper implements IPart {
-  abstract equal(other: any): boolean;
+  abstract equal(other: unknown): boolean;
 
   protected readonly a: DistanceNumber
   protected readonly b: DistanceNumber

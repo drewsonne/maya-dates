@@ -42,7 +42,7 @@ export default class LongcountAddition extends LongcountOperation {
     return new this.LcClass(...newParts);
   }
 
-  equal(other: any): boolean {
+  equal(other: unknown): boolean {
     if (other instanceof LongcountAddition) {
       return this.a.equal(other.a) && this.b.equal(other.b)
     }

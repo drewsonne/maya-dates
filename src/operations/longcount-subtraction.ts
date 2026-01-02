@@ -51,7 +51,7 @@ export default class LongcountSubtraction extends LongcountOperation {
     return newLC;
   }
 
-  equal(other: any): boolean {
+  equal(other: unknown): boolean {
     if (other instanceof LongcountSubtraction) {
       return this.a.equal(other.a) && this.b.equal(other.b)
     }
