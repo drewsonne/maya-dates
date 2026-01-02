@@ -41,10 +41,11 @@ export default class FullDate extends CommentWrapper implements IPart {
 
   /**
    * Compare two full dates for equality.
+   * Two full dates are equal if both their Calendar Round and Long Count components are equal.
    */
   equal(other: IPart): boolean {
     if (other instanceof FullDate) {
-      throw new Error('Not Implemented')
+      return this.cr.equal(other.cr) && this.lc.equal(other.lc);
     }
     return false;
   }

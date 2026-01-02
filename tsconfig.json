@@ -7,9 +7,7 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "lib": [
-      "es6",
-      "ES2016.Array.Include",
-      "es2015"
+      "ES2020"
     ],
     "types": ["node"],
     "declaration": true,

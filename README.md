@@ -5,9 +5,13 @@
 A typescript library for interacting with and modifying both the Maya Long Count (LC)
 and Calendar Round (CR) dates.
 
-# Quickstart
+## Node.js Support
+
+This library supports Node.js versions 20, 22, and 24 (LTS). Development is done on Node 24.
+
+## Quickstart
 ```sh
-npm install [-g] @drewsonne/maya-dates
+npm install @drewsonne/maya-dates
 ```
 
 ```typescript
@@ -78,6 +82,21 @@ Once a full date object has been created, you can either add an integer to a ful
 using `shift(number)`, or filling in missing values in wildcards. The
 `operations` module provides operators to expand a fullDate with a wildcard into all possible
 values for dates matching that wildcard pattern.
+
+## Development
+
+### Building
+```sh
+npm run build          # Compile TypeScript to JavaScript
+npm run build:check    # Type check without emitting files
+npm run build:docs     # Generate API documentation
+```
+
+### Testing
+```sh
+npm test               # Run all tests
+npm run test:coverage  # Run tests with coverage report
+```
 
 ## Documentation
 

@@ -46,6 +46,6 @@ export class Comment {
 /**
  * Type guard to check if a value is a {@link Comment} instance.
  */
-export function isComment(c: any): c is Comment {
+export function isComment(c: unknown): c is Comment {
   return c instanceof Comment
 }
