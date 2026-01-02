@@ -194,7 +194,7 @@ Use wildcards to represent partial or unknown dates:
 import { 
   LongCountFactory, 
   isWildcard,
-  WildcardExpansion 
+  LongCountWildcard 
 } from '@drewsonne/maya-dates';
 
 // Create a partial date with a wildcard
@@ -206,8 +206,8 @@ if (isWildcard(partialLc.kIn)) {
 }
 
 // Expand wildcards to get all possible dates
-const expansion = new WildcardExpansion(partialLc);
-const allDates = expansion.run();
+const wildcard = new LongCountWildcard(partialLc);
+const allDates = wildcard.run();
 console.log(`Found ${allDates.length} possible dates`);
 ```
 
