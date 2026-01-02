@@ -27,7 +27,7 @@
     "@types/chai": "~4.3",
     "@types/mocha": "~9.1",
     "@types/node": "~20.19.27",
-    "chai": "~4.3",
+    "chai": "~4.5",
     "mocha": "~11.7",
     "nyc": "~15.1",
     "regenerator-runtime": "~0.14",
