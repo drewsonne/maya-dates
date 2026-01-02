@@ -32,8 +32,8 @@
     "nyc": "~15.1",
     "regenerator-runtime": "~0.13",
     "ts-node": "~10.5",
-    "typedoc": "^0.24.8",
-    "typedoc-plugin-markdown": "^3.17.1",
+    "typedoc": "^0.28.15",
+    "typedoc-plugin-markdown": "^4.9.0",
     "typescript": "~5.9.0"
   },
   "dependencies": {
