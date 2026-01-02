@@ -2,7 +2,7 @@ import {getTzolkinDay, TzolkinDay} from "../../cr/component/tzolkinDay";
 
 import {expect} from 'chai'
 import 'mocha'
-import {getTzolkin} from "../../cr/tzolkin";
+import {getTzolkin, Tzolkin} from "../../cr/tzolkin";
 import NumberCoefficient from "../../cr/component/numberCoefficient";
 
 describe('increment tzolkin days', () => {
@@ -99,4 +99,74 @@ describe('shift tzolkins', () => {
 it('render tzolkin fullDate', () => {
   const haab = getTzolkin(new NumberCoefficient(5), getTzolkinDay('Imix'));
   expect(haab.toString()).to.eq('5 Imix');
+});
+
+describe('fromDayNumber', () => {
+  it('should create epoch date (4 Ajaw) for day 0', () => {
+    const tzolkin = getTzolkin(new NumberCoefficient(4), getTzolkinDay('Ajaw'));
+    const fromDay = Tzolkin.fromDayNumber(0);
+    expect(fromDay.equal(tzolkin)).to.be.true;
+  });
+
+  it('should handle positive day numbers', () => {
+    // Day 1 should be 5 Imix (4 Ajaw + 1 day)
+    const day1 = Tzolkin.fromDayNumber(1);
+    const expected1 = getTzolkin(new NumberCoefficient(5), getTzolkinDay('Imix'));
+    expect(day1.equal(expected1)).to.be.true;
+
+    // Day 20 should be 11 Ajaw
+    const day20 = Tzolkin.fromDayNumber(20);
+    const expected20 = getTzolkin(new NumberCoefficient(11), getTzolkinDay('Ajaw'));
+    expect(day20.equal(expected20)).to.be.true;
+
+    // Day 100 should be 13 Ajaw
+    const day100 = Tzolkin.fromDayNumber(100);
+    const expected100 = getTzolkin(new NumberCoefficient(13), getTzolkinDay('Ajaw'));
+    expect(day100.equal(expected100)).to.be.true;
+  });
+
+  it('should handle negative day numbers', () => {
+    // Day -1 should be 3 Kawak (4 Ajaw - 1 day)
+    const dayMinus1 = Tzolkin.fromDayNumber(-1);
+    const expected1 = getTzolkin(new NumberCoefficient(3), getTzolkinDay('Kawak'));
+    expect(dayMinus1.equal(expected1)).to.be.true;
+
+    // Day -20 should be 10 Ajaw
+    const dayMinus20 = Tzolkin.fromDayNumber(-20);
+    const expected20 = getTzolkin(new NumberCoefficient(10), getTzolkinDay('Ajaw'));
+    expect(dayMinus20.equal(expected20)).to.be.true;
+  });
+
+  it('should handle boundary values (multiples of 260)', () => {
+    // Day 260 should be the same as day 0 (full cycle)
+    const day260 = Tzolkin.fromDayNumber(260);
+    const day0 = Tzolkin.fromDayNumber(0);
+    expect(day260.equal(day0)).to.be.true;
+
+    // Day -260 should also be the same as day 0
+    const dayMinus260 = Tzolkin.fromDayNumber(-260);
+    expect(dayMinus260.equal(day0)).to.be.true;
+
+    // Day 520 (2 full cycles)
+    const day520 = Tzolkin.fromDayNumber(520);
+    expect(day520.equal(day0)).to.be.true;
+  });
+
+  it('should match results from shift method (round-trip validation)', () => {
+    const epoch = getTzolkin(new NumberCoefficient(4), getTzolkinDay('Ajaw'));
+
+    // Forward shifts
+    for (let days of [1, 5, 13, 20, 100, 177, 259]) {
+      const fromShift = epoch.shift(days);
+      const fromDayNumber = Tzolkin.fromDayNumber(days);
+      expect(fromDayNumber.equal(fromShift)).to.be.true;
+    }
+
+    // Backward shifts
+    for (let days of [-1, -5, -13, -20, -100, -259]) {
+      const fromShift = epoch.shift(days);
+      const fromDayNumber = Tzolkin.fromDayNumber(days);
+      expect(fromDayNumber.equal(fromShift)).to.be.true;
+    }
+  });
 });
