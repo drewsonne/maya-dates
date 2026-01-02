@@ -1,7 +1,7 @@
 import 'mocha'
 import {expect} from 'chai'
 import {getHaabMonth, HaabMonth} from "../../cr/component/haabMonth";
-import {getHaab} from "../../cr/haab";
+import {getHaab, Haab} from "../../cr/haab";
 import NumberCoefficient from "../../cr/component/numberCoefficient";
 import {Wildcard} from "../../wildcard";
 
@@ -88,6 +88,107 @@ describe('shift haab', () => {
         expect(newHaab.coeff.value).to.equal(expected[0]);
       }
       expect(newHaab.month).to.equal(expected[1]);
+    });
+  });
+});
+
+describe('fromDayNumber', () => {
+  it('should handle day 0 (epoch)', () => {
+    const haab = Haab.fromDayNumber(0);
+    expect(haab.coeff).to.be.an.instanceOf(NumberCoefficient);
+    if (haab.coeff instanceof NumberCoefficient) {
+      expect(haab.coeff.value).to.equal(8);
+    }
+    expect(haab.month).to.equal(getHaabMonth('Kumk\'u'));
+  });
+
+  it('should handle negative day numbers', () => {
+    // -1 day should be 7 Kumk'u
+    const haab1 = Haab.fromDayNumber(-1);
+    expect(haab1.coeff).to.be.an.instanceOf(NumberCoefficient);
+    if (haab1.coeff instanceof NumberCoefficient) {
+      expect(haab1.coeff.value).to.equal(7);
+    }
+    expect(haab1.month).to.equal(getHaabMonth('Kumk\'u'));
+
+    // -365 days should cycle back to 8 Kumk'u
+    const haab365 = Haab.fromDayNumber(-365);
+    expect(haab365.coeff).to.be.an.instanceOf(NumberCoefficient);
+    if (haab365.coeff instanceof NumberCoefficient) {
+      expect(haab365.coeff.value).to.equal(8);
+    }
+    expect(haab365.month).to.equal(getHaabMonth('Kumk\'u'));
+  });
+
+  it('should handle large positive day numbers', () => {
+    // 365 days should cycle back to 8 Kumk'u
+    const haab365 = Haab.fromDayNumber(365);
+    expect(haab365.coeff).to.be.an.instanceOf(NumberCoefficient);
+    if (haab365.coeff instanceof NumberCoefficient) {
+      expect(haab365.coeff.value).to.equal(8);
+    }
+    expect(haab365.month).to.equal(getHaabMonth('Kumk\'u'));
+
+    // 1000 days
+    const haab1000 = Haab.fromDayNumber(1000);
+    expect(haab1000.coeff).to.be.an.instanceOf(NumberCoefficient);
+    expect(haab1000.month).to.be.an.instanceOf(HaabMonth);
+
+    // 10000 days (multiple cycles)
+    const haab10000 = Haab.fromDayNumber(10000);
+    expect(haab10000.coeff).to.be.an.instanceOf(NumberCoefficient);
+    expect(haab10000.month).to.be.an.instanceOf(HaabMonth);
+  });
+
+  it('should handle dates that fall in Wayeb\'', () => {
+    // Wayeb' is month 19 (index 18 in 0-based), with days 0-4
+    // Epoch is 8 Kumk'u (month 18, day 8)
+    // Day-of-year for epoch: 8 + 20*(18-1) = 348
+    // Wayeb' starts at day-of-year: 0 + 20*(19-1) = 360
+    // Days from epoch to start of Wayeb': 360 - 348 = 12
+    
+    // Day that results in 0 Wayeb'
+    const haabWayeb0 = Haab.fromDayNumber(12);
+    expect(haabWayeb0.coeff).to.be.an.instanceOf(NumberCoefficient);
+    if (haabWayeb0.coeff instanceof NumberCoefficient) {
+      expect(haabWayeb0.coeff.value).to.equal(0);
+    }
+    expect(haabWayeb0.month).to.equal(getHaabMonth('Wayeb'));
+
+    // Day that results in 4 Wayeb' (last day of Wayeb')
+    // 12 days to reach 0 Wayeb' + 4 days = 16
+    const haabWayeb4 = Haab.fromDayNumber(16);
+    expect(haabWayeb4.coeff).to.be.an.instanceOf(NumberCoefficient);
+    if (haabWayeb4.coeff instanceof NumberCoefficient) {
+      expect(haabWayeb4.coeff.value).to.equal(4);
+    }
+    expect(haabWayeb4.month).to.equal(getHaabMonth('Wayeb'));
+
+    // Verify Wayeb' after a full cycle (365 days + 12 days to Wayeb')
+    const haabWayebCycle = Haab.fromDayNumber(365 + 12);
+    expect(haabWayebCycle.coeff).to.be.an.instanceOf(NumberCoefficient);
+    if (haabWayebCycle.coeff instanceof NumberCoefficient) {
+      expect(haabWayebCycle.coeff.value).to.equal(0);
+    }
+    expect(haabWayebCycle.month).to.equal(getHaabMonth('Wayeb'));
+  });
+
+  it('should produce same result as shift method', () => {
+    const epoch = getHaab(new NumberCoefficient(8), getHaabMonth('Kumk\'u'));
+    
+    // Test various shifts match fromDayNumber
+    const testDays = [0, 1, 10, 100, 365, 1000];
+    testDays.forEach(days => {
+      const fromShift = epoch.shift(days);
+      const fromDayNumber = Haab.fromDayNumber(days);
+      
+      expect(fromDayNumber.coeff).to.be.an.instanceOf(NumberCoefficient);
+      expect(fromShift.coeff).to.be.an.instanceOf(NumberCoefficient);
+      
+      if (fromDayNumber.coeff instanceof NumberCoefficient && fromShift.coeff instanceof NumberCoefficient) {
+        expect(fromDayNumber.coeff.value).to.equal(fromShift.coeff.value, `Day ${days} coefficient mismatch`);
+      }
+      expect(fromDayNumber.month).to.equal(fromShift.month, `Day ${days} month mismatch`);
     });
   });
 });

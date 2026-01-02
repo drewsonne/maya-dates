@@ -1,13 +1,17 @@
 # @drewsonne/maya-dates
 
-![Documentation Coverage](./docs/badge.svg)
+![Documentation Coverage](https://drewsonne.github.io/maya-dates/badge.svg)
 
 A typescript library for interacting with and modifying both the Maya Long Count (LC)
 and Calendar Round (CR) dates.
 
-# Quickstart
+## Node.js Support
+
+This library supports Node.js versions 20, 22, and 24 (LTS). Development is done on Node 24.
+
+## Quickstart
 ```sh
-npm install [-g] @drewsonne/maya-dates
+npm install @drewsonne/maya-dates
 ```
 
 ```typescript
@@ -25,12 +29,10 @@ Most implementations will consist of creating a fullDate, and passing it to an o
 ### Date Creation
 Creating a fullDate can be done either by:
 
- - using a factory class ([LongCountFactory](https://drewsonne.github.io/maya-dates/class/src/factory/long-count.js~LongCountFactory.html),
- [CalendarRoundFactory](https://drewsonne.github.io/maya-dates/class/src/factory/calendar-round.js~CalendarRoundFactory.html),
- [FullDateFactory](https://drewsonne.github.io/maya-dates/class/src/factory/full-date.js~FullDateFactory.html))
- and calling its `parse(raw_string)` function, where `raw_string` is a LC, CR,
- or CR and LC combination encoded as a string. To specify missing values in a
- fullDate, using `*`. For example,
+ - using a factory class (`LongCountFactory`, `CalendarRoundFactory`, `FullDateFactory`)
+  and calling its `parse(raw_string)` function, where `raw_string` is a LC, CR,
+  or CR and LC combination encoded as a string. To specify missing values in a
+  fullDate, using `*`. For example,
 
 ```typescript
 import {Wildcard, isWildcard} from "@drewsonne/maya-dates/lib/wildcard"
@@ -49,9 +51,8 @@ console.log(`CR: ${isWildcard(partial_cr.haab.coeff)}`);
 console.log(`Full Date: ${isWildcard(partial_date.lc.kIn)}`);
 ```
 
- - passing explicit values into a model factory or class ([getCalendarRound](https://drewsonne.github.io/maya-dates/docs/function/index.html#static-function-getCalendarRound),
- [LongCount](https://drewsonne.github.io/maya-dates/class/src/lc/long-count.js~LongCount.html),
- [FullDate](https://drewsonne.github.io/maya-dates/docs/class/src/full-date.js~FullDate.html)).
+ - passing explicit values into a model factory or class (`getCalendarRound`,
+ `LongCount`, `FullDate`).
 
 ```javascript
 import {getCalendarRound} from "@drewsonne/maya-dates/lib/cr/calendar-round";
@@ -79,12 +80,29 @@ console.log(`${fullDate}`);
 ### Operations
 Once a full date object has been created, you can either add an integer to a fullDate
 using `shift(number)`, or filling in missing values in wildcards. The
-[`operations`](https://drewsonne.github.io/maya-dates/identifiers.html#operations)
-namespace provides operators to expand a fullDate with a wildcard into all possible
+`operations` module provides operators to expand a fullDate with a wildcard into all possible
 values for dates matching that wildcard pattern.
+
+## Development
+
+See [docs/WORKFLOW.md](docs/WORKFLOW.md) for the development workflow and contribution guidelines.
+
+### Building
+```sh
+npm run build          # Compile TypeScript to JavaScript
+npm run build:check    # Type check without emitting files
+npm run build:docs     # Generate API documentation
+```
+
+### Testing
+```sh
+npm test               # Run all tests
+npm run test:coverage  # Run tests with coverage report
+```
 
 ## Documentation
 
-Full documentation and reference can be found at
+Full API documentation is generated with **TypeDoc** and published via GitHub Pages.
+You can browse the documentation at
 [https://drewsonne.github.io/maya-dates/](https://drewsonne.github.io/maya-dates/).
 

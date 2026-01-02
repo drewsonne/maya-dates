@@ -1,5 +1,5 @@
 /**
- * Operation to diff two Long Count Dates
+ * Operation to subtract one {@link LongCount} from another.
  */
 import LongCount from "../lc/long-count";
 import LongcountOperation from "./longcount-operation";
@@ -8,8 +8,7 @@ import {IPart} from "../i-part";
 export default class LongcountSubtraction extends LongcountOperation {
 
   /**
-   * Return the diff result of this Subtraction operator.
-   * @return {LongCount}
+   * Calculate the resulting {@link LongCount} difference.
    */
   equals(): IPart {
     const [aParts, bParts, isInverted] = this.buildOperationComponents()
@@ -34,8 +33,10 @@ export default class LongcountSubtraction extends LongcountOperation {
       carry = 0;
       while (newParts[i] < 0) {
         carry -= 1;
-        const nextPositionMonthLength = (i === 1) ? 15 : 20;
-        newParts[i] += nextPositionMonthLength;
+        // Per spec [R1, R2]: 1 tun = 18 winal (not 15!)
+        // Position 0 = k'in (base 20), Position 1 = winal (base 18), Position 2+ = base 20
+        const nextPositionBase = (i === 1) ? 18 : 20;
+        newParts[i] += nextPositionBase;
       }
       i += 1;
     }
@@ -52,7 +53,7 @@ export default class LongcountSubtraction extends LongcountOperation {
     return newLC;
   }
 
-  equal(other: any): boolean {
+  equal(other: unknown): boolean {
     if (other instanceof LongcountSubtraction) {
       return this.a.equal(other.a) && this.b.equal(other.b)
     }

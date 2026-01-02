@@ -33,6 +33,12 @@ export function getHaab(coeff: ICoefficient, month: Wildcard | HaabMonth): Haab 
  *
  */
 export class Haab extends CommentWrapper implements IPart {
+  /**
+   * Haab' epoch constants per spec [R1] §3.2:
+   * The Long Count epoch (13.0.0.0.0) is Haab' 8 Kumk'u
+   */
+  private static readonly EPOCH_DAY = 8;
+  private static readonly EPOCH_MONTH_INDEX = 18; // Kumk'u is month 18
   coeff: ICoefficient;
   month: Wildcard | HaabMonth;
   private nextHolder: null | Haab;
@@ -89,6 +95,34 @@ export class Haab extends CommentWrapper implements IPart {
   }
 
   /**
+   * Create a Haab' date from a day number (days since epoch) using direct formula per [R1] §3.3.
+   * 
+   * Formula:
+   * - H = (d + haabEpochDay + 20·(haabEpochMonth − 1)) mod 365
+   * - monthIndex = ⌊H / 20⌋ + 1
+   * - day = H mod 20
+   * 
+   * @param {number} dayNumber - Days since Long Count epoch (Maya Day Number)
+   * @return {Haab}
+   */
+  static fromDayNumber(dayNumber: number): Haab {
+    // Calculate day-of-year index per spec [R1] §3.3
+    // Use ((x % n) + n) % n to ensure result is always in [0, n-1] for negative dayNumbers
+    const H = ((dayNumber + Haab.EPOCH_DAY + 20 * (Haab.EPOCH_MONTH_INDEX - 1)) % 365 + 365) % 365;
+    
+    const monthIndex = Math.floor(H / 20) + 1;
+    const day = H % 20;
+    
+    // Note: Given the above formula, when monthIndex === 19 (Wayeb'), H ∈ [360, 364],
+    // so day = H % 20 ∈ [0, 4]. Thus Wayeb' is always in its valid range by construction.
+    
+    return getHaab(
+      new NumberCoefficient(day),
+      getHaabMonth(monthIndex)
+    );
+  }
+
+  /**
    * Return the next day in the Haab cycle
    * @returns {Haab}
    */
@@ -119,22 +153,37 @@ export class Haab extends CommentWrapper implements IPart {
   }
 
   /**
-   * Move this date through the Haab cycle.
-   * @param {number} numDays
+   * Move this date through the Haab cycle using direct formula per [R1] §3.3.
+   * 
+   * Formula:
+   * - H = (currentH + days) mod 365, where currentH is the day-of-year index
+   * - monthIndex = ⌊H / 20⌋ + 1
+   * - day = H mod 20
+   * 
+   * @param {number} numDays - Number of days to shift (positive for forward, negative for backward)
    * @return {Haab}
    */
   shift(numDays: number): Haab {
-    if (!isWildcard(this.month)) {
-      if (this.coeff instanceof NumberCoefficient) {
-        const incremental = numDays % 365;
-        if (incremental === 0) {
-          return this;
-        }
-
-        return this.nextCalculator().shift(incremental - 1);
-      } else {
-        throw new Error("Coefficient is not an integer")
+    if (!isWildcard(this.month) && this.coeff instanceof NumberCoefficient && this.month instanceof HaabMonth) {
+      const incremental = numDays % 365;
+      if (incremental === 0) {
+        return this;
       }
+
+      // Calculate current day-of-year index
+      const currentH = this.coeff.value + 20 * (this.month.position - 1);
+      
+      // Apply shift using direct formula per spec [R1] §3.3
+      // Use ((x % n) + n) % n to ensure result is always in [0, n-1] for negative increments
+      const newH = ((currentH + incremental) % 365 + 365) % 365;
+      const newMonthIndex = Math.floor(newH / 20) + 1;
+      const newDay = newH % 20;
+      
+
+      return getHaab(
+        new NumberCoefficient(newDay),
+        getHaabMonth(newMonthIndex)
+      );
     } else {
       throw new Error("Can not shift Haab date with wildcard")
     }

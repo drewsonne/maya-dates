@@ -75,7 +75,13 @@ export class Tzolkin extends CommentWrapper implements IPart {
    * @return {boolean}
    */
   validate() {
-    this.coeff.validate()
+    // Validate Tzolk'in coefficient range (1-13) per spec [R1]
+    if (this.coeff instanceof NumberCoefficient) {
+      if (this.coeff.value > 13 || this.coeff.value < 1) {
+        throw new Error('Tzolk\'in coefficient must be between 1 and 13 inclusive.');
+      }
+    }
+    
     if (this.day === undefined) {
       throw new Error('Tzolk\'in day must be provided');
     }

@@ -13,11 +13,13 @@ export default class NumberCoefficient implements ICoefficient {
     return false;
   }
 
+  /**
+   * Validate the coefficient value. Override in context-specific usage.
+   * By default, no validation is performed - specific calendar contexts
+   * (Tzolk'in, Haab', etc.) should provide their own validation.
+   * @return {boolean} Always returns true in base implementation
+   */
   validate(): boolean {
-    if (this.value > 13 || this.value < 1) {
-      throw new Error('Tzolk\'in coefficient must inclusively between 1 and 13.');
-    }
-
     return true;
   }
 

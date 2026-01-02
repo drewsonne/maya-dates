@@ -4,18 +4,20 @@ import DistanceNumber from "../lc/distance-number";
 import ILongcount from "./ILongcount";
 import {Wildcard} from "../wildcard";
 
+/**
+ * Base class for operations that manipulate {@link LongCount} values.
+ */
 export default abstract class LongcountOperation extends CommentWrapper implements IPart {
-  abstract equal(other: any): boolean;
+  abstract equal(other: unknown): boolean;
 
   protected readonly a: DistanceNumber
   protected readonly b: DistanceNumber
   protected readonly LcClass: ILongcount
 
   /**
-   * @param {object} lcClass - Special param to pass the LongCount class into this operator to
-   * avoid circular require.
-   * @param {LongCount} a - First date to diff
-   * @param {LongCount} b - Second date to diff
+   * @param lcClass - LongCount constructor passed in to avoid circular dependencies.
+   * @param a - First operand.
+   * @param b - Second operand.
    */
   constructor(lcClass: ILongcount, a: DistanceNumber, b: DistanceNumber) {
     super();

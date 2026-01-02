@@ -1,5 +1,5 @@
 /**
- * Operation to sum two Long Count Dates
+ * Operation to sum two {@link LongCount} dates.
  */
 import LongCount from "../lc/long-count";
 import LongcountOperation from "./longcount-operation";
@@ -7,8 +7,7 @@ import LongcountOperation from "./longcount-operation";
 export default class LongcountAddition extends LongcountOperation {
 
   /**
-   * Return the sum result of this Addition operator.
-   * @return {LongCount}
+   * Calculate the resulting {@link LongCount}.
    */
   equals() {
     const [aParts, bParts, isInverted] = this.buildOperationComponents()
@@ -32,10 +31,12 @@ export default class LongcountAddition extends LongcountOperation {
     while (i < newParts.length || carry > 0) {
       newParts[i] += carry;
       carry = 0;
-      const monthLength = (i === 1) ? 15 : 20;
-      if (newParts[i] >= monthLength) {
-        const positionValue = newParts[i] % monthLength;
-        carry = Math.floor(newParts[i] / monthLength);
+      // Per spec [R1, R2]: 1 tun = 18 winal (not 15!)
+      // Position 0 = k'in (base 20), Position 1 = winal (base 18), Position 2+ = base 20
+      const positionBase = (i === 1) ? 18 : 20;
+      if (newParts[i] >= positionBase) {
+        const positionValue = newParts[i] % positionBase;
+        carry = Math.floor(newParts[i] / positionBase);
         newParts[i] = positionValue;
       }
       i += 1;
@@ -43,7 +44,7 @@ export default class LongcountAddition extends LongcountOperation {
     return new this.LcClass(...newParts);
   }
 
-  equal(other: any): boolean {
+  equal(other: unknown): boolean {
     if (other instanceof LongcountAddition) {
       return this.a.equal(other.a) && this.b.equal(other.b)
     }

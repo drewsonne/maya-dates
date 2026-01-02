@@ -32,3 +32,12 @@ it('compute double wildcard', () => {
   const potentialLcs = new LongCountWildcard(lc).run();
   expect(potentialLcs).to.have.lengthOf(300);
 });
+
+it('compare longcount wildcards', () => {
+  const f = new LongCountFactory();
+  const a = new LongCountWildcard(f.parse('1.2.3.4.5'));
+  const b = new LongCountWildcard(f.parse('1.2.3.4.5'));
+  const c = new LongCountWildcard(f.parse('1.2.3.4.6'));
+  expect(a.equal(b)).to.be.true;
+  expect(a.equal(c)).to.be.false;
+});

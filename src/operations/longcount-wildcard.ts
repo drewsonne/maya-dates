@@ -3,14 +3,13 @@ import {IPart} from "../i-part";
 import {CommentWrapper} from "../comment-wrapper";
 
 /**
- * Given a Long Count with a wildcard, calculate all possible matching fully
- * qualified Long Counts.
+ * Expand a {@link LongCount} containing wildcards into all valid dates.
  */
 export default class LongCountWildcard extends CommentWrapper implements IPart {
   private readonly lc: LongCount;
 
   /**
-   * @param {LongCount} lc
+   * @param lc - Partial Long Count to expand.
    */
   constructor(lc: LongCount) {
     super();
@@ -19,14 +18,13 @@ export default class LongCountWildcard extends CommentWrapper implements IPart {
 
   equal(other: IPart): boolean {
     if (other instanceof LongCountWildcard) {
-      return other.lc.equal(other.lc)
+      return this.lc.equal(other.lc)
     }
     return false
   }
 
   /**
-   * Run calculation to find all fully qualified Long Counts
-   * @return {LongCount[]}
+   * Generate all fully qualified Long Counts matching the pattern.
    */
   run(): LongCount[] {
     return this.lc.map(

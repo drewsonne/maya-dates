@@ -1,7 +1,17 @@
-export function isNumberPrimitive(x: any): x is number {
+/**
+ * Determine if a value is a number primitive.
+ *
+ * @param x - Value to test.
+ */
+export function isNumberPrimitive(x: unknown): x is number {
   return typeof x === "number";
 }
 
-export function isStringPrimitive(x: any): x is string {
+/**
+ * Determine if a value is a string primitive.
+ *
+ * @param x - Value to test.
+ */
+export function isStringPrimitive(x: unknown): x is string {
   return typeof x === "string";
 }

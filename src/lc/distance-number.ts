@@ -33,7 +33,8 @@ export default class DistanceNumber extends CommentWrapper implements IPart {
      * @private
      * @type {number}
      */
-    this.sign = (this.parts[this.parts.length - 1] < 0) ? -1 : 1;
+    const lastPart = this.parts[this.parts.length - 1];
+    this.sign = (typeof lastPart === 'number' && lastPart < 0) ? -1 : 1;
     if (this.isNegative) {
       let lastComponent = this.parts[this.parts.length - 1]
       if (typeof lastComponent === 'number') {
@@ -385,7 +386,14 @@ export default class DistanceNumber extends CommentWrapper implements IPart {
   }
 
   /**
-   * Make sure the elements of the Long Count do not exceed
+   * Make sure the elements of the Long Count do not exceed their valid ranges.
+   * Converts the Long Count to total days, then decomposes back to normalized
+   * form with proper carry/borrow per the mixed-radix system [R1, R2]:
+   * - k'in ∈ [0,19]
+   * - winal ∈ [0,17] (18 winal = 1 tun)
+   * - tun ∈ [0,19]
+   * - k'atun ∈ [0,19]
+   * - bak'tun and higher are unbounded
    * @return {DistanceNumber}
    */
   normalise(): DistanceNumber {
@@ -400,7 +408,7 @@ export default class DistanceNumber extends CommentWrapper implements IPart {
     norm.kalabtun = (totalKIn - norm.getPosition()) / 57600000 % 20;
     norm.kinchiltun = (totalKIn - norm.getPosition()) / 1152000000 % 20;
     const foundNegative = norm.parts.reduce(
-      (found, part) => found || (part < 0),
+      (found, part) => found || (typeof part === 'number' && part < 0),
       false,
     );
     this.sign = foundNegative ? -1 : 1;
@@ -411,7 +419,32 @@ export default class DistanceNumber extends CommentWrapper implements IPart {
         throw new Error("part is not number")
       }
     });
+    
+    // Validate normalized component ranges per spec [R1, R2]
+    this.validateNormalizedRanges();
+    
     return this;
+  }
+
+  /**
+   * Validate that all components are within their normalized ranges per [R1, R2].
+   * @throws {Error} If any component is out of range
+   * @private
+   */
+  private validateNormalizedRanges(): void {
+    if (typeof this.kIn === 'number' && (this.kIn < 0 || this.kIn > 19)) {
+      throw new Error(`K'in must be in range [0,19], got ${this.kIn}`);
+    }
+    if (typeof this.winal === 'number' && (this.winal < 0 || this.winal > 17)) {
+      throw new Error(`Winal must be in range [0,17] (18 winal = 1 tun), got ${this.winal}`);
+    }
+    if (typeof this.tun === 'number' && (this.tun < 0 || this.tun > 19)) {
+      throw new Error(`Tun must be in range [0,19], got ${this.tun}`);
+    }
+    if (typeof this.kAtun === 'number' && (this.kAtun < 0 || this.kAtun > 19)) {
+      throw new Error(`K'atun must be in range [0,19], got ${this.kAtun}`);
+    }
+    // Note: bak'tun and higher units are unbounded in principle per [R1, R2]
   }
 
   /**
