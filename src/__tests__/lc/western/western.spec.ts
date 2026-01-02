@@ -39,8 +39,8 @@ const dates: MockDateCorrelation[] = [
   new MockDateCorrelation('12.4.2.11.8', '28/2/1700 CE', '18/2/1700 CE', 2342031, 1757748),
   new MockDateCorrelation('12.1.1.1.1', '21/6/1639 CE', '11/6/1639 CE', 2319864, 1735581),
   new MockDateCorrelation('11.20.1.1.1', '4/10/1619 CE', '24/9/1619 CE', 2312664, 1728381),
-  new MockDateCorrelation('11.18.3.9.18', '15/10/1582 CE*', '15/10/1582 CE*', 2299161, 1714878), // Julian to Gregorian Switch
-  new MockDateCorrelation('11.18.3.9.17', '4/10/1582 CE*', '4/10/1582 CE*', 2299160, 1714877), // Julian to Gregorian Switch
+  new MockDateCorrelation('11.18.3.9.18', '15/10/1582 CE', '15/10/1582 CE', 2299161, 1714878), // Julian to Gregorian Switch
+  new MockDateCorrelation('11.18.3.9.17', '4/10/1582 CE', '4/10/1582 CE', 2299160, 1714877), // Julian to Gregorian Switch
   new MockDateCorrelation('11.17.10.1.1', '28/6/1569 CE', '18/6/1569 CE', 2294304, 1710021),
   new MockDateCorrelation('11.16.1.1.1', '27/11/1540 CE', '17/11/1540 CE', 2283864, 1699581),
   new MockDateCorrelation('11.15.1.1.1', '12/3/1521 CE', '2/3/1521 CE', 2276664, 1692381),
@@ -75,21 +75,14 @@ describe('long-count to gregorian/julian', () => {
 describe('gregorian to longcount', () => {
   const gregorianFactory = new GregorianFactory();
   dates.forEach((dc) => {
-    // Skip test cases where GregorianFactory offset calculation needs refinement
-    // See PR #54 for work-in-progress note
-    const skipCases = ['6.0.0.0.0', '11.18.3.9.18', '11.18.3.9.17', '7.1.1.1.1', '6.1.1.1.1'];
-    if (skipCases.includes(dc.lc)) {
-      it.skip(`g(${dc.gregorian}) -> correct date representation (skipped: offset calculation needs refinement)`);
-    } else {
-      it(`g(${dc.gregorian}) -> correct date representation`, () => {
-        const g = gregorianFactory.parse(dc.gregorian);
-        // Verify that the parsed date matches the expected Gregorian date string
-        // The toString() method should return the same format as the input (without asterisk if not threshold)
-        const expectedDate = dc.gregorian.replace('*', '').trim();
-        const actualDate = `${g}`.trim();
-        expect(actualDate).to.eq(expectedDate);
-      });
-    }
+    it(`g(${dc.gregorian}) -> correct date representation`, () => {
+      const g = gregorianFactory.parse(dc.gregorian);
+      // Verify that the parsed date matches the expected Gregorian date string
+      // The toString() method should return the same format as the input (without asterisk if not threshold)
+      const expectedDate = dc.gregorian.replace('*', '').trim();
+      const actualDate = `${g}`.trim();
+      expect(actualDate).to.eq(expectedDate);
+    });
   });
 });
 
@@ -122,17 +115,19 @@ describe('longcount to mayadate', () => {
 
 describe('JSON Dataset Correlation Tests', () => {
   const jsonGmtData = getGMTCorrelationData();
-  
+
   describe('Direct source correlations validation', () => {
     const directSourceData = getDirectSourceData();
-    
+
     directSourceData.forEach((correlation: CorrelationData) => {
       it(`should validate ${correlation.maya_long_count} from source data`, () => {
-        const lc = lcFactory.parse(correlation.maya_long_count).setCorrelationConstant(corr);
-        
+        // Use the correlation constant from the JSON data, not the hardcoded GMT
+        const correlationConstant = getCorrelationConstant(correlation.correlation_jdn);
+        const lc = lcFactory.parse(correlation.maya_long_count).setCorrelationConstant(correlationConstant);
+
         // Validate the Long Count parses correctly
         expect(lc).to.not.equal(null);
-        
+
         // This is a basic test - you may need to adjust date format comparison
         // based on how your library formats dates vs the JSON ISO format
         if (correlation.western_calendar === 'gregorian') {
@@ -146,17 +141,20 @@ describe('JSON Dataset Correlation Tests', () => {
   });
 
   describe('Sample correlations from JSON dataset', () => {
-    const sampleData = jsonGmtData;
-    
+    // Filter to only Gregorian calendar dates
+    const sampleData = jsonGmtData.filter(d => d.western_calendar === 'gregorian');
+
     sampleData.forEach((correlation: CorrelationData) => {
       it(`should process ${correlation.maya_long_count} -> ${correlation.western_date}`, () => {
-        const lc = lcFactory.parse(correlation.maya_long_count).setCorrelationConstant(corr);
-        
+        // Use the correlation constant from the JSON data
+        const correlationConstant = getCorrelationConstant(correlation.correlation_jdn);
+        const lc = lcFactory.parse(correlation.maya_long_count).setCorrelationConstant(correlationConstant);
+
         // Basic validation that the Long Count parses and produces a date
         expect(`${lc.gregorian}`).to.be.a('string');
         expect(lc.julianDay).to.be.a('number');
         expect(lc.getPosition()).to.be.a('number');
-        
+
         // Extract year for comparison (adjust format as needed)
         const expectedYear = correlation.western_date.split('-')[0];
         const gregorianDate = `${lc.gregorian}`;
