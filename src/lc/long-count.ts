@@ -39,6 +39,120 @@ export default class LongCount extends DistanceNumber {
     return new LongCount(...dn.parts)
   }
 
+  /**
+   * Create a Long Count from a Gregorian calendar date.
+   * 
+   * Converts a Gregorian date to the corresponding Maya Long Count date using
+   * the specified correlation constant. The default correlation (584283, original GMT)
+   * is used unless specified otherwise.
+   * 
+   * @param gregorian - The Gregorian calendar date to convert
+   * @param correlation - Correlation constant for alignment (default: 584283 GMT)
+   * @return A Long Count instance representing the same date
+   * @example
+   * ```typescript
+   * const gregorianFactory = new GregorianFactory();
+   * const gregorian = gregorianFactory.parse('21/12/2012 CE');
+   * const lc = LongCount.fromGregorian(gregorian);
+   * console.log(lc.toString()); // "13. 0. 0. 0. 0"
+   * ```
+   */
+  static fromGregorian(
+    gregorian: GregorianCalendarDate,
+    correlation: CorrelationConstant = getCorrelationConstant(584283)
+  ): LongCount {
+    return LongCount.fromJulianDay(gregorian.julianDay, correlation);
+  }
+
+  /**
+   * Create a Long Count from a Julian Day Number.
+   * 
+   * Converts a Julian Day Number to the corresponding Maya Long Count date using
+   * the specified correlation constant. The Maya Day Number (MDN) is calculated
+   * as: MDN = JDN - correlation_constant.
+   * 
+   * @param julianDay - The Julian Day Number to convert
+   * @param correlation - Correlation constant for alignment (default: 584283 GMT)
+   * @return A Long Count instance representing the same date
+   * @throws {Error} If the resulting Maya Day Number is negative
+   * @example
+   * ```typescript
+   * const lc = LongCount.fromJulianDay(2456283);
+   * console.log(lc.toString()); // "13. 0. 0. 0. 0"
+   * ```
+   */
+  static fromJulianDay(
+    julianDay: number,
+    correlation: CorrelationConstant = getCorrelationConstant(584283)
+  ): LongCount {
+    const mayanDayNumber = julianDay - correlation.value;
+    if (mayanDayNumber < 0) {
+      throw new Error(`Maya Day Number must be non-negative. Got ${mayanDayNumber} (JDN ${julianDay} - correlation ${correlation.value})`);
+    }
+    return LongCount.fromMayanDayNumber(mayanDayNumber, correlation);
+  }
+
+  /**
+   * Create a Long Count from a Maya Day Number (days since 0.0.0.0.0).
+   * 
+   * Converts a Maya Day Number (total days elapsed since the creation date)
+   * into the corresponding Long Count notation using the mixed-radix system:
+   * - k'in (base 20)
+   * - winal (base 18)
+   * - tun, k'atun, bak'tun (base 20)
+   * 
+   * @param mayanDayNumber - Days elapsed since 0.0.0.0.0 (must be non-negative)
+   * @param correlation - Optional correlation constant to set on the result
+   * @return A Long Count instance representing the date
+   * @throws {Error} If mayanDayNumber is negative
+   * @example
+   * ```typescript
+   * const lc = LongCount.fromMayanDayNumber(1872000); // 13.0.0.0.0
+   * console.log(lc.toString()); // "13. 0. 0. 0. 0"
+   * ```
+   */
+  static fromMayanDayNumber(
+    mayanDayNumber: number,
+    correlation?: CorrelationConstant
+  ): LongCount {
+    if (mayanDayNumber < 0) {
+      throw new Error(`Maya Day Number must be non-negative. Got ${mayanDayNumber}`);
+    }
+
+    // Decompose using mixed-radix system
+    // k'in: base 20 (0-19)
+    const kin = mayanDayNumber % 20;
+    
+    // winal: base 18 (0-17), since 18 winal = 1 tun
+    const winal = Math.floor(mayanDayNumber / 20) % 18;
+    
+    // tun: base 20 (0-19)
+    const tun = Math.floor(mayanDayNumber / 360) % 20;
+    
+    // k'atun: base 20 (0-19)
+    const katun = Math.floor(mayanDayNumber / 7200) % 20;
+    
+    // bak'tun: unbounded (but we'll handle higher orders too)
+    const baktun = Math.floor(mayanDayNumber / 144000) % 20;
+    
+    // Higher-order units (piktun, kalabtun, kinchiltun)
+    const piktun = Math.floor(mayanDayNumber / 2880000) % 20;
+    const kalabtun = Math.floor(mayanDayNumber / 57600000) % 20;
+    const kinchiltun = Math.floor(mayanDayNumber / 1152000000);
+
+    // Build the Long Count with only significant components
+    const parts: number[] = [kin, winal, tun, katun, baktun];
+    if (piktun > 0 || kalabtun > 0 || kinchiltun > 0) {
+      parts.push(piktun, kalabtun, kinchiltun);
+    }
+
+    const lc = new LongCount(...parts);
+    if (correlation) {
+      lc.setCorrelationConstant(correlation);
+    }
+    return lc;
+  }
+
   private correlationConstant: CorrelationConstant;
 
   /**

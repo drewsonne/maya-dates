@@ -200,3 +200,151 @@ it('render long count', () => {
     new LongCount(1, 1, 1, 1, 0, 0, 0).toString()
   ).to.eq(` 0. 1. 1. 1. 1`)
 })
+
+describe('Gregorian to Long Count conversion', () => {
+  it('should convert Gregorian date to Long Count using fromGregorian', () => {
+    // 21 December 2012 CE is 13.0.0.0.0 in Long Count
+    const GregorianFactory = require('../../factory/gregorian').default;
+    const gregorianFactory = new GregorianFactory();
+    const gregorian = gregorianFactory.parse('21/12/2012 CE');
+    
+    const lc = LongCount.fromGregorian(gregorian);
+    
+    expect(lc.toString()).to.equal('13. 0. 0. 0. 0');
+    expect(lc.bakTun).to.equal(13);
+    expect(lc.kAtun).to.equal(0);
+    expect(lc.tun).to.equal(0);
+    expect(lc.winal).to.equal(0);
+    expect(lc.kIn).to.equal(0);
+  });
+
+  it('should convert Julian Day Number to Long Count using fromJulianDay', () => {
+    // JDN 2456283 corresponds to 21 December 2012 CE (13.0.0.0.0)
+    const lc = LongCount.fromJulianDay(2456283);
+    
+    expect(lc.toString()).to.equal('13. 0. 0. 0. 0');
+  });
+
+  it('should convert Maya Day Number to Long Count using fromMayanDayNumber', () => {
+    // 13.0.0.0.0 is 1872000 days since 0.0.0.0.0
+    const lc = LongCount.fromMayanDayNumber(1872000);
+    
+    expect(lc.toString()).to.equal('13. 0. 0. 0. 0');
+    expect(lc.bakTun).to.equal(13);
+    expect(lc.kAtun).to.equal(0);
+    expect(lc.tun).to.equal(0);
+    expect(lc.winal).to.equal(0);
+    expect(lc.kIn).to.equal(0);
+  });
+
+  it('should convert Maya creation date (0.0.0.0.0)', () => {
+    const lc = LongCount.fromMayanDayNumber(0);
+    
+    expect(lc.toString()).to.equal(' 0. 0. 0. 0. 0');
+    expect(lc.bakTun).to.equal(0);
+    expect(lc.kAtun).to.equal(0);
+    expect(lc.tun).to.equal(0);
+    expect(lc.winal).to.equal(0);
+    expect(lc.kIn).to.equal(0);
+  });
+
+  it('should convert a historical date (9.17.0.0.0)', () => {
+    // 9.17.0.0.0 is a known historical date
+    const GregorianFactory = require('../../factory/gregorian').default;
+    const gregorianFactory = new GregorianFactory();
+    
+    // First, convert 9.17.0.0.0 to Gregorian to get the expected date
+    const originalLc = new LongCountFactory().parse('9.17.0.0.0');
+    const gregorian = originalLc.gregorian;
+    
+    // Then convert back to Long Count
+    const convertedLc = LongCount.fromGregorian(gregorian);
+    
+    expect(convertedLc.toString()).to.equal(' 9.17. 0. 0. 0');
+    expect(convertedLc.bakTun).to.equal(9);
+    expect(convertedLc.kAtun).to.equal(17);
+  });
+
+  it('should perform roundtrip conversion (LC → Gregorian → LC)', () => {
+    const testDates = [
+      '9.17.0.0.0',
+      '13.0.0.0.0',
+      '9.16.19.17.19',
+      '12.19.13.4.0',
+    ];
+
+    testDates.forEach((dateString) => {
+      const originalLc = new LongCountFactory().parse(dateString);
+      const gregorian = originalLc.gregorian;
+      const convertedLc = LongCount.fromGregorian(gregorian);
+      
+      // They should be equal
+      expect(convertedLc.equal(originalLc)).to.be.true;
+      expect(convertedLc.toString()).to.equal(originalLc.toString());
+    });
+  });
+
+  it('should throw error for negative Maya Day Number in fromMayanDayNumber', () => {
+    expect(() => {
+      LongCount.fromMayanDayNumber(-1);
+    }).to.throw('Maya Day Number must be non-negative');
+  });
+
+  it('should throw error for negative Maya Day Number in fromJulianDay', () => {
+    // JDN below correlation constant would result in negative MDN
+    expect(() => {
+      LongCount.fromJulianDay(100); // Way below 584283
+    }).to.throw('Maya Day Number must be non-negative');
+  });
+
+  it('should handle dates with different components', () => {
+    // Test a date with various non-zero components
+    const mayanDayNumber = 1 + (2 * 20) + (3 * 360) + (4 * 7200) + (5 * 144000);
+    // Expected: 5 baktun, 4 katun, 3 tun, 2 winal, 1 kin
+    const lc = LongCount.fromMayanDayNumber(mayanDayNumber);
+    
+    expect(lc.kIn).to.equal(1);
+    expect(lc.winal).to.equal(2);
+    expect(lc.tun).to.equal(3);
+    expect(lc.kAtun).to.equal(4);
+    expect(lc.bakTun).to.equal(5);
+  });
+
+  it('should handle max values for each position', () => {
+    // 19 kin + 17 winal + 19 tun + 19 katun = maximum before next baktun
+    const mayanDayNumber = 19 + (17 * 20) + (19 * 360) + (19 * 7200);
+    const lc = LongCount.fromMayanDayNumber(mayanDayNumber);
+    
+    expect(lc.kIn).to.equal(19);
+    expect(lc.winal).to.equal(17);
+    expect(lc.tun).to.equal(19);
+    expect(lc.kAtun).to.equal(19);
+    expect(lc.bakTun).to.equal(0);
+  });
+
+  it('should handle winal overflow correctly (base-18)', () => {
+    // 18 winal = 1 tun
+    const mayanDayNumber = 18 * 20; // 360 days = 1.0.0
+    const lc = LongCount.fromMayanDayNumber(mayanDayNumber);
+    
+    expect(lc.kIn).to.equal(0);
+    expect(lc.winal).to.equal(0);
+    expect(lc.tun).to.equal(1);
+    expect(lc.kAtun).to.equal(0);
+    expect(lc.bakTun).to.equal(0);
+  });
+
+  it('should preserve correlation constant when provided', () => {
+    const GregorianFactory = require('../../factory/gregorian').default;
+    const {getCorrelationConstant} = require('../../lc/correlation-constant');
+    
+    const gregorianFactory = new GregorianFactory();
+    const gregorian = gregorianFactory.parse('21/12/2012 CE');
+    const customCorrelation = getCorrelationConstant(584285); // Modified GMT
+    
+    const lc = LongCount.fromGregorian(gregorian, customCorrelation);
+    
+    // The correlation should be preserved
+    expect(lc.julianDay).to.equal(gregorian.julianDay);
+  });
+})
