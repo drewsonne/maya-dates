@@ -1,8 +1,8 @@
 import {getTzolkin, Tzolkin} from './tzolkin';
 import {getHaab, Haab} from './haab';
 import DistanceNumber from '../lc/distance-number';
-import {getHaabMonth} from "./component/haabMonth";
-import {getTzolkinDay, TzolkinDays} from "./component/tzolkinDay";
+import {getHaabMonth, HaabMonth} from "./component/haabMonth";
+import {getTzolkinDay, TzolkinDay, TzolkinDays} from "./component/tzolkinDay";
 import NumberCoefficient from "./component/numberCoefficient";
 import {isWildcard, Wildcard} from "../wildcard";
 import WildcardCoefficient from "./component/wildcardCoefficient";
@@ -54,10 +54,46 @@ export class CalendarRound extends CommentWrapper implements IPart {
 
   /**
    * Validate that the Calendar Round has a correct 260-day and Haab
-   * configuration
+   * configuration using both enumeration and mathematical compatibility check.
+   * 
+   * Per spec [R7], a Calendar Round exists iff the residues satisfy:
+   * r365 ≡ r260 (mod 5), where gcd(365, 260) = 5
+   * 
    * @throws {Error} If the Calendar Round is invalid.
    */
   validate() {
+    // First, perform mathematical compatibility check per spec [R7]
+    // Calculate full cycle positions, not just coefficients
+    if (this.haab.coeff instanceof NumberCoefficient && 
+        this.tzolkin.coeff instanceof NumberCoefficient &&
+        this.haab.month instanceof HaabMonth &&
+        this.tzolkin.day instanceof TzolkinDay) {
+      
+      // Calculate r365: full Haab' day-of-year position [0-364]
+      const r365 = this.haab.coeff.value + 20 * (this.haab.month.position - 1);
+      
+      // Calculate r260: full Tzolk'in cycle position [0-259]
+      // Tzolk'in is (number, day) where number ∈ [1,13] and day ∈ [1,20]
+      // Using CRT for coprime moduli: d ≡ (number-1) (mod 13) and d ≡ (dayIndex-1) (mod 20)
+      const tzolkinNumber = this.tzolkin.coeff.value; // 1-13
+      const tzolkinDayIndex = this.tzolkin.day.position; // 1-20
+      const a = tzolkinNumber - 1;
+      const b = tzolkinDayIndex - 1;
+      // CRT solution: d = a + 13 * ((3 * (b - a)) mod 20), then mod 260
+      const r260 = (a + 13 * (((3 * (b - a)) % 20 + 20) % 20)) % 260;
+      
+      // Check mathematical compatibility: residues must match mod gcd(365, 260) = 5
+      if (r365 % 5 !== r260 % 5) {
+        throw new Error(
+          `Calendar Round compatibility failed: Haab' position ${r365} (${this.haab}) ` +
+          `and Tzolk'in position ${r260} (${this.tzolkin}) must satisfy ` +
+          `${r365} ≡ ${r260} (mod 5) per [R7]`
+        );
+      }
+    }
+    
+    // Second, perform detailed enumeration check (original validation logic)
+    // This provides more specific error messages for known day combinations
     let validHaabCoeffs: number[] = [];
     if ([
       TzolkinDays.KABAN, TzolkinDays.IK, TzolkinDays.MANIK, TzolkinDays.EB,
