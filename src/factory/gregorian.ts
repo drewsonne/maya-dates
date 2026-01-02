@@ -79,8 +79,13 @@ export default class GregorianFactory {
     }
 
     // Convert year to negative for BCE dates
-    // BCE dates use astronomical year numbering: 1 BCE = year 0, 2 BCE = year -1, etc.
-    // So for BCE year X, the astronomical year is 1 - X
+    // Historical BCE notation: 1 BCE, 2 BCE, 3 BCE, ... (no year 0)
+    // Astronomical year numbering: 0, -1, -2, ... (includes year 0)
+    // Conversion formula: astronomical_year = 1 - historical_BCE_year
+    // Examples:
+    //   1 BCE (historical) → year 0 (astronomical): 1 - 1 = 0
+    //   2 BCE (historical) → year -1 (astronomical): 1 - 2 = -1
+    //   333 BCE (historical) → year -332 (astronomical): 1 - 333 = -332
     const adjustedYear = isBCE ? (1 - year) : year;
 
     // Convert Gregorian date to julian day using moonbeams
