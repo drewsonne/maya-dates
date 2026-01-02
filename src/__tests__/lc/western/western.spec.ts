@@ -129,6 +129,8 @@ describe('JSON Dataset Correlation Tests', () => {
     const envSize = process.env.TEST_SAMPLE_SIZE;
     if (envSize === undefined) return defaultSize;
     const parsed = parseInt(envSize, 10);
+    // Return undefined for 0 (unlimited), default for invalid/negative values
+    if (isNaN(parsed) || parsed < 0) return defaultSize;
     return parsed === 0 ? undefined : parsed;
   };
   
