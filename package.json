@@ -2,8 +2,18 @@
   "name": "@drewsonne/maya-dates",
   "version": "1.2.3",
   "description": "Typescript package to manipulate dates in the Maya Calendar",
+  "type": "commonjs",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    },
+    "./lib/*": "./lib/*",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/drewsonne/maya-dates.git"

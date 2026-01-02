@@ -15,7 +15,7 @@ npm install @drewsonne/maya-dates
 ```
 
 ```typescript
-import LongCountFactory from "@drewsonne/maya-dates/lib/factory/long-count";
+import { LongCountFactory } from "@drewsonne/maya-dates";
 // Long Count from Initial Series on east side of Stele E, Quirigua
 let lc = new LongCountFactory().parse('9.17.0.0.0');
 console.log(`${lc.buildFullDate()}`);
@@ -35,10 +35,7 @@ Creating a fullDate can be done either by:
   fullDate, using `*`. For example,
 
 ```typescript
-import {Wildcard, isWildcard} from "@drewsonne/maya-dates/lib/wildcard"
-import LongCountFactory from "@drewsonne/maya-dates/lib/factory/long-count";
-import CalendarRoundFactory from "@drewsonne/maya-dates/lib/factory/calendar-round";
-import FullDateFactory from "@drewsonne/maya-dates/lib/factory/full-date";
+import { Wildcard, isWildcard, LongCountFactory, CalendarRoundFactory, FullDateFactory } from "@drewsonne/maya-dates";
 
 const wildcard = new Wildcard();
 
@@ -55,15 +52,16 @@ console.log(`Full Date: ${isWildcard(partial_date.lc.kIn)}`);
  `LongCount`, `FullDate`).
 
 ```javascript
-import {getCalendarRound} from "@drewsonne/maya-dates/lib/cr/calendar-round";
-import {getHaab} from "@drewsonne/maya-dates/lib/cr/haab";
-import {getTzolkin} from "@drewsonne/maya-dates/lib/cr/tzolkin";
-import {getHaabMonth} from "@drewsonne/maya-dates/lib/cr/component/haabMonth";
-import {getTzolkinDay} from "@drewsonne/maya-dates/lib/cr/component/tzolkinDay";
-import {coefficientParser as _} from "@drewsonne/maya-dates/lib/cr/component/coefficient"
-
-import {FullDate} from "@drewsonne/maya-dates/lib/full-date"
-import {LongCount} from "@drewsonne/maya-dates/lib/lc/long-count"
+import {
+  getCalendarRound,
+  getHaab,
+  getTzolkin,
+  getHaabMonth,
+  getTzolkinDay,
+  coefficientParser as _,
+  FullDate,
+  LongCount
+} from "@drewsonne/maya-dates";
 
 const calendarRound = getCalendarRound(
     getTzolkin(_(13), getTzolkinDay('Ajaw')),
@@ -82,6 +80,32 @@ Once a full date object has been created, you can either add an integer to a ful
 using `shift(number)`, or filling in missing values in wildcards. The
 `operations` module provides operators to expand a fullDate with a wildcard into all possible
 values for dates matching that wildcard pattern.
+
+## Migration Guide
+
+### v1.x to v2.x: Modern Import Syntax
+
+**v2.0.0 introduces the `exports` field for better encapsulation and tree-shaking support.**
+
+#### Recommended (v2.x+): Named imports from package root
+```typescript
+import { LongCountFactory, CalendarRoundFactory, FullDateFactory } from "@drewsonne/maya-dates";
+```
+
+#### Backwards Compatible (deprecated): Deep imports
+```typescript
+// ⚠️ DEPRECATED: Still works in v2.x for backwards compatibility
+import LongCountFactory from "@drewsonne/maya-dates/lib/factory/long-count.js";
+import CalendarRoundFactory from "@drewsonne/maya-dates/lib/factory/calendar-round.js";
+```
+
+**Note:** Deep imports via `/lib/*` are supported in v2.x for backwards compatibility but will be removed in v3.0.0. Please migrate to named imports from the package root.
+
+### Benefits of Modern Imports
+- ✅ Better tree-shaking (smaller bundle sizes)
+- ✅ Cleaner, more maintainable code
+- ✅ Future-proof for ESM support
+- ✅ Consistent with modern npm package standards
 
 ## Development
 
