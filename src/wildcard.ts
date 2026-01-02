@@ -28,7 +28,7 @@ export class Wildcard extends CommentWrapper implements IPart {
     return isWildcard(other)  }
 }
 
-export function isWildcard(token: any): token is Wildcard {
+export function isWildcard(token: unknown): token is Wildcard {
   return token instanceof Wildcard;
 }
 

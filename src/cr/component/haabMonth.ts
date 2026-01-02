@@ -87,6 +87,9 @@ export class HaabMonth extends Cycle {
       if (this.value === undefined) {
         throw new Error('Haab\' month name must be provided');
       }
+      if (typeof this.value !== 'string') {
+        throw new Error(`Haab' month must be a string, got ${typeof this.value}`);
+      }
       if (!months.includes(this.value)) {
         throw new Error(`Haab' month (${this.value}) must be in ${months}`);
       }

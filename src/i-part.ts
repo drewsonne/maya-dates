@@ -6,7 +6,7 @@ export interface IPart {
   /**
    * Compare this object with another for equality.
    */
-  equal(other: any): boolean;
+  equal(other: unknown): boolean;
 }
 
 /**
@@ -15,6 +15,6 @@ export interface IPart {
  * @param o - Value to test.
  * @returns True if `o` implements `IPart`.
  */
-export function isPart(o: any): o is IPart {
-  return ((o as IPart).equal !== undefined)
+export function isPart(o: unknown): o is IPart {
+  return (typeof o === 'object' && o !== null && 'equal' in o && typeof (o as IPart).equal === 'function');
 }
