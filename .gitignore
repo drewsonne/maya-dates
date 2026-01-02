@@ -9,4 +9,4 @@ lib
 .nyc_output
 Develop
 .DS_Store
-.vscode/mcp.json
+.vscode
