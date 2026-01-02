@@ -2,15 +2,15 @@ import WesternCalendar from './western';
 
 /**
  * Offset lookup table: [maxJulianDay, offsetValue]
- * 
+ *
  * The offset represents the drift between proleptic Gregorian and Julian calendars,
  * which arises from different leap year rules:
  * - Julian: Leap year every 4 years
  * - Gregorian: Leap year every 4 years, EXCEPT century years unless divisible by 400
- * 
+ *
  * This causes the Gregorian calendar to remove 3 leap days every 400 years.
  * The offset increases monotonically as JDN increases (time moves forward).
- * 
+ *
  * Historical boundary: October 15, 1582 (JDN 2299161) is when the Gregorian calendar
  * was first adopted, transitioning from Julian. Dates after this are "true" Gregorian
  * rather than proleptic (extended backwards). The offset at JDN 2299160 (Oct 4, 1582)

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "generated_at": "2026-01-02",
-    "description": "Maya Long Count ↔ Western date correlations. For each sourced Maya LC from Mesoweb's 'Table of Palenque Rulers' (Modified GMT 584285, Gregorian), this file includes computed western dates for several common correlation constants (584283–584286) in both proleptic Gregorian and proleptic Julian calendars.",
+    "description": "Maya Long Count ↔ Western date correlations. For each sourced Maya LC from Mesoweb's 'Table of Palenque Rulers' (Astronomical correlation 584285, Gregorian), this file includes computed western dates for several common correlation constants (584283–584286) in both proleptic Gregorian and proleptic Julian calendars.",
     "calendars": {
       "gregorian": "Proleptic Gregorian calendar (extended backwards).",
       "julian": "Proleptic Julian calendar (extended backwards)."
@@ -12,6 +12,12 @@
       584285,
       584286
     ],
+    "correlation_names": {
+      "584283": "GMT (Goodman-Martinez-Thompson)",
+      "584284": "GMT+1",
+      "584285": "Astronomical (GMT+2)",
+      "584286": "Martin-Skidmore (GMT+3)"
+    },
     "sources": {
       "mesoweb_palenque_rulers_table": {
         "id": "mesoweb_palenque_rulers_table",
