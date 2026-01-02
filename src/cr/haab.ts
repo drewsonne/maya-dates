@@ -102,7 +102,7 @@ export class Haab extends CommentWrapper implements IPart {
    * - monthIndex = ⌊H / 20⌋ + 1
    * - day = H mod 20
    * 
-   * @param {number} dayNumber - Days since epoch (MDN)
+   * @param {number} dayNumber - Days since Long Count epoch (Maya Day Number)
    * @return {Haab}
    */
   static fromDayNumber(dayNumber: number): Haab {
@@ -181,11 +181,7 @@ export class Haab extends CommentWrapper implements IPart {
       const newMonthIndex = Math.floor(newH / 20) + 1;
       const newDay = newH % 20;
       
-      // Validate Wayeb' (month 19 only has days 0-4)
-      if (newMonthIndex === 19 && newDay > 4) {
-        throw new Error(`Invalid Haab' date: Wayeb' (month 19) only has days 0-4, got ${newDay}`);
-      }
-      
+
       return getHaab(
         new NumberCoefficient(newDay),
         getHaabMonth(newMonthIndex)
