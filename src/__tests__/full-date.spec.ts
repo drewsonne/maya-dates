@@ -53,7 +53,7 @@ describe('FullDate equality', () => {
     const fd2 = new FullDateFactory().parse('4 Ajaw 8 Kumk\'u 0.2.12.13.0');
     // These dates are 18,980 days apart and should NOT be equal
     expect(fd1.equal(fd2)).to.be.false;
-    
+
     // Same dates should be equal
     const fd3 = new FullDateFactory().parse('4 Ajaw 8 Kumk\'u 0.0.0.0.0');
     expect(fd1.equal(fd3)).to.be.true;
@@ -81,10 +81,10 @@ describe('Historical Full Date Validation using JSON Dataset', () => {
 
     historicalData.forEach((correlation: CorrelationData) => {
       const fullDateString = `${correlation.calendar_round} ${correlation.maya_long_count}`;
-      
+
       // Parse should succeed - if it fails, the spellings don't match
       const fullDate = new FullDateFactory().parse(fullDateString);
-      
+
       expect(fullDate).to.not.equal(null);
       // Compare Long Count string directly - normalize spacing
       const actualLC = fullDate.lc.toString().trim().replace(/\s+/g, '.').replace(/\.+/g, '.');
@@ -94,7 +94,7 @@ describe('Historical Full Date Validation using JSON Dataset', () => {
 
   it('should handle event-based historical dates', () => {
     // Test specific historical events from the dataset
-    const birthEvents = getGMTCorrelationData().filter(d => 
+    const birthEvents = getGMTCorrelationData().filter(d =>
       d.event === 'born' && d.western_calendar === 'gregorian'
     ).slice(0, 3);
 
@@ -102,7 +102,7 @@ describe('Historical Full Date Validation using JSON Dataset', () => {
       // Create a full date from the historical data
       const lcString = correlation.maya_long_count;
       const lc = new LongCountFactory().parse(lcString);
-      
+
       expect(lc).to.not.equal(null);
       // Normalize for comparison - the toString() adds spaces
       const actualLC = lc.toString().trim().replace(/\s+/g, '.');
@@ -110,7 +110,7 @@ describe('Historical Full Date Validation using JSON Dataset', () => {
       const actualParts = actualLC.match(/\d+/g)?.join('.');
       const expectedParts = lcString.match(/\d+/g)?.join('.');
       expect(actualParts).to.equal(expectedParts);
-      
+
       // Verify this is a valid date that can be processed
       expect(lc.getPosition()).to.be.a('number');
       expect(lc.getPosition()).to.be.greaterThan(0);

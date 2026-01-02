@@ -36,7 +36,7 @@ import {getCorrelationConstant} from '../lc/correlation-constant';
  * resulting correlation constants, produce stable and internally consistent dates.
  */
 describe('Maya Date Correlations from JSON Dataset', () => {
-  
+
   describe('Data Loading and Structure', () => {
     it('should load correlation data successfully', () => {
       const data = loadCorrelationData();
@@ -64,7 +64,7 @@ describe('Maya Date Correlations from JSON Dataset', () => {
       const data = loadCorrelationData();
       const gregorianCount = data.data.filter(item => item.western_calendar === 'gregorian').length;
       const julianCount = data.data.filter(item => item.western_calendar === 'julian').length;
-      
+
       expect(gregorianCount).to.be.greaterThan(0);
       expect(julianCount).to.be.greaterThan(0);
     });
@@ -79,11 +79,11 @@ describe('Maya Date Correlations from JSON Dataset', () => {
     directData.slice(0, 5).forEach(correlation => {
       it(`should validate ${correlation.maya_long_count} ${correlation.event} using GMT constant`, () => {
         const lc = lcFactory.parse(correlation.maya_long_count).setCorrelationConstant(gmtCorr);
-        
+
         if (correlation.western_calendar === 'gregorian') {
           const actualDate = `${lc.gregorian}`;
           const expectedYear = correlation.western_date.split('-')[0];
-          
+
           // Validate that the year is present in the output
           // Note: Date formatting may differ between JSON ISO format and library output
           expect(actualDate).to.include(expectedYear.replace(/^0+/, ''));
@@ -97,21 +97,21 @@ describe('Maya Date Correlations from JSON Dataset', () => {
       // Get data for the same Long Count with different correlations
       const longCount = getUniqueLongCounts()[0]; // Get first Long Count
       const correlations = getAvailableCorrelations();
-      
+
       const results: { [correlation: number]: string[] } = {};
-      
+
       correlations.forEach(corrConstant => {
         const data = findCorrelation({
           maya_long_count: longCount,
           correlation_jdn: corrConstant,
           western_calendar: 'gregorian'
         });
-        
+
         if (data) {
           results[corrConstant] = [data.western_date];
         }
       });
-      
+
       // Verify we get different dates for different correlation constants
       const dates = Object.values(results).flat();
       const uniqueDates = new Set(dates);
@@ -123,18 +123,18 @@ describe('Maya Date Correlations from JSON Dataset', () => {
     it('should have valid Calendar Round data for each Long Count', () => {
       const uniqueLongCounts = getUniqueLongCounts().slice(0, 10); // Test first 10
       const factory = new FullDateFactory();
-      
+
       uniqueLongCounts.forEach(longCount => {
         const data = findCorrelation({
           maya_long_count: longCount,
           correlation_jdn: 584285, // Use GMT correlation
           western_calendar: 'gregorian'
         });
-        
+
         if (data) {
           expect(data.calendar_round).to.be.a('string');
           expect(data.calendar_round.length).to.be.greaterThan(0);
-          
+
           // Test that Calendar Round actually parses - this will fail if spellings don't match
           const fullDateString = `${data.calendar_round} ${data.maya_long_count}`;
           const fullDate = factory.parse(fullDateString);
@@ -148,7 +148,7 @@ describe('Maya Date Correlations from JSON Dataset', () => {
     it('should have valid event types', () => {
       const data = loadCorrelationData();
       const events = new Set(data.data.map(item => item.event));
-      
+
       // Based on the metadata, events should be: born, acceded, died
       expect(events).to.include('born');
       expect(events).to.include('acceded');
@@ -158,14 +158,14 @@ describe('Maya Date Correlations from JSON Dataset', () => {
     it('should group correlations by event for historical analysis', () => {
       const data = loadCorrelationData();
       const eventGroups: Record<string, CorrelationData[]> = {};
-      
+
       data.data.forEach(item => {
         if (!eventGroups[item.event]) {
           eventGroups[item.event] = [];
         }
         eventGroups[item.event].push(item);
       });
-      
+
       Object.keys(eventGroups).forEach(event => {
         expect(eventGroups[event].length).to.be.greaterThan(0);
       });
@@ -176,7 +176,7 @@ describe('Maya Date Correlations from JSON Dataset', () => {
     it('should have proper source metadata', () => {
       const data = loadCorrelationData();
       expect(data.metadata.sources).to.have.property('mesoweb_palenque_rulers_table');
-      
+
       const source = data.metadata.sources.mesoweb_palenque_rulers_table;
       expect(source).to.have.property('title');
       expect(source).to.have.property('author');
@@ -195,11 +195,11 @@ describe('Maya Date Correlations from JSON Dataset', () => {
   describe('Data Quality Checks', () => {
     it('should have reasonable date ranges', () => {
       const data = loadCorrelationData();
-      
+
       data.data.forEach(item => {
         // Parse year from ISO date format
         const year = parseInt(item.western_date.split('-')[0]);
-        
+
         // Reasonable range for Maya historical dates (roughly 2nd century to 9th century CE)
         expect(year).to.be.greaterThan(100);
         expect(year).to.be.lessThan(1000);
@@ -208,7 +208,7 @@ describe('Maya Date Correlations from JSON Dataset', () => {
 
     it('should have consistent Long Count formats', () => {
       const longCounts = getUniqueLongCounts();
-      
+
       longCounts.forEach(lc => {
         // Should match pattern like "8.18.0.13.6" or "9.16.19.17.19"
         expect(lc).to.match(/^\d+\.\d+\.\d+\.\d+\.\d+$/);
@@ -234,7 +234,7 @@ describe('Maya Date Correlations from JSON Dataset', () => {
         western_calendar: 'gregorian',
         correlation_jdn: 584285
       });
-      
+
       expect(result).to.not.equal(undefined);
       if (result) {
         expect(result.maya_long_count).to.equal(firstLongCount);
