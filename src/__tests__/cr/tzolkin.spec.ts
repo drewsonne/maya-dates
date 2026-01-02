@@ -156,14 +156,14 @@ describe('fromDayNumber', () => {
     const epoch = getTzolkin(new NumberCoefficient(4), getTzolkinDay('Ajaw'));
 
     // Forward shifts
-    for (let days of [1, 5, 13, 20, 100, 177, 259]) {
+    for (const days of [1, 5, 13, 20, 100, 177, 259]) {
       const fromShift = epoch.shift(days);
       const fromDayNumber = Tzolkin.fromDayNumber(days);
       expect(fromDayNumber.equal(fromShift)).to.be.true;
     }
 
     // Backward shifts
-    for (let days of [-1, -5, -13, -20, -100, -259]) {
+    for (const days of [-1, -5, -13, -20, -100, -259]) {
       const fromShift = epoch.shift(days);
       const fromDayNumber = Tzolkin.fromDayNumber(days);
       expect(fromDayNumber.equal(fromShift)).to.be.true;
