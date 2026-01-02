@@ -124,22 +124,6 @@ npm test               # Run all tests
 npm run test:coverage  # Run tests with coverage report
 ```
 
-#### Test Configuration
-
-The test suite includes configurable sample sizes for correlation validation tests to balance thoroughness with performance:
-
-- **`TEST_SAMPLE_SIZE`** environment variable controls how many correlation entries are tested
-  - Default: `5` for direct source correlations, `10` for JSON dataset samples (fast local testing)
-  - Set to `0` for unlimited testing (full validation, recommended for CI)
-  - Set to any positive number to test that many entries
-
-Examples:
-```sh
-npm test                        # Default: test 5 direct sources, 10 JSON samples
-TEST_SAMPLE_SIZE=0 npm test    # Test all available correlations
-TEST_SAMPLE_SIZE=20 npm test   # Test first 20 correlations
-```
-
 ## Documentation
 
 Full API documentation is generated with **TypeDoc** and published via GitHub Pages.
