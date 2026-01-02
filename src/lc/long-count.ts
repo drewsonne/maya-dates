@@ -59,7 +59,11 @@ export default class LongCount extends DistanceNumber {
      * Use setCorrelationConstant() to change this value.
      * 
      * @type {CorrelationConstant}
+<<<<<<< HEAD
      * @see CorrelationConstant
+=======
+     * @see {CorrelationConstant}
+>>>>>>> 25d812f (docs: Document default correlation constant choice (584283 GMT))
      * @see Martin, S., & Skidmore, J. (2012). "Exploring the 584286 Correlation"
      */
     this.correlationConstant = getCorrelationConstant(584283);
