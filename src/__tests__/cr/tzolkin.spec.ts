@@ -79,6 +79,9 @@ describe('shift tzolkins', () => {
     [[5, 'Imix'], 1, [6, 'Ik\'']],
     [[13, 'Ajaw'], 100, [9, 'Ajaw']],
     [[13, 'Ajaw'], 177, [8, 'Kaban']],
+    [[13, 'Ajaw'], -1, [12, 'Kawak']],
+    [[13, 'Ajaw'], -100, [4, 'Ajaw']],
+    [[5, 'Imix'], -177, [10, 'K\'an']],
   ];
 
   tzolkins.forEach((args) => {
