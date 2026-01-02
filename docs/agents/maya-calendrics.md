@@ -1,218 +1,309 @@
-# Maya calendrics & conversion math (agent brief)
+# Maya calendrics math reference (agent-facing, implementation-oriented)
 
-You are writing a **math-first, implementation-oriented specification** for converting between:
-- **Maya Long Count (LC)**, plus derived **Tzolk’in** and **Haab’**
-- **Julian Day Number / Julian Date** (astronomers’ continuous day count)
-- **Gregorian calendar** and **Julian calendar** dates (with explicit conventions)
+This document specifies **mathematical** rules for converting between:
+- Maya **Long Count** (LC)
+- Maya **Haabʼ** (365-day civil cycle)
+- Maya **Tzolkʼin** (260-day ritual cycle)
+- **Calendar Round** (Haabʼ × Tzolkʼin)
+- Astronomical **Julian Day Number / Julian Date** (JDN/JD), plus **Gregorian** and **Julian** calendar dates
 
-**Hard constraints**
-- **No programming code examples** (no snippets, no pseudo-code). Use math, definitions, and stepwise logic.
-- **Do not mention or rely on any specific software repository.**
-- **Every key rule must be backed by academic or authoritative scholarly sources** (cite within your write-up using the bibliography provided at the end as [R1], [R2], …).
-
----
-
-## 1) Core concept: reduce everything to an integer “day index”
-Define an integer **N** that represents a count of whole days on a single continuous axis (no months/years). This is the backbone of all conversions.
-
-### Julian Day / Julian Day Number conventions
-- A **Julian Date (JD)** is a continuous count of days **starting at noon UT** on a defined epoch; it includes fractional days.
-- A **Julian Day Number (JDN)** is the integer day label for a whole day in that system; **civil midnights** correspond to half-integers in JD (… .5) under the noon-based convention.
-
-**Rule:** When you say “JDN” in the Maya-correlation context, be explicit whether you mean:
-- (A) the **integer day number** used in correlation constants, or
-- (B) a **noon-based JD** with fractional part rules.
-State the convention once and stick to it.
+**Constraint:** Every *key* rule below is backed by academic or authoritative scholarly sources (see **Bibliography**).
 
 ---
 
-## 2) Maya Long Count as mixed-radix arithmetic
-A Long Count date is a 5-tuple:
+## 1) Notation and core concepts
 
-**LC = (baktun, katun, tun, uinal, kin)**
+### 1.1 Integer day axis
 
-with units:
-- 1 **kin** = 1 day  
-- 1 **uinal** = 20 kin  
-- 1 **tun** = 18 uinal = 360 days  
-- 1 **katun** = 20 tun = 7,200 days  
-- 1 **baktun** = 20 katun = 144,000 days  
+Use an integer day axis:
+- **JDN** = Julian Day Number (integer days) on the astronomers’ Julian-day scale [R6].
+- **JD** = Julian Date (may include fractional day), with day boundaries at **noon UT**; **JDN** is the integer part associated with that noon-based day scale [R6].
 
-### 2.1 Forward (LC → day-count)
-Define the **Maya day number** (days elapsed since a chosen Long Count epoch):
+> Practical note: calendrical work for civil midnights typically uses **JDN at 0h UT** by taking `JD = JDN + 0.5` (midnight) or by working purely in integer JDN and clearly defining “which midnight” you mean. The scholarly definition is noon-based [R6].
 
-**MDN = 144000·b + 7200·k + 360·t + 20·u + i**
+### 1.2 Maya Day Number (MDN) relative to the creation-era base
 
-where (b,k,t,u,i) are the LC components.
+Define **MDN** = number of days elapsed since the Maya creation-era base date
+**13.0.0.0.0 4 Ajaw 8 Kumk’u** [R2].
 
-### 2.2 Inverse (day-count → LC)
-Given MDN, recover LC by integer division with remainders (a standard mixed-radix decomposition):
-- b = ⌊MDN / 144000⌋, remainder r1 = MDN mod 144000  
-- k = ⌊r1 / 7200⌋, remainder r2 = r1 mod 7200  
-- t = ⌊r2 / 360⌋, remainder r3 = r2 mod 360  
-- u = ⌊r3 / 20⌋, i = r3 mod 20  
-
-### 2.3 Normalization constraints (carry/borrow rules)
-For a **normalized** 5-tuple:
-- kin i ∈ [0,19]
-- uinal u ∈ [0,17] if you enforce tun=18 uinal (i.e., uinal base 18 at that digit boundary), otherwise allow [0,19] only if you explicitly model “overflow” into tun.
-- tun t ∈ [0,19]
-- katun k ∈ [0,19]
-- baktun b is unbounded in principle, but scholarly usage often frames eras in 13-baktun cycles.
-
-If you support **addition/subtraction of days** in LC-space, define it as:
-1) convert LC → MDN, 2) add integer Δ, 3) decompose back → normalized LC.
+MDN is an integer with:
+- **MDN = 0** on the creation-era day **13.0.0.0.0 4 Ajaw 8 Kumk’u** [R2].
+- Converting between **MDN** and **JDN** requires a **correlation constant** `C`:
+  - **JDN = MDN + C** [R2]
+  - equivalently **MDN = JDN − C**.
 
 ---
 
-## 3) Correlation constants (offsets) and what they mean
-A **correlation constant** C ties a Maya base Long Count date to a JDN:
-- “C expresses the base date of the Maya calendar as its Julian Day Number.”
+## 2) Long Count (LC)
 
-### 3.1 Which “base date”?
-Scholarly literature commonly treats the creation-era base as **13.0.0.0.0 4 Ajaw 8 Kumk’u**, while other algorithmic treatments anchor **0.0.0.0.0** as the epoch of the count. These are *representation choices* within a cycle concept; you must:
-- state which LC you treat as “MDN = 0”
-- define how that aligns to correlation constant C
-- ensure **you do not change any historical day numbers**, only the representation convention.
+### 2.1 Units and fixed radices (normalized form)
 
-### 3.2 The fundamental conversion identity
-Once your epoch convention is fixed:
+Normalized Long Count is a mixed-radix representation with these exact unit sizes [R1, R2]:
 
-**JDN = C + MDN**
+- 1 **kʼin** = 1 day
+- 1 **winal/uinal** = 20 kʼin
+- 1 **tun** = 18 winal = 360 kʼin
+- 1 **kʼatun** = 20 tun = 7,200 kʼin
+- 1 **baktun** = 20 kʼatun = 144,000 kʼin
 
-and inversely:
+**Normalized component ranges** follow from those fixed radices:
+- kʼin `k ∈ [0,19]`
+- winal/uinal `u ∈ [0,17]`  (**always**, because 1 tun = 18 uinal) [R1, R2]
+- tun `t ∈ [0,19]`
+- kʼatun `ka ∈ [0,19]`
+- baktun `b` is unbounded in principle (epigraphic practice often focuses on the 13-baktun era, but arithmetic does not require that).
 
-**MDN = JDN − C**
+### 2.2 LC → MDN (forward)
 
-**C is a required parameter** (don’t hardcode it). The literature contains many proposed correlations; widely used values differ by a handful of days, and broader proposals differ by centuries.
+For LC written as `(b.ka.t.u.k)` the day-count since the base is [R1, R2]:
 
-Minimum required support:
-- **584285** and **584283** as commonly used constants in the GMT family discussions.
-Also describe:
-- The GMT correlation as a “family” spanning a small range of day values (not a single number).
-- The existence of dozens of proposed correlations and the fact that published constants can disagree substantially.
+**MDN = 144000·b + 7200·ka + 360·t + 20·u + k**.  [R1, R2]
 
----
+This is the primary Long Count arithmetic rule.
 
-## 4) Haab’ (solar civil calendar): modular arithmetic on 365
-The Haab’ is:
-- 18 months × 20 days = 360
-- plus 5 “monthless” unlucky days (Wayeb / Uayeb) = 365 total
+### 2.3 MDN → LC (decomposition, normalized)
 
-### 4.1 Representation
-Represent a Haab’ date as **(day, month)** with:
-- day = number of elapsed days in the month (starts at **0**, not 1)
-- month index: 1..18 for the regular months, and treat Wayeb as month 19 (defective)
+Given MDN `d ≥ 0`, normalized components are obtained by Euclidean division using the unit sizes above [R1]:
 
-### 4.2 Anchor at epoch
-Fix a scholarly anchor for the Haab’ at the Long Count epoch:
-- LC epoch corresponds to a specific Haab’ date used as a constant offset.
-
-### 4.3 Compute Haab’ from MDN
-Let H0 be the day-in-year index of the epoch’s Haab’ date expressed as:
-**H0 = day0 + 20·(month0 − 1)**
-
-Then the Haab’ day-in-year index is:
-
-**H = (MDN + H0) mod 365**
-
-Convert H back to (day, month) by:
-- month = ⌊H / 20⌋ + 1
-- day = H mod 20  
-with the understanding that month=19 implies Wayeb and only days 0..4 are valid in that month.
-
-**Important:** Haab’ alone does not uniquely identify an absolute date; it repeats every 365 days.
+- `b = ⌊d / 144000⌋`, remainder `r1 = d mod 144000`
+- `ka = ⌊r1 / 7200⌋`, remainder `r2 = r1 mod 7200`
+- `t = ⌊r2 / 360⌋`, remainder `r3 = r2 mod 360`
+- `u = ⌊r3 / 20⌋`  (therefore `u ∈ [0,17]`), remainder `k = r3 mod 20` [R1]
 
 ---
 
-## 5) Tzolk’in (260-day ritual calendar): two simultaneous cycles
-The Tzolk’in combines:
-- a **13-number** cycle
-- a **20-name** cycle  
-advancing together each day, producing a 260-day repeat period.
+## 3) Haabʼ (365-day civil cycle)
 
-### 5.1 Representation
-Represent a Tzolk’in date as **(number, nameIndex)** with:
-- number ∈ 1..13
-- nameIndex ∈ 1..20  
-(Actual name strings are a separate layer; math operates on indices.)
+### 3.1 Representation
 
-### 5.2 Anchor at epoch
-Fix the epoch’s Tzolk’in date as constants (number0, name0).
+Represent a Haabʼ date as `(day, monthIndex)` where:
+- `day ∈ [0,19]` counts elapsed days in the month [R1]
+- `monthIndex ∈ [1,19]` where:
+  - 1..18 are the regular 20-day months (Pop … Kumk’u/Cumku) [R1]
+  - 19 is **Wayebʼ/Uayeb** (the 5 “monthless” days, defective month) [R1]
 
-### 5.3 Compute Tzolk’in from MDN
-Use “adjusted modulus” so results land in 1..m rather than 0..m−1:
+**Validity constraint:** if `monthIndex = 19` (Wayebʼ), then `day ∈ [0,4]` only [R1].
 
-**adjMod(x, m) = ((x − 1) mod m) + 1**
+### 3.2 Anchor at the era day
+
+The Long Count epoch day corresponds to Haabʼ **8 Kumk’u (Cumku)** [R1].
+Using the month indexing above, Kumk’u is month 18 and day is 8 [R1].
+
+So define the Haabʼ offset-at-epoch as:
+- `haabEpochDay = 8`
+- `haabEpochMonth = 18`  [R1]
+
+### 3.3 MDN → Haabʼ (formula)
+
+Define a 0-based “day-of-haab-year” index `H ∈ [0,364]`:
+- `H = ( d + haabEpochDay + 20·(haabEpochMonth − 1) ) mod 365`  [R1]
 
 Then:
-- number = adjMod(MDN + number0, 13)
-- nameIndex = adjMod(MDN + name0, 20)
+- `monthIndex = ⌊H / 20⌋ + 1`  [R1]
+- `day = H mod 20`  [R1]
 
-**Important:** Tzolk’in alone does not uniquely identify an absolute date; it repeats every 260 days.
+**Wayebʼ validation (must be enforced):**
+- If `monthIndex = 19` then require `day ≤ 4` (equivalently `H ∈ [360,364]`) [R1].
 
----
+### 3.4 Haabʼ → MDN residue (mod 365 only)
 
-## 6) Calendar Round (Haab’ + Tzolk’in) and its math constraints
-The pair (Haab’, Tzolk’in) repeats every:
+A Haabʼ date does **not** identify a unique day on its own (no year number), but it identifies a residue class mod 365 [R1]:
 
-**LCM(365, 260) = 18,980 days**
-
-A “calendar round date” is the pair:
-- a Haab’ (D, M)
-- a Tzolk’in (d, n)
-
-### 6.1 Existence condition
-Not every Haab’+Tzolk’in pair can occur. Explain the congruence compatibility condition that determines whether a given pair is possible.
-
-### 6.2 Locating occurrences
-Given a target (Haab’, Tzolk’in) and a reference day index (or JDN), explain how to find:
-- the latest occurrence on-or-before a given day, or
-- the next occurrence after a given day  
-by solving a small system of linear congruences modulo 365 and modulo 260, and then combining them modulo 18,980.
+- `H = 20·(monthIndex − 1) + day` (with Wayebʼ validity enforced) [R1]
+- Then `d ≡ (H − (haabEpochDay + 20·(haabEpochMonth − 1))) (mod 365)` [R1]
 
 ---
 
-## 7) Gregorian vs Julian calendar: be explicit about conventions
-Your conversion must state:
-- whether “Gregorian” and “Julian” are treated as **proleptic** (rules extended backward indefinitely), or
-- whether you model the **historical reform** cutover (different regions adopted at different times).
+## 4) Tzolkʼin (260-day ritual cycle)
 
-### 7.1 Year numbering and BCE handling
-Astronomical year numbering includes a year 0; many historical conventions do not. State which convention you use for:
-- negative years (BCE) in Gregorian calculations
-- BCE labeling in Julian calculations  
-and how you map between them.
+### 4.1 Representation
 
-### 7.2 Recommended approach (math, not code)
-Describe Gregorian/Julian conversion in terms of:
-1) calendar date → day index (e.g., JDN or another absolute-day scale)
-2) day index → target calendar date  
-so all Maya conversion composes cleanly through the same day index.
+Represent a Tzolkʼin date as `(number, nameIndex)` where:
+- `number ∈ [1,13]`
+- `nameIndex ∈ [1,20]` (with a fixed ordered name list; Ajaw/Ahau is typically the 20th) [R1].
+
+### 4.2 Anchor at the era day
+
+The Long Count epoch day is Tzolkʼin **4 Ajaw (Ahau)** [R1].  
+With Ajaw/Ahau indexed as 20, the epoch is `(4, 20)` [R1].
+
+So define:
+- `tzEpochNumber = 4`
+- `tzEpochName = 20` [R1]
+
+### 4.3 Adjusted modulus
+
+Use the “adjusted modulus” function returning 1..n (not 0..n−1) [R1]:
+
+`adjmod(x, n) = ((x − 1) mod n) + 1`.  [R1]
+
+### 4.4 MDN → Tzolkʼin (formula)
+
+For MDN `d`, the Tzolkʼin pair is [R1]:
+
+- `number = adjmod(d + tzEpochNumber, 13)`  [R1]
+- `nameIndex = adjmod(d + tzEpochName, 20)` [R1]
+
+### 4.5 Tzolkʼin → MDN residue (mod 260)
+
+A Tzolkʼin date does not uniquely identify a day, but does uniquely determine `d mod 260` because 13 and 20 are coprime [R1].
+
+Solve the simultaneous congruences [R1]:
+- `d ≡ (number − tzEpochNumber) (mod 13)`
+- `d ≡ (nameIndex − tzEpochName) (mod 20)`
+
+Let:
+- `a = (number − tzEpochNumber) mod 13`  (take in 0..12)
+- `b = (nameIndex − tzEpochName) mod 20` (take in 0..19)
+
+Then the unique solution modulo 260 is [R1] (using that 13⁻¹ mod 20 = 3):
+- `d ≡ a + 13 · ( 3·(b − a) mod 20 )  (mod 260)`  [R1]
 
 ---
 
-## 8) Edge cases & correctness guarantees (testable invariants)
-List invariants that an implementation must satisfy purely by math:
-- LC → MDN → LC round-trip yields the same normalized LC.
-- Incrementing MDN by 1 advances:
-  - kin by +1 with correct carries,
-  - Haab’ by +1 mod 365,
-  - Tzolk’in by +1 mod 260.
-- Calendar Round recurrence every 18,980 days.
-- Haab’ month/day validity: Wayeb only has 5 days.
-- Parameter sensitivity: changing C by +1 shifts all mapped European dates by +1 day but preserves internal Maya-cycle structure.
+## 5) Calendar Round (CR) = (Haabʼ, Tzolkʼin)
 
-Also describe how you will handle:
-- negative day indices (dates before epoch),
-- extremely large baktun values,
-- ambiguous “day start” assumptions (sunset vs midnight) and why this does/doesn’t alter day-level integer mapping under your chosen convention.
+### 5.1 Period
+
+The Calendar Round repeats every **lcm(365, 260) = 18,980 days** (≈ 52 solar years) [R1].
+
+### 5.2 Compatibility (existence) condition
+
+Given a Haabʼ date (a residue `d ≡ r365 (mod 365)`) and a Tzolkʼin date (a residue `d ≡ r260 (mod 260)`), a Calendar Round day exists iff the two congruences are consistent [R7]:
+
+- Let `g = gcd(365, 260) = 5`.
+- A solution exists **iff** `r365 ≡ r260 (mod g)` i.e. `r365 ≡ r260 (mod 5)` [R7].
+
+This is the missing “congruence compatibility condition” in many informal descriptions.
+
+### 5.3 Solving for the actual day (CRT specialized to 365 and 260)
+
+Assume compatibility holds. Solve:
+
+- `d ≡ r365 (mod 365)`
+- `d ≡ r260 (mod 260)`
+
+Write `d = r365 + 365·t` and substitute:
+- `r365 + 365·t ≡ r260 (mod 260)`
+- `365·t ≡ (r260 − r365) (mod 260)`
+
+Since `gcd(365,260)=5`, divide by 5:
+- `73·t ≡ (r260 − r365)/5 (mod 52)` [R7]
+
+Because `73 ≡ 21 (mod 52)` and `21⁻¹ ≡ 5 (mod 52)`, one convenient closed form is:
+- `t ≡ 5 · ((r260 − r365)/5) (mod 52)`  [R7]
+- which simplifies to: `t ≡ (r260 − r365) (mod 52)` (with the understanding that `(r260−r365)` is divisible by 5 due to compatibility).
+
+Then one solution is:
+- `d0 = r365 + 365·t`  (reduce `d0` modulo 18,980 if desired)
+
+All solutions are:
+- `d = d0 + 18980·n` for integer `n` [R1, R7].
 
 ---
 
-## 9) Bibliography (cite as [R1], [R2], … in your spec)
-[R1] Reingold, E. M., Dershowitz, N., & Clamen, S. M. “Calendrical Calculations, II: Three Historical Calendars.” *Software—Practice & Experience* 23(4), 383–404 (1993).
-[R2] Martin, S., & Skidmore, J. “Exploring the 584286 Correlation between the Maya and European Calendars.” *The PARI Journal* 13(2), 3–16 (2012).
-[R3] Böhm, V., et al. “Dating of Mayan calendar using long-periodic astronomical phenomena in Dresden Codex.” *Serbian Astronomical Journal* 186, 53–64 (2013).
-[R4] Kennett, D. J., et al. “Correlating the Ancient Maya and Modern European Calendars with High-Precision AMS 14C Dating.” *Scientific Reports* 3:1597 (2013). doi:10.1038/srep01597
-[R5] U.S. Naval Observatory (USNO). “Converting Between Julian Dates and Gregorian Calendar Dates / Julian Date definition (noon-based).” (authoritative astronomical definition).
+## 6) Correlation constants (Maya ↔ JDN) and which offsets to support
+
+### 6.1 The base anchor (scholarly)
+
+The creation-era base day **13.0.0.0.0 4 Ajaw 8 Kumk’u** is explicitly used as the anchor for correlating Maya and European calendars [R2]. It is also treated as the Long Count epoch for algorithmic calendrical calculations [R1, R2].
+
+### 6.2 Common GMT-family correlation constants
+
+Scholarly discussion treats GMT as a *family* of close constants and explicitly identifies widely-used values [R2]:
+
+- **584283** (often labeled “original GMT”)
+- **584285** (often labeled “modified GMT”)
+- **584286** (explicitly investigated/argued in Martin & Skidmore and part of modern correlation debate) [R2]
+
+**Specification requirement:** If you cite [R2], you should either:
+- include **584286** among supported correlations, **or**
+- explicitly state why your supported set excludes it.
+
+(From a math standpoint, supporting multiple constants is trivial: it is a fixed additive shift in the JDN↔MDN mapping.)
+
+---
+
+## 7) Gregorian/Julian calendar ↔ JDN (math spec, not “describe it”)
+
+### 7.1 Calendar conventions
+
+- Treat “Gregorian date” and “Julian calendar date” as **proleptic** calendars unless a historical adoption/cutover is explicitly specified (country-dependent). This matches how astronomical JDN formulas are typically used in computational calendrics [R5, R6].
+
+- Use **astronomical year numbering** when interoperating with JD/JDN work:
+  - year 0 exists (1 BCE = year 0, 2 BCE = year −1, …) [R6].
+  - If you instead use BCE/CE without year 0, you must convert carefully.
+
+### 7.2 Gregorian calendar date → JDN (Fliegel–Van Flandern form)
+
+For Gregorian date `(Y, M, D)` (integers), define integer floors throughout [R5, R6]:
+
+Let:
+- `a = ⌊(14 − M)/12⌋`
+- `y = Y + 4800 − a`
+- `m = M + 12a − 3`
+
+Then:
+- `JDN = D + ⌊(153m + 2)/5⌋ + 365y + ⌊y/4⌋ − ⌊y/100⌋ + ⌊y/400⌋ − 32045`  [R5]
+
+### 7.3 Julian calendar date → JDN (parallel form)
+
+Using the same `a, y, m` definitions, the Julian-calendar version is [R5]:
+
+- `JDN = D + ⌊(153m + 2)/5⌋ + 365y + ⌊y/4⌋ − 32083`  [R5]
+
+### 7.4 JDN → Gregorian calendar date (integer algorithm specified as equations)
+
+One standard inversion (used by authoritative references) is the Fliegel–Van Flandern style integer reconstruction [R6]. Given `JDN`:
+
+Define:
+- `L1 = JDN + 68569`
+- `N  = ⌊4·L1 / 146097⌋`
+- `L2 = L1 − ⌊(146097·N + 3)/4⌋`
+- `I  = ⌊4000·(L2 + 1) / 1461001⌋`
+- `L3 = L2 − ⌊1461·I/4⌋ + 31`
+- `J  = ⌊80·L3 / 2447⌋`
+- `D  = L3 − ⌊2447·J/80⌋`
+- `L4 = ⌊J/11⌋`
+- `M  = J + 2 − 12·L4`
+- `Y  = 100·(N − 49) + I + L4`  [R6]
+
+This yields Gregorian `(Y, M, D)`.
+
+### 7.5 Gregorian/Julian date ↔ JD (with time-of-day)
+
+If you need time-of-day `UT` in hours on a civil date, the Julian Date is [R6]:
+- `JD = JDN + (UT/24) − 0.5`  (when `JDN` corresponds to the same civil date at midnight UT)
+The authoritative convention is that JD increments at noon UT [R6]; always document which convention you’re using.
+
+---
+
+## 8) Validation checklist (math constraints that agents should enforce)
+
+1) **Normalized LC ranges**: `k ∈ [0,19]`, `u ∈ [0,17]`, `t ∈ [0,19]`, `ka ∈ [0,19]` [R1, R2].  
+2) **Haabʼ validity**: month 19 (Wayebʼ) only allows `day ∈ [0,4]` [R1].  
+3) **Tzolkʼin validity**: `number ∈ [1,13]`, `nameIndex ∈ [1,20]` [R1].  
+4) **CR compatibility**: residues must match mod 5 (`r365 ≡ r260 (mod 5)`) before attempting CRT solve [R7].  
+5) **Correlation constant clarity**: always store/transport which constant is used (e.g., 584283 vs 584285 vs 584286) [R2].  
+6) **Calendar system clarity**: always label whether a European date is **Gregorian** or **Julian**; they differ by a shifting offset across centuries [R6].
+
+---
+
+## Bibliography
+
+- **[R1]** Reingold, Edward M.; Dershowitz, Nachum; Clamen, Stewart M. (1993). *Calendrical Calculations, II: Three Historical Calendars*. *Software—Practice & Experience* 23(4), pp. 383–404. (Mayan long count, haab, tzolkin algorithms and anchors.)  
+  PDF: https://reingold.co/cc2-paper.pdf
+
+- **[R2]** Martin, Simon; Skidmore, Joel (2012). “Exploring the 584286 Correlation between the Maya and European Calendars.” *The PARI Journal* 13(2), pp. 3–16. (Explicit base date 13.0.0.0.0 4 Ajaw 8 Kumk’u and correlation constants incl. 584285/584283, focus on 584286.)  
+  PDF: https://www.mesoweb.com/pari/publications/journal/1302/Correlation.pdf
+
+- **[R5]** Fliegel, Henry F.; Van Flandern, Thomas C. (1968). “A Machine Algorithm for Processing Calendar Dates.” *Communications of the ACM* 11(10), p. 657. DOI: 10.1145/364096.364097. (Widely used integer formulas for calendar↔JDN conversion.)  
+  DOI landing: https://dl.acm.org/doi/10.1145/364096.364097
+
+- **[R6]** U.S. Naval Observatory (USNO), Astronomical Applications. “Converting Between Julian Dates and Gregorian Calendar Dates” and “Julian Date Converter” (definitions of JD/JDN; authoritative conversion references, incl. Fliegel–Van Flandern style algorithms). Accessed 2026-01-02.  
+  https://aa.usno.navy.mil/faq/JD_formula  
+  https://aa.usno.navy.mil/data/JulianDate
+
+- **[R7]** Standard Chinese Remainder Theorem with non-coprime moduli (existence iff residues agree modulo gcd). A representative scholarly reference:  
+  Niven, Ivan; Zuckerman, Herbert S.; Montgomery, Hugh L. (1991). *An Introduction to the Theory of Numbers* (5th ed.). Wiley. (CRT solvability condition.)  
+
