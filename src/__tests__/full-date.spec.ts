@@ -67,9 +67,9 @@ it('isPartial should detect wildcards', () => {
   const fd4 = new FullDateFactory().parse('4 Ajaw * Kumk\'u 9.17.0.0.*');
 
   expect(fd1.isPartial()).to.be.false;
-  expect(fd2.isPartial()).to.equal(true);
-  expect(fd3.isPartial()).to.equal(true);
-  expect(fd4.isPartial()).to.equal(true);
+  expect(fd2.isPartial()).to.be.true;
+  expect(fd3.isPartial()).to.be.true;
+  expect(fd4.isPartial()).to.be.true;
 });
 
 describe('Historical Full Date Validation using JSON Dataset', () => {

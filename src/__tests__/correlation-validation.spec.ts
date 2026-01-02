@@ -219,12 +219,12 @@ describe('Maya Date Correlations from JSON Dataset', () => {
   describe('Helper Function Tests', () => {
     it('should filter data by correlation constant correctly', () => {
       const gmtData = getDataByCorrelation(584285);
-      expect(gmtData.every(item => item.correlation_jdn === 584285)).to.equal(true);
+      expect(gmtData.every(item => item.correlation_jdn === 584285)).to.be.true;
     });
 
     it('should get GMT correlation data', () => {
       const gmtData = getGMTCorrelationData();
-      expect(gmtData.every(item => item.correlation_jdn === 584285)).to.equal(true);
+      expect(gmtData.every(item => item.correlation_jdn === 584285)).to.be.true;
     });
 
     it('should find specific correlations', () => {
