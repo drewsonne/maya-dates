@@ -113,10 +113,8 @@ export class Haab extends CommentWrapper implements IPart {
     const monthIndex = Math.floor(H / 20) + 1;
     const day = H % 20;
     
-    // Validate Wayeb' (month 19 only has days 0-4)
-    if (monthIndex === 19 && day > 4) {
-      throw new Error(`Invalid Haab' date: Wayeb' (month 19) only has days 0-4, got ${day}`);
-    }
+    // Note: Given the above formula, when monthIndex === 19 (Wayeb'), H ∈ [360, 364],
+    // so day = H % 20 ∈ [0, 4]. Thus Wayeb' is always in its valid range by construction.
     
     return getHaab(
       new NumberCoefficient(day),
@@ -162,7 +160,7 @@ export class Haab extends CommentWrapper implements IPart {
    * - monthIndex = ⌊H / 20⌋ + 1
    * - day = H mod 20
    * 
-   * @param {number} numDays - Number of days to shift forward
+   * @param {number} numDays - Number of days to shift (positive for forward, negative for backward)
    * @return {Haab}
    */
   shift(numDays: number): Haab {
