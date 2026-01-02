@@ -97,7 +97,9 @@ export default abstract class WesternCalendar {
   toISOString() {
     // Convert to astronomical year numbering for BCE dates
     // In astronomical year numbering: 1 BCE = 0, 2 BCE = -1, 3 BCE = -2, etc.
-    // Formula: astronomical_year = -(BCE_year - 1) = -BCE_year + 1
+    // The year getter gives us the human-readable BCE year (e.g., 333 for 333 BCE)
+    // To convert back to astronomical: astronomical_year = 1 - BCE_year = -(BCE_year - 1)
+    // Example: 333 BCE -> -(333 - 1) = -332
     let isoYear: number;
     if (this.era === 'BCE') {
       isoYear = -(this.year - 1);
