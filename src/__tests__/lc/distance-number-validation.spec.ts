@@ -165,7 +165,13 @@ describe('Long Count normalized range validation', () => {
     });
   });
 
-  describe('bak\'tun and higher units (unbounded)', () => {
+  describe('bak\'tun and higher units (no validation errors)', () => {
+    // Note: While the normalization code applies modulo 20 to these units,
+    // the validateNormalizedRanges() method intentionally does NOT validate
+    // bak'tun and higher units, treating them as unbounded per [R1, R2].
+    // This means the validation will not throw errors even if normalization
+    // hasn't been applied to these higher-order components.
+    
     it('should accept bak\'tun value of 0', () => {
       const lc = new LongCount(0, 0, 0, 0, 0);
       expect(() => lc.normalise()).to.not.throw();
@@ -176,46 +182,61 @@ describe('Long Count normalized range validation', () => {
       expect(() => lc.normalise()).to.not.throw();
     });
 
-    it('should accept bak\'tun value of 20', () => {
+    it('should normalize bak\'tun value of 20 to 0 bak\'tun, 1 piktun', () => {
       const lc = new LongCount(0, 0, 0, 0, 20);
-      expect(() => lc.normalise()).to.not.throw();
+      lc.normalise();
+      // Normalization applies modulo 20 to all units
       expect(lc.bakTun).to.equal(0);
       expect(lc.piktun).to.equal(1);
     });
 
-    it('should accept large bak\'tun value', () => {
+    it('should normalize large bak\'tun value without validation errors', () => {
       const lc = new LongCount(0, 0, 0, 0, 100);
       expect(() => lc.normalise()).to.not.throw();
+      // After normalization, bakTun should be in [0,19]
+      expect(lc.bakTun).to.be.at.least(0);
+      expect(lc.bakTun).to.be.at.most(19);
     });
 
-    it('should accept piktun value of 20', () => {
+    it('should normalize piktun value of 20', () => {
       const lc = new LongCount(0, 0, 0, 0, 0, 20);
-      expect(() => lc.normalise()).to.not.throw();
+      lc.normalise();
+      expect(lc.piktun).to.equal(0);
+      expect(lc.kalabtun).to.equal(1);
     });
 
-    it('should accept large piktun value', () => {
+    it('should normalize large piktun value without validation errors', () => {
       const lc = new LongCount(0, 0, 0, 0, 0, 100);
       expect(() => lc.normalise()).to.not.throw();
+      expect(lc.piktun).to.be.at.least(0);
+      expect(lc.piktun).to.be.at.most(19);
     });
 
-    it('should accept kalabtun value of 20', () => {
+    it('should normalize kalabtun value of 20', () => {
       const lc = new LongCount(0, 0, 0, 0, 0, 0, 20);
-      expect(() => lc.normalise()).to.not.throw();
+      lc.normalise();
+      expect(lc.kalabtun).to.equal(0);
+      expect(lc.kinchiltun).to.equal(1);
     });
 
-    it('should accept large kalabtun value', () => {
+    it('should normalize large kalabtun value without validation errors', () => {
       const lc = new LongCount(0, 0, 0, 0, 0, 0, 100);
       expect(() => lc.normalise()).to.not.throw();
+      expect(lc.kalabtun).to.be.at.least(0);
+      expect(lc.kalabtun).to.be.at.most(19);
     });
 
-    it('should accept kinchiltun value of 20', () => {
+    it('should normalize kinchiltun value of 20', () => {
       const lc = new LongCount(0, 0, 0, 0, 0, 0, 0, 20);
-      expect(() => lc.normalise()).to.not.throw();
+      lc.normalise();
+      expect(lc.kinchiltun).to.equal(0);
     });
 
-    it('should accept large kinchiltun value', () => {
+    it('should normalize large kinchiltun value without validation errors', () => {
       const lc = new LongCount(0, 0, 0, 0, 0, 0, 0, 100);
       expect(() => lc.normalise()).to.not.throw();
+      expect(lc.kinchiltun).to.be.at.least(0);
+      expect(lc.kinchiltun).to.be.at.most(19);
     });
   });
 
