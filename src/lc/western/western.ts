@@ -96,6 +96,8 @@ export default abstract class WesternCalendar {
    */
   toISOString() {
     // Convert to astronomical year numbering for BCE dates
+    // In astronomical year numbering: 1 BCE = 0, 2 BCE = -1, 3 BCE = -2, etc.
+    // Formula: astronomical_year = -(BCE_year - 1) = -BCE_year + 1
     let isoYear: number;
     if (this.era === 'BCE') {
       isoYear = -(this.year - 1);
@@ -104,7 +106,10 @@ export default abstract class WesternCalendar {
     }
     
     // Format with zero-padding: YYYY-MM-DD
-    const yearStr = isoYear.toString().padStart(4, '0');
+    // Handle negative years separately to avoid padding issues with the minus sign
+    const yearStr = isoYear < 0 
+      ? '-' + Math.abs(isoYear).toString().padStart(4, '0')
+      : isoYear.toString().padStart(4, '0');
     const monthStr = this.month.toString().padStart(2, '0');
     const dayStr = this.day.toString().padStart(2, '0');
     
