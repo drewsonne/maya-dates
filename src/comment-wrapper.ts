@@ -17,7 +17,7 @@ export abstract class CommentWrapper {
   /**
    * Reset the current comment back to an empty comment.
    */
-  resetComment(): any {
+  resetComment(): this {
     this.comment = new Comment('');
     return this;
   }
