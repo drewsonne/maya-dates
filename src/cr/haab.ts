@@ -98,7 +98,7 @@ export class Haab extends CommentWrapper implements IPart {
    * Create a Haab' date from a day number (days since epoch) using direct formula per [R1] §3.3.
    * 
    * Formula:
-   * - H = (d + haabEpochDay + 20·(haabEpochMonth − 1)) mod 365
+   * - H = (d + haabEpochDay + 20·(haabEpochMonth − 1)) mod 365 (with proper negative handling)
    * - monthIndex = ⌊H / 20⌋ + 1
    * - day = H mod 20
    * 
