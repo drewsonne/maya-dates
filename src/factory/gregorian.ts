@@ -79,7 +79,9 @@ export default class GregorianFactory {
     }
     
     // Convert year to negative for BCE dates
-    const adjustedYear = isBCE ? -year : year;
+    // BCE dates use astronomical year numbering: 1 BCE = year 0, 2 BCE = year -1, etc.
+    // So for BCE year X, the astronomical year is 1 - X
+    const adjustedYear = isBCE ? (1 - year) : year;
     
     // Convert Gregorian date to julian day using moonbeams
     // moonbeams.calendarToJd returns a julian day for the given calendar date
@@ -126,7 +128,7 @@ export default class GregorianFactory {
     const calculatedDay = Math.floor(calculatedDate.day);
     const calculatedMonth = calculatedDate.month;
     const calculatedYear = calculatedDate.year;
-    const targetYear = isBCE ? Math.abs(adjustedYear) : adjustedYear;
+    const targetYear = year; // Use the original year from input
     const calcYearForBCE = calculatedYear < 0 ? Math.abs(calculatedYear - 1) : calculatedYear;
     
     // If the date doesn't match, there might be an issue with the offset calculation

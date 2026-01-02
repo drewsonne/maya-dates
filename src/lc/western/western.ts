@@ -78,15 +78,10 @@ export default abstract class WesternCalendar {
   }
 
   /**
-   * Represent this date as a string with era markers. If the date is suffixed with
-   * a '*', this date is on the Julian/Gregorian threshold date.
+   * Represent this date as a string with era markers.
    * @return {string}
    */
   toString() {
-    const date = `${this.day}/${this.month}/${this.year} ${this.era}`;
-    if (this.isThreshold()) {
-      return `${date}*`;
-    }
-    return date;
+    return `${this.day}/${this.month}/${this.year} ${this.era}`;
   }
 }
