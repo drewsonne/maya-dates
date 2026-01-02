@@ -136,8 +136,6 @@ export class Tzolkin extends CommentWrapper implements IPart {
    */
   shift(newIncremental: number): Tzolkin {
     if (
-      !(isWildcard(this.day)) &&
-      !(this.coeff instanceof WildcardCoefficient) &&
       this.coeff instanceof NumberCoefficient &&
       this.day instanceof TzolkinDay
     ) {
