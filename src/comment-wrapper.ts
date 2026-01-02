@@ -17,7 +17,7 @@ export abstract class CommentWrapper {
   /**
    * Replace the current comment.
    */
-  setComment(comment: Comment | string): any {
+  setComment(comment: Comment | string): this {
     let castComment: Comment = new Comment('');
     if (isStringPrimitive(comment)) {
       castComment = new Comment(comment);
@@ -31,7 +31,7 @@ export abstract class CommentWrapper {
   /**
    * Append additional text to the current comment.
    */
-  appendComment(comment: Comment | string): any {
+  appendComment(comment: Comment | string): this {
     let castComment: Comment = new Comment('')
     if (isStringPrimitive(comment)) {
       castComment = new Comment(comment);
@@ -75,8 +75,11 @@ export abstract class CommentWrapper {
 /**
  * Type guard for {@link CommentWrapper}.
  */
-export function wrapsComment(o: any): o is CommentWrapper {
-  return ((o as CommentWrapper).setComment !== undefined)
-    && ((o as CommentWrapper).appendComment !== undefined)
-    && ((o as CommentWrapper).comment !== undefined)
+export function wrapsComment(o: unknown): o is CommentWrapper {
+  return (typeof o === 'object' && o !== null)
+    && ('setComment' in o)
+    && ('appendComment' in o)
+    && ('comment' in o)
+    && typeof (o as CommentWrapper).setComment === 'function'
+    && typeof (o as CommentWrapper).appendComment === 'function'
 }

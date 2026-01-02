@@ -20,11 +20,13 @@ export default abstract class Cycle extends Base {
     lookup: HashMap,
     generator: (cycleName: number | string | Wildcard) => (Cycle | Wildcard)
   ) {
-    super(
-      (typeof value === 'number') ?
-        lookup.getValue(value) :
-        value
-    );
+    const resolvedValue = (typeof value === 'number') ?
+      lookup.getValue(value) :
+      value;
+    if (resolvedValue === undefined) {
+      throw new Error(`Value not found in lookup for index ${value}`);
+    }
+    super(resolvedValue);
     this.generator = generator;
     this.cycleLength = lookup.length;
     this.nextHolder = null
