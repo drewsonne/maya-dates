@@ -3,6 +3,12 @@ import 'mocha'
 import {getCorrelationConstant} from "../../../lc/correlation-constant";
 import LongCountFactory from "../../../factory/long-count";
 import GregorianFactory from "../../../factory/gregorian";
+import {
+  getGMTCorrelationData,
+  getDirectSourceData,
+  findCorrelation,
+  CorrelationData
+} from "../../test-data-loader";
 
 class MockDateCorrelation {
   public lc: string;
@@ -113,4 +119,54 @@ describe('longcount to mayadate', () => {
       expect(lc.getPosition()).to.eq(dc.mayaDay);
     })
   })
+});
+
+describe('JSON Dataset Correlation Tests', () => {
+  const jsonGmtData = getGMTCorrelationData();
+  
+  describe('Direct source correlations validation', () => {
+    const directSourceData = getDirectSourceData().slice(0, 5); // Test first 5 for performance
+    
+    directSourceData.forEach((correlation: CorrelationData) => {
+      it(`should validate ${correlation.maya_long_count} from source data`, () => {
+        const lc = lcFactory.parse(correlation.maya_long_count).setCorrelationConstant(corr);
+        
+        // Validate the Long Count parses correctly
+        expect(lc).to.not.be.null;
+        
+        // This is a basic test - you may need to adjust date format comparison
+        // based on how your library formats dates vs the JSON ISO format
+        if (correlation.western_calendar === 'gregorian') {
+          const year = correlation.western_date.split('-')[0];
+          const gregorianDate = `${lc.gregorian}`;
+          // Remove leading zeros for comparison (e.g., 0397 -> 397)
+          expect(gregorianDate).to.include(year.replace(/^0+/, ''));
+        }
+      });
+    });
+  });
+
+  describe('Sample correlations from JSON dataset', () => {
+    // Test a few correlations from the comprehensive dataset
+    const sampleData = jsonGmtData
+      .filter(d => d.western_calendar === 'gregorian')
+      .slice(0, 10); // Test first 10 for performance
+    
+    sampleData.forEach((correlation: CorrelationData) => {
+      it(`should process ${correlation.maya_long_count} -> ${correlation.western_date}`, () => {
+        const lc = lcFactory.parse(correlation.maya_long_count).setCorrelationConstant(corr);
+        
+        // Basic validation that the Long Count parses and produces a date
+        expect(`${lc.gregorian}`).to.be.a('string');
+        expect(lc.julianDay).to.be.a('number');
+        expect(lc.getPosition()).to.be.a('number');
+        
+        // Extract year for comparison (adjust format as needed)
+        const expectedYear = correlation.western_date.split('-')[0];
+        const gregorianDate = `${lc.gregorian}`;
+        // Remove leading zeros for comparison
+        expect(gregorianDate).to.include(expectedYear.replace(/^0+/, ''));
+      });
+    });
+  });
 });
