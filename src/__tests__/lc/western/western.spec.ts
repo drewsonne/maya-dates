@@ -123,8 +123,11 @@ describe('longcount to mayadate', () => {
 describe('JSON Dataset Correlation Tests', () => {
   const jsonGmtData = getGMTCorrelationData();
   
-  // Allow configurable sample size via environment variable
-  // Default to 5 for fast local testing, but CI can set to 0 (unlimited) for full validation
+  /**
+   * Parse TEST_SAMPLE_SIZE environment variable to control test coverage.
+   * @param defaultSize - Default sample size for fast local testing
+   * @returns Sample size number, or undefined for unlimited testing (when env is 0)
+   */
   const getTestSampleSize = (defaultSize: number): number | undefined => {
     const envSize = process.env.TEST_SAMPLE_SIZE;
     if (envSize === undefined) return defaultSize;
@@ -134,12 +137,20 @@ describe('JSON Dataset Correlation Tests', () => {
     return parsed === 0 ? undefined : parsed;
   };
   
+  /**
+   * Apply sample limit to an array of test data.
+   * @param data - Full dataset
+   * @param sampleSize - Number of samples to take, or undefined for all
+   * @returns Sliced or full dataset
+   */
+  const applySampleLimit = <T>(data: T[], sampleSize: number | undefined): T[] => {
+    return sampleSize !== undefined ? data.slice(0, sampleSize) : data;
+  };
+  
   describe('Direct source correlations validation', () => {
     const allDirectSourceData = getDirectSourceData();
     const sampleSize = getTestSampleSize(5);
-    const directSourceData = sampleSize !== undefined 
-      ? allDirectSourceData.slice(0, sampleSize)
-      : allDirectSourceData;
+    const directSourceData = applySampleLimit(allDirectSourceData, sampleSize);
     
     directSourceData.forEach((correlation: CorrelationData) => {
       it(`should validate ${correlation.maya_long_count} from source data`, () => {
@@ -164,9 +175,7 @@ describe('JSON Dataset Correlation Tests', () => {
     // Test a few correlations from the comprehensive dataset
     const allSampleData = jsonGmtData.filter(d => d.western_calendar === 'gregorian');
     const sampleSize = getTestSampleSize(10);
-    const sampleData = sampleSize !== undefined
-      ? allSampleData.slice(0, sampleSize)
-      : allSampleData;
+    const sampleData = applySampleLimit(allSampleData, sampleSize);
     
     sampleData.forEach((correlation: CorrelationData) => {
       it(`should process ${correlation.maya_long_count} -> ${correlation.western_date}`, () => {
