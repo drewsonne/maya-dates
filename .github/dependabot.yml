@@ -1,0 +1,27 @@
+version: 2
+updates:
+  # Monitor npm dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      dev-dependencies:
+        patterns:
+          - "@types/*"
+          - "@babel/*"
+          - "typescript"
+        update-types:
+          - "minor"
+          - "patch"
+    ignore:
+      # Ignore major version updates to reduce breaking changes
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  # Monitor GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
