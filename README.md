@@ -163,27 +163,46 @@ console.log(`Full Date: ${fullDate}`);
 
 ### Gregorian to Long Count Conversion
 
-Convert Gregorian dates to Maya Long Count:
+Convert between Gregorian dates and Maya Long Count:
 
 ```typescript
-import { GregorianFactory } from '@drewsonne/maya-dates';
+import { GregorianFactory, LongCount, LongCountFactory } from '@drewsonne/maya-dates';
 
-// Create a Gregorian date
+// Parse a Gregorian date
 const gregorianFactory = new GregorianFactory();
 const gregorianDate = gregorianFactory.parse('21/12/2012 CE');
 
-// The Gregorian date is internally stored as a Julian Day Number
-// which can be used to calculate the corresponding Long Count
-console.log(`Julian Day: ${gregorianDate.julianDay}`);
-console.log(`Date: ${gregorianDate.day}/${gregorianDate.month}/${gregorianDate.year} ${gregorianDate.era}`);
+// Convert Gregorian to Long Count
+const longCount = LongCount.fromGregorian(gregorianDate);
+console.log(`Gregorian 21/12/2012 CE = Long Count ${longCount}`);
+// Output: "Gregorian 21/12/2012 CE = Long Count 13. 0. 0. 0. 0"
 
-// You can also convert a Long Count to Gregorian
-import { LongCountFactory } from '@drewsonne/maya-dates';
+// Alternative: Convert from Julian Day Number directly
+const lc2 = LongCount.fromJulianDay(2456283);
+console.log(`JDN 2456283 = ${lc2}`);
+// Output: "JDN 2456283 = 13. 0. 0. 0. 0"
 
-const lc = new LongCountFactory().parse('13.0.0.0.0');
-const gregorian = lc.gregorian;
-console.log(`Long Count 13.0.0.0.0 corresponds to:`);
-console.log(`${gregorian.day}/${gregorian.month}/${gregorian.year} ${gregorian.era}`);
+// Convert Long Count to Gregorian (reverse direction)
+const lcFactory = new LongCountFactory();
+const longCountDate = lcFactory.parse('13.0.0.0.0');
+const gregorian = longCountDate.gregorian;
+console.log(`Long Count ${longCountDate} = ${gregorian.day}/${gregorian.month}/${gregorian.year} ${gregorian.era}`);
+// Output: "Long Count 13. 0. 0. 0. 0 = 21/12/2012 CE"
+
+// Roundtrip conversion example
+const original = lcFactory.parse('9.17.0.0.0');
+const asGregorian = original.gregorian;
+const backToLC = LongCount.fromGregorian(asGregorian);
+console.log(`Original: ${original}, Roundtrip: ${backToLC}`);
+// Both will be identical: " 9.17. 0. 0. 0"
+```
+
+**Available conversion methods:**
+- `LongCount.fromGregorian(gregorianDate, correlation?)` - Convert from GregorianCalendarDate
+- `LongCount.fromJulianDay(jdn, correlation?)` - Convert from Julian Day Number
+- `LongCount.fromMayanDayNumber(mdn, correlation?)` - Convert from Maya Day Number
+- `longCount.gregorian` - Convert Long Count to Gregorian (getter property)
+- `longCount.julianDay` - Get Julian Day Number for Long Count (getter property)
 ```
 
 ### Working with Wildcards
