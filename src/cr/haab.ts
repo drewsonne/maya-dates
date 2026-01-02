@@ -107,7 +107,8 @@ export class Haab extends CommentWrapper implements IPart {
    */
   static fromDayNumber(dayNumber: number): Haab {
     // Calculate day-of-year index per spec [R1] §3.3
-    const H = (dayNumber + Haab.EPOCH_DAY + 20 * (Haab.EPOCH_MONTH_INDEX - 1)) % 365;
+    // Use ((x % n) + n) % n to ensure result is always in [0, n-1] for negative dayNumbers
+    const H = ((dayNumber + Haab.EPOCH_DAY + 20 * (Haab.EPOCH_MONTH_INDEX - 1)) % 365 + 365) % 365;
     
     const monthIndex = Math.floor(H / 20) + 1;
     const day = H % 20;
@@ -175,7 +176,8 @@ export class Haab extends CommentWrapper implements IPart {
       const currentH = this.coeff.value + 20 * (this.month.position - 1);
       
       // Apply shift using direct formula per spec [R1] §3.3
-      const newH = (currentH + incremental) % 365;
+      // Use ((x % n) + n) % n to ensure result is always in [0, n-1] for negative increments
+      const newH = ((currentH + incremental) % 365 + 365) % 365;
       const newMonthIndex = Math.floor(newH / 20) + 1;
       const newDay = newH % 20;
       
