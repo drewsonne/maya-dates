@@ -27,7 +27,7 @@ export default class GregorianFactory {
   parse(gregorian: string): GregorianCalendarDate {
     // Clean the input string - remove all asterisks and era markers
     let cleanedGregorian = gregorian.replace(/\*/g, '').trim();
-    
+
     // Determine era (BCE or CE)
     let isBCE: boolean = false;
     let searchString: string = '';
@@ -38,18 +38,18 @@ export default class GregorianFactory {
       isBCE = false;
       searchString = 'CE';
     }
-    
+
     // Remove era markers if present
     if (searchString) {
       cleanedGregorian = cleanedGregorian.replace(` ${searchString}`, '').replace(searchString, '').trim();
     }
-    
+
     // Validate basic format: expect three slash-separated numeric components (day/month/year)
     const rawParts = cleanedGregorian.split('/');
     if (rawParts.length !== 3) {
       throw new Error(`Invalid Gregorian date format: "${gregorian}". Expected format: DD/MM/YYYY`);
     }
-    
+
     const dateParts: number[] = rawParts.map((part, index) => {
       const trimmed = part.trim();
       if (trimmed.length === 0) {
@@ -61,12 +61,12 @@ export default class GregorianFactory {
       }
       return value;
     });
-    
+
     // dateParts[0] = day, dateParts[1] = month, dateParts[2] = year
     const day = dateParts[0];
     const month = dateParts[1];
     const year = dateParts[2];
-    
+
     // Validate date component ranges
     if (month < 1 || month > 12) {
       throw new Error(`Month out of range in Gregorian date "${gregorian}": ${month}. Expected 1-12`);
@@ -77,16 +77,16 @@ export default class GregorianFactory {
     if (year === 0) {
       throw new Error(`Year zero is not valid in Gregorian date "${gregorian}"`);
     }
-    
+
     // Convert year to negative for BCE dates
     // BCE dates use astronomical year numbering: 1 BCE = year 0, 2 BCE = year -1, etc.
     // So for BCE year X, the astronomical year is 1 - X
     const adjustedYear = isBCE ? (1 - year) : year;
-    
+
     // Convert Gregorian date to julian day using moonbeams
     // moonbeams.calendarToJd returns a julian day for the given calendar date
     const targetJd = Math.ceil(moonbeams.calendarToJd(adjustedYear, month, day));
-    
+
     // The GregorianCalendarDate stores a base julian day, and when accessing the date property,
     // it applies an offset: date = jdToCalendar(storedJd + offset(storedJd))
     // We need to find storedJd such that: jdToCalendar(storedJd + offset(storedJd)) = our Gregorian date
@@ -96,11 +96,11 @@ export default class GregorianFactory {
     let storedJd = targetJd;
     let iterations = 0;
     const maxIterations = 10;
-    
+
     while (iterations < maxIterations) {
       // Calculate offset for current storedJd
       const offset = storedJd === 2299160 ? 0 :
-                     storedJd <= 1448283 ? -8 : 
+                     storedJd <= 1448283 ? -8 :
                      storedJd <= 1455864 ? -8 :
                      storedJd <= 1599864 ? -5 :
                      storedJd <= 1743864 ? -2 :
@@ -110,18 +110,18 @@ export default class GregorianFactory {
                      storedJd <= 2175864 ? 7 :
                      storedJd <= 2240664 ? 9 :
                      storedJd <= 2299160 ? 10 : 0;
-      
+
       // Check if we've converged
       if (storedJd + offset === targetJd) {
         break;
       }
-      
+
       // Adjust storedJd: we want storedJd + offset = targetJd
       // So: storedJd = targetJd - offset
       storedJd = targetJd - offset;
       iterations++;
     }
-    
+
     // Verify the result produces the correct date
     const temp = new GregorianCalendarDate(storedJd);
     const calculatedDate = temp.date;
@@ -130,17 +130,17 @@ export default class GregorianFactory {
     const calculatedYear = calculatedDate.year;
     const targetYear = year; // Use the original year from input
     const calcYearForBCE = calculatedYear < 0 ? Math.abs(calculatedYear - 1) : calculatedYear;
-    
+
     // If the date doesn't match, there might be an issue with the offset calculation
     // In that case, we'll use the targetJd directly and let the offset be applied
-    if (calculatedDay !== day || 
-        calculatedMonth !== month || 
+    if (calculatedDay !== day ||
+        calculatedMonth !== month ||
         (isBCE ? calcYearForBCE !== targetYear : calculatedYear !== targetYear)) {
       // Fallback: store targetJd directly
       // The offset will adjust it when converting to calendar date
       storedJd = targetJd;
     }
-    
+
     return new GregorianCalendarDate(storedJd);
   }
 }
