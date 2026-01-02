@@ -110,6 +110,8 @@ describe('longcount to mayadate', () => {
 });
 
 describe('JSON Dataset Correlation Tests', () => {
+  // The JSON dataset uses correlation 584285 (Astronomical), not 584283 (GMT)
+  const astronomicalCorr = getCorrelationConstant('Astronomical');
   const jsonGmtData = getGMTCorrelationData();
 
   describe('Direct source correlations validation', () => {
@@ -127,10 +129,9 @@ describe('JSON Dataset Correlation Tests', () => {
         // This is a basic test - you may need to adjust date format comparison
         // based on how your library formats dates vs the JSON ISO format
         if (correlation.western_calendar === 'gregorian') {
-          const year = correlation.western_date.split('-')[0];
-          const gregorianDate = `${lc.gregorian}`;
-          // Remove leading zeros for comparison (e.g., 0397 -> 397)
-          expect(gregorianDate).to.include(year.replace(/^0+/, ''));
+          const expectedDate = correlation.western_date;
+          const actualDate = lc.gregorian.toISOString();
+          expect(actualDate).to.equal(expectedDate);
         }
       });
     });
@@ -142,20 +143,33 @@ describe('JSON Dataset Correlation Tests', () => {
 
     gregorianData.forEach((correlation: CorrelationData) => {
       it(`should process ${correlation.maya_long_count} -> ${correlation.western_date}`, () => {
+<<<<<<< HEAD
         // Use the correlation constant from the JSON data
         const correlationConstant = getCorrelationConstant(correlation.correlation_jdn);
         const lc = lcFactory.parse(correlation.maya_long_count).setCorrelationConstant(correlationConstant);
 
+=======
+        const lc = lcFactory.parse(correlation.maya_long_count).setCorrelationConstant(astronomicalCorr);
+        
+>>>>>>> c5dd0a9 (Implement ISO 8601 date comparison and fix correlation constant)
         // Basic validation that the Long Count parses and produces a date
         expect(`${lc.gregorian}`).to.be.a('string');
         expect(lc.julianDay).to.be.a('number');
         expect(lc.getPosition()).to.be.a('number');
+<<<<<<< HEAD
 
         // Extract year for comparison (adjust format as needed)
         const expectedYear = correlation.western_date.split('-')[0];
         const gregorianDate = `${lc.gregorian}`;
         // Remove leading zeros for comparison
         expect(gregorianDate).to.include(expectedYear.replace(/^0+/, ''));
+=======
+        
+        // Compare dates in ISO 8601 format for precision
+        const expectedDate = correlation.western_date;
+        const actualDate = lc.gregorian.toISOString();
+        expect(actualDate).to.equal(expectedDate);
+>>>>>>> c5dd0a9 (Implement ISO 8601 date comparison and fix correlation constant)
       });
     });
   });
