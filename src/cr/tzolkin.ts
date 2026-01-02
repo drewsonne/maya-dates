@@ -1,5 +1,5 @@
 /** @ignore */
-import {TzolkinDay} from "./component/tzolkinDay";
+import {TzolkinDay, getTzolkinDay} from "./component/tzolkinDay";
 import {isWildcard, Wildcard} from "../wildcard";
 import NumberCoefficient from "./component/numberCoefficient";
 import WildcardCoefficient from "./component/wildcardCoefficient";
@@ -147,7 +147,7 @@ export class Tzolkin extends CommentWrapper implements IPart {
       
       return getTzolkin(
         new NumberCoefficient(newCoeff),
-        this.day.generator(newDayPosition) as TzolkinDay
+        getTzolkinDay(newDayPosition)
       );
     } else {
       throw new Error("Tzolkin must not have wildcards to shift")
