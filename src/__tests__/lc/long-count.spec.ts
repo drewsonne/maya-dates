@@ -4,7 +4,6 @@ import {expect} from 'chai'
 import LongCount from "../../lc/long-count";
 import {Wildcard} from "../../wildcard";
 import {LordOfTheNight, lords} from "../../lc/night/lord-of-night";
-import exp = require("constants");
 
 describe('parse long-count fullDate', () => {
   const dates = [
