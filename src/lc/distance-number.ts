@@ -33,7 +33,8 @@ export default class DistanceNumber extends CommentWrapper implements IPart {
      * @private
      * @type {number}
      */
-    this.sign = (this.parts[this.parts.length - 1] < 0) ? -1 : 1;
+    const lastPart = this.parts[this.parts.length - 1];
+    this.sign = (typeof lastPart === 'number' && lastPart < 0) ? -1 : 1;
     if (this.isNegative) {
       let lastComponent = this.parts[this.parts.length - 1]
       if (typeof lastComponent === 'number') {
@@ -400,7 +401,7 @@ export default class DistanceNumber extends CommentWrapper implements IPart {
     norm.kalabtun = (totalKIn - norm.getPosition()) / 57600000 % 20;
     norm.kinchiltun = (totalKIn - norm.getPosition()) / 1152000000 % 20;
     const foundNegative = norm.parts.reduce(
-      (found, part) => found || (part < 0),
+      (found, part) => found || (typeof part === 'number' && part < 0),
       false,
     );
     this.sign = foundNegative ? -1 : 1;
