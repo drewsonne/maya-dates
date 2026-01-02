@@ -83,23 +83,23 @@ values for dates matching that wildcard pattern.
 
 ## Migration Guide
 
-### v1.x to v2.x: Modern Import Syntax
+### Modern Import Syntax
 
-**v2.0.0 introduces the `exports` field for better encapsulation and tree-shaking support.**
+**This version introduces the `exports` field for better encapsulation and tree-shaking support.**
 
-#### Recommended (v2.x+): Named imports from package root
+#### Recommended: Named imports from package root
 ```typescript
 import { LongCountFactory, CalendarRoundFactory, FullDateFactory } from "@drewsonne/maya-dates";
 ```
 
 #### Backwards Compatible (deprecated): Deep imports
 ```typescript
-// ⚠️ DEPRECATED: Still works in v2.x for backwards compatibility
-import LongCountFactory from "@drewsonne/maya-dates/lib/factory/long-count.js";
-import CalendarRoundFactory from "@drewsonne/maya-dates/lib/factory/calendar-round.js";
+// ⚠️ DEPRECATED: Still works for backwards compatibility
+import LongCountFactory from "@drewsonne/maya-dates/lib/factory/long-count";
+import CalendarRoundFactory from "@drewsonne/maya-dates/lib/factory/calendar-round";
 ```
 
-**Note:** Deep imports via `/lib/*` are supported in v2.x for backwards compatibility but will be removed in v3.0.0. Please migrate to named imports from the package root.
+**Note:** Deep imports via `/lib/*` are supported for backwards compatibility but may be removed in a future major version. Please migrate to named imports from the package root.
 
 ### Benefits of Modern Imports
 - ✅ Better tree-shaking (smaller bundle sizes)
