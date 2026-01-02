@@ -1,7 +1,5 @@
 import FullDateFactory from "../factory/full-date";
-import FullDate from "../full-date";
 import LongCountFactory from "../factory/long-count";
-import CalendarRoundFactory from "../factory/calendar-round";
 import 'mocha'
 import {expect} from 'chai'
 

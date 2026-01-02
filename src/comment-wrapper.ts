@@ -90,4 +90,5 @@ export function wrapsComment(o: unknown): o is CommentWrapper {
     && ('comment' in o)
     && typeof (o as CommentWrapper).setComment === 'function'
     && typeof (o as CommentWrapper).appendComment === 'function'
+    && isComment((o as CommentWrapper).comment);
 }
