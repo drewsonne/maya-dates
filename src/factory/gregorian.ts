@@ -18,32 +18,13 @@ export default class GregorianFactory {
     if (isBCE) {
       dateParts[2] = -dateParts[2]
     }
-    let jday = Math.ceil(moonbeams.calendarToJd(dateParts[2], dateParts[1], dateParts[0]))
-    let expectedOffset = expectedJDay - jday
-    let offset: number = this.offset(jday)
-    console.log(`${gregorian}, ${jday}, ${expectedJDay}, ${offset}, ${expectedOffset}`)
-    return new GregorianCalendarDate(jday + offset);
-  }
-
-  offset(julianDay: number): number {
-    if (julianDay > 2294314) {
-      return 0;
-    } else if (julianDay >= 2269001) {
-      return -10;
-    } else if (julianDay >= 2232476) {
-      return -9;
-    } else if (julianDay >= 2175871) {
-      return -7;
-    } else if (julianDay >= 2096670) {
-      return -6;
-    } else if (julianDay >= 2031868) {
-      return -4;
-    } else if (julianDay >= 1887865) {
-      return -1;
-    } else if (julianDay >= 1743862) {
-      return 2;
-    } else {
-      return 0;
-    }
+    // moonbeams.calendarToJd returns a julian day for the Gregorian calendar
+    // We need to convert this to the equivalent Julian calendar julian day
+    // by subtracting the offset that GregorianCalendarDate would apply
+    let gregorianJd = Math.ceil(moonbeams.calendarToJd(dateParts[2], dateParts[1], dateParts[0]))
+    // The expectedJDay is the actual julian day we want
+    // Calculate the offset needed to get from gregorianJd to expectedJDay
+    let offset = expectedJDay - gregorianJd
+    return new GregorianCalendarDate(gregorianJd + offset);
   }
 }
