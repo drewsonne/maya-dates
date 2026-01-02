@@ -87,10 +87,9 @@ export class HaabMonth extends Cycle {
       if (this.value === undefined) {
         throw new Error('Haab\' month name must be provided');
       }
-      if (typeof this.value !== 'string') {
-        throw new Error(`Haab' month must be a string, got ${typeof this.value}`);
-      }
-      if (!months.includes(this.value)) {
+      // Type check is redundant: Cycle constructor ensures value is string | number | Wildcard,
+      // and if undefined, error is thrown. After lookup resolution, value is always a string here.
+      if (!months.includes(this.value as string)) {
         throw new Error(`Haab' month (${this.value}) must be in ${months}`);
       }
     }
