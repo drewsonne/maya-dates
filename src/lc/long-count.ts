@@ -28,8 +28,19 @@ export default class LongCount extends DistanceNumber {
   constructor(...cycles: (number | Wildcard)[]) {
     super(...cycles);
     /**
-     * Correlation constant to allow alignment with western calendars
+     * Correlation constant to allow alignment with western calendars.
+     * 
+     * Defaults to 584283 (original GMT correlation). The GMT correlation is
+     * actually a family of closely-related values (584283, 584285, 584286) that
+     * differ by only a few days. 584283 is used here as the traditional "GMT"
+     * value, though 584285 (Modified GMT) and 584286 (Martin-Skidmore) are also
+     * widely used in modern scholarship.
+     * 
+     * Use setCorrelationConstant() to change this value.
+     * 
      * @type {CorrelationConstant}
+     * @see CorrelationConstant
+     * @see Martin, S., & Skidmore, J. (2012). "Exploring the 584286 Correlation"
      */
     this.correlationConstant = getCorrelationConstant(584283);
   }
