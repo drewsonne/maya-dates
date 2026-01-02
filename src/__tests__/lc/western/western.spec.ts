@@ -6,7 +6,6 @@ import GregorianFactory from "../../../factory/gregorian";
 import {
   getGMTCorrelationData,
   getDirectSourceData,
-  findCorrelation,
   CorrelationData
 } from "../../test-data-loader";
 
@@ -132,7 +131,7 @@ describe('JSON Dataset Correlation Tests', () => {
         const lc = lcFactory.parse(correlation.maya_long_count).setCorrelationConstant(corr);
         
         // Validate the Long Count parses correctly
-        expect(lc).to.not.be.null;
+        expect(lc).to.not.equal(null);
         
         // This is a basic test - you may need to adjust date format comparison
         // based on how your library formats dates vs the JSON ISO format

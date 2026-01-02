@@ -7,13 +7,32 @@ import {
   getDirectSourceData,
   findCorrelation,
   getUniqueLongCounts,
-  getAvailableCorrelations,
-  CorrelationData
+  getAvailableCorrelations
 } from './test-data-loader';
+import type { CorrelationData } from './test-data-loader';
 import LongCountFactory from '../factory/long-count';
 import FullDateFactory from '../factory/full-date';
 import {getCorrelationConstant} from '../lc/correlation-constant';
 
+/**
+ * These tests validate Maya Long Count ↔ western date correlations using the JSON
+ * fixture data and the conversion factories. In particular, they exercise logic
+ * affected by the "winal radix correction" mentioned in the PR title.
+ *
+ * The winal radix correction refers to how 20‑day winals are handled when mapping
+ * Long Count positions to a fixed day count (JDN) and then to Gregorian/Julian
+ * calendar dates. Historically, small off‑by‑one errors in this radix handling
+ * can shift whole correlation constants by one or more days.
+ *
+ * By:
+ *  - loading the canonical correlation dataset,
+ *  - validating the GMT correlation constant (584285) against direct historical
+ *    source entries, and
+ *  - comparing western dates produced under neighboring correlation constants
+ *    (e.g. 584283–584286),
+ * these tests ensure that the current implementation of the winal radix, and the
+ * resulting correlation constants, produce stable and internally consistent dates.
+ */
 describe('Maya Date Correlations from JSON Dataset', () => {
   
   describe('Data Loading and Structure', () => {
@@ -117,7 +136,7 @@ describe('Maya Date Correlations from JSON Dataset', () => {
           // Test that Calendar Round actually parses - this will fail if spellings don't match
           const fullDateString = `${data.calendar_round} ${data.maya_long_count}`;
           const fullDate = factory.parse(fullDateString);
-          expect(fullDate).to.not.be.null;
+          expect(fullDate).to.not.equal(null);
         }
       });
     });
@@ -136,7 +155,7 @@ describe('Maya Date Correlations from JSON Dataset', () => {
 
     it('should group correlations by event for historical analysis', () => {
       const data = loadCorrelationData();
-      const eventGroups: { [event: string]: any[] } = {};
+      const eventGroups: Record<string, CorrelationData[]> = {};
       
       data.data.forEach(item => {
         if (!eventGroups[item.event]) {
@@ -198,12 +217,12 @@ describe('Maya Date Correlations from JSON Dataset', () => {
   describe('Helper Function Tests', () => {
     it('should filter data by correlation constant correctly', () => {
       const gmtData = getDataByCorrelation(584285);
-      expect(gmtData.every(item => item.correlation_jdn === 584285)).to.be.true;
+      expect(gmtData.every(item => item.correlation_jdn === 584285)).to.equal(true);
     });
 
     it('should get GMT correlation data', () => {
       const gmtData = getGMTCorrelationData();
-      expect(gmtData.every(item => item.correlation_jdn === 584285)).to.be.true;
+      expect(gmtData.every(item => item.correlation_jdn === 584285)).to.equal(true);
     });
 
     it('should find specific correlations', () => {
@@ -214,7 +233,7 @@ describe('Maya Date Correlations from JSON Dataset', () => {
         correlation_jdn: 584285
       });
       
-      expect(result).to.not.be.undefined;
+      expect(result).to.not.equal(undefined);
       if (result) {
         expect(result.maya_long_count).to.equal(firstLongCount);
         expect(result.western_calendar).to.equal('gregorian');

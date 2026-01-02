@@ -4,7 +4,6 @@ import 'mocha'
 import {expect} from 'chai'
 import {
   getGMTCorrelationData,
-  findCorrelation,
   CorrelationData
 } from "./test-data-loader";
 
@@ -68,9 +67,9 @@ it('isPartial should detect wildcards', () => {
   const fd4 = new FullDateFactory().parse('4 Ajaw * Kumk\'u 9.17.0.0.*');
 
   expect(fd1.isPartial()).to.be.false;
-  expect(fd2.isPartial()).to.be.true;
-  expect(fd3.isPartial()).to.be.true;
-  expect(fd4.isPartial()).to.be.true;
+  expect(fd2.isPartial()).to.equal(true);
+  expect(fd3.isPartial()).to.equal(true);
+  expect(fd4.isPartial()).to.equal(true);
 });
 
 describe('Historical Full Date Validation using JSON Dataset', () => {
@@ -86,7 +85,7 @@ describe('Historical Full Date Validation using JSON Dataset', () => {
       // Parse should succeed - if it fails, the spellings don't match
       const fullDate = new FullDateFactory().parse(fullDateString);
       
-      expect(fullDate).to.not.be.null;
+      expect(fullDate).to.not.equal(null);
       // Compare Long Count string directly - normalize spacing
       const actualLC = fullDate.lc.toString().trim().replace(/\s+/g, '.').replace(/\.+/g, '.');
       expect(actualLC).to.equal(correlation.maya_long_count);
@@ -104,7 +103,7 @@ describe('Historical Full Date Validation using JSON Dataset', () => {
       const lcString = correlation.maya_long_count;
       const lc = new LongCountFactory().parse(lcString);
       
-      expect(lc).to.not.be.null;
+      expect(lc).to.not.equal(null);
       // Normalize for comparison - the toString() adds spaces
       const actualLC = lc.toString().trim().replace(/\s+/g, '.');
       // Extract just the numeric parts for comparison
