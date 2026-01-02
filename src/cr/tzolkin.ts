@@ -83,7 +83,7 @@ export class Tzolkin extends CommentWrapper implements IPart {
    * Create a Tzolk'in date from a day number (days since epoch) using direct formula per [R1] §4.4.
    * 
    * Formula: 
-   * - adjmod(x, n) = ((x - 1) mod n) + 1
+   * - adjmod(x, n) = ((x − 1) mod n) + 1 (with proper negative handling)
    * - number = adjmod(d + tzEpochNumber, 13)
    * - nameIndex = adjmod(d + tzEpochName, 20)
    * 
