@@ -140,10 +140,17 @@ export default class LongCount extends DistanceNumber {
     const kalabtun = Math.floor(mayanDayNumber / 57600000) % 20;
     const kinchiltun = Math.floor(mayanDayNumber / 1152000000);
 
-    // Build the Long Count with only significant components
+    // Build the Long Count with all components
+    // The constructor handles trailing zeros appropriately
     const parts: number[] = [kin, winal, tun, katun, baktun];
-    if (piktun > 0 || kalabtun > 0 || kinchiltun > 0) {
+    
+    // Only add higher-order units if they're needed
+    if (kinchiltun > 0) {
       parts.push(piktun, kalabtun, kinchiltun);
+    } else if (kalabtun > 0) {
+      parts.push(piktun, kalabtun);
+    } else if (piktun > 0) {
+      parts.push(piktun);
     }
 
     const lc = new LongCount(...parts);
