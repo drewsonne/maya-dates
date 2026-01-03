@@ -17,6 +17,7 @@ and Calendar Round (CR) dates.
   - [Gregorian to Long Count Conversion](#gregorian-to-long-count-conversion)
   - [Working with Wildcards](#working-with-wildcards)
   - [Date Arithmetic](#date-arithmetic)
+  - [Alternative Spellings (i18n)](#alternative-spellings-i18n)
 - [Migration Guide](#migration-guide)
 - [Development](#development)
 - [Documentation](#documentation)
@@ -263,6 +264,44 @@ console.log(`Full date: ${fullDate}`);
 const shifted = fullDate.cr.shift(20);
 console.log(`Calendar Round shifted by 20 days: ${shifted}`);
 ```
+
+### Alternative Spellings (i18n)
+
+Support alternative spellings and transliterations of Maya calendar terms:
+
+```typescript
+import { 
+  CalendarRoundFactory, 
+  getI18nManager, 
+  LocaleDefinition 
+} from '@drewsonne/maya-dates';
+
+// Register alternative spellings
+const i18n = getI18nManager();
+const altSpellings: LocaleDefinition = {
+  locale: 'alternative',
+  name: 'Alternative Spellings',
+  tzolkinDays: {
+    'Ajaw': { canonical: 'Ajaw', alternatives: ['Ahau', 'Ajau'] }
+  },
+  haabMonths: {
+    'Kumk\'u': { canonical: 'Kumk\'u', alternatives: ['Kumku', 'Cumku'] }
+  }
+};
+
+i18n.registerLocale(altSpellings);
+
+// Parse dates using alternative spellings
+const factory = new CalendarRoundFactory();
+const cr1 = factory.parse('4 Ahau 8 Kumku');      // Alternative
+const cr2 = factory.parse('4 Ajaw 8 Kumk\'u');    // Canonical
+
+// Both produce the same result
+console.log(cr1.toString()); // "4 Ajaw 8 Kumk'u"
+console.log(cr2.toString()); // "4 Ajaw 8 Kumk'u"
+```
+
+For more details, see [I18n Documentation](docs/I18N.md) and the [i18n example](examples/i18n.ts).
 
 ## Migration Guide
 
