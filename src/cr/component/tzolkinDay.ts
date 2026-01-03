@@ -3,6 +3,7 @@ import {Wildcard} from "../../wildcard";
 import Cycle from "./cycle";
 import {getI18nManager} from "../../i18n/i18n-manager";
 import {Locale} from "../../i18n/types";
+import { TZOLKIN_DAY_NAMES } from "../../i18n/locales/canonical-names";
 
 export enum TzolkinDays {
   IMIX = 'Imix',
@@ -25,6 +26,11 @@ export enum TzolkinDays {
   ETZ_NAB = 'Etz\'nab',
   KAWAK = 'Kawak',
   AJAW = 'Ajaw',
+}
+
+// Verify enum values match canonical names at module load time
+if (Object.values(TzolkinDays).join(',') !== TZOLKIN_DAY_NAMES.join(',')) {
+  throw new Error('TzolkinDays enum values do not match TZOLKIN_DAY_NAMES');
 }
 
 const days: HashMap = new HashMap([
