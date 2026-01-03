@@ -249,11 +249,12 @@ describe('I18n with component rendering', () => {
     };
     i18n.registerLocale(localeDef);
 
-    const day = getTzolkinDay('Imix');
-    if (day instanceof getTzolkinDay('Imix').constructor) {
-      expect(day.toString()).to.equal('Imix');
-      expect((day as any).toLocaleString('simplified')).to.equal('Imish');
-    }
+    const dayResult = getTzolkinDay('Imix');
+    expect(dayResult).to.not.be.instanceOf(require('../../wildcard').Wildcard);
+    
+    const day = dayResult as import('../../cr/component/tzolkinDay').TzolkinDay;
+    expect(day.toString()).to.equal('Imix');
+    expect(day.toLocaleString('simplified')).to.equal('Imish');
   });
 
   it('should render HaabMonth with toLocaleString', () => {
@@ -267,10 +268,11 @@ describe('I18n with component rendering', () => {
     };
     i18n.registerLocale(localeDef);
 
-    const month = getHaabMonth('Pop');
-    if (month instanceof getHaabMonth('Pop').constructor) {
-      expect(month.toString()).to.equal('Pop');
-      expect((month as any).toLocaleString('simplified')).to.equal('Pohp');
-    }
+    const monthResult = getHaabMonth('Pop');
+    expect(monthResult).to.not.be.instanceOf(require('../../wildcard').Wildcard);
+    
+    const month = monthResult as import('../../cr/component/haabMonth').HaabMonth;
+    expect(month.toString()).to.equal('Pop');
+    expect(month.toLocaleString('simplified')).to.equal('Pohp');
   });
 });
