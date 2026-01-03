@@ -6,3 +6,4 @@
 
 export * from './types';
 export * from './i18n-manager';
+export { defaultLocale } from './locales/default';
