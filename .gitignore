@@ -19,3 +19,6 @@ website/build/
 website/.docusaurus/
 website/.cache/
 website/node_modules/
+
+# Generated API docs
+website/docs/api/reference/

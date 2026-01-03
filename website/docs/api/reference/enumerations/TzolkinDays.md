@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / TzolkinDays
-
-# Enumeration: TzolkinDays
-
-Defined in: [cr/component/tzolkinDay.ts:5](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L5)
+Defined in: [cr/component/tzolkinDay.ts:5](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L5)
 
 ## Enumeration Members
 
@@ -14,7 +6,7 @@ Defined in: [cr/component/tzolkinDay.ts:5](https://github.com/drewsonne/maya-dat
 
 > **AJAW**: `"Ajaw"`
 
-Defined in: [cr/component/tzolkinDay.ts:25](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L25)
+Defined in: [cr/component/tzolkinDay.ts:25](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L25)
 
 ***
 
@@ -22,7 +14,7 @@ Defined in: [cr/component/tzolkinDay.ts:25](https://github.com/drewsonne/maya-da
 
 > **AK\_BAL**: `"Ak'bal"`
 
-Defined in: [cr/component/tzolkinDay.ts:8](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L8)
+Defined in: [cr/component/tzolkinDay.ts:8](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L8)
 
 ***
 
@@ -30,7 +22,7 @@ Defined in: [cr/component/tzolkinDay.ts:8](https://github.com/drewsonne/maya-dat
 
 > **BEN**: `"Ben"`
 
-Defined in: [cr/component/tzolkinDay.ts:18](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L18)
+Defined in: [cr/component/tzolkinDay.ts:18](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L18)
 
 ***
 
@@ -38,7 +30,7 @@ Defined in: [cr/component/tzolkinDay.ts:18](https://github.com/drewsonne/maya-da
 
 > **CHIKCHAN**: `"Chikchan"`
 
-Defined in: [cr/component/tzolkinDay.ts:10](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L10)
+Defined in: [cr/component/tzolkinDay.ts:10](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L10)
 
 ***
 
@@ -46,7 +38,7 @@ Defined in: [cr/component/tzolkinDay.ts:10](https://github.com/drewsonne/maya-da
 
 > **CHUWEN**: `"Chuwen"`
 
-Defined in: [cr/component/tzolkinDay.ts:16](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L16)
+Defined in: [cr/component/tzolkinDay.ts:16](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L16)
 
 ***
 
@@ -54,7 +46,7 @@ Defined in: [cr/component/tzolkinDay.ts:16](https://github.com/drewsonne/maya-da
 
 > **EB**: `"Eb"`
 
-Defined in: [cr/component/tzolkinDay.ts:17](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L17)
+Defined in: [cr/component/tzolkinDay.ts:17](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L17)
 
 ***
 
@@ -62,7 +54,7 @@ Defined in: [cr/component/tzolkinDay.ts:17](https://github.com/drewsonne/maya-da
 
 > **ETZ\_NAB**: `"Etz'nab"`
 
-Defined in: [cr/component/tzolkinDay.ts:23](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L23)
+Defined in: [cr/component/tzolkinDay.ts:23](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L23)
 
 ***
 
@@ -70,7 +62,7 @@ Defined in: [cr/component/tzolkinDay.ts:23](https://github.com/drewsonne/maya-da
 
 > **IK**: `"Ik'"`
 
-Defined in: [cr/component/tzolkinDay.ts:7](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L7)
+Defined in: [cr/component/tzolkinDay.ts:7](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L7)
 
 ***
 
@@ -78,7 +70,7 @@ Defined in: [cr/component/tzolkinDay.ts:7](https://github.com/drewsonne/maya-dat
 
 > **IMIX**: `"Imix"`
 
-Defined in: [cr/component/tzolkinDay.ts:6](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L6)
+Defined in: [cr/component/tzolkinDay.ts:6](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L6)
 
 ***
 
@@ -86,7 +78,7 @@ Defined in: [cr/component/tzolkinDay.ts:6](https://github.com/drewsonne/maya-dat
 
 > **IX**: `"Ix"`
 
-Defined in: [cr/component/tzolkinDay.ts:19](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L19)
+Defined in: [cr/component/tzolkinDay.ts:19](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L19)
 
 ***
 
@@ -94,7 +86,7 @@ Defined in: [cr/component/tzolkinDay.ts:19](https://github.com/drewsonne/maya-da
 
 > **K\_AN**: `"K'an"`
 
-Defined in: [cr/component/tzolkinDay.ts:9](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L9)
+Defined in: [cr/component/tzolkinDay.ts:9](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L9)
 
 ***
 
@@ -102,7 +94,7 @@ Defined in: [cr/component/tzolkinDay.ts:9](https://github.com/drewsonne/maya-dat
 
 > **KABAN**: `"Kaban"`
 
-Defined in: [cr/component/tzolkinDay.ts:22](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L22)
+Defined in: [cr/component/tzolkinDay.ts:22](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L22)
 
 ***
 
@@ -110,7 +102,7 @@ Defined in: [cr/component/tzolkinDay.ts:22](https://github.com/drewsonne/maya-da
 
 > **KAWAK**: `"Kawak"`
 
-Defined in: [cr/component/tzolkinDay.ts:24](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L24)
+Defined in: [cr/component/tzolkinDay.ts:24](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L24)
 
 ***
 
@@ -118,7 +110,7 @@ Defined in: [cr/component/tzolkinDay.ts:24](https://github.com/drewsonne/maya-da
 
 > **KIB**: `"Kib"`
 
-Defined in: [cr/component/tzolkinDay.ts:21](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L21)
+Defined in: [cr/component/tzolkinDay.ts:21](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L21)
 
 ***
 
@@ -126,7 +118,7 @@ Defined in: [cr/component/tzolkinDay.ts:21](https://github.com/drewsonne/maya-da
 
 > **KIMI**: `"Kimi"`
 
-Defined in: [cr/component/tzolkinDay.ts:11](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L11)
+Defined in: [cr/component/tzolkinDay.ts:11](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L11)
 
 ***
 
@@ -134,7 +126,7 @@ Defined in: [cr/component/tzolkinDay.ts:11](https://github.com/drewsonne/maya-da
 
 > **LAMAT**: `"Lamat"`
 
-Defined in: [cr/component/tzolkinDay.ts:13](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L13)
+Defined in: [cr/component/tzolkinDay.ts:13](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L13)
 
 ***
 
@@ -142,7 +134,7 @@ Defined in: [cr/component/tzolkinDay.ts:13](https://github.com/drewsonne/maya-da
 
 > **MANIK**: `"Manik'"`
 
-Defined in: [cr/component/tzolkinDay.ts:12](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L12)
+Defined in: [cr/component/tzolkinDay.ts:12](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L12)
 
 ***
 
@@ -150,7 +142,7 @@ Defined in: [cr/component/tzolkinDay.ts:12](https://github.com/drewsonne/maya-da
 
 > **MEN**: `"Men"`
 
-Defined in: [cr/component/tzolkinDay.ts:20](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L20)
+Defined in: [cr/component/tzolkinDay.ts:20](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L20)
 
 ***
 
@@ -158,7 +150,7 @@ Defined in: [cr/component/tzolkinDay.ts:20](https://github.com/drewsonne/maya-da
 
 > **MULUK**: `"Muluk"`
 
-Defined in: [cr/component/tzolkinDay.ts:14](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L14)
+Defined in: [cr/component/tzolkinDay.ts:14](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L14)
 
 ***
 
@@ -166,4 +158,4 @@ Defined in: [cr/component/tzolkinDay.ts:14](https://github.com/drewsonne/maya-da
 
 > **OK**: `"Ok"`
 
-Defined in: [cr/component/tzolkinDay.ts:15](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/tzolkinDay.ts#L15)
+Defined in: [cr/component/tzolkinDay.ts:15](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/tzolkinDay.ts#L15)

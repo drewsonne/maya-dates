@@ -6,7 +6,7 @@ sidebar_position: 99
 
 The complete API documentation for @drewsonne/maya-dates is generated from TypeScript source code using TypeDoc.
 
-**[📚 View Complete API Reference →](/maya-dates/api/)**
+**[📚 View Complete API Reference →](./reference/)**
 
 The full API reference is organized by type and includes detailed documentation for:
 

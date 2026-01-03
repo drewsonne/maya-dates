@@ -2,41 +2,79 @@
 
 Welcome to the `@drewsonne/maya-dates` documentation!
 
-## 📚 Getting Started
+## 📚 Published Documentation
 
-- **[Main README](../README.md)** - Project overview, installation, and quick start
-- **[API Documentation](./api/)** - Generated TypeDoc API reference
+The main documentation is available at **[https://drewsonne.github.io/maya-dates/](https://drewsonne.github.io/maya-dates/)** and includes:
 
-## 🏗️ Architecture & Design
+- **Getting Started Guide** - Introduction and quick start
+- **Usage Guide** - Common patterns and examples
+- **Architecture Documentation** - System design and patterns
+- **Domain Model** - Maya calendar system explained
+- **API Reference** - Generated TypeDoc documentation
+- **Module Documentation** - Overview of source code modules
+- **Examples** - Runnable code examples
 
-Located in `docs/architecture/` (to be added):
-- **ARCHITECTURE.md** - System architecture overview
-- **DESIGN_PATTERNS.md** - Design patterns catalog
-- **DOMAIN_MODEL.md** - Maya calendar system explained
+## 📁 Repository Documentation Structure
 
-## 👨‍💻 Development
+### Website (website/)
+The primary documentation source. Built with Docusaurus and published to GitHub Pages.
 
-Located in `docs/development/`:
-- **[workflow.md](./development/workflow.md)** - Development workflow and git practices
-- **[modernization-audit.md](./development/modernization-audit.md)** - Initial codebase audit findings
-- **[modernization-summary.md](./development/modernization-summary.md)** - Summary of modernization changes
-- **[cursor-bot-comments.md](./development/cursor-bot-comments.md)** - How to check Cursor bot PR comments
+- `website/docs/` - Hand-written documentation (architecture, usage, etc.)
+- `website/docs/api/` - Auto-generated API reference from TypeDoc
+- `website/docs/modules/` - Module-level documentation
 
-## 📝 Project History
+### Development Documentation (docs/development/)
+Documentation for contributors and maintainers:
 
-- **[CHANGELOG.md](./CHANGELOG.md)** - Version history and changes
+- `workflow.md` - Development workflow and git practices
+- `modernization-audit.md` - Codebase audit findings
+- `modernization-summary.md` - Summary of modernization changes
+- `cursor-bot-comments.md` - How to check Cursor bot PR comments
+- `issues-backlog.md` - Potential future improvements
+- `pr71-*.md` - Historical PR review responses
 
-## 📖 Module Documentation
+### GitHub Configuration (.github/)
+- `copilot-instructions.md` - Guidelines for GitHub Copilot
 
-Each source module has its own README:
+### Source Code Documentation (src/)
+Each source module has its own README explaining its purpose:
+- `src/README.md` - Overall source structure
 - `src/cr/README.md` - Calendar Round module
 - `src/lc/README.md` - Long Count module
 - `src/factory/README.md` - Factory pattern implementations
-- `src/operations/README.md` - Date operations and wildcards
+- `src/operations/README.md` - Date operations
 - `src/structs/README.md` - Data structures
+
+These are also included in the published website at `/docs/modules/`.
+
+### Examples (examples/)
+- `examples/README.md` - Guide to runnable examples
+
+Also included in the published website at `/docs/examples`.
+
+## 🔨 Building Documentation
+
+```bash
+# Start local development server
+npm run docs:start
+
+# Build static documentation site
+npm run docs:build
+```
+
+## 📝 Contributing to Documentation
+
+When adding or updating documentation:
+
+1. **User-facing documentation**: Edit files in `website/docs/`
+2. **API documentation**: Update JSDoc comments in source code
+3. **Module documentation**: Update README.md files in `src/` subdirectories
+4. **Development documentation**: Edit files in `docs/development/`
+
+All user-facing documentation should be in `website/docs/` to ensure it's published to the documentation website.
 
 ## 🔗 External Resources
 
 - [GitHub Repository](https://github.com/drewsonne/maya-dates)
 - [npm Package](https://www.npmjs.com/package/@drewsonne/maya-dates)
-- [API Documentation](https://drewsonne.github.io/maya-dates/)
+- [Published Documentation](https://drewsonne.github.io/maya-dates/)

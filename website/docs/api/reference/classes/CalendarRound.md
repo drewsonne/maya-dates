@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / CalendarRound
-
-# Class: CalendarRound
-
-Defined in: [cr/calendar-round.ts:37](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/calendar-round.ts#L37)
+Defined in: [cr/calendar-round.ts:37](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/calendar-round.ts#L37)
 
 A combination of 260-day cycles and the Haab cycle. This class should not
 be instantiated directly, and should be accessed through getCalendarRound.
@@ -33,7 +25,7 @@ let cr = new CalendarRound(4, "Ajaw", 8, "Kumk'u");
 
 > **new CalendarRound**(`tzolkin`, `haab`): `CalendarRound`
 
-Defined in: [cr/calendar-round.ts:41](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/calendar-round.ts#L41)
+Defined in: [cr/calendar-round.ts:41](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/calendar-round.ts#L41)
 
 #### Parameters
 
@@ -59,7 +51,7 @@ Defined in: [cr/calendar-round.ts:41](https://github.com/drewsonne/maya-dates/bl
 
 > **comment**: [`Comment`](Comment.md)
 
-Defined in: [comment-wrapper.ts:11](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L11)
+Defined in: [comment-wrapper.ts:11](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L11)
 
 Attached comment.
 
@@ -73,7 +65,7 @@ Attached comment.
 
 > **haab**: [`Haab`](Haab.md)
 
-Defined in: [cr/calendar-round.ts:39](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/calendar-round.ts#L39)
+Defined in: [cr/calendar-round.ts:39](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/calendar-round.ts#L39)
 
 ***
 
@@ -81,7 +73,7 @@ Defined in: [cr/calendar-round.ts:39](https://github.com/drewsonne/maya-dates/bl
 
 > **tzolkin**: [`Tzolkin`](Tzolkin.md)
 
-Defined in: [cr/calendar-round.ts:38](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/calendar-round.ts#L38)
+Defined in: [cr/calendar-round.ts:38](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/calendar-round.ts#L38)
 
 ## Methods
 
@@ -89,7 +81,7 @@ Defined in: [cr/calendar-round.ts:38](https://github.com/drewsonne/maya-dates/bl
 
 > **appendComment**(`comment`): `this`
 
-Defined in: [comment-wrapper.ts:42](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L42)
+Defined in: [comment-wrapper.ts:42](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L42)
 
 Append additional text to the current comment.
 
@@ -113,7 +105,7 @@ Append additional text to the current comment.
 
 > **commentIsEqual**(`otherCommentWrapper`): `boolean`
 
-Defined in: [comment-wrapper.ts:60](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L60)
+Defined in: [comment-wrapper.ts:60](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L60)
 
 Compare this wrapper's comment against another wrapper.
 
@@ -137,7 +129,7 @@ Compare this wrapper's comment against another wrapper.
 
 > **equal**(`other`): `boolean`
 
-Defined in: [cr/calendar-round.ts:176](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/calendar-round.ts#L176)
+Defined in: [cr/calendar-round.ts:176](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/calendar-round.ts#L176)
 
 Compare this object with another for equality.
 
@@ -161,7 +153,7 @@ Compare this object with another for equality.
 
 > **equalWithComment**(`otherCommentWrapper`): `boolean`
 
-Defined in: [comment-wrapper.ts:67](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L67)
+Defined in: [comment-wrapper.ts:67](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L67)
 
 Check equality including the associated comment.
 
@@ -185,7 +177,7 @@ Check equality including the associated comment.
 
 > **isPartial**(): `boolean`
 
-Defined in: [cr/calendar-round.ts:162](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/calendar-round.ts#L162)
+Defined in: [cr/calendar-round.ts:162](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/calendar-round.ts#L162)
 
 Return true, if this function has any wildcard portions.
 
@@ -199,7 +191,7 @@ Return true, if this function has any wildcard portions.
 
 > **match**(`newCr`): `boolean`
 
-Defined in: [cr/calendar-round.ts:143](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/calendar-round.ts#L143)
+Defined in: [cr/calendar-round.ts:143](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/calendar-round.ts#L143)
 
 Check that this Calendar Round matches another CalendarRound. If one CR has
 wildcards and the other does not, this function will return true.
@@ -220,7 +212,7 @@ wildcards and the other does not, this function will return true.
 
 > **minus**(`targetCr`): [`DistanceNumber`](DistanceNumber.md)
 
-Defined in: [cr/calendar-round.ts:107](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/calendar-round.ts#L107)
+Defined in: [cr/calendar-round.ts:107](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/calendar-round.ts#L107)
 
 Return a long count date representing the difference between two dates.
 
@@ -240,7 +232,7 @@ Return a long count date representing the difference between two dates.
 
 > **next**(): `CalendarRound`
 
-Defined in: [cr/calendar-round.ts:100](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/calendar-round.ts#L100)
+Defined in: [cr/calendar-round.ts:100](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/calendar-round.ts#L100)
 
 Increment both the Haab and 260-day cycle to the next day in the Calendar Round
 
@@ -254,7 +246,7 @@ Increment both the Haab and 260-day cycle to the next day in the Calendar Round
 
 > **resetComment**(): `this`
 
-Defined in: [comment-wrapper.ts:20](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L20)
+Defined in: [comment-wrapper.ts:20](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L20)
 
 Reset the current comment back to an empty comment.
 
@@ -272,7 +264,7 @@ Reset the current comment back to an empty comment.
 
 > **setComment**(`comment`): `this`
 
-Defined in: [comment-wrapper.ts:28](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L28)
+Defined in: [comment-wrapper.ts:28](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L28)
 
 Replace the current comment.
 
@@ -296,7 +288,7 @@ Replace the current comment.
 
 > **shift**(`increment`): `CalendarRound`
 
-Defined in: [cr/calendar-round.ts:152](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/calendar-round.ts#L152)
+Defined in: [cr/calendar-round.ts:152](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/calendar-round.ts#L152)
 
 Shift a CalendarRound forward through time. Does not modify this
 object and will return a new object.
@@ -317,7 +309,7 @@ object and will return a new object.
 
 > **toString**(): `string`
 
-Defined in: [cr/calendar-round.ts:172](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/calendar-round.ts#L172)
+Defined in: [cr/calendar-round.ts:172](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/calendar-round.ts#L172)
 
 Render the CalendarRound cycle fullDate as a string
 
@@ -331,7 +323,7 @@ Render the CalendarRound cycle fullDate as a string
 
 > **validate**(): `void`
 
-Defined in: [cr/calendar-round.ts:60](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/calendar-round.ts#L60)
+Defined in: [cr/calendar-round.ts:60](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/calendar-round.ts#L60)
 
 Validate that the Calendar Round has a correct 260-day and Haab
 configuration

@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / DistanceNumber
-
-# Class: DistanceNumber
-
-Defined in: [lc/distance-number.ts:10](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L10)
+Defined in: [lc/distance-number.ts:10](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L10)
 
 Minimal interface used for equality comparison across calendar components.
 
@@ -28,7 +20,7 @@ Minimal interface used for equality comparison across calendar components.
 
 > **new DistanceNumber**(...`cycles`): `DistanceNumber`
 
-Defined in: [lc/distance-number.ts:19](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L19)
+Defined in: [lc/distance-number.ts:19](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L19)
 
 #### Parameters
 
@@ -53,7 +45,7 @@ Components in the long count
 
 > **comment**: [`Comment`](Comment.md)
 
-Defined in: [comment-wrapper.ts:11](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L11)
+Defined in: [comment-wrapper.ts:11](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L11)
 
 Attached comment.
 
@@ -67,7 +59,7 @@ Attached comment.
 
 > **datePattern**: `RegExp`
 
-Defined in: [lc/distance-number.ts:12](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L12)
+Defined in: [lc/distance-number.ts:12](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L12)
 
 ***
 
@@ -75,7 +67,7 @@ Defined in: [lc/distance-number.ts:12](https://github.com/drewsonne/maya-dates/b
 
 > **parts**: (`number` \| [`Wildcard`](Wildcard.md))[]
 
-Defined in: [lc/distance-number.ts:11](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L11)
+Defined in: [lc/distance-number.ts:11](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L11)
 
 ***
 
@@ -83,7 +75,7 @@ Defined in: [lc/distance-number.ts:11](https://github.com/drewsonne/maya-dates/b
 
 > **sign**: `number`
 
-Defined in: [lc/distance-number.ts:13](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L13)
+Defined in: [lc/distance-number.ts:13](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L13)
 
 ## Accessors
 
@@ -93,7 +85,7 @@ Defined in: [lc/distance-number.ts:13](https://github.com/drewsonne/maya-dates/b
 
 > **get** **bakTun**(): `number` \| [`Wildcard`](Wildcard.md)
 
-Defined in: [lc/distance-number.ts:262](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L262)
+Defined in: [lc/distance-number.ts:262](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L262)
 
 Return the bak'tun component of the fullDate
 
@@ -105,7 +97,7 @@ Return the bak'tun component of the fullDate
 
 > **set** **bakTun**(`newBakTun`): `void`
 
-Defined in: [lc/distance-number.ts:254](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L254)
+Defined in: [lc/distance-number.ts:254](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L254)
 
 Set the bak'tun component of the fullDate
 
@@ -127,7 +119,7 @@ Set the bak'tun component of the fullDate
 
 > **get** **isNegative**(): `boolean`
 
-Defined in: [lc/distance-number.ts:60](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L60)
+Defined in: [lc/distance-number.ts:60](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L60)
 
 Return true if the Long Count is operating as a negative Distance Number.
 
@@ -139,7 +131,7 @@ Return true if the Long Count is operating as a negative Distance Number.
 
 > **set** **isNegative**(`newNegative`): `void`
 
-Defined in: [lc/distance-number.ts:76](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L76)
+Defined in: [lc/distance-number.ts:76](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L76)
 
 Set this Long Count as being a negative Distance Number
 
@@ -161,7 +153,7 @@ Set this Long Count as being a negative Distance Number
 
 > **get** **isPositive**(): `boolean`
 
-Defined in: [lc/distance-number.ts:52](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L52)
+Defined in: [lc/distance-number.ts:52](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L52)
 
 Return true if the Long Count is positive.
 
@@ -173,7 +165,7 @@ Return true if the Long Count is positive.
 
 > **set** **isPositive**(`newPositive`): `void`
 
-Defined in: [lc/distance-number.ts:68](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L68)
+Defined in: [lc/distance-number.ts:68](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L68)
 
 Set this Long Count as being a Long Count or a positive Distance Number
 
@@ -195,7 +187,7 @@ Set this Long Count as being a Long Count or a positive Distance Number
 
 > **get** **kalabtun**(): `number` \| [`Wildcard`](Wildcard.md)
 
-Defined in: [lc/distance-number.ts:292](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L292)
+Defined in: [lc/distance-number.ts:292](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L292)
 
 Return the kalabtun component of the fullDate
 
@@ -207,7 +199,7 @@ Return the kalabtun component of the fullDate
 
 > **set** **kalabtun**(`newBakTun`): `void`
 
-Defined in: [lc/distance-number.ts:284](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L284)
+Defined in: [lc/distance-number.ts:284](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L284)
 
 Set the kalabtun component of the fullDate
 
@@ -229,7 +221,7 @@ Set the kalabtun component of the fullDate
 
 > **get** **kAtun**(): `number` \| [`Wildcard`](Wildcard.md)
 
-Defined in: [lc/distance-number.ts:247](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L247)
+Defined in: [lc/distance-number.ts:247](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L247)
 
 Return the k'atun component of the fullDate
 
@@ -241,7 +233,7 @@ Return the k'atun component of the fullDate
 
 > **set** **kAtun**(`newKAtun`): `void`
 
-Defined in: [lc/distance-number.ts:239](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L239)
+Defined in: [lc/distance-number.ts:239](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L239)
 
 Set the k'atun component of the fullDate
 
@@ -263,7 +255,7 @@ Set the k'atun component of the fullDate
 
 > **get** **kIn**(): `number` \| [`Wildcard`](Wildcard.md)
 
-Defined in: [lc/distance-number.ts:202](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L202)
+Defined in: [lc/distance-number.ts:202](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L202)
 
 Return the k'in component of the fullDate
 
@@ -275,7 +267,7 @@ Return the k'in component of the fullDate
 
 > **set** **kIn**(`newKIn`): `void`
 
-Defined in: [lc/distance-number.ts:194](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L194)
+Defined in: [lc/distance-number.ts:194](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L194)
 
 Set the k'in component of the fullDate
 
@@ -297,7 +289,7 @@ Set the k'in component of the fullDate
 
 > **get** **kinchiltun**(): `number` \| [`Wildcard`](Wildcard.md)
 
-Defined in: [lc/distance-number.ts:307](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L307)
+Defined in: [lc/distance-number.ts:307](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L307)
 
 Return the kinchiltun component of the fullDate
 
@@ -309,7 +301,7 @@ Return the kinchiltun component of the fullDate
 
 > **set** **kinchiltun**(`newBakTun`): `void`
 
-Defined in: [lc/distance-number.ts:299](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L299)
+Defined in: [lc/distance-number.ts:299](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L299)
 
 Set the kinchiltun component of the fullDate
 
@@ -331,7 +323,7 @@ Set the kinchiltun component of the fullDate
 
 > **get** **piktun**(): `number` \| [`Wildcard`](Wildcard.md)
 
-Defined in: [lc/distance-number.ts:277](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L277)
+Defined in: [lc/distance-number.ts:277](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L277)
 
 Return the piktun component of the fullDate
 
@@ -343,7 +335,7 @@ Return the piktun component of the fullDate
 
 > **set** **piktun**(`newBakTun`): `void`
 
-Defined in: [lc/distance-number.ts:269](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L269)
+Defined in: [lc/distance-number.ts:269](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L269)
 
 Set the piktun component of the fullDate
 
@@ -365,7 +357,7 @@ Set the piktun component of the fullDate
 
 > **get** **sigParts**(): (`number` \| [`Wildcard`](Wildcard.md))[]
 
-Defined in: [lc/distance-number.ts:120](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L120)
+Defined in: [lc/distance-number.ts:120](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L120)
 
 Only digits in the LC with significant digits
 
@@ -381,7 +373,7 @@ Only digits in the LC with significant digits
 
 > **get** **tun**(): `number` \| [`Wildcard`](Wildcard.md)
 
-Defined in: [lc/distance-number.ts:232](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L232)
+Defined in: [lc/distance-number.ts:232](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L232)
 
 Return the tun component of the fullDate
 
@@ -393,7 +385,7 @@ Return the tun component of the fullDate
 
 > **set** **tun**(`newTun`): `void`
 
-Defined in: [lc/distance-number.ts:224](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L224)
+Defined in: [lc/distance-number.ts:224](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L224)
 
 Set the tun component of the fullDate
 
@@ -415,7 +407,7 @@ Set the tun component of the fullDate
 
 > **get** **winal**(): `number` \| [`Wildcard`](Wildcard.md)
 
-Defined in: [lc/distance-number.ts:217](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L217)
+Defined in: [lc/distance-number.ts:217](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L217)
 
 Return the winal component of the fullDate
 
@@ -427,7 +419,7 @@ Return the winal component of the fullDate
 
 > **set** **winal**(`newWinal`): `void`
 
-Defined in: [lc/distance-number.ts:209](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L209)
+Defined in: [lc/distance-number.ts:209](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L209)
 
 Set the winal component of the fullDate
 
@@ -447,7 +439,7 @@ Set the winal component of the fullDate
 
 > **appendComment**(`comment`): `this`
 
-Defined in: [comment-wrapper.ts:42](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L42)
+Defined in: [comment-wrapper.ts:42](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L42)
 
 Append additional text to the current comment.
 
@@ -471,7 +463,7 @@ Append additional text to the current comment.
 
 > **clone**(): `DistanceNumber`
 
-Defined in: [lc/distance-number.ts:136](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L136)
+Defined in: [lc/distance-number.ts:136](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L136)
 
 Create a copy object of this long count fullDate
 
@@ -485,7 +477,7 @@ Create a copy object of this long count fullDate
 
 > **commentIsEqual**(`otherCommentWrapper`): `boolean`
 
-Defined in: [comment-wrapper.ts:60](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L60)
+Defined in: [comment-wrapper.ts:60](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L60)
 
 Compare this wrapper's comment against another wrapper.
 
@@ -509,7 +501,7 @@ Compare this wrapper's comment against another wrapper.
 
 > **equal**(`other`): `boolean`
 
-Defined in: [lc/distance-number.ts:85](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L85)
+Defined in: [lc/distance-number.ts:85](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L85)
 
 Given two long count dates, check if they are equal
 
@@ -533,7 +525,7 @@ Given two long count dates, check if they are equal
 
 > **equalWithComment**(`otherCommentWrapper`): `boolean`
 
-Defined in: [comment-wrapper.ts:67](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L67)
+Defined in: [comment-wrapper.ts:67](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L67)
 
 Check equality including the associated comment.
 
@@ -557,7 +549,7 @@ Check equality including the associated comment.
 
 > **exactlyEqual**(`other`): `boolean`
 
-Defined in: [lc/distance-number.ts:107](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L107)
+Defined in: [lc/distance-number.ts:107](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L107)
 
 Given two long count dates, check if they are exactly equal
 
@@ -577,7 +569,7 @@ Given two long count dates, check if they are exactly equal
 
 > **getDateSections**(`index`): `number` \| [`Wildcard`](Wildcard.md)
 
-Defined in: [lc/distance-number.ts:145](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L145)
+Defined in: [lc/distance-number.ts:145](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L145)
 
 Get specific column in Long Count fullDate
 
@@ -597,7 +589,7 @@ Get specific column in Long Count fullDate
 
 > **getPosition**(): `number`
 
-Defined in: [lc/distance-number.ts:332](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L332)
+Defined in: [lc/distance-number.ts:332](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L332)
 
 Count the number of days since 0.0.0.0.0 for this LC.
 
@@ -611,7 +603,7 @@ Count the number of days since 0.0.0.0.0 for this LC.
 
 > **gt**(`newLongCount`): `boolean`
 
-Defined in: [lc/distance-number.ts:187](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L187)
+Defined in: [lc/distance-number.ts:187](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L187)
 
 Compare is this LC is less than the supplied LC.
 
@@ -631,7 +623,7 @@ Compare is this LC is less than the supplied LC.
 
 > **isPartial**(): `boolean`
 
-Defined in: [lc/distance-number.ts:324](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L324)
+Defined in: [lc/distance-number.ts:324](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L324)
 
 Returns true if any of the positions in the Long Count have been assigned
 a Wildcard object.
@@ -646,7 +638,7 @@ a Wildcard object.
 
 > **isValid**(): `boolean`
 
-Defined in: [lc/distance-number.ts:315](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L315)
+Defined in: [lc/distance-number.ts:315](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L315)
 
 Ensure the fullDate has only numbers and wildcards separated by points.
 
@@ -660,7 +652,7 @@ Ensure the fullDate has only numbers and wildcards separated by points.
 
 > **lt**(`newLongCount`): `boolean`
 
-Defined in: [lc/distance-number.ts:178](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L178)
+Defined in: [lc/distance-number.ts:178](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L178)
 
 Compare if this LC is greater than the supplied LC.
 
@@ -680,7 +672,7 @@ Compare if this LC is greater than the supplied LC.
 
 > **map**(`fn`): `any`[]
 
-Defined in: [lc/distance-number.ts:169](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L169)
+Defined in: [lc/distance-number.ts:169](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L169)
 
 Pass the map down to the parts
 
@@ -700,7 +692,7 @@ Pass the map down to the parts
 
 > **minus**(`newLc`): [`LongcountSubtraction`](LongcountSubtraction.md)
 
-Defined in: [lc/distance-number.ts:381](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L381)
+Defined in: [lc/distance-number.ts:381](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L381)
 
 Return the difference between this Long Count and the supplied
 
@@ -720,7 +712,7 @@ Return the difference between this Long Count and the supplied
 
 > **normalise**(): `DistanceNumber`
 
-Defined in: [lc/distance-number.ts:399](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L399)
+Defined in: [lc/distance-number.ts:399](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L399)
 
 Make sure the elements of the Long Count do not exceed their valid ranges.
 Converts the Long Count to total days, then decomposes back to normalized
@@ -741,7 +733,7 @@ form with proper carry/borrow per the mixed-radix system [R1, R2]:
 
 > **plus**(`newLc`): [`LongcountAddition`](LongcountAddition.md)
 
-Defined in: [lc/distance-number.ts:369](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L369)
+Defined in: [lc/distance-number.ts:369](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L369)
 
 Return the sum of this Long Count and the supplied
 
@@ -761,7 +753,7 @@ Return the sum of this Long Count and the supplied
 
 > **resetComment**(): `this`
 
-Defined in: [comment-wrapper.ts:20](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L20)
+Defined in: [comment-wrapper.ts:20](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L20)
 
 Reset the current comment back to an empty comment.
 
@@ -779,7 +771,7 @@ Reset the current comment back to an empty comment.
 
 > **setComment**(`comment`): `this`
 
-Defined in: [comment-wrapper.ts:28](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L28)
+Defined in: [comment-wrapper.ts:28](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L28)
 
 Replace the current comment.
 
@@ -803,7 +795,7 @@ Replace the current comment.
 
 > **setDateSections**(`index`, `newValue`): `DistanceNumber`
 
-Defined in: [lc/distance-number.ts:159](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L159)
+Defined in: [lc/distance-number.ts:159](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L159)
 
 Set specific column in Long Count fullDate
 
@@ -827,7 +819,7 @@ Set specific column in Long Count fullDate
 
 > **toString**(): `string`
 
-Defined in: [lc/distance-number.ts:454](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/distance-number.ts#L454)
+Defined in: [lc/distance-number.ts:454](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/distance-number.ts#L454)
 
 Convert the LongCount to a string and pad the sections of the fullDate
 

@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / HaabMonth
-
-# Class: HaabMonth
-
-Defined in: [cr/component/haabMonth.ts:68](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/haabMonth.ts#L68)
+Defined in: [cr/component/haabMonth.ts:68](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/haabMonth.ts#L68)
 
 Haab month component of a Calendar Round date.
 
@@ -20,7 +12,7 @@ Haab month component of a Calendar Round date.
 
 > **new HaabMonth**(`raw`): `HaabMonth`
 
-Defined in: [cr/component/haabMonth.ts:72](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/haabMonth.ts#L72)
+Defined in: [cr/component/haabMonth.ts:72](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/haabMonth.ts#L72)
 
 #### Parameters
 
@@ -44,7 +36,7 @@ Name of the Haab month
 
 > **position**: `number`
 
-Defined in: [cr/component/cycle.ts:14](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/cycle.ts#L14)
+Defined in: [cr/component/cycle.ts:14](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/cycle.ts#L14)
 
 Absolute position within the linear cycle for this object.
 
@@ -58,7 +50,7 @@ Absolute position within the linear cycle for this object.
 
 > **isWildcard**(): `boolean`
 
-Defined in: [cr/component/base.ts:11](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/base.ts#L11)
+Defined in: [cr/component/base.ts:11](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/base.ts#L11)
 
 #### Returns
 
@@ -74,7 +66,7 @@ Defined in: [cr/component/base.ts:11](https://github.com/drewsonne/maya-dates/bl
 
 > **next**(): [`Cycle`](Cycle.md)
 
-Defined in: [cr/component/cycle.ts:44](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/cycle.ts#L44)
+Defined in: [cr/component/cycle.ts:44](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/cycle.ts#L44)
 
 Return the next object in the cycle
 
@@ -92,7 +84,7 @@ Return the next object in the cycle
 
 > **shift**(`incremental`): [`Cycle`](Cycle.md)
 
-Defined in: [cr/component/cycle.ts:52](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/cycle.ts#L52)
+Defined in: [cr/component/cycle.ts:52](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/cycle.ts#L52)
 
 Move an incremental number of steps in the cycle, and return the object found there.
 
@@ -118,7 +110,7 @@ The number of steps to move through in the cycle.
 
 > **toString**(): `string`
 
-Defined in: [cr/component/cycle.ts:80](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/cycle.ts#L80)
+Defined in: [cr/component/cycle.ts:80](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/cycle.ts#L80)
 
 Render this cycle object as a string
 
@@ -136,7 +128,7 @@ Render this cycle object as a string
 
 > **validate**(): `boolean`
 
-Defined in: [cr/component/haabMonth.ts:81](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/haabMonth.ts#L81)
+Defined in: [cr/component/haabMonth.ts:81](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/haabMonth.ts#L81)
 
 Ensure a Haab month name is defined, and that the month name is within the
 set of allowable values.

@@ -1,6 +1,6 @@
 {
   "entryPoints": ["../src/index.ts"],
-  "out": "static/api",
+  "out": "docs/api/reference",
   "plugin": ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"],
   "tsconfig": "../tsconfig.json",
   "readme": "none",
@@ -18,5 +18,6 @@
   "excludeNotDocumented": false,
   "excludeProtected": true,
   "hideGenerator": true,
-  "disableSources": false
+  "disableSources": false,
+  "exclude": ["**/*.spec.ts", "**/__tests__/**"]
 }

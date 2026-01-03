@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / CalendarRoundWildcard
-
-# Class: CalendarRoundWildcard
-
-Defined in: [operations/calendar-round-wildcard.ts:14](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/operations/calendar-round-wildcard.ts#L14)
+Defined in: [operations/calendar-round-wildcard.ts:14](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/operations/calendar-round-wildcard.ts#L14)
 
 Expand a Calendar Round containing wildcards into all valid combinations.
 
@@ -24,7 +16,7 @@ Expand a Calendar Round containing wildcards into all valid combinations.
 
 > **new CalendarRoundWildcard**(`cr`): `CalendarRoundWildcard`
 
-Defined in: [operations/calendar-round-wildcard.ts:20](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/operations/calendar-round-wildcard.ts#L20)
+Defined in: [operations/calendar-round-wildcard.ts:20](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/operations/calendar-round-wildcard.ts#L20)
 
 #### Parameters
 
@@ -48,7 +40,7 @@ Calendar Round to expand.
 
 > **comment**: [`Comment`](Comment.md)
 
-Defined in: [comment-wrapper.ts:11](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L11)
+Defined in: [comment-wrapper.ts:11](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L11)
 
 Attached comment.
 
@@ -62,7 +54,7 @@ Attached comment.
 
 > **appendComment**(`comment`): `this`
 
-Defined in: [comment-wrapper.ts:42](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L42)
+Defined in: [comment-wrapper.ts:42](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L42)
 
 Append additional text to the current comment.
 
@@ -86,7 +78,7 @@ Append additional text to the current comment.
 
 > **commentIsEqual**(`otherCommentWrapper`): `boolean`
 
-Defined in: [comment-wrapper.ts:60](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L60)
+Defined in: [comment-wrapper.ts:60](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L60)
 
 Compare this wrapper's comment against another wrapper.
 
@@ -110,7 +102,7 @@ Compare this wrapper's comment against another wrapper.
 
 > **equal**(`other`): `boolean`
 
-Defined in: [operations/calendar-round-wildcard.ts:47](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/operations/calendar-round-wildcard.ts#L47)
+Defined in: [operations/calendar-round-wildcard.ts:47](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/operations/calendar-round-wildcard.ts#L47)
 
 Compare this object with another for equality.
 
@@ -134,7 +126,7 @@ Compare this object with another for equality.
 
 > **equalWithComment**(`otherCommentWrapper`): `boolean`
 
-Defined in: [comment-wrapper.ts:67](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L67)
+Defined in: [comment-wrapper.ts:67](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L67)
 
 Check equality including the associated comment.
 
@@ -158,7 +150,7 @@ Check equality including the associated comment.
 
 > **resetComment**(): `this`
 
-Defined in: [comment-wrapper.ts:20](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L20)
+Defined in: [comment-wrapper.ts:20](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L20)
 
 Reset the current comment back to an empty comment.
 
@@ -176,7 +168,7 @@ Reset the current comment back to an empty comment.
 
 > **run**(): [`CalendarRound`](CalendarRound.md)[]
 
-Defined in: [operations/calendar-round-wildcard.ts:29](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/operations/calendar-round-wildcard.ts#L29)
+Defined in: [operations/calendar-round-wildcard.ts:29](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/operations/calendar-round-wildcard.ts#L29)
 
 Generate all fully qualified Calendar Rounds matching the pattern.
 
@@ -190,7 +182,7 @@ Generate all fully qualified Calendar Rounds matching the pattern.
 
 > **setComment**(`comment`): `this`
 
-Defined in: [comment-wrapper.ts:28](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L28)
+Defined in: [comment-wrapper.ts:28](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L28)
 
 Replace the current comment.
 

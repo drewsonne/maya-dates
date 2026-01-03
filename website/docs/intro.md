@@ -40,5 +40,5 @@ This library supports Node.js versions 20, 22, and 24 (LTS).
 
 - Read the [Usage Guide](./usage.md) for common patterns
 - Explore the [Domain Model](./domain-model.md) to understand Maya calendar systems
-- Check the [API Reference](../api) for detailed documentation
+- Check the [API Reference](./api/reference/) for detailed documentation
 
