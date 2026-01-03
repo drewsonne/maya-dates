@@ -166,30 +166,21 @@ console.log(`Full Date: ${fullDate}`);
 Convert between Gregorian dates and Maya Long Count:
 
 ```typescript
-import { GregorianFactory, LongCount, LongCountFactory } from '@drewsonne/maya-dates';
-
-// Parse a Gregorian date
-const gregorianFactory = new GregorianFactory();
-const gregorianDate = gregorianFactory.parse('21/12/2012 CE');
-
-// Convert Gregorian to Long Count
-const longCount = LongCount.fromGregorian(gregorianDate);
-console.log(`Gregorian 21/12/2012 CE = Long Count ${longCount}`);
-// Output: "Gregorian 21/12/2012 CE = Long Count 13. 0. 0. 0. 0"
+import { LongCount, LongCountFactory } from '@drewsonne/maya-dates';
 
 // Convert from JavaScript Date object
 const date = new Date('2012-12-21');
-const lc1 = LongCount.fromDate(date);
+const lc1 = LongCount.fromGregorian(date);
 console.log(`Date object = ${lc1}`);
 // Output: "Date object = 13. 0. 0. 0. 0"
 
 // Convert from ISO 8601 date string
-const lc2 = LongCount.fromISO8601('2012-12-21');
+const lc2 = LongCount.fromGregorian('2012-12-21');
 console.log(`ISO 8601 = ${lc2}`);
 // Output: "ISO 8601 = 13. 0. 0. 0. 0"
 
 // Also supports ISO 8601 datetime formats
-const lc3 = LongCount.fromISO8601('2012-12-21T00:00:00Z');
+const lc3 = LongCount.fromGregorian('2012-12-21T00:00:00Z');
 console.log(`ISO datetime = ${lc3}`);
 // Output: "ISO datetime = 13. 0. 0. 0. 0"
 
@@ -214,9 +205,7 @@ console.log(`Original: ${original}, Roundtrip: ${backToLC}`);
 ```
 
 **Available conversion methods:**
-- `LongCount.fromGregorian(gregorianDate, correlation?)` - Convert from GregorianCalendarDate
-- `LongCount.fromDate(date, correlation?)` - Convert from JavaScript Date object
-- `LongCount.fromISO8601(isoString, correlation?)` - Convert from ISO 8601 date string
+- `LongCount.fromGregorian(date | isoString, correlation?)` - Convert from Date object or ISO 8601 string
 - `LongCount.fromJulianDay(jdn, correlation?)` - Convert from Julian Day Number
 - `LongCount.fromMayanDayNumber(mdn, correlation?)` - Convert from Maya Day Number
 - `longCount.gregorian` - Convert Long Count to Gregorian (getter property)
