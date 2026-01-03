@@ -6,5 +6,7 @@
 
 export * from './types';
 export * from './i18n-manager';
-export { defaultLocale } from './locales/default';
+export { modern_mayanistLocale } from './locales/modern_mayanist';
+export { modern_variantLocale } from './locales/modern_variant';
+export { older_16cLocale } from './locales/older_16c';
 export { TZOLKIN_DAY_NAMES, HAAB_MONTH_NAMES } from './locales/canonical-names';

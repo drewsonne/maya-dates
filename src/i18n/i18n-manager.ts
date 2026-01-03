@@ -2,12 +2,12 @@ import {
   Locale,
   LocaleDefinition
 } from './types';
-import { defaultLocale } from './locales/default';
+import { modern_mayanistLocale } from './locales/modern_mayanist';
 
 /**
  * Default locale identifier
  */
-export const DEFAULT_LOCALE: Locale = 'default';
+export const DEFAULT_LOCALE: Locale = 'modern-mayanist';
 
 /**
  * Manages internationalization for Maya calendar terms.
@@ -63,7 +63,7 @@ export class I18nManager {
    * Register the default locale by importing it from the locales folder.
    */
   private registerDefaultLocale(): void {
-    this.locales.set(DEFAULT_LOCALE, defaultLocale);
+    this.locales.set(DEFAULT_LOCALE, modern_mayanistLocale);
   }
 
   /**
