@@ -199,7 +199,7 @@ console.log(`Long Count ${longCountDate} = ${gregorian.day}/${gregorian.month}/$
 // Roundtrip conversion example
 const original = lcFactory.parse('9.17.0.0.0');
 const asGregorian = original.gregorian;
-const backToLC = LongCount.fromGregorian(asGregorian);
+const backToLC = LongCount.fromJulianDay(asGregorian.julianDay);
 console.log(`Original: ${original}, Roundtrip: ${backToLC}`);
 // Both will be identical: " 9.17. 0. 0. 0"
 ```
