@@ -48,11 +48,12 @@ export default class LongCount extends DistanceNumber {
    * constant. The default correlation (584283, original GMT) is used unless 
    * specified otherwise.
    * 
-   * Supports various ISO 8601 formats:
-   * - "YYYY-MM-DD" (e.g., "2012-12-21")
-   * - "YYYY-MM-DDTHH:mm:ss" (e.g., "2012-12-21T00:00:00")
-   * - "YYYY-MM-DDTHH:mm:ss.sssZ" (e.g., "2012-12-21T00:00:00.000Z")
-   * - "YYYY-MM-DDTHH:mm:ss±HH:mm" (e.g., "2012-12-21T00:00:00-05:00")
+   * **Important:** This method uses the proleptic Gregorian calendar for all dates,
+   * including historical dates before the Gregorian calendar was adopted in 1582.
+   * JavaScript Date objects always use the proleptic Gregorian calendar. Only the
+   * date portion is used; any time components are ignored.
+   * 
+   * Supports ISO 8601 date format: "YYYY-MM-DD" (e.g., "2012-12-21")
    * 
    * @param gregorian - JavaScript Date object or ISO 8601 date string
    * @param correlation - Correlation constant for alignment (default: 584283 GMT)
@@ -65,13 +66,9 @@ export default class LongCount extends DistanceNumber {
    * const lc1 = LongCount.fromGregorian(date);
    * console.log(lc1.toString()); // "13. 0. 0. 0. 0"
    * 
-   * // From ISO 8601 string
+   * // From ISO 8601 date string
    * const lc2 = LongCount.fromGregorian('2012-12-21');
    * console.log(lc2.toString()); // "13. 0. 0. 0. 0"
-   * 
-   * // From ISO 8601 datetime string
-   * const lc3 = LongCount.fromGregorian('2012-12-21T00:00:00Z');
-   * console.log(lc3.toString()); // "13. 0. 0. 0. 0"
    * ```
    */
   static fromGregorian(
@@ -183,7 +180,7 @@ export default class LongCount extends DistanceNumber {
     // k'atun: base 20 (0-19)
     const katun = Math.floor(mayanDayNumber / 7200) % 20;
     
-    // bak'tun: base 20 (0-19), higher orders extend the Long Count
+    // bak'tun: base 20 (0-19), rolls over to piktun at 20 in the mixed-radix system
     const baktun = Math.floor(mayanDayNumber / 144000) % 20;
     
     // Higher-order units (piktun, kalabtun, kinchiltun).
