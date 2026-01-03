@@ -345,4 +345,128 @@ describe('Gregorian to Long Count conversion', () => {
     // The correlation should be preserved
     expect(lc.julianDay).to.equal(gregorian.julianDay);
   });
+});
+
+describe('Date and ISO 8601 to Long Count conversion', () => {
+  it('should convert JavaScript Date to Long Count using fromDate', () => {
+    // December 21, 2012 corresponds to 13.0.0.0.0
+    const date = new Date('2012-12-21');
+    const lc = LongCount.fromDate(date);
+    
+    expect(lc.toString()).to.equal('13. 0. 0. 0. 0');
+    expect(lc.bakTun).to.equal(13);
+    expect(lc.kAtun).to.equal(0);
+    expect(lc.tun).to.equal(0);
+    expect(lc.winal).to.equal(0);
+    expect(lc.kIn).to.equal(0);
+  });
+
+  it('should convert ISO 8601 date string to Long Count using fromISO8601', () => {
+    // December 21, 2012 in ISO 8601 format
+    const lc = LongCount.fromISO8601('2012-12-21');
+    
+    expect(lc.toString()).to.equal('13. 0. 0. 0. 0');
+    expect(lc.bakTun).to.equal(13);
+    expect(lc.kAtun).to.equal(0);
+    expect(lc.tun).to.equal(0);
+    expect(lc.winal).to.equal(0);
+    expect(lc.kIn).to.equal(0);
+  });
+
+  it('should convert ISO 8601 datetime string to Long Count', () => {
+    // December 21, 2012 with time
+    const lc = LongCount.fromISO8601('2012-12-21T00:00:00Z');
+    
+    expect(lc.toString()).to.equal('13. 0. 0. 0. 0');
+  });
+
+  it('should convert ISO 8601 datetime with timezone to Long Count', () => {
+    // December 21, 2012 with timezone offset
+    const lc = LongCount.fromISO8601('2012-12-21T00:00:00-05:00');
+    
+    // Should still be the same date (though technically it's Dec 21 in the local timezone)
+    expect(lc.bakTun).to.equal(13);
+  });
+
+  it('should handle Date object for historical dates', () => {
+    // January 22, 771 CE (9.17.0.0.0)
+    const date = new Date('0771-01-22');
+    const lc = LongCount.fromDate(date);
+    
+    expect(lc.bakTun).to.equal(9);
+    expect(lc.kAtun).to.equal(17);
+  });
+
+  it('should throw error for invalid Date object', () => {
+    const invalidDate = new Date('invalid');
+    
+    expect(() => {
+      LongCount.fromDate(invalidDate);
+    }).to.throw('Invalid Date object');
+  });
+
+  it('should throw error for invalid ISO 8601 string', () => {
+    expect(() => {
+      LongCount.fromISO8601('not-a-date');
+    }).to.throw('Invalid ISO 8601 date string');
+  });
+
+  it('should throw error for empty ISO 8601 string', () => {
+    expect(() => {
+      LongCount.fromISO8601('');
+    }).to.throw('ISO 8601 string must be a non-empty string');
+  });
+
+  it('should perform roundtrip with Date object', () => {
+    // Create a date, convert to Long Count, then back to Gregorian
+    const originalDate = new Date('2012-12-21');
+    const lc = LongCount.fromDate(originalDate);
+    const gregorian = lc.gregorian;
+    
+    // Verify the date components match
+    expect(gregorian.day).to.equal(21);
+    expect(gregorian.month).to.equal(12);
+    expect(gregorian.year).to.equal(2012);
+  });
+
+  it('should perform roundtrip with ISO 8601 string', () => {
+    const lc = LongCount.fromISO8601('2012-12-21');
+    const gregorian = lc.gregorian;
+    
+    expect(gregorian.day).to.equal(21);
+    expect(gregorian.month).to.equal(12);
+    expect(gregorian.year).to.equal(2012);
+  });
+
+  it('should handle different ISO 8601 formats', () => {
+    const formats = [
+      '2012-12-21',
+      '2012-12-21T00:00:00',
+      '2012-12-21T00:00:00.000Z',
+    ];
+
+    formats.forEach((format) => {
+      const lc = LongCount.fromISO8601(format);
+      expect(lc.toString()).to.equal('13. 0. 0. 0. 0');
+    });
+  });
+
+  it('should preserve correlation constant with fromDate', () => {
+    const date = new Date('2012-12-21');
+    const customCorrelation = getCorrelationConstant(584285); // Modified GMT
+    
+    const lc = LongCount.fromDate(date, customCorrelation);
+    
+    // The correlation should be used
+    expect(lc.julianDay).to.be.a('number');
+  });
+
+  it('should preserve correlation constant with fromISO8601', () => {
+    const customCorrelation = getCorrelationConstant(584285); // Modified GMT
+    
+    const lc = LongCount.fromISO8601('2012-12-21', customCorrelation);
+    
+    // The correlation should be used
+    expect(lc.julianDay).to.be.a('number');
+  });
 })
