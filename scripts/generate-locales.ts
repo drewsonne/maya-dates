@@ -62,17 +62,20 @@ const LOCALE_METADATA = {
   modern_mayanist: {
     identifier: 'modern-mayanist',
     name: 'Modern Mayanist Orthography',
-    description: 'Modern Mayanist convention with glottalized consonants (Pohp, Ik\', Ak\'bal)'
+    description: 'Modern Mayanist convention with glottalized consonants (Pohp, Ik\', Ak\'bal)',
+    exportName: 'modernMayanistLocale'
   },
   modern_variant: {
     identifier: 'modern-variant',
     name: 'Modern Variant Orthography',
-    description: 'Common modern variant spellings (Pop, Ik\', Ak\'bal)'
+    description: 'Common modern variant spellings (Pop, Ik\', Ak\'bal)',
+    exportName: 'modernVariantLocale'
   },
   older_16c: {
     identifier: 'older-16c',
     name: 'Older 16th Century Orthography',
-    description: 'Traditional Thompson/Landa spellings (Pop, Ik, Akbal)'
+    description: 'Traditional Thompson/Landa spellings (Pop, Ik, Akbal)',
+    exportName: 'older16cLocale'
   }
 };
 
@@ -255,7 +258,7 @@ function generateLocale(
  * BIBLIOGRAPHY:
 ${bibliographyEntries.join('\n')}
  */
-export const ${localeTag}Locale: LocaleDefinition = {
+export const ${metadata.exportName}: LocaleDefinition = {
   locale: '${metadata.identifier}',
   name: '${metadata.name}',
   tzolkinDays: {

@@ -2,7 +2,7 @@ import {
   Locale,
   LocaleDefinition
 } from './types';
-import { modern_mayanistLocale } from './locales/modern_mayanist';
+import { modernMayanistLocale } from './locales/modern_mayanist';
 
 /**
  * Default locale identifier
@@ -63,7 +63,7 @@ export class I18nManager {
    * Register the default locale by importing it from the locales folder.
    */
   private registerDefaultLocale(): void {
-    this.locales.set(DEFAULT_LOCALE, modern_mayanistLocale);
+    this.locales.set(DEFAULT_LOCALE, modernMayanistLocale);
   }
 
   /**

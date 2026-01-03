@@ -203,7 +203,7 @@
       "month_index": 12,
       "key": "keh",
       "spellings": {
-        "Keh": { "tags": ["modern_mayanist", "modern_variant"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS", "STUART2006_CH6_MESOWEB"] },
+        "Keh": { "tags": ["modern_mayanist", "modern_variant"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS", "STUART_CH6_MESOWEB"] },
         "Ceh": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
       }
     },
