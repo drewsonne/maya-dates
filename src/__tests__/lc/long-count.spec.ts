@@ -4,7 +4,7 @@ import {expect} from 'chai'
 import LongCount from "../../lc/long-count";
 import {Wildcard} from "../../wildcard";
 import {LordOfTheNight, lords} from "../../lc/night/lord-of-night";
-import GregorianFactory from '../../factory/gregorian';
+
 import {getCorrelationConstant} from '../../lc/correlation-constant';
 
 describe('parse long-count fullDate', () => {
