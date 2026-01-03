@@ -1,0 +1,295 @@
+{
+  "filename": "maya_spellings_sources.json",
+  "bibliography": {
+    "ALDANA2022_EHOS": {
+      "type": "reference_article",
+      "author": "Gerardo Aldana",
+      "year": 2022,
+      "title": "Maya Calendar and Mesoamerican Astronomy",
+      "container": "Encyclopedia of the History of Science (Carnegie Mellon University)",
+      "url": "https://ethos.lps.library.cmu.edu/article/id/520/",
+      "note": "Explicit lists of Tzolk'in day signs and Haab' month names in Yucatec Mayan spellings."
+    },
+    "MARTIN2012_PENN": {
+      "type": "magazine_article",
+      "author": "Simon Martin",
+      "year": 2012,
+      "title": "Maya Calendars",
+      "container": "Expedition Magazine / Penn Museum",
+      "url": "https://www.penn.museum/sites/expedition/maya-calendars/",
+      "note": "Explicit image-caption lists of day signs and month names (modern Mayanist-style spellings)."
+    },
+    "THOMPSON1950_MESOWEB": {
+      "type": "book_web_edition",
+      "author": "J. Eric S. Thompson",
+      "year": 1950,
+      "title": "Maya Hieroglyphic Writing: Introduction",
+      "container": "Mesoweb online edition",
+      "url": "https://www.mesoweb.com/publications/Thompson/Thompson1950.html",
+      "note": "Lists day signs and month signs in a standard older/Landa/Thompson convention (e.g., Ik, Akbal, Muluc; Uo, Zip, Zec, etc.)."
+    },
+    "STUART2001_PARI_TXIX": {
+      "type": "peer_reviewed_journal_pdf",
+      "author": "David Stuart",
+      "year": 2001,
+      "title": "Ritual and History in a Stucco Inscription from Temple XIX at Palenque",
+      "container": "PARI Journal (Pre-Columbian Art Research Institute)",
+      "url": "https://www.precolumbia.org/pari/publications/journal/01/Ritual-and-History.pdf",
+      "note": "Attests Classic-date spellings such as Tzek, Ajaw, etc. in a formal publication."
+    },
+    "STUART_CH6_MESOWEB": {
+      "type": "book_chapter_pdf",
+      "author": "David Stuart",
+      "year": 2006,
+      "title": "The Inscriptions from Temple XIX at Palenque (Chapter 6 PDF excerpt)",
+      "container": "Mesoweb-hosted PDF",
+      "url": "https://www.mesoweb.com/publications/stuart/TXIX/txixch6.pdf",
+      "note": "Attests modern epigraphic spellings like Ik', Kimi, Ajaw in running examples."
+    },
+    "MAYADECIPHERMENT_PERIOD_ENDINGS": {
+      "type": "reference_pdf",
+      "author": "Maya Decipherment (David Stuart / collaborators)",
+      "year": null,
+      "title": "Period Ending List (PDF)",
+      "container": "Maya Decipherment",
+      "url": "https://mayadecipherment.com/resources/period-ending-list/period-ending-list.pdf",
+      "note": "Dense attestation of month spellings in a standard modern epigraphic register (e.g., Pop, Sotz', Tzek, Zak, etc.)."
+    },
+    "TOKOVININE2024_CAMBRIDGE": {
+      "type": "peer_reviewed_article_html",
+      "author": "Alexandre Tokovinine et al.",
+      "year": 2024,
+      "title": "Using 3D Scanner to Explore the Maya Calendar System on Caracol Altar 2 (and related discussion of Vague Year)",
+      "container": "Cambridge University Press (Antiquity Project Gallery)",
+      "url": "https://www.cambridge.org/core/journals/antiquity/article/using-3d-scanner-to-explore-the-maya-calendar-system-on-caracol-altar-2-in-belize/53056A66BACB2A9C92B755E7B3E7D886",
+      "note": "Attests usage of Pohp/Pop in scholarly discussion."
+    },
+    "KETTUNENZENDER2021_MONTHSIGNS": {
+      "type": "scholarly_article_pdf",
+      "author": "Harri Kettunen & Marc Zender",
+      "year": 2021,
+      "title": "The 'Month Signs' in Diego de Landa's Relación de las Cosas de Yucatán",
+      "container": "PDF (static Squarespace link)",
+      "url": "https://static1.squarespace.com/static/5becd5662714e530f22454e9/t/616efc609049bb4fe8d4ea87/1634663528394/Kettunen%26Zender_2021.pdf",
+      "note": "Scholarly treatment of Landa month signs; snippet attests pohp and other month-name discussion."
+    },
+    "MAA_MAYATIMECYCLES_PDF": {
+      "type": "academic_outreach_pdf",
+      "author": null,
+      "year": null,
+      "title": "Maya Cycles of Time (PDF)",
+      "container": "Mathematical Association of America (maa.org PDF)",
+      "url": "https://old.maa.org/sites/default/files/pdf/cms_upload/MayaTimeCycles2-143624.pdf",
+      "note": "Contains explicit lists of Tzolkin day names and Haab month names in a conventional/teaching presentation."
+    },
+    "KELLEY1980_JHAS": {
+      "type": "peer_reviewed_article",
+      "author": "D. H. Kelley",
+      "year": 1980,
+      "title": "Astronomical Identities of Mesoamerican Gods",
+      "container": "Journal for the History of Astronomy (via NASA ADS full text)",
+      "url": "https://adsabs.harvard.edu/full/1980JHAS...11....1K",
+      "note": "Attests older-style month lists including forms like Zec in a peer-reviewed context."
+    },
+    "STUART_EDZNAB_POST": {
+      "type": "scholarly_blog_post",
+      "author": "David Stuart",
+      "year": 2007,
+      "title": "The Year 2012 and the End of the World (mentions Edznab in year-bearer context)",
+      "container": "Maya Decipherment",
+      "url": "https://mayadecipherment.com/2007/05/08/the-year-2012-and-the-end-of-the-world/",
+      "note": "Used ONLY to attest the specific spelling Edznab."
+    },
+    "TAUBE_WORKS_PDF": {
+      "type": "collected_works_pdf",
+      "author": "Karl Taube",
+      "year": 2021,
+      "title": "Karl Taube: Works (PDF)",
+      "container": "University of California, Riverside repository (snippet)",
+      "url": "https://escholarship.org/content/qt8t32t73q/qt8t32t73q.pdf",
+      "note": "Used as an additional attestation for Edznab."
+    }
+  },
+  "haab": [
+    {
+      "month_index": 1,
+      "key": "pohp",
+      "spellings": {
+        "Pohp": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS"] },
+        "Pop": { "tags": ["modern_variant", "older_16c"], "sources": ["MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS", "THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF", "TOKOVININE2024_CAMBRIDGE"] }
+      }
+    },
+    {
+      "month_index": 2,
+      "key": "wo",
+      "spellings": {
+        "Wo": { "tags": ["modern_mayanist", "modern_variant"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS"] },
+        "Uo": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 3,
+      "key": "sip",
+      "spellings": {
+        "Sip": { "tags": ["modern_mayanist", "modern_variant"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS"] },
+        "Zip": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 4,
+      "key": "sotz",
+      "spellings": {
+        "Sots'": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS"] },
+        "Sotz'": { "tags": ["modern_variant"], "sources": ["MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS"] },
+        "Zotz'": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 5,
+      "key": "tsek",
+      "spellings": {
+        "Tsek": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS"] },
+        "Tzek": { "tags": ["modern_variant"], "sources": ["MAYADECIPHERMENT_PERIOD_ENDINGS", "STUART2001_PARI_TXIX", "MAA_MAYATIMECYCLES_PDF"] },
+        "Sek": { "tags": ["modern_variant"], "sources": ["MARTIN2012_PENN"] },
+        "Zec": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "KELLEY1980_JHAS"] }
+      }
+    },
+    {
+      "month_index": 6,
+      "key": "xul",
+      "spellings": {
+        "Xul": { "tags": ["modern_mayanist", "modern_variant", "older_16c"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS", "THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 7,
+      "key": "yaxkin",
+      "spellings": {
+        "Yaxk'in": { "tags": ["modern_mayanist", "modern_variant"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS", "STUART2001_PARI_TXIX"] },
+        "Yaxkin": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 8,
+      "key": "mol",
+      "spellings": {
+        "Mol": { "tags": ["modern_mayanist", "modern_variant", "older_16c"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS", "THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 9,
+      "key": "chen",
+      "spellings": {
+        "Ch'en": { "tags": ["modern_mayanist", "modern_variant", "older_16c"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS", "THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 10,
+      "key": "yax",
+      "spellings": {
+        "Yax": { "tags": ["modern_mayanist", "modern_variant", "older_16c"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS", "THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 11,
+      "key": "sak",
+      "spellings": {
+        "Sak": { "tags": ["modern_mayanist", "modern_variant"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS"] },
+        "Zak": { "tags": ["modern_variant"], "sources": ["MAYADECIPHERMENT_PERIOD_ENDINGS"] },
+        "Zac": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 12,
+      "key": "keh",
+      "spellings": {
+        "Keh": { "tags": ["modern_mayanist", "modern_variant"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS", "STUART2006_CH6_MESOWEB"] },
+        "Ceh": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 13,
+      "key": "mak",
+      "spellings": {
+        "Mak": { "tags": ["modern_mayanist", "modern_variant"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS"] },
+        "Mac": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 14,
+      "key": "kankin",
+      "spellings": {
+        "K'ank'in": { "tags": ["modern_mayanist", "modern_variant"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS"] },
+        "Kankin": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 15,
+      "key": "muwan",
+      "spellings": {
+        "Muwan": { "tags": ["modern_mayanist", "modern_variant"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS", "STUART2001_PARI_TXIX"] },
+        "Muan": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 16,
+      "key": "pax",
+      "spellings": {
+        "Pax": { "tags": ["modern_mayanist", "modern_variant", "older_16c"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS", "THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 17,
+      "key": "kayab",
+      "spellings": {
+        "K'ayab": { "tags": ["modern_mayanist", "modern_variant"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS"] },
+        "Kayab": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 18,
+      "key": "kumku",
+      "spellings": {
+        "Kumk'u": { "tags": ["modern_mayanist", "modern_variant"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS"] },
+        "Cumku": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    },
+    {
+      "month_index": 19,
+      "key": "wayeb",
+      "spellings": {
+        "Wayeb": { "tags": ["modern_mayanist", "modern_variant"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "MAYADECIPHERMENT_PERIOD_ENDINGS"] },
+        "Uayeb": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }
+      }
+    }
+  ],
+  "tzolkin": [
+    { "day_index": 1, "key": "imix", "spellings": { "Imix": { "tags": ["modern_mayanist", "older_16c"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 2, "key": "ik", "spellings": { "Ik'": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "STUART_CH6_MESOWEB"] }, "Ik": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 3, "key": "akbal", "spellings": { "Ak'bal": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN"] }, "Akbal": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 4, "key": "kan", "spellings": { "K'an": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN"] }, "Kan": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 5, "key": "chikchan", "spellings": { "Chikchan": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN"] }, "Chicchan": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 6, "key": "kimi", "spellings": { "Kimi": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "STUART_CH6_MESOWEB"] }, "Cimi": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 7, "key": "manik", "spellings": { "Manik": { "tags": ["modern_mayanist", "older_16c"], "sources": ["ALDANA2022_EHOS", "THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }, "Manik'": { "tags": ["modern_variant"], "sources": ["MARTIN2012_PENN"] } } },
+    { "day_index": 8, "key": "lamat", "spellings": { "Lamat": { "tags": ["modern_mayanist", "older_16c"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 9, "key": "muluk", "spellings": { "Muluk": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN"] }, "Muluc": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 10, "key": "ok", "spellings": { "Ok": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN"] }, "Oc": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 11, "key": "chuwen", "spellings": { "Chuwen": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN"] }, "Chuen": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 12, "key": "eb", "spellings": { "Eb": { "tags": ["modern_mayanist", "older_16c"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 13, "key": "ben", "spellings": { "Ben": { "tags": ["modern_mayanist", "older_16c"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 14, "key": "ix", "spellings": { "Ix": { "tags": ["modern_mayanist", "older_16c"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 15, "key": "men", "spellings": { "Men": { "tags": ["modern_mayanist", "older_16c"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 16, "key": "kib", "spellings": { "Kib": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN"] }, "Cib": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 17, "key": "kaban", "spellings": { "Kaban": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN"] }, "Caban": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    {
+      "day_index": 18,
+      "key": "etznab",
+      "spellings": {
+        "Etz'nab": { "tags": ["modern_mayanist", "older_16c"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] },
+        "Edznab": { "tags": ["modern_variant"], "sources": ["STUART_EDZNAB_POST", "TAUBE_WORKS_PDF"] }
+      }
+    },
+    { "day_index": 19, "key": "kawak", "spellings": { "Kawak": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN"] }, "Cauac": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] } } },
+    { "day_index": 20, "key": "ajaw", "spellings": { "Ajaw": { "tags": ["modern_mayanist"], "sources": ["ALDANA2022_EHOS", "MARTIN2012_PENN", "STUART_CH6_MESOWEB", "STUART2001_PARI_TXIX"] }, "Ahau": { "tags": ["older_16c"], "sources": ["THOMPSON1950_MESOWEB", "MAA_MAYATIMECYCLES_PDF"] }, "Ahaw": { "tags": ["modern_variant"], "sources": ["MAYADECIPHERMENT_PERIOD_ENDINGS"] } } }
+  ]
+}
