@@ -3,8 +3,9 @@ import 'mocha';
 import {I18nManager, getI18nManager, DEFAULT_LOCALE} from '../../i18n/i18n-manager';
 import {LocaleDefinition} from '../../i18n/types';
 import CalendarRoundFactory from '../../factory/calendar-round';
-import {getTzolkinDay} from '../../cr/component/tzolkinDay';
-import {getHaabMonth} from '../../cr/component/haabMonth';
+import {getTzolkinDay, TzolkinDay} from '../../cr/component/tzolkinDay';
+import {getHaabMonth, HaabMonth} from '../../cr/component/haabMonth';
+import {Wildcard, isWildcard} from '../../wildcard';
 
 describe('I18n Manager', () => {
   let i18n: I18nManager;
@@ -200,7 +201,38 @@ describe('I18n with Calendar Round parsing', () => {
     // Both should produce the same canonical result
     expect(cr1.toString()).to.equal('4 Ajaw 8 Kumk\'u');
     expect(cr2.toString()).to.equal('4 Ajaw 8 Kumk\'u');
-    expect(cr1.equal(cr2)).to.be.true;
+    expect(cr1.equal(cr2)).to.equal(true);
+  });
+
+  it('should maintain singleton identity with alternative spellings', () => {
+    const localeDef: LocaleDefinition = {
+      locale: 'alt',
+      name: 'Alternative Spellings',
+      tzolkinDays: {
+        'Ajaw': { canonical: 'Ajaw', alternatives: ['Ahau', 'Ajau'] }
+      },
+      haabMonths: {
+        'Kumk\'u': { canonical: 'Kumk\'u', alternatives: ['Kumku', 'Cumku'] }
+      }
+    };
+    i18n.registerLocale(localeDef);
+
+    // Verify singleton pattern: different spellings resolve to same instance
+    const day1 = getTzolkinDay('Ahau');
+    const day2 = getTzolkinDay('Ajaw');
+    const day3 = getTzolkinDay('Ajau');
+    
+    expect(day1).to.equal(day2);
+    expect(day2).to.equal(day3);
+    expect(day1).to.equal(day3);
+
+    const month1 = getHaabMonth('Kumku');
+    const month2 = getHaabMonth('Kumk\'u');
+    const month3 = getHaabMonth('Cumku');
+    
+    expect(month1).to.equal(month2);
+    expect(month2).to.equal(month3);
+    expect(month1).to.equal(month3);
   });
 
   it('should parse with multiple alternative forms', () => {
@@ -225,8 +257,8 @@ describe('I18n with Calendar Round parsing', () => {
     expect(cr1.toString()).to.equal('4 Ajaw 8 Kumk\'u');
     expect(cr2.toString()).to.equal('4 Ajaw 8 Kumk\'u');
     expect(cr3.toString()).to.equal('4 Ajaw 8 Kumk\'u');
-    expect(cr1.equal(cr2)).to.be.true;
-    expect(cr2.equal(cr3)).to.be.true;
+    expect(cr1.equal(cr2)).to.equal(true);
+    expect(cr2.equal(cr3)).to.equal(true);
   });
 });
 
@@ -250,9 +282,9 @@ describe('I18n with component rendering', () => {
     i18n.registerLocale(localeDef);
 
     const dayResult = getTzolkinDay('Imix');
-    expect(dayResult).to.not.be.instanceOf(require('../../wildcard').Wildcard);
+    expect(isWildcard(dayResult)).to.equal(false);
     
-    const day = dayResult as import('../../cr/component/tzolkinDay').TzolkinDay;
+    const day = dayResult as TzolkinDay;
     expect(day.toString()).to.equal('Imix');
     expect(day.toLocaleString('simplified')).to.equal('Imish');
   });
@@ -269,9 +301,9 @@ describe('I18n with component rendering', () => {
     i18n.registerLocale(localeDef);
 
     const monthResult = getHaabMonth('Pop');
-    expect(monthResult).to.not.be.instanceOf(require('../../wildcard').Wildcard);
+    expect(isWildcard(monthResult)).to.equal(false);
     
-    const month = monthResult as import('../../cr/component/haabMonth').HaabMonth;
+    const month = monthResult as HaabMonth;
     expect(month.toString()).to.equal('Pop');
     expect(month.toLocaleString('simplified')).to.equal('Pohp');
   });

@@ -9,7 +9,10 @@ import {
   getI18nManager,
   getTzolkinDay,
   getHaabMonth,
-  LocaleDefinition
+  LocaleDefinition,
+  TzolkinDay,
+  HaabMonth,
+  isWildcard
 } from '../src/index';
 
 // Get the i18n manager instance
@@ -84,18 +87,24 @@ spellings.forEach(spelling => {
 console.log('Example 2: Rendering with different locales');
 console.log('---------------------------------------------');
 
-const tzolkinDay = getTzolkinDay('Ik\'');
-const haabMonth = getHaabMonth('K\'ayab');
+const tzolkinDayResult = getTzolkinDay('Ik\'');
+const haabMonthResult = getHaabMonth('K\'ayab');
 
-console.log('Tzolkin day "Ik\'"');
-console.log(`  Default:    ${tzolkinDay.toString()}`);
-console.log(`  Simplified: ${(tzolkinDay as any).toLocaleString('simplified')}`);
-console.log();
+// Type guard to ensure we have the actual components, not wildcards
+if (!isWildcard(tzolkinDayResult) && !isWildcard(haabMonthResult)) {
+  const tzolkinDay = tzolkinDayResult as TzolkinDay;
+  const haabMonth = haabMonthResult as HaabMonth;
 
-console.log('Haab month "K\'ayab"');
-console.log(`  Default:    ${haabMonth.toString()}`);
-console.log(`  Simplified: ${(haabMonth as any).toLocaleString('simplified')}`);
-console.log();
+  console.log('Tzolkin day "Ik\'"');
+  console.log(`  Default:    ${tzolkinDay.toString()}`);
+  console.log(`  Simplified: ${tzolkinDay.toLocaleString('simplified')}`);
+  console.log();
+
+  console.log('Haab month "K\'ayab"');
+  console.log(`  Default:    ${haabMonth.toString()}`);
+  console.log(`  Simplified: ${haabMonth.toLocaleString('simplified')}`);
+  console.log();
+}
 
 // Example 3: Parsing various alternative forms
 console.log('Example 3: Parsing various alternative forms');
@@ -116,7 +125,7 @@ alternativeForms.forEach(form => {
 });
 console.log();
 
-// Example 4: Round-trip parsing and rendering
+// Example 4: Round-trip with locales
 console.log('Example 4: Round-trip with locales');
 console.log('------------------------------------');
 
@@ -124,11 +133,16 @@ const crOriginal = factory.parse('13 Akbal 1 Kankin');
 console.log(`Parsed (alternative):  "${crOriginal.toString()}"`);
 
 // The system automatically normalized "Akbal" to "Ak'bal" and "Kankin" to "K'ank'in"
-console.log(`Day (default):         ${crOriginal.tzolkin.day.toString()}`);
-console.log(`Day (simplified):      ${(crOriginal.tzolkin.day as any).toLocaleString('simplified')}`);
-console.log(`Month (default):       ${crOriginal.haab.month.toString()}`);
-console.log(`Month (simplified):    ${(crOriginal.haab.month as any).toLocaleString('simplified')}`);
-console.log();
+if (!isWildcard(crOriginal.tzolkin.day) && !isWildcard(crOriginal.haab.month)) {
+  const day = crOriginal.tzolkin.day as TzolkinDay;
+  const month = crOriginal.haab.month as HaabMonth;
+
+  console.log(`Day (default):         ${day.toString()}`);
+  console.log(`Day (simplified):      ${day.toLocaleString('simplified')}`);
+  console.log(`Month (default):       ${month.toString()}`);
+  console.log(`Month (simplified):    ${month.toLocaleString('simplified')}`);
+  console.log();
+}
 
 // Example 5: Listing registered locales
 console.log('Example 5: Registered locales');
