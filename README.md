@@ -210,7 +210,6 @@ console.log(`Original: ${original}, Roundtrip: ${backToLC}`);
 - `LongCount.fromMayanDayNumber(mdn, correlation?)` - Convert from Maya Day Number
 - `longCount.gregorian` - Convert Long Count to Gregorian (getter property)
 - `longCount.julianDay` - Get Julian Day Number for Long Count (getter property)
-```
 
 ### Working with Wildcards
 
