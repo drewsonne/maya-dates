@@ -300,7 +300,7 @@ export default class LongCount extends DistanceNumber {
 
   /**
    *
-   * @return {FullDate}
+   * @return FullDate
    */
   buildFullDate() {
     return new FullDate(

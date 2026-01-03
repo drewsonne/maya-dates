@@ -31,9 +31,10 @@ class LordOfTheNight {
 }
 
 /**
- * Collection of al the 9 Lords of the night.
+ * Collection of all the 9 Lords of the night.
+ * @internal
  */
-class _LordsOfTheNight {
+export class _LordsOfTheNight {
   G1: LordOfTheNight;
   G2: LordOfTheNight;
   G3: LordOfTheNight;

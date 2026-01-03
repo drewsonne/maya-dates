@@ -10,3 +10,12 @@ lib
 Develop
 .DS_Store
 .vscode
+
+# Legacy docs output
+docs/api/
+
+# Docusaurus
+website/build/
+website/.docusaurus/
+website/.cache/
+website/node_modules/

@@ -318,7 +318,7 @@ export default class DistanceNumber extends CommentWrapper implements IPart {
 
   /**
    * Returns true if any of the positions in the Long Count have been assigned
-   * a {Wildcard} object.
+   * a Wildcard object.
    * @return {boolean}
    */
   isPartial(): boolean {
