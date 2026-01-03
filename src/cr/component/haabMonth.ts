@@ -3,6 +3,7 @@ import Cycle from "./cycle";
 import HashMap from "../../structs/hashMap";
 import {getI18nManager} from "../../i18n/i18n-manager";
 import {Locale} from "../../i18n/types";
+import { HAAB_MONTH_NAMES } from "../../i18n/locales/canonical-names";
 
 export enum HaabMonths {
   POP = 'Pop',
@@ -24,6 +25,11 @@ export enum HaabMonths {
   K_AYAB = 'K\'ayab',
   KUMK_U = 'Kumk\'u',
   WAYEB = 'Wayeb'
+}
+
+// Verify enum values match canonical names at module load time
+if (Object.values(HaabMonths).join(',') !== HAAB_MONTH_NAMES.join(',')) {
+  throw new Error('HaabMonths enum values do not match HAAB_MONTH_NAMES');
 }
 
 const months: HashMap = new HashMap([
