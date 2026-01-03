@@ -22,7 +22,7 @@ import { LocaleDefinition } from '../types';
  * STUART_EDZNAB_POST: David Stuart (2007). "The Year 2012 and the End of the World (mentions Edznab in year-bearer context)". Maya Decipherment. https://mayadecipherment.com/2007/05/08/the-year-2012-and-the-end-of-the-world/
  * TAUBE_WORKS_PDF: Karl Taube (2021). "Karl Taube: Works (PDF)". University of California, Riverside repository (snippet). https://escholarship.org/content/qt8t32t73q/qt8t32t73q.pdf
  */
-export const older_16cLocale: LocaleDefinition = {
+export const older16cLocale: LocaleDefinition = {
   locale: 'older-16c',
   name: 'Older 16th Century Orthography',
   tzolkinDays: {
@@ -264,7 +264,7 @@ export const older_16cLocale: LocaleDefinition = {
     // Month 12: keh
     // Locale spelling: Ceh (sources: THOMPSON1950_MESOWEB, MAA_MAYATIMECYCLES_PDF)
     // Alternatives:
-    //   - Keh (sources: ALDANA2022_EHOS, MARTIN2012_PENN, MAYADECIPHERMENT_PERIOD_ENDINGS, STUART2006_CH6_MESOWEB)
+    //   - Keh (sources: ALDANA2022_EHOS, MARTIN2012_PENN, MAYADECIPHERMENT_PERIOD_ENDINGS, STUART_CH6_MESOWEB)
     'Keh': {
       canonical: 'Ceh',
       alternatives: ['Keh']

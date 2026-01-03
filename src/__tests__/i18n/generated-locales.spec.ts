@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 import 'mocha';
 import { I18nManager, getI18nManager, DEFAULT_LOCALE } from '../../i18n/i18n-manager';
-import { modern_mayanistLocale } from '../../i18n/locales/modern_mayanist';
-import { modern_variantLocale } from '../../i18n/locales/modern_variant';
-import { older_16cLocale } from '../../i18n/locales/older_16c';
+import { modernMayanistLocale } from '../../i18n/locales/modern_mayanist';
+import { modernVariantLocale } from '../../i18n/locales/modern_variant';
+import { older16cLocale } from '../../i18n/locales/older_16c';
 import { TZOLKIN_DAY_NAMES, HAAB_MONTH_NAMES } from '../../i18n/locales/canonical-names';
 import CalendarRoundFactory from '../../factory/calendar-round';
 import { getTzolkinDay, TzolkinDay } from '../../cr/component/tzolkinDay';
@@ -20,67 +20,67 @@ describe('Generated Locales', () => {
 
   describe('Locale Completeness - Tzolkin Days', () => {
     it('modern_mayanist should have all 20 Tzolkin day names', () => {
-      const localeKeys = Object.keys(modern_mayanistLocale.tzolkinDays || {});
+      const localeKeys = Object.keys(modernMayanistLocale.tzolkinDays || {});
       expect(localeKeys).to.have.lengthOf(20);
       
       TZOLKIN_DAY_NAMES.forEach(dayName => {
-        expect(modern_mayanistLocale.tzolkinDays).to.have.property(dayName);
+        expect(modernMayanistLocale.tzolkinDays).to.have.property(dayName);
       });
     });
 
     it('modern_variant should have all 20 Tzolkin day names', () => {
-      const localeKeys = Object.keys(modern_variantLocale.tzolkinDays || {});
+      const localeKeys = Object.keys(modernVariantLocale.tzolkinDays || {});
       expect(localeKeys).to.have.lengthOf(20);
       
       TZOLKIN_DAY_NAMES.forEach(dayName => {
-        expect(modern_variantLocale.tzolkinDays).to.have.property(dayName);
+        expect(modernVariantLocale.tzolkinDays).to.have.property(dayName);
       });
     });
 
     it('older_16c should have all 20 Tzolkin day names', () => {
-      const localeKeys = Object.keys(older_16cLocale.tzolkinDays || {});
+      const localeKeys = Object.keys(older16cLocale.tzolkinDays || {});
       expect(localeKeys).to.have.lengthOf(20);
       
       TZOLKIN_DAY_NAMES.forEach(dayName => {
-        expect(older_16cLocale.tzolkinDays).to.have.property(dayName);
+        expect(older16cLocale.tzolkinDays).to.have.property(dayName);
       });
     });
   });
 
   describe('Locale Completeness - Haab Months', () => {
     it('modern_mayanist should have all 19 Haab month names', () => {
-      const localeKeys = Object.keys(modern_mayanistLocale.haabMonths || {});
+      const localeKeys = Object.keys(modernMayanistLocale.haabMonths || {});
       expect(localeKeys).to.have.lengthOf(19);
       
       HAAB_MONTH_NAMES.forEach(monthName => {
-        expect(modern_mayanistLocale.haabMonths).to.have.property(monthName);
+        expect(modernMayanistLocale.haabMonths).to.have.property(monthName);
       });
     });
 
     it('modern_variant should have all 19 Haab month names', () => {
-      const localeKeys = Object.keys(modern_variantLocale.haabMonths || {});
+      const localeKeys = Object.keys(modernVariantLocale.haabMonths || {});
       expect(localeKeys).to.have.lengthOf(19);
       
       HAAB_MONTH_NAMES.forEach(monthName => {
-        expect(modern_variantLocale.haabMonths).to.have.property(monthName);
+        expect(modernVariantLocale.haabMonths).to.have.property(monthName);
       });
     });
 
     it('older_16c should have all 19 Haab month names', () => {
-      const localeKeys = Object.keys(older_16cLocale.haabMonths || {});
+      const localeKeys = Object.keys(older16cLocale.haabMonths || {});
       expect(localeKeys).to.have.lengthOf(19);
       
       HAAB_MONTH_NAMES.forEach(monthName => {
-        expect(older_16cLocale.haabMonths).to.have.property(monthName);
+        expect(older16cLocale.haabMonths).to.have.property(monthName);
       });
     });
   });
 
   describe('Cross-Locale Consistency', () => {
     it('all locales should use identical Tzolkin day keys', () => {
-      const mayanistKeys = Object.keys(modern_mayanistLocale.tzolkinDays || {}).sort();
-      const variantKeys = Object.keys(modern_variantLocale.tzolkinDays || {}).sort();
-      const olderKeys = Object.keys(older_16cLocale.tzolkinDays || {}).sort();
+      const mayanistKeys = Object.keys(modernMayanistLocale.tzolkinDays || {}).sort();
+      const variantKeys = Object.keys(modernVariantLocale.tzolkinDays || {}).sort();
+      const olderKeys = Object.keys(older16cLocale.tzolkinDays || {}).sort();
 
       expect(mayanistKeys).to.deep.equal(variantKeys);
       expect(variantKeys).to.deep.equal(olderKeys);
@@ -88,9 +88,9 @@ describe('Generated Locales', () => {
     });
 
     it('all locales should use identical Haab month keys', () => {
-      const mayanistKeys = Object.keys(modern_mayanistLocale.haabMonths || {}).sort();
-      const variantKeys = Object.keys(modern_variantLocale.haabMonths || {}).sort();
-      const olderKeys = Object.keys(older_16cLocale.haabMonths || {}).sort();
+      const mayanistKeys = Object.keys(modernMayanistLocale.haabMonths || {}).sort();
+      const variantKeys = Object.keys(modernVariantLocale.haabMonths || {}).sort();
+      const olderKeys = Object.keys(older16cLocale.haabMonths || {}).sort();
 
       expect(mayanistKeys).to.deep.equal(variantKeys);
       expect(variantKeys).to.deep.equal(olderKeys);
@@ -104,9 +104,9 @@ describe('Generated Locales', () => {
 
     quotedNames.forEach(name => {
       it(`should handle Tzolkin day name with apostrophe: ${name}`, () => {
-        expect(modern_mayanistLocale.tzolkinDays).to.have.property(name);
-        expect(modern_variantLocale.tzolkinDays).to.have.property(name);
-        expect(older_16cLocale.tzolkinDays).to.have.property(name);
+        expect(modernMayanistLocale.tzolkinDays).to.have.property(name);
+        expect(modernVariantLocale.tzolkinDays).to.have.property(name);
+        expect(older16cLocale.tzolkinDays).to.have.property(name);
         
         const dayResult = getTzolkinDay(name);
         expect(isWildcard(dayResult)).to.equal(false);
@@ -115,9 +115,9 @@ describe('Generated Locales', () => {
 
     quotedMonths.forEach(name => {
       it(`should handle Haab month name with apostrophe: ${name}`, () => {
-        expect(modern_mayanistLocale.haabMonths).to.have.property(name);
-        expect(modern_variantLocale.haabMonths).to.have.property(name);
-        expect(older_16cLocale.haabMonths).to.have.property(name);
+        expect(modernMayanistLocale.haabMonths).to.have.property(name);
+        expect(modernVariantLocale.haabMonths).to.have.property(name);
+        expect(older16cLocale.haabMonths).to.have.property(name);
         
         const monthResult = getHaabMonth(name);
         expect(isWildcard(monthResult)).to.equal(false);
@@ -146,8 +146,8 @@ describe('Generated Locales', () => {
 
   describe('Locale Switching and Rendering', () => {
     beforeEach(() => {
-      i18n.registerLocale(modern_variantLocale);
-      i18n.registerLocale(older_16cLocale);
+      i18n.registerLocale(modernVariantLocale);
+      i18n.registerLocale(older16cLocale);
     });
 
     it('should render Ajaw differently in each locale', () => {
@@ -194,8 +194,8 @@ describe('Generated Locales', () => {
 
   describe('Alternative Spelling Normalization', () => {
     beforeEach(() => {
-      i18n.registerLocale(modern_variantLocale);
-      i18n.registerLocale(older_16cLocale);
+      i18n.registerLocale(modernVariantLocale);
+      i18n.registerLocale(older16cLocale);
     });
 
     it('should normalize Ajaw alternatives to canonical key', () => {
@@ -224,8 +224,8 @@ describe('Generated Locales', () => {
 
   describe('Round-Trip Parsing and Rendering', () => {
     beforeEach(() => {
-      i18n.registerLocale(modern_variantLocale);
-      i18n.registerLocale(older_16cLocale);
+      i18n.registerLocale(modernVariantLocale);
+      i18n.registerLocale(older16cLocale);
     });
 
     it('should parse alternative, normalize, and render correctly', () => {
@@ -254,7 +254,7 @@ describe('Generated Locales', () => {
 
   describe('Wildcard Handling with Locales', () => {
     beforeEach(() => {
-      i18n.registerLocale(modern_variantLocale);
+      i18n.registerLocale(modernVariantLocale);
     });
 
     it('should render Calendar Round with wildcard coefficient in locale', () => {
@@ -282,8 +282,8 @@ describe('Generated Locales', () => {
 
   describe('Locale Registration Completeness', () => {
     it('should successfully register all three locales', () => {
-      i18n.registerLocale(modern_variantLocale);
-      i18n.registerLocale(older_16cLocale);
+      i18n.registerLocale(modernVariantLocale);
+      i18n.registerLocale(older16cLocale);
       
       const locales = i18n.getRegisteredLocales();
       expect(locales).to.include('modern-mayanist');
@@ -292,8 +292,8 @@ describe('Generated Locales', () => {
     });
 
     it('should successfully activate each locale', () => {
-      i18n.registerLocale(modern_variantLocale);
-      i18n.registerLocale(older_16cLocale);
+      i18n.registerLocale(modernVariantLocale);
+      i18n.registerLocale(older16cLocale);
       
       i18n.setActiveLocale('modern-variant');
       expect(i18n.getActiveLocale()).to.equal('modern-variant');
@@ -308,8 +308,8 @@ describe('Generated Locales', () => {
 
   describe('Performance with Large-Scale Normalization', () => {
     beforeEach(() => {
-      i18n.registerLocale(modern_variantLocale);
-      i18n.registerLocale(older_16cLocale);
+      i18n.registerLocale(modernVariantLocale);
+      i18n.registerLocale(older16cLocale);
     });
 
     it('should normalize 1000+ dates in under 100ms', () => {
@@ -338,8 +338,8 @@ describe('Generated Locales', () => {
 
   describe('Specific Locale Spelling Differences', () => {
     beforeEach(() => {
-      i18n.registerLocale(modern_variantLocale);
-      i18n.registerLocale(older_16cLocale);
+      i18n.registerLocale(modernVariantLocale);
+      i18n.registerLocale(older16cLocale);
     });
 
     const testCases = [
