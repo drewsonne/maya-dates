@@ -97,17 +97,12 @@ export class TzolkinDay extends Cycle {
   }
 
   /**
-   * Ensure the Tzolk'in day name is defined and is within the list of
-   * acceptable day names.
+   * Ensure the Tzolk'in day name is defined.
+   * Note: Validation is now locale-agnostic to support first-class i18n.
    */
   validate() {
     if (this.value === undefined) {
       throw new Error('Tzolk\'in day name must be provided');
-    }
-    if (typeof this.value === 'string') {
-      if (!days.includes(this.value)) {
-        throw new Error(`Tzolk'in day (${this.value}) must be in ${days}`);
-      }
     }
     return true
   }

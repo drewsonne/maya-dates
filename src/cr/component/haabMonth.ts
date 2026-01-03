@@ -95,8 +95,8 @@ export class HaabMonth extends Cycle {
   }
 
   /**
-   * Ensure a Haab month name is defined, and that the month name is within the
-   * set of allowable values.
+   * Ensure a Haab month name is defined.
+   * Note: Validation is now locale-agnostic to support first-class i18n.
    */
   validate(): boolean {
     if (!isWildcard(this.value)) {
@@ -105,9 +105,6 @@ export class HaabMonth extends Cycle {
       }
       if (typeof this.value !== 'string') {
         throw new Error(`Haab' month must be a string, got ${typeof this.value}`);
-      }
-      if (!months.includes(this.value)) {
-        throw new Error(`Haab' month (${this.value}) must be in ${months}`);
       }
     }
     return true
