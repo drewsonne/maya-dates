@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / GregorianFactory
-
-# Class: GregorianFactory
-
-Defined in: [factory/gregorian.ts:7](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/factory/gregorian.ts#L7)
+Defined in: [factory/gregorian.ts:7](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/factory/gregorian.ts#L7)
 
 Factory for creating [GregorianCalendarDate](GregorianCalendarDate.md) instances from Gregorian date strings.
 
@@ -26,7 +18,7 @@ Factory for creating [GregorianCalendarDate](GregorianCalendarDate.md) instances
 
 > **parse**(`gregorian`): [`GregorianCalendarDate`](GregorianCalendarDate.md)
 
-Defined in: [factory/gregorian.ts:27](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/factory/gregorian.ts#L27)
+Defined in: [factory/gregorian.ts:27](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/factory/gregorian.ts#L27)
 
 Parse a Gregorian calendar date string into a [GregorianCalendarDate](GregorianCalendarDate.md).
 

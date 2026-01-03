@@ -1,16 +1,8 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / getCorrelationConstant
-
-# Function: getCorrelationConstant()
-
 ## Call Signature
 
 > **getCorrelationConstant**(`id`): [`CorrelationConstant`](../classes/CorrelationConstant.md)
 
-Defined in: [lc/correlation-constant.ts:48](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/correlation-constant.ts#L48)
+Defined in: [lc/correlation-constant.ts:48](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/correlation-constant.ts#L48)
 
 Return a Lord of the Night by its G id.
 
@@ -28,7 +20,7 @@ Return a Lord of the Night by its G id.
 
 > **getCorrelationConstant**(`id`): [`CorrelationConstant`](../classes/CorrelationConstant.md)
 
-Defined in: [lc/correlation-constant.ts:49](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/correlation-constant.ts#L49)
+Defined in: [lc/correlation-constant.ts:49](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/correlation-constant.ts#L49)
 
 Return a Lord of the Night by its G id.
 

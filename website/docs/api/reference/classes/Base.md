@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / Base
-
-# Abstract Class: Base
-
-Defined in: [cr/component/base.ts:4](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/base.ts#L4)
+Defined in: [cr/component/base.ts:4](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/base.ts#L4)
 
 ## Extended by
 
@@ -22,7 +14,7 @@ Defined in: [cr/component/base.ts:4](https://github.com/drewsonne/maya-dates/blo
 
 > **new Base**(`value`): `Base`
 
-Defined in: [cr/component/base.ts:7](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/base.ts#L7)
+Defined in: [cr/component/base.ts:7](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/base.ts#L7)
 
 #### Parameters
 
@@ -40,7 +32,7 @@ Defined in: [cr/component/base.ts:7](https://github.com/drewsonne/maya-dates/blo
 
 > **isWildcard**(): `boolean`
 
-Defined in: [cr/component/base.ts:11](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/base.ts#L11)
+Defined in: [cr/component/base.ts:11](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/base.ts#L11)
 
 #### Returns
 
@@ -56,7 +48,7 @@ Defined in: [cr/component/base.ts:11](https://github.com/drewsonne/maya-dates/bl
 
 > **toString**(): `string`
 
-Defined in: [cr/component/base.ts:15](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/base.ts#L15)
+Defined in: [cr/component/base.ts:15](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/base.ts#L15)
 
 Returns a string representation of an object.
 

@@ -1,13 +1,7 @@
 ---
 title: API Reference
-sidebar_label: Reference
+sidebar_label: API Reference
 ---
-
-**@drewsonne/maya-dates**
-
-***
-
-# @drewsonne/maya-dates
 
 ## Enumerations
 

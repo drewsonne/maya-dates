@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / HashMap
-
-# Class: HashMap
-
-Defined in: [structs/hashMap.ts:4](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/structs/hashMap.ts#L4)
+Defined in: [structs/hashMap.ts:4](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/structs/hashMap.ts#L4)
 
 Simple bidirectional map used to translate between indexes and values.
 
@@ -16,7 +8,7 @@ Simple bidirectional map used to translate between indexes and values.
 
 > **new HashMap**(`raw`): `HashMap`
 
-Defined in: [structs/hashMap.ts:13](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/structs/hashMap.ts#L13)
+Defined in: [structs/hashMap.ts:13](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/structs/hashMap.ts#L13)
 
 Create a new map from an array of values.
 
@@ -40,7 +32,7 @@ Array where the index represents the lookup index.
 
 > **get** **length**(): `number`
 
-Defined in: [structs/hashMap.ts:51](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/structs/hashMap.ts#L51)
+Defined in: [structs/hashMap.ts:51](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/structs/hashMap.ts#L51)
 
 Number of items stored in the map.
 
@@ -54,7 +46,7 @@ Number of items stored in the map.
 
 > **getIndex**(`value`): `number`
 
-Defined in: [structs/hashMap.ts:37](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/structs/hashMap.ts#L37)
+Defined in: [structs/hashMap.ts:37](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/structs/hashMap.ts#L37)
 
 Retrieve an index by value.
 
@@ -74,7 +66,7 @@ Retrieve an index by value.
 
 > **getValue**(`index`): `string` \| `undefined`
 
-Defined in: [structs/hashMap.ts:30](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/structs/hashMap.ts#L30)
+Defined in: [structs/hashMap.ts:30](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/structs/hashMap.ts#L30)
 
 Retrieve a value by index.
 
@@ -94,7 +86,7 @@ Retrieve a value by index.
 
 > **includes**(`value`): `boolean`
 
-Defined in: [structs/hashMap.ts:44](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/structs/hashMap.ts#L44)
+Defined in: [structs/hashMap.ts:44](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/structs/hashMap.ts#L44)
 
 Test if a value exists within the map.
 
@@ -114,7 +106,7 @@ Test if a value exists within the map.
 
 > **toString**(): `string`
 
-Defined in: [structs/hashMap.ts:58](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/structs/hashMap.ts#L58)
+Defined in: [structs/hashMap.ts:58](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/structs/hashMap.ts#L58)
 
 Convert the map to a string representation.
 

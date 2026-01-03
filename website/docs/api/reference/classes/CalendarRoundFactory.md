@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / CalendarRoundFactory
-
-# Class: CalendarRoundFactory
-
-Defined in: [factory/calendar-round.ts:17](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/factory/calendar-round.ts#L17)
+Defined in: [factory/calendar-round.ts:17](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/factory/calendar-round.ts#L17)
 
 Parses Calendar Round strings into concrete objects.
 
@@ -26,7 +18,7 @@ const cr = new CalendarRoundFactory().parse('4 Ajaw 8 Kumk\'u');
 
 > **new CalendarRoundFactory**(): `CalendarRoundFactory`
 
-Defined in: [factory/calendar-round.ts:21](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/factory/calendar-round.ts#L21)
+Defined in: [factory/calendar-round.ts:21](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/factory/calendar-round.ts#L21)
 
 Defines the pattern describing a Calendar Round
 
@@ -44,7 +36,7 @@ Defines the pattern describing a Calendar Round
 
 > **pattern**: `RegExp`
 
-Defined in: [factory/base.ts:5](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/factory/base.ts#L5)
+Defined in: [factory/base.ts:5](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/factory/base.ts#L5)
 
 #### Inherited from
 
@@ -56,7 +48,7 @@ Defined in: [factory/base.ts:5](https://github.com/drewsonne/maya-dates/blob/35f
 
 > **isNumberString**(`potentialNumber`): `boolean`
 
-Defined in: [factory/calendar-round.ts:52](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/factory/calendar-round.ts#L52)
+Defined in: [factory/calendar-round.ts:52](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/factory/calendar-round.ts#L52)
 
 #### Parameters
 
@@ -74,7 +66,7 @@ Defined in: [factory/calendar-round.ts:52](https://github.com/drewsonne/maya-dat
 
 > **parse**(`raw`): [`CalendarRound`](CalendarRound.md)
 
-Defined in: [factory/calendar-round.ts:35](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/factory/calendar-round.ts#L35)
+Defined in: [factory/calendar-round.ts:35](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/factory/calendar-round.ts#L35)
 
 Parse a textual Calendar Round representation.
 

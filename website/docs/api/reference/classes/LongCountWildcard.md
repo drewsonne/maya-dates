@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / LongCountWildcard
-
-# Class: LongCountWildcard
-
-Defined in: [operations/longcount-wildcard.ts:8](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/operations/longcount-wildcard.ts#L8)
+Defined in: [operations/longcount-wildcard.ts:8](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/operations/longcount-wildcard.ts#L8)
 
 Expand a [LongCount](LongCount.md) containing wildcards into all valid dates.
 
@@ -24,7 +16,7 @@ Expand a [LongCount](LongCount.md) containing wildcards into all valid dates.
 
 > **new LongCountWildcard**(`lc`): `LongCountWildcard`
 
-Defined in: [operations/longcount-wildcard.ts:14](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/operations/longcount-wildcard.ts#L14)
+Defined in: [operations/longcount-wildcard.ts:14](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/operations/longcount-wildcard.ts#L14)
 
 #### Parameters
 
@@ -48,7 +40,7 @@ Partial Long Count to expand.
 
 > **comment**: [`Comment`](Comment.md)
 
-Defined in: [comment-wrapper.ts:11](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L11)
+Defined in: [comment-wrapper.ts:11](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L11)
 
 Attached comment.
 
@@ -62,7 +54,7 @@ Attached comment.
 
 > **appendComment**(`comment`): `this`
 
-Defined in: [comment-wrapper.ts:42](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L42)
+Defined in: [comment-wrapper.ts:42](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L42)
 
 Append additional text to the current comment.
 
@@ -86,7 +78,7 @@ Append additional text to the current comment.
 
 > **commentIsEqual**(`otherCommentWrapper`): `boolean`
 
-Defined in: [comment-wrapper.ts:60](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L60)
+Defined in: [comment-wrapper.ts:60](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L60)
 
 Compare this wrapper's comment against another wrapper.
 
@@ -110,7 +102,7 @@ Compare this wrapper's comment against another wrapper.
 
 > **equal**(`other`): `boolean`
 
-Defined in: [operations/longcount-wildcard.ts:19](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/operations/longcount-wildcard.ts#L19)
+Defined in: [operations/longcount-wildcard.ts:19](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/operations/longcount-wildcard.ts#L19)
 
 Compare this object with another for equality.
 
@@ -134,7 +126,7 @@ Compare this object with another for equality.
 
 > **equalWithComment**(`otherCommentWrapper`): `boolean`
 
-Defined in: [comment-wrapper.ts:67](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L67)
+Defined in: [comment-wrapper.ts:67](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L67)
 
 Check equality including the associated comment.
 
@@ -158,7 +150,7 @@ Check equality including the associated comment.
 
 > **resetComment**(): `this`
 
-Defined in: [comment-wrapper.ts:20](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L20)
+Defined in: [comment-wrapper.ts:20](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L20)
 
 Reset the current comment back to an empty comment.
 
@@ -176,7 +168,7 @@ Reset the current comment back to an empty comment.
 
 > **run**(): [`LongCount`](LongCount.md)[]
 
-Defined in: [operations/longcount-wildcard.ts:29](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/operations/longcount-wildcard.ts#L29)
+Defined in: [operations/longcount-wildcard.ts:29](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/operations/longcount-wildcard.ts#L29)
 
 Generate all fully qualified Long Counts matching the pattern.
 
@@ -190,7 +182,7 @@ Generate all fully qualified Long Counts matching the pattern.
 
 > **setComment**(`comment`): `this`
 
-Defined in: [comment-wrapper.ts:28](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L28)
+Defined in: [comment-wrapper.ts:28](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L28)
 
 Replace the current comment.
 

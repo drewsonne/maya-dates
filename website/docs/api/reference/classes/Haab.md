@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / Haab
-
-# Class: Haab
-
-Defined in: [cr/haab.ts:35](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/haab.ts#L35)
+Defined in: [cr/haab.ts:35](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/haab.ts#L35)
 
 Describes a Haab fullDate with a position and a month
 
@@ -34,7 +26,7 @@ let day = new Haab(8, new HaabMonth("Kumk'u"));
 
 > **new Haab**(`coeff`, `month`): `Haab`
 
-Defined in: [cr/haab.ts:51](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/haab.ts#L51)
+Defined in: [cr/haab.ts:51](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/haab.ts#L51)
 
 Constructor
 
@@ -64,7 +56,7 @@ The position in the Haab month for this date
 
 > **coeff**: [`ICoefficient`](../interfaces/ICoefficient.md)
 
-Defined in: [cr/haab.ts:42](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/haab.ts#L42)
+Defined in: [cr/haab.ts:42](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/haab.ts#L42)
 
 ***
 
@@ -72,7 +64,7 @@ Defined in: [cr/haab.ts:42](https://github.com/drewsonne/maya-dates/blob/35f5b65
 
 > **comment**: [`Comment`](Comment.md)
 
-Defined in: [comment-wrapper.ts:11](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L11)
+Defined in: [comment-wrapper.ts:11](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L11)
 
 Attached comment.
 
@@ -86,7 +78,7 @@ Attached comment.
 
 > **month**: [`Wildcard`](Wildcard.md) \| [`HaabMonth`](HaabMonth.md)
 
-Defined in: [cr/haab.ts:43](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/haab.ts#L43)
+Defined in: [cr/haab.ts:43](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/haab.ts#L43)
 
 ## Accessors
 
@@ -96,7 +88,7 @@ Defined in: [cr/haab.ts:43](https://github.com/drewsonne/maya-dates/blob/35f5b65
 
 > **get** **name**(): `string`
 
-Defined in: [cr/haab.ts:151](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/haab.ts#L151)
+Defined in: [cr/haab.ts:151](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/haab.ts#L151)
 
 Return a string representation of the Haab month name
 
@@ -110,7 +102,7 @@ Return a string representation of the Haab month name
 
 > **appendComment**(`comment`): `this`
 
-Defined in: [comment-wrapper.ts:42](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L42)
+Defined in: [comment-wrapper.ts:42](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L42)
 
 Append additional text to the current comment.
 
@@ -134,7 +126,7 @@ Append additional text to the current comment.
 
 > **commentIsEqual**(`otherCommentWrapper`): `boolean`
 
-Defined in: [comment-wrapper.ts:60](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L60)
+Defined in: [comment-wrapper.ts:60](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L60)
 
 Compare this wrapper's comment against another wrapper.
 
@@ -158,7 +150,7 @@ Compare this wrapper's comment against another wrapper.
 
 > **equal**(`other`): `boolean`
 
-Defined in: [cr/haab.ts:227](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/haab.ts#L227)
+Defined in: [cr/haab.ts:227](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/haab.ts#L227)
 
 Compare this object with another for equality.
 
@@ -182,7 +174,7 @@ Compare this object with another for equality.
 
 > **equalWithComment**(`otherCommentWrapper`): `boolean`
 
-Defined in: [comment-wrapper.ts:67](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L67)
+Defined in: [comment-wrapper.ts:67](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L67)
 
 Check equality including the associated comment.
 
@@ -206,7 +198,7 @@ Check equality including the associated comment.
 
 > **match**(`otherHaab`): `boolean`
 
-Defined in: [cr/haab.ts:137](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/haab.ts#L137)
+Defined in: [cr/haab.ts:137](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/haab.ts#L137)
 
 Ensure this Haab object has a matching configuration as another Haab object.
 Takes wildcards into account.
@@ -227,7 +219,7 @@ Takes wildcards into account.
 
 > **next**(): `Haab`
 
-Defined in: [cr/haab.ts:129](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/haab.ts#L129)
+Defined in: [cr/haab.ts:129](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/haab.ts#L129)
 
 Return the next day in the Haab cycle
 
@@ -241,7 +233,7 @@ Return the next day in the Haab cycle
 
 > **resetComment**(): `this`
 
-Defined in: [comment-wrapper.ts:20](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L20)
+Defined in: [comment-wrapper.ts:20](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L20)
 
 Reset the current comment back to an empty comment.
 
@@ -259,7 +251,7 @@ Reset the current comment back to an empty comment.
 
 > **setComment**(`comment`): `this`
 
-Defined in: [comment-wrapper.ts:28](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L28)
+Defined in: [comment-wrapper.ts:28](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L28)
 
 Replace the current comment.
 
@@ -283,7 +275,7 @@ Replace the current comment.
 
 > **shift**(`numDays`): `Haab`
 
-Defined in: [cr/haab.ts:166](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/haab.ts#L166)
+Defined in: [cr/haab.ts:166](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/haab.ts#L166)
 
 Move this date through the Haab cycle using direct formula per [R1] §3.3.
 
@@ -310,7 +302,7 @@ Number of days to shift (positive for forward, negative for backward)
 
 > **toString**(): `string`
 
-Defined in: [cr/haab.ts:223](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/haab.ts#L223)
+Defined in: [cr/haab.ts:223](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/haab.ts#L223)
 
 Render the Haab fullDate as a string
 
@@ -324,7 +316,7 @@ Render the Haab fullDate as a string
 
 > **validate**(): `boolean`
 
-Defined in: [cr/haab.ts:75](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/haab.ts#L75)
+Defined in: [cr/haab.ts:75](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/haab.ts#L75)
 
 Ensure the Haab's coefficients are within range and the month is defined
 
@@ -338,7 +330,7 @@ Ensure the Haab's coefficients are within range and the month is defined
 
 > `static` **fromDayNumber**(`dayNumber`): `Haab`
 
-Defined in: [cr/haab.ts:108](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/haab.ts#L108)
+Defined in: [cr/haab.ts:108](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/haab.ts#L108)
 
 Create a Haab' date from a day number (days since epoch) using direct formula per [R1] §3.3.
 

@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / WildcardCoefficient
-
-# Class: WildcardCoefficient
-
-Defined in: [cr/component/wildcardCoefficient.ts:4](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/wildcardCoefficient.ts#L4)
+Defined in: [cr/component/wildcardCoefficient.ts:4](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/wildcardCoefficient.ts#L4)
 
 ## Implements
 
@@ -28,7 +20,7 @@ Defined in: [cr/component/wildcardCoefficient.ts:4](https://github.com/drewsonne
 
 > **equal**(`coefficient`): `Boolean`
 
-Defined in: [cr/component/wildcardCoefficient.ts:21](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/wildcardCoefficient.ts#L21)
+Defined in: [cr/component/wildcardCoefficient.ts:21](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/wildcardCoefficient.ts#L21)
 
 #### Parameters
 
@@ -50,7 +42,7 @@ Defined in: [cr/component/wildcardCoefficient.ts:21](https://github.com/drewsonn
 
 > **isIn**(`validHaabCoeffs`): `Boolean`
 
-Defined in: [cr/component/wildcardCoefficient.ts:9](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/wildcardCoefficient.ts#L9)
+Defined in: [cr/component/wildcardCoefficient.ts:9](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/wildcardCoefficient.ts#L9)
 
 #### Parameters
 
@@ -72,7 +64,7 @@ Defined in: [cr/component/wildcardCoefficient.ts:9](https://github.com/drewsonne
 
 > **isWildcard**(): `boolean`
 
-Defined in: [cr/component/wildcardCoefficient.ts:5](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/wildcardCoefficient.ts#L5)
+Defined in: [cr/component/wildcardCoefficient.ts:5](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/wildcardCoefficient.ts#L5)
 
 #### Returns
 
@@ -88,7 +80,7 @@ Defined in: [cr/component/wildcardCoefficient.ts:5](https://github.com/drewsonne
 
 > **match**(`coefficient`): `Boolean`
 
-Defined in: [cr/component/wildcardCoefficient.ts:25](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/wildcardCoefficient.ts#L25)
+Defined in: [cr/component/wildcardCoefficient.ts:25](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/wildcardCoefficient.ts#L25)
 
 #### Parameters
 
@@ -110,7 +102,7 @@ Defined in: [cr/component/wildcardCoefficient.ts:25](https://github.com/drewsonn
 
 > **toString**(): `string`
 
-Defined in: [cr/component/wildcardCoefficient.ts:17](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/wildcardCoefficient.ts#L17)
+Defined in: [cr/component/wildcardCoefficient.ts:17](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/wildcardCoefficient.ts#L17)
 
 Returns a string representation of an object.
 
@@ -124,7 +116,7 @@ Returns a string representation of an object.
 
 > **validate**(): `boolean`
 
-Defined in: [cr/component/wildcardCoefficient.ts:13](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/wildcardCoefficient.ts#L13)
+Defined in: [cr/component/wildcardCoefficient.ts:13](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/wildcardCoefficient.ts#L13)
 
 #### Returns
 

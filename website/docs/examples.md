@@ -1,3 +1,8 @@
+---
+sidebar_position: 3
+title: Examples
+---
+
 # Examples
 
 This directory contains runnable examples demonstrating how to use the `@drewsonne/maya-dates` library.

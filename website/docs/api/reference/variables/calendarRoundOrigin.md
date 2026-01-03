@@ -1,14 +1,6 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / calendarRoundOrigin
-
-# Variable: calendarRoundOrigin
-
 > `const` **calendarRoundOrigin**: [`CalendarRound`](../classes/CalendarRound.md)
 
-Defined in: [cr/calendar-round.ts:211](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/calendar-round.ts#L211)
+Defined in: [cr/calendar-round.ts:211](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/calendar-round.ts#L211)
 
 The Calendar Round base date: 4 Ajaw 8 Kumk'u.
 

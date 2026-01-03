@@ -1,14 +1,6 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / wrapsComment
-
-# Function: wrapsComment()
-
 > **wrapsComment**(`o`): `o is CommentWrapper`
 
-Defined in: [comment-wrapper.ts:86](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L86)
+Defined in: [comment-wrapper.ts:86](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L86)
 
 Type guard for [CommentWrapper](../classes/CommentWrapper.md).
 

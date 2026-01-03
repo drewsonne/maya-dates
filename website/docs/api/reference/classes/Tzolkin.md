@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / Tzolkin
-
-# Class: Tzolkin
-
-Defined in: [cr/tzolkin.ts:34](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/tzolkin.ts#L34)
+Defined in: [cr/tzolkin.ts:34](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/tzolkin.ts#L34)
 
 Describes a fullDate in the 260-day cycle with a position and a day
 
@@ -34,7 +26,7 @@ let day = new Tzolkin(4, new TzolkinDay("Ajaw"));
 
 > **new Tzolkin**(`newCoeff`, `newDay`): `Tzolkin`
 
-Defined in: [cr/tzolkin.ts:62](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/tzolkin.ts#L62)
+Defined in: [cr/tzolkin.ts:62](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/tzolkin.ts#L62)
 
 Constructor
 
@@ -64,7 +56,7 @@ The position in the 260-day cycle
 
 > **coeff**: [`ICoefficient`](../interfaces/ICoefficient.md)
 
-Defined in: [cr/tzolkin.ts:42](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/tzolkin.ts#L42)
+Defined in: [cr/tzolkin.ts:42](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/tzolkin.ts#L42)
 
 ***
 
@@ -72,7 +64,7 @@ Defined in: [cr/tzolkin.ts:42](https://github.com/drewsonne/maya-dates/blob/35f5
 
 > **comment**: [`Comment`](Comment.md)
 
-Defined in: [comment-wrapper.ts:11](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L11)
+Defined in: [comment-wrapper.ts:11](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L11)
 
 Attached comment.
 
@@ -86,7 +78,7 @@ Attached comment.
 
 > **day**: [`Wildcard`](Wildcard.md) \| [`TzolkinDay`](TzolkinDay.md)
 
-Defined in: [cr/tzolkin.ts:41](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/tzolkin.ts#L41)
+Defined in: [cr/tzolkin.ts:41](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/tzolkin.ts#L41)
 
 ## Accessors
 
@@ -96,7 +88,7 @@ Defined in: [cr/tzolkin.ts:41](https://github.com/drewsonne/maya-dates/blob/35f5
 
 > **get** **name**(): `string` \| [`Wildcard`](Wildcard.md)
 
-Defined in: [cr/tzolkin.ts:222](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/tzolkin.ts#L222)
+Defined in: [cr/tzolkin.ts:222](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/tzolkin.ts#L222)
 
 Return a string representation of the 260-day cycle name
 
@@ -110,7 +102,7 @@ Return a string representation of the 260-day cycle name
 
 > **appendComment**(`comment`): `this`
 
-Defined in: [comment-wrapper.ts:42](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L42)
+Defined in: [comment-wrapper.ts:42](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L42)
 
 Append additional text to the current comment.
 
@@ -134,7 +126,7 @@ Append additional text to the current comment.
 
 > **commentIsEqual**(`otherCommentWrapper`): `boolean`
 
-Defined in: [comment-wrapper.ts:60](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L60)
+Defined in: [comment-wrapper.ts:60](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L60)
 
 Compare this wrapper's comment against another wrapper.
 
@@ -158,7 +150,7 @@ Compare this wrapper's comment against another wrapper.
 
 > **equal**(`other`): `boolean`
 
-Defined in: [cr/tzolkin.ts:192](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/tzolkin.ts#L192)
+Defined in: [cr/tzolkin.ts:192](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/tzolkin.ts#L192)
 
 Ensure this Tzolkin object has the same configuration as another Tzolkin
 object. Does not take wildcards into account.
@@ -183,7 +175,7 @@ object. Does not take wildcards into account.
 
 > **equalWithComment**(`otherCommentWrapper`): `boolean`
 
-Defined in: [comment-wrapper.ts:67](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L67)
+Defined in: [comment-wrapper.ts:67](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L67)
 
 Check equality including the associated comment.
 
@@ -207,7 +199,7 @@ Check equality including the associated comment.
 
 > **match**(`newTzolkin`): `boolean`
 
-Defined in: [cr/tzolkin.ts:205](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/tzolkin.ts#L205)
+Defined in: [cr/tzolkin.ts:205](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/tzolkin.ts#L205)
 
 Ensure this Tzolkin object has a matching configuration as another Tzolkin
 object. Takes wildcards into account.
@@ -228,7 +220,7 @@ object. Takes wildcards into account.
 
 > **next**(): `Tzolkin`
 
-Defined in: [cr/tzolkin.ts:107](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/tzolkin.ts#L107)
+Defined in: [cr/tzolkin.ts:107](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/tzolkin.ts#L107)
 
 Return the next day in the 260-day cycle
 
@@ -242,7 +234,7 @@ Return the next day in the 260-day cycle
 
 > **nextCalculator**(): `Tzolkin`
 
-Defined in: [cr/tzolkin.ts:166](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/tzolkin.ts#L166)
+Defined in: [cr/tzolkin.ts:166](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/tzolkin.ts#L166)
 
 #### Returns
 
@@ -254,7 +246,7 @@ Defined in: [cr/tzolkin.ts:166](https://github.com/drewsonne/maya-dates/blob/35f
 
 > **resetComment**(): `this`
 
-Defined in: [comment-wrapper.ts:20](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L20)
+Defined in: [comment-wrapper.ts:20](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L20)
 
 Reset the current comment back to an empty comment.
 
@@ -272,7 +264,7 @@ Reset the current comment back to an empty comment.
 
 > **setComment**(`comment`): `this`
 
-Defined in: [comment-wrapper.ts:28](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/comment-wrapper.ts#L28)
+Defined in: [comment-wrapper.ts:28](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/comment-wrapper.ts#L28)
 
 Replace the current comment.
 
@@ -296,7 +288,7 @@ Replace the current comment.
 
 > **shift**(`newIncremental`): `Tzolkin`
 
-Defined in: [cr/tzolkin.ts:144](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/tzolkin.ts#L144)
+Defined in: [cr/tzolkin.ts:144](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/tzolkin.ts#L144)
 
 Shift this Tzolk'in date by a number of days using direct formula per [R1].
 Positive values shift forward in the 260-day cycle; negative values shift backward.
@@ -324,7 +316,7 @@ Number of days to shift (positive for forward, negative for backward)
 
 > **toString**(): `string`
 
-Defined in: [cr/tzolkin.ts:233](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/tzolkin.ts#L233)
+Defined in: [cr/tzolkin.ts:233](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/tzolkin.ts#L233)
 
 Render the 260-day cycle fullDate as a string
 
@@ -338,7 +330,7 @@ Render the 260-day cycle fullDate as a string
 
 > **validate**(): `boolean`
 
-Defined in: [cr/tzolkin.ts:115](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/tzolkin.ts#L115)
+Defined in: [cr/tzolkin.ts:115](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/tzolkin.ts#L115)
 
 Ensure the Tzolkin's coefficients are within range and the day is defined
 
@@ -352,7 +344,7 @@ Ensure the Tzolkin's coefficients are within range and the day is defined
 
 > `static` **fromDayNumber**(`dayNumber`): `Tzolkin`
 
-Defined in: [cr/tzolkin.ts:93](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/tzolkin.ts#L93)
+Defined in: [cr/tzolkin.ts:93](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/tzolkin.ts#L93)
 
 Create a Tzolk'in date from a day number (days since epoch) using direct formula per [R1] §4.4.
 

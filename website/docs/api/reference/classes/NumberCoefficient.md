@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / NumberCoefficient
-
-# Class: NumberCoefficient
-
-Defined in: [cr/component/numberCoefficient.ts:4](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/numberCoefficient.ts#L4)
+Defined in: [cr/component/numberCoefficient.ts:4](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/numberCoefficient.ts#L4)
 
 ## Implements
 
@@ -18,7 +10,7 @@ Defined in: [cr/component/numberCoefficient.ts:4](https://github.com/drewsonne/m
 
 > **new NumberCoefficient**(`coefficient`): `NumberCoefficient`
 
-Defined in: [cr/component/numberCoefficient.ts:8](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/numberCoefficient.ts#L8)
+Defined in: [cr/component/numberCoefficient.ts:8](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/numberCoefficient.ts#L8)
 
 #### Parameters
 
@@ -36,7 +28,7 @@ Defined in: [cr/component/numberCoefficient.ts:8](https://github.com/drewsonne/m
 
 > **value**: `number`
 
-Defined in: [cr/component/numberCoefficient.ts:6](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/numberCoefficient.ts#L6)
+Defined in: [cr/component/numberCoefficient.ts:6](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/numberCoefficient.ts#L6)
 
 ## Methods
 
@@ -44,7 +36,7 @@ Defined in: [cr/component/numberCoefficient.ts:6](https://github.com/drewsonne/m
 
 > **equal**(`coefficient`): `Boolean`
 
-Defined in: [cr/component/numberCoefficient.ts:38](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/numberCoefficient.ts#L38)
+Defined in: [cr/component/numberCoefficient.ts:38](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/numberCoefficient.ts#L38)
 
 #### Parameters
 
@@ -66,7 +58,7 @@ Defined in: [cr/component/numberCoefficient.ts:38](https://github.com/drewsonne/
 
 > **increment**(): `NumberCoefficient`
 
-Defined in: [cr/component/numberCoefficient.ts:26](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/numberCoefficient.ts#L26)
+Defined in: [cr/component/numberCoefficient.ts:26](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/numberCoefficient.ts#L26)
 
 #### Returns
 
@@ -78,7 +70,7 @@ Defined in: [cr/component/numberCoefficient.ts:26](https://github.com/drewsonne/
 
 > **isIn**(`validHaabCoeffs`): `Boolean`
 
-Defined in: [cr/component/numberCoefficient.ts:30](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/numberCoefficient.ts#L30)
+Defined in: [cr/component/numberCoefficient.ts:30](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/numberCoefficient.ts#L30)
 
 #### Parameters
 
@@ -100,7 +92,7 @@ Defined in: [cr/component/numberCoefficient.ts:30](https://github.com/drewsonne/
 
 > **isWildcard**(): `boolean`
 
-Defined in: [cr/component/numberCoefficient.ts:12](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/numberCoefficient.ts#L12)
+Defined in: [cr/component/numberCoefficient.ts:12](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/numberCoefficient.ts#L12)
 
 #### Returns
 
@@ -116,7 +108,7 @@ Defined in: [cr/component/numberCoefficient.ts:12](https://github.com/drewsonne/
 
 > **match**(`coefficient`): `Boolean`
 
-Defined in: [cr/component/numberCoefficient.ts:45](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/numberCoefficient.ts#L45)
+Defined in: [cr/component/numberCoefficient.ts:45](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/numberCoefficient.ts#L45)
 
 #### Parameters
 
@@ -138,7 +130,7 @@ Defined in: [cr/component/numberCoefficient.ts:45](https://github.com/drewsonne/
 
 > **toString**(): `string`
 
-Defined in: [cr/component/numberCoefficient.ts:34](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/numberCoefficient.ts#L34)
+Defined in: [cr/component/numberCoefficient.ts:34](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/numberCoefficient.ts#L34)
 
 Returns a string representation of an object.
 
@@ -152,7 +144,7 @@ Returns a string representation of an object.
 
 > **validate**(): `boolean`
 
-Defined in: [cr/component/numberCoefficient.ts:22](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/cr/component/numberCoefficient.ts#L22)
+Defined in: [cr/component/numberCoefficient.ts:22](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/cr/component/numberCoefficient.ts#L22)
 
 Validate the coefficient value. Override in context-specific usage.
 By default, no validation is performed - specific calendar contexts

@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / LordOfTheNight
-
-# Class: LordOfTheNight
-
-Defined in: [lc/night/lord-of-night.ts:10](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/night/lord-of-night.ts#L10)
+Defined in: [lc/night/lord-of-night.ts:10](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/night/lord-of-night.ts#L10)
 
 Describes one of the 9 Lords of the night.
 This class is accessible through its instantiated values, or the get()
@@ -26,7 +18,7 @@ let lord_of_night_g8_1 = mayadates.lc.night.get('G8')
 
 > **new LordOfTheNight**(`id`): `LordOfTheNight`
 
-Defined in: [lc/night/lord-of-night.ts:16](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/night/lord-of-night.ts#L16)
+Defined in: [lc/night/lord-of-night.ts:16](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/night/lord-of-night.ts#L16)
 
 #### Parameters
 
@@ -44,7 +36,7 @@ Defined in: [lc/night/lord-of-night.ts:16](https://github.com/drewsonne/maya-dat
 
 > **id**: `number`
 
-Defined in: [lc/night/lord-of-night.ts:11](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/night/lord-of-night.ts#L11)
+Defined in: [lc/night/lord-of-night.ts:11](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/night/lord-of-night.ts#L11)
 
 ## Methods
 
@@ -52,7 +44,7 @@ Defined in: [lc/night/lord-of-night.ts:11](https://github.com/drewsonne/maya-dat
 
 > **toString**(): `string`
 
-Defined in: [lc/night/lord-of-night.ts:28](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/night/lord-of-night.ts#L28)
+Defined in: [lc/night/lord-of-night.ts:28](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/night/lord-of-night.ts#L28)
 
 Represent the Lord of the night as a string G1..G9.
 

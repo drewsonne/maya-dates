@@ -1,12 +1,4 @@
-[**@drewsonne/maya-dates**](../index.md)
-
-***
-
-[@drewsonne/maya-dates](../index.md) / JulianCalendarDate
-
-# Class: JulianCalendarDate
-
-Defined in: [lc/western/julian.ts:7](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/western/julian.ts#L7)
+Defined in: [lc/western/julian.ts:7](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/western/julian.ts#L7)
 
 Represent a Julian date.
 
@@ -20,7 +12,7 @@ Represent a Julian date.
 
 > **new JulianCalendarDate**(`julianDay`): `JulianCalendarDate`
 
-Defined in: [lc/western/western.ts:18](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/western/western.ts#L18)
+Defined in: [lc/western/western.ts:18](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/western/western.ts#L18)
 
 Store a date with reference to a Julian Day.
 
@@ -44,7 +36,7 @@ Store a date with reference to a Julian Day.
 
 > **julianDay**: `number`
 
-Defined in: [lc/western/western.ts:9](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/western/western.ts#L9)
+Defined in: [lc/western/western.ts:9](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/western/western.ts#L9)
 
 #### Inherited from
 
@@ -58,7 +50,7 @@ Defined in: [lc/western/western.ts:9](https://github.com/drewsonne/maya-dates/bl
 
 > **get** **date**(): `MBCalendar`
 
-Defined in: [lc/western/western.ts:34](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/western/western.ts#L34)
+Defined in: [lc/western/western.ts:34](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/western/western.ts#L34)
 
 Get the calendar date representation.
 
@@ -80,7 +72,7 @@ Calendar object with year, month, and day properties from moonbeams library
 
 > **get** **day**(): `number`
 
-Defined in: [lc/western/western.ts:64](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/western/western.ts#L64)
+Defined in: [lc/western/western.ts:64](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/western/western.ts#L64)
 
 Return the day of the month
 
@@ -100,7 +92,7 @@ Return the day of the month
 
 > **get** **era**(): `"BCE"` \| `"CE"`
 
-Defined in: [lc/western/western.ts:72](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/western/western.ts#L72)
+Defined in: [lc/western/western.ts:72](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/western/western.ts#L72)
 
 Return whether the date is the common era or before the common era.
 
@@ -120,7 +112,7 @@ Return whether the date is the common era or before the common era.
 
 > **get** **month**(): `number`
 
-Defined in: [lc/western/western.ts:56](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/western/western.ts#L56)
+Defined in: [lc/western/western.ts:56](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/western/western.ts#L56)
 
 Return the month
 
@@ -140,7 +132,7 @@ Return the month
 
 > **get** **offset**(): `-13` \| `-12` \| `-11` \| `-10` \| `-1` \| `0` \| `1`
 
-Defined in: [lc/western/julian.ts:12](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/western/julian.ts#L12)
+Defined in: [lc/western/julian.ts:12](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/western/julian.ts#L12)
 
 Handle the sliding offset between gregorian and julian dates
 
@@ -160,7 +152,7 @@ Handle the sliding offset between gregorian and julian dates
 
 > **get** **year**(): `number`
 
-Defined in: [lc/western/western.ts:45](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/western/western.ts#L45)
+Defined in: [lc/western/western.ts:45](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/western/western.ts#L45)
 
 Return the year
 
@@ -178,7 +170,7 @@ Return the year
 
 > **isThreshold**(): `boolean`
 
-Defined in: [lc/western/western.ts:80](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/western/western.ts#L80)
+Defined in: [lc/western/western.ts:80](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/western/western.ts#L80)
 
 Return true if this date is on the Julian/Gregorian threshold
 
@@ -196,7 +188,7 @@ Return true if this date is on the Julian/Gregorian threshold
 
 > **toString**(): `string`
 
-Defined in: [lc/western/western.ts:88](https://github.com/drewsonne/maya-dates/blob/35f5b6583e23bec82bade22c44896b75f1302950/src/lc/western/western.ts#L88)
+Defined in: [lc/western/western.ts:88](https://github.com/drewsonne/maya-dates/blob/f84c49dafb75284e80b5a05497dfa1f7ae014420/src/lc/western/western.ts#L88)
 
 Represent this date as a string with era markers.
 
