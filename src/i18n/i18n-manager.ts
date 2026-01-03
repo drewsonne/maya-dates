@@ -1,8 +1,6 @@
 import {
   Locale,
-  LocaleDefinition,
-  TzolkinDayTranslations,
-  HaabMonthTranslations
+  LocaleDefinition
 } from './types';
 
 /**
@@ -84,6 +82,12 @@ export class I18nManager {
 
   /**
    * Build reverse lookup maps for all registered locales
+   * 
+   * Note: Currently, alternative spellings are stored in global lookup maps.
+   * If multiple locales register the same alternative spelling mapping to
+   * different canonical forms, the last registered locale will overwrite
+   * previous mappings. Future enhancement will support locale-specific
+   * normalization to handle this properly.
    */
   private buildLookupMaps(): void {
     this.tzolkinDayLookup.clear();
