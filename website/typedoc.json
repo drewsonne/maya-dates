@@ -1,0 +1,22 @@
+{
+  "entryPoints": ["../src/index.ts"],
+  "out": "static/api",
+  "plugin": ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"],
+  "tsconfig": "../tsconfig.json",
+  "readme": "none",
+  "entryFileName": "index.md",
+  "indexFormat": "table",
+  "hidePageTitle": true,
+  "hidePageHeader": true,
+  "hideBreadcrumbs": true,
+  "indexFrontmatter": {
+    "title": "API Reference",
+    "sidebar_label": "API Reference"
+  },
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "excludeNotDocumented": false,
+  "excludeProtected": true,
+  "hideGenerator": true,
+  "disableSources": false
+}

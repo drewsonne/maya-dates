@@ -42,8 +42,6 @@
     "nyc": "~15.1",
     "regenerator-runtime": "~0.14",
     "ts-node": "~10.9",
-    "typedoc": "^0.28.15",
-    "typedoc-plugin-markdown": "^4.9.0",
     "typescript": "^5.9.0"
   },
   "dependencies": {
@@ -56,11 +54,12 @@
     "build": "rm -rf lib && tsc -p tsconfig.json",
     "build:check": "tsc --noEmit -p tsconfig.json",
     "build:clean": " ./scripts/clean-build.sh",
-    "build:docs": "typedoc --plugin typedoc-plugin-markdown --out docs/api src/index.ts"
+    "docs:start": "cd website && npm start",
+    "docs:build": "cd website && npm run build",
+    "postinstall": "cd website && npm install"
   },
   "files": [
-    "lib",
-    "decs.d.ts"
+    "lib"
   ],
   "bugs": {
     "url": "https://github.com/drewsonne/maya-dates/issues"

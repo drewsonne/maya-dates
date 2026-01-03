@@ -27,6 +27,10 @@ export default abstract class WesternCalendar {
     this._date = null
   }
 
+  /**
+   * Get the calendar date representation.
+   * @returns Calendar object with year, month, and day properties from moonbeams library
+   */
   get date(): moonbeams.MBCalendar {
     if (this._date === null) {
       this._date = moonbeams.jdToCalendar(this.julianDay + this.offset);

@@ -302,13 +302,12 @@ import {
 
 ## Development
 
-See [docs/WORKFLOW.md](docs/WORKFLOW.md) for the development workflow and contribution guidelines.
+See [docs/development/workflow.md](docs/development/workflow.md) for the development workflow and contribution guidelines.
 
 ### Building
 ```sh
 npm run build          # Compile TypeScript to JavaScript
 npm run build:check    # Type check without emitting files
-npm run build:docs     # Generate API documentation
 ```
 
 ### Testing
@@ -317,9 +316,17 @@ npm test               # Run all tests
 npm run test:coverage  # Run tests with coverage report
 ```
 
+### Documentation
+```sh
+npm run docs:start     # Start Docusaurus dev server
+npm run docs:build     # Build static documentation site
+npm run docs:serve     # Serve built documentation locally
+```
+
 ## Documentation
 
-Full API documentation is generated with **TypeDoc** and published via GitHub Pages.
+Full documentation is built with **Docusaurus** and includes API reference generated from TypeDoc.
 You can browse the documentation at
 [https://drewsonne.github.io/maya-dates/](https://drewsonne.github.io/maya-dates/).
+
 

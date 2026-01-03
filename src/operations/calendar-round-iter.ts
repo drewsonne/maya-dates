@@ -3,7 +3,10 @@
  */
 import {CalendarRound, origin} from "../cr/calendar-round";
 
-interface NextResult {
+/**
+ * Result object returned by CalendarRoundIterator.next()
+ */
+export interface NextResult {
   value: null | CalendarRound
   done: boolean
 }

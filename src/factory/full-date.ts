@@ -4,14 +4,14 @@ import FullDate from '../full-date';
 
 /**
  * Given a fullDate composed of a Long Count and a Calendar Round, create a
- * {FullDate} object.
+ * FullDate object.
  * @extends {Factory}
  */
 export default class FullDateFactory {
   /**
    *
    * @param {String} raw
-   * @return {FullDate}
+   * @return FullDate
    */
   parse(raw: string) {
     raw = raw.replace('**', '* *');

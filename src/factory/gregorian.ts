@@ -11,7 +11,7 @@ export default class GregorianFactory {
    * The input is expected to be in the form `DD/MM/YYYY`, optionally suffixed
    * with `" CE"` or `" BCE"` and/or an asterisk (`*`). For BCE dates, the
    * year component is converted to a negative year before being passed to
-   * {@link moonbeams.calendarToJd}.
+   * the moonbeams `calendarToJd` function.
    *
    * The method calculates the appropriate julian day by:
    * 1. Converting the Gregorian date to a julian day using moonbeams

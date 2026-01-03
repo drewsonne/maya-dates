@@ -19,8 +19,8 @@ export default abstract class Factory {
   /**
    * Split the provided fullDate into its components
    * @param {string} raw
-   * @access protected
    * @returns {String[]}
+   * @protected
    */
   split(raw: string): string[] {
     const matches = raw.match(
