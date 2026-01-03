@@ -206,10 +206,9 @@ it('render long count', () => {
 describe('Gregorian to Long Count conversion', () => {
   it('should convert Gregorian date to Long Count using fromGregorian', () => {
     // 21 December 2012 CE is 13.0.0.0.0 in Long Count
-    const gregorianFactory = new GregorianFactory();
-    const gregorian = gregorianFactory.parse('21/12/2012 CE');
+    const date = new Date('2012-12-21');
     
-    const lc = LongCount.fromGregorian(gregorian);
+    const lc = LongCount.fromGregorian(date);
     
     expect(lc.toString()).to.equal('13. 0. 0. 0. 0');
     expect(lc.bakTun).to.equal(13);
@@ -251,14 +250,13 @@ describe('Gregorian to Long Count conversion', () => {
 
   it('should convert a historical date (9.17.0.0.0)', () => {
     // 9.17.0.0.0 is a known historical date
-    const gregorianFactory = new GregorianFactory();
     
     // First, convert 9.17.0.0.0 to Gregorian to get the expected date
     const originalLc = new LongCountFactory().parse('9.17.0.0.0');
     const gregorian = originalLc.gregorian;
     
-    // Then convert back to Long Count
-    const convertedLc = LongCount.fromGregorian(gregorian);
+    // Convert back using the Julian Day Number
+    const convertedLc = LongCount.fromJulianDay(gregorian.julianDay);
     
     expect(convertedLc.toString()).to.equal(' 9.17. 0. 0. 0');
     expect(convertedLc.bakTun).to.equal(9);
@@ -276,10 +274,12 @@ describe('Gregorian to Long Count conversion', () => {
     testDates.forEach((dateString) => {
       const originalLc = new LongCountFactory().parse(dateString);
       const gregorian = originalLc.gregorian;
-      const convertedLc = LongCount.fromGregorian(gregorian);
+      
+      // Convert back using the Julian Day Number
+      const convertedLc = LongCount.fromJulianDay(gregorian.julianDay);
       
       // They should be equal
-      expect(convertedLc.equal(originalLc)).to.be.true;
+      expect(convertedLc.equal(originalLc)).to.equal(true);
       expect(convertedLc.toString()).to.equal(originalLc.toString());
     });
   });
@@ -335,15 +335,14 @@ describe('Gregorian to Long Count conversion', () => {
   });
 
   it('should preserve correlation constant when provided', () => {
-    const gregorianFactory = new GregorianFactory();
-    
-    const gregorian = gregorianFactory.parse('21/12/2012 CE');
+    const date = new Date('2012-12-21');
+    const defaultLc = LongCount.fromGregorian(date);
     const customCorrelation = getCorrelationConstant(584285); // Modified GMT
     
-    const lc = LongCount.fromGregorian(gregorian, customCorrelation);
+    const customLc = LongCount.fromGregorian(date, customCorrelation);
     
-    // The correlation should be preserved
-    expect(lc.julianDay).to.equal(gregorian.julianDay);
+    // Using a different correlation constant should change the resulting Long Count
+    expect(`${customLc}`).to.not.equal(`${defaultLc}`);
   });
 });
 

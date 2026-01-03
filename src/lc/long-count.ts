@@ -43,10 +43,10 @@ export default class LongCount extends DistanceNumber {
   /**
    * Create a Long Count from a Gregorian date.
    * 
-   * Accepts JavaScript Date objects, ISO 8601 date strings, or GregorianCalendarDate
-   * objects and converts them to the corresponding Maya Long Count date using the 
-   * specified correlation constant. The default correlation (584283, original GMT) 
-   * is used unless specified otherwise.
+   * Accepts JavaScript Date objects or ISO 8601 date strings and converts them
+   * to the corresponding Maya Long Count date using the specified correlation 
+   * constant. The default correlation (584283, original GMT) is used unless 
+   * specified otherwise.
    * 
    * Supports various ISO 8601 formats:
    * - "YYYY-MM-DD" (e.g., "2012-12-21")
@@ -54,7 +54,7 @@ export default class LongCount extends DistanceNumber {
    * - "YYYY-MM-DDTHH:mm:ss.sssZ" (e.g., "2012-12-21T00:00:00.000Z")
    * - "YYYY-MM-DDTHH:mm:ss±HH:mm" (e.g., "2012-12-21T00:00:00-05:00")
    * 
-   * @param gregorian - JavaScript Date object, ISO 8601 date string, or GregorianCalendarDate
+   * @param gregorian - JavaScript Date object or ISO 8601 date string
    * @param correlation - Correlation constant for alignment (default: 584283 GMT)
    * @return A Long Count instance representing the same date
    * @throws {Error} If the date is invalid or results in a negative Maya Day Number
@@ -72,23 +72,12 @@ export default class LongCount extends DistanceNumber {
    * // From ISO 8601 datetime string
    * const lc3 = LongCount.fromGregorian('2012-12-21T00:00:00Z');
    * console.log(lc3.toString()); // "13. 0. 0. 0. 0"
-   * 
-   * // From GregorianCalendarDate object
-   * const gregorianFactory = new GregorianFactory();
-   * const gregorianDate = gregorianFactory.parse('21/12/2012 CE');
-   * const lc4 = LongCount.fromGregorian(gregorianDate);
-   * console.log(lc4.toString()); // "13. 0. 0. 0. 0"
    * ```
    */
   static fromGregorian(
-    gregorian: Date | string | GregorianCalendarDate,
+    gregorian: Date | string,
     correlation: CorrelationConstant = getCorrelationConstant(584283)
   ): LongCount {
-    // Handle GregorianCalendarDate object
-    if (gregorian instanceof GregorianCalendarDate) {
-      return LongCount.fromJulianDay(gregorian.julianDay, correlation);
-    }
-
     let date: Date;
 
     // Handle Date object
@@ -111,7 +100,7 @@ export default class LongCount extends DistanceNumber {
       }
     }
     else {
-      throw new Error('fromGregorian() accepts Date objects, ISO 8601 date strings, or GregorianCalendarDate objects');
+      throw new Error('fromGregorian() accepts only Date objects or ISO 8601 date strings');
     }
 
     // Extract year, month (1-12), day from Date object
@@ -194,10 +183,12 @@ export default class LongCount extends DistanceNumber {
     // k'atun: base 20 (0-19)
     const katun = Math.floor(mayanDayNumber / 7200) % 20;
     
-    // bak'tun: unbounded (but we'll handle higher orders too)
+    // bak'tun: base 20 (0-19), higher orders extend the Long Count
     const baktun = Math.floor(mayanDayNumber / 144000) % 20;
     
-    // Higher-order units (piktun, kalabtun, kinchiltun)
+    // Higher-order units (piktun, kalabtun, kinchiltun).
+    // These allow arbitrarily large Maya Day Numbers; the highest unit here
+    // (kinchiltun) is effectively unbounded in this representation.
     const piktun = Math.floor(mayanDayNumber / 2880000) % 20;
     const kalabtun = Math.floor(mayanDayNumber / 57600000) % 20;
     const kinchiltun = Math.floor(mayanDayNumber / 1152000000);
