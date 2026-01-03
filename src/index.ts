@@ -53,3 +53,6 @@ export { HashMap } from './structs';
 
 // Night lords (from lc/night)
 export * from './lc/night';
+
+// I18n support
+export * from './i18n';
