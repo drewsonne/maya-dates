@@ -41,28 +41,89 @@ export default class LongCount extends DistanceNumber {
   }
 
   /**
-   * Create a Long Count from a Gregorian calendar date.
+   * Create a Long Count from a Gregorian date.
    * 
-   * Converts a Gregorian date to the corresponding Maya Long Count date using
-   * the specified correlation constant. The default correlation (584283, original GMT)
+   * Accepts JavaScript Date objects, ISO 8601 date strings, or GregorianCalendarDate
+   * objects and converts them to the corresponding Maya Long Count date using the 
+   * specified correlation constant. The default correlation (584283, original GMT) 
    * is used unless specified otherwise.
    * 
-   * @param gregorian - The Gregorian calendar date to convert
+   * Supports various ISO 8601 formats:
+   * - "YYYY-MM-DD" (e.g., "2012-12-21")
+   * - "YYYY-MM-DDTHH:mm:ss" (e.g., "2012-12-21T00:00:00")
+   * - "YYYY-MM-DDTHH:mm:ss.sssZ" (e.g., "2012-12-21T00:00:00.000Z")
+   * - "YYYY-MM-DDTHH:mm:ss±HH:mm" (e.g., "2012-12-21T00:00:00-05:00")
+   * 
+   * @param gregorian - JavaScript Date object, ISO 8601 date string, or GregorianCalendarDate
    * @param correlation - Correlation constant for alignment (default: 584283 GMT)
    * @return A Long Count instance representing the same date
+   * @throws {Error} If the date is invalid or results in a negative Maya Day Number
    * @example
    * ```typescript
+   * // From JavaScript Date object
+   * const date = new Date('2012-12-21');
+   * const lc1 = LongCount.fromGregorian(date);
+   * console.log(lc1.toString()); // "13. 0. 0. 0. 0"
+   * 
+   * // From ISO 8601 string
+   * const lc2 = LongCount.fromGregorian('2012-12-21');
+   * console.log(lc2.toString()); // "13. 0. 0. 0. 0"
+   * 
+   * // From ISO 8601 datetime string
+   * const lc3 = LongCount.fromGregorian('2012-12-21T00:00:00Z');
+   * console.log(lc3.toString()); // "13. 0. 0. 0. 0"
+   * 
+   * // From GregorianCalendarDate object
    * const gregorianFactory = new GregorianFactory();
-   * const gregorian = gregorianFactory.parse('21/12/2012 CE');
-   * const lc = LongCount.fromGregorian(gregorian);
-   * console.log(lc.toString()); // "13. 0. 0. 0. 0"
+   * const gregorianDate = gregorianFactory.parse('21/12/2012 CE');
+   * const lc4 = LongCount.fromGregorian(gregorianDate);
+   * console.log(lc4.toString()); // "13. 0. 0. 0. 0"
    * ```
    */
   static fromGregorian(
-    gregorian: GregorianCalendarDate,
+    gregorian: Date | string | GregorianCalendarDate,
     correlation: CorrelationConstant = getCorrelationConstant(584283)
   ): LongCount {
-    return LongCount.fromJulianDay(gregorian.julianDay, correlation);
+    // Handle GregorianCalendarDate object
+    if (gregorian instanceof GregorianCalendarDate) {
+      return LongCount.fromJulianDay(gregorian.julianDay, correlation);
+    }
+
+    let date: Date;
+
+    // Handle Date object
+    if (gregorian instanceof Date) {
+      if (isNaN(gregorian.getTime())) {
+        throw new Error('Invalid Date object');
+      }
+      date = gregorian;
+    }
+    // Handle ISO 8601 string
+    else if (typeof gregorian === 'string') {
+      if (gregorian.trim().length === 0) {
+        throw new Error('Date string must be a non-empty string');
+      }
+      
+      date = new Date(gregorian);
+      
+      if (isNaN(date.getTime())) {
+        throw new Error(`Invalid date string: "${gregorian}"`);
+      }
+    }
+    else {
+      throw new Error('fromGregorian() accepts Date objects, ISO 8601 date strings, or GregorianCalendarDate objects');
+    }
+
+    // Extract year, month (1-12), day from Date object
+    // Note: Date.getMonth() returns 0-11, so we add 1
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    // Convert to Julian Day Number using moonbeams
+    const julianDay = Math.ceil(moonbeams.calendarToJd(year, month, day));
+
+    return LongCount.fromJulianDay(julianDay, correlation);
   }
 
   /**
@@ -159,85 +220,6 @@ export default class LongCount extends DistanceNumber {
       lc.setCorrelationConstant(correlation);
     }
     return lc;
-  }
-
-  /**
-   * Create a Long Count from a JavaScript Date object.
-   * 
-   * Converts a JavaScript Date to the corresponding Maya Long Count date using
-   * the specified correlation constant. The Date is converted to a Gregorian
-   * calendar date and then to Long Count.
-   * 
-   * @param date - JavaScript Date object to convert
-   * @param correlation - Correlation constant for alignment (default: 584283 GMT)
-   * @return A Long Count instance representing the same date
-   * @throws {Error} If the date is invalid or results in a negative Maya Day Number
-   * @example
-   * ```typescript
-   * const date = new Date('2012-12-21');
-   * const lc = LongCount.fromDate(date);
-   * console.log(lc.toString()); // "13. 0. 0. 0. 0"
-   * ```
-   */
-  static fromDate(
-    date: Date,
-    correlation: CorrelationConstant = getCorrelationConstant(584283)
-  ): LongCount {
-    if (!(date instanceof Date) || isNaN(date.getTime())) {
-      throw new Error('Invalid Date object');
-    }
-
-    // Extract year, month (1-12), day from Date object
-    // Note: Date.getMonth() returns 0-11, so we add 1
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-
-    // Convert to Julian Day Number using moonbeams
-    const julianDay = Math.ceil(moonbeams.calendarToJd(year, month, day));
-
-    return LongCount.fromJulianDay(julianDay, correlation);
-  }
-
-  /**
-   * Create a Long Count from an ISO 8601 date string.
-   * 
-   * Converts an ISO 8601 formatted date string to the corresponding Maya Long Count
-   * date using the specified correlation constant. Supports various ISO 8601 formats:
-   * - "YYYY-MM-DD" (e.g., "2012-12-21")
-   * - "YYYY-MM-DDTHH:mm:ss" (e.g., "2012-12-21T00:00:00")
-   * - "YYYY-MM-DDTHH:mm:ss.sssZ" (e.g., "2012-12-21T00:00:00.000Z")
-   * - "YYYY-MM-DDTHH:mm:ss±HH:mm" (e.g., "2012-12-21T00:00:00-05:00")
-   * 
-   * @param isoString - ISO 8601 date string to convert
-   * @param correlation - Correlation constant for alignment (default: 584283 GMT)
-   * @return A Long Count instance representing the same date
-   * @throws {Error} If the ISO string is invalid or results in a negative Maya Day Number
-   * @example
-   * ```typescript
-   * const lc = LongCount.fromISO8601('2012-12-21');
-   * console.log(lc.toString()); // "13. 0. 0. 0. 0"
-   * 
-   * const lc2 = LongCount.fromISO8601('2012-12-21T00:00:00Z');
-   * console.log(lc2.toString()); // "13. 0. 0. 0. 0"
-   * ```
-   */
-  static fromISO8601(
-    isoString: string,
-    correlation: CorrelationConstant = getCorrelationConstant(584283)
-  ): LongCount {
-    if (typeof isoString !== 'string' || isoString.trim().length === 0) {
-      throw new Error('ISO 8601 string must be a non-empty string');
-    }
-
-    // Parse the ISO string using JavaScript Date
-    const date = new Date(isoString);
-    
-    if (isNaN(date.getTime())) {
-      throw new Error(`Invalid ISO 8601 date string: "${isoString}"`);
-    }
-
-    return LongCount.fromDate(date, correlation);
   }
 
   private correlationConstant: CorrelationConstant;
