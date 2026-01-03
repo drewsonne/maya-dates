@@ -179,14 +179,9 @@ const lc2 = LongCount.fromGregorian('2012-12-21');
 console.log(`ISO 8601 = ${lc2}`);
 // Output: "ISO 8601 = 13. 0. 0. 0. 0"
 
-// Also supports ISO 8601 datetime formats
-const lc3 = LongCount.fromGregorian('2012-12-21T00:00:00Z');
-console.log(`ISO datetime = ${lc3}`);
-// Output: "ISO datetime = 13. 0. 0. 0. 0"
-
 // Alternative: Convert from Julian Day Number directly
-const lc4 = LongCount.fromJulianDay(2456283);
-console.log(`JDN 2456283 = ${lc4}`);
+const lc3 = LongCount.fromJulianDay(2456283);
+console.log(`JDN 2456283 = ${lc3}`);
 // Output: "JDN 2456283 = 13. 0. 0. 0. 0"
 
 // Convert Long Count to Gregorian (reverse direction)
@@ -205,7 +200,7 @@ console.log(`Original: ${original}, Roundtrip: ${backToLC}`);
 ```
 
 **Available conversion methods:**
-- `LongCount.fromGregorian(date | isoString, correlation?)` - Convert from Date object or ISO 8601 string
+- `LongCount.fromGregorian(date | isoString, correlation?)` - Convert from Date object or ISO 8601 date string (date only)
 - `LongCount.fromJulianDay(jdn, correlation?)` - Convert from Julian Day Number
 - `LongCount.fromMayanDayNumber(mdn, correlation?)` - Convert from Maya Day Number
 - `longCount.gregorian` - Convert Long Count to Gregorian (getter property)
