@@ -1,6 +1,8 @@
 import HashMap from "../../structs/hashMap";
 import {Wildcard} from "../../wildcard";
 import Cycle from "./cycle";
+import {getI18nManager} from "../../i18n/i18n-manager";
+import {Locale} from "../../i18n/types";
 
 export enum TzolkinDays {
   IMIX = 'Imix',
@@ -54,12 +56,18 @@ const singleton: { [key: string]: TzolkinDay } = {};
 export function getTzolkinDay(name: string | number | Wildcard): (TzolkinDay | Wildcard) {
 
   let cycleName = (typeof name === 'number') ? days.getValue(name) : name;
+  
+  // Normalize using i18n if it's a string
+  if (typeof cycleName === 'string') {
+    cycleName = getI18nManager().normalizeTzolkinDay(cycleName);
+  }
+  
   const cycleNameHash = `${cycleName}`;
   if (cycleNameHash === '*') {
     return new Wildcard()
   }
   if (singleton[cycleNameHash] === undefined) {
-    singleton[cycleNameHash] = new TzolkinDay(name)
+    singleton[cycleNameHash] = new TzolkinDay(cycleName as string | number | Wildcard)
   }
   return singleton[cycleNameHash];
 }
@@ -74,6 +82,18 @@ export class TzolkinDay extends Cycle {
    */
   constructor(newName: number | string | Wildcard) {
     super(newName, days, getTzolkinDay);
+  }
+
+  /**
+   * Render the day name using i18n for the specified locale
+   * @param locale - Optional locale to use for rendering (defaults to active locale)
+   * @returns The rendered day name
+   */
+  toLocaleString(locale?: Locale): string {
+    if (typeof this.value === 'string') {
+      return getI18nManager().renderTzolkinDay(this.value, locale);
+    }
+    return `${this.value}`;
   }
 
   /**

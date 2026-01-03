@@ -1,6 +1,8 @@
 import {Wildcard, isWildcard} from "../../wildcard";
 import Cycle from "./cycle";
 import HashMap from "../../structs/hashMap";
+import {getI18nManager} from "../../i18n/i18n-manager";
+import {Locale} from "../../i18n/types";
 
 export enum HaabMonths {
   POP = 'Pop',
@@ -52,6 +54,12 @@ const singleton: { [key: string]: (HaabMonth | Wildcard) } = {};
 export function getHaabMonth(newCycleName: (string | number | Wildcard)): (HaabMonth | Wildcard) {
   if (typeof newCycleName === "number" || typeof newCycleName === "string") {
     let cycleName = (typeof newCycleName === 'number') ? months.getValue(newCycleName) : newCycleName;
+    
+    // Normalize using i18n if it's a string
+    if (typeof cycleName === 'string') {
+      cycleName = getI18nManager().normalizeHaabMonth(cycleName);
+    }
+    
     const cycleNameHash = `${cycleName}`;
     if (singleton[cycleNameHash] === undefined) {
       singleton[cycleNameHash] = (cycleNameHash == '*') ? new Wildcard() : new HaabMonth(cycleNameHash);
@@ -72,6 +80,18 @@ export class HaabMonth extends Cycle {
   constructor(raw: string | Wildcard) {
     super(raw, months, getHaabMonth);
     this.validate();
+  }
+
+  /**
+   * Render the month name using i18n for the specified locale
+   * @param locale - Optional locale to use for rendering (defaults to active locale)
+   * @returns The rendered month name
+   */
+  toLocaleString(locale?: Locale): string {
+    if (typeof this.value === 'string') {
+      return getI18nManager().renderHaabMonth(this.value, locale);
+    }
+    return `${this.value}`;
   }
 
   /**
