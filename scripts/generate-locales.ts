@@ -78,6 +78,10 @@ const LOCALE_METADATA = {
 
 /**
  * Find the canonical spelling for a given tag, falling back to alternatives
+ * @param spellings - The spelling variations to search through
+ * @param targetTag - The primary tag to search for
+ * @param fallbackTags - Alternative tags to try if target tag is not found
+ * @return The matching spelling string, or null if no match found
  */
 function findSpellingForTag(
   spellings: Record<string, SpellingInfo>,
@@ -106,6 +110,9 @@ function findSpellingForTag(
 
 /**
  * Collect all alternative spellings for a canonical form with their sources
+ * @param spellings - The spelling variations record
+ * @param canonical - The canonical spelling to exclude from alternatives
+ * @return Array of alternative spellings with their source citations
  */
 function collectAlternatives(
   spellings: Record<string, SpellingInfo>,
@@ -118,6 +125,9 @@ function collectAlternatives(
 
 /**
  * Format a bibliography entry as a comment
+ * @param key - The bibliography source key
+ * @param source - The source metadata object
+ * @return Formatted bibliography entry as a comment string
  */
 function formatBibliographyEntry(key: string, source: Source): string {
   const author = source.author || 'Unknown';
@@ -127,6 +137,8 @@ function formatBibliographyEntry(key: string, source: Source): string {
 
 /**
  * Escape single quotes in a string for use in single-quoted JavaScript strings
+ * @param str - The string to escape
+ * @return The escaped string safe for use in single-quoted strings
  */
 function escapeQuotes(str: string): string {
   return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
@@ -134,6 +146,9 @@ function escapeQuotes(str: string): string {
 
 /**
  * Generate locale file for a specific tag
+ * @param data - The Maya spellings data containing all calendar names and bibliography
+ * @param localeTag - The locale tag identifying which orthographic convention to generate
+ * @return TypeScript source code for the locale definition file
  */
 function generateLocale(
   data: MayaSpellingsData,
@@ -255,6 +270,8 @@ ${haabEntries.join(',\n')}
 
 /**
  * Generate spelling variations documentation for website
+ * @param data - The Maya spellings data to document
+ * @return Markdown-formatted documentation of spelling variations
  */
 function generateSpellingDocs(data: MayaSpellingsData): string {
   const lines: string[] = [];
@@ -323,7 +340,7 @@ function generateSpellingDocs(data: MayaSpellingsData): string {
 
     // Collect all alternative spellings
     const allSpellings = new Set<string>();
-    for (const [spelling, info] of Object.entries(day.spellings)) {
+    for (const spelling of Object.keys(day.spellings)) {
       if (spelling !== mayanist && spelling !== variant && spelling !== older) {
         allSpellings.add(spelling);
       }
@@ -372,7 +389,7 @@ function generateSpellingDocs(data: MayaSpellingsData): string {
 
     // Collect all alternative spellings
     const allSpellings = new Set<string>();
-    for (const [spelling, info] of Object.entries(month.spellings)) {
+    for (const spelling of Object.keys(month.spellings)) {
       if (spelling !== mayanist && spelling !== variant && spelling !== older) {
         allSpellings.add(spelling);
       }
