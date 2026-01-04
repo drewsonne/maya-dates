@@ -88,4 +88,25 @@ export default abstract class WesternCalendar {
   toString() {
     return `${this.day}/${this.month}/${this.year} ${this.era}`;
   }
+
+  /**
+   * Represent this date in ISO 8601 format (YYYY-MM-DD) using astronomical year numbering.
+   * For BCE dates, uses astronomical year numbering where 1 BCE = year 0, 2 BCE = year -1, etc.
+   * @return {string}
+   */
+  toISOString(): string {
+    // Use this.date.year directly as it's already in astronomical year numbering
+    // (negative for BCE dates: -1 = 2 BCE, 0 = 1 BCE, positive for CE dates)
+    const isoYear = this.date.year;
+    
+    // Format with zero-padding: YYYY-MM-DD
+    // Handle negative years separately to avoid padding issues with the minus sign
+    const yearStr = isoYear < 0 
+      ? '-' + Math.abs(isoYear).toString().padStart(4, '0')
+      : isoYear.toString().padStart(4, '0');
+    const monthStr = this.month.toString().padStart(2, '0');
+    const dayStr = this.day.toString().padStart(2, '0');
+    
+    return `${yearStr}-${monthStr}-${dayStr}`;
+  }
 }
