@@ -69,40 +69,59 @@ export class CalendarRound extends CommentWrapper implements IPart {
         this.haab.month instanceof HaabMonth &&
         this.tzolkin.day instanceof TzolkinDay) {
       
-      // Calculate raw Haab' day-of-year position [0-364]
-      const haabPositionRaw = this.haab.coeff.value + 20 * (this.haab.month.position - 1);
+      // Calculate which day of the year (0-364) this Haab' date represents
+      const haabDayOfYear = this.haab.coeff.value + 20 * (this.haab.month.position - 1);
       
       // Haab' epoch is 8 Kumk'u. With standard Haab' ordering, Kumk'u has position = 18,
       // so the raw epoch position is: 8 + 20 * (18 - 1) = 348
-      // r365 is "days since 8 Kumk'u" modulo 365
+      // haabDaysSinceEpoch is "days since 8 Kumk'u" modulo 365
       const HAAB_EPOCH_OFFSET = 8 + 20 * (18 - 1); // 348
-      const r365 = ((haabPositionRaw - HAAB_EPOCH_OFFSET) % 365 + 365) % 365;
+      const haabDaysSinceEpoch = ((haabDayOfYear - HAAB_EPOCH_OFFSET) % 365 + 365) % 365;
       
-      // Calculate raw Tzolk'in cycle position [0-259]
-      // Tzolk'in is (number, day) where number ∈ [1,13] and day ∈ [1,20]
-      // Using CRT for coprime moduli: d ≡ (number-1) (mod 13) and d ≡ (dayIndex-1) (mod 20)
+      // Calculate tzolkinDayOfCycle: Which day of the 260-day cycle is this Tzolk'in date?
+      // 
+      // The Tzolk'in has two interlocking cycles: numbers 1-13 and 20 day names.
+      // A given Tzolk'in date like "7 Manik'" appears only once every 260 days.
+      // We need to find which position (0-259) in that 260-day cycle corresponds
+      // to this particular number+day combination.
+      //
+      // Think of it like asking: "If we started counting from day 0, which day
+      // number would have this specific number and day name together?"
       const tzolkinNumber = this.tzolkin.coeff.value; // 1-13
       const tzolkinDayIndex = this.tzolkin.day.position; // 1-20
-      const a = tzolkinNumber - 1;
-      const b = tzolkinDayIndex - 1;
-      // CRT solution: d = a + 13 * ((17 * (b - a)) mod 20), then mod 260
-      // where 17 is the modular multiplicative inverse of 13 mod 20 (since 13 × 17 ≡ 1 mod 20)
-      const tzolkinPositionRaw = (a + 13 * (((17 * (b - a)) % 20 + 20) % 20)) % 260;
+      const tzolkinCoeffZeroBased = tzolkinNumber - 1; // Convert to 0-based for calculation
+      const tzolkinDayZeroBased = tzolkinDayIndex - 1; // Convert to 0-based for calculation
       
-      // Tzolk'in epoch is 4 Ajaw. With Ajaw as day position = 20, the raw epoch position is:
-      // a = 4 - 1 = 3, b = 20 - 1 = 19
-      // d_epoch = (3 + 13 * (((17 * (19 - 3)) % 20 + 20) % 20)) % 260 = 159
-      // r260 is "days since 4 Ajaw" modulo 260
-      const TZOLKIN_EPOCH_OFFSET = 159;
-      const r260 = ((tzolkinPositionRaw - TZOLKIN_EPOCH_OFFSET) % 260 + 260) % 260;
+      // Use a mathematical formula (Chinese Remainder Theorem) to solve:
+      // "Which position d gives us this number (when divided by 13) and this day (when divided by 20)?"
+      // The formula uses 17 because it's the magic number that makes the math work for 13 and 20
+      const tzolkinDayOfCycle = (
+        tzolkinCoeffZeroBased + 13 * (((17 * (tzolkinDayZeroBased - tzolkinCoeffZeroBased)) % 20 + 20) % 20)
+      ) % 260;
+      
+      // Now calculate tzolkinDaysSinceEpoch: How many days since the Calendar Round origin date?
+      //
+      // The Maya Calendar Round starts at "4 Ajaw 8 Kumk'u" (the creation date).
+      // tzolkinDaysSinceEpoch tells us: "How many days have passed in the Tzolk'in cycle since 4 Ajaw?"
+      // 
+      // For example:
+      // - If this IS "4 Ajaw", tzolkinDaysSinceEpoch = 0 (zero days since 4 Ajaw)
+      // - If this is "5 Imix" (the next day), tzolkinDaysSinceEpoch = 1 (one day since 4 Ajaw)
+      // - If this is "3 Kawak" (the day before), tzolkinDaysSinceEpoch = 259 (going backwards wraps to 259)
+      //
+      // First, we calculate where "4 Ajaw" falls in the 260-day cycle (= 159)
+      const TZOLKIN_EPOCH_OFFSET = 159; // The position of "4 Ajaw" in the 260-day cycle
+      
+      // Then subtract that offset to get days elapsed since the origin
+      const tzolkinDaysSinceEpoch = ((tzolkinDayOfCycle - TZOLKIN_EPOCH_OFFSET) % 260 + 260) % 260;
       
       // Check mathematical compatibility: residues must match mod gcd(365, 260) = 5
-      // Both r365 and r260 are now measured from the same epoch day
-      if (r365 % 5 !== r260 % 5) {
+      // Both haabDaysSinceEpoch and tzolkinDaysSinceEpoch are now measured from the same epoch day
+      if (haabDaysSinceEpoch % 5 !== tzolkinDaysSinceEpoch % 5) {
         throw new Error(
-          `Calendar Round compatibility failed: Haab' residue ${r365} (${this.haab}) ` +
-          `and Tzolk'in residue ${r260} (${this.tzolkin}) must satisfy ` +
-          `${r365} ≡ ${r260} (mod 5) per [R7]`
+          `Calendar Round compatibility failed: Haab' residue ${haabDaysSinceEpoch} (${this.haab}) ` +
+          `and Tzolk'in residue ${tzolkinDaysSinceEpoch} (${this.tzolkin}) must satisfy ` +
+          `${haabDaysSinceEpoch} ≡ ${tzolkinDaysSinceEpoch} (mod 5) per [R7]`
         );
       }
     }
