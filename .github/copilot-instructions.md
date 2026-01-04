@@ -29,13 +29,22 @@ src/
 ```bash
 npm run build              # Compile TypeScript to JavaScript (src/ → lib/)
 npm run build:check        # Type check without emitting files
-npm run build:docs         # Generate API documentation with TypeDoc
+npm run build:clean        # Clean build directory and rebuild
+npm run generate:locales   # Generate i18n locale files from JSON source
 ```
+
+**Note**: Locale files are auto-generated during `prebuild` (before `npm run build`), ensuring they're always up-to-date before compilation.
 
 ### Testing
 ```bash
 npm test                   # Run all tests with Mocha
 npm run test:coverage      # Run tests with coverage report (nyc)
+```
+
+### Documentation Site
+```bash
+npm run docs:start         # Start Docusaurus development server
+npm run docs:build         # Build documentation website
 ```
 
 ### Node.js Support
@@ -154,11 +163,6 @@ export function myFunction(paramName: string): ReturnType {
 }
 ```
 
-### Documentation Generation
-- Uses **TypeDoc** (^0.28.15) with markdown plugin
-- Output directory: `docs/api/`
-- Generate with: `npm run build:docs`
-
 ## Development Workflow
 
 ### Branch Strategy
@@ -213,14 +217,38 @@ Essential type guards to use:
 - `chai` (~4.3): Assertions
 - `ts-node` (~10.5): TypeScript execution
 - `nyc` (~15.1): Coverage reporting
-- `typedoc` (^0.28.15): API documentation generator
+
+## Critical Workflow Details
+
+### Auto-Generated Locale Files
+The i18n locale files in [src/i18n/locales/](src/i18n/locales/) are **auto-generated** and should **never be edited manually**:
+- `modern_mayanist.ts` - Modern Mayanist orthography (e.g., Pohp, Ik', Ak'bal)
+- `modern_variant.ts` - Modern variant spellings (e.g., Pop, Ik', Ak'bal)  
+- `older_16c.ts` - Older 16th century spellings (e.g., Pop, Ik, Akbal)
+
+These files are generated from [src/i18n/data/maya_spellings_sources.json](src/i18n/data/maya_spellings_sources.json) using the script [scripts/generate-locales.ts](scripts/generate-locales.ts).
+
+**To modify spellings**: Edit `maya_spellings_sources.json`, then run:
+```bash
+npm run generate:locales
+```
+
+Each locale file contains a header comment indicating it's auto-generated and includes bibliographic sources.
+
+### Documentation Generation
+Documentation is published at https://drewsonne.github.io/maya-dates/ using:
+- **Docusaurus** for the main site structure ([website/](website/))
+- **TypeDoc** for API reference generation
+- Source: [website/docs/](website/docs/)
+
+Build the docs site locally with `npm run docs:start`.
 
 ## Additional Resources
 
-- **Architecture**: See `docs/ARCHITECTURE.md` for detailed architecture documentation
-- **Design Patterns**: See `docs/DESIGN_PATTERNS.md` for pattern reference
-- **Domain Model**: See `docs/DOMAIN_MODEL.md` for calendar system details
-- **Workflow**: See `docs/development/workflow.md` for development workflow
+- **Architecture**: See [website/docs/architecture.md](website/docs/architecture.md) for detailed architecture documentation
+- **Design Patterns**: See [website/docs/design-patterns.md](website/docs/design-patterns.md) for pattern reference
+- **Domain Model**: See [website/docs/domain-model.md](website/docs/domain-model.md) for calendar system details
+- **Workflow**: See [docs/development/workflow.md](docs/development/workflow.md) for development workflow
 - **API Docs**: Published at https://drewsonne.github.io/maya-dates/
 
 ## Important Notes

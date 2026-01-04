@@ -50,6 +50,8 @@
   "scripts": {
     "test": "mocha -r ts-node/register 'src/**/*.spec.ts'",
     "test:coverage": "nyc --reporter=text --reporter=html npm test",
+    "generate:locales": "ts-node scripts/generate-locales.ts",
+    "prebuild": "npm run generate:locales",
     "prepublishOnly": "npm run build",
     "build": "rm -rf lib && tsc -p tsconfig.json",
     "build:check": "tsc --noEmit -p tsconfig.json",
