@@ -110,11 +110,20 @@ describe('longcount to mayadate', () => {
 });
 
 describe('JSON Dataset Correlation Tests', () => {
-  // Use the correlation constant from each data entry for accurate comparisons
+  // Load GMT correlation data (correlation_jdn = 584285)
+  // Individual tests use the correlation constant from each specific data entry
   const jsonGmtData = getGMTCorrelationData();
 
   // Helper function to extract year from ISO 8601 date string
-  const getYearFromISO = (isoDate: string): string => isoDate.split('-')[0];
+  // Handles both positive years (e.g., '2024-01-01' -> '2024')
+  // and negative years for BCE (e.g., '-0332-03-05' -> '-0332')
+  const getYearFromISO = (isoDate: string): string => {
+    if (isoDate.startsWith('-')) {
+      // For negative years, format is -YYYY-MM-DD
+      return isoDate.substring(0, 5); // Extract '-YYYY'
+    }
+    return isoDate.split('-')[0];
+  };
 
   describe('Direct source correlations validation', () => {
     const directSourceData = getDirectSourceData();
