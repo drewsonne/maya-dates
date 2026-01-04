@@ -113,6 +113,9 @@ describe('JSON Dataset Correlation Tests', () => {
   // Use the correlation constant from each data entry for accurate comparisons
   const jsonGmtData = getGMTCorrelationData();
 
+  // Helper function to extract year from ISO 8601 date string
+  const getYearFromISO = (isoDate: string): string => isoDate.split('-')[0];
+
   describe('Direct source correlations validation', () => {
     const directSourceData = getDirectSourceData();
 
@@ -130,10 +133,8 @@ describe('JSON Dataset Correlation Tests', () => {
         // we currently only verify the year component exactly. Full date matching will be
         // enabled once the offset calculation bugs are fixed.
         if (correlation.western_calendar === 'gregorian') {
-          const expectedDate = correlation.western_date;
-          const actualDate = lc.gregorian.toISOString();
-          const expectedYear = expectedDate.split('-')[0];
-          const actualYear = actualDate.split('-')[0];
+          const expectedYear = getYearFromISO(correlation.western_date);
+          const actualYear = getYearFromISO(lc.gregorian.toISOString());
           expect(actualYear).to.equal(expectedYear, `Year mismatch for ${correlation.maya_long_count}`);
         }
       });
@@ -159,10 +160,8 @@ describe('JSON Dataset Correlation Tests', () => {
         // Note: Due to known offset calculation issues in the library for certain date ranges,
         // we currently only verify the year component exactly. Full date matching will be
         // enabled once the offset calculation bugs are fixed.
-        const expectedDate = correlation.western_date;
-        const actualDate = lc.gregorian.toISOString();
-        const expectedYear = expectedDate.split('-')[0];
-        const actualYear = actualDate.split('-')[0];
+        const expectedYear = getYearFromISO(correlation.western_date);
+        const actualYear = getYearFromISO(lc.gregorian.toISOString());
         expect(actualYear).to.equal(expectedYear, `Year mismatch for ${correlation.maya_long_count}`);
       });
     });
