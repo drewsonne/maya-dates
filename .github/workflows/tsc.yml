@@ -1,0 +1,39 @@
+name: TSC + Biome
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  typecheck_and_biome:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript typecheck (no emit)
+        run: npx tsc --noEmit
+
+      # Biome: lint + format check (fails CI if it would change files)
+      - name: Biome check (lint + format)
+        run: npx biome check .
+
