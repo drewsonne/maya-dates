@@ -40,14 +40,14 @@ const OFFSET_TABLE: ReadonlyArray<readonly [number, number]> = [
   [1887864, 1],   // 456 CE
   [1903742, 2],   // 500 CE (March 1)
   [1940267, 3],   // 600 CE (March 1)
-  [1976792, 4],   // 700 CE (March 1) - stays 4 through 800
+  [1976792, 4],   // 700 CE (March 1) - offset increases to 4, stays at 4 through 800 CE (which is divisible by 400)
   [2049842, 5],   // 900 CE (March 1)
   [2086367, 6],   // 1000 CE (March 1)
   [2122892, 7],   // 1100 CE (March 1)
-  [2195942, 8],   // 1300 CE (March 1) - stays 8 through 1200 (divisible by 400)
+  [2195942, 8],   // 1300 CE (March 1) - offset increases to 8 (stayed at 7 through 1200 CE, which is divisible by 400)
   [2232467, 9],   // 1400 CE (March 1)
   [2268991, 10],  // ~1500 CE (Feb 28/29) - offset increases when Julian has Feb 29 but Gregorian doesn't
-  [2299160, 0],   // Oct 4, 1582 - Gregorian calendar adoption (offset becomes 0)
+  [2299160, 0],   // Oct 4, 1582 - Gregorian calendar adoption (offset becomes 0, not 10, because after this date JDN uses actual Gregorian calendar instead of proleptic)
 ] as const;
 
 /**
@@ -60,9 +60,9 @@ export default class GregorianCalendarDate extends WesternCalendar {
    * @return {number}
    */
   get offset(): number {
-    // Find the appropriate offset by searching for the table entry
-    // where the JDN is >= the entry's start JDN but < the next entry's start JDN
-    let currentOffset = 0;  // Default for dates before the first table entry
+    // Find the last table entry where the JDN is >= the entry's start JDN.
+    // This entry's offset applies to the current JDN.
+    let currentOffset = -8;  // Default for dates before the first table entry (Maya creation and earlier)
     
     for (const [startJdn, offsetValue] of OFFSET_TABLE) {
       if (this.julianDay >= startJdn) {
