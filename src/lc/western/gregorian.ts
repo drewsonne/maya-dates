@@ -24,6 +24,7 @@ import WesternCalendar from './western';
  * - The boundaries below correspond to dates where the offset value changes or begins
  *
  * Each entry represents: "from this JDN onwards (until the next entry), use this offset"
+ * Table entries MUST be sorted by JDN in ascending order for the lookup algorithm to work correctly.
  *
  * The JDN values and corresponding offsets can be verified using the moonbeams library's
  * calendarToJd() function for both GREGORIAN and JULIAN calendar systems, which implements
@@ -63,7 +64,7 @@ export default class GregorianCalendarDate extends WesternCalendar {
     // Find the last table entry where the JDN is >= the entry's start JDN.
     // This entry's offset applies to the current JDN.
     let currentOffset = -8;  // Default for dates before the first table entry (Maya creation and earlier)
-    
+
     for (const [startJdn, offsetValue] of OFFSET_TABLE) {
       if (this.julianDay >= startJdn) {
         // This entry applies to our JDN
