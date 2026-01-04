@@ -118,11 +118,12 @@ describe('JSON Dataset Correlation Tests', () => {
   // Handles both positive years (e.g., '2024-01-01' -> '2024')
   // and negative years for BCE (e.g., '-0332-03-05' -> '-0332')
   const getYearFromISO = (isoDate: string): string => {
-    if (isoDate.startsWith('-')) {
-      // For negative years, format is -YYYY-MM-DD
-      return isoDate.substring(0, 5); // Extract '-YYYY'
+    // Match year at the start: optional minus, followed by digits, up to first dash
+    const match = isoDate.match(/^(-?\d+)-/);
+    if (!match) {
+      throw new Error(`Invalid ISO date format: ${isoDate}`);
     }
-    return isoDate.split('-')[0];
+    return match[1];
   };
 
   describe('Direct source correlations validation', () => {
