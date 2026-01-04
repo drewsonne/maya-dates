@@ -11,15 +11,15 @@ export const DEFAULT_LOCALE: Locale = 'modern-mayanist';
 
 /**
  * Manages internationalization for Maya calendar terms.
- * 
+ *
  * Provides a registry for alternative spellings of Tzolkin day names
  * and Haab month names, allowing parsing and rendering in different
  * transliterations.
- * 
+ *
  * @example
  * ```typescript
  * import { I18nManager } from '@drewsonne/maya-dates';
- * 
+ *
  * const i18n = I18nManager.getInstance();
  * i18n.registerLocale({
  *   locale: 'alt-spelling',
@@ -44,7 +44,7 @@ export class I18nManager {
     this.activeLocale = DEFAULT_LOCALE;
     this.tzolkinDayLookup = new Map();
     this.haabMonthLookup = new Map();
-    
+
     // Register the default locale (no translations)
     this.registerDefaultLocale();
   }
@@ -68,7 +68,7 @@ export class I18nManager {
 
   /**
    * Register a new locale with its translations
-   * 
+   *
    * @param localeDefinition - The locale definition to register
    */
   public registerLocale(localeDefinition: LocaleDefinition): void {
@@ -78,7 +78,7 @@ export class I18nManager {
 
   /**
    * Build reverse lookup maps for all registered locales
-   * 
+   *
    * Note: Currently, alternative spellings are stored in global lookup maps.
    * If multiple locales register the same alternative spelling mapping to
    * different canonical forms, the last registered locale will overwrite
@@ -96,7 +96,7 @@ export class I18nManager {
         for (const [canonical, translation] of Object.entries(localeDef.tzolkinDays)) {
           // Map canonical name to itself
           this.tzolkinDayLookup.set(canonical, canonical);
-          
+
           // Map alternatives to canonical
           if (translation && translation.alternatives) {
             for (const alt of translation.alternatives) {
@@ -111,7 +111,7 @@ export class I18nManager {
         for (const [canonical, translation] of Object.entries(localeDef.haabMonths)) {
           // Map canonical name to itself
           this.haabMonthLookup.set(canonical, canonical);
-          
+
           // Map alternatives to canonical
           if (translation && translation.alternatives) {
             for (const alt of translation.alternatives) {
@@ -125,7 +125,7 @@ export class I18nManager {
 
   /**
    * Set the active locale for rendering
-   * 
+   *
    * @param locale - The locale to activate
    * @throws Error if locale is not registered
    */
@@ -152,7 +152,7 @@ export class I18nManager {
 
   /**
    * Normalize a Tzolkin day name to its canonical form
-   * 
+   *
    * @param name - The name to normalize (may be alternative spelling)
    * @returns The canonical name, or the input if no mapping exists
    */
@@ -162,7 +162,7 @@ export class I18nManager {
 
   /**
    * Normalize a Haab month name to its canonical form
-   * 
+   *
    * @param name - The name to normalize (may be alternative spelling)
    * @returns The canonical name, or the input if no mapping exists
    */
@@ -172,7 +172,7 @@ export class I18nManager {
 
   /**
    * Get the rendering for a Tzolkin day in the specified locale
-   * 
+   *
    * @param canonicalName - The canonical day name
    * @param locale - The locale to render in (defaults to active locale)
    * @returns The rendered name in the specified locale, or canonical if not found
@@ -180,17 +180,17 @@ export class I18nManager {
   public renderTzolkinDay(canonicalName: string, locale?: Locale): string {
     const targetLocale = locale || this.activeLocale;
     const localeDef = this.locales.get(targetLocale);
-    
+
     if (localeDef && localeDef.tzolkinDays && localeDef.tzolkinDays[canonicalName]) {
       return localeDef.tzolkinDays[canonicalName].canonical;
     }
-    
+
     return canonicalName;
   }
 
   /**
    * Get the rendering for a Haab month in the specified locale
-   * 
+   *
    * @param canonicalName - The canonical month name
    * @param locale - The locale to render in (defaults to active locale)
    * @returns The rendered name in the specified locale, or canonical if not found
@@ -198,11 +198,11 @@ export class I18nManager {
   public renderHaabMonth(canonicalName: string, locale?: Locale): string {
     const targetLocale = locale || this.activeLocale;
     const localeDef = this.locales.get(targetLocale);
-    
+
     if (localeDef && localeDef.haabMonths && localeDef.haabMonths[canonicalName]) {
       return localeDef.haabMonths[canonicalName].canonical;
     }
-    
+
     return canonicalName;
   }
 
