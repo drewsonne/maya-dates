@@ -48,7 +48,7 @@ const OFFSET_TABLE: ReadonlyArray<readonly [number, number]> = [
   [2195942, 8],   // 1300 CE (March 1) - offset increases to 8 (stayed at 7 through 1200 CE, which is divisible by 400)
   [2232467, 9],   // 1400 CE (March 1)
   [2268991, 10],  // ~1500 CE (Feb 28/29) - offset increases when Julian has Feb 29 but Gregorian doesn't
-  [2299160, 0],   // Oct 4, 1582 - Gregorian calendar adoption (offset becomes 0, not 10, because after this date JDN uses actual Gregorian calendar instead of proleptic)
+  [2299160, 0],   // Oct 4, 1582 - Gregorian calendar adoption; from this JDN onward the dates are in the historical Gregorian calendar, so no additional proleptic offset is applied (offset value here means "no adjustment needed", not that the drift suddenly becomes zero)
 ] as const;
 
 /**
