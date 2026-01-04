@@ -64,13 +64,14 @@ export default class GregorianFactory {
       }
     } else {
       // Parse DD/MM/YYYY format
-      // Determine era (BCE or CE)
+      // Determine era (BCE or CE, defaults to CE if not specified)
       let searchString: string = '';
       if (cleanedGregorian.includes('BCE')) {
         isBCE = true;
         searchString = 'BCE';
       } else if (cleanedGregorian.includes('CE')) {
         searchString = 'CE';
+        // isBCE remains false (already initialized)
       }
 
       // Remove era markers if present
@@ -81,7 +82,7 @@ export default class GregorianFactory {
       // Validate basic format: expect three slash-separated numeric components (day/month/year)
       const rawParts = cleanedGregorian.split('/');
       if (rawParts.length !== 3) {
-        throw new Error(`Invalid Gregorian date format: "${gregorian}". Expected format: DD/MM/YYYY (slash-separated day/month/year)`);
+        throw new Error(`Invalid Gregorian date format: "${gregorian}". Expected format: DD/MM/YYYY (slash-separated day/month/year) or YYYY-MM-DD (ISO 8601)`);
       }
 
       const dateParts: number[] = rawParts.map((part, index) => {
