@@ -63,34 +63,45 @@ export class CalendarRound extends CommentWrapper implements IPart {
    */
   validate() {
     // First, perform mathematical compatibility check per spec [R7]
-    // Calculate full cycle positions, not just coefficients
+    // Calculate full cycle positions relative to the epoch
     if (this.haab.coeff instanceof NumberCoefficient && 
         this.tzolkin.coeff instanceof NumberCoefficient &&
         this.haab.month instanceof HaabMonth &&
         this.tzolkin.day instanceof TzolkinDay) {
       
-      // Calculate r365: full Haab' day-of-year position [0-364]
-      const r365 = this.haab.coeff.value + 20 * (this.haab.month.position - 1);
+      // Calculate raw Haab' day-of-year position [0-364]
+      const haabPositionRaw = this.haab.coeff.value + 20 * (this.haab.month.position - 1);
       
-      // Calculate r260: full Tzolk'in cycle position [0-259]
+      // Haab' epoch is 8 Kumk'u. With standard Haab' ordering, Kumk'u has position = 18,
+      // so the raw epoch position is: 8 + 20 * (18 - 1) = 348
+      // r365 is "days since 8 Kumk'u" modulo 365
+      const HAAB_EPOCH_OFFSET = 8 + 20 * (18 - 1); // 348
+      const r365 = ((haabPositionRaw - HAAB_EPOCH_OFFSET) % 365 + 365) % 365;
+      
+      // Calculate raw Tzolk'in cycle position [0-259]
       // Tzolk'in is (number, day) where number ∈ [1,13] and day ∈ [1,20]
-      // Position = ((number - 1) + 13 * (day - 1)) mod 260, but we need the actual position
-      // Using adjusted modulus inverse: position that gives this (number, day) pair
+      // Using CRT for coprime moduli: d ≡ (number-1) (mod 13) and d ≡ (dayIndex-1) (mod 20)
       const tzolkinNumber = this.tzolkin.coeff.value; // 1-13
       const tzolkinDayIndex = this.tzolkin.day.position; // 1-20
-      // Solve for position d where: adjmod(d, 13) = number and adjmod(d, 20) = dayIndex
-      // Using CRT for coprime moduli: d ≡ (number-1) (mod 13) and d ≡ (dayIndex-1) (mod 20)
       const a = tzolkinNumber - 1;
       const b = tzolkinDayIndex - 1;
       // CRT solution: d = a + 13 * ((17 * (b - a)) mod 20), then mod 260
       // where 17 is the modular multiplicative inverse of 13 mod 20 (since 13 × 17 ≡ 1 mod 20)
-      const r260 = (a + 13 * (((17 * (b - a)) % 20 + 20) % 20)) % 260;
+      const tzolkinPositionRaw = (a + 13 * (((17 * (b - a)) % 20 + 20) % 20)) % 260;
+      
+      // Tzolk'in epoch is 4 Ajaw. With Ajaw as day position = 20, the raw epoch position is:
+      // a = 4 - 1 = 3, b = 20 - 1 = 19
+      // d_epoch = (3 + 13 * (((17 * (19 - 3)) % 20 + 20) % 20)) % 260 = 159
+      // r260 is "days since 4 Ajaw" modulo 260
+      const TZOLKIN_EPOCH_OFFSET = 159;
+      const r260 = ((tzolkinPositionRaw - TZOLKIN_EPOCH_OFFSET) % 260 + 260) % 260;
       
       // Check mathematical compatibility: residues must match mod gcd(365, 260) = 5
+      // Both r365 and r260 are now measured from the same epoch day
       if (r365 % 5 !== r260 % 5) {
         throw new Error(
-          `Calendar Round compatibility failed: Haab' position ${r365} (${this.haab}) ` +
-          `and Tzolk'in position ${r260} (${this.tzolkin}) must satisfy ` +
+          `Calendar Round compatibility failed: Haab' residue ${r365} (${this.haab}) ` +
+          `and Tzolk'in residue ${r260} (${this.tzolkin}) must satisfy ` +
           `${r365} ≡ ${r260} (mod 5) per [R7]`
         );
       }
