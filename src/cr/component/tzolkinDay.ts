@@ -62,12 +62,12 @@ const singleton: { [key: string]: TzolkinDay } = {};
 export function getTzolkinDay(name: string | number | Wildcard): (TzolkinDay | Wildcard) {
 
   let cycleName = (typeof name === 'number') ? days.getValue(name) : name;
-  
+
   // Normalize using i18n if it's a string
   if (typeof cycleName === 'string') {
     cycleName = getI18nManager().normalizeTzolkinDay(cycleName);
   }
-  
+
   const cycleNameHash = `${cycleName}`;
   if (cycleNameHash === '*') {
     return new Wildcard()
