@@ -94,7 +94,7 @@ export default abstract class WesternCalendar {
    * For BCE dates, uses astronomical year numbering where 1 BCE = year 0, 2 BCE = year -1, etc.
    * @return {string}
    */
-  toISOString() {
+  toISOString(): string {
     // Use this.date.year directly as it's already in astronomical year numbering
     // (negative for BCE dates: -1 = 2 BCE, 0 = 1 BCE, positive for CE dates)
     const isoYear = this.date.year;

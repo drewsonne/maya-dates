@@ -32,15 +32,16 @@ export default class GregorianFactory {
     let cleanedGregorian = gregorian.replace(/\*/g, '').trim();
 
     // Detect format: ISO 8601 (YYYY-MM-DD) vs DD/MM/YYYY
-    // ISO 8601 pattern: optional minus, 4 or more digits for year, dash, 2 digits for month, dash, 2 digits for day
+    // ISO 8601 pattern: optional minus, 4 or more digits for year, dash, month 01-12, dash, day 01-31
     // Examples: 2024-01-01, 0001-12-31, -0332-03-05, 12345-06-15
-    const iso8601Pattern = /^(-?\d{4,})-(\d{2})-(\d{2})$/;
+    // Note: Month/day validation is done later (lines 104-109) for detailed error messages
+    const iso8601Pattern = /^(-?\d{4,})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
     const iso8601Match = cleanedGregorian.match(iso8601Pattern);
 
     let day: number;
     let month: number;
     let year: number;
-    let isBCE: boolean = false;
+    let isBCE: boolean;
 
     if (iso8601Match) {
       // Parse ISO 8601 format: YYYY-MM-DD
@@ -70,6 +71,9 @@ export default class GregorianFactory {
       } else if (cleanedGregorian.includes('CE')) {
         isBCE = false;
         searchString = 'CE';
+      } else {
+        // Default to CE if no era marker present
+        isBCE = false;
       }
 
       // Remove era markers if present
@@ -80,7 +84,7 @@ export default class GregorianFactory {
       // Validate basic format: expect three slash-separated numeric components (day/month/year)
       const rawParts = cleanedGregorian.split('/');
       if (rawParts.length !== 3) {
-        throw new Error(`Invalid Gregorian date format: "${gregorian}". Expected format: DD/MM/YYYY or YYYY-MM-DD (ISO 8601)`);
+        throw new Error(`Invalid Gregorian date format: "${gregorian}". Expected format: DD/MM/YYYY (slash-separated day/month/year)`);
       }
 
       const dateParts: number[] = rawParts.map((part, index) => {
