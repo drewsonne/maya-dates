@@ -82,8 +82,9 @@ export class CalendarRound extends CommentWrapper implements IPart {
       // Using CRT for coprime moduli: d ≡ (number-1) (mod 13) and d ≡ (dayIndex-1) (mod 20)
       const a = tzolkinNumber - 1;
       const b = tzolkinDayIndex - 1;
-      // CRT solution: d = a + 13 * ((3 * (b - a)) mod 20), then mod 260
-      const r260 = (a + 13 * (((3 * (b - a)) % 20 + 20) % 20)) % 260;
+      // CRT solution: d = a + 13 * ((17 * (b - a)) mod 20), then mod 260
+      // where 17 is the modular multiplicative inverse of 13 mod 20 (since 13 × 17 ≡ 1 mod 20)
+      const r260 = (a + 13 * (((17 * (b - a)) % 20 + 20) % 20)) % 260;
       
       // Check mathematical compatibility: residues must match mod gcd(365, 260) = 5
       if (r365 % 5 !== r260 % 5) {
