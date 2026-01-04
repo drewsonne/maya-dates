@@ -8,64 +8,97 @@ export default class GregorianFactory {
   /**
    * Parse a Gregorian calendar date string into a {@link GregorianCalendarDate}.
    *
-   * The input is expected to be in the form `DD/MM/YYYY`, optionally suffixed
-   * with `" CE"` or `" BCE"` and/or an asterisk (`*`). For BCE dates, the
-   * year component is converted to a negative year before being passed to
-   * the moonbeams `calendarToJd` function.
+   * Supports two input formats:
+   * 1. `DD/MM/YYYY` format, optionally suffixed with `" CE"` or `" BCE"` and/or an asterisk (`*`)
+   * 2. ISO 8601 format: `YYYY-MM-DD` (astronomical year numbering for BCE: -0001 = 2 BCE)
+   *
+   * For BCE dates in DD/MM/YYYY format, the year component is converted to a negative year
+   * before being passed to the moonbeams `calendarToJd` function.
    *
    * The method calculates the appropriate julian day by:
    * 1. Converting the Gregorian date to a julian day using moonbeams
    * 2. Determining the offset needed based on the julian day
    * 3. Storing the adjusted julian day in the GregorianCalendarDate
    *
-   * @param gregorian - Gregorian date string to parse (e.g. `"01/01/0001 CE"`,
-   * `"31/12/0001 BCE"`, or `"01/01/2000*"`).
+   * @param gregorian - Gregorian date string to parse. Examples:
+   *   - DD/MM/YYYY format: `"01/01/0001 CE"`, `"31/12/0001 BCE"`, or `"01/01/2000*"`
+   *   - ISO 8601 format: `"2024-01-01"`, `"-0332-03-05"` (333 BCE)
    * @returns A {@link GregorianCalendarDate} instance representing the given
    * Gregorian date.
    * @throws {Error} If the date string is invalid or malformed.
    */
   parse(gregorian: string): GregorianCalendarDate {
-    // Clean the input string - remove all asterisks and era markers
+    // Clean the input string - remove all asterisks
     let cleanedGregorian = gregorian.replace(/\*/g, '').trim();
 
-    // Determine era (BCE or CE)
+    // Detect format: ISO 8601 (YYYY-MM-DD) vs DD/MM/YYYY
+    // ISO 8601 pattern: optional minus, 4+ digits, dash, 2 digits, dash, 2 digits
+    const iso8601Pattern = /^(-?\d{4,})-(\d{2})-(\d{2})$/;
+    const iso8601Match = cleanedGregorian.match(iso8601Pattern);
+
+    let day: number;
+    let month: number;
+    let year: number;
     let isBCE: boolean = false;
-    let searchString: string = '';
-    if (cleanedGregorian.includes('BCE')) {
-      isBCE = true;
-      searchString = 'BCE';
-    } else if (cleanedGregorian.includes('CE')) {
-      isBCE = false;
-      searchString = 'CE';
-    }
 
-    // Remove era markers if present
-    if (searchString) {
-      cleanedGregorian = cleanedGregorian.replace(` ${searchString}`, '').replace(searchString, '').trim();
-    }
+    if (iso8601Match) {
+      // Parse ISO 8601 format: YYYY-MM-DD
+      const isoYear = parseInt(iso8601Match[1], 10);
+      month = parseInt(iso8601Match[2], 10);
+      day = parseInt(iso8601Match[3], 10);
 
-    // Validate basic format: expect three slash-separated numeric components (day/month/year)
-    const rawParts = cleanedGregorian.split('/');
-    if (rawParts.length !== 3) {
-      throw new Error(`Invalid Gregorian date format: "${gregorian}". Expected format: DD/MM/YYYY`);
-    }
-
-    const dateParts: number[] = rawParts.map((part, index) => {
-      const trimmed = part.trim();
-      if (trimmed.length === 0) {
-        throw new Error(`Invalid Gregorian date component in "${gregorian}": empty component at position ${index + 1}`);
+      // ISO 8601 uses astronomical year numbering: year 0 = 1 BCE, -1 = 2 BCE, etc.
+      if (isoYear < 0) {
+        isBCE = true;
+        // Convert from astronomical to historical: -332 → 333 BCE
+        year = Math.abs(isoYear - 1);
+      } else if (isoYear === 0) {
+        isBCE = true;
+        year = 1; // Year 0 = 1 BCE
+      } else {
+        isBCE = false;
+        year = isoYear;
       }
-      const value = Number(trimmed);
-      if (!Number.isFinite(value) || isNaN(value)) {
-        throw new Error(`Non-numeric Gregorian date component "${trimmed}" in "${gregorian}"`);
+    } else {
+      // Parse DD/MM/YYYY format
+      // Determine era (BCE or CE)
+      let searchString: string = '';
+      if (cleanedGregorian.includes('BCE')) {
+        isBCE = true;
+        searchString = 'BCE';
+      } else if (cleanedGregorian.includes('CE')) {
+        isBCE = false;
+        searchString = 'CE';
       }
-      return value;
-    });
 
-    // dateParts[0] = day, dateParts[1] = month, dateParts[2] = year
-    const day = dateParts[0];
-    const month = dateParts[1];
-    const year = dateParts[2];
+      // Remove era markers if present
+      if (searchString) {
+        cleanedGregorian = cleanedGregorian.replace(` ${searchString}`, '').replace(searchString, '').trim();
+      }
+
+      // Validate basic format: expect three slash-separated numeric components (day/month/year)
+      const rawParts = cleanedGregorian.split('/');
+      if (rawParts.length !== 3) {
+        throw new Error(`Invalid Gregorian date format: "${gregorian}". Expected format: DD/MM/YYYY or YYYY-MM-DD (ISO 8601)`);
+      }
+
+      const dateParts: number[] = rawParts.map((part, index) => {
+        const trimmed = part.trim();
+        if (trimmed.length === 0) {
+          throw new Error(`Invalid Gregorian date component in "${gregorian}": empty component at position ${index + 1}`);
+        }
+        const value = Number(trimmed);
+        if (!Number.isFinite(value) || isNaN(value)) {
+          throw new Error(`Non-numeric Gregorian date component "${trimmed}" in "${gregorian}"`);
+        }
+        return value;
+      });
+
+      // dateParts[0] = day, dateParts[1] = month, dateParts[2] = year
+      day = dateParts[0];
+      month = dateParts[1];
+      year = dateParts[2];
+    }
 
     // Validate date component ranges
     if (month < 1 || month > 12) {

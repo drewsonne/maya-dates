@@ -82,6 +82,36 @@ describe('gregorian to longcount', () => {
   });
 });
 
+describe('gregorian ISO 8601 parsing', () => {
+  const gregorianFactory = new GregorianFactory();
+  
+  it('should parse ISO 8601 CE dates', () => {
+    const g1 = gregorianFactory.parse('2024-01-01');
+    expect(g1.toString()).to.eq('1/1/2024 CE');
+    
+    const g2 = gregorianFactory.parse('0062-06-08');
+    expect(g2.toString()).to.eq('8/6/62 CE');
+  });
+  
+  it('should parse ISO 8601 BCE dates', () => {
+    const g1 = gregorianFactory.parse('-0332-03-05');
+    expect(g1.toString()).to.eq('5/3/333 BCE');
+  });
+  
+  it('should support round-trip conversion', () => {
+    const original = gregorianFactory.parse('2024-01-15');
+    const iso = original.toISOString();
+    const reparsed = gregorianFactory.parse(iso);
+    expect(reparsed.toString()).to.eq(original.toString());
+  });
+  
+  it('should maintain backward compatibility with DD/MM/YYYY format', () => {
+    const iso = gregorianFactory.parse('2024-12-21');
+    const ddmmyyyy = gregorianFactory.parse('21/12/2024 CE');
+    expect(iso.toString()).to.eq(ddmmyyyy.toString());
+  });
+});
+
 describe('longcount to julian', () => {
   dates.forEach((dc) => {
     it(`lc(${dc.lc}) -> j(${dc.julian}: ${dc.jday})`, () => {
