@@ -32,7 +32,8 @@ export default class GregorianFactory {
     let cleanedGregorian = gregorian.replace(/\*/g, '').trim();
 
     // Detect format: ISO 8601 (YYYY-MM-DD) vs DD/MM/YYYY
-    // ISO 8601 pattern: optional minus, 4+ digits, dash, 2 digits, dash, 2 digits
+    // ISO 8601 pattern: optional minus, 4 or more digits for year, dash, 2 digits for month, dash, 2 digits for day
+    // Examples: 2024-01-01, 0001-12-31, -0332-03-05, 12345-06-15
     const iso8601Pattern = /^(-?\d{4,})-(\d{2})-(\d{2})$/;
     const iso8601Match = cleanedGregorian.match(iso8601Pattern);
 
