@@ -23,7 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write  # Required for trusted publishing and provenance
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -32,8 +31,9 @@ jobs:
           registry-url: https://registry.npmjs.org/
           cache: 'npm'
       - run: npm ci
-      - run: npm publish --access public --provenance
-        # No NODE_AUTH_TOKEN needed - GitHub OIDC handles authentication
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-gpr:
     needs: build
