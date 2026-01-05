@@ -1,6 +1,6 @@
 {
   "name": "@drewsonne/maya-dates",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "description": "Typescript package to manipulate dates in the Maya Calendar",
   "type": "commonjs",
   "main": "./lib/index.js",
