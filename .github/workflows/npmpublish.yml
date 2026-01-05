@@ -32,10 +32,10 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - name: Publish to npm with OIDC
-        run: |
-          # Remove npmrc to prevent token-based auth from interfering with OIDC
-          rm -f ~/.npmrc
-          npm publish --provenance --access public
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ''
+          NPM_CONFIG_USERCONFIG: ''
 
   publish-gpr:
     needs: build
