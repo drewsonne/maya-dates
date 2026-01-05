@@ -31,9 +31,11 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
-      - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ''  # Clear the default token set by setup-node to use OIDC
+      - name: Publish to npm with OIDC
+        run: |
+          # Remove npmrc to prevent token-based auth from interfering with OIDC
+          rm -f ~/.npmrc
+          npm publish --provenance --access public
 
   publish-gpr:
     needs: build
