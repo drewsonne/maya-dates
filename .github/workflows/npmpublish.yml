@@ -32,23 +32,7 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - name: Publish with OIDC Trusted Publishing
-        shell: bash
-        run: |
-          set -euo pipefail
-          echo "Node version: $(node -v)"
-          echo "npm version: $(npm -v)"
-          
-          # Debug: Check if OIDC env vars are present
-          echo "ACTIONS_ID_TOKEN_REQUEST_URL is ${ACTIONS_ID_TOKEN_REQUEST_URL:+set}"
-          echo "ACTIONS_ID_TOKEN_REQUEST_TOKEN is ${ACTIONS_ID_TOKEN_REQUEST_TOKEN:+set}"
-          
-          # Hard reset any token-based auth injected by setup-node
-          unset NODE_AUTH_TOKEN || true
-          unset NPM_CONFIG_USERCONFIG || true
-          
-          # Publish with Trusted Publishing (provenance is automatic)
-          # OIDC auth happens automatically when id-token permission is granted
-          npm publish --access public --provenance
+        run: npm publish --access public --provenance
 
   publish-gpr:
     needs: build
