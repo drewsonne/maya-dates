@@ -30,6 +30,8 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+      - name: Upgrade npm to latest
+        run: npm install -g npm@latest
       - run: npm ci
       - name: Publish to npm with OIDC
         run: npm publish --provenance --access public
