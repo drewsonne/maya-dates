@@ -23,21 +23,31 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write  # Required for npm provenance
+      id-token: write  # Required for OIDC Trusted Publishing
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'npm'
-      - name: Upgrade npm to latest
-        run: npm install -g npm@latest
       - run: npm ci
-      - name: Publish to npm with OIDC
-        run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ''
-          NPM_CONFIG_USERCONFIG: ''
+      - name: Publish with OIDC Trusted Publishing
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Node version: $(node -v)"
+          echo "npm version: $(npm -v)"
+          
+          # Hard reset any token-based auth injected by setup-node
+          unset NODE_AUTH_TOKEN || true
+          unset NPM_CONFIG_USERCONFIG || true
+          
+          # Use a clean npm config file with no auth token
+          export NPM_CONFIG_USERCONFIG="$RUNNER_TEMP/clean.npmrc"
+          printf "registry=https://registry.npmjs.org/\n" > "$NPM_CONFIG_USERCONFIG"
+          
+          # Publish with Trusted Publishing (provenance is automatic)
+          npm publish --access public
 
   publish-gpr:
     needs: build
