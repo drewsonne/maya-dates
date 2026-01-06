@@ -82,6 +82,55 @@ describe('gregorian to longcount', () => {
   });
 });
 
+// Helper function to extract year from ISO 8601 date string
+// Handles both positive years (e.g., '2024-01-01' -> '2024')
+// and negative years for BCE (e.g., '-0332-03-05' -> '-0332')
+const extractYearFromISODate = (isoDate: string): string => {
+  // Match year at the start: optional minus, followed by digits, up to first dash
+  const match = isoDate.match(/^(-?\d+)-/);
+  if (!match) {
+    throw new Error(`Invalid ISO date format: ${isoDate}`);
+  }
+  return match[1];
+};
+
+describe('gregorian ISO 8601 parsing', () => {
+  const gregorianFactory = new GregorianFactory();
+  
+  it('should parse ISO 8601 CE dates', () => {
+    const g1 = gregorianFactory.parse('2024-01-01');
+    expect(g1.toString()).to.eq('1/1/2024 CE');
+    
+    const g2 = gregorianFactory.parse('0062-06-08');
+    expect(g2.toString()).to.eq('8/6/62 CE');
+  });
+  
+  it('should parse ISO 8601 BCE dates', () => {
+    const g1 = gregorianFactory.parse('-0332-03-05');
+    expect(g1.toString()).to.eq('5/3/333 BCE');
+  });
+  
+  it('should support round-trip conversion', () => {
+    const original = gregorianFactory.parse('2024-01-15');
+    const iso = original.toISOString();
+    expect(iso).to.eq('2024-01-15');
+    const reparsed = gregorianFactory.parse(iso);
+    expect(reparsed.toString()).to.eq(original.toString());
+  });
+  
+  it('should maintain backward compatibility with DD/MM/YYYY format', () => {
+    const iso = gregorianFactory.parse('2024-12-21');
+    const ddmmyyyy = gregorianFactory.parse('21/12/2024 CE');
+    expect(iso.toString()).to.eq(ddmmyyyy.toString());
+  });
+  
+  it('should format BCE dates correctly with toISOString', () => {
+    const bceDate = gregorianFactory.parse('5/3/333 BCE');
+    const iso = bceDate.toISOString();
+    expect(iso).to.eq('-0332-03-05');
+  });
+});
+
 describe('longcount to julian', () => {
   dates.forEach((dc) => {
     it(`lc(${dc.lc}) -> j(${dc.julian}: ${dc.jday})`, () => {
@@ -110,6 +159,8 @@ describe('longcount to mayadate', () => {
 });
 
 describe('JSON Dataset Correlation Tests', () => {
+  // Load data with various correlation constants, including 584285 (commonly called GMT+2 or Astronomical)
+  // Individual tests use the correlation constant from each specific data entry
   const jsonGmtData = getGMTCorrelationData();
 
   describe('Direct source correlations validation', () => {
@@ -124,13 +175,14 @@ describe('JSON Dataset Correlation Tests', () => {
         // Validate the Long Count parses correctly
         expect(lc).to.not.equal(null);
 
-        // This is a basic test - you may need to adjust date format comparison
-        // based on how your library formats dates vs the JSON ISO format
+        // Compare dates in ISO 8601 format
+        // Note: Due to known offset calculation issues in the library for certain date ranges,
+        // we currently only verify the year component exactly. Full date matching will be
+        // enabled once the offset calculation bugs are fixed.
         if (correlation.western_calendar === 'gregorian') {
-          const year = correlation.western_date.split('-')[0];
-          const gregorianDate = `${lc.gregorian}`;
-          // Remove leading zeros for comparison (e.g., 0397 -> 397)
-          expect(gregorianDate).to.include(year.replace(/^0+/, ''));
+          const expectedYear = extractYearFromISODate(correlation.western_date);
+          const actualYear = extractYearFromISODate(lc.gregorian.toISOString());
+          expect(actualYear).to.equal(expectedYear, `Year mismatch for ${correlation.maya_long_count}`);
         }
       });
     });
@@ -150,12 +202,14 @@ describe('JSON Dataset Correlation Tests', () => {
         expect(`${lc.gregorian}`).to.be.a('string');
         expect(lc.julianDay).to.be.a('number');
         expect(lc.getPosition()).to.be.a('number');
-
-        // Extract year for comparison (adjust format as needed)
-        const expectedYear = correlation.western_date.split('-')[0];
-        const gregorianDate = `${lc.gregorian}`;
-        // Remove leading zeros for comparison
-        expect(gregorianDate).to.include(expectedYear.replace(/^0+/, ''));
+        
+        // Compare dates in ISO 8601 format
+        // Note: Due to known offset calculation issues in the library for certain date ranges,
+        // we currently only verify the year component exactly. Full date matching will be
+        // enabled once the offset calculation bugs are fixed.
+        const expectedYear = extractYearFromISODate(correlation.western_date);
+        const actualYear = extractYearFromISODate(lc.gregorian.toISOString());
+        expect(actualYear).to.equal(expectedYear, `Year mismatch for ${correlation.maya_long_count}`);
       });
     });
   });
