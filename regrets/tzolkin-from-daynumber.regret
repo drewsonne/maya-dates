@@ -1,0 +1,12 @@
+cluster: tzolkin-from-daynumber
+version: 1
+fingerprint: 4ry5873
+captured: 2026-06-13T15:11:00.664Z
+watches: [tzolkinFromDayNumber]
+entry: tzolkinFromDayNumber
+stack: js
+fingerprintLevel: entry
+---
+INPUT  0
+OUTPUT {"coeff":4,"name":"Ajaw","toString":"4 Ajaw"}
+HASH   4ry5873

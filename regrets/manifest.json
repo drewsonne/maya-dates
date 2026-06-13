@@ -1,0 +1,140 @@
+{
+  "clusters": [
+    {
+      "id": "longcount-from-mdn",
+      "entry": "longCountFromMdn",
+      "watches": ["longCountFromMdn"],
+      "file": "regret-entry.mjs",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "description": "Convert Maya Day Number to Long Count string via mixed-radix decomposition",
+      "inputs": [
+        0,
+        1872000,
+        144000,
+        360,
+        1,
+        1728000,
+        100
+      ]
+    },
+    {
+      "id": "distance-number-normalise",
+      "entry": "distanceNumberNormalise",
+      "watches": ["distanceNumberNormalise"],
+      "file": "regret-entry.mjs",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "description": "Normalise a Distance Number with carry/borrow in mixed-radix system",
+      "inputs": [
+        [5, 20, 3, 0, 0],
+        [0, 18, 0, 0, 0],
+        [19, 17, 19, 19, 19],
+        [1, 1, 1, 1, 1],
+        [0, 0, 0, 0, 1]
+      ]
+    },
+    {
+      "id": "tzolkin-from-daynumber",
+      "entry": "tzolkinFromDayNumber",
+      "watches": ["tzolkinFromDayNumber"],
+      "file": "regret-entry.mjs",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "description": "Convert Maya Day Number to Tzolk'in date (260-day cycle, adjusted modulus)",
+      "inputs": [
+        0,
+        1,
+        259,
+        260,
+        13,
+        -1,
+        1000
+      ]
+    },
+    {
+      "id": "tzolkin-shift",
+      "entry": "tzolkinShift",
+      "watches": ["tzolkinShift"],
+      "file": "regret-entry.mjs",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "description": "Shift a Tzolk'in date by N days in the 260-day cycle",
+      "inputs": [
+        [0, 1],
+        [0, 260],
+        [0, -1],
+        [100, 13],
+        [0, 7]
+      ]
+    },
+    {
+      "id": "haab-from-daynumber",
+      "entry": "haabFromDayNumber",
+      "watches": ["haabFromDayNumber"],
+      "file": "regret-entry.mjs",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "description": "Convert Maya Day Number to Haab' date (365-day vague year cycle)",
+      "inputs": [
+        0,
+        1,
+        364,
+        365,
+        100,
+        -1,
+        1872000
+      ]
+    },
+    {
+      "id": "haab-shift",
+      "entry": "haabShift",
+      "watches": ["haabShift"],
+      "file": "regret-entry.mjs",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "description": "Shift a Haab' date by N days in the 365-day cycle",
+      "inputs": [
+        [0, 1],
+        [0, 365],
+        [0, -1],
+        [100, 20],
+        [0, 364]
+      ]
+    },
+    {
+      "id": "calendar-round-from-lc",
+      "entry": "calendarRoundFromLc",
+      "watches": ["calendarRoundFromLc"],
+      "file": "regret-entry.mjs",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "description": "Build Calendar Round (Tzolk'in + Haab') from a Long Count position",
+      "inputs": [
+        0,
+        1,
+        1872000,
+        360,
+        7200,
+        144000,
+        100
+      ]
+    },
+    {
+      "id": "longcount-addition",
+      "entry": "longCountAdd",
+      "watches": ["longCountAdd"],
+      "file": "regret-entry.mjs",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "description": "Add two Long Count dates (Maya Day Numbers) with carry propagation",
+      "inputs": [
+        [1000, 2000],
+        [0, 0],
+        [144000, 7200],
+        [1, 1],
+        [1872000, 1]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "captured": "2026-06-13T15:12:12.969Z",
+  "fingerprints": {
+    "calendar-round-from-lc": {
+      "fingerprint": "2botlv0",
+      "captured": "2026-06-13T15:11:00.667Z",
+      "entry": "calendarRoundFromLc",
+      "hash": "2botlv0",
+      "input": "0",
+      "output": "{\"tzolkin\":\"4 Ajaw\",\"haab\":\"8 Kumk'u\",\"toString\":\"4 Ajaw 8 Kumk'u\"}"
+    },
+    "distance-number-normalise": {
+      "fingerprint": "3ydtvlh",
+      "captured": "2026-06-13T15:11:00.664Z",
+      "entry": "distanceNumberNormalise",
+      "hash": "3ydtvlh",
+      "input": "[5,20,3,0,0]",
+      "output": "{\"toString\":\" 0. 0. 4. 2. 5\",\"position\":1485,\"parts\":[5,2,4,0,0,0,0,0]}"
+    },
+    "haab-from-daynumber": {
+      "fingerprint": "6bx713z",
+      "captured": "2026-06-13T15:11:00.665Z",
+      "entry": "haabFromDayNumber",
+      "hash": "6bx713z",
+      "input": "0",
+      "output": "{\"coeff\":8,\"name\":\"Kumk'u\",\"toString\":\"8 Kumk'u\"}"
+    },
+    "haab-shift": {
+      "fingerprint": "3kh7296",
+      "captured": "2026-06-13T15:11:00.666Z",
+      "entry": "haabShift",
+      "hash": "3kh7296",
+      "input": "[0,1]",
+      "output": "{\"original\":{\"coeff\":8,\"name\":\"Kumk'u\",\"toString\":\"8 Kumk'u\"},\"shifted\":{\"coeff\":9,\"name\":\"Kumk'u\",\"toString\":\"9 Kumk'u\"}}"
+    },
+    "longcount-addition": {
+      "fingerprint": "3h23qg7",
+      "captured": "2026-06-13T15:11:00.667Z",
+      "entry": "longCountAdd",
+      "hash": "3h23qg7",
+      "input": "[1000,2000]",
+      "output": "{\"lc1\":\" 0. 0. 2.14. 0\",\"lc2\":\" 0. 0. 5.10. 0\",\"sum\":\" 0. 0. 8. 6. 0\",\"position\":3000}"
+    },
+    "longcount-from-mdn": {
+      "fingerprint": "4a06vpw",
+      "captured": "2026-06-13T15:11:00.662Z",
+      "entry": "longCountFromMdn",
+      "hash": "4a06vpw",
+      "input": "0",
+      "output": "{\"toString\":\" 0. 0. 0. 0. 0\",\"position\":0,\"parts\":[0,0,0,0,0]}"
+    },
+    "tzolkin-from-daynumber": {
+      "fingerprint": "4ry5873",
+      "captured": "2026-06-13T15:11:00.664Z",
+      "entry": "tzolkinFromDayNumber",
+      "hash": "4ry5873",
+      "input": "0",
+      "output": "{\"coeff\":4,\"name\":\"Ajaw\",\"toString\":\"4 Ajaw\"}"
+    },
+    "tzolkin-shift": {
+      "fingerprint": "5s8zypt",
+      "captured": "2026-06-13T15:11:00.665Z",
+      "entry": "tzolkinShift",
+      "hash": "5s8zypt",
+      "input": "[0,1]",
+      "output": "{\"original\":{\"coeff\":4,\"name\":\"Ajaw\",\"toString\":\"4 Ajaw\"},\"shifted\":{\"coeff\":5,\"name\":\"Imix\",\"toString\":\"5 Imix\"}}"
+    }
+  }
+}

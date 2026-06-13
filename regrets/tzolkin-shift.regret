@@ -1,0 +1,12 @@
+cluster: tzolkin-shift
+version: 1
+fingerprint: 5s8zypt
+captured: 2026-06-13T15:11:00.665Z
+watches: [tzolkinShift]
+entry: tzolkinShift
+stack: js
+fingerprintLevel: entry
+---
+INPUT  [0,1]
+OUTPUT {"original":{"coeff":4,"name":"Ajaw","toString":"4 Ajaw"},"shifted":{"coeff":5,"name":"Imix","toString":"5 Imix"}}
+HASH   5s8zypt

@@ -1,0 +1,12 @@
+cluster: longcount-addition
+version: 1
+fingerprint: 3h23qg7
+captured: 2026-06-13T15:11:00.667Z
+watches: [longCountAdd]
+entry: longCountAdd
+stack: js
+fingerprintLevel: entry
+---
+INPUT  [1000,2000]
+OUTPUT {"lc1":" 0. 0. 2.14. 0","lc2":" 0. 0. 5.10. 0","sum":" 0. 0. 8. 6. 0","position":3000}
+HASH   3h23qg7

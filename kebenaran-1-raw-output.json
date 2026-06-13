@@ -1,0 +1,642 @@
+{
+  "captured": "2026-06-13T15:11:59.282Z",
+  "truths": {
+    "longcount-from-mdn": [
+      {
+        "input": 0,
+        "output": {
+          "toString": " 0. 0. 0. 0. 0",
+          "position": 0,
+          "parts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "input": 1872000,
+        "output": {
+          "toString": "13. 0. 0. 0. 0",
+          "position": 1872000,
+          "parts": [
+            0,
+            0,
+            0,
+            0,
+            13
+          ]
+        }
+      },
+      {
+        "input": 144000,
+        "output": {
+          "toString": " 1. 0. 0. 0. 0",
+          "position": 144000,
+          "parts": [
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      },
+      {
+        "input": 360,
+        "output": {
+          "toString": " 0. 0. 1. 0. 0",
+          "position": 360,
+          "parts": [
+            0,
+            0,
+            1,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "input": 1,
+        "output": {
+          "toString": " 0. 0. 0. 0. 1",
+          "position": 1,
+          "parts": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "input": 1728000,
+        "output": {
+          "toString": "12. 0. 0. 0. 0",
+          "position": 1728000,
+          "parts": [
+            0,
+            0,
+            0,
+            0,
+            12
+          ]
+        }
+      },
+      {
+        "input": 100,
+        "output": {
+          "toString": " 0. 0. 0. 5. 0",
+          "position": 100,
+          "parts": [
+            0,
+            5,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    ],
+    "distance-number-normalise": [
+      {
+        "input": [
+          5,
+          20,
+          3,
+          0,
+          0
+        ],
+        "output": {
+          "toString": " 0. 0. 4. 2. 5",
+          "position": 1485,
+          "parts": [
+            5,
+            2,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "input": [
+          0,
+          18,
+          0,
+          0,
+          0
+        ],
+        "output": {
+          "toString": " 0. 0. 1. 0. 0",
+          "position": 360,
+          "parts": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "input": [
+          19,
+          17,
+          19,
+          19,
+          19
+        ],
+        "output": {
+          "toString": "19.19.19.17.19",
+          "position": 2879999,
+          "parts": [
+            19,
+            17,
+            19,
+            19,
+            19,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "input": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "output": {
+          "toString": " 1. 1. 1. 1. 1",
+          "position": 151581,
+          "parts": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "input": [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "output": {
+          "toString": " 1. 0. 0. 0. 0",
+          "position": 144000,
+          "parts": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    ],
+    "tzolkin-from-daynumber": [
+      {
+        "input": 0,
+        "output": {
+          "coeff": 4,
+          "name": "Ajaw",
+          "toString": "4 Ajaw"
+        }
+      },
+      {
+        "input": 1,
+        "output": {
+          "coeff": 5,
+          "name": "Imix",
+          "toString": "5 Imix"
+        }
+      },
+      {
+        "input": 259,
+        "output": {
+          "coeff": 3,
+          "name": "Kawak",
+          "toString": "3 Kawak"
+        }
+      },
+      {
+        "input": 260,
+        "output": {
+          "coeff": 4,
+          "name": "Ajaw",
+          "toString": "4 Ajaw"
+        }
+      },
+      {
+        "input": 13,
+        "output": {
+          "coeff": 4,
+          "name": "Ben",
+          "toString": "4 Ben"
+        }
+      },
+      {
+        "input": -1,
+        "output": {
+          "coeff": 3,
+          "name": "Kawak",
+          "toString": "3 Kawak"
+        }
+      },
+      {
+        "input": 1000,
+        "output": {
+          "coeff": 3,
+          "name": "Ajaw",
+          "toString": "3 Ajaw"
+        }
+      }
+    ],
+    "tzolkin-shift": [
+      {
+        "input": [
+          0,
+          1
+        ],
+        "output": {
+          "original": {
+            "coeff": 4,
+            "name": "Ajaw",
+            "toString": "4 Ajaw"
+          },
+          "shifted": {
+            "coeff": 5,
+            "name": "Imix",
+            "toString": "5 Imix"
+          }
+        }
+      },
+      {
+        "input": [
+          0,
+          260
+        ],
+        "output": {
+          "original": {
+            "coeff": 4,
+            "name": "Ajaw",
+            "toString": "4 Ajaw"
+          },
+          "shifted": {
+            "coeff": 4,
+            "name": "Ajaw",
+            "toString": "4 Ajaw"
+          }
+        }
+      },
+      {
+        "input": [
+          0,
+          -1
+        ],
+        "output": {
+          "original": {
+            "coeff": 4,
+            "name": "Ajaw",
+            "toString": "4 Ajaw"
+          },
+          "shifted": {
+            "coeff": 3,
+            "name": "Kawak",
+            "toString": "3 Kawak"
+          }
+        }
+      },
+      {
+        "input": [
+          100,
+          13
+        ],
+        "output": {
+          "original": {
+            "coeff": 13,
+            "name": "Ajaw",
+            "toString": "13 Ajaw"
+          },
+          "shifted": {
+            "coeff": 13,
+            "name": "Ben",
+            "toString": "13 Ben"
+          }
+        }
+      },
+      {
+        "input": [
+          0,
+          7
+        ],
+        "output": {
+          "original": {
+            "coeff": 4,
+            "name": "Ajaw",
+            "toString": "4 Ajaw"
+          },
+          "shifted": {
+            "coeff": 11,
+            "name": "Manik'",
+            "toString": "11 Manik'"
+          }
+        }
+      }
+    ],
+    "haab-from-daynumber": [
+      {
+        "input": 0,
+        "output": {
+          "coeff": 8,
+          "name": "Kumk'u",
+          "toString": "8 Kumk'u"
+        }
+      },
+      {
+        "input": 1,
+        "output": {
+          "coeff": 9,
+          "name": "Kumk'u",
+          "toString": "9 Kumk'u"
+        }
+      },
+      {
+        "input": 364,
+        "output": {
+          "coeff": 7,
+          "name": "Kumk'u",
+          "toString": "7 Kumk'u"
+        }
+      },
+      {
+        "input": 365,
+        "output": {
+          "coeff": 8,
+          "name": "Kumk'u",
+          "toString": "8 Kumk'u"
+        }
+      },
+      {
+        "input": 100,
+        "output": {
+          "coeff": 3,
+          "name": "Sek",
+          "toString": "3 Sek"
+        }
+      },
+      {
+        "input": -1,
+        "output": {
+          "coeff": 7,
+          "name": "Kumk'u",
+          "toString": "7 Kumk'u"
+        }
+      },
+      {
+        "input": 1872000,
+        "output": {
+          "coeff": 3,
+          "name": "K'ank'in",
+          "toString": "3 K'ank'in"
+        }
+      }
+    ],
+    "haab-shift": [
+      {
+        "input": [
+          0,
+          1
+        ],
+        "output": {
+          "original": {
+            "coeff": 8,
+            "name": "Kumk'u",
+            "toString": "8 Kumk'u"
+          },
+          "shifted": {
+            "coeff": 9,
+            "name": "Kumk'u",
+            "toString": "9 Kumk'u"
+          }
+        }
+      },
+      {
+        "input": [
+          0,
+          365
+        ],
+        "output": {
+          "original": {
+            "coeff": 8,
+            "name": "Kumk'u",
+            "toString": "8 Kumk'u"
+          },
+          "shifted": {
+            "coeff": 8,
+            "name": "Kumk'u",
+            "toString": "8 Kumk'u"
+          }
+        }
+      },
+      {
+        "input": [
+          0,
+          -1
+        ],
+        "output": {
+          "original": {
+            "coeff": 8,
+            "name": "Kumk'u",
+            "toString": "8 Kumk'u"
+          },
+          "shifted": {
+            "coeff": 7,
+            "name": "Kumk'u",
+            "toString": "7 Kumk'u"
+          }
+        }
+      },
+      {
+        "input": [
+          100,
+          20
+        ],
+        "output": {
+          "original": {
+            "coeff": 3,
+            "name": "Sek",
+            "toString": "3 Sek"
+          },
+          "shifted": {
+            "coeff": 3,
+            "name": "Xul",
+            "toString": "3 Xul"
+          }
+        }
+      },
+      {
+        "input": [
+          0,
+          364
+        ],
+        "output": {
+          "original": {
+            "coeff": 8,
+            "name": "Kumk'u",
+            "toString": "8 Kumk'u"
+          },
+          "shifted": {
+            "coeff": 7,
+            "name": "Kumk'u",
+            "toString": "7 Kumk'u"
+          }
+        }
+      }
+    ],
+    "calendar-round-from-lc": [
+      {
+        "input": 0,
+        "output": {
+          "tzolkin": "4 Ajaw",
+          "haab": "8 Kumk'u",
+          "toString": "4 Ajaw 8 Kumk'u"
+        }
+      },
+      {
+        "input": 1,
+        "output": {
+          "tzolkin": "5 Imix",
+          "haab": "9 Kumk'u",
+          "toString": "5 Imix 9 Kumk'u"
+        }
+      },
+      {
+        "input": 1872000,
+        "output": {
+          "tzolkin": "4 Ajaw",
+          "haab": "3 K'ank'in",
+          "toString": "4 Ajaw 3 K'ank'in"
+        }
+      },
+      {
+        "input": 360,
+        "output": {
+          "tzolkin": "13 Ajaw",
+          "haab": "3 Kumk'u",
+          "toString": "13 Ajaw 3 Kumk'u"
+        }
+      },
+      {
+        "input": 7200,
+        "output": {
+          "tzolkin": "2 Ajaw",
+          "haab": "8 Mak",
+          "toString": "2 Ajaw 8 Mak"
+        }
+      },
+      {
+        "input": 144000,
+        "output": {
+          "tzolkin": "3 Ajaw",
+          "haab": "13 Ch'en",
+          "toString": "3 Ajaw 13 Ch'en"
+        }
+      },
+      {
+        "input": 100,
+        "output": {
+          "tzolkin": "13 Ajaw",
+          "haab": "3 Sek",
+          "toString": "13 Ajaw 3 Sek"
+        }
+      }
+    ],
+    "longcount-addition": [
+      {
+        "input": [
+          1000,
+          2000
+        ],
+        "output": {
+          "lc1": " 0. 0. 2.14. 0",
+          "lc2": " 0. 0. 5.10. 0",
+          "sum": " 0. 0. 8. 6. 0",
+          "position": 3000
+        }
+      },
+      {
+        "input": [
+          0,
+          0
+        ],
+        "output": {
+          "lc1": " 0. 0. 0. 0. 0",
+          "lc2": " 0. 0. 0. 0. 0",
+          "sum": " 0. 0. 0. 0. 0",
+          "position": 0
+        }
+      },
+      {
+        "input": [
+          144000,
+          7200
+        ],
+        "output": {
+          "lc1": " 1. 0. 0. 0. 0",
+          "lc2": " 0. 1. 0. 0. 0",
+          "sum": " 1. 1. 0. 0. 0",
+          "position": 151200
+        }
+      },
+      {
+        "input": [
+          1,
+          1
+        ],
+        "output": {
+          "lc1": " 0. 0. 0. 0. 1",
+          "lc2": " 0. 0. 0. 0. 1",
+          "sum": " 0. 0. 0. 0. 2",
+          "position": 2
+        }
+      },
+      {
+        "input": [
+          1872000,
+          1
+        ],
+        "output": {
+          "lc1": "13. 0. 0. 0. 0",
+          "lc2": " 0. 0. 0. 0. 1",
+          "sum": "13. 0. 0. 0. 1",
+          "position": 1872001
+        }
+      }
+    ]
+  }
+}

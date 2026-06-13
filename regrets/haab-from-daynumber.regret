@@ -1,0 +1,12 @@
+cluster: haab-from-daynumber
+version: 1
+fingerprint: 6bx713z
+captured: 2026-06-13T15:11:00.665Z
+watches: [haabFromDayNumber]
+entry: haabFromDayNumber
+stack: js
+fingerprintLevel: entry
+---
+INPUT  0
+OUTPUT {"coeff":8,"name":"Kumk'u","toString":"8 Kumk'u"}
+HASH   6bx713z
