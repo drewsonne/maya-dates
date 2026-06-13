@@ -1,0 +1,12 @@
+cluster: haab-shift
+version: 1
+fingerprint: 3kh7296
+captured: 2026-06-13T15:11:00.666Z
+watches: [haabShift]
+entry: haabShift
+stack: js
+fingerprintLevel: entry
+---
+INPUT  [0,1]
+OUTPUT {"original":{"coeff":8,"name":"Kumk'u","toString":"8 Kumk'u"},"shifted":{"coeff":9,"name":"Kumk'u","toString":"9 Kumk'u"}}
+HASH   3kh7296

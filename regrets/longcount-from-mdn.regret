@@ -1,0 +1,12 @@
+cluster: longcount-from-mdn
+version: 1
+fingerprint: 4a06vpw
+captured: 2026-06-13T15:11:00.662Z
+watches: [longCountFromMdn]
+entry: longCountFromMdn
+stack: js
+fingerprintLevel: entry
+---
+INPUT  0
+OUTPUT {"toString":" 0. 0. 0. 0. 0","position":0,"parts":[0,0,0,0,0]}
+HASH   4a06vpw

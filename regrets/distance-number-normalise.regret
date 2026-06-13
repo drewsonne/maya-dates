@@ -1,0 +1,12 @@
+cluster: distance-number-normalise
+version: 1
+fingerprint: 3ydtvlh
+captured: 2026-06-13T15:11:00.664Z
+watches: [distanceNumberNormalise]
+entry: distanceNumberNormalise
+stack: js
+fingerprintLevel: entry
+---
+INPUT  [5,20,3,0,0]
+OUTPUT {"toString":" 0. 0. 4. 2. 5","position":1485,"parts":[5,2,4,0,0,0,0,0]}
+HASH   3ydtvlh

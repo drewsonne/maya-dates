@@ -1,0 +1,12 @@
+cluster: calendar-round-from-lc
+version: 1
+fingerprint: 2botlv0
+captured: 2026-06-13T15:11:00.667Z
+watches: [calendarRoundFromLc]
+entry: calendarRoundFromLc
+stack: js
+fingerprintLevel: entry
+---
+INPUT  0
+OUTPUT {"tzolkin":"4 Ajaw","haab":"8 Kumk'u","toString":"4 Ajaw 8 Kumk'u"}
+HASH   2botlv0
