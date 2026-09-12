@@ -356,7 +356,12 @@ npm run test:coverage  # Run tests with coverage report
 ```
 
 ### Documentation
+
+The documentation site under `website/` has its own dependencies. Install them
+once before running any of the `docs:` scripts:
+
 ```sh
+npm run docs:install   # Install website dependencies (website/)
 npm run docs:start     # Start Docusaurus dev server
 npm run docs:build     # Build static documentation site
 npm run docs:serve     # Serve built documentation locally
