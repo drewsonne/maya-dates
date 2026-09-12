@@ -58,7 +58,8 @@
     "build:clean": " ./scripts/clean-build.sh",
     "docs:start": "cd website && npm start",
     "docs:build": "cd website && npm run build",
-    "postinstall": "cd website && npm install"
+    "docs:install": "cd website && npm ci",
+    "docs:serve": "cd website && npm run serve"
   },
   "files": [
     "lib"
