@@ -388,6 +388,9 @@ If a tag and GitHub Release exist but the npm publish failed, re-publish it by
 running the Release workflow manually with `publish_tag` set to that tag (for
 example `v1.3.12`) rather than cutting a new version.
 
+`release.yml` is the only workflow that publishes. There is no `NPM_TOKEN`
+secret anywhere in the repository.
+
 ### Documentation
 
 The documentation site under `website/` has its own dependencies. Install them
