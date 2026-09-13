@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.14](https://github.com/drewsonne/maya-dates/compare/v1.3.13...v1.3.14) (2026-09-13)
+
+
+### Chores
+
+* release 1.3.14 ([#199](https://github.com/drewsonne/maya-dates/issues/199)) ([b8822e7](https://github.com/drewsonne/maya-dates/commit/b8822e745501547ee21ab11aa657751dbfc98184))
+
 ## [1.3.13](https://github.com/drewsonne/maya-dates/compare/v1.3.12...v1.3.13) (2026-09-13)
 
 
