@@ -18,6 +18,14 @@ on:
   # (a GitHub incident, a startup_failure that cannot be retried) would
   # otherwise be stranded until the next merge happens to come along.
   workflow_dispatch:
+    inputs:
+      publish_tag:
+        description: >-
+          Publish an existing tag to npm (e.g. v1.3.12). Use when the tag and
+          GitHub Release already exist but the npm publish failed. Leave blank
+          for a normal release run.
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -42,27 +50,33 @@ jobs:
 
   publish-npm:
     needs: release-please
-    if: needs.release-please.outputs.release_created == 'true'
+    if: needs.release-please.outputs.release_created == 'true' || inputs.publish_tag != ''
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write # Required for provenance
+      id-token: write # Required for trusted publishing (OIDC) and provenance
     steps:
       - uses: actions/checkout@v6
         with:
-          ref: ${{ needs.release-please.outputs.tag_name }}
+          ref: ${{ inputs.publish_tag || needs.release-please.outputs.tag_name }}
 
       - uses: actions/setup-node@v6
         with:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
-          cache: 'npm'
+          package-manager-cache: false # npm advises against caching in release builds
 
       - run: npm ci
       - run: npm test
-      - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Authentication is npm trusted publishing (OIDC), configured against this
+      # repository and this workflow filename on npmjs.com. Deliberately no
+      # NODE_AUTH_TOKEN: setup-node writes `_authToken=${NODE_AUTH_TOKEN}` into
+      # .npmrc, so passing an empty secret leaves an empty token there, and npm
+      # then treats auth as configured, skips the OIDC exchange, and fails with
+      # ENEEDAUTH. Provenance is generated automatically under trusted
+      # publishing, so --provenance is not needed either.
+      - run: npm publish
 
   publish-gpr:
     needs: release-please
