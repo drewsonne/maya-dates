@@ -355,8 +355,49 @@ npm test               # Run all tests
 npm run test:coverage  # Run tests with coverage report
 ```
 
+### Releasing
+
+Releases are automated with
+[release-please](https://github.com/googleapis/release-please). Commits on `main`
+that follow [Conventional Commits](https://www.conventionalcommits.org/)
+(`fix:`, `feat:`, `feat!:`/`BREAKING CHANGE:`) accumulate into an open
+`chore(main): release x.y.z` pull request that carries the version bump and the
+CHANGELOG entry.
+
+Merging that pull request is the release: it creates the tag and the GitHub
+Release, then publishes to npm and GitHub Packages. Commits without a
+conventional prefix, and `chore:`/`docs:`/`test:` commits, do not on their own
+trigger a release, so dependency updates accumulate rather than each shipping a
+version.
+
+`.release-please-manifest.json` records the last **published** version, which is
+what commits are diffed against; it is not necessarily the version currently in
+`package.json`.
+
+Publishing to npm authenticates with
+[trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC) rather
+than a long-lived token, so there is no `NPM_TOKEN` to rotate. The trusted
+publisher is configured on npmjs.com against this repository and the workflow
+filename `release.yml`; if publishing ever moves to a different workflow file,
+that setting has to move with it. The publish step deliberately sets no
+`NODE_AUTH_TOKEN` - `setup-node` writes `_authToken=${NODE_AUTH_TOKEN}` into
+`.npmrc`, and an empty value there makes npm skip the OIDC exchange and fail
+with `ENEEDAUTH`.
+
+If a tag and GitHub Release exist but the npm publish failed, re-publish it by
+running the Release workflow manually with `publish_tag` set to that tag (for
+example `v1.3.12`) rather than cutting a new version.
+
+`release.yml` is the only workflow that publishes. There is no `NPM_TOKEN`
+secret anywhere in the repository.
+
 ### Documentation
+
+The documentation site under `website/` has its own dependencies. Install them
+once before running any of the `docs:` scripts:
+
 ```sh
+npm run docs:install   # Install website dependencies (website/)
 npm run docs:start     # Start Docusaurus dev server
 npm run docs:build     # Build static documentation site
 npm run docs:serve     # Serve built documentation locally

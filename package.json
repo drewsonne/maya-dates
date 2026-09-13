@@ -1,6 +1,6 @@
 {
   "name": "@drewsonne/maya-dates",
-  "version": "1.3.11",
+  "version": "1.3.13",
   "description": "Typescript package to manipulate dates in the Maya Calendar",
   "type": "commonjs",
   "main": "./lib/index.js",
@@ -33,7 +33,7 @@
     "node": ">=20.0.0 <25.0.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "~7.28",
+    "@babel/preset-env": "~7.29",
     "@types/chai": "~4.3",
     "@types/mocha": "~9.1",
     "@types/node": "~20.19.27",
@@ -58,7 +58,8 @@
     "build:clean": " ./scripts/clean-build.sh",
     "docs:start": "cd website && npm start",
     "docs:build": "cd website && npm run build",
-    "postinstall": "cd website && npm install"
+    "docs:install": "cd website && npm ci",
+    "docs:serve": "cd website && npm run serve"
   },
   "files": [
     "lib"
