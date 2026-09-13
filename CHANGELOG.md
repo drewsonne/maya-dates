@@ -3,9 +3,17 @@
 ## [1.3.14](https://github.com/drewsonne/maya-dates/compare/v1.3.13...v1.3.14) (2026-09-13)
 
 
-### Chores
+### Licensing
 
-* release 1.3.14 ([#199](https://github.com/drewsonne/maya-dates/issues/199)) ([b8822e7](https://github.com/drewsonne/maya-dates/commit/b8822e745501547ee21ab11aa657751dbfc98184))
+* add missing `LICENSE` file. The package declared GPL-3.0 but shipped no licence text ([#198](https://github.com/drewsonne/maya-dates/pull/198))
+* correct the SPDX identifier from the deprecated `GPL-3.0` to `GPL-3.0-only`, its exact non-deprecated equivalent. This preserves the existing grant and does not widen it ([#198](https://github.com/drewsonne/maya-dates/pull/198))
+
+### Documentation
+
+* remove three merge conflict markers that had been rendering verbatim on the npm package page ([#198](https://github.com/drewsonne/maya-dates/pull/198))
+* replace the dead ESDoc coverage badge, broken since the `docs/` tree was removed in August 2020, with working CI, npm, docs and license badges ([#198](https://github.com/drewsonne/maya-dates/pull/198))
+
+No functional changes to the library; this release exists to get the above to consumers ([#199](https://github.com/drewsonne/maya-dates/issues/199)) ([b8822e7](https://github.com/drewsonne/maya-dates/commit/b8822e745501547ee21ab11aa657751dbfc98184)).
 
 ## [1.3.13](https://github.com/drewsonne/maya-dates/compare/v1.3.12...v1.3.13) (2026-09-13)
 
