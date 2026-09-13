@@ -112,7 +112,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Drew J. Sonne. Licensed under GPL-3.0.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Drew J. Sonne. Licensed under GPL-3.0-only.`,
     },
     prism: {
       theme: prismThemes.github,

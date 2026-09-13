@@ -27,7 +27,7 @@
     "maya-calendar"
   ],
   "author": "Drew J. Sonne <drew.sonne@gmail.com>",
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-only",
   "private": false,
   "engines": {
     "node": ">=20.0.0 <25.0.0"

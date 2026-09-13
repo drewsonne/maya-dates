@@ -1,6 +1,9 @@
 # @drewsonne/maya-dates
 
-![Documentation Coverage](https://drewsonne.github.io/maya-dates/badge.svg)
+[![Node CI](https://img.shields.io/github/actions/workflow/status/drewsonne/maya-dates/nodejs.yml?branch=main&label=Node%20CI)](https://github.com/drewsonne/maya-dates/actions/workflows/nodejs.yml)
+[![npm version](https://img.shields.io/npm/v/@drewsonne/maya-dates)](https://www.npmjs.com/package/@drewsonne/maya-dates)
+[![docs](https://img.shields.io/badge/docs-drewsonne.github.io-blue)](https://drewsonne.github.io/maya-dates/)
+[![license](https://img.shields.io/npm/l/@drewsonne/maya-dates)](https://github.com/drewsonne/maya-dates/blob/main/LICENSE)
 
 A typescript library for interacting with and modifying both the Maya Long Count (LC)
 and Calendar Round (CR) dates.
@@ -105,33 +108,6 @@ using `shift(number)`, or filling in missing values in wildcards. The
 `operations` module provides operators to expand a fullDate with a wildcard into all possible
 values for dates matching that wildcard pattern.
 
-<<<<<<< HEAD
-## Migration Guide
-
-### Modern Import Syntax
-
-**This version introduces the `exports` field for better encapsulation and tree-shaking support.**
-
-#### Recommended: Named imports from package root
-```typescript
-import { LongCountFactory, CalendarRoundFactory, FullDateFactory } from "@drewsonne/maya-dates";
-```
-
-#### Backwards Compatible (deprecated): Deep imports
-```typescript
-// ⚠️ DEPRECATED: Still works for backwards compatibility
-import LongCountFactory from "@drewsonne/maya-dates/lib/factory/long-count";
-import CalendarRoundFactory from "@drewsonne/maya-dates/lib/factory/calendar-round";
-```
-
-**Note:** Deep imports via `/lib/*` are supported for backwards compatibility but may be removed in a future major version. Please migrate to named imports from the package root.
-
-### Benefits of Modern Imports
-- ✅ Better tree-shaking (smaller bundle sizes)
-- ✅ Cleaner, more maintainable code
-- ✅ Future-proof for ESM support
-- ✅ Consistent with modern npm package standards
-=======
 ## Common Patterns
 
 ### Parsing Maya Dates
@@ -305,6 +281,30 @@ For more details, see [I18n Documentation](docs/I18N.md) and the [i18n example](
 
 ## Migration Guide
 
+### Modern Import Syntax
+
+**This version introduces the `exports` field for better encapsulation and tree-shaking support.**
+
+#### Recommended: Named imports from package root
+```typescript
+import { LongCountFactory, CalendarRoundFactory, FullDateFactory } from "@drewsonne/maya-dates";
+```
+
+#### Backwards Compatible (deprecated): Deep imports
+```typescript
+// ⚠️ DEPRECATED: Still works for backwards compatibility
+import LongCountFactory from "@drewsonne/maya-dates/lib/factory/long-count";
+import CalendarRoundFactory from "@drewsonne/maya-dates/lib/factory/calendar-round";
+```
+
+**Note:** Deep imports via `/lib/*` are supported for backwards compatibility but may be removed in a future major version. Please migrate to named imports from the package root.
+
+### Benefits of Modern Imports
+- ✅ Better tree-shaking (smaller bundle sizes)
+- ✅ Cleaner, more maintainable code
+- ✅ Future-proof for ESM support
+- ✅ Consistent with modern npm package standards
+
 ### Upgrading from v1.x
 
 If you're upgrading from version 1.x, you'll need to update your import statements.
@@ -337,7 +337,6 @@ import {
 2. Change default imports to named imports for factory classes
 3. Group related imports together in a single import statement
 4. Test your code to ensure all imports resolve correctly
->>>>>>> 7cb1fe3 (Add modern import examples, Common Patterns section, and runnable examples)
 
 ## Development
 
