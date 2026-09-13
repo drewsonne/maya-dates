@@ -374,6 +374,20 @@ version.
 what commits are diffed against; it is not necessarily the version currently in
 `package.json`.
 
+Publishing to npm authenticates with
+[trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC) rather
+than a long-lived token, so there is no `NPM_TOKEN` to rotate. The trusted
+publisher is configured on npmjs.com against this repository and the workflow
+filename `release.yml`; if publishing ever moves to a different workflow file,
+that setting has to move with it. The publish step deliberately sets no
+`NODE_AUTH_TOKEN` - `setup-node` writes `_authToken=${NODE_AUTH_TOKEN}` into
+`.npmrc`, and an empty value there makes npm skip the OIDC exchange and fail
+with `ENEEDAUTH`.
+
+If a tag and GitHub Release exist but the npm publish failed, re-publish it by
+running the Release workflow manually with `publish_tag` set to that tag (for
+example `v1.3.12`) rather than cutting a new version.
+
 ### Documentation
 
 The documentation site under `website/` has its own dependencies. Install them
