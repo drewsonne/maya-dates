@@ -1,6 +1,7 @@
 # @drewsonne/maya-dates
 
-![Documentation Coverage](https://drewsonne.github.io/maya-dates/badge.svg)
+[![npm version](https://img.shields.io/npm/v/@drewsonne/maya-dates)](https://www.npmjs.com/package/@drewsonne/maya-dates)
+![license](https://img.shields.io/npm/l/@drewsonne/maya-dates)
 
 A typescript library for interacting with and modifying both the Maya Long Count (LC)
 and Calendar Round (CR) dates.
