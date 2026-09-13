@@ -355,6 +355,25 @@ npm test               # Run all tests
 npm run test:coverage  # Run tests with coverage report
 ```
 
+### Releasing
+
+Releases are automated with
+[release-please](https://github.com/googleapis/release-please). Commits on `main`
+that follow [Conventional Commits](https://www.conventionalcommits.org/)
+(`fix:`, `feat:`, `feat!:`/`BREAKING CHANGE:`) accumulate into an open
+`chore(main): release x.y.z` pull request that carries the version bump and the
+CHANGELOG entry.
+
+Merging that pull request is the release: it creates the tag and the GitHub
+Release, then publishes to npm and GitHub Packages. Commits without a
+conventional prefix, and `chore:`/`docs:`/`test:` commits, do not on their own
+trigger a release, so dependency updates accumulate rather than each shipping a
+version.
+
+`.release-please-manifest.json` records the last **published** version, which is
+what commits are diffed against; it is not necessarily the version currently in
+`package.json`.
+
 ### Documentation
 
 The documentation site under `website/` has its own dependencies. Install them
