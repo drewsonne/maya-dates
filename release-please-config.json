@@ -3,13 +3,8 @@
   "packages": {
     ".": {
       "release-type": "node",
-      "package-name": "@drewsonne/maya-dates",
       "changelog-path": "CHANGELOG.md",
       "include-component-in-tag": false,
-      "bump-minor-pre-major": false,
-      "bump-patch-for-minor-pre-major": false,
-      "draft": false,
-      "prerelease": false,
       "changelog-sections": [
         { "type": "feat", "section": "Features" },
         { "type": "fix", "section": "Bug Fixes" },
@@ -20,6 +15,5 @@
         { "type": "test", "section": "Tests", "hidden": true }
       ]
     }
-  },
-  "$comment": "Manifest tracks the last PUBLISHED version, which is what release-please diffs commits against - not necessarily the version currently in package.json."
+  }
 }
