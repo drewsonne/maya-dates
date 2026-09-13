@@ -39,7 +39,7 @@
     "@types/node": "~20.19.27",
     "chai": "~4.5",
     "mocha": "~11.7",
-    "nyc": "~15.1",
+    "nyc": "~18.0",
     "regenerator-runtime": "~0.14",
     "ts-node": "~10.9",
     "typescript": "^5.9.0"
