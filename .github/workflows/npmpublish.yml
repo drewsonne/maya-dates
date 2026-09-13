@@ -1,5 +1,11 @@
 name: Node.js Package
 
+# Fallback path for releases created BY HAND in the GitHub UI. The normal route
+# is release.yml, which runs release-please on merges to main and publishes from
+# within that same workflow (a release created by a workflow using the default
+# GITHUB_TOKEN does not trigger `on: release`, so this workflow will not
+# double-publish those).
+
 on:
   release:
     types: [created]

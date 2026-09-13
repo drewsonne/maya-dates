@@ -1,0 +1,84 @@
+name: Release
+
+# Release-please keeps an open "chore(main): release x.y.z" PR that accumulates
+# the version bump and CHANGELOG from conventional commits on main. Merging that
+# PR creates the tag and the GitHub Release, and the publish jobs below run.
+#
+# The publish jobs live in THIS workflow rather than relying on npmpublish.yml's
+# `on: release` trigger: a release created by a workflow using the default
+# GITHUB_TOKEN does not trigger other workflows, so that trigger would never
+# fire. npmpublish.yml is retained for releases created by hand in the UI.
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+      version: ${{ steps.release.outputs.version }}
+    steps:
+      - name: Run release-please
+        id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+  publish-npm:
+    needs: release-please
+    if: needs.release-please.outputs.release_created == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # Required for provenance
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ needs.release-please.outputs.tag_name }}
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm test
+      - run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-gpr:
+    needs: release-please
+    if: needs.release-please.outputs.release_created == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ needs.release-please.outputs.tag_name }}
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          registry-url: https://npm.pkg.github.com/
+          scope: '@drewsonne'
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
