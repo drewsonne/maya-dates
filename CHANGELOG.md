@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.13](https://github.com/drewsonne/maya-dates/compare/v1.3.12...v1.3.13) (2026-09-13)
+
+
+### Bug Fixes
+
+* make npm publish work with trusted publishing ([1558bfa](https://github.com/drewsonne/maya-dates/commit/1558bfae17d7f6c3722f3f18e3ccc494c127c5a2))
+* remove the last NPM_TOKEN reference by deleting npmpublish.yml ([92e170f](https://github.com/drewsonne/maya-dates/commit/92e170f83e96cc77302bf25f6a76c8c0b15b9770))
+
 ## [1.3.12](https://github.com/drewsonne/maya-dates/compare/v1.3.11...v1.3.12) (2026-09-13)
 
 
