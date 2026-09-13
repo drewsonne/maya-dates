@@ -13,6 +13,11 @@ on:
   push:
     branches:
       - main
+  # Lets a release run be re-triggered without landing an unrelated commit.
+  # The push trigger is the normal path, but a run that fails transiently
+  # (a GitHub incident, a startup_failure that cannot be retried) would
+  # otherwise be stranded until the next merge happens to come along.
+  workflow_dispatch:
 
 permissions:
   contents: read
