@@ -1,27 +1,96 @@
 version: 2
+
 updates:
-  # Monitor npm dependencies
+  # ---------------------------------------------------------------------------
+  # The published library. Versions here reach npm consumers.
+  # ---------------------------------------------------------------------------
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
     open-pull-requests-limit: 5
+    commit-message:
+      # `moonbeams` is a runtime dependency, so bumping it changes what
+      # consumers install and warrants a published patch. release-please bumps
+      # on `fix:` but not on `chore:`, so production updates are prefixed `fix`
+      # deliberately; dev updates stay `chore` and correctly release nothing.
+      prefix: "fix"
+      prefix-development: "chore"
+      include: "scope"
     groups:
+      # One PR per risk class rather than one per dependency.
+      production-dependencies:
+        applies-to: version-updates
+        dependency-type: "production"
       dev-dependencies:
-        patterns:
-          - "@types/*"
-          - "@babel/*"
-          - "typescript"
+        applies-to: version-updates
+        dependency-type: "development"
         update-types:
           - "minor"
           - "patch"
-    ignore:
-      # Ignore major version updates to reduce breaking changes
-      - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
+      # Majors are deliberately NOT ignored. A blanket
+      # `version-update:semver-major` ignore does not prevent major bumps —
+      # security updates bypass `ignore` entirely — it only defers them until
+      # a CVE forces the jump. nyc arrived as 15 -> 18 and mocha as 11 -> 12
+      # that way. Isolating majors in their own PR keeps them reviewable
+      # without mixing them into the safe bumps.
+      dev-dependencies-major:
+        applies-to: version-updates
+        dependency-type: "development"
+        update-types:
+          - "major"
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
 
-  # Monitor GitHub Actions
+  # ---------------------------------------------------------------------------
+  # The Docusaurus docs site. Not published; nothing here reaches consumers.
+  # Previously unconfigured, so it received no version updates at all and only
+  # security updates Dependabot could not actually resolve.
+  # ---------------------------------------------------------------------------
+  - package-ecosystem: "npm"
+    directory: "/website"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    groups:
+      docusaurus:
+        applies-to: version-updates
+        patterns:
+          - "@docusaurus/*"
+          - "docusaurus-*"
+      website-dependencies:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "@docusaurus/*"
+          - "docusaurus-*"
+      website-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
+
+  # ---------------------------------------------------------------------------
+  # Actions used by the four workflows in .github/workflows.
+  # ---------------------------------------------------------------------------
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    groups:
+      github-actions:
+        applies-to: version-updates
+        patterns:
+          - "*"
