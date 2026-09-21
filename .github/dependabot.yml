@@ -7,8 +7,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "monday"
+      interval: "monthly"
     open-pull-requests-limit: 5
     commit-message:
       # `moonbeams` is a runtime dependency, so bumping it changes what
@@ -53,8 +52,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/website"
     schedule:
-      interval: "weekly"
-      day: "monday"
+      interval: "monthly"
     open-pull-requests-limit: 3
     commit-message:
       prefix: "chore"
@@ -83,8 +81,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "monday"
+      interval: "monthly"
     open-pull-requests-limit: 3
     commit-message:
       prefix: "chore"
