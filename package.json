@@ -33,16 +33,16 @@
     "node": ">=20.0.0 <25.0.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "~8.0",
+    "@babel/preset-env": "~7.29",
     "@types/chai": "~4.3",
-    "@types/mocha": "~10.0",
-    "@types/node": "~26.6.2",
-    "chai": "~6.2",
+    "@types/mocha": "~9.1",
+    "@types/node": "~20.19.27",
+    "chai": "~4.5",
     "mocha": "~12.0",
     "nyc": "~18.0",
     "regenerator-runtime": "~0.14",
     "ts-node": "~10.9",
-    "typescript": "^7.0.2"
+    "typescript": "^5.9.0"
   },
   "dependencies": {
     "moonbeams": "~2.0"
