@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.15](https://github.com/drewsonne/maya-dates/compare/v1.3.14...v1.3.15) (2026-09-25)
+
+
+### Bug Fixes
+
+* restore main to a passing state after three broken dep merges ([#211](https://github.com/drewsonne/maya-dates/issues/211)) ([c49fdd0](https://github.com/drewsonne/maya-dates/commit/c49fdd0c2236ac98f20130eeb6eb4254422b33d2))
+
 ## [1.3.14](https://github.com/drewsonne/maya-dates/compare/v1.3.13...v1.3.14) (2026-09-13)
 
 
